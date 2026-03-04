@@ -1,2 +1,3 @@
-# KI-tjenester_helseraad_arkitektur
-Repository for utprøving av Claude Code i samband med arkitektur arbeidet knyttet til KI-tjenester for målrette helseråd.
+# AI som verktøy for virksomhetsarkitektur
+
+Repository for å teste hvordan Helsedirektoratet kan benytte AI som verktøy i sitt arbeid med virksomhetsarkitektur for helsesektoren.
