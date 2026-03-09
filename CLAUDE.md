@@ -1,6 +1,6 @@
 **Denne filen gir veiledning til Claude Code (claude.ai/code) og skal alltid leses av Claude når sesjoner begynner.**
 
-# Prosjekt for analyse av EHDS i kontekst av dokumentdeling i helse- og omsorgssektoren i Norge
+# Prosjekt for analyse av EHDS i kontekst av helse- og omsorgssektoren i Norge
 
 ## Mål med prosjektet
 
@@ -199,4 +199,5 @@ En vellykket analyse vil:
 2. Identifisere spesifikke avvik med støttende bevis
 3. Tilby handlingsorienterte anbefalinger
 4. Presentere funn i formater som er nyttige for både teknisk gjennomgang og ledelsesbeslutninger
+
 5. Anerkjenne begrensninger og usikkerheter på en passende måte
