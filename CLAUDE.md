@@ -164,14 +164,7 @@ Generer selvstendige HTML-filer i `visualiseringer/` som best kommuniserer funne
 * **Handlingsorienterte**: Gi spesifikke neste steg, ikke bare problemer
 * **Balanserte**: Noter både samsvar og avvik
 * **Refererte**: Koble påstander til bevis
-* Når du leverer en analyse, bruk alltid denne strukturen:
-* 1. Problemstilling
-  2. Foreløpig konklusjon
-  3. Vurderingsgrunnlag
-  4. Funn per krav
-  5. Avgrensninger
-  6. Anbefalte neste steg
-  7. Kilder
+
 
 ### Visualiseringer skal være:
 
@@ -215,6 +208,7 @@ En vellykket analyse vil:
 4. Presentere funn i formater som er nyttige for både teknisk gjennomgang og ledelsesbeslutninger
 
 5. Anerkjenne begrensninger og usikkerheter på en passende måte
+
 
 
 
