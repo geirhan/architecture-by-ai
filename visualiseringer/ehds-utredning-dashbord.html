@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHDS-utredning: Dashbord for ledelsen</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.5; }
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 24px 32px; }
+        .header h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+        .header p { font-size: 13px; opacity: 0.8; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+        /* Noekkeltall */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .kpi-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; }
+        .kpi-card .kpi-value { font-size: 28px; font-weight: 700; color: #1a1a2e; }
+        .kpi-card .kpi-label { font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        .kpi-card .kpi-detail { font-size: 11px; color: #666; margin-top: 2px; }
+        .kpi-card.highlight { border-left: 4px solid #e94560; }
+        .kpi-card.info { border-left: 4px solid #0f3460; }
+        .kpi-card.success { border-left: 4px solid #27ae60; }
+        .kpi-card.warning { border-left: 4px solid #f39c12; }
+
+        /* Seksjon */
+        .section { background: white; border-radius: 10px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .section h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #1a1a2e; border-bottom: 2px solid #f0f2f5; padding-bottom: 8px; }
+
+        /* Strategi */
+        .strategy-box { background: #f8f9ff; border: 1px solid #d0d5f0; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+        .strategy-box h3 { font-size: 14px; font-weight: 600; color: #0f3460; margin-bottom: 8px; }
+        .strategy-box p { font-size: 13px; color: #444; }
+        .phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-top: 12px; }
+        .phase { background: white; border-radius: 6px; padding: 14px; border-left: 3px solid; }
+        .phase.p1 { border-color: #3498db; }
+        .phase.p2 { border-color: #f39c12; }
+        .phase.p3 { border-color: #27ae60; }
+        .phase h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .phase p { font-size: 12px; color: #555; }
+
+        /* Samsvar */
+        .compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+        .compliance-item { text-align: center; padding: 16px 12px; border-radius: 8px; }
+        .compliance-item .score { font-size: 32px; font-weight: 700; }
+        .compliance-item .label { font-size: 12px; margin-top: 4px; font-weight: 500; color: #333; }
+        .compliance-item .detail { font-size: 11px; color: #555; margin-top: 2px; }
+        .c-red { background: #fde8e8; }
+        .c-red .score { color: #c0392b; }
+        .c-orange { background: #fef3e2; }
+        .c-orange .score { color: #e67e22; }
+        .c-yellow { background: #fef9e7; }
+        .c-yellow .score { color: #f39c12; }
+        .c-green { background: #e8f8f0; }
+        .c-green .score { color: #27ae60; }
+
+        /* Tidslinje */
+        .timeline { position: relative; padding-left: 24px; }
+        .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #ddd; }
+        .timeline-item { position: relative; margin-bottom: 14px; padding-left: 20px; }
+        .timeline-item::before { content: ''; position: absolute; left: -20px; top: 4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid; background: white; }
+        .timeline-item.eu::before { border-color: #e94560; background: #fde8e8; }
+        .timeline-item.no::before { border-color: #0f3460; background: #e8eef8; }
+        .timeline-item .ti-year { font-size: 12px; font-weight: 700; color: #0f3460; }
+        .timeline-item .ti-text { font-size: 12px; color: #444; }
+        .timeline-item .ti-tag { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 3px; margin-left: 4px; }
+        .ti-tag.eu-tag { background: #fde8e8; color: #c0392b; }
+        .ti-tag.no-tag { background: #e8eef8; color: #0f3460; }
+
+        /* Risikoer */
+        .risk-list { list-style: none; }
+        .risk-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f2f5; }
+        .risk-item:last-child { border-bottom: none; }
+        .risk-badge { width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: white; margin-right: 12px; flex-shrink: 0; }
+        .risk-badge.r-high { background: #e67e22; }
+        .risk-badge.r-medium { background: #f1c40f; color: #333; }
+        .risk-text { flex: 1; }
+        .risk-text .rt-title { font-size: 13px; font-weight: 500; }
+        .risk-text .rt-detail { font-size: 11px; color: #555; }
+        .risk-level { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+        .rl-high { background: #fde8e8; color: #c0392b; }
+        .rl-medium { background: #fef9e7; color: #b8860b; }
+
+        /* Charts */
+        .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .chart-box { min-height: 280px; }
+
+        .source-note { font-size: 11px; color: #555; margin-top: 16px; text-align: center; font-style: italic; }
+
+        @media (max-width: 768px) {
+            .chart-row { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .phases { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>EHDS-utredning: Dashbord for ledelsen</h1>
+        <p>Utarbeidet for Helsedirektoratet, mars 2026 | Basert på rapporter/ehds-utredning-samlet.md</p>
+    </div>
+    <div class="container">
+        <!-- Noekkeltall -->
+        <div class="kpi-grid">
+            <div class="kpi-card highlight">
+                <div class="kpi-value">5-9 mrd.</div>
+                <div class="kpi-label">Estimert kostnad (NOK)</div>
+                <div class="kpi-detail">Hybridstrategi 2026-2035</div>
+            </div>
+            <div class="kpi-card info">
+                <div class="kpi-value">21</div>
+                <div class="kpi-label">Identifiserte gap</div>
+                <div class="kpi-detail">5 rettslige, 6 tekniske, 5 org., 5 semantiske</div>
+            </div>
+            <div class="kpi-card warning">
+                <div class="kpi-value">15</div>
+                <div class="kpi-label">Identifiserte risikoer</div>
+                <div class="kpi-detail">4 hoye, 9 middels, 2 lave</div>
+            </div>
+            <div class="kpi-card success">
+                <div class="kpi-value">Mars 2029</div>
+                <div class="kpi-label">Forste EU-frist</div>
+                <div class="kpi-detail">Pasientoppsummeringer + e-resept</div>
+            </div>
+            <div class="kpi-card info">
+                <div class="kpi-value">Mars 2031</div>
+                <div class="kpi-label">Andre EU-frist</div>
+                <div class="kpi-detail">Bilder, lab, epikriser</div>
+            </div>
+            <div class="kpi-card highlight">
+                <div class="kpi-value">200+</div>
+                <div class="kpi-label">FHIR-spesialister trengs</div>
+                <div class="kpi-detail">I dag: under 50</div>
+            </div>
+        </div>
+
+        <!-- Anbefalt strategi -->
+        <div class="section">
+            <h2>Anbefalt strategi: Hybridtilnaerming i tre faser</h2>
+            <div class="strategy-box">
+                <h3>Kjerneideen</h3>
+                <p>Start med en gateway-losning for a mote forste frist (alternativ 1), men sett FHIR som nasjonal standard som bindende strategisk mal (alternativ 2). Forfolg nordisk samarbeid parallelt (alternativ 3). Det kritiske designprinsippet: gateway-laget skal vaere midlertidig infrastruktur med bindende utfasingsplan.</p>
+            </div>
+            <div class="phases">
+                <div class="phase p1">
+                    <h4>Fase 1: 2026-2029</h4>
+                    <p>Taktisk etterlevelse. Gateway for gruppe 1. Publiser FHIR-overgangsplan. Krev FHIR i nye integrasjoner. Utpek digital helsemyndighet.</p>
+                </div>
+                <div class="phase p2">
+                    <h4>Fase 2: 2029-2031</h4>
+                    <p>Gradvis FHIR-overgang. Gruppe 2 med FHIR der mulig. Start utfasing av gateway. Krav om FHIR i anskaffelser.</p>
+                </div>
+                <div class="phase p3">
+                    <h4>Fase 3: 2031-2035</h4>
+                    <p>Konsolidering. Utfase nasjonale meldingsstandarder. Alle EPJ-leverandorer leverer FHIR-API. Gateway fases ut.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Samsvarsstatus og Chart -->
+        <div class="chart-row">
+            <div class="section">
+                <h2>Samsvarsstatus per omrade</h2>
+                <div class="compliance-grid">
+                    <div class="compliance-item c-red">
+                        <div class="score">20%</div>
+                        <div class="label">Rettslig</div>
+                        <div class="detail">5 gap identifisert</div>
+                    </div>
+                    <div class="compliance-item c-red">
+                        <div class="score">15%</div>
+                        <div class="label">Teknisk</div>
+                        <div class="detail">6 gap identifisert</div>
+                    </div>
+                    <div class="compliance-item c-orange">
+                        <div class="score">25%</div>
+                        <div class="label">Organisatorisk</div>
+                        <div class="detail">5 gap identifisert</div>
+                    </div>
+                    <div class="compliance-item c-orange">
+                        <div class="score">30%</div>
+                        <div class="label">Semantisk</div>
+                        <div class="detail">5 gap identifisert</div>
+                    </div>
+                </div>
+                <div style="margin-top:16px;">
+                    <canvas id="complianceChart" height="200"></canvas>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Arkitekturkvalitet per alternativ</h2>
+                <div class="chart-box">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tidslinje og risikoer -->
+        <div class="chart-row">
+            <div class="section">
+                <h2>Tidslinje: Viktige milepaler</h2>
+                <div class="timeline">
+                    <div class="timeline-item no">
+                        <span class="ti-year">2026 Q2</span>
+                        <span class="ti-text">EHDS-program etablert</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                    <div class="timeline-item no">
+                        <span class="ti-year">2026 Q3</span>
+                        <span class="ti-text">Digital helsemyndighet utpekt</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                    <div class="timeline-item no">
+                        <span class="ti-year">2026 Q4</span>
+                        <span class="ti-text">FHIR-overgangsplan publisert</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                    <div class="timeline-item eu">
+                        <span class="ti-year">Mars 2027</span>
+                        <span class="ti-text">EHDS far anvendelse i EU</span>
+                        <span class="ti-tag eu-tag">EU-frist</span>
+                    </div>
+                    <div class="timeline-item no">
+                        <span class="ti-year">2027 Q1</span>
+                        <span class="ti-text">Lovproposisjon til Stortinget</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                    <div class="timeline-item no">
+                        <span class="ti-year">2028 Q2</span>
+                        <span class="ti-text">HDAB operativ</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                    <div class="timeline-item eu">
+                        <span class="ti-year">Mars 2029</span>
+                        <span class="ti-text">Gruppe 1: Pasientoppsumm. + e-resept</span>
+                        <span class="ti-tag eu-tag">EU-frist</span>
+                    </div>
+                    <div class="timeline-item no">
+                        <span class="ti-year">2030 Q1</span>
+                        <span class="ti-text">Sikre analyserom + HealthData@EU</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                    <div class="timeline-item eu">
+                        <span class="ti-year">Mars 2031</span>
+                        <span class="ti-text">Gruppe 2: Bilder, lab, epikriser</span>
+                        <span class="ti-tag eu-tag">EU-frist</span>
+                    </div>
+                    <div class="timeline-item no">
+                        <span class="ti-year">2033-2035</span>
+                        <span class="ti-text">Gateway utfaset, FHIR konsolidert</span>
+                        <span class="ti-tag no-tag">Norge</span>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Top 5 risikoer</h2>
+                <ul class="risk-list">
+                    <li class="risk-item">
+                        <div class="risk-badge r-high">12</div>
+                        <div class="risk-text">
+                            <div class="rt-title">Gateway sementeres som permanent infrastruktur</div>
+                            <div class="rt-detail">Tiltak: Bindende politisk vedtak om FHIR-overgang</div>
+                        </div>
+                        <span class="risk-level rl-high">Hoy</span>
+                    </li>
+                    <li class="risk-item">
+                        <div class="risk-badge r-high">12</div>
+                        <div class="risk-text">
+                            <div class="rt-title">Kostnadsoverskridelser</div>
+                            <div class="rt-detail">Tiltak: Trinnvis implementering med stoppunkter</div>
+                        </div>
+                        <span class="risk-level rl-high">Hoy</span>
+                    </li>
+                    <li class="risk-item">
+                        <div class="risk-badge r-high">9</div>
+                        <div class="risk-text">
+                            <div class="rt-title">Forsinket EOS-innlemmelse</div>
+                            <div class="rt-detail">Tiltak: Forhandle tilpasningstekst, start tidlig</div>
+                        </div>
+                        <span class="risk-level rl-high">Hoy</span>
+                    </li>
+                    <li class="risk-item">
+                        <div class="risk-badge r-high">9</div>
+                        <div class="risk-text">
+                            <div class="rt-title">Utilstrekkelig leverandorkapasitet</div>
+                            <div class="rt-detail">Tiltak: Tidlig dialog, nordisk koordinering</div>
+                        </div>
+                        <span class="risk-level rl-high">Hoy</span>
+                    </li>
+                    <li class="risk-item">
+                        <div class="risk-badge r-medium">8</div>
+                        <div class="risk-text">
+                            <div class="rt-title">Konverteringsfeil i gateway</div>
+                            <div class="rt-detail">Tiltak: Grundig testing, klinisk kvalitetssikring</div>
+                        </div>
+                        <span class="risk-level rl-medium">Middels</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Kostnadsoversikt -->
+        <div class="section">
+            <h2>Kostnadsprofil for hybridstrategien (estimert)</h2>
+            <canvas id="costChart" height="100"></canvas>
+        </div>
+
+        <p class="source-note">Basert pa rapporter/ehds-utredning-samlet.md og underliggende delrapporter. Alle tall er estimater med svart hoy usikkerhet. Mars 2026.</p>
+    </div>
+
+    <script>
+        // Samsvar stolpediagram
+        new Chart(document.getElementById('complianceChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Rettslig', 'Teknisk', 'Organisatorisk', 'Semantisk'],
+                datasets: [{
+                    label: 'Samsvar (%)',
+                    data: [20, 15, 25, 30],
+                    backgroundColor: ['#e74c3c', '#e74c3c', '#e67e22', '#e67e22'],
+                    borderRadius: 4
+                }, {
+                    label: 'Gap (%)',
+                    data: [80, 85, 75, 70],
+                    backgroundColor: ['#f5d0d0', '#f5d0d0', '#fde8d0', '#fde8d0'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true, position: 'bottom', labels: { font: { size: 11 } } } },
+                scales: {
+                    x: { stacked: true, grid: { display: false } },
+                    y: { stacked: true, max: 100, ticks: { callback: v => v + '%' } }
+                }
+            }
+        });
+
+        // Radar
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Interoperabilitet', 'Teknisk gjeld\n(lav=darlig)', 'Leverandor-\nuavhengighet', 'Skalerbarhet', 'Sikkerhet\nby design'],
+                datasets: [
+                    {
+                        label: 'Alt. 1 (Stegvis)',
+                        data: [2, 1, 2, 2, 3],
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231,76,60,0.1)',
+                        pointBackgroundColor: '#e74c3c'
+                    },
+                    {
+                        label: 'Alt. 2 (Helhetlig)',
+                        data: [5, 4, 4, 4, 4],
+                        borderColor: '#27ae60',
+                        backgroundColor: 'rgba(39,174,96,0.1)',
+                        pointBackgroundColor: '#27ae60'
+                    },
+                    {
+                        label: 'Alt. 3 (Nordisk)',
+                        data: [3, 2, 3, 3, 3],
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52,152,219,0.1)',
+                        pointBackgroundColor: '#3498db'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: { r: { min: 0, max: 5, ticks: { stepSize: 1 } } },
+                plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+            }
+        });
+
+        // Kostnad
+        new Chart(document.getElementById('costChart'), {
+            type: 'bar',
+            data: {
+                labels: ['2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035'],
+                datasets: [{
+                    label: 'Lavt estimat (mill. NOK)',
+                    data: [500, 500, 800, 800, 600, 600, 400, 400, 400, 400],
+                    backgroundColor: 'rgba(52,152,219,0.6)',
+                    borderRadius: 3
+                }, {
+                    label: 'Hoyt estimat (mill. NOK)',
+                    data: [300, 300, 400, 400, 400, 400, 400, 400, 400, 400],
+                    backgroundColor: 'rgba(52,152,219,0.25)',
+                    borderRadius: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+                scales: {
+                    x: { stacked: true, grid: { display: false } },
+                    y: { stacked: true, ticks: { callback: v => v + ' mill.' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

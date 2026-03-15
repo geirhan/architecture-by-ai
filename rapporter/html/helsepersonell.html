@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helsepersonellvurdering: EHDS-konsekvenser for klinisk arbeidshverdag</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #ffffff; color: #333; line-height: 1.7; }
+  nav a.active { text-decoration: underline; font-weight: bold; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { color: #1a1a2e; font-size: 2em; margin: 1em 0 0.5em; border-bottom: 2px solid #003366; padding-bottom: 0.3em; }
+  h2 { color: #003366; font-size: 1.5em; margin: 1.5em 0 0.5em; border-bottom: 1px solid #ddd; padding-bottom: 0.2em; }
+  h3 { color: #1a1a2e; font-size: 1.2em; margin: 1.2em 0 0.4em; }
+  h4 { color: #1a1a2e; font-size: 1.05em; margin: 1em 0 0.3em; }
+  p { margin: 0.6em 0; }
+  a { color: #0066cc; }
+  ul, ol { margin: 0.6em 0 0.6em 1.5em; }
+  li { margin: 0.3em 0; }
+  strong { color: #1a1a2e; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+  .table-wrap { overflow-x: auto; margin: 1em 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 500px; }
+  th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; color: #333; }
+  th { background: #003366; color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  tr:hover { background: #eef4fb; }
+  blockquote { border-left: 4px solid #003366; padding: 0.5em 1em; margin: 1em 0; background: #f7f9fc; color: #333; }
+  em { color: #555; }
+  @media print {
+    nav { display: none; }
+    main { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+    table { font-size: 9pt; }
+    h1, h2, h3 { break-after: avoid; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<nav style="background:#003366;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;">
+  <a href="index.html" style="color:#fff;text-decoration:none;font-size:14px;">Forside</a>
+  <a href="ledersammendrag.html" style="color:#fff;text-decoration:none;font-size:14px;">Ledersammendrag</a>
+  <a href="kunnskapsgrunnlag.html" style="color:#fff;text-decoration:none;font-size:14px;">Kunnskapsgrunnlag</a>
+  <a href="problemdefinisjon.html" style="color:#fff;text-decoration:none;font-size:14px;">Problemdefinisjon</a>
+  <a href="tiltaksalternativer.html" style="color:#fff;text-decoration:none;font-size:14px;">Tiltaksalternativer</a>
+  <a href="prinsipielle-spoersmaal.html" style="color:#fff;text-decoration:none;font-size:14px;">Prinsipielle sporsmal</a>
+  <a href="samfunnsoekonomisk.html" style="color:#fff;text-decoration:none;font-size:14px;">Samfunnsokonomi</a>
+  <a href="helsepersonell.html" class="active" style="color:#fff;text-decoration:underline;font-size:14px;font-weight:bold;">Helsepersonell</a>
+  <a href="arkitektur.html" style="color:#fff;text-decoration:none;font-size:14px;">Arkitektur</a>
+  <a href="anbefaling.html" style="color:#fff;text-decoration:none;font-size:14px;">Anbefaling</a>
+  <a href="gjennomfoering.html" style="color:#fff;text-decoration:none;font-size:14px;">Gjennomforing</a>
+  <a href="visualiseringer.html" style="color:#fff;text-decoration:none;font-size:14px;">Visualiseringer</a>
+</nav>
+<main>
+
+<h1>Helsepersonellvurdering: EHDS-konsekvenser for klinisk arbeidshverdag</h1>
+
+<h2>Sammendrag</h2>
+
+<p>Denne rapporten vurderer konsekvensene av EHDS-implementering i Norge sett fra helsepersonells perspektiv. Vurderingen dekker de tre tiltaksalternativene som er beskrevet i <em>tiltaksalternativer-ehds.md</em> og tar utgangspunkt i helsepersonells faktiske arbeidshverdag.</p>
+
+<p><strong>Hovedfunn:</strong></p>
+
+<ul>
+<li>EHDS har potensial til a gi helsepersonell bedre tilgang til pasientinformasjon, saerlig i grensekryssende scenarioer og ved akuttbehandling av utenlandske pasienter. Dette er en reell klinisk gevinst.</li>
+<li>Innforing av strukturerte datakrav (EEHRxF) vil sannsynligvis oke dokumentasjonsbyrden pa kort sikt, i en sektor der helsepersonell allerede bruker uforholdsmessig mye tid pa dokumentasjon. Helsedirektoratets helsepersonellundersokelse fra 2024 viser at kun 52 % av helsepersonell er tilfredse med sine EPJ-systemer, og tilfredsheten falt fra 2023 til 2024.</li>
+<li>Erfaringene fra Helseplattformen i Midt-Norge viser at store systemendringer i helsesektoren medforer betydelig risiko for helsepersonells arbeidshverdag og pasientsikkerhet. Disse erfaringene ma tas pa alvor ved EHDS-implementering.</li>
+<li>Alternativ 1 (stegvis minimum) gir minst endring i arbeidshverdagen, men risikerer at helsepersonell ma forholde seg til dualiteten mellom nasjonale og europeiske formater. Alternativ 2 (akselerert helhetlig) gir storst langsiktig gevinst, men medforer hoy endringsbelastning. Alternativ 3 (nordisk samarbeid) kan gi bedre losninger gjennom erfaringsdeling.</li>
+<li>Det er avgjorende at helsepersonell involveres aktivt i utforming og implementering av EHDS-losninger, og at klinisk nytte &ndash; ikke bare juridisk etterlevelse &ndash; er styrende for designvalg.</li>
+</ul>
+
+<hr>
+
+<h2>1. Pavirkning pa klinisk arbeidshverdag</h2>
+
+<h3>1.1 Dokumentasjonsbyrde</h3>
+
+<p><strong>Dagens situasjon er allerede krevende.</strong> Internasjonal forskning viser at leger bruker opptil 49 % av arbeidsdagen pa EPJ og skrivebordsarbeid, mot 27 % pa direkte pasientkontakt (PMC/scoping review, 2024). I Norge bruker sykepleiere i snitt 120 minutter &ndash; to timer &ndash; per arbeidsdag pa EPJ, ifolge en undersokelse blant 1805 medlemmer av Norsk Sykepleierforbund publisert i Sykepleien i 2024. Helsedirektoratets helsepersonellundersokelse 2024 viser fallende tilfredshet med EPJ-systemer blant helsepersonell.</p>
+
+<p><strong>EHDS vil kreve mer strukturert dokumentasjon.</strong> Det europeiske utvekslingsformatet (EEHRxF) forutsetter at helseopplysninger registreres i strukturerte, kodede formater. I dag bruker norsk helsepersonell en blanding av fritekst og strukturerte felt. Overgangen til mer strukturert dokumentasjon kan oppleves som en begrensning av klinisk presisjon &ndash; et poeng Legeforeningens IT-utvalg har fremhevet, der Petter Hurlen har stilt sporsmal ved om standardisert sprak kan erstatte legers fagsprak og kliniske presisjon.</p>
+
+<p><strong>Risiko for dobbeltdokumentasjon.</strong> Ved alternativ 1, der nasjonale standarder beholdes parallelt med EEHRxF for grensekryssende bruk, risikerer man at helsepersonell ma dokumentere i to formater &ndash; eller at automatisk konvertering i gateway-laget introduserer feil som krever manuell korrigering. Erfaringene med Kjernejournal har allerede vist at dokumentasjon av kritisk informasjon i separate systemer medforer dobbeltdokumentasjon som er uforenlig med onsket om en enklere hverdag for helsepersonell.</p>
+
+<p><strong>Muligheter for reduksjon av dokumentasjonsbyrde.</strong> EHDS kan pa lengre sikt redusere byrden ved at informasjon registreres en gang og gjenbrukes pa tvers av systemer og landegrenser. EUs eget konsekvensnotat peker pa at interoperabilitet eliminerer repetitiv dataregistrering. Men dette forutsetter at implementeringen gjores riktig &ndash; med fokus pa klinisk arbeidsflyt, ikke bare teknisk etterlevelse.</p>
+
+<p><strong>Vurdering:</strong> Pa kort og mellomlang sikt (2027-2031) vil EHDS sannsynligvis oke dokumentasjonsbyrden for helsepersonell. Pa lang sikt kan byrden reduseres dersom &laquo;registrer en gang, bruk mange ganger&raquo;-prinsippet realiseres fullt ut. Risikoen for okt byrde er hoyest ved alternativ 2, der hele det nasjonale standardregimet legges om.</p>
+
+<h3>1.2 Informasjonstilgang</h3>
+
+<p><strong>Betydelig gevinst ved grensekryssende behandling.</strong> EHDS vil gi helsepersonell tilgang til pasientoppsummeringer, medisinlister, allergier og annen kritisk informasjon om pasienter fra andre EU/EOS-land. Dette er en reell klinisk forbedring, spesielt for:</p>
+<ul>
+<li>Akuttmottak som tar imot utenlandske pasienter (turister, arbeidsinnvandrere, grensearbeidere)</li>
+<li>Helsetjenester i grenseomrader (saerlig mot Sverige og Finland)</li>
+<li>Oppfolging av pasienter som har mottatt behandling i utlandet</li>
+</ul>
+
+<p><strong>Forbedret nasjonal informasjonstilgang (ved alternativ 2).</strong> Dersom FHIR innfores som nasjonal standard, vil dette ogsa forbedre informasjonstilgangen mellom norske virksomheter &ndash; noe som i dag er en kjent utfordring i det fragmenterte norske informasjonslandskapet.</p>
+
+<p><strong>Risiko for informasjonsoverbelastning.</strong> Mer informasjon er ikke alltid bedre. Helsepersonell risikerer a bli overveldet av store mengder data fra ulike kilder, i ulike formater og pa ulike sprak. God presentasjon og filtrering i EPJ-systemene blir avgjorende. Uten dette kan mer informasjon faktisk svekke pasientsikkerheten ved at viktig informasjon &laquo;drukner&raquo; i storyen.</p>
+
+<p><strong>Vurdering:</strong> Informasjonstilgangen vil forbedres, men gevinsten avhenger sterkt av hvordan informasjonen presenteres i EPJ-systemene helsepersonell bruker. Uten investering i brukergrensesnitt og klinisk tilpasning kan okt datamengde bli en belastning snarere enn en ressurs.</p>
+
+<h3>1.3 Arbeidsflyt</h3>
+
+<p><strong>Nye elementer i klinisk arbeidsflyt.</strong> EHDS vil introdusere flere nye elementer:</p>
+<ul>
+<li>Handtering av pasientenes opt-out/tilgangsreservasjon &ndash; helsepersonell ma forholde seg til at pasienter kan begrense tilgang til sine opplysninger, ogsa i akutte situasjoner</li>
+<li>Mottak og vurdering av helseinformasjon fra andre land, muligens pa andre sprak</li>
+<li>Nye rutiner for dokumentasjon som sikrer at informasjonen er kompatibel med EEHRxF</li>
+<li>Endret samhandling med pasienter som har tilgang til og kan laste ned sine helseopplysninger i europeisk format</li>
+</ul>
+
+<p><strong>Forstyrrelser i innarbeidede rutiner.</strong> Helsepersonell har over ar utviklet effektive arbeidsrutiner tilpasset sine EPJ-systemer. Endringer i disse systemene &ndash; enten det er nye felt, nye skjermbilder eller nye arbeidsprosesser &ndash; medforer en omstillingsperiode der effektiviteten faller. Forskning viser at navigasjon i EPJ med dype menyhierarkier og lite intuitive merkelapper dobler antall klikk som trengs for a na riktig dokumentasjonsfelt, og feilregistrering forekom i 17 % av observerte oppgaver.</p>
+
+<p><strong>Forenklinger pa sikt.</strong> Dersom EHDS realiserer sin ambisjon om somlos informasjonsdeling, kan dette forenkle arbeidsflyter knyttet til innhenting av informasjon fra andre virksomheter &ndash; noe som i dag ofte krever telefoner, fakser eller manuell bestilling av papirkopier.</p>
+
+<p><strong>Vurdering:</strong> Arbeidsflyten vil endres. Pa kort sikt betyr dette okt kompleksitet og behov for ny laering. Pa lang sikt kan forenklinger oppna som folge av bedre interoperabilitet, men dette er ikke garantert.</p>
+
+<hr>
+
+<h2>2. Brukervennlighet</h2>
+
+<h3>2.1 Systemendringer</h3>
+
+<p><strong>Pavirkning pa eksisterende EPJ-systemer.</strong> Alle EPJ-systemer i bruk i Norge vil matte tilpasses for a stotte EEHRxF:</p>
+
+<ul>
+<li><strong>DIPS Arena</strong> (de fleste helseforetak): Ma utvides med FHIR-stotte og EEHRxF-kompatible grensesnitt. Risiko for at nye moduler pavirker eksisterende funksjonalitet.</li>
+<li><strong>Helseplattformen/Epic</strong> (Midt-Norge): Epic har internasjonal FHIR-stotte, men tilpasning til norske og europeiske krav vil likevel kreve konfigurasjon og utvikling. Gitt de eksisterende utfordringene med Helseplattformen, kan ytterligere endringer vaere saerlig krevende for helsepersonell i Midt-Norge.</li>
+<li><strong>CGM, Visma, Infodoc</strong> (primaerhelsetjenesten): Disse systemene har varierende teknisk modenhet. Tilpasning til EEHRxF kan bli betydelig, og kapasiteten hos leverandorene er usikker.</li>
+</ul>
+
+<p><strong>Erfaringer fra Helseplattformen.</strong> Innforingen av Epic i Midt-Norge har gitt verdifulle, men ogsa smertefulle erfaringer. Tidsskriftet for Den norske legeforening omtalte Helseplattformen som &laquo;en IT-skandale i Midt-Norge&raquo;. Rapporter viser at Helseplattformen har gjort helsepersonell mindre effektive, og Datatilsynet har pavist vesentlige mangler og brudd pa personvernreglene. Disse erfaringene viser tydelig risikoen ved store systemendringer i helsesektoren: selv med gode intensjoner kan resultatet bli lengre arbeidsdager, dyrere drift og svekket pasientsikkerhet.</p>
+
+<p><strong>Vurdering:</strong> Systemendringer er uunngaelige, men ma gjennomfores med stor varsomhet. Helsepersonell ma involveres tidlig i design og testing av nye grensesnitt. Erfaringene fra Helseplattformen ma brukes aktivt som laeringspunkter.</p>
+
+<h3>2.2 Nye grensesnitt</h3>
+
+<p><strong>Pasientens tilgangsportal.</strong> EHDS gir pasienter rett til a se, laste ned og begrense tilgang til sine helseopplysninger. Dette vil sannsynligvis integreres i helsenorge.no, men helsepersonell ma handtere konsekvensene: pasienter som har lest sine journaler og stiller sporsmal, pasienter som har begrenset tilgang til informasjon, og pasienter som onsker a dele informasjon fra behandling i utlandet.</p>
+
+<p><strong>Grensekryssende informasjonsvisning.</strong> Helsepersonell vil trenge nye visninger i sine EPJ-systemer for a se pasientoppsummeringer fra andre EU/EOS-land. Disse ma vaere intuitive, tydelig merket med opprinnelsesland, og oversatt eller presentert pa en forstaelig mate.</p>
+
+<p><strong>Reservasjonsmekanismer.</strong> Helsepersonell ma forholde seg til pasienters reservasjonsvalg og forsta hva som er tilgjengelig og hva som er begrenset. I akutte situasjoner ma det vaere klare prosedyrer for overproving av reservasjoner.</p>
+
+<p><strong>Vurdering:</strong> Nye grensesnitt kan gi bedre funksjonalitet, men hvert nytt grensesnitt er ogsa en ny kilde til forvirring og feil. Designet ma ta utgangspunkt i kliniske behov, ikke i regulatoriske krav alene.</p>
+
+<h3>2.3 Opplaeringsbehov</h3>
+
+<p><strong>Omfanget av opplaering vil vaere betydelig.</strong> Helsepersonell ma laere:</p>
+<ul>
+<li>Nye dokumentasjonskrav og strukturerte formater</li>
+<li>Nye funksjoner i EPJ-systemene</li>
+<li>Handtering av grensekryssende pasientinformasjon</li>
+<li>Pasientrettigheter under EHDS (tilgang, reservasjon, nedlasting)</li>
+<li>Nye rutiner for informasjonssikkerhet og personvern</li>
+</ul>
+
+<p><strong>Differensiert opplaeringsbehov.</strong> Ulike yrkesgrupper og ulike arbeidssteder vil ha ulikt opplaeringsbehov. Akuttmottak med mange utenlandske pasienter har storre behov for opplaering i grensekryssende funksjonalitet enn en kommunal hjemmetjeneste.</p>
+
+<p><strong>Opplaering ma vaere praksisnaer.</strong> Helsedirektoratets helsepersonellundersokelse 2024 viser at digitale ferdigheter varierer betydelig blant helsepersonell. Opplaering ma vaere tilpasset den enkeltes forutsetninger og integrert i klinisk praksis, ikke bare e-laeringskurs.</p>
+
+<p><strong>Vurdering:</strong> Opplaeringsbehovet er betydelig og ma planlegges tidlig. Utilstrekkelig opplaering var en av kritikkpunktene ved Helseplattformen-innforingen, og feilen ma ikke gjentas ved EHDS-implementering. Legeforeningen har vaert tydelig pa at digitalisering ma forankres i klinisk praksis.</p>
+
+<hr>
+
+<h2>3. Pasientsikkerhet</h2>
+
+<h3>3.1 Bedre informasjonstilgang</h3>
+
+<p><strong>Tilgang til kritisk informasjon om utenlandske pasienter.</strong> I dag behandles utenlandske pasienter i Norge ofte uten tilgang til deres medisinske historikk, medisinliste eller allergier. EHDS vil gjore denne informasjonen tilgjengelig gjennom MyHealth@EU, noe som er en direkte forbedring av pasientsikkerheten.</p>
+
+<p><strong>Pasientoppsummeringer (Patient Summary).</strong> Fra 2029 (gruppe 1) skal pasientoppsummeringer vaere tilgjengelige pa tvers av landegrensene. Dette inkluderer allergier, aktive diagnoser, medisinliste og andre kritiske opplysninger. For helsepersonell som behandler en bevisstlos utenlandsk turist eller en kronisk syk arbeidsinnvandrer, kan dette vaere forskjellen pa riktig og feil behandling.</p>
+
+<p><strong>E-resept pa tvers av landegrenser.</strong> Grensekryssende e-resept og e-dispensering vil gjore det mulig a forsikre seg om hva pasienten faktisk bruker av legemidler, redusere risiko for interaksjoner og gi et mer komplett bilde av pasientens medisinbruk.</p>
+
+<p><strong>Vurdering:</strong> Den pasientsikkerhetsmessige gevinsten av EHDS er reell og bor kommuniseres tydelig til helsepersonell. Bedre informasjon gir bedre beslutninger.</p>
+
+<h3>3.2 Nye risikoer</h3>
+
+<p><strong>Sprakbarrierer.</strong> Pasientinformasjon fra andre land vil vaere kodet med internasjonale terminologier (SNOMED CT, ICD, ATC), men fritekstfelt og kliniske notater vil vaere pa originalspraket. Helsepersonell risikerer a miste kontekst eller misforsta informasjon. Automatisk oversettelse kan introdusere feil.</p>
+
+<p><strong>Konverteringsfeil.</strong> Ved alternativ 1, der en gateway konverterer mellom nasjonale formater og EEHRxF, er det risiko for tap eller forvrengning av informasjon. Automatisk mapping mellom ulike kodesystemer er ikke feilfritt, og konverteringsfeil kan ha kliniske konsekvenser.</p>
+
+<p><strong>Falsk trygghet.</strong> Helsepersonell kan stole pa at informasjonen fra et annet land er komplett, nar den i virkeligheten kun representerer et utvalg. Pasientoppsummeringen er ikke det samme som en fullstendig journal, og forventningsstyring er viktig.</p>
+
+<p><strong>Informasjonskvalitet.</strong> Kvaliteten pa helsedata varierer mellom EU/EOS-land. Helsepersonell ma vaere klar over at informasjon fra et annet land kan vaere ufullstendig, utdatert eller strukturert etter andre kliniske tradisjoner.</p>
+
+<p><strong>Vurdering:</strong> De nye risikoene er handterbare, men krever bevissthet, opplaering og gode systemdesign. Det ma vaere tydelig for helsepersonell hva slags informasjon de ser, hvor den kommer fra, og hva som eventuelt mangler.</p>
+
+<h3>3.3 Akuttsituasjoner</h3>
+
+<p><strong>Storst gevinst i akutte scenarioer.</strong> Tilgang til pasientoppsummeringer, allergier og medisinlister ved akutt behandling av utenlandske pasienter er kanskje den mest apenbare kliniske gevinsten av EHDS. I dag ma helsepersonell ofte basere seg pa pasientens egen hukommelse (dersom pasienten er ved bevissthet) eller behandle uten informasjon.</p>
+
+<p><strong>Utfordringer med tilgang i pressede situasjoner.</strong> I akutte situasjoner er tid kritisk. Systemene ma designes slik at tilgang til grensekryssende informasjon er rask og enkel &ndash; ikke bak flere innlogginger, samtykkesjekker eller trege systemresponser. Reservasjonsmekanismer ma ha klare overprovingsregler for akutte situasjoner.</p>
+
+<p><strong>Vurdering:</strong> Akuttscenarioer bor vaere et designprinsipp for EHDS-implementeringen: systemene ma fungere nar det haster mest. Brukergrensesnittet ma gjore det mulig a fa tilgang til kritisk informasjon innen sekunder, ikke minutter.</p>
+
+<hr>
+
+<h2>4. Vurdering per yrkesgruppe</h2>
+
+<h3>4.1 Sykehusleger</h3>
+
+<p><strong>Pavirkning: Middels til hoy.</strong></p>
+
+<p>Sykehusleger vil merke EHDS gjennom:</p>
+<ul>
+<li>Nye dokumentasjonskrav for strukturert registrering i EEHRxF-kompatible felt</li>
+<li>Tilgang til pasientinformasjon fra andre land (saerlig pa akuttmottak, i grensenare sykehus og ved poliklinisk behandling av utenlandske pasienter)</li>
+<li>Endringer i EPJ-systemene (DIPS Arena eller Helseplattformen/Epic)</li>
+<li>Nye krav til handtering av pasientens reservasjonsvalg</li>
+</ul>
+
+<p><strong>Saerlige bekymringer:</strong></p>
+<ul>
+<li>Legeforeningen har tydelig signalisert at digitalisering ma forankres i klinisk praksis, og at brukervennlighet er pasientsikkerhet, ikke luksus</li>
+<li>Tiden leger bruker pa EPJ er allerede for hoy &ndash; ytterligere dokumentasjonskrav uten tilsvarende forenklinger vil mote sterk motstand</li>
+<li>Erfaringer fra Helseplattformen viser at sykehusleger er spesielt sarbare for store systemendringer</li>
+</ul>
+
+<p><strong>Anbefalinger for denne gruppen:</strong></p>
+<ul>
+<li>Involver sykehusleger i utforming av nye EPJ-grensesnitt</li>
+<li>Vurder bruk av KI-stottet dokumentasjon for a kompensere for okte struktureringskrav</li>
+<li>Sikre at EHDS-relaterte endringer testes grundig i klinisk praksis for utrulling</li>
+</ul>
+
+<h3>4.2 Fastleger</h3>
+
+<p><strong>Pavirkning: Lav til middels.</strong></p>
+
+<p>Fastleger vil i mindre grad berores av grensekryssende funksjonalitet (faerre utenlandske pasienter i lopende behandling), men vil pavirkes av:</p>
+<ul>
+<li>Endringer i EPJ-systemer (CGM, Visma, Infodoc)</li>
+<li>Okte krav til strukturert dokumentasjon</li>
+<li>Nye krav til pasientoppsummeringer som del av gruppe 1 (2029)</li>
+<li>Oppfolging av pasienter som har mottatt e-resept i utlandet</li>
+</ul>
+
+<p><strong>Saerlige bekymringer:</strong></p>
+<ul>
+<li>Fastlegene har allerede en presset arbeidshverdag med mange dokumentasjonskrav</li>
+<li>Helsedirektoratets helsepersonellundersokelse viser at fastleger (80 %) er mer tilfredse med sine EPJ-systemer enn gjennomsnittet &ndash; noe som betyr at de har mer a tape pa systemendringer</li>
+<li>Leverandorsituasjonen i primaerhelsetjenesten er fragmentert, og risikoen for ulik kvalitet pa EHDS-tilpasning er hoy</li>
+</ul>
+
+<p><strong>Anbefalinger for denne gruppen:</strong></p>
+<ul>
+<li>Prioriter minimal forstyrrelse av fastlegenes arbeidsflyt</li>
+<li>Sikre at EPJ-leverandorene i primaerhelsetjenesten far tydelige spesifikasjoner og tilstrekkelig tid til tilpasning</li>
+<li>Utnytt fastlegenes hoye EPJ-tilfredshet ved a bygge EHDS-funksjonalitet inn i eksisterende arbeidsflyter</li>
+</ul>
+
+<h3>4.3 Sykepleiere</h3>
+
+<p><strong>Pavirkning: Middels.</strong></p>
+
+<p>Sykepleiere bruker allerede to timer per dag pa EPJ-dokumentasjon ifolge NSFs undersokelse. EHDS kan pavirke dem gjennom:</p>
+<ul>
+<li>Okte krav til strukturert dokumentasjon, saerlig for pasientoppsummeringer og epikriser</li>
+<li>Nye felt og skjermbilder i EPJ-systemene</li>
+<li>Handtering av pasienters reservasjonsvalg i daglig pleie</li>
+</ul>
+
+<p><strong>Saerlige bekymringer:</strong></p>
+<ul>
+<li>Sykepleiere har allerede en betydelig dokumentasjonsbyrde &ndash; ytterligere tid pa EPJ gar direkte utover pasientnaer tid</li>
+<li>NSF har vaert tydelig pa at sykepleiere ma involveres i valg og utvikling av teknologiske losninger</li>
+<li>Kommunale sykepleiere bruker ofte EPJ-systemer med lavere modenhet og darligere brukervennlighet</li>
+</ul>
+
+<p><strong>Anbefalinger for denne gruppen:</strong></p>
+<ul>
+<li>Gjennomfor konsekvensanalyse av nye dokumentasjonskrav for sykepleieres tidsbruk</li>
+<li>Prioriter forenklinger i dokumentasjonsflyten som kompenserer for EHDS-relaterte tillegg</li>
+<li>Involver sykepleiere i testing av nye EPJ-grensesnitt</li>
+</ul>
+
+<h3>4.4 Helsefagarbeidere i kommunal omsorg</h3>
+
+<p><strong>Pavirkning: Lav.</strong></p>
+
+<p>Helsefagarbeidere i kommunal omsorg vil i begrenset grad berores direkte av EHDS, men kan oppleve:</p>
+<ul>
+<li>Endringer i kommunale EPJ-systemer (som allerede er under utskifting mange steder)</li>
+<li>Nye krav til dokumentasjon i hjemmetjeneste og sykehjem</li>
+<li>Behov for opplaering i nye systemer og rutiner</li>
+</ul>
+
+<p><strong>Saerlige bekymringer:</strong></p>
+<ul>
+<li>Kommunesektoren har de storste utfordringene med EPJ-systemer som ikke stotter arbeidshverdagen tilstrekkelig</li>
+<li>Digital kompetanse varierer betydelig i denne yrkesgruppen</li>
+<li>Mange kommuner planlegger allerede EPJ-bytte &ndash; EHDS-krav kan komme pa toppen av dette</li>
+</ul>
+
+<p><strong>Anbefalinger for denne gruppen:</strong></p>
+<ul>
+<li>Koordiner EHDS-tilpasning med pagaende EPJ-utskiftinger i kommunene</li>
+<li>Tilby praktisk, praksisnaer opplaering tilpasset yrkesgruppens forutsetninger</li>
+<li>Begrens direkte EHDS-eksponering til det strengt nodvendige</li>
+</ul>
+
+<h3>4.5 Apotek/farmasoyter</h3>
+
+<p><strong>Pavirkning: Middels til hoy (for e-resept/e-dispensering).</strong></p>
+
+<p>Farmasoyter vil vaere blant de forste som merker EHDS i praksis, fordi e-resept og e-dispensering er i gruppe 1 (2029):</p>
+<ul>
+<li>Grensekryssende e-resepter: farmasoyter ma kunne motta og ekspedere resepter utstedt i andre EU/EOS-land</li>
+<li>Nye krav til verifikasjon av utenlandske resepter</li>
+<li>Endringer i apoteksystemene for a stotte europeiske formater</li>
+</ul>
+
+<p><strong>Saerlige bekymringer:</strong></p>
+<ul>
+<li>Sprakbarrierer ved ekspedisjon av utenlandske resepter</li>
+<li>Ulike legemiddelnavn, styrker og formuleringer pa tvers av land</li>
+<li>Behov for a verifisere at utenlandske legemidler har norsk markedsforing eller godkjent alternativ</li>
+</ul>
+
+<p><strong>Anbefalinger for denne gruppen:</strong></p>
+<ul>
+<li>Utvikle tydelige retningslinjer og oppslagesverk for grensekryssende reseptekspedisjon</li>
+<li>Sikre at apoteksystemene viser legemiddelinformasjon pa en entydig mate uavhengig av opprinnelsesland</li>
+<li>Planlegg opplaering i god tid for 2029-fristen</li>
+</ul>
+
+<hr>
+
+<h2>5. Vurdering per alternativ</h2>
+
+<h3>5.1 Alternativ 1 &ndash; Fra helsepersonells perspektiv</h3>
+
+<p><strong>Fordeler:</strong></p>
+<ul>
+<li>Minst mulig endring i daglig arbeidsflyt &ndash; nasjonale standarder beholdes for nasjonal bruk</li>
+<li>Lavere opplaeringsbehov pa kort sikt</li>
+<li>Eksisterende EPJ-systemer endres minimalt</li>
+<li>Helsepersonell trenger i stor grad bare a forholde seg til grensekryssende funksjonalitet nar det er klinisk relevant</li>
+</ul>
+
+<p><strong>Ulemper:</strong></p>
+<ul>
+<li>Gateway-tilnaermingen kan gi konverteringsfeil som pavirker pasientsikkerheten</li>
+<li>Helsepersonell ma forholde seg til at informasjon som sendes ut av landet kan miste presisjon i konverteringen</li>
+<li>Dualiteten mellom nasjonale og europeiske formater kan skape forvirring</li>
+<li>Den nasjonale nytteverdien er lav &ndash; informasjonsutveksling mellom norske virksomheter forbedres ikke</li>
+<li>Over tid kan opprettholdelse av to parallelle standarder gi hoyere kompleksitet for helsepersonell</li>
+</ul>
+
+<p><strong>Samlet vurdering fra helsepersonellperspektiv:</strong> Det minst forstyrrende alternativet pa kort sikt, men gir begrenset positiv effekt pa arbeidshverdagen. Risiko for at helsepersonell opplever EHDS som et rent byrakratisk prosjekt uten klinisk verdi.</p>
+
+<h3>5.2 Alternativ 2 &ndash; Fra helsepersonells perspektiv</h3>
+
+<p><strong>Fordeler:</strong></p>
+<ul>
+<li>En nasjonal FHIR-standard vil pa sikt forbedre informasjonsutveksling ogsa mellom norske virksomheter &ndash; en reell gevinst for helsepersonell</li>
+<li>Eliminerer dualiteten mellom nasjonale og europeiske formater</li>
+<li>Bredere modernisering kan gi anledning til a forbedre EPJ-brukervennlighet generelt</li>
+<li>Storre mulighet for KI-stottet dokumentasjon og beslutningsstotte basert pa strukturerte data</li>
+<li>Kompetanseprogrammet gir mulighet for systematisk opplaering</li>
+</ul>
+
+<p><strong>Ulemper:</strong></p>
+<ul>
+<li>Hoy endringsbelastning over kort tid &ndash; risiko for &laquo;endringstretthet&raquo;</li>
+<li>Erfaringene fra Helseplattformen viser at store, samtidige endringer i EPJ-systemer kan vaere svaert krevende for helsepersonell</li>
+<li>Risiko for at endringene drives av tekniske og regulatoriske hensyn fremfor kliniske behov</li>
+<li>Hogere risiko for uforutsette problemer og feil i overgangsfasen</li>
+<li>Endringsmotstand fra helsepersonell som har investert tid i a laere eksisterende systemer</li>
+</ul>
+
+<p><strong>Samlet vurdering fra helsepersonellperspektiv:</strong> Storst langsiktig potensial, men ogsa storst kortsiktig risiko. Forutsetter sterk klinisk forankring, god involvering av helsepersonell og realistisk tidsplan. Hvis det gjores darlig, kan det bli &laquo;Helseplattformen i nasjonal skala&raquo;.</p>
+
+<h3>5.3 Alternativ 3 &ndash; Fra helsepersonells perspektiv</h3>
+
+<p><strong>Fordeler:</strong></p>
+<ul>
+<li>Nordisk erfaringsdeling kan gi bedre losninger basert pa andres feil og suksesser</li>
+<li>Felles nordisk leverandordialog kan sikre bedre kvalitet pa EPJ-tilpasninger (flere nordiske leverandorer opererer i flere land)</li>
+<li>Felles nordisk kompetanseprogram kan gi mer robust opplaering</li>
+<li>Koordinert tilnaerming gir storre gjennomslagskraft overfor EU nar det gjelder a ivareta kliniske hensyn</li>
+</ul>
+
+<p><strong>Ulemper:</strong></p>
+<ul>
+<li>Risiko for at nordisk koordinering forsinker nasjonale beslutninger og implementering</li>
+<li>Kompromisslosninger som ikke er optimale for norske forhold</li>
+<li>Ekstra kompleksitet i styringsstruktur som kan gjore det vanskeligere a ivareta helsepersonells behov</li>
+</ul>
+
+<p><strong>Samlet vurdering fra helsepersonellperspektiv:</strong> Et godt supplement til enten alternativ 1 eller 2, saerlig fordi erfaringsdeling kan redusere risikoen for implementeringsfeil. Bor ikke brukes som begrunnelse for a utsette nasjonale beslutninger.</p>
+
+<hr>
+
+<h2>6. Anbefalinger</h2>
+
+<p>Basert pa analysen over, fremmes folgende anbefalinger for a ivareta helsepersonells interesser ved EHDS-implementering:</p>
+
+<h3>6.1 Involvering og medvirkning</h3>
+
+<ol>
+<li><strong>Etabler kliniske referansegrupper</strong> med representanter fra alle berdrte yrkesgrupper (leger, sykepleiere, farmasoyter, helsefagarbeidere) som deltar i hele implementeringsprosessen &ndash; fra kravspesifikasjon til testing og evaluering.</li>
+<li><strong>Krev brukertesting med reelle kliniske scenarioer</strong> for alle nye EPJ-grensesnitt og arbeidsflyter. Erfaringene fra Helseplattformen viser at utilstrekkelig klinisk testing medforer alvorlige konsekvenser.</li>
+<li><strong>Gi Legeforeningen, NSF og andre fagorganisasjoner formell rolle</strong> i styring og kvalitetssikring av implementeringen.</li>
+</ol>
+
+<h3>6.2 Dokumentasjonsbyrde</h3>
+
+<ol start="4">
+<li><strong>Still krav om netto-noytral dokumentasjonsbyrde.</strong> For hvert nye dokumentasjonskrav som innfores, ma det identifiseres en forenkling som kompenserer. EHDS bor ikke oke total dokumentasjonstid for helsepersonell.</li>
+<li><strong>Akseler bruk av KI-stottet dokumentasjon</strong> (talegjenkjenning, automatisk strukturering av fritekst, forslag til kodeverkverdier) som kompenserende tiltak for okte struktureringskrav.</li>
+<li><strong>Evaluer reell tidsbruk</strong> pa EHDS-relatert dokumentasjon etter innforing, og juster losninger basert pa funn.</li>
+</ol>
+
+<h3>6.3 Opplaering</h3>
+
+<ol start="7">
+<li><strong>Start opplaering tidlig</strong> &ndash; minst 12 maneder for innforing av nye systemer og funksjoner. Utilstrekkelig opplaeringstid var en sentral svakhet ved Helseplattformen.</li>
+<li><strong>Gjor opplaering praksisnaer og differensiert</strong> &ndash; tilpasset ulike yrkesgrupper, arbeidsplasser og tekniske forutsetninger. E-laering alene er ikke tilstrekkelig.</li>
+<li><strong>Alloker tid til opplaering innenfor arbeidstiden</strong> &ndash; ikke som tillegg til en allerede presset arbeidshverdag.</li>
+</ol>
+
+<h3>6.4 Pasientsikkerhet</h3>
+
+<ol start="10">
+<li><strong>Design for akuttsituasjoner forst.</strong> Tilgang til grensekryssende pasientinformasjon ma vaere rask og enkel &ndash; maksimalt to klikk fra hovedskjermbildet i EPJ.</li>
+<li><strong>Implementer tydelig merking av informasjonens opprinnelse og begrensninger</strong> &ndash; helsepersonell ma umiddelbart se at informasjonen kommer fra et annet land, hvilket land, og at den kan vaere ufullstendig.</li>
+<li><strong>Utvikle klare retningslinjer for sprakbarrierer</strong> ved mottak av grensekryssende informasjon, inkludert tilgang til medisinskfaglig oversettelse.</li>
+</ol>
+
+<h3>6.5 Implementeringsstrategi</h3>
+
+<ol start="13">
+<li><strong>Laer av Helseplattformen.</strong> Gjennomfor en systematisk erfaringsoppsummering fra innforingen i Midt-Norge og bruk funnene aktivt i EHDS-planleggingen.</li>
+<li><strong>Velg trinnvis innforing</strong> med mulighet for a justere underveis, fremfor &laquo;big bang&raquo;-utrulling. Alternativ 1 er minst risikabelt for helsepersonell pa kort sikt, men bor kombineres med en tydelig plan for videre utvikling.</li>
+<li><strong>Mal og rapporter konsekvenser for helsepersonell</strong> lopende &ndash; ikke bare teknisk etterlevelse, men faktisk pavirkning pa arbeidshverdag, dokumentasjonstid og klinisk kvalitet.</li>
+<li><strong>Bruk nordisk samarbeid (alternativ 3) aktivt</strong> for erfaringsdeling uavhengig av valgt hovedalternativ, saerlig for a laere av land som innforer EHDS for Norge.</li>
+</ol>
+
+<hr>
+
+<h2>Kilder</h2>
+
+<ul>
+<li><a href="https://tidsskriftet.no/2023/01/leder/helseplattformen-en-it-skandale-i-midt-norge">Helseplattformen &ndash; en IT-skandale i Midt-Norge, Tidsskrift for Den norske legeforening (2023)</a></li>
+<li><a href="https://www.mn24.no/nyheter/i/8pwEWw/rapport-helseplattformen-har-gjort-helsepersonell-mindre-effektive">Rapport: Helseplattformen har gjort helsepersonell mindre effektive, mn24.no</a></li>
+<li><a href="https://www.nrk.no/trondelag/mdg-la-fram-forslag-om-a-avvikle-helseplattforma_-_-pa-tide-a-skjaere-bort-denne-it-svulsten-1.17795671">Vil avvikle Helseplattforma, NRK (2025)</a></li>
+<li><a href="https://www.helsedirektoratet.no/rapporter/helsepersonellundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester">Helsepersonellundersokelsen om digitalisering 2024, Helsedirektoratet</a></li>
+<li><a href="https://www.helsedirektoratet.no/rapporter/helsepersonellundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester/funn-og-analyser/erfaringer-og-tilfredshet-med-elektroniske-pasientjournalsystemer">Erfaringer og tilfredshet med EPJ-systemer, Helsedirektoratet (2024)</a></li>
+<li><a href="https://www.legeforeningen.no/nyheter/2025/ehelse-2025-brukervennlighet-er-ikke-luksus-men-pasientsikkerhet/">eHelse 2025: Brukervennlighet er ikke luksus, men pasientsikkerhet, Legeforeningen</a></li>
+<li><a href="https://www.legeforeningen.no/nyheter/2025/ehin-2025-digitalisering-ma-forankres-i-klinisk-praksis/">EHiN 2025: Digitalisering ma forankres i klinisk praksis, Legeforeningen</a></li>
+<li><a href="https://sykepleien.no/2024/09/sykepleiere-bruker-naermere-timer-arbeidsdag-pa-elektroniske-journalsystemer">Sykepleiere bruker naermere to timer per arbeidsdag pa EPJ, Sykepleien (2024)</a></li>
+<li><a href="https://www.digdir.no/stimulab/direktoratet-e-helse-informasjonsutveksling-med-redusert-klinisk-rapporteringsbyrde/3604">Informasjonsutveksling med redusert klinisk rapporteringsbyrde, Digdir/Stimulab</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12206486/">Usability Challenges in EHR: Impact on Documentation Burden and Clinical Workflow, PMC (2024)</a></li>
+<li><a href="https://www.tiro.health/resources/european-health-data-space-ehds-implementation-guide-for-hospitals-and-healthcare-professionals">EHDS Implementation guide for hospitals and healthcare professionals, Tiro Health</a></li>
+<li><a href="https://www.better.care/document/ehds-implementation-readiness-report/">EHDS: Stakeholder perspectives on implementation readiness, Better</a></li>
+<li>Tiltaksalternativer for EHDS-implementering i Norge (rapporter/tiltaksalternativer-ehds.md)</li>
+<li>Problemdefinisjon: EHDS og digitalisering av norsk helsesektor (rapporter/problemdefinisjon-ehds.md)</li>
+</ul>
+
+<hr>
+
+<p><em>Denne vurderingen er utarbeidet 15. mars 2026 og representerer et helsepersonellperspektiv pa EHDS-implementering. Vurderingen bor ses i sammenheng med de ovrige rapportene i prosjektet, saerlig tiltaksalternativer-ehds.md og problemdefinisjon-ehds.md. Vurderingen bor revideres nar gjennomforingsrettsakter fra EU-kommisjonen vedtas og mer detaljert informasjon om EPJ-leverandorenes planer foreligger.</em></p>
+
+</main>
+</body>
+</html>

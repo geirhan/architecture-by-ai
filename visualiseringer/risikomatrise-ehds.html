@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risikomatrise: EHDS-implementering i Norge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; color: #333; padding: 20px; }
+        h1 { text-align: center; color: #1a365d; margin-bottom: 5px; font-size: 1.6em; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 20px; font-size: 0.95em; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .matrix-section { background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 20px; }
+        .matrix-wrapper { display: flex; gap: 20px; align-items: flex-start; }
+        .matrix-grid-container { flex: 1; }
+        .matrix-grid { display: grid; grid-template-columns: 40px repeat(4, 1fr); grid-template-rows: repeat(4, 100px) 30px; gap: 3px; max-width: 600px; margin: 0 auto; }
+        .axis-label { display: flex; align-items: center; justify-content: center; font-size: 0.75em; font-weight: 700; color: #1a365d; }
+        .axis-label.y { writing-mode: vertical-rl; transform: rotate(180deg); }
+        .cell { border-radius: 6px; position: relative; display: flex; flex-wrap: wrap; align-content: flex-start; padding: 5px; gap: 4px; min-height: 80px; cursor: default; }
+        .cell-green { background: rgba(72, 187, 120, 0.15); border: 1px solid rgba(72, 187, 120, 0.3); }
+        .cell-yellow { background: rgba(236, 201, 75, 0.2); border: 1px solid rgba(236, 201, 75, 0.4); }
+        .cell-orange { background: rgba(237, 137, 54, 0.2); border: 1px solid rgba(237, 137, 54, 0.4); }
+        .cell-red { background: rgba(229, 62, 62, 0.2); border: 1px solid rgba(229, 62, 62, 0.4); }
+        .risk-dot {
+            width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.7em; font-weight: 700; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 5;
+        }
+        .risk-dot:hover { transform: scale(1.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 20; }
+        .risk-dot.selected { transform: scale(1.3); box-shadow: 0 0 0 3px #1a365d, 0 4px 12px rgba(0,0,0,0.3); z-index: 20; }
+        .cat-juridisk { background: #3182ce; }
+        .cat-organisatorisk { background: #38a169; }
+        .cat-teknisk { background: #d69e2e; }
+        .cat-okonomi { background: #e53e3e; }
+        .cat-ekstern { background: #805ad5; }
+        .x-axis-title { text-align: center; font-weight: 700; color: #1a365d; font-size: 0.85em; margin-top: 10px; }
+        .y-axis-title { position: absolute; left: -30px; top: 50%; transform: rotate(-90deg) translateX(-50%); font-weight: 700; color: #1a365d; font-size: 0.85em; white-space: nowrap; }
+        .detail-panel { width: 380px; min-height: 400px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 20px; }
+        .detail-panel h3 { color: #1a365d; margin-bottom: 10px; font-size: 1em; }
+        .detail-panel .risk-id { font-size: 0.8em; color: #666; margin-bottom: 5px; }
+        .detail-panel .risk-title { font-size: 1.1em; font-weight: 700; color: #2d3748; margin-bottom: 10px; }
+        .detail-panel .risk-meta { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .detail-panel .risk-badge { padding: 3px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 600; }
+        .detail-panel .risk-desc { font-size: 0.88em; line-height: 1.6; margin-bottom: 15px; color: #4a5568; }
+        .detail-panel .risk-measures { font-size: 0.85em; line-height: 1.6; }
+        .detail-panel .risk-measures h4 { color: #1a365d; margin-bottom: 5px; font-size: 0.9em; }
+        .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 15px; justify-content: center; }
+        .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.8em; }
+        .legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+        .summary-cards { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .summary-card { flex: 1; min-width: 150px; background: white; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .summary-card .number { font-size: 2em; font-weight: 700; }
+        .summary-card .label { font-size: 0.8em; color: #666; }
+        .risk-list { margin-top: 20px; }
+        .risk-list-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-bottom: 1px solid #f0f0f0; cursor: pointer; border-radius: 4px; }
+        .risk-list-item:hover { background: #f0f4f8; }
+        .risk-list-item .risk-list-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65em; font-weight: 700; flex-shrink: 0; }
+        .risk-list-item .risk-list-text { font-size: 0.82em; flex: 1; }
+        .risk-list-item .risk-list-score { font-weight: 700; font-size: 0.85em; width: 30px; text-align: center; }
+        .source-note { text-align: center; color: #999; font-size: 0.75em; margin-top: 15px; }
+        .placeholder-text { color: #a0aec0; font-size: 0.9em; text-align: center; padding-top: 60px; }
+        @media (max-width: 900px) {
+            .matrix-wrapper { flex-direction: column; }
+            .detail-panel { width: 100%; min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Risikomatrise: EHDS-implementering i Norge</h1>
+        <p class="subtitle">15 identifiserte risikoer fra alle delrapporter -- klikk pa en risiko for detaljer</p>
+
+        <div class="summary-cards" id="summaryCards"></div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot cat-juridisk"></div> Juridisk/regulatorisk</div>
+            <div class="legend-item"><div class="legend-dot cat-organisatorisk"></div> Organisatorisk</div>
+            <div class="legend-item"><div class="legend-dot cat-teknisk"></div> Teknisk</div>
+            <div class="legend-item"><div class="legend-dot cat-okonomi"></div> Okonomisk</div>
+            <div class="legend-item"><div class="legend-dot cat-ekstern"></div> Ekstern/politisk</div>
+        </div>
+
+        <div class="matrix-section">
+            <div class="matrix-wrapper">
+                <div class="matrix-grid-container">
+                    <div class="matrix-grid" id="matrixGrid"></div>
+                    <div class="x-axis-title">Sannsynlighet &rarr;</div>
+                </div>
+                <div class="detail-panel" id="detailPanel">
+                    <p class="placeholder-text">Klikk pa en risiko i matrisen eller listen nedenfor for a se detaljer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="matrix-section">
+            <h3 style="color:#1a365d; margin-bottom:10px; font-size:1em;">Alle risikoer sortert etter risikoniwa</h3>
+            <div class="risk-list" id="riskList"></div>
+        </div>
+    </div>
+
+    <p class="source-note">Basert pa: rapporter/gjennomfoeringsforutsetninger-ehds.md og rapporter/anbefaling-ehds.md | Oppdatert: 15. mars 2026</p>
+
+    <script>
+        const risks = [
+            { id: 'R1', title: 'Forsinket EOS-innlemmelse', prob: 3, cons: 3, score: 9, cat: 'ekstern',
+              desc: 'EOS-innlemmelse tar lengre tid enn forventet, noe som gir kortere implementeringstid enn planlagt. Artikkel 103-forbehold krever Stortingets samtykke, og politiske prosesser kan forsinkes.',
+              measures: 'Forhandle tilpasningstekst med tilstrekkelige overgangsfrister. Starte forberedelser for innlemmelse er avklart. Arbeide proaktivt i EOS-komiteen.' },
+            { id: 'R2', title: 'Gjennomforingsrettsakter endrer kravene', prob: 2, cons: 3, score: 6, cat: 'ekstern',
+              desc: 'EU-kommisjonens gjennomforingsrettsakter (forventet 2025-2027) kan endre kravene vesentlig sammenlignet med forutsetningene i denne analysen. Spesifikasjonene for EEHRxF, testmiljo og sertifisering er ikke endelig fastsatt.',
+              measures: 'Delta aktivt i EU-prosessene gjennom komiteer og ekspertgrupper. Bygge fleksibilitet inn i losningsarkitekturen. Ha oppdaterte planer for ulike scenarioer.' },
+            { id: 'R3', title: 'Gateway sementeres som permanent', prob: 3, cons: 4, score: 12, cat: 'teknisk',
+              desc: 'Gateway-laget som etableres i fase 1 for konvertering mellom nasjonale formater og EEHRxF blir permanent infrastruktur fordi politisk vilje til overgang til FHIR svekkes over tid. Dette undergraver hele hybridstrategiens logikk og medforer varig teknisk gjeld med to parallelle standardverdener.',
+              measures: 'Bindende politisk vedtak om FHIR-overgangsplan. Arsrapportering til Stortinget om fremdrift. Bygge gateway eksplisitt som midlertidig med utfasingsplan. Tidsbegrenset mandat for gateway-drift.' },
+            { id: 'R4', title: 'Utilstrekkelig leverandorkapasitet', prob: 3, cons: 3, score: 9, cat: 'teknisk',
+              desc: 'EPJ-leverandorene (DIPS, Epic, CGM, Visma, Infodoc) har ikke tilstrekkelig kapasitet til a tilpasse alle systemer innen fristene. Saerlig utfordrende for primaerhelsetjenestens leverandorer med lav FHIR-modenhet og mange installasjoner.',
+              measures: 'Tidlig leverandordialog med tydelige krav og tidsfrister. Koordinert nordisk leverandorkrav for a gi stordriftsfordeler. Stotte til leverandorer gjennom testmiljo, spesifikasjoner og eventuelt tilskudd.' },
+            { id: 'R5', title: 'Helseplattformen/Epic-integrasjon krevende', prob: 3, cons: 2, score: 6, cat: 'teknisk',
+              desc: 'Epic har en proprietaer integrasjonsmodell som avviker fra apne FHIR-baserte tilnaerminger. Forhandling med Epic (USA-basert leverandor) om tilpasning til norske og europeiske krav kan vaere vanskelig og tidkrevende. Helseplattformens eksisterende utfordringer oker risikoen.',
+              measures: 'Tidlig saerskilt dialog med Epic. Kartlegge Epics FHIR-stotte og begrensninger konkret. Vurdere alternative losninger for Helse Midt-Norge dersom Epic ikke leverer.' },
+            { id: 'R6', title: 'Kostnadsoverskridelser', prob: 4, cons: 3, score: 12, cat: 'okonomi',
+              desc: 'Store e-helseprosjekter i Norge har historisk hoy risiko for kostnadsoverskridelser. Helseplattformen naddde 6,7 mrd. NOK (oktober 2024), og «En innbygger -- en journal» ble estimert til 22 mrd. NOK. EHDS-implementeringen har tilsvarende kompleksitet.',
+              measures: 'Realistisk budsjettering med konservative anslag og tilstrekkelige reserver. Trinnvis implementering med stoppunkter for evaluering. Lopende kostnadskontroll og rapportering. Laere av erfaringene fra Helseplattformen.' },
+            { id: 'R7', title: 'Kommunesektoren klarer ikke omstillingen', prob: 3, cons: 2, score: 6, cat: 'organisatorisk',
+              desc: 'Over 350 kommuner med svaert varierende digital modenhet og mangel pa IKT-kompetanse og ressurser. Sma kommuner kan ha uforholdsmessig store omstillingskostnader. KS kartlegging viser at kapasitet er en begrensende faktor.',
+              measures: 'Statlig fullfinansiering av kommunenes merkostnader. Kompetansebistand via KS og interkommunale samarbeid. Differensiert tilnaerming basert pa kommunestorrelse. Koordinere med pagaende EPJ-utskiftinger.' },
+            { id: 'R8', title: 'Endringsmotstand fra helsepersonell', prob: 2, cons: 3, score: 6, cat: 'organisatorisk',
+              desc: 'Helsepersonell har allerede hoy dokumentasjonsbyrde (leger bruker 49 % av dagen pa EPJ, sykepleiere 2 timer). Nye EHDS-krav til strukturert dokumentasjon kan mote sterk motstand. Erfaringene fra Helseplattformen har skapt skepsis til store systemendringer.',
+              measures: 'Kliniske referansegrupper med tidlig involvering. Praksisnaer opplaering. Krav om netto-noytral dokumentasjonsbirde. KI-stottet dokumentasjon som kompenserende tiltak.' },
+            { id: 'R9', title: 'Konverteringsfeil i gateway', prob: 2, cons: 4, score: 8, cat: 'teknisk',
+              desc: 'Automatisk konvertering mellom nasjonale formater og EEHRxF i gateway-laget kan gi tap eller forvrengning av helseinformasjon. Semantisk mapping mellom ulike kodesystemer er feilprront. Europeiske NCPeH-erfaringer bekrefter at dette er det svakeste leddet.',
+              measures: 'Grundig testing og validering av konverteringsregler med klinisk kvalitetssikring. Pilotdrift for full utrulling. Tydelig merking av konverterte data. Overvaking av konverteringskvalitet i drift.' },
+            { id: 'R10', title: 'Ufullstendig semantisk mapping', prob: 3, cons: 2, score: 6, cat: 'teknisk',
+              desc: 'Mapping mellom norske kodeverk (ICD-10, ICPC-2, NKPK, FEST) og europeiske kodeverk (SNOMED CT, LOINC, ATC) er ufullstendig. Ulik registreringspraksis og detaljeringsniva pa tvers av virksomheter forverrer problemet.',
+              measures: 'Tidlig start pa terminologiarbeid. Nordisk samarbeid om delt terminologiplattform. Sentral nasjonal terminologitjeneste. Kartlegging av mapping-gap for prioriterte kategorier.' },
+            { id: 'R11', title: 'Mangel pa FHIR-kompetanse', prob: 3, cons: 2, score: 6, cat: 'organisatorisk',
+              desc: 'Norge har begrenset FHIR-kompetanse (anslagsvis under 50 spesialister). Hybridstrategien krever minst 200 spesialister innen 2029. Stor etterspørsel kan drive opp lonnskostnader og skape kapasitetsutfordringer.',
+              measures: 'Nasjonalt FHIR-kompetanseprogram i samarbeid med HL7 Norway. Nordisk samarbeid om kompetanseutvikling. Rekruttering av internasjonal ekspertise. Universitetskurs i helseinformatikk.' },
+            { id: 'R12', title: 'eIDAS 2.0 ikke synkronisert med EHDS', prob: 2, cons: 3, score: 6, cat: 'juridisk',
+              desc: 'Europeisk digital identitet (eIDAS 2.0, EUDI Wallet) er forutsetning for sikker grensekryssende identifisering. Helsedirektoratet har papeikt at norsk eIDAS-implementering kan komme senere enn EHDS-fristene.',
+              measures: 'Koordinert implementeringsplan for EHDS og eIDAS i dialog med Digdir. Overgangslosninger for digital identifisering i paventning av EUDI Wallet. Avklare alternative autentiseringsmekanismer.' },
+            { id: 'R13', title: 'Personvernhendelse ved grensekryssende deling', prob: 1, cons: 4, score: 4, cat: 'juridisk',
+              desc: 'En alvorlig personvernhendelse (datalekkasje, uautorisert tilgang) ved grensekryssende deling via MyHealth@EU kan undergrave tilliten til hele EHDS og til norsk helsetjeneste. Flere nasjonale kontaktpunkt oker angrepsflaten.',
+              measures: 'Robust sikkerhetsarkitektur for NCPeH og gateway. Personvernkonsekvensutredning (DPIA). Hendelseshaandteringsprosedyrer pa tvers av landegrenser. Sikkerhetsrevisjon for drift. Overvaking og logging.' },
+            { id: 'R14', title: 'Nordisk samarbeid gir ikke resultater', prob: 2, cons: 1, score: 2, cat: 'ekstern',
+              desc: 'Nordisk samarbeid om EHDS-implementering gir ikke forventede kostnadsbesparelser og erfaringsdeling pga. ulik modenhet mellom landene, ulike tidsfrister (EU-land vs. EOS-land) og manglende formelt mandat.',
+              measures: 'Realistiske forventninger til samarbeidets omfang. Fokuser pa konkrete, avgrensede omrader (terminologi, testinfrastruktur, FHIR-profiler). Bilaterale avtaler der multilateralt er vanskelig.' },
+            { id: 'R15', title: 'Politisk endring svekker langsiktig forpliktelse', prob: 2, cons: 3, score: 6, cat: 'ekstern',
+              desc: 'Hybridstrategien strekker seg over flere stortingsperioder (2026-2035). Politisk endring kan svekke forpliktelsen til FHIR-overgang og langsiktig finansiering. Gateway-laget kan bli «godt nok» og permanentiseres.',
+              measures: 'Tverrpolitisk forankring gjennom stortingsbehandling. Synliggore nyttevirkninger lopende for a opprettholde stotte. Forankre i internasjonale forpliktelser (EOS-avtalen). Etablere evalueringspunkter.' }
+        ];
+
+        const catColors = {
+            juridisk: '#3182ce',
+            organisatorisk: '#38a169',
+            teknisk: '#d69e2e',
+            okonomi: '#e53e3e',
+            ekstern: '#805ad5'
+        };
+
+        function getContrastColor(hex) {
+            const r = parseInt(hex.slice(1,3), 16) / 255;
+            const g = parseInt(hex.slice(3,5), 16) / 255;
+            const b = parseInt(hex.slice(5,7), 16) / 255;
+            const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+            return luminance > 0.5 ? '#1a1a2e' : '#ffffff';
+        }
+
+        const catLabels = {
+            juridisk: 'Juridisk',
+            organisatorisk: 'Organisatorisk',
+            teknisk: 'Teknisk',
+            okonomi: 'Okonomisk',
+            ekstern: 'Ekstern'
+        };
+
+        function getCellClass(prob, cons) {
+            const score = prob * cons;
+            if (score >= 12) return 'cell-red';
+            if (score >= 8) return 'cell-orange';
+            if (score >= 4) return 'cell-yellow';
+            return 'cell-green';
+        }
+
+        function getScoreColor(score) {
+            if (score >= 12) return '#e53e3e';
+            if (score >= 8) return '#ed8936';
+            if (score >= 4) return '#d69e2e';
+            return '#48bb78';
+        }
+
+        function getScoreLabel(score) {
+            if (score >= 12) return 'Hoy';
+            if (score >= 8) return 'Middels-hoy';
+            if (score >= 4) return 'Middels';
+            return 'Lav';
+        }
+
+        function buildSummary() {
+            const container = document.getElementById('summaryCards');
+            const high = risks.filter(r => r.score >= 9).length;
+            const med = risks.filter(r => r.score >= 5 && r.score < 9).length;
+            const low = risks.filter(r => r.score < 5).length;
+
+            const cards = [
+                { number: risks.length, label: 'Totalt antall risikoer', color: '#1a365d' },
+                { number: high, label: 'Hoyt risikoniwa (9+)', color: '#e53e3e' },
+                { number: med, label: 'Middels risikoniwa (5-8)', color: '#d69e2e' },
+                { number: low, label: 'Lavt risikoniwa (1-4)', color: '#48bb78' }
+            ];
+
+            cards.forEach(c => {
+                const card = document.createElement('div');
+                card.className = 'summary-card';
+                card.innerHTML = `<div class="number" style="color:${c.color}">${c.number}</div><div class="label">${c.label}</div>`;
+                container.appendChild(card);
+            });
+        }
+
+        function buildMatrix() {
+            const grid = document.getElementById('matrixGrid');
+
+            // Y axis labels and cells (cons 4 at top, 1 at bottom)
+            for (let cons = 4; cons >= 1; cons--) {
+                // Y axis label
+                const yLabel = document.createElement('div');
+                yLabel.className = 'axis-label';
+                yLabel.textContent = cons;
+                yLabel.style.fontSize = '0.8em';
+                grid.appendChild(yLabel);
+
+                for (let prob = 1; prob <= 4; prob++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell ' + getCellClass(prob, cons);
+
+                    const cellRisks = risks.filter(r => r.prob === prob && r.cons === cons);
+                    cellRisks.forEach(r => {
+                        const dot = document.createElement('div');
+                        dot.className = 'risk-dot cat-' + r.cat;
+                        dot.textContent = r.id;
+                        dot.style.color = getContrastColor(catColors[r.cat]);
+                        dot.dataset.riskId = r.id;
+                        dot.addEventListener('click', () => selectRisk(r.id));
+                        cell.appendChild(dot);
+                    });
+
+                    grid.appendChild(cell);
+                }
+            }
+
+            // Bottom row: empty corner + x axis labels
+            const corner = document.createElement('div');
+            corner.className = 'axis-label';
+            grid.appendChild(corner);
+            for (let prob = 1; prob <= 4; prob++) {
+                const xLabel = document.createElement('div');
+                xLabel.className = 'axis-label';
+                xLabel.textContent = prob;
+                grid.appendChild(xLabel);
+            }
+        }
+
+        function buildRiskList() {
+            const list = document.getElementById('riskList');
+            const sorted = [...risks].sort((a, b) => b.score - a.score);
+
+            sorted.forEach(r => {
+                const item = document.createElement('div');
+                item.className = 'risk-list-item';
+                item.addEventListener('click', () => selectRisk(r.id));
+                item.innerHTML = `
+                    <div class="risk-list-dot cat-${r.cat}" style="color:${getContrastColor(catColors[r.cat])}">${r.id}</div>
+                    <div class="risk-list-text"><strong>${r.title}</strong></div>
+                    <div class="risk-list-score" style="color:${getScoreColor(r.score)}">${r.score}</div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function selectRisk(id) {
+            const risk = risks.find(r => r.id === id);
+            if (!risk) return;
+
+            // Update selection
+            document.querySelectorAll('.risk-dot').forEach(d => d.classList.remove('selected'));
+            document.querySelectorAll(`.risk-dot[data-risk-id="${id}"]`).forEach(d => d.classList.add('selected'));
+
+            const panel = document.getElementById('detailPanel');
+            panel.innerHTML = `
+                <div class="risk-id">${risk.id} | ${catLabels[risk.cat]}</div>
+                <div class="risk-title">${risk.title}</div>
+                <div class="risk-meta">
+                    <span class="risk-badge" style="background:${catColors[risk.cat]}; color:${getContrastColor(catColors[risk.cat])}">${catLabels[risk.cat]}</span>
+                    <span class="risk-badge" style="background:${getScoreColor(risk.score)}; color:${getContrastColor(getScoreColor(risk.score))}">Risikoniwa: ${risk.score} (${getScoreLabel(risk.score)})</span>
+                </div>
+                <div style="display:flex; gap:15px; margin-bottom:15px;">
+                    <div style="flex:1; text-align:center; padding:8px; background:#f0f4f8; border-radius:6px;">
+                        <div style="font-size:0.7em; color:#666;">Sannsynlighet</div>
+                        <div style="font-size:1.3em; font-weight:700; color:#1a365d;">${risk.prob}/4</div>
+                    </div>
+                    <div style="flex:1; text-align:center; padding:8px; background:#f0f4f8; border-radius:6px;">
+                        <div style="font-size:0.7em; color:#666;">Konsekvens</div>
+                        <div style="font-size:1.3em; font-weight:700; color:#1a365d;">${risk.cons}/4</div>
+                    </div>
+                </div>
+                <div class="risk-desc">${risk.desc}</div>
+                <div class="risk-measures">
+                    <h4>Risikoreduserende tiltak:</h4>
+                    <p>${risk.measures}</p>
+                </div>
+            `;
+        }
+
+        buildSummary();
+        buildMatrix();
+        buildRiskList();
+    </script>
+</body>
+</html>

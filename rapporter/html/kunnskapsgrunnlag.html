@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunnskapsgrunnlag - EHDS-utredning</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.7; color: #222; background: #fff; margin: 0; padding: 0; }
+        nav { background: #003366; padding: 0; position: sticky; top: 0; z-index: 100; overflow-x: auto; white-space: nowrap; }
+        nav a { color: #fff; text-decoration: none; padding: 12px 14px; display: inline-block; font-size: 0.9rem; transition: background 0.2s; }
+        nav a:hover, nav a.active { background: #005299; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        h1 { color: #003366; font-size: 2rem; margin-bottom: 0.3rem; border-bottom: 3px solid #003366; padding-bottom: 0.5rem; }
+        h2 { color: #003366; font-size: 1.5rem; margin-top: 2.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
+        h3 { color: #333; font-size: 1.15rem; margin-top: 1.5rem; }
+        .subtitle { color: #555; font-size: 1.1rem; margin-bottom: 2rem; }
+        .highlight-box { background: #f0f4f8; padding: 1.5rem; border-left: 4px solid #003366; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+        .warning-box { background: #fff8e1; padding: 1.5rem; border-left: 4px solid #f9a825; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+        .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+        th { background: #003366; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+        td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; color: #333; vertical-align: top; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        ul, ol { margin-bottom: 1rem; }
+        ul li, ol li { margin-bottom: 0.5rem; }
+        a { color: #0066cc; }
+        hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+        .source-list { font-size: 0.9rem; }
+        .source-list li { margin-bottom: 0.3rem; }
+        @media (max-width: 600px) { .container { padding: 1rem; } h1 { font-size: 1.5rem; } table { font-size: 0.82rem; } nav a { padding: 10px 10px; font-size: 0.8rem; } }
+        @media print { nav { display: none; } .container { max-width: 100%; } body { font-size: 11pt; } a { color: #000; text-decoration: underline; } th { background: #ccc; color: #000; } }
+        .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ccc; color: #666; font-size: 0.85rem; font-style: italic; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html">Forside</a>
+    <a href="ledersammendrag.html">Ledersammendrag</a>
+    <a href="kunnskapsgrunnlag.html" class="active">Kunnskapsgrunnlag</a>
+    <a href="problemdefinisjon.html">Problemdefinisjon</a>
+    <a href="tiltaksalternativer.html">Tiltaksalternativer</a>
+    <a href="prinsipielle-spoersmaal.html">Prinsipielle sp&oslash;rsm&aring;l</a>
+    <a href="samfunnsoekonomisk.html">Samfunns&oslash;konomi</a>
+    <a href="helsepersonell.html">Helsepersonell</a>
+    <a href="arkitektur.html">Arkitektur</a>
+    <a href="anbefaling.html">Anbefaling</a>
+    <a href="gjennomfoering.html">Gjennomf&oslash;ring</a>
+    <a href="visualiseringer.html">Visualiseringer</a>
+</nav>
+<div class="container">
+    <h1>Kunnskapsgrunnlag</h1>
+    <p class="subtitle">EHDS-forordningens konsekvenser for norsk helsesektor</p>
+
+    <div class="highlight-box">
+        <h2 style="margin-top:0;border:none;padding:0;font-size:1.2rem;">Sammendrag</h2>
+        <p>EHDS-forordningen (EU 2025/327) om det europeiske helsedataomr&aring;det tr&aring;dte i kraft i EU 26. mars 2025 og vil f&aring; anvendelse fra 26. mars 2027, med trinnvis innf&oslash;ring av krav frem til mars 2031. Forordningen etablerer felles regler, standarder og infrastruktur for deling av elektroniske helsedata til b&aring;de prim&aelig;rbruk (helsehjelp) og sekund&aelig;rbruk (forskning, innovasjon, folkehelse m.m.).</p>
+        <p>For Norge inneb&aelig;rer forordningen betydelige rettslige, tekniske, organisatoriske og &oslash;konomiske konsekvenser. Helsedirektoratets gapanalyse fra april 2025 viser at Norge allerede registrerer og utveksler helseopplysninger elektronisk innenfor de prioriterte kategoriene, men at formater, kodeverk, struktureringsniv&aring; og tilgjengelighet ikke fullt ut tilfredsstiller EHDS-kravene. Det kreves lovendringer (artikkel 103-forbehold i E&Oslash;S-komiteen), ny forvaltningsstruktur med nasjonale myndigheter (digital helsemyndighet og Health Data Access Body), samt omfattende teknisk utvikling for &aring; koble Norge til MyHealth@EU og HealthData@EU.</p>
+        <p>Samlede samfunns&oslash;konomiske kostnader antas &aring; bli h&oslash;ye, men forordningen forventes ogs&aring; &aring; gi vesentlige nyttevirkninger gjennom bedre datakvalitet, reduserte medisinske feil, mer effektiv forskning og styrket pasientmedvirkning.</p>
+    </div>
+
+    <hr>
+
+    <h2>1. Problemforst&aring;else</h2>
+
+    <h3>1.1 Bakgrunn og kontekst</h3>
+    <p>EHDS-forordningen ble vedtatt for &aring; l&oslash;se flere identifiserte problemer i europeisk helsedatadeling (kilde: EU-kommisjonen, EUR-Lex):</p>
+    <ul>
+        <li><strong>Fragmentert tilgang til helsedata</strong>: Pasienter har begrenset mulighet til &aring; f&aring; tilgang til og dele sine helseopplysninger p&aring; tvers av landegrenser og mellom virksomheter.</li>
+        <li><strong>Manglende interoperabilitet</strong>: Ulike formater, kodeverk og standarder gj&oslash;r det vanskelig &aring; utveksle helseinformasjon effektivt mellom EHR-systemer (Electronic Health Record) i ulike land.</li>
+        <li><strong>Underutnyttelse av helsedata for sekund&aelig;rform&aring;l</strong>: Helsedata brukes i begrenset grad til forskning, innovasjon og folkehelseform&aring;l p&aring; grunn av juridiske, tekniske og organisatoriske barrierer.</li>
+        <li><strong>Ulik beskyttelse av pasientrettigheter</strong>: Ulike nasjonale regler gir ulik grad av kontroll for innbyggere over egne helsedata.</li>
+    </ul>
+
+    <h3>1.2 Hva EHDS skal oppn&aring;</h3>
+    <p>Forordningens form&aring;l er todelt (kilde: EU 2025/327, artikkel 1):</p>
+    <ol>
+        <li><strong>Prim&aelig;rbruk</strong>: Styrke innbyggernes rettigheter til egne helseopplysninger og muliggj&oslash;re sikker deling med helsepersonell innenfor og p&aring; tvers av landegrenser for &aring; yte bedre helsehjelp.</li>
+        <li><strong>Sekund&aelig;rbruk</strong>: Etablere en felles tiln&aelig;rming til sekund&aelig;rbruk av helsedata for forskning, innovasjon, politikkutforming, pasientsikkerhet og regulatoriske form&aring;l, med tilstrekkelig personvern.</li>
+    </ol>
+
+    <h3>1.3 Problemforst&aring;else i norsk kontekst</h3>
+    <p>Helsedirektoratets konsekvensvurdering (april 2025) identifiserer f&oslash;lgende norske utfordringer:</p>
+    <ul>
+        <li>Helseopplysninger registreres elektronisk innenfor alle prioriterte kategorier, men med <strong>ulike formater og kodeverk</strong>, <strong>ulikt strukturerings- og detaljeringsniv&aring;</strong>, og kan v&aelig;re registrert for andre form&aring;l enn det EHDS krever.</li>
+        <li><strong>Tilgang og sammenstilling</strong> er en utfordring fordi helseopplysningene befinner seg i ulike kilder med ulike personidentifiserende data, b&aring;de innenfor og p&aring; tvers av virksomheter.</li>
+        <li>Eksisterende meldingsbasert utveksling (nasjonale meldingsstandarder) er ikke fullt kompatibel med det europeiske utvekslingsformatet (EEHRxF) som EHDS krever.</li>
+        <li>Det norske lovverket (pasientjournalloven, helseregisterloven, pasient- og brukerrettighetsloven) er ikke fullt harmonisert med EHDS-kravene.</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. Relevante tiltak</h2>
+
+    <h3>2.1 Rettslige tiltak</h3>
+    <p>F&oslash;lgende rettslige tilpasninger er n&oslash;dvendige if&oslash;lge kildene:</p>
+    <ul>
+        <li><strong>E&Oslash;S-innlemmelse med artikkel 103-forbehold</strong>: Forordningen krever Stortingets godkjenning fordi den fordrer nasjonale lovendringer og vil ha budsjettmessige og organisatoriske konsekvenser (kilde: regjeringen.no, E&Oslash;S-notatbasen).</li>
+        <li><strong>Endringer i pasientjournalloven</strong>: Det p&aring;g&aring;r allerede lovarbeid med endringer i pasientjournalloven for nasjonal digital samhandling (&laquo;&Eacute;n innbygger &ndash; &eacute;n journal&raquo;), som delvis vil legge grunnlag for EHDS-etterlevelse (kilde: Prop. 91 L (2021&ndash;2022), regjeringen.no).</li>
+        <li><strong>Endringer i helseregisterloven og helseforskningsloven</strong>: HOD har sendt ut h&oslash;ring om endringer for &aring; tilrettelegge for mer og bedre forskning og forenkle formelle prosesser knyttet til forskning (kilde: regjeringen.no, h&oslash;ringsfrist januar 2025).</li>
+        <li><strong>Vurdering av taushetspliktsregler</strong>: H&oslash;ring om endringer i reglene om taushetsplikt i helsepersonelloven og pasientjournalloven er gjennomf&oslash;rt (kilde: regjeringen.no).</li>
+        <li><strong>Nasjonalt regelverk for sikre analyserom</strong>: Helsedirektoratet har en p&aring;g&aring;ende h&oslash;ring om kriterier for sikre analyserom (Secure Processing Environments) for sekund&aelig;rbruk, med frist oktober 2025 (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <h3>2.2 Organisatoriske tiltak</h3>
+    <ul>
+        <li><strong>Utpeking av nasjonal digital helsemyndighet</strong>: EHDS krever at hvert land utpeker en nasjonal digital helsemyndighet (Digital Health Authority). I Norge er det Helsedirektoratet som har rollen som helsefaglig myndighet med ansvar for digitalisering (kilde: Helsedirektoratet).</li>
+        <li><strong>Etablering av Health Data Access Body (HDAB)</strong>: Norge m&aring; opprette eller utpeke et nasjonalt organ som administrerer tilgang til helsedata for sekund&aelig;rbruk. HDAB-ens oppgaver inkluderer &aring; motta og vurdere s&oslash;knader om datatilgang, utstede datatillatelser, f&oslash;re tilsyn med sikre analyserom, og h&aring;ndheve EHDS-forpliktelsene (kilde: EU-kommisjonen, helsedata.no).</li>
+        <li><strong>Tilpasning av eksisterende forvaltningsstruktur</strong>: Forholdet mellom Helsedirektoratet, Norsk helsenett og eksisterende akt&oslash;rer (helsedata.no, FHI, Direktoratet for e-helse) m&aring; avklares i lys av EHDS-kravene.</li>
+    </ul>
+
+    <h3>2.3 Tekniske tiltak</h3>
+    <ul>
+        <li><strong>Tilkobling til MyHealth@EU</strong>: Norsk helsenett (NHN) er ansvarlig for &aring; koble Norge til den grensekryssende infrastrukturen for prim&aelig;rbruk. Pilotering er gjennomf&oslash;rt i 2024 med utvalgte kommuner (kilde: nhn.no).</li>
+        <li><strong>Tilkobling til HealthData@EU</strong>: Norge deltar allerede i pilotprosjekter for den desentraliserte EU-infrastrukturen for sekund&aelig;rbruk av helsedata (kilde: helsedata.no, SPUHiN-prosjektet).</li>
+        <li><strong>Implementering av EEHRxF (European Electronic Health Record exchange Format)</strong>: EHR-systemer i Norge m&aring; st&oslash;tte det felles europeiske utvekslingsformatet. Mange norske journalsystemer har allerede eksport-/importst&oslash;tte for de prioriterte kategoriene, men basert p&aring; nasjonale meldingsstandarder. Overgang til HL7 FHIR-baserte grensesnitt er p&aring;begynt (kilde: Helsedirektoratet).</li>
+        <li><strong>Nasjonal informasjonsmodell (Helse-NIM)</strong>: Helsedirektoratet har en p&aring;g&aring;ende h&oslash;ring om nasjonal informasjonsmodell for oppsummerende helseopplysninger (Patient Summary), som er en av de prioriterte kategoriene i EHDS (kilde: Helsedirektoratet).</li>
+        <li><strong>Sertifisering og CE-merking av EHR-systemer</strong>: EHR-systemleverand&oslash;rer m&aring; gjennomf&oslash;re selvdeklarasjon om at systemene oppfyller krav til interoperabilitet og logging, samt gjennomg&aring; obligatorisk testing i nasjonalt testmilj&oslash; (kilde: Helsedirektoratets gapanalyse). Nasjonale l&oslash;sninger som kjernejournal og reseptformidleren er &laquo;tatt i bruk&raquo; men ikke &laquo;plassert p&aring; markedet&raquo;, og har dermed et noe enklere kravregime (kilde: Helsedirektoratet).</li>
+        <li><strong>Etablering av sikre analyserom (SPE)</strong>: For sekund&aelig;rbruk krever EHDS bruk av sikre analyserom. SPUHiN-prosjektet (2023&ndash;2025), ledet av dav&aelig;rende Direktorat for e-helse, FHI og Helsedirektoratet, utvikler krav og metadata for sikre analyserom med st&oslash;tte fra EU4Health-programmet (kilde: Helsedirektoratet, helsedata.no).</li>
+    </ul>
+
+    <h3>2.4 Standardiseringstiltak</h3>
+    <ul>
+        <li><strong>Deltakelse i Xt-EHR-prosjektet</strong>: Norge deltar i EU-prosjektet Xt-EHR for &aring; utvikle europeiske spesifikasjoner (kilde: Helsedirektoratet).</li>
+        <li><strong>Deltakelse i EURIDICE</strong>: HL7 Europe og IHE-Europe samarbeider om &aring; utvikle spesifikasjoner som kombinerer HL7 FHIR med IHE-metodikk for EHDS (kilde: IHE-Europe, HL7 Europe).</li>
+        <li><strong>Styrket norsk deltakelse i EU-standardiseringsarbeid</strong>: Helsedirektoratet har en plan for &aring; styrke norsk deltakelse i internasjonalt e-helsestandardiseringsarbeid (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <hr>
+
+    <h2>3. Prinsipielle sp&oslash;rsm&aring;l</h2>
+
+    <h3>3.1 Personvern og individuelle rettigheter</h3>
+    <p>EHDS gir innbyggere nye rettigheter som delvis avviker fra gjeldende norsk rett:</p>
+    <ul>
+        <li><strong>Rett til tilgang og nedlasting</strong>: Innbyggere skal ha rett til &aring; f&aring; tilgang til egne helseopplysninger i prioriterte kategorier og laste dem ned i europeisk utvekslingsformat (kilde: EU 2025/327).</li>
+        <li><strong>Rett til tilgangsbegrensning</strong>: Pasienter kan begrense helsepersonells tilgang til opplysninger, med unntak for situasjoner der det er n&oslash;dvendig for &aring; ivareta vitale interesser (kilde: Helsedirektoratets gapanalyse).</li>
+        <li><strong>Rett til opt-out fra sekund&aelig;rbruk</strong>: Innbyggere kan reservere seg mot sekund&aelig;rbruk av egne helsedata, unntatt for form&aring;l av offentlig interesse (kilde: Stortinget EU/E&Oslash;S-nytt).</li>
+        <li><strong>&Aring;pent sp&oslash;rsm&aring;l for Norge</strong>: Det er uavklart om borgere vil f&aring; rett til &aring; reservere seg mot deling av helseopplysninger via MyHealth@EU og tilgangstjenester, forsinket tilgang og/eller andre begrensninger (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <h3>3.2 Nasjonal suverenitet og maktfordeling</h3>
+    <ul>
+        <li><strong>Forordning vs. direktiv</strong>: EHDS er en forordning som skal gjennomf&oslash;res direkte (med visse nasjonale tilpasningsmuligheter), ikke et direktiv. Dette begrenser det nasjonale handlingsrommet (kilde: europalov.no).</li>
+        <li><strong>Nasjonalt handlingsrom</strong>: Hvert land kan fastsette mer detaljerte bestemmelser om tilgangsbegrensninger og reservasjoner. Norge har ogs&aring; mulighet til &aring; beholde strengere regler p&aring; enkelte omr&aring;der, men m&aring; sikre at minimumskravene i forordningen oppfylles (kilde: Helsedirektoratet).</li>
+        <li><strong>Kompetansefordeling</strong>: Sp&oslash;rsm&aring;l om hvilken nasjonal myndighet som skal v&aelig;re digital helsemyndighet og HDAB, og hvordan dette forholder seg til eksisterende myndighetsstruktur (HOD, Helsedirektoratet, NHN) (kilde: CLAUDE.md rolleoversikt, Helsedirektoratet).</li>
+    </ul>
+
+    <h3>3.3 Forholdet mellom EHDS og GDPR</h3>
+    <p>EHDS bygger p&aring; og supplerer GDPR. Personvernforordningen har st&oslash;rst innvirkning p&aring; behandling av helseopplysninger, og EHDS-forordningen etablerer sektorspesifikke regler som g&aring;r utover GDPRs generelle rammer. I noen tilfeller gir EHDS rettigheter som ikke finnes eksplisitt i GDPR (f.eks. retten til &aring; velge bort sekund&aelig;rbruk), mens GDPR-grunnprinsippene om form&aring;lsbegrensning, dataminimering og samtykke fortsatt gjelder (kilde: DLA Piper, helsedata.no).</p>
+
+    <h3>3.4 Datalagringssted</h3>
+    <p>Som hovedregel skal helsedata lagres i EU/E&Oslash;S, men i unntakstilfeller kan lagring og behandling i tredjeland tillates dersom det er i samsvar med GDPR-standarder (kilde: DLA Piper).</p>
+
+    <h3>3.5 Tillit og legitimitet</h3>
+    <p>Forordningen krever tilstrekkelige sikkerhetstiltak p&aring; b&aring;de EU- og nasjonalt niv&aring; for &aring; sikre h&oslash;y grad av databeskyttelse, sikkerhet, konfidensialitet og etisk bruk. Dette er n&oslash;dvendig for &aring; bygge tillit til h&aring;ndtering av helsedata for b&aring;de prim&aelig;r- og sekund&aelig;rbruk (kilde: EU 2025/327).</p>
+
+    <hr>
+
+    <h2>4. Virkninger</h2>
+
+    <h3>4.1 Positive virkninger</h3>
+    <p>Kildene identifiserer f&oslash;lgende mulige positive virkninger:</p>
+
+    <p><strong>For pasienter og innbyggere:</strong></p>
+    <ul>
+        <li>Direkte tilgang til egne helseopplysninger digitalt, inkludert mulighet for nedlasting i standardformat (kilde: EU 2025/327).</li>
+        <li>Mulighet for &aring; dele helseopplysninger med helsepersonell i hele EU/E&Oslash;S ved reise eller flytting (kilde: Helsedirektoratet).</li>
+        <li>Styrket kontroll over egne helsedata gjennom tilgangsbegrensning og opt-out-mekanismer (kilde: Helsedirektoratets gapanalyse).</li>
+    </ul>
+
+    <p><strong>For helsepersonell og helsetjenesten:</strong></p>
+    <ul>
+        <li>Bedre tilgang til relevant helseinformasjon om pasienter som behandles, ogs&aring; n&aring;r de kommer fra andre land (kilde: EU-kommisjonen).</li>
+        <li>Redusert risiko for medisinske feil gjennom bedre informasjonstilgang (kilde: Helsedirektoratet, samfunns&oslash;konomisk vurdering).</li>
+        <li>Unng&aring;tt un&oslash;dvendig ressursbruk, f.eks. ved dobbeltunders&oslash;kelser (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <p><strong>For forskning og innovasjon:</strong></p>
+    <ul>
+        <li>Bedre kvalitet p&aring; helsedata for sekund&aelig;rbruk, som kan f&oslash;re til bedre kunnskapsproduksjon (kilde: Helsedirektoratet).</li>
+        <li>Raskere og mer kostnadseffektiv utvikling av nye legemidler og medisinske prosedyrer (kilde: Helsedirektoratet, samfunns&oslash;konomisk vurdering).</li>
+        <li>Felles europeisk infrastruktur (HealthData@EU) som forenkler tilgang til helsedata for forskere (kilde: EU-kommisjonen).</li>
+    </ul>
+
+    <p><strong>For sektoren som helhet:</strong></p>
+    <ul>
+        <li>&Oslash;kt interoperabilitet og standardisering som kan gi effektiviseringsgevinster over tid (kilde: EU-kommisjonen).</li>
+        <li>Harmonisering med europeiske standarder som kan styrke norsk deltakelse i europeisk helsesamarbeid (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <h3>4.2 Negative virkninger og utfordringer</h3>
+
+    <p><strong>&Oslash;konomiske kostnader:</strong></p>
+    <ul>
+        <li>Samlede tiltak fremst&aring;r som omfattende, og totalkostnadene for samfunnet vil sannsynligvis bli h&oslash;ye (kilde: Helsedirektoratet, samfunns&oslash;konomisk vurdering).</li>
+        <li>Stor usikkerhet om totale samfunns&oslash;konomiske kostnader, s&aelig;rlig knyttet til teknisk utvikling, tilpasning og innf&oslash;ring, men ogs&aring; forvaltningsstruktur (kilde: regjeringen.no, E&Oslash;S-notatbasen).</li>
+        <li>Alle virksomheter i helse- og omsorgssektoren vil bli ber&oslash;rt, men det er usikkert hvor mange helseinformasjonssystemer som omfattes, i hvilket omfang, og hvilke tiltak som er n&oslash;dvendige (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <p><strong>Tekniske utfordringer:</strong></p>
+    <ul>
+        <li>Behov for &aring; endre b&aring;de EHR-systemer og arbeidsprosesser for &aring; oppfylle kravene (kilde: Helsedirektoratets gapanalyse).</li>
+        <li>Overgang fra nasjonale meldingsstandarder til HL7 FHIR-baserte grensesnitt krever betydelig utviklingsarbeid (kilde: Helsedirektoratet).</li>
+        <li>Mange gjennomf&oslash;ringsrettsakter som detaljerer kravene er enn&aring; ikke vedtatt, noe som skaper usikkerhet om hva som konkret kreves (kilde: EU-kommisjonen).</li>
+    </ul>
+
+    <p><strong>Organisatoriske utfordringer:</strong></p>
+    <ul>
+        <li>Behov for ny forvaltningsstruktur med nye roller og ansvar (digital helsemyndighet, HDAB) (kilde: EU 2025/327).</li>
+        <li>Koordinering mellom mange akt&oslash;rer (HOD, Helsedirektoratet, NHN, helseregionene, kommunene, leverand&oslash;rer) (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <p><strong>Personvernrisiko:</strong></p>
+    <ul>
+        <li>&Oslash;kt deling av sensitive helsedata p&aring; tvers av landegrenser medf&oslash;rer nye personvernrisikoer (kilde: DLA Piper, GDPR-vurderinger).</li>
+        <li>Balansen mellom tilgjengelighet og personvern krever n&oslash;ye avveining (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <hr>
+
+    <h2>5. Anbefalinger fra kildene</h2>
+
+    <h3>5.1 Fra Helsedirektoratets konsekvensvurdering</h3>
+    <p>Helsedirektoratets gapanalyse (april 2025) gir f&oslash;lgende retning for videre arbeid:</p>
+    <ul>
+        <li><strong>Fortsatt konsekvensutredning</strong>: Gapanalysen fra april 2025 er en f&oslash;rsteutgave, og Helsedirektoratet arbeider videre med &aring; vurdere tiltak for &aring; innarbeide kravene fra EHDS (kilde: Helsedirektoratet).</li>
+        <li><strong>Trinnvis tiln&aelig;rming</strong>: Tilpasning b&oslash;r f&oslash;lge EHDS-forordningens trinnvise innf&oslash;ring, med pasientoppsummeringer og e-resept (mars 2029) som f&oslash;rste prioritet, deretter medisinske bilder, laboratorieresultater og epikriser (mars 2031) (kilde: Helsedirektoratet).</li>
+        <li><strong>Utnytte p&aring;g&aring;ende initiativer</strong>: Eksisterende arbeid med &laquo;&Eacute;n innbygger &ndash; &eacute;n journal&raquo;, nasjonal informasjonsmodell (Helse-NIM) og MyHealth@EU-pilotering kan bidra til &aring; oppfylle EHDS-krav (kilde: Helsedirektoratet, NHN).</li>
+    </ul>
+
+    <h3>5.2 Fra EU-kommisjonen</h3>
+    <ul>
+        <li><strong>Tidlig forberedelse</strong>: Medlemsstatene b&oslash;r begynne forberedelsene til EHDS-implementering umiddelbart, selv om mange gjennomf&oslash;ringsrettsakter enn&aring; ikke er vedtatt (kilde: EU-kommisjonen).</li>
+        <li><strong>Deltakelse i HDABs Community of Practice</strong>: Nasjonale myndigheter oppfordres til &aring; delta i HDABs-CoP for &aring; dele erfaringer og forberede implementeringen (kilde: EU-kommisjonen).</li>
+        <li><strong>Bruk av eksisterende infrastruktur</strong>: MyHealth@EU og HealthData@EU bygger p&aring; eksisterende infrastruktur og b&oslash;r utnyttes (kilde: EU-kommisjonen).</li>
+    </ul>
+
+    <h3>5.3 Fra norske myndighetsprosesser</h3>
+    <ul>
+        <li><strong>Rettslig harmonisering</strong>: P&aring;g&aring;ende lovarbeid med endringer i pasientjournalloven, helseregisterloven og helseforskningsloven b&oslash;r koordineres med EHDS-kravene (kilde: regjeringen.no).</li>
+        <li><strong>Standardiseringsarbeid</strong>: Norge b&oslash;r styrke deltakelsen i europeisk standardiseringsarbeid gjennom Xt-EHR, HL7 Europe og IHE-Europe (kilde: Helsedirektoratet).</li>
+        <li><strong>Nasjonal e-helsestrategi</strong>: EHDS-tilpasningene b&oslash;r innpasses i den nasjonale e-helsestrategien som gjelder fra 2023 og peker mot 2030 (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <hr>
+
+    <h2>6. Forutsetninger for gjennomf&oslash;ring</h2>
+
+    <h3>6.1 Rettslige forutsetninger</h3>
+    <ul>
+        <li><strong>Stortingets godkjenning</strong>: Innlemmelse i E&Oslash;S-avtalen krever artikkel 103-forbehold og Stortingets samtykke (kilde: regjeringen.no, E&Oslash;S-notatbasen).</li>
+        <li><strong>N&oslash;dvendige lovendringer</strong>: Pasientjournalloven, helseregisterloven og potensielt andre lover m&aring; endres for &aring; harmoniseres med forordningens krav (kilde: regjeringen.no).</li>
+        <li><strong>Vedtakelse av gjennomf&oslash;ringsrettsakter</strong>: Mange sentrale spesifikasjoner og detaljer skal vedtas i form av gjennomf&oslash;ringsrettsakter i perioden mars 2025 &ndash; mars 2027 (kilde: EU-kommisjonen).</li>
+    </ul>
+
+    <h3>6.2 Organisatoriske forutsetninger</h3>
+    <ul>
+        <li><strong>Tydelig ansvarsfordeling</strong>: Avklaring av hvilke nasjonale organer som skal fylle rollene som digital helsemyndighet og HDAB (kilde: EU 2025/327).</li>
+        <li><strong>Tilstrekkelig kapasitet og kompetanse</strong>: B&aring;de Helsedirektoratet, NHN og andre akt&oslash;rer m&aring; ha tilstrekkelige ressurser til &aring; gjennomf&oslash;re n&oslash;dvendige tilpasninger (kilde: Helsedirektoratet).</li>
+        <li><strong>Koordinering mellom sektorer</strong>: Sekund&aelig;rbruk av helsedata involverer akt&oslash;rer utenfor helse- og omsorgssektoren (forskningsmilj&oslash;er, n&aelig;ringsliv, offentlig forvaltning), og krever kryssektorielt samarbeid (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <h3>6.3 Tekniske forutsetninger</h3>
+    <ul>
+        <li><strong>Interoperabilitetsstandard</strong>: Implementering av EEHRxF (European Electronic Health Record exchange Format) basert p&aring; HL7 FHIR krever at EHR-leverand&oslash;rene tilpasser sine systemer (kilde: Helsedirektoratet, HL7 Europe).</li>
+        <li><strong>Nasjonal testinfrastruktur</strong>: Det m&aring; etableres nasjonalt testmilj&oslash; for obligatorisk testing av EHR-systemer (kilde: Helsedirektoratets gapanalyse).</li>
+        <li><strong>Sikker infrastruktur for grensekryssende datautveksling</strong>: MyHealth@EU (prim&aelig;rbruk) og HealthData@EU (sekund&aelig;rbruk) m&aring; v&aelig;re operativt tilgjengelige (kilde: NHN, EU-kommisjonen).</li>
+        <li><strong>Sikre analyserom</strong>: Nasjonal infrastruktur for sikre analyserom for sekund&aelig;rbruk m&aring; etableres i tr&aring;d med EHDS-kravene (kilde: Helsedirektoratet, SPUHiN).</li>
+    </ul>
+
+    <h3>6.4 &Oslash;konomiske forutsetninger</h3>
+    <ul>
+        <li><strong>Tilstrekkelig finansiering</strong>: Gjennomf&oslash;ringen krever betydelige investeringer fra offentlige midler og fra akt&oslash;rene i sektoren. Prop. 1 S (2025&ndash;2026) for HOD omtaler EHDS-relatert arbeid (kilde: regjeringen.no).</li>
+        <li><strong>EU-medfinansiering</strong>: Norge kan s&oslash;ke om st&oslash;tte gjennom EU-programmer som EU4Health (SPUHiN-prosjektet er et eksempel) (kilde: Helsedirektoratet).</li>
+    </ul>
+
+    <h3>6.5 Tidsmessige forutsetninger</h3>
+    <p>Forordningen opererer med f&oslash;lgende frister:</p>
+
+    <div class="table-wrapper">
+    <table>
+        <thead><tr><th>Frist</th><th>Krav</th></tr></thead>
+        <tbody>
+            <tr><td>Juni 2025</td><td>Utpeking av nasjonal digital helsemyndighet</td></tr>
+            <tr><td>Januar 2026</td><td>Sertifisering av EHR-systemer for interoperabilitet og sikkerhet</td></tr>
+            <tr><td>Mars 2027</td><td>EU-kommisjonens gjennomf&oslash;ringsrettsakter skal v&aelig;re vedtatt; forordningen f&aring;r full anvendelse i EU</td></tr>
+            <tr><td>Mars 2029</td><td>Utveksling av f&oslash;rste gruppe prioriterte kategorier (pasientoppsummeringer, e-resept/e-dispensering); regler for sekund&aelig;rbruk trer i kraft for de fleste datakategorier</td></tr>
+            <tr><td>Mars 2031</td><td>Utveksling av andre gruppe prioriterte kategorier (medisinske bilder, laboratorieresultater, epikriser)</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="warning-box">
+        <p><strong>Merknad:</strong> Norges tidsplan avhenger av tidspunktet for E&Oslash;S-innlemmelse og Stortingets behandling, og vil derfor kunne avvike fra EU-fristene.</p>
+    </div>
+
+    <hr>
+
+    <h2>Kilder</h2>
+    <ol class="source-list">
+        <li><a href="https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng">Regulation (EU) 2025/327 &ndash; EUR-Lex</a></li>
+        <li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202500327">EHDS-forordningen, fulltekst &ndash; EUR-Lex</a></li>
+        <li><a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space-regulation-ehds_en">European Health Data Space Regulation &ndash; EU-kommisjonen</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025">Helsedirektoratets EHDS konsekvensvurdering &ndash; Gapanalyse pr. 11. april 2025</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/innledning/om-denne-rapporten">Om denne rapporten &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/innledning/om-det-europeiske-helsedataomradet--ehds">Om det europeiske helsedataomr&aring;det &ndash; EHDS &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/primaerbruk-av-helseopplysninger">Prim&aelig;rbruk av helseopplysninger &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/sekundaerbruk-av-helsedata">Sekund&aelig;rbruk av helsedata &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/primaerbruk-av-helseopplysninger/krav-til-ehr-systemer">Krav til EHR-systemer &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/primaerbruk-av-helseopplysninger/rettigheter-for-innbygger">Rettigheter for innbygger &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025/overordnet-vurdering-av-mulige-samfunnsokonomiske-nyttevirkninger-og-kostnadsdrivere">Overordnet vurdering av mulige samfunns&oslash;konomiske nyttevirkninger og kostnadsdrivere &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/om-oss/internasjonalt-samarbeid/felles-europeisk-helsedataomrade-ehds">Europeisk helsedataomr&aring;de (EHDS) &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/om-oss/internasjonalt-samarbeid/felles-europeisk-helsedataomrade-ehds/hva-betyr-ehds-for-norge">Hva betyr EHDS for Norge &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.regjeringen.no/no/sub/eos-notatbasen/notatene/2022/juni/forslag-til-forordning-om-det-europeiske-helsedataomradet-ehds/id3014792/">E&Oslash;S-notat: Forordning om det europeiske helsedataomr&aring;det &ndash; regjeringen.no</a></li>
+        <li><a href="https://europalov.no/rettsakt/forordning-om-europeisk-helsedataomrade-ehds/id-28695">Forordning om europeisk helsedataomr&aring;de (EHDS) &ndash; europalov.no</a></li>
+        <li><a href="https://www.stortinget.no/no/Hva-skjer-pa-Stortinget/EU-EOS-informasjon/EU-EOS-nytt/2024/eueos-nytt---21.-mars-2024/enighet-om-helsedata-ehds/">Enighet om helsedata (EHDS) &ndash; Stortinget</a></li>
+        <li><a href="https://www.stortinget.no/no/Hva-skjer-pa-Stortinget/EU-EOS-informasjon/EU-EOS-nytt/2025/eueos-nytt---31.-januar-2025/nytt-regelverk-for-deling-av-helsedata-vedtatt-i-eu">Nytt regelverk for deling av helsedata vedtatt i EU &ndash; Stortinget</a></li>
+        <li><a href="https://www.nhn.no/tjenester/myhealth">MyHealth@EU &ndash; Norsk helsenett</a></li>
+        <li><a href="https://www.helsedirektoratet.no/digitalisering-og-e-helse/nasjonal-e-helsestrategi">Nasjonal e-helsestrategi &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/horinger/oversikt-over-kriterier-til-sikre-analyserom-for-sekundaerbruk-av-helsedata-i-norge--i-forberedelse-til-kommende-krav-i-ehds">Oversikt over kriterier til sikre analyserom &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/om-oss/forsoksordninger-og-prosjekter/fair-secure-provision-and-use-of-health-data-in-norway-spuhin">FAIR Secure provision and use of health data in Norway (SPUHiN) &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/digitalisering-og-e-helse/e-helsestandarder-og-standardiseringstiltak/plan-for-internasjonale-e-helsestandarder/standardiseringstiltak-knyttet-til-ehds">Standardiseringstiltak knyttet til EHDS &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.helsedirektoratet.no/horinger/nasjonal-informasjonsmodell-helse-nim-for-oppsummerende-helseopplysninger">Nasjonal informasjonsmodell (Helse-NIM) &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://www.regjeringen.no/no/dokumenter/prop.-1-s-20252026/id3123533/?ch=2">Prop. 1 S (2025&ndash;2026) &ndash; Helse- og omsorgsdepartementet</a></li>
+        <li><a href="https://www.regjeringen.no/no/dokumenter/horing-om-endringer-i-pasientjournalloven-mv.-nasjonal-digital-samhandling-til-beste-for-pasienter-og-brukere/id2865518/">H&oslash;ring: Endringer i pasientjournalloven mv. &ndash; regjeringen.no</a></li>
+        <li><a href="https://www.helsedirektoratet.no/lov-og-forskrift/digital-deling-av-helseopplysninger/eu-regelverk-om-deling-av-helseopplysninger">EU-regelverk om deling av helseopplysninger &ndash; Helsedirektoratet</a></li>
+        <li><a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/ehds-action/projects-supporting-ehds/health-data-access-bodies-community-practice_en">Health Data Access Bodies &ndash; Community of Practice &ndash; EU-kommisjonen</a></li>
+        <li><a href="https://www.arnoldporter.com/en/perspectives/advisories/2025/03/european-health-data-space-regulation-published">Arnold &amp; Porter: EHDS Regulation Published</a></li>
+        <li><a href="https://www.ey.com/en_gr/technical/tax/tax-alerts/regulation-2025-327-establishing-ehds">EY: Regulation (EU) 2025/327 Establishing EHDS</a></li>
+        <li><a href="https://www.noerr.com/en/insights/the-european-health-data-space-is-on-its-way-an-overview">Noerr: The European Health Data Space is on its way</a></li>
+    </ol>
+
+    <hr>
+
+    <h2>Kunnskapsgap</h2>
+    <p>F&oslash;lgende omr&aring;der er identifisert der tilgjengelig informasjon er utilstrekkelig eller frav&aelig;rende:</p>
+    <ol>
+        <li><strong>Detaljerte gjennomf&oslash;ringsrettsakter</strong>: Mange sentrale spesifikasjoner skal vedtas av EU-kommisjonen i perioden mars 2025 &ndash; mars 2027. Uten disse er det vanskelig &aring; fastsl&aring; det fulle omfanget av forpliktelsene. <em>Forslag: F&oslash;lge EU-kommisjonens arbeid l&oslash;pende og oppdatere kunnskapsgrunnlaget.</em></li>
+        <li><strong>Fullstendig samfunns&oslash;konomisk analyse</strong>: Helsedirektoratets konsekvensvurdering gir kun en overordnet vurdering av nyttevirkninger og kostnadsdrivere, ikke en fullstendig samfunns&oslash;konomisk analyse. <em>Forslag: Gjennomf&oslash;re en samfunns&oslash;konomisk analyse i tr&aring;d med DFOs veileder.</em></li>
+        <li><strong>Tidspunkt for E&Oslash;S-innlemmelse</strong>: Det er uklart n&aring;r EHDS-forordningen vil bli innlemmet i E&Oslash;S-avtalen og dermed gjelde for Norge. <em>Forslag: F&oslash;lge E&Oslash;S-prosessen gjennom regjeringen.no og europalov.no.</em></li>
+        <li><strong>Detaljert rettslig gap-analyse</strong>: Selv om det p&aring;g&aring;r lovarbeid, mangler en systematisk gjennomgang av hvert enkelt krav i EHDS-forordningen opp mot gjeldende norsk lov. Helsedirektoratets gapanalyse er en f&oslash;rsteutgave. <em>Forslag: Avvente oppdatert gapanalyse fra Helsedirektoratet.</em></li>
+        <li><strong>Kommunesektorens beredskap</strong>: Det er begrenset informasjon om kommunenes tekniske og organisatoriske beredskap for &aring; oppfylle EHDS-kravene. <em>Forslag: Innhente informasjon fra KS og utvalgte kommuner.</em></li>
+        <li><strong>Leverand&oslash;renes endringskapasitet</strong>: Det mangler systematisk informasjon om norske EHR-leverand&oslash;rers kapasitet til &aring; tilpasse seg EHDS-kravene innen fristene. <em>Forslag: Gjennomf&oslash;re kartlegging blant leverand&oslash;rene.</em></li>
+        <li><strong>Erfaringer fra andre nordiske land</strong>: Det er begrenset tilgjengelig informasjon om hvordan Sverige, Danmark og Finland forbereder seg p&aring; EHDS. <em>Forslag: Innhente informasjon fra nordiske samarbeidsorganer.</em></li>
+        <li><strong>Detaljert innhold i Helsedirektoratets gapanalyse</strong>: WebFetch-tilgang til det fulle innholdet p&aring; helsedirektoratet.no var ikke tilgjengelig under utarbeidelsen av dette kunnskapsgrunnlaget. Informasjonen er hentet fra s&oslash;keresultatenes sammendrag. <em>Forslag: Gjennomg&aring; det fulle innholdet i gapanalysen manuelt og supplere dette dokumentet.</em></li>
+    </ol>
+
+    <hr>
+
+    <h2>Motstridende informasjon</h2>
+    <p>F&oslash;lgende omr&aring;der har blitt identifisert der ulike kilder gir tilsynelatende motstridende eller uavklart informasjon:</p>
+    <ol>
+        <li><strong>Tidsfrister for sertifisering</strong>: Noen kilder angir januar 2026 som frist for sertifisering av EHR-systemer for interoperabilitet og sikkerhet, mens andre kilder fokuserer p&aring; mars 2029/2031 som tidspunkt for operativ bruk av prioriterte kategorier. Det er uklart om sertifiseringskravet fra januar 2026 gjelder direkte for E&Oslash;S/EFTA-stater eller bare EU-medlemsland. <em>Vurdering: Tidsfristene for E&Oslash;S-stater vil avhenge av innlemmelsestidspunktet.</em></li>
+        <li><strong>Omfanget av opt-out-rettigheter</strong>: EHDS gir rett til opt-out fra sekund&aelig;rbruk &laquo;unntatt for form&aring;l av offentlig interesse&raquo;, men definisjonen av &laquo;offentlig interesse&raquo; kan variere mellom EU-niv&aring; og nasjonalt niv&aring;. Norsk lovgivning har tradisjonelt hatt brede hjemler for bruk av helsedata til statistikk og forskning uten samtykke. <em>Vurdering: Krever rettslig avklaring av forholdet mellom EHDS opt-out og norske hjemler.</em></li>
+        <li><strong>Rolle som digital helsemyndighet</strong>: Det er ikke eksplisitt avklart om Helsedirektoratet, Norsk helsenett eller et annet organ skal fungere som Norges nasjonale digitale helsemyndighet under EHDS. Helsedirektoratet har det overordnede ansvaret for digitalisering, men NHN har operativ driftsansvar. <em>Vurdering: Krever politisk beslutning fra HOD.</em></li>
+        <li><strong>Krav til nasjonale vs. markedsplasserte EHR-systemer</strong>: Nasjonale l&oslash;sninger som kjernejournal og reseptformidleren er &laquo;tatt i bruk&raquo; men ikke &laquo;plassert p&aring; markedet&raquo;, og har dermed enklere krav (ingen CE-merking). Det er noe uklarhet om hvilke konkrete krav som gjelder for denne kategorien. <em>Vurdering: Avvente gjennomf&oslash;ringsrettsakter for n&aelig;rmere avklaring.</em></li>
+    </ol>
+
+    <div class="footer">
+        <p>Dokumentet er utarbeidet 15. mars 2026 basert p&aring; offentlig tilgjengelige kilder. Informasjonen er hentet gjennom webs&oslash;k og representerer et sammendrag av s&oslash;keresultatene. For fullstendig innhold i de refererte kildene, se lenker i kildelisten.</p>
+    </div>
+</div>
+</body>
+</html>

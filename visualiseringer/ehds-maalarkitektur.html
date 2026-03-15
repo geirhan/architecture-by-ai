@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHDS Malarkitektur for Norge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #0d2b45, #1a6b8a);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 1.8em; margin-bottom: 10px; }
+        .header p { font-size: 1em; opacity: 0.9; max-width: 850px; margin: 0 auto; }
+        .header .date { font-size: 0.85em; margin-top: 10px; opacity: 0.85; }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .legend-color {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid #999;
+        }
+
+        .architecture-container {
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .layer {
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid;
+            position: relative;
+        }
+        .layer-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .business-layer { background: #FFFFCC; border-color: #d4c84a; }
+        .business-layer .layer-title { background: #e6d94a; color: #4a3f00; }
+        .application-layer { background: #CCE5FF; border-color: #6aace6; }
+        .application-layer .layer-title { background: #6aace6; color: #002b55; }
+        .technology-layer { background: #CCFFCC; border-color: #5abf5a; }
+        .technology-layer .layer-title { background: #5abf5a; color: #003300; }
+        .eu-layer { background: #f0d9ff; border-color: #b380cc; }
+        .eu-layer .layer-title { background: #b380cc; color: #2e004d; }
+        .governance-layer { background: #ffe6cc; border-color: #e09050; }
+        .governance-layer .layer-title { background: #e09050; color: #4a2000; }
+
+        .components-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .component {
+            background: white;
+            border: 2px solid;
+            border-radius: 8px;
+            padding: 12px 16px;
+            min-width: 150px;
+            max-width: 230px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .component:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        .component .name { font-weight: 700; font-size: 0.9em; margin-bottom: 4px; }
+        .component .desc { font-size: 0.75em; color: #555; }
+
+        .business-layer .component { border-color: #d4c84a; }
+        .application-layer .component { border-color: #6aace6; }
+        .technology-layer .component { border-color: #5abf5a; }
+        .eu-layer .component { border-color: #b380cc; }
+        .governance-layer .component { border-color: #e09050; }
+
+        .new-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 0.6em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+            color: white;
+        }
+        .badge-new { background: #e74c3c; }
+        .badge-enhanced { background: #f39c12; }
+        .badge-existing { background: #27ae60; }
+        .badge-eu { background: #8e44ad; }
+
+        .sub-section {
+            margin-top: 15px;
+        }
+        .sub-section h3 {
+            font-size: 1em;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .dual-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .dual-column { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.3em; }
+            .component { min-width: 130px; max-width: 180px; }
+        }
+
+        .column-box {
+            background: rgba(255,255,255,0.5);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px dashed #999;
+        }
+        .column-box h4 {
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .dataflow-section {
+            max-width: 1250px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #ddd;
+        }
+        .dataflow-section h2 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #0d2b45;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .flow-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .flow-node {
+            background: white;
+            border: 2px solid #6aace6;
+            border-radius: 6px;
+            padding: 6px 14px;
+            font-size: 0.85em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .flow-node-eu {
+            border-color: #b380cc;
+            background: #f9f0ff;
+        }
+        .flow-node-new {
+            border-color: #e74c3c;
+            background: #fff0f0;
+        }
+        .flow-arrow {
+            color: #555;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .flow-label {
+            font-size: 0.75em;
+            color: #666;
+            font-style: italic;
+            min-width: 140px;
+        }
+
+        .timeline-section {
+            max-width: 1250px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #ddd;
+        }
+        .timeline-section h2 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #0d2b45;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #ddd;
+        }
+        .timeline-item {
+            position: relative;
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 18px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid;
+        }
+        .timeline-item.done::before { border-color: #27ae60; background: #27ae60; }
+        .timeline-item.current::before { border-color: #f39c12; background: #f39c12; }
+        .timeline-item.future::before { border-color: #3498db; background: white; }
+        .timeline-item.far-future::before { border-color: #95a5a6; background: white; }
+        .timeline-year {
+            font-weight: 700;
+            font-size: 1em;
+            margin-bottom: 4px;
+        }
+        .timeline-desc {
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .badge-legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .badge-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8em;
+        }
+        .badge-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .tooltip {
+            display: none;
+            position: fixed;
+            background: #333;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            max-width: 340px;
+            z-index: 1000;
+            line-height: 1.5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #555;
+            padding: 20px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .category-card {
+            background: white;
+            border: 2px solid #6aace6;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+        .category-card .cat-name { font-weight: 700; font-size: 0.85em; }
+        .category-card .cat-deadline { font-size: 0.75em; color: #666; margin-top: 4px; }
+        .category-card.group1 { border-color: #e74c3c; }
+        .category-card.group2 { border-color: #f39c12; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>EHDS Malarkitektur for Norge</h1>
+    <p>Malbilde for implementering av det europeiske helsedataomradet (EHDS) i norsk kontekst - primaer- og sekundaerbruk av helseopplysninger</p>
+    <div class="date">Basert pa forordning (EU) 2025/327 | Sist oppdatert: mars 2026</div>
+</div>
+
+<div class="legend">
+    <div class="legend-item">
+        <div class="legend-color" style="background: #FFFFCC;"></div>
+        <span>Forretningslag</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #CCE5FF;"></div>
+        <span>Applikasjonslag</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #CCFFCC;"></div>
+        <span>Teknologilag</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #f0d9ff;"></div>
+        <span>EU-infrastruktur</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #ffe6cc;"></div>
+        <span>Styring og forvaltning</span>
+    </div>
+</div>
+
+<div class="badge-legend">
+    <div class="badge-legend-item"><div class="badge-dot" style="background:#27ae60;"></div> Eksisterende komponent</div>
+    <div class="badge-legend-item"><div class="badge-dot" style="background:#f39c12;"></div> Ma tilpasses / utvides</div>
+    <div class="badge-legend-item"><div class="badge-dot" style="background:#e74c3c;"></div> Ny komponent kreves</div>
+    <div class="badge-legend-item"><div class="badge-dot" style="background:#8e44ad;"></div> EU-komponent</div>
+</div>
+
+<div class="architecture-container">
+
+    <!-- STYRINGS- OG FORVALTNINGSLAG -->
+    <div class="layer governance-layer">
+        <div class="layer-title">Styrings- og forvaltningslag</div>
+        <div class="components-grid">
+            <div class="component" data-tooltip="EHDS-styret (EHDS Board) med to representanter per medlemsstat - en for primaerbruk og en for sekundaerbruk. Radgivende organ for EU-kommisjonen. Norge ma utpeke representanter.">
+                <span class="new-badge badge-eu">EU</span>
+                <div class="name">EHDS Board</div>
+                <div class="desc">Europeisk styringsorgan</div>
+            </div>
+            <div class="component" data-tooltip="Nasjonal digital helsemyndighet som skal overvake EHDS-implementeringen. Ma utpekes innen juni 2025. Helsedirektoratet er naturlig kandidat i Norge.">
+                <span class="new-badge badge-new">Ny</span>
+                <div class="name">Digital helsemyndighet</div>
+                <div class="desc">Nasjonal myndighet for EHDS</div>
+            </div>
+            <div class="component" data-tooltip="Nasjonalt tilgangsorgan (Health Data Access Body) for sekundaerbruk av helsedata. Skal administrere tilgang til helsedata for forskning, innovasjon og politikkutvikling. Helsedata.no/Helsedirektoratet er naturlig kandidat.">
+                <span class="new-badge badge-new">Ny</span>
+                <div class="name">Tilgangsorgan (HDAB)</div>
+                <div class="desc">Forvalter sekundaerbruk</div>
+            </div>
+            <div class="component" data-tooltip="Styringsgrupper for MyHealth@EU og HealthData@EU pa europeisk niva. Norge ma delta i begge.">
+                <span class="new-badge badge-eu">EU</span>
+                <div class="name">Styringsgrupper</div>
+                <div class="desc">MyHealth@EU / HealthData@EU</div>
+            </div>
+            <div class="component" data-tooltip="Markedsovervaking av EHR-systemer som plasseres pa det europeiske markedet. Nye krav til produsenter, distributorer og importorer av EPJ-systemer.">
+                <span class="new-badge badge-new">Ny</span>
+                <div class="name">Markedsovervaking EHR</div>
+                <div class="desc">Tilsyn med EPJ-systemer</div>
+            </div>
+            <div class="component" data-tooltip="Forum for interessenter (pasienter, helsepersonell, industri, forskning) som gir innspill til EHDS Board.">
+                <span class="new-badge badge-eu">EU</span>
+                <div class="name">Interessentforum</div>
+                <div class="desc">Stakeholder forum</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORRETNINGSLAG -->
+    <div class="layer business-layer">
+        <div class="layer-title">Forretningslag - Aktorer, rettigheter og prosesser</div>
+        <div class="components-grid">
+            <div class="component" data-tooltip="Innbyggere far styrkede rettigheter under EHDS: rett til tilgang til egne data i europeisk format, rett til a dele data med helsepersonell pa tvers av landegrenser, rett til a begrense tilgang, rett til informasjon om databruk.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">Innbyggerrettigheter</div>
+                <div class="desc">Tilgang, deling, begrensning</div>
+            </div>
+            <div class="component" data-tooltip="Helsepersonell far tilgang til pasientopplysninger fra andre EU/EOS-land gjennom nasjonalt kontaktpunkt. Kan sla opp pasientsammendrag og e-resepter for europeiske borgere.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">Helsepersonell</div>
+                <div class="desc">Grensekryssende oppslag</div>
+            </div>
+            <div class="component" data-tooltip="Forskere, innovatorer og myndigheter kan soke om tilgang til helsedata for sekundaerbruk via tilgangsorganet. Kun anonymiserte/pseudonymiserte data. Forbud mot re-identifisering.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">Databrukere</div>
+                <div class="desc">Forskning, innovasjon, politikk</div>
+            </div>
+            <div class="component" data-tooltip="EPJ-produsenter ma sikre at deres systemer stotter europeisk journal-utvekslingsformat (EEHRxF) og oppfyller nye krav til interoperabilitet og logging.">
+                <span class="new-badge badge-new">Ny</span>
+                <div class="name">EHR-leverandorer</div>
+                <div class="desc">Nye krav til EPJ-systemer</div>
+            </div>
+            <div class="component" data-tooltip="Helsevirksomheter som dataansvarlige ma tilgjengeliggjore helsedata i standardiserte formater og stotte grensekryssende deling via nasjonale kontaktpunkt.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">Dataansvarlige</div>
+                <div class="desc">Helsevirksomheter, registre</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLIKASJONSLAG - DELT I PRIMAER OG SEKUNDAER -->
+    <div class="layer application-layer">
+        <div class="layer-title">Applikasjonslag - Primaer- og sekundaerbruk</div>
+
+        <div class="dual-column">
+            <!-- PRIMAERBRUK -->
+            <div class="column-box">
+                <h4 style="background: #d4edff;">Primaerbruk av helseopplysninger</h4>
+                <div class="components-grid">
+                    <div class="component" data-tooltip="Nasjonalt kontaktpunkt for primaerbruk (NCPeH). Kobler Norge til MyHealth@EU for grensekryssende utveksling av helseopplysninger. NHN drifter, Helsedirektoratet har fagansvar. Bygger pa eksisterende pilotarbeid.">
+                        <span class="new-badge badge-enhanced">Utvidet</span>
+                        <div class="name">NCPeH Norge</div>
+                        <div class="desc">Kontaktpunkt primaerbruk</div>
+                    </div>
+                    <div class="component" data-tooltip="Kjernejournal ma tilpasses for a levere data i europeisk format (EEHRxF). Skal kunne eksportere pasientsammendrag (Patient Summary) til MyHealth@EU.">
+                        <span class="new-badge badge-enhanced">Utvidet</span>
+                        <div class="name">Kjernejournal</div>
+                        <div class="desc">Pasientsammendrag (EEHRxF)</div>
+                    </div>
+                    <div class="component" data-tooltip="Reseptformidleren ma tilpasses for a stotte grensekryssende e-resepter via MyHealth@EU. Inkluderer bade forsendelse og mottak av reseptinformasjon.">
+                        <span class="new-badge badge-enhanced">Utvidet</span>
+                        <div class="name">Reseptformidleren</div>
+                        <div class="desc">Grensekryssende e-resept</div>
+                    </div>
+                    <div class="component" data-tooltip="Helsenorge.no ma utvides med funksjonalitet for grensekryssende rettigheter: tilgang til egne data i EEHRxF-format, mulighet for a begrense tilgang for utenlandsk helsepersonell.">
+                        <span class="new-badge badge-enhanced">Utvidet</span>
+                        <div class="name">Helsenorge.no</div>
+                        <div class="desc">Utvidede innbyggerrettigheter</div>
+                    </div>
+                    <div class="component" data-tooltip="Alle EPJ-systemer ma stotte EEHRxF (European EHR Exchange Format) med interoperabilitetskomponent og loggingskomponent. Gjelder DIPS, Helseplattformen, CGM, Visma m.fl.">
+                        <span class="new-badge badge-new">Ny</span>
+                        <div class="name">EHR med EEHRxF</div>
+                        <div class="desc">Europeisk journalformat</div>
+                    </div>
+                    <div class="component" data-tooltip="Nye tjenester for laboratoriesvar, bildediagnostikk og epikriser i europeisk format. Kreves fra mars 2031 (gruppe 2).">
+                        <span class="new-badge badge-new">Ny</span>
+                        <div class="name">Lab/Bilde/Epikrise</div>
+                        <div class="desc">Gruppe 2-kategorier (2031)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEKUNDAERBRUK -->
+            <div class="column-box">
+                <h4 style="background: #d4edff;">Sekundaerbruk av helsedata</h4>
+                <div class="components-grid">
+                    <div class="component" data-tooltip="Nasjonalt kontaktpunkt for sekundaerbruk. Kobler Norge til HealthData@EU for grensekryssende tilgang til helsedata for forskning og innovasjon. Operativt fra 2035.">
+                        <span class="new-badge badge-new">Ny</span>
+                        <div class="name">NCP Sekundaerbruk</div>
+                        <div class="desc">Kontaktpunkt HealthData@EU</div>
+                    </div>
+                    <div class="component" data-tooltip="Helsedata.no/Helsedirektoratet ma videreutvikles til a fungere som tilgangsorgan (HDAB) iht. EHDS. Skal handtere soknader, vurdere tilgang, og tilgjengeliggjore data.">
+                        <span class="new-badge badge-enhanced">Utvidet</span>
+                        <div class="name">Helsedata.no</div>
+                        <div class="desc">Tilgangsportal (HDAB-rolle)</div>
+                    </div>
+                    <div class="component" data-tooltip="Sikre datamiljoer (Secure Processing Environments) der forskere kan analysere helsedata uten a laste ned radata. Kun anonymiserte/pseudonymiserte data.">
+                        <span class="new-badge badge-new">Ny</span>
+                        <div class="name">Sikre analysemiljoer</div>
+                        <div class="desc">Secure Processing Env.</div>
+                    </div>
+                    <div class="component" data-tooltip="Datakvalitets- og metadatatjenester for a beskrive tilgjengelige datasett i henhold til EHDS-krav. Inkluderer datakatalog og kvalitetsmerking.">
+                        <span class="new-badge badge-new">Ny</span>
+                        <div class="name">Datakatalog</div>
+                        <div class="desc">Metadata og kvalitetsmerking</div>
+                    </div>
+                    <div class="component" data-tooltip="Nasjonale helseregistre (NPR, Kreftregisteret, MSIS m.fl.) ma tilpasses for a kunne dele data for sekundaerbruk via HealthData@EU i standardiserte formater.">
+                        <span class="new-badge badge-enhanced">Utvidet</span>
+                        <div class="name">Helseregistre</div>
+                        <div class="desc">Tilpasset EHDS-krav</div>
+                    </div>
+                    <div class="component" data-tooltip="Pseudonymiserings- og anonymiseringstjenester for a sikre personvern ved sekundaerbruk. Forbud mot re-identifisering.">
+                        <span class="new-badge badge-new">Ny</span>
+                        <div class="name">Pseudonymisering</div>
+                        <div class="desc">Personvern sekundaerbruk</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EU-INFRASTRUKTUR -->
+    <div class="layer eu-layer">
+        <div class="layer-title">EU-infrastruktur - Grensekryssende tjenester</div>
+        <div class="dual-column">
+            <div class="column-box" style="border-color: #b380cc;">
+                <h4 style="background: #e0c8f0;">MyHealth@EU (primaerbruk)</h4>
+                <div class="components-grid">
+                    <div class="component" data-tooltip="Sentral interoperabilitetsplattform driftet av EU-kommisjonen. Kobler sammen nasjonale kontaktpunkt for primaerbruk. Muliggjor grensekryssende tilgang til pasientsammendrag og e-resepter.">
+                        <span class="new-badge badge-eu">EU</span>
+                        <div class="name">MyHealth@EU Hub</div>
+                        <div class="desc">Sentral plattform</div>
+                    </div>
+                    <div class="component" data-tooltip="Nasjonale kontaktpunkt (NCPeH) fra andre EU/EOS-land som Norge vil utveksle data med. Hvert land har sitt eget NCP.">
+                        <span class="new-badge badge-eu">EU</span>
+                        <div class="name">Andre lands NCP</div>
+                        <div class="desc">EU/EOS-medlemsstater</div>
+                    </div>
+                    <div class="component" data-tooltip="EU-terminologitjeneste for oversettelse av medisinske koder og terminologi mellom landenes systemer. Sikrer semantisk interoperabilitet.">
+                        <span class="new-badge badge-eu">EU</span>
+                        <div class="name">Terminologitjeneste</div>
+                        <div class="desc">Medisinsk oversettelse</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column-box" style="border-color: #b380cc;">
+                <h4 style="background: #e0c8f0;">HealthData@EU (sekundaerbruk)</h4>
+                <div class="components-grid">
+                    <div class="component" data-tooltip="Sentral infrastruktur for grensekryssende sekundaerbruk av helsedata. Desentralisert arkitektur der data forblir i opprinnelseslandet. Operativt fra 2035.">
+                        <span class="new-badge badge-eu">EU</span>
+                        <div class="name">HealthData@EU Hub</div>
+                        <div class="desc">Sentral infrastruktur</div>
+                    </div>
+                    <div class="component" data-tooltip="Europeisk datakatalog som gir oversikt over tilgjengelige helsedatasett pa tvers av medlemsstater.">
+                        <span class="new-badge badge-eu">EU</span>
+                        <div class="name">EU Datakatalog</div>
+                        <div class="desc">Felles datasett-oversikt</div>
+                    </div>
+                    <div class="component" data-tooltip="Andre lands tilgangsorganer (HDAB) som norske forskere kan soke om data fra, og vice versa.">
+                        <span class="new-badge badge-eu">EU</span>
+                        <div class="name">Andre lands HDAB</div>
+                        <div class="desc">Tilgangsorganer i EU/EOS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEKNOLOGILAG -->
+    <div class="layer technology-layer">
+        <div class="layer-title">Teknologilag - Infrastruktur og standarder</div>
+        <div class="components-grid">
+            <div class="component" data-tooltip="Helsenettet (NHN) forblir nasjonal IKT-infrastruktur. Ma utvides med grensesnitt mot MyHealth@EU og HealthData@EU.">
+                <span class="new-badge badge-existing">Eksist.</span>
+                <div class="name">Helsenettet</div>
+                <div class="desc">Nasjonal infrastruktur (NHN)</div>
+            </div>
+            <div class="component" data-tooltip="EEHRxF (European Electronic Health Record Exchange Format) er det felles europeiske formatet for utveksling av helsejournalinformasjon. Defineres i gjennomforingsrettsakter innen 2027.">
+                <span class="new-badge badge-new">Ny</span>
+                <div class="name">EEHRxF</div>
+                <div class="desc">Europeisk journalformat</div>
+            </div>
+            <div class="component" data-tooltip="HL7 FHIR-baserte grensesnitt for datautveksling. EHDS bygger pa International Patient Summary (IPS) og HL7 FHIR for primaerbruk.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">HL7 FHIR / IPS</div>
+                <div class="desc">Interoperabilitetsstandarder</div>
+            </div>
+            <div class="component" data-tooltip="HelseID ma utvides for a stotte europeiske autentiseringsmekanismer og grensekryssende identifisering av helsepersonell.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">HelseID / eIDAS</div>
+                <div class="desc">Grensekryssende autentisering</div>
+            </div>
+            <div class="component" data-tooltip="Sikker kommunikasjon og kryptering for grensekryssende datautveksling. Inkluderer PKI, TLS og EU-sertifikater.">
+                <span class="new-badge badge-enhanced">Utvidet</span>
+                <div class="name">Sikkerhet / PKI</div>
+                <div class="desc">Grensekryssende kryptering</div>
+            </div>
+            <div class="component" data-tooltip="Logging og sporbarhet er et krav i EHDS. Alle EHR-systemer ma ha en loggingskomponent som registrerer tilgang til og bruk av helseopplysninger.">
+                <span class="new-badge badge-new">Ny</span>
+                <div class="name">Loggingskomponent</div>
+                <div class="desc">Sporbarhet iht. EHDS</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- PRIORITERTE HELSEDATAKATEGORIER -->
+<div class="dataflow-section">
+    <h2>Prioriterte helsedatakategorier for primaerbruk</h2>
+    <p style="font-size: 0.9em; color: #555; margin-bottom: 15px;">EHDS definerer fem prioriterte kategorier av helseopplysninger som skal utveksles i europeisk format (EEHRxF) via MyHealth@EU:</p>
+    <div class="categories-grid">
+        <div class="category-card group1">
+            <div class="cat-name">Pasientsammendrag</div>
+            <div class="cat-deadline">Gruppe 1 - Frist: mars 2029</div>
+        </div>
+        <div class="category-card group1">
+            <div class="cat-name">e-Resept / e-Utlevering</div>
+            <div class="cat-deadline">Gruppe 1 - Frist: mars 2029</div>
+        </div>
+        <div class="category-card group2">
+            <div class="cat-name">Laboratoriesvar</div>
+            <div class="cat-deadline">Gruppe 2 - Frist: mars 2031</div>
+        </div>
+        <div class="category-card group2">
+            <div class="cat-name">Bildediagnostikk</div>
+            <div class="cat-deadline">Gruppe 2 - Frist: mars 2031</div>
+        </div>
+        <div class="category-card group2">
+            <div class="cat-name">Epikriser</div>
+            <div class="cat-deadline">Gruppe 2 - Frist: mars 2031</div>
+        </div>
+    </div>
+    <div style="margin-top: 12px; display: flex; gap: 20px; justify-content: center; font-size: 0.8em;">
+        <span><span style="color: #e74c3c; font-weight: bold;">&#9632;</span> Gruppe 1 (obligatorisk mars 2029)</span>
+        <span><span style="color: #f39c12; font-weight: bold;">&#9632;</span> Gruppe 2 (obligatorisk mars 2031)</span>
+    </div>
+</div>
+
+<!-- DATAFLYT -->
+<div class="dataflow-section">
+    <h2>Sentrale dataflyter i malarkitekturen</h2>
+    <div class="flow-diagram">
+        <div class="flow-row">
+            <span class="flow-label">Pasientsammendrag utland &rarr; Norge:</span>
+            <div class="flow-node flow-node-eu">Utenlandsk NCP</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node flow-node-eu">MyHealth@EU</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">NCPeH Norge</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Helsepersonell (EPJ)</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Norsk pasientdata &rarr; utland:</span>
+            <div class="flow-node">Kjernejournal</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">NCPeH Norge</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node flow-node-eu">MyHealth@EU</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node flow-node-eu">Utenlandsk helsepersonell</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Grensekryssende e-resept:</span>
+            <div class="flow-node">Reseptformidleren</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node">NCPeH Norge</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node flow-node-eu">MyHealth@EU</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node flow-node-eu">Utenlandsk apotek/lege</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Sekundaerbruk (fra 2029/2035):</span>
+            <div class="flow-node">Helseregistre</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node flow-node-new">HDAB / Helsedata.no</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node flow-node-new">Sikre analysemiljoer</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node flow-node-eu">HealthData@EU</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Innbygger grensekryssende:</span>
+            <div class="flow-node">Innbygger</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Helsenorge.no</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Tilgangsstyring / samtykke</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node flow-node-eu">Grensekryssende portal</div>
+        </div>
+    </div>
+</div>
+
+<!-- TIDSLINJE -->
+<div class="timeline-section">
+    <h2>Implementeringstidslinje</h2>
+    <div class="timeline">
+        <div class="timeline-item done">
+            <div class="timeline-year">Mars 2025 - Forordningen treder i kraft</div>
+            <div class="timeline-desc">EHDS-forordningen (EU) 2025/327 publisert i EU-tidende. Overgangsperiode starter.</div>
+        </div>
+        <div class="timeline-item done">
+            <div class="timeline-year">2025 - MyHealth@EU pilot i Norge</div>
+            <div class="timeline-desc">Pilotering i Bodo og Stjordal (legevakt). NCPeH Norge i drift for mottak av e-resept og pasientsammendrag.</div>
+        </div>
+        <div class="timeline-item current">
+            <div class="timeline-year">2026 - Forberedelse og tilpasning</div>
+            <div class="timeline-desc">Kjernejournal obligatorisk fra 1. jan 2026. PLL nasjonal utrulling starter. Nasjonal digital helsemyndighet utpekes.</div>
+        </div>
+        <div class="timeline-item future">
+            <div class="timeline-year">Mars 2027 - Gjennomforingsrettsakter</div>
+            <div class="timeline-desc">EU-kommisjonen vedtar detaljerte tekniske spesifikasjoner for EEHRxF. EPJ-leverandorer begynner tilpasning.</div>
+        </div>
+        <div class="timeline-item future">
+            <div class="timeline-year">Mars 2029 - Gruppe 1 obligatorisk</div>
+            <div class="timeline-desc">Pasientsammendrag og e-resept/e-utlevering skal utveksles via MyHealth@EU. Sekundaerbruk: tilgang til forste datakategorier.</div>
+        </div>
+        <div class="timeline-item far-future">
+            <div class="timeline-year">Mars 2031 - Gruppe 2 obligatorisk</div>
+            <div class="timeline-desc">Laboratoriesvar, bildediagnostikk og epikriser skal utveksles via MyHealth@EU i EEHRxF-format.</div>
+        </div>
+        <div class="timeline-item far-future">
+            <div class="timeline-year">Mars 2035 - HealthData@EU operativt</div>
+            <div class="timeline-desc">Grensekryssende infrastruktur for sekundaerbruk av helsedata fullt operativ.</div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Kilder: Forordning (EU) 2025/327, Helsedirektoratets EHDS-konsekvensvurdering (april 2025), health.ec.europa.eu, nhn.no, helsedirektoratet.no</p>
+    <p>Visualiseringen er ikke basert pa en spesifikk rapport i rapporter/-mappen, men pa EHDS-forordningen og offentlig tilgjengelig informasjon om malarkitekturen.</p>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+    const tooltip = document.getElementById('tooltip');
+    const components = document.querySelectorAll('.component[data-tooltip]');
+
+    components.forEach(comp => {
+        comp.addEventListener('mouseenter', (e) => {
+            tooltip.textContent = comp.getAttribute('data-tooltip');
+            tooltip.style.display = 'block';
+            positionTooltip(e);
+        });
+        comp.addEventListener('mousemove', positionTooltip);
+        comp.addEventListener('mouseleave', () => {
+            tooltip.style.display = 'none';
+        });
+    });
+
+    function positionTooltip(e) {
+        let x = e.clientX + 15;
+        let y = e.clientY + 15;
+        if (x + 350 > window.innerWidth) x = e.clientX - 355;
+        if (y + 100 > window.innerHeight) y = e.clientY - 100;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+    }
+</script>
+
+</body>
+</html>

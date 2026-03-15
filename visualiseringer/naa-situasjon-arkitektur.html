@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na-situasjon: Arkitektur for helsedatadeling i Norge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1a3a5c, #2c5f8a);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 1.8em; margin-bottom: 10px; }
+        .header p { font-size: 1em; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+        .header .date { font-size: 0.85em; margin-top: 10px; opacity: 0.85; }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            border: 1px solid #999;
+        }
+
+        .architecture-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .layer {
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid;
+            position: relative;
+        }
+        .layer-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* ArchiMate-farger */
+        .business-layer {
+            background: #FFFFCC;
+            border-color: #d4c84a;
+        }
+        .business-layer .layer-title {
+            background: #e6d94a;
+            color: #4a3f00;
+        }
+
+        .application-layer {
+            background: #CCE5FF;
+            border-color: #6aace6;
+        }
+        .application-layer .layer-title {
+            background: #6aace6;
+            color: #002b55;
+        }
+
+        .technology-layer {
+            background: #CCFFCC;
+            border-color: #5abf5a;
+        }
+        .technology-layer .layer-title {
+            background: #5abf5a;
+            color: #003300;
+        }
+
+        .international-layer {
+            background: #f0d9ff;
+            border-color: #b380cc;
+        }
+        .international-layer .layer-title {
+            background: #b380cc;
+            color: #2e004d;
+        }
+
+        .components-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .component {
+            background: white;
+            border: 2px solid;
+            border-radius: 8px;
+            padding: 12px 16px;
+            min-width: 150px;
+            max-width: 220px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .component:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        .component .name {
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-bottom: 4px;
+        }
+        .component .desc {
+            font-size: 0.75em;
+            color: #555;
+        }
+
+        .business-layer .component { border-color: #d4c84a; }
+        .application-layer .component { border-color: #6aace6; }
+        .technology-layer .component { border-color: #5abf5a; }
+        .international-layer .component { border-color: #b380cc; }
+
+        .status-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 0.65em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 700;
+            color: white;
+        }
+        .status-active { background: #27ae60; }
+        .status-pilot { background: #f39c12; }
+        .status-planned { background: #e74c3c; }
+        .status-partial { background: #3498db; }
+
+        /* Dataflytseksjoner */
+        .dataflow-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #ddd;
+        }
+        .dataflow-section h2 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #1a3a5c;
+        }
+
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .flow-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        .flow-node {
+            background: white;
+            border: 2px solid #6aace6;
+            border-radius: 6px;
+            padding: 6px 14px;
+            font-size: 0.85em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .flow-arrow {
+            color: #555;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .flow-label {
+            font-size: 0.75em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .sub-section {
+            margin-top: 15px;
+        }
+        .sub-section h3 {
+            font-size: 1em;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            display: none;
+            position: fixed;
+            background: #333;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            max-width: 320px;
+            z-index: 1000;
+            line-height: 1.5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .status-legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .status-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8em;
+        }
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #555;
+            padding: 20px;
+        }
+
+        .epj-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        .epj-item {
+            background: white;
+            border: 1px solid #6aace6;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.3em; }
+            .components-grid { gap: 8px; }
+            .component { min-width: 130px; max-width: 180px; padding: 10px; }
+            .legend { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Na-situasjon: Arkitektur for helsedatadeling i Norge</h1>
+    <p>Oversikt over dagens nasjonale e-helselosninger, systemer og infrastruktur for deling av helseopplysninger</p>
+    <div class="date">Sist oppdatert: mars 2026</div>
+</div>
+
+<div class="legend">
+    <div class="legend-item">
+        <div class="legend-color" style="background: #FFFFCC;"></div>
+        <span>Forretningslag (aktorer, prosesser)</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #CCE5FF;"></div>
+        <span>Applikasjonslag (systemer, tjenester)</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #CCFFCC;"></div>
+        <span>Teknologilag (infrastruktur)</span>
+    </div>
+    <div class="legend-item">
+        <div class="legend-color" style="background: #f0d9ff;"></div>
+        <span>Internasjonalt grensesnitt</span>
+    </div>
+</div>
+
+<div class="status-legend">
+    <div class="status-legend-item"><div class="status-dot" style="background:#27ae60;"></div> I produksjon</div>
+    <div class="status-legend-item"><div class="status-dot" style="background:#f39c12;"></div> Pilot / utproving</div>
+    <div class="status-legend-item"><div class="status-dot" style="background:#3498db;"></div> Delvis innfort</div>
+    <div class="status-legend-item"><div class="status-dot" style="background:#e74c3c;"></div> Planlagt / under utvikling</div>
+</div>
+
+<div class="architecture-container">
+
+    <!-- FORRETNINGSLAG -->
+    <div class="layer business-layer">
+        <div class="layer-title">Forretningslag - Aktorer og prosesser</div>
+        <div class="components-grid">
+            <div class="component" data-tooltip="Innbyggere som mottar helse- og omsorgstjenester. Har tilgang til egne helseopplysninger gjennom Helsenorge.no. Kan gi/trekke samtykke, bestille e-resepter, se journal.">
+                <div class="name">Innbyggere / Pasienter</div>
+                <div class="desc">Mottagere av helsetjenester</div>
+            </div>
+            <div class="component" data-tooltip="Leger, sykepleiere, farmasoyter og annet helsepersonell i spesialist- og primaerhelsetjenesten. Bruker EPJ-systemer og nasjonale losninger daglig.">
+                <div class="name">Helsepersonell</div>
+                <div class="desc">Behandlere i alle nivaer</div>
+            </div>
+            <div class="component" data-tooltip="Fastleger og legevakt. Sentralt i primaerhelsetjenesten. Bruker EPJ (CGM, Infodoc m.fl.) og nasjonale losninger.">
+                <div class="name">Fastleger / Legevakt</div>
+                <div class="desc">Primaerhelsetjenesten</div>
+            </div>
+            <div class="component" data-tooltip="Sykehus og spesialistklinikker i de fire helseregionene. Bruker DIPS Arena (Helse Sor-Ost, Helse Vest, Helse Nord) eller Helseplattformen/Epic (Helse Midt-Norge).">
+                <div class="name">Sykehus / Spesialister</div>
+                <div class="desc">Spesialisthelsetjenesten</div>
+            </div>
+            <div class="component" data-tooltip="Apotek som ekspederer e-resepter. Tilkoblet Reseptformidleren for mottak og ekspedisjon av resepter.">
+                <div class="name">Apotek</div>
+                <div class="desc">Legemiddelutlevering</div>
+            </div>
+            <div class="component" data-tooltip="Kommunale helse- og omsorgstjenester inkludert hjemmesykepleie, sykehjem og helsestasjon. Bruker EPJ-systemer som CGM, Visma, Helseplattformen.">
+                <div class="name">Kommunehelsetjenesten</div>
+                <div class="desc">PLO, sykehjem, hjemmetjeneste</div>
+            </div>
+            <div class="component" data-tooltip="Helsedirektoratet (fagmyndighet), Norsk helsenett (tjenesteleverandor), Statens legemiddelverk, FHI. Ansvarlig for styring, regulering og drift av nasjonale losninger.">
+                <div class="name">Myndigheter</div>
+                <div class="desc">Hdir, NHN, SLV, FHI</div>
+            </div>
+            <div class="component" data-tooltip="Forskere og analytikere som benytter helsedata til forskning, kvalitetsforbedring og statistikk. Tilgang gjennom helseregistre og Helseanalyseplattformen.">
+                <div class="name">Forskning</div>
+                <div class="desc">Sekundaerbruk av data</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLIKASJONSLAG -->
+    <div class="layer application-layer">
+        <div class="layer-title">Applikasjonslag - Nasjonale losninger og systemer</div>
+
+        <div class="sub-section">
+            <h3>Nasjonale e-helselosninger (driftet av NHN)</h3>
+            <div class="components-grid">
+                <div class="component" data-tooltip="Nasjonal losning for deling av kritisk helseinformasjon pa tvers av virksomheter. Inneholder legemidler, kritisk informasjon, egenregistrerte opplysninger, besokshistorikk. Obligatorisk fra 1. januar 2026.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Kjernejournal</div>
+                    <div class="desc">Kritisk info, legemidler, besokshistorikk</div>
+                </div>
+                <div class="component" data-tooltip="Nasjonal database for elektroniske resepter. Muliggjor elektronisk forskrivning, ekspedisjon og utlevering av legemidler. Grunnlag for e-resept-kjeden.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Reseptformidleren</div>
+                    <div class="desc">e-Resept, forskrivning og utlevering</div>
+                </div>
+                <div class="component" data-tooltip="Innbyggerportalen for helse. Gir innbyggere tilgang til egne helseopplysninger, timebestilling, e-resepter, kommunikasjon med helsepersonell, digital dialog.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Helsenorge.no</div>
+                    <div class="desc">Innbyggerportal og selvbetjening</div>
+                </div>
+                <div class="component" data-tooltip="Sentral forskrivningsmodul for elektronisk forskrivning av legemidler. Integreres i EPJ-systemer. Alle EPJ-leverandorer til kommuner godkjent for SFM fullversjon innen utgangen av 2025.">
+                    <span class="status-badge status-partial">Delvis</span>
+                    <div class="name">SFM</div>
+                    <div class="desc">Sentral forskrivningsmodul</div>
+                </div>
+                <div class="component" data-tooltip="Pasientens legemiddelliste gir en samlet, oppdatert oversikt over pasientens legemidler. Piloteres i Helse Vest. Nasjonal utrulling planlagt 2026-2029.">
+                    <span class="status-badge status-pilot">Pilot</span>
+                    <div class="name">PLL</div>
+                    <div class="desc">Pasientens legemiddelliste</div>
+                </div>
+                <div class="component" data-tooltip="Helsedata.no gir tilgang til norske helseregistre for forskning og analyse. Operert av Helsedirektoratet. Forvalter soknadsportal og tilgjengeliggjoring av data.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Helsedata.no</div>
+                    <div class="desc">Tilgang til helseregistre</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-section">
+            <h3>EPJ-systemer (elektronisk pasientjournal)</h3>
+            <div class="components-grid">
+                <div class="component" data-tooltip="DIPS Arena er det dominerende EPJ-systemet i spesialisthelsetjenesten. Brukes av Helse Sor-Ost, Helse Vest og Helse Nord. Alle helseforetak i disse regionene har implementert DIPS Arena innen utgangen av 2025.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">DIPS Arena</div>
+                    <div class="desc">Spesialist: HSO, HV, HN</div>
+                </div>
+                <div class="component" data-tooltip="Epic-basert EPJ-system for Helse Midt-Norge. Dekker bade spesialist- og primaerhelsetjeneste. Per november 2024 brukt av alle HF i Helse Midt, 34 kommuner, 2 fastlegekontor og 2 legevakter. Totalkostnad estimert til 6,6 mrd.">
+                    <span class="status-badge status-partial">Delvis</span>
+                    <div class="name">Helseplattformen (Epic)</div>
+                    <div class="desc">Helse Midt-Norge + kommuner</div>
+                </div>
+                <div class="component" data-tooltip="CGM (CompuGroup Medical) leverer EPJ-systemer til fastleger og kommunehelsetjenesten. Blant de storste leverandorene i primaerhelsetjenesten.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">CGM</div>
+                    <div class="desc">Fastleger, kommuner</div>
+                </div>
+                <div class="component" data-tooltip="Visma leverer EPJ-losninger til kommunal helse- og omsorgstjeneste (pleie og omsorg).">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Visma</div>
+                    <div class="desc">Kommuner (PLO)</div>
+                </div>
+                <div class="component" data-tooltip="Infodoc er et EPJ-system for fastleger og primaerhelsetjeneste i Norge.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Infodoc</div>
+                    <div class="desc">Fastleger</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-section">
+            <h3>Stottetjenester og registre</h3>
+            <div class="components-grid">
+                <div class="component" data-tooltip="Grunndata omfatter Adresseregisteret (AR), Helsepersonellregisteret (HPR) og Fastlegeregisteret (FLR). Felles komponent i helsenettet for administrative registerdata.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Grunndata</div>
+                    <div class="desc">AR, HPR, FLR</div>
+                </div>
+                <div class="component" data-tooltip="Persontjenesten er helsesektorens sanntidsoppdaterte folkeregisterinformasjon. Tilpasset modernisert folkeregister (FREG) med hoyere oppetid og skalert for helsesektoren.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Persontjenesten</div>
+                    <div class="desc">Folkeregister for helse</div>
+                </div>
+                <div class="component" data-tooltip="HelseID er den nasjonale losningen for autentisering og autorisering i helsesektoren. Brukes for sikker palogging av helsepersonell.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">HelseID</div>
+                    <div class="desc">Autentisering og autorisasjon</div>
+                </div>
+                <div class="component" data-tooltip="Nasjonale helseregistre inkluderer Norsk pasientregister (NPR), Kreftregisteret, MSIS, Medisinsk fodselsregister m.fl. Viktige for sekundaerbruk av helsedata.">
+                    <span class="status-badge status-active">Prod</span>
+                    <div class="name">Helseregistre</div>
+                    <div class="desc">NPR, Kreftregisteret, MSIS m.fl.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEKNOLOGILAG -->
+    <div class="layer technology-layer">
+        <div class="layer-title">Teknologilag - Infrastruktur og nettverk</div>
+        <div class="components-grid">
+            <div class="component" data-tooltip="Helsenettet er den nasjonale IKT-infrastrukturen som kobler sammen aktorer i helse- og omsorgssektoren. Driftes av Norsk helsenett SF. Sikrer trygg kommunikasjon mellom alle helseaktorer.">
+                <span class="status-badge status-active">Prod</span>
+                <div class="name">Helsenettet</div>
+                <div class="desc">Nasjonal IKT-infrastruktur (NHN)</div>
+            </div>
+            <div class="component" data-tooltip="NHN migrerer til skybasert drift. Per 2025 er 15% av data i skyen, med mal om full sky-migrering. Inkluderer Skylab-plattformen.">
+                <span class="status-badge status-partial">Delvis</span>
+                <div class="name">Skyinfrastruktur</div>
+                <div class="desc">NHN skylab, cloud-migrering</div>
+            </div>
+            <div class="component" data-tooltip="Meldingsutveksling mellom helseaktorer via standardiserte meldingsformater. Brukes for henvisninger, epikriser, laboratoriesvar og andre kliniske meldinger.">
+                <span class="status-badge status-active">Prod</span>
+                <div class="name">Meldingsutveksling</div>
+                <div class="desc">Standardiserte helsemeldinger</div>
+            </div>
+            <div class="component" data-tooltip="Sertifikater og kryptering for sikker kommunikasjon i helsenettet. PKI-infrastruktur for autentisering.">
+                <span class="status-badge status-active">Prod</span>
+                <div class="name">Sikkerhet / PKI</div>
+                <div class="desc">Kryptering, sertifikater</div>
+            </div>
+            <div class="component" data-tooltip="Integrasjonsplattform for API-basert kommunikasjon. FHIR-baserte grensesnitt for moderne integrasjoner.">
+                <span class="status-badge status-partial">Delvis</span>
+                <div class="name">API / FHIR</div>
+                <div class="desc">Moderne integrasjonsgrensesnitt</div>
+            </div>
+            <div class="component" data-tooltip="Innbyggere aksesserer Helsenorge.no via internett. Sikret med ID-porten/BankID for autentisering.">
+                <span class="status-badge status-active">Prod</span>
+                <div class="name">Internett / ID-porten</div>
+                <div class="desc">Innbyggertilgang, BankID</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERNASJONALT GRENSESNITT -->
+    <div class="layer international-layer">
+        <div class="layer-title">Internasjonalt grensesnitt - MyHealth@EU</div>
+        <div class="components-grid">
+            <div class="component" data-tooltip="Norsk nasjonalt kontaktpunkt (NCP-B) for MyHealth@EU. Utviklet i samarbeid mellom Helsedirektoratet og NHN. Pilotering i Bodo og Stjordal (legevakt) fra Q1 2025. Stoetter mottak av e-resept og pasientsammendrag.">
+                <span class="status-badge status-pilot">Pilot</span>
+                <div class="name">NCPeH Norge</div>
+                <div class="desc">Nasjonalt kontaktpunkt (NCP-B)</div>
+            </div>
+            <div class="component" data-tooltip="Europeisk infrastruktur for grensekryssende deling av helseopplysninger. Norge kobler seg til via NCPeH. Forste tjenester: e-resept og pasientsammendrag.">
+                <span class="status-badge status-pilot">Pilot</span>
+                <div class="name">MyHealth@EU</div>
+                <div class="desc">Europeisk delings-infrastruktur</div>
+            </div>
+            <div class="component" data-tooltip="HealthData@EU er under utvikling for sekundaerbruk av helsedata pa tvers av Europa. Norge deltar i piloter. Full implementering ikke for 2029-2035.">
+                <span class="status-badge status-planned">Planlagt</span>
+                <div class="name">HealthData@EU</div>
+                <div class="desc">Sekundaerbruk (under utvikling)</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- DATAFLYT -->
+<div class="dataflow-section">
+    <h2>Sentrale dataflyter i dagens arkitektur</h2>
+
+    <div class="flow-diagram">
+        <div class="flow-row">
+            <span class="flow-label">E-resept:</span>
+            <div class="flow-node">Lege (EPJ)</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">SFM</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Reseptformidleren</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Apotek</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Kjernejournal:</span>
+            <div class="flow-node">EPJ-systemer</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Kjernejournal</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Helsepersonell (oppslag)</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Innbyggertilgang:</span>
+            <div class="flow-node">Innbygger</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">ID-porten / BankID</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Helsenorge.no</div>
+            <span class="flow-arrow">&rarr;</span>
+            <div class="flow-node">Kjernejournal / e-Resept</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Meldinger:</span>
+            <div class="flow-node">Sykehus (DIPS)</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node">Helsenettet (meldingsutveksling)</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node">Fastlege / Kommune</div>
+        </div>
+        <div class="flow-row">
+            <span class="flow-label">Grensekryssende (pilot):</span>
+            <div class="flow-node">Europeisk NCP</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node">MyHealth@EU</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node">NCPeH Norge</div>
+            <span class="flow-arrow">&harr;</span>
+            <div class="flow-node">Kjernejournal / Reseptformidleren</div>
+        </div>
+    </div>
+</div>
+
+<div class="dataflow-section">
+    <h2>Nokkelutfordringer i dagens arkitektur</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 10px;">
+        <div style="padding: 15px; background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px;">
+            <strong>Fragmentert EPJ-landskap</strong>
+            <p style="font-size: 0.85em; margin-top: 6px;">Flere ulike EPJ-systemer (DIPS, Helseplattformen/Epic, CGM, Visma) med varierende grad av integrasjon mot nasjonale losninger.</p>
+        </div>
+        <div style="padding: 15px; background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px;">
+            <strong>PLL ikke fullt utrullet</strong>
+            <p style="font-size: 0.85em; margin-top: 6px;">Pasientens legemiddelliste er i pilotfase (Helse Vest). Nasjonal utrulling planlagt 2026-2029. Ingen felles legemiddeloversikt enna.</p>
+        </div>
+        <div style="padding: 15px; background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px;">
+            <strong>Begrenset grensekryssende deling</strong>
+            <p style="font-size: 0.85em; margin-top: 6px;">MyHealth@EU er i pilotfase med begrenset omfang (e-resept og pasientsammendrag). Kun pilotkommuner Bodo og Stjordal deltar.</p>
+        </div>
+        <div style="padding: 15px; background: #fff8e1; border-left: 4px solid #f39c12; border-radius: 6px;">
+            <strong>Meldingsbasert samhandling</strong>
+            <p style="font-size: 0.85em; margin-top: 6px;">Mye av samhandlingen er fortsatt basert pa tradisjonell meldingsutveksling fremfor sanntids API-basert datadeling.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Kilder: Helsedirektoratet, Norsk helsenett, ehelse.no, regjeringen.no | Denne visualiseringen er basert pa offentlig tilgjengelig informasjon.</p>
+    <p>Visualiseringen er ikke basert pa en spesifikk rapport i rapporter/-mappen, men pa informasjonsinnhenting fra offentlige kilder om na-situasjonen.</p>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+    const tooltip = document.getElementById('tooltip');
+    const components = document.querySelectorAll('.component[data-tooltip]');
+
+    components.forEach(comp => {
+        comp.addEventListener('mouseenter', (e) => {
+            tooltip.textContent = comp.getAttribute('data-tooltip');
+            tooltip.style.display = 'block';
+            positionTooltip(e);
+        });
+        comp.addEventListener('mousemove', positionTooltip);
+        comp.addEventListener('mouseleave', () => {
+            tooltip.style.display = 'none';
+        });
+    });
+
+    function positionTooltip(e) {
+        let x = e.clientX + 15;
+        let y = e.clientY + 15;
+        if (x + 330 > window.innerWidth) x = e.clientX - 335;
+        if (y + 100 > window.innerHeight) y = e.clientY - 100;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+    }
+</script>
+
+</body>
+</html>

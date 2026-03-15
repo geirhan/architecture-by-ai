@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samfunnsøkonomisk vurdering: EHDS-implementering i Norge</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #ffffff; color: #333; line-height: 1.7; }
+  nav a.active { text-decoration: underline; font-weight: bold; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { color: #1a1a2e; font-size: 2em; margin: 1em 0 0.5em; border-bottom: 2px solid #003366; padding-bottom: 0.3em; }
+  h2 { color: #003366; font-size: 1.5em; margin: 1.5em 0 0.5em; border-bottom: 1px solid #ddd; padding-bottom: 0.2em; }
+  h3 { color: #1a1a2e; font-size: 1.2em; margin: 1.2em 0 0.4em; }
+  h4 { color: #1a1a2e; font-size: 1.05em; margin: 1em 0 0.3em; }
+  p { margin: 0.6em 0; }
+  a { color: #0066cc; }
+  ul, ol { margin: 0.6em 0 0.6em 1.5em; }
+  li { margin: 0.3em 0; }
+  strong { color: #1a1a2e; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+  .table-wrap { overflow-x: auto; margin: 1em 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 500px; }
+  th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; color: #333; }
+  th { background: #003366; color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  tr:hover { background: #eef4fb; }
+  blockquote { border-left: 4px solid #003366; padding: 0.5em 1em; margin: 1em 0; background: #f7f9fc; color: #333; }
+  em { color: #555; }
+  @media print {
+    nav { display: none; }
+    main { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+    table { font-size: 9pt; }
+    h1, h2, h3 { break-after: avoid; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<nav style="background:#003366;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;">
+  <a href="index.html" style="color:#fff;text-decoration:none;font-size:14px;">Forside</a>
+  <a href="ledersammendrag.html" style="color:#fff;text-decoration:none;font-size:14px;">Ledersammendrag</a>
+  <a href="kunnskapsgrunnlag.html" style="color:#fff;text-decoration:none;font-size:14px;">Kunnskapsgrunnlag</a>
+  <a href="problemdefinisjon.html" style="color:#fff;text-decoration:none;font-size:14px;">Problemdefinisjon</a>
+  <a href="tiltaksalternativer.html" style="color:#fff;text-decoration:none;font-size:14px;">Tiltaksalternativer</a>
+  <a href="prinsipielle-spoersmaal.html" style="color:#fff;text-decoration:none;font-size:14px;">Prinsipielle sporsmal</a>
+  <a href="samfunnsoekonomisk.html" class="active" style="color:#fff;text-decoration:underline;font-size:14px;font-weight:bold;">Samfunnsokonomi</a>
+  <a href="helsepersonell.html" style="color:#fff;text-decoration:none;font-size:14px;">Helsepersonell</a>
+  <a href="arkitektur.html" style="color:#fff;text-decoration:none;font-size:14px;">Arkitektur</a>
+  <a href="anbefaling.html" style="color:#fff;text-decoration:none;font-size:14px;">Anbefaling</a>
+  <a href="gjennomfoering.html" style="color:#fff;text-decoration:none;font-size:14px;">Gjennomforing</a>
+  <a href="visualiseringer.html" style="color:#fff;text-decoration:none;font-size:14px;">Visualiseringer</a>
+</nav>
+<main>
+
+<h1>Samfunnsokonomisk vurdering: EHDS-implementering i Norge</h1>
+
+<h2>Sammendrag</h2>
+
+<p>Denne rapporten gir en forenklet samfunnsokonomisk vurdering av tiltaksalternativene for implementering av EHDS-forordningen (EU 2025/327) i Norge, strukturert etter DFOs 8-trinnsmodell for samfunnsokonomiske analyser. Vurderingen dekker nullalternativet og tre tiltaksalternativer: (1) stegvis minimum, (2) akselerert helhetlig implementering, og (3) nordisk samarbeid.</p>
+
+<p><strong>Hovedfunn:</strong></p>
+
+<ul>
+<li><strong>Nullalternativet er ikke reelt</strong> ved EOS-innlemmelse, men tjener som referansepunkt. Kostnadene ved manglende etterlevelse (EOS-rettslige sanksjoner, tapt forskningstilgang, manglende pasientrettigheter) overstiger sannsynligvis kostnadene ved alle tiltaksalternativene.</li>
+<li><strong>Alternativ 2 (akselerert helhetlig)</strong> vurderes som det mest samfunnsokonomisk lonnsomme alternativet over en 15-arsperiode, til tross for hoyere investeringskostnader, fordi det gir storst nasjonal nytteverdi og unngaar teknisk gjeld fra doble standarder.</li>
+<li><strong>Alternativ 1 (stegvis minimum)</strong> har lavest kortsiktig investeringskostnad, men skaper betydelige merkostnader over tid gjennom parallelle standarder og begrenset nasjonal effekt.</li>
+<li><strong>Alternativ 3 (nordisk samarbeid)</strong> er en verdifull tilleggsdimensjon som kan redusere kostnader uavhengig av valgt hovedalternativ, men er ikke et selvstendig alternativ.</li>
+<li><strong>Usikkerheten er svaert hoy</strong> pa grunn av uavklarte gjennomforingsrettsakter, usikkert EOS-innlemmelsestidspunkt og manglende detaljerte kostnadsestimater fra sektoren.</li>
+</ul>
+
+<p>Analysen er gjennomfort pa et overordnet niva (forhandsanalyse/forenklet analyse) i trad med DFOs veileder, gitt det tidlige stadiet i utredningen og den store usikkerheten om sentrale parametere. En fullverdig samfunnsokonomisk analyse bor gjennomfores nar gjennomforingsrettsaktene er vedtatt og mer presise kostnadsestimater foreligger.</p>
+
+<hr>
+
+<h2>1. Problemdefinisjon og mal</h2>
+
+<h3>Problemet</h3>
+
+<p>Norsk helsesektor er ikke i stand til a oppfylle kravene EHDS stiller til deling av helsedata, verken nasjonalt pa tvers av virksomheter eller internasjonalt pa tvers av landegrenser. Problemet er strukturelt og sammensatt, med fire gjensidig forsterkende dimensjoner:</p>
+
+<ol>
+<li><strong>Rettslige gap</strong>: Gjeldende norsk helselovgivning mangler hjemler for grensekryssende deling, harmoniserte innbyggerrettigheter og rammeverk for sekundaerbruk.</li>
+<li><strong>Tekniske gap</strong>: Norske EHR-systemer bruker nasjonale meldingsstandarder som ikke er kompatible med EEHRxF (HL7 FHIR). Infrastruktur for MyHealth@EU og HealthData@EU er ikke operativ.</li>
+<li><strong>Organisatoriske gap</strong>: Norge mangler digital helsemyndighet og HDAB som forordningen krever. Ansvarsfordelingen mellom Helsedirektoratet, NHN og andre aktorer er ikke tilpasset.</li>
+<li><strong>Semantiske gap</strong>: Ulike kodeverk, terminologier og registreringspraksis gjor at data ikke betyr det samme pa tvers av systemer.</li>
+</ol>
+
+<h3>Mal</h3>
+
+<p>Norge skal oppfylle forpliktelsene i EHDS-forordningen innenfor fastsatte tidsfrister (gruppe 1: mars 2029, gruppe 2: mars 2031), slik at norske innbyggere, helsepersonell og forskere kan dra nytte av sikker og effektiv deling av helseopplysninger.</p>
+
+<p><em>For utfyllende problemanalyse, se rapporter/problemdefinisjon-ehds.md.</em></p>
+
+<hr>
+
+<h2>2. Identifisering av tiltak</h2>
+
+<p>Fire alternativer er definert og beskrevet i detalj i rapporter/tiltaksalternativer-ehds.md:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Alternativ</th><th>Kort beskrivelse</th><th>Ambisjonsniva</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Nullalternativet</strong></td><td>Videreforing uten nye EHDS-tiltak</td><td>Ingen</td></tr>
+<tr><td><strong>Alt. 1: Stegvis minimum</strong></td><td>Kun minimumskrav, foderert gateway, nasjonale standarder beholdes</td><td>Minimum etterlevelse</td></tr>
+<tr><td><strong>Alt. 2: Akselerert helhetlig</strong></td><td>FHIR som nasjonal standard, bredere modernisering, nasjonalt program</td><td>Bredere modernisering</td></tr>
+<tr><td><strong>Alt. 3: Nordisk samarbeid</strong></td><td>Delte komponenter og koordinering med nordiske land</td><td>Tilleggsdimensjon</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Alternativ 3 er i praksis en samarbeidstilnaerming som kan kombineres med enten alternativ 1 eller 2, og vurderes derfor som et supplement. I den samlede vurderingen behandles det som et tilleggsvalg.</p>
+
+<hr>
+
+<h2>3. Identifisering av virkninger</h2>
+
+<h3>3.1 Prissatte virkninger (kostnadssiden)</h3>
+
+<p>Kostnadene er gruppert i hovedkategorier med kvalitativ angivelse av storrelsesorden per alternativ. Estimatene er basert pa erfaringstall fra norske e-helseprosjekter, EU-kommisjonens konsekvensutredning (SWD(2022) 131) og Helsedirektoratets gapanalyse.</p>
+
+<p><strong>Referansepunkter for kostnadsniva:</strong></p>
+<ul>
+<li>EU-kommisjonens konsekvensutredning anslo samlede kostnader for EHDS-implementering i EU til EUR 351-743 millioner, med forventede besparelser pa EUR 11 milliarder over ti ar (kilde: EU-kommisjonen, SWD(2022) 131).</li>
+<li>Helseplattformen i Midt-Norge har hatt samlede kostnader pa ca. 6,7 mrd. kroner per oktober 2024 (kilde: Riksrevisjonen). &laquo;En innbygger &ndash; en journal&raquo; ble estimert til 22 mrd. kroner totalt (kilde: Helsedirektoratet).</li>
+<li>EU-kommisjonens estimat for etablering av HDAB-infrastruktur er ca. EUR 10,6 millioner i etableringskostnad og EUR 0,6 millioner i arlig vedlikehold per land, men dette forutsetter at kostnaden deles med andre dataomrader (kilde: SWD(2022) 131).</li>
+<li>De regionale helseforetakene bruker allerede betydelige summer pa IKT &ndash; Helse Vest rapporterte 482 mill. kr i arlige IKT-kostnader i 2024 for fem sentrale systemer alene (kilde: Helse Vest styresak).</li>
+</ul>
+
+<h4>Kostnadskategorier per alternativ</h4>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Kostnadskategori</th><th>Null</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3 (tillegg)</th></tr>
+</thead>
+<tbody>
+<tr><td colspan="5"><strong>Systemutvikling og integrasjon</strong></td></tr>
+<tr><td>- EEHRxF gateway/konvertering</td><td>0</td><td>Middels</td><td>Lav (innlemmes i FHIR-overgang)</td><td>Mulig deling</td></tr>
+<tr><td>- Nasjonal FHIR-infrastruktur</td><td>0</td><td>Lav</td><td>Hoy</td><td>Mulig deling</td></tr>
+<tr><td>- MyHealth@EU tilkobling</td><td>Lav (kun pilot)</td><td>Middels</td><td>Middels</td><td>Mulig deling</td></tr>
+<tr><td>- HealthData@EU tilkobling</td><td>Lav (kun pilot)</td><td>Middels</td><td>Middels</td><td>Mulig deling</td></tr>
+<tr><td>- Testinfrastruktur</td><td>0</td><td>Middels</td><td>Hoy</td><td>Mulig deling</td></tr>
+<tr><td>- Leverandortilpasning (EHR-systemer)</td><td>0</td><td>Hoy</td><td>Svaert hoy</td><td>Stordriftsfordel</td></tr>
+<tr><td colspan="5"><strong>Forvaltningsstruktur</strong></td></tr>
+<tr><td>- Digital helsemyndighet</td><td>0</td><td>Middels</td><td>Hoy</td><td>Koordineringskostnad</td></tr>
+<tr><td>- HDAB etablering og drift</td><td>0</td><td>Middels</td><td>Hoy</td><td>Mulig deling</td></tr>
+<tr><td>- Sertifiserings- og tilsynsapparat</td><td>0</td><td>Middels</td><td>Hoy</td><td>Felles spesifikasjoner</td></tr>
+<tr><td colspan="5"><strong>Rettslige tilpasninger</strong></td></tr>
+<tr><td>- Lovendringer og juridisk arbeid</td><td>0</td><td>Middels</td><td>Middels-Hoy</td><td>Koordinert tolkning</td></tr>
+<tr><td colspan="5"><strong>Opplaering og kompetanse</strong></td></tr>
+<tr><td>- FHIR/EEHRxF-kompetanse</td><td>0</td><td>Middels</td><td>Hoy</td><td>Felles program</td></tr>
+<tr><td>- Endringsledelse i sektoren</td><td>0</td><td>Middels</td><td>Hoy</td><td>Erfaringsdeling</td></tr>
+<tr><td colspan="5"><strong>Lopende driftskostnader</strong></td></tr>
+<tr><td>- Doble standarder (nasjonale + EEHRxF)</td><td>0</td><td>Hoy (over tid)</td><td>Lav (konsolidert)</td><td>Lav-Middels</td></tr>
+<tr><td>- Forvaltning av nye systemer</td><td>0</td><td>Middels</td><td>Middels-Hoy</td><td>Deling mulig</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>Indikative kostnadsintervaller (svaert usikre)</h4>
+
+<p>Basert pa tilgjengelige referansepunkter anslas folgende grove storrelsesordener for samlede investeringskostnader over implementeringsperioden (2026-2031):</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Alternativ</th><th>Investeringskostnad (mrd. NOK)</th><th>Arlig merkostnad drift (mill. NOK)</th></tr>
+</thead>
+<tbody>
+<tr><td>Nullalternativet</td><td>0 (men kostnader ved sanksjoner/tap)</td><td>0</td></tr>
+<tr><td>Alt. 1: Stegvis minimum</td><td>3-6</td><td>300-600 (doble standarder)</td></tr>
+<tr><td>Alt. 2: Akselerert helhetlig</td><td>6-12</td><td>200-400 (konsolidert)</td></tr>
+<tr><td>Alt. 3: Nordisk samarbeid (tillegg)</td><td>+0,2-0,5 (koordinering)</td><td>+50-100 (koordinering), men besparelse 10-25 % pa delte komponenter</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Viktig forbehold:</strong> Disse intervallene er grove estimater basert pa begrenset datagrunnlag. De faktiske kostnadene kan avvike vesentlig. Erfaringer fra store norske e-helseprosjekter (Helseplattformen, En innbygger &ndash; en journal) viser at kostnadsoverskridelser er vanlige. EU-kommisjonens estimater fra konsekvensutredningen er basert pa gjennomsnitt for alle medlemsland og tar ikke hensyn til norske saerforhold.</p>
+
+<h3>3.2 Ikke-prissatte kvantifiserbare virkninger (nyttesiden)</h3>
+
+<p>Disse virkningene kan i prinsippet kvantifiseres, men det foreligger ikke tilstrekkelig datagrunnlag for a prissette dem palitelig.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Virkning</th><th>Indikator</th><th>Null</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Reduserte dobbeltundersokelser</strong></td><td>Antall unodvendige undersokelser unngatt per ar</td><td>0</td><td>Lav (kun grensekryssende)</td><td>Middels (nasjonalt + grensekryssende)</td><td>Lav-Middels</td></tr>
+<tr><td><strong>Tidsbesparelser for helsepersonell</strong></td><td>Timer spart pa informasjonsinnhenting per ar</td><td>0</td><td>Lav</td><td>Middels-Hoy</td><td>Lav-Middels</td></tr>
+<tr><td><strong>Raskere forskningstilgang</strong></td><td>Gjennomsnittlig tid fra soknad til datatilgang</td><td>0</td><td>Middels forbedring</td><td>Hoy forbedring</td><td>Middels-Hoy forbedring</td></tr>
+<tr><td><strong>Reduserte medisinske feil</strong></td><td>Antall unngatte feil ved grensekryssende behandling</td><td>0</td><td>Middels</td><td>Middels-Hoy</td><td>Middels</td></tr>
+<tr><td><strong>Okt bruk av e-resept grensekryssende</strong></td><td>Antall grensekryssende e-resepter per ar</td><td>0</td><td>Middels</td><td>Middels</td><td>Middels</td></tr>
+<tr><td><strong>Redusert tid til legemiddelutvikling</strong></td><td>Maneder spart per klinisk studie</td><td>0</td><td>Lav</td><td>Middels</td><td>Middels</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>EU-kommisjonens estimat for nyttevirkninger:</strong> EUR 5,4 mrd. fra optimalisert bruk av helsedata til forskning og innovasjon, og EUR 5,5 mrd. fra bedre tilgang og utveksling av helsedata i helsetjenesten, samlet EUR 11 mrd. over ti ar for hele EU (kilde: SWD(2022) 131). Norges andel kan grovt anslas til 1-2 % basert pa befolkningsandel, dvs. EUR 110-220 mill. (ca. 1,2-2,5 mrd. NOK over ti ar). Sykehus kan oppna opptil 15 % besparelser ved bedre bruk av eksisterende helseinformasjon (kilde: EU-kommisjonen).</p>
+
+<h3>3.3 Ikke-kvantifiserbare virkninger</h3>
+
+<p>Disse virkningene er viktige for den samlede vurderingen, men lar seg verken kvantifisere eller prissette pa en meningsfull mate.</p>
+
+<p><strong>Positive virkninger:</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Virkning</th><th>Beskrivelse</th><th>Relevans per alternativ</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Styrket pasientmedvirkning</strong></td><td>Pasienter far bedre kontroll over egne helsedata, inkludert rett til tilgang, nedlasting og tilgangsbegrensning</td><td>Alle tiltaksalternativer, storst i alt. 2</td></tr>
+<tr><td><strong>Bedre forskningsdata</strong></td><td>Standardiserte, hoykvalitets helsedata gir bedre grunnlag for medisinsk forskning, folkehelse og legemiddelutvikling</td><td>Alle, storst i alt. 2</td></tr>
+<tr><td><strong>Okt tillit til helsesystemet</strong></td><td>Transparens og kontroll kan styrke innbyggernes tillit til digital helsedatahandtering</td><td>Alle, forutsatt god gjennomforing</td></tr>
+<tr><td><strong>Innovasjon og naeringsutvikling</strong></td><td>Tilgang til helsedata kan stimulere utvikling av nye helseteknologilosninger og tjenester</td><td>Storst i alt. 2 og 3</td></tr>
+<tr><td><strong>Norsk konkurranseposisjon i forskning</strong></td><td>Norske forskere far tilgang til europeisk datamateriale via HealthData@EU</td><td>Alle tiltaksalternativer</td></tr>
+<tr><td><strong>Harmonisering med europeiske standarder</strong></td><td>Reduserer fragmentering og letter samarbeid med europeiske partnere</td><td>Storst i alt. 2</td></tr>
+<tr><td><strong>Forbedret beredskap</strong></td><td>Bedre datatilgang kan styrke beredskapsevnen ved fremtidige pandemier/helsekriser</td><td>Alle, storst i alt. 2</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Negative virkninger / risikoer:</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Virkning</th><th>Beskrivelse</th><th>Relevans per alternativ</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Personvernrisiko</strong></td><td>Okt deling av sensitive helsedata pa tvers av landegrenser medforer nye risikoer</td><td>Alle, handteres ulikt</td></tr>
+<tr><td><strong>Endringsmotstand</strong></td><td>Omstilling av arbeidsprosesser, systemer og standarder moter motstand fra helsepersonell og leverandorer</td><td>Storst i alt. 2</td></tr>
+<tr><td><strong>Avhengighet av EU-prosesser</strong></td><td>Norge blir avhengig av EU-kommisjonens tidsplan for gjennomforingsrettsakter</td><td>Alle</td></tr>
+<tr><td><strong>Tap av nasjonal fleksibilitet</strong></td><td>Forordningen begrenser nasjonalt handlingsrom for helsedata-regulering</td><td>Alle</td></tr>
+<tr><td><strong>Kompetansekonkurranse</strong></td><td>Stor ettersporsel etter FHIR- og interoperabilitetskompetanse kan drive opp lonnskostnader og skape kapasitetsutfordringer</td><td>Storst i alt. 2</td></tr>
+<tr><td><strong>Implementeringsrisiko</strong></td><td>Store IT-prosjekter i offentlig sektor har historisk hoy risiko for forsinkelser og kostnadsoverskridelser (jf. Helseplattformen)</td><td>Storst i alt. 2</td></tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2>4. Tallfesting og verdsetting</h2>
+
+<p>Gitt den store usikkerheten gjennomfores tallfesting og verdsetting som en kvalitativ vurdering av storrelsesorden. Folgende kategorier benyttes:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Kategori</th><th>Storrelsesorden</th></tr>
+</thead>
+<tbody>
+<tr><td>Lav</td><td>Under 500 mill. NOK (investering) / under 50 mill. NOK (arlig drift)</td></tr>
+<tr><td>Middels</td><td>500 mill. &ndash; 2 mrd. NOK (investering) / 50-200 mill. NOK (arlig drift)</td></tr>
+<tr><td>Hoy</td><td>2-6 mrd. NOK (investering) / 200-500 mill. NOK (arlig drift)</td></tr>
+<tr><td>Svaert hoy</td><td>Over 6 mrd. NOK (investering) / over 500 mill. NOK (arlig drift)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Samlet kostnadsvurdering per alternativ</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Null</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3 (tillegg)</th></tr>
+</thead>
+<tbody>
+<tr><td>Investeringskostnad</td><td>Lav</td><td>Hoy (3-6 mrd.)</td><td>Svaert hoy (6-12 mrd.)</td><td>Lav-Middels (+0,2-0,5 mrd.)</td></tr>
+<tr><td>Arlig driftskostnad (merkostnad)</td><td>Lav</td><td>Hoy (doble standarder)</td><td>Middels (konsolidert)</td><td>Lav</td></tr>
+<tr><td>Totalkostnad over 15 ar (NPV)</td><td>Lav direkte, men hoy alternativkostnad</td><td>Svaert hoy</td><td>Svaert hoy</td><td>Middels (tillegg)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Samlet nyttevurdering per alternativ</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Null</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3 (tillegg)</th></tr>
+</thead>
+<tbody>
+<tr><td>Nasjonal interoperabilitet</td><td>Ingen</td><td>Lav</td><td>Svaert hoy</td><td>Middels</td></tr>
+<tr><td>Grensekryssende datadeling</td><td>Ingen</td><td>Middels</td><td>Hoy</td><td>Middels-Hoy</td></tr>
+<tr><td>Forskningstilgang</td><td>Ingen</td><td>Middels</td><td>Hoy</td><td>Middels-Hoy</td></tr>
+<tr><td>Pasientrettigheter</td><td>Ingen</td><td>Middels</td><td>Hoy</td><td>Middels</td></tr>
+<tr><td>Effektivisering av helsetjenesten</td><td>Ingen</td><td>Lav</td><td>Hoy</td><td>Middels</td></tr>
+<tr><td>Innovasjon og naeringsutvikling</td><td>Ingen</td><td>Lav</td><td>Middels-Hoy</td><td>Middels</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Netto nyttevurdering</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Alternativ</th><th>Kostnader</th><th>Nytte</th><th>Netto vurdering</th></tr>
+</thead>
+<tbody>
+<tr><td>Nullalternativet</td><td>Lav direkte, men EOS-sanksjoner og tapte muligheter</td><td>Ingen</td><td>Negativ (ikke reelt)</td></tr>
+<tr><td>Alt. 1</td><td>Hoy (okende over tid pga. doble standarder)</td><td>Middels (primaert grensekryssende)</td><td>Svakt positiv kortsiktig, usikker langsiktig</td></tr>
+<tr><td>Alt. 2</td><td>Svaert hoy initialt, men avtagende over tid</td><td>Hoy-Svaert hoy (nasjonal + grensekryssende)</td><td>Positiv langsiktig, men hoy gjennomforingsrisiko</td></tr>
+<tr><td>Alt. 3 (tillegg)</td><td>Lav-Middels merkostnad</td><td>Middels tilleggsnytte</td><td>Positiv (kostnadseffektivt supplement)</td></tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2>5. Vurdering av usikkerhet</h2>
+
+<h3>Hva er mest usikkert?</h3>
+
+<p>Usikkerheten i denne vurderingen er <strong>svaert hoy</strong>. Folgende parametere er mest usikre og har storst betydning for konklusjonen:</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Usikkerhetsfaktor</th><th>Vurdering</th><th>Konsekvens for analysen</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Gjennomforingsrettsakter fra EU</strong></td><td>Mange sentrale spesifikasjoner skal vedtas mars 2025 &ndash; mars 2027. Innholdet er ukjent.</td><td>Kan endre omfanget av kravene vesentlig. Kan gjore alt. 1 mer eller mindre krevende</td></tr>
+<tr><td><strong>Tidspunkt for EOS-innlemmelse</strong></td><td>Avhenger av politisk prosess i EOS-komiteen og Stortinget</td><td>Pavirker alle tidsfrister og dermed kostnadsprofilen</td></tr>
+<tr><td><strong>Leverandorenes kapasitet og kostnader</strong></td><td>Ukjent hvor mange systemer som berores og hva tilpasningene vil koste</td><td>Leverandorkostnader kan utgjore den storste enkeltkostnaden</td></tr>
+<tr><td><strong>Kommunesektorens beredskap</strong></td><td>Over 350 kommuner med svaert ulik modenhet</td><td>Kan kreve langt storre investeringer enn antatt</td></tr>
+<tr><td><strong>Faktisk realisering av nyttevirkninger</strong></td><td>Basert pa EU-estimater, ikke norske erfaringstall</td><td>Nyttevirkningene kan bli vesentlig lavere enn anslatt</td></tr>
+<tr><td><strong>Erfaringer fra Helseplattformen</strong></td><td>Viser at store e-helseprosjekter har hoy risiko for kostnadsoverskridelser og forsinkelser</td><td>Tilsier et konservativt kostnadsestimat, saerlig for alt. 2</td></tr>
+<tr><td><strong>Teknologisk utvikling</strong></td><td>Rask utvikling innen AI, FHIR og helsedata kan endre forutsetningene</td><td>Kan bade redusere og oke kostnader</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Sensitivitetsanalyse (kvalitativ)</h3>
+
+<p><strong>Scenario 1: Gjennomforingsrettsaktene krever mer enn antatt</strong></p>
+<ul>
+<li>Alt. 1 blir dyrere fordi gateway-tilnaermingen ikke er tilstrekkelig</li>
+<li>Alt. 2 pavirkes mindre fordi bredere tilnaerming gir mer fleksibilitet</li>
+<li>Konklusjon: Styrker alt. 2 relativt til alt. 1</li>
+</ul>
+
+<p><strong>Scenario 2: Leverandorkostnadene dobles</strong></p>
+<ul>
+<li>Alle alternativer blir vesentlig dyrere</li>
+<li>Alt. 2 rammes hardest i absolutte tall, men alt. 1 rammes ogsa fordi leverandortilpasning er uunngaelig</li>
+<li>Konklusjon: Oker risikoen for alle alternativer, men endrer ikke rangeringen vesentlig</li>
+</ul>
+
+<p><strong>Scenario 3: Kommunesektoren krever 50 % mer enn antatt</strong></p>
+<ul>
+<li>Oker kostnadene for alle alternativer</li>
+<li>Alt. 2 rammes mer fordi ambisjonsnivat er hoyere</li>
+<li>Konklusjon: Kan gjore alt. 1 mer attraktivt kortsiktig</li>
+</ul>
+
+<p><strong>Scenario 4: Nyttevirkningene blir 50 % lavere enn antatt</strong></p>
+<ul>
+<li>Alt. 2s fordel over alt. 1 reduseres</li>
+<li>Alt. 1 kan bli foretrukket dersom nyttevirkningene primaert er grensekryssende</li>
+<li>Konklusjon: Styrker argumentet for en stegvis tilnaerming</li>
+</ul>
+
+<p><strong>Scenario 5: EOS-innlemmelse forsinkes med 2 ar</strong></p>
+<ul>
+<li>Alle alternativer far mer tid til forberedelse</li>
+<li>Kan gi tid til a starte med alt. 1 og gradvis bevege seg mot alt. 2</li>
+<li>Konklusjon: Styrker argumentet for en pragmatisk mellomvei</li>
+</ul>
+
+<hr>
+
+<h2>6. Samlet vurdering</h2>
+
+<h3>Sammenstilling av virkninger per alternativ</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Vurderingskriterium</th><th>Null</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3 (tillegg)</th></tr>
+</thead>
+<tbody>
+<tr><td>Samfunnsokonomisk lonnsomhet (langsiktig)</td><td>Svaert negativ</td><td>Svakt positiv</td><td>Positiv</td><td>Positiv (supplement)</td></tr>
+<tr><td>Gjennomforbarhet</td><td>N/A</td><td>Middels-Hoy</td><td>Middels</td><td>Middels (avhenger av partnere)</td></tr>
+<tr><td>Risiko for kostnadsoverskridelse</td><td>Lav</td><td>Middels</td><td>Hoy</td><td>Middels</td></tr>
+<tr><td>EOS-rettslig etterlevelse</td><td>Ikke oppfylt</td><td>Oppfylt</td><td>Oppfylt</td><td>Oppfylt (med hovedalternativ)</td></tr>
+<tr><td>Nasjonal nytteverdi utover EHDS</td><td>Ingen</td><td>Lav</td><td>Hoy</td><td>Middels</td></tr>
+<tr><td>Fleksibilitet/tilpasningsevne</td><td>Lav</td><td>Middels</td><td>Middels-Hoy</td><td>Hoy</td></tr>
+<tr><td>Fordelingsvirkninger</td><td>Skjev (tap for alle)</td><td>Akseptable</td><td>Gode, men omfordelende</td><td>Gode</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Kvalitativ rangering</h3>
+
+<ol>
+<li><strong>Alternativ 2 + 3</strong> (akselerert helhetlig med nordisk samarbeid): Hoyest samfunnsokonomisk lonnsomhet over 15 ar, men krever politisk vilje til store investeringer og aksept for hoy gjennomforingsrisiko.</li>
+<li><strong>Alternativ 1 + 3</strong> (stegvis minimum med nordisk samarbeid): Lavere risiko og mer gjennomforbart, men lavere langsiktig nytteverdi og risiko for teknisk gjeld som oker totalkostnaden over tid.</li>
+<li><strong>Alternativ 1 alene</strong>: Oppfyller minimumskravene, men gir begrenset nasjonal verdi og skaper doble standarder.</li>
+<li><strong>Alternativ 2 alene</strong>: Hoyest potensial, men mangler stordriftsfordelene fra nordisk samarbeid.</li>
+<li><strong>Nullalternativet</strong>: Ikke reelt ved EOS-innlemmelse.</li>
+</ol>
+
+<hr>
+
+<h2>7. Fordelingsvirkninger</h2>
+
+<h3>Hvem baerer kostnadene?</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Aktor</th><th>Type kostnad</th><th>Storrelsesorden</th><th>Merknader</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Staten (HOD/Helsedirektoratet/NHN)</strong></td><td>Nasjonal infrastruktur, forvaltningsstruktur, lovendringer, koordinering</td><td>Hoy-Svaert hoy</td><td>Hoveddelen av investeringskostnadene</td></tr>
+<tr><td><strong>Regionale helseforetak</strong></td><td>Tilpasning av systemer, endrede arbeidsprosesser, opplaering</td><td>Hoy</td><td>Fire RHF-er med ulik utgangspunkt (Helse Midt-Norge har Helseplattformen)</td></tr>
+<tr><td><strong>Kommuner</strong></td><td>Tilpasning av systemer, opplaering, endret praksis</td><td>Middels-Hoy samlet</td><td>Svaert ulikt fordelt &ndash; store kommuner har mer kapasitet enn sma</td></tr>
+<tr><td><strong>EPJ-leverandorer</strong></td><td>Systemtilpasning, sertifisering, testing</td><td>Hoy</td><td>Vil i praksis viderefores til kundene gjennom hoyere lisens-/utviklingskostnader</td></tr>
+<tr><td><strong>Private helseaktorer</strong></td><td>Systemtilpasning, opplaering</td><td>Middels</td><td>Ulik kapasitet og betalingsevne</td></tr>
+<tr><td><strong>Pasienter (indirekte)</strong></td><td>Tilpasning til nye rettigheter/systemer, personvernrisiko</td><td>Lav</td><td>Primaert omstillingskostnader</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Hvem far nytten?</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Aktor</th><th>Type nytte</th><th>Storrelsesorden</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Pasienter/innbyggere</strong></td><td>Bedre tilgang til egne data, sikrere grensekryssende behandling, okt kontroll</td><td>Middels-Hoy</td></tr>
+<tr><td><strong>Helsepersonell</strong></td><td>Bedre informasjonstilgang, redusert dobbeltarbeid, faerre medisinske feil</td><td>Middels-Hoy (storst i alt. 2)</td></tr>
+<tr><td><strong>Forskere og akademia</strong></td><td>Bedre datatilgang via HDAB, europeisk samarbeid, raskere forskning</td><td>Hoy</td></tr>
+<tr><td><strong>Legemiddelindustri og helseteknologi</strong></td><td>Raskere utvikling, bedre data, nye markeder</td><td>Middels-Hoy</td></tr>
+<tr><td><strong>Samfunnet generelt</strong></td><td>Bedre folkehelse, beredskap, innovasjon</td><td>Middels (langsiktig)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Geografisk fordeling</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Vurdering</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>By vs. distrikt</strong></td><td>Distrikter med faerre helseressurser kan ha storst nytte av bedre informasjonstilgang, men baerer ogsa relativt sett hoyere omstillingskostnader. Sma kommuner med begrenset IKT-kapasitet kan oppleve uforholdsmessig store kostnader.</td></tr>
+<tr><td><strong>Kommuner vs. helseforetak</strong></td><td>Helseforetakene har generelt storre IKT-kapasitet og kan handtere omstillingen bedre. Kommunene er mer sarbare, saerlig de minste. KS' rolle som koordinator blir avgjorende.</td></tr>
+<tr><td><strong>Regionale forskjeller</strong></td><td>Helse Midt-Norge (med Helseplattformen/Epic) har en annen utgangssituasjon enn de ovrige regionene. Tilpasningskostnadene kan variere betydelig mellom regionene.</td></tr>
+<tr><td><strong>Grensekryssende dimensjon</strong></td><td>Nordlige og sorlige grenseregioner (med henholdsvis svensk/finsk og dansk tilknytning) kan ha saerlig nytte av grensekryssende datautveksling. Omrader med mange turister (fjordregioner, Nordkapp) berores ogsa.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Omfordelingsvirkninger</h3>
+
+<p>EHDS-implementeringen inneberer en omfordeling der:</p>
+<ul>
+<li><strong>Kostnadene primaert baeres av det offentlige og leverandorene</strong>, som i sin tur finansieres av skatteinntekter og okte priser.</li>
+<li><strong>Nytten er bredere fordelt</strong>, men kommer i storst grad pasienter, forskere og innovasjonsmiljoer til gode.</li>
+<li><strong>Det er en risiko for at sma kommuner og mindre leverandorer rammes uforholdsmessig</strong> dersom det ikke etableres stotteordninger og overgangsmekanismer.</li>
+</ul>
+
+<hr>
+
+<h2>8. Anbefaling</h2>
+
+<h3>Anbefalt alternativ: Alternativ 2 (akselerert helhetlig) med elementer av alternativ 3 (nordisk samarbeid)</h3>
+
+<p>Basert pa den samlede vurderingen anbefales alternativ 2 som det mest samfunnsokonomisk lonnsomme alternativet over en 15-arsperiode, supplert med nordisk samarbeid (alternativ 3). Begrunnelsen er som folger:</p>
+
+<p><strong>For alternativ 2:</strong></p>
+<ol>
+<li><strong>Unngaar teknisk gjeld.</strong> Alternativ 1 skaper doble standarder (nasjonale meldingsstandarder + EEHRxF) som over tid kan koste mer enn den initielle besparelsen ved a velge minimum.</li>
+<li><strong>Storst nasjonal nytteverdi.</strong> FHIR som nasjonal standard gir interoperabilitetsgevinster som gar langt utover det EHDS krever &ndash; bedre informasjonsflyt mellom norske virksomheter, bedre datakvalitet, redusert dobbeltarbeid.</li>
+<li><strong>Samsvarer med eksisterende ambisjoner.</strong> &laquo;En innbygger &ndash; en journal&raquo;-visjonen og Nasjonal helse- og samhandlingsplan 2024-2027 peker allerede i denne retningen.</li>
+<li><strong>Bedre posisjonert for fremtidige krav.</strong> EHDS vil sannsynligvis utvides med nye kategorier og krav over tid. En helhetlig tilnaerming gir bedre fundament.</li>
+<li><strong>EU-estimater antyder positiv netto nytte.</strong> EUR 11 mrd. i besparelser over ti ar for EU indikerer at nyttevirkningene er betydelige, selv med konservative anslag for Norges andel.</li>
+</ol>
+
+<p><strong>For nordisk samarbeid (alternativ 3):</strong></p>
+<ol>
+<li><strong>Kostnadseffektivt supplement.</strong> Deling av terminologitjenester, testinfrastruktur og kompetanseressurser kan gi 10-25 % besparelse pa utvalgte komponenter.</li>
+<li><strong>Stordriftsfordeler i leverandordialogen.</strong> Flere nordiske leverandorer opererer i flere markeder, og koordinerte krav gir bedre forhandlingsposisjon.</li>
+<li><strong>Erfaringsdeling reduserer risiko.</strong> Laering fra land som starter implementeringen for Norge gir verdifull innsikt.</li>
+</ol>
+
+<h3>Viktige forutsetninger for anbefalingen</h3>
+
+<p>Anbefalingen forutsetter at:</p>
+<ol>
+<li>Det etableres en tydelig programorganisasjon med tilstrekkelig mandat og budsjett.</li>
+<li>Det gis politisk forpliktelse til langsiktig finansiering (utover enkeltbudsjettar).</li>
+<li>Kommunesektoren far tilstrekkelig stotte til omstillingen, inkludert finansiering og kompetansebistand.</li>
+<li>Leverandordialogen starter tidlig med tydelige signaler om krav og tidsfrister.</li>
+<li>Det etableres en klar plan for gradvis utfasing av nasjonale meldingsstandarder, med tilstrekkelig overgangsperiode.</li>
+<li>Nordisk samarbeid forankres politisk og organisatorisk, med realistiske forventninger til hva som kan deles.</li>
+</ol>
+
+<h3>Alternativ anbefaling ved begrenset politisk vilje eller budsjett</h3>
+
+<p>Dersom det ikke er politisk vilje til investeringsnivat i alternativ 2, anbefales en <strong>pragmatisk mellomvei</strong>: Start med alternativ 1 for a mote de forste fristene (gruppe 1: mars 2029), men med en bindende plan for overgang til alternativ 2 i perioden 2029-2033. Dette reduserer kortsiktig risiko, men oker totalkostnaden over tid og forutsetter at den politiske forpliktelsen til overgang opprettholdes over flere regjeringsperioder.</p>
+
+<hr>
+
+<h2>Forholdsmessighet</h2>
+
+<h3>Vurdering av analyseniva</h3>
+
+<p>Denne vurderingen er gjennomfort som en <strong>forenklet samfunnsokonomisk analyse</strong> (forhandsanalyse) i trad med DFOs veileder. Folgende forhold begrunner det valgte analysenivat:</p>
+
+<p><strong>Faktorer som tilsier grundigere analyse:</strong></p>
+<ul>
+<li>EHDS-implementeringen er et svaert stort tiltak med samlede kostnader anslatt til flere milliarder kroner.</li>
+<li>Tiltaket berorer alle virksomheter i helse- og omsorgssektoren og millioner av innbyggere.</li>
+<li>Irreversibilitet: Valg av arkitektur og standarder er vanskelige a reversere.</li>
+<li>Fordelingsvirkningene er betydelige.</li>
+</ul>
+
+<p><strong>Faktorer som begrenser analysenivat:</strong></p>
+<ul>
+<li>Gjennomforingsrettsaktene fra EU-kommisjonen er ikke vedtatt, noe som skaper fundamental usikkerhet om kravene.</li>
+<li>Tidspunktet for EOS-innlemmelse er uavklart.</li>
+<li>Det mangler detaljerte kostnadsestimater fra leverandorer og helsevirksomheter.</li>
+<li>Helsedirektoratets egen gapanalyse (april 2025) gir kun overordnede vurderinger av kostnader.</li>
+</ul>
+
+<p><strong>Anbefaling om videre analyse:</strong></p>
+<p>En fullverdig samfunnsokonomisk analyse (med prissatte nyttevirkninger, diskontering og beregning av netto naverdi) bor gjennomfores nar:</p>
+<ol>
+<li>Gjennomforingsrettsaktene er vedtatt (forventet mars 2027)</li>
+<li>EOS-innlemmelsestidspunktet er avklart</li>
+<li>Detaljerte kostnadsestimater fra leverandorer og virksomheter foreligger</li>
+<li>Erfaringer fra tidlige implementeringer i EU-land er tilgjengelige</li>
+</ol>
+
+<hr>
+
+<h2>Kilder</h2>
+
+<h3>Primaerkilder for denne vurderingen</h3>
+
+<ol>
+<li>DFO (2023/2025). <em>Veileder i samfunnsokonomiske analyser</em>. Direktoratet for forvaltning og okonomistyring. <a href="https://www.dfo.no/fagomrader/utredning-og-analyse-av-statlige-tiltak/samfunnsokonomiske-analyser/veileder-i-samfunnsokonomiske-analyser">https://www.dfo.no/fagomrader/utredning-og-analyse-av-statlige-tiltak/samfunnsokonomiske-analyser/veileder-i-samfunnsokonomiske-analyser</a></li>
+<li>EU-kommisjonen (2022). <em>Impact Assessment on the European Health Data Space, SWD(2022) 131</em>. <a href="https://health.ec.europa.eu/publications/impact-assessment-european-health-data-space_en">https://health.ec.europa.eu/publications/impact-assessment-european-health-data-space_en</a></li>
+<li>EU-kommisjonen (2025). <em>European Health Data Space Regulation (EHDS)</em>. <a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space-regulation-ehds_en">https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space-regulation-ehds_en</a></li>
+<li>Helsedirektoratet (2025). <em>EHDS konsekvensvurdering &ndash; Gapanalyse pr. 11. april 2025</em>. <a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025">https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025</a></li>
+<li>Regjeringen.no. <em>EOS-notat: Forordning om det europeiske helsedataomradet (EHDS)</em>. <a href="https://www.regjeringen.no/no/sub/eos-notatbasen/notatene/2022/juni/forslag-til-forordning-om-det-europeiske-helsedataomradet-ehds/id3014792/">https://www.regjeringen.no/no/sub/eos-notatbasen/notatene/2022/juni/forslag-til-forordning-om-det-europeiske-helsedataomradet-ehds/id3014792/</a></li>
+<li>Regjeringen.no (2025). <em>Analyse av fordeler og ulemper ved Helseplattformen. Rapport 2025/38</em>. <a href="https://www.regjeringen.no/no/dokumenter/analyse-av-fordeler-og-ulemper-ved-helseplattformen/id3143739/">https://www.regjeringen.no/no/dokumenter/analyse-av-fordeler-og-ulemper-ved-helseplattformen/id3143739/</a></li>
+<li>TEHDAS (2023). <em>Sustainability Plan for Secondary Use of Health Data in the European Health Data Space</em>. <a href="https://tehdas.eu/app/uploads/2023/09/tehdas-sustainability-plan-for-ehds.pdf">https://tehdas.eu/app/uploads/2023/09/tehdas-sustainability-plan-for-ehds.pdf</a></li>
+<li>HaDEA (2025). <em>EU-funded projects contributing to the implementation of the European Health Data Space</em>. <a href="https://hadea.ec.europa.eu/news/eu-funded-projects-contributing-implementation-european-health-data-space-2025-03-28_en">https://hadea.ec.europa.eu/news/eu-funded-projects-contributing-implementation-european-health-data-space-2025-03-28_en</a></li>
+</ol>
+
+<h3>Underlagsdokumenter fra dette prosjektet</h3>
+
+<ol start="9">
+<li>Kunnskapsgrunnlag for EHDS (rapporter/kunnskapsgrunnlag-ehds.md)</li>
+<li>Problemdefinisjon for EHDS-implementering (rapporter/problemdefinisjon-ehds.md)</li>
+<li>Tiltaksalternativer for EHDS-implementering (rapporter/tiltaksalternativer-ehds.md)</li>
+</ol>
+
+<h3>Referansepunkter for norske e-helseprosjekter</h3>
+
+<ol start="12">
+<li>Helseplattformen AS. <em>Okonomien i Helseplattformen &ndash; fakta bak tallene</em>. <a href="https://www.helseplattformen.no/om-oss/helseplattformen-i-media/nodvendig-fakta-om-helseplattformen/okonomien-i-helseplattformen/">https://www.helseplattformen.no/om-oss/helseplattformen-i-media/nodvendig-fakta-om-helseplattformen/okonomien-i-helseplattformen/</a></li>
+<li>Regjeringen.no. <em>Nasjonal helse- og samhandlingsplan 2024-2027</em>. <a href="https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/</a></li>
+</ol>
+
+<hr>
+
+<p><em>Denne rapporten er utarbeidet 15. mars 2026 som en forenklet samfunnsokonomisk vurdering etter DFOs 8-trinnsmodell. Analysen er basert pa offentlig tilgjengelige kilder og tidligere rapporter fra dette prosjektet. Rapporten bor oppdateres nar gjennomforingsrettsakter fra EU-kommisjonen vedtas, EOS-innlemmelse avklares, og mer detaljerte kostnadsestimater foreligger.</em></p>
+
+</main>
+</body>
+</html>

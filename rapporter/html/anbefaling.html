@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anbefaling: EHDS-implementering i Norge</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #ffffff; color: #333; line-height: 1.7; }
+  nav a.active { text-decoration: underline; font-weight: bold; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { color: #1a1a2e; font-size: 2em; margin: 1em 0 0.5em; border-bottom: 2px solid #003366; padding-bottom: 0.3em; }
+  h2 { color: #003366; font-size: 1.5em; margin: 1.5em 0 0.5em; border-bottom: 1px solid #ddd; padding-bottom: 0.2em; }
+  h3 { color: #1a1a2e; font-size: 1.2em; margin: 1.2em 0 0.4em; }
+  h4 { color: #1a1a2e; font-size: 1.05em; margin: 1em 0 0.3em; }
+  p { margin: 0.6em 0; }
+  a { color: #0066cc; }
+  ul, ol { margin: 0.6em 0 0.6em 1.5em; }
+  li { margin: 0.3em 0; }
+  strong { color: #1a1a2e; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+  .table-wrap { overflow-x: auto; margin: 1em 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 500px; }
+  th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; color: #333; }
+  th { background: #003366; color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  tr:hover { background: #eef4fb; }
+  blockquote { border-left: 4px solid #003366; padding: 0.5em 1em; margin: 1em 0; background: #f7f9fc; color: #333; }
+  em { color: #555; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.95em; }
+  @media print {
+    nav { display: none; }
+    main { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+    table { font-size: 9pt; }
+    h1, h2, h3 { break-after: avoid; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<nav style="background:#003366;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;">
+  <a href="index.html" style="color:#fff;text-decoration:none;font-size:14px;">Forside</a>
+  <a href="ledersammendrag.html" style="color:#fff;text-decoration:none;font-size:14px;">Ledersammendrag</a>
+  <a href="kunnskapsgrunnlag.html" style="color:#fff;text-decoration:none;font-size:14px;">Kunnskapsgrunnlag</a>
+  <a href="problemdefinisjon.html" style="color:#fff;text-decoration:none;font-size:14px;">Problemdefinisjon</a>
+  <a href="tiltaksalternativer.html" style="color:#fff;text-decoration:none;font-size:14px;">Tiltaksalternativer</a>
+  <a href="prinsipielle-spoersmaal.html" style="color:#fff;text-decoration:none;font-size:14px;">Prinsipielle sporsmal</a>
+  <a href="samfunnsoekonomisk.html" style="color:#fff;text-decoration:none;font-size:14px;">Samfunnsokonomi</a>
+  <a href="helsepersonell.html" style="color:#fff;text-decoration:none;font-size:14px;">Helsepersonell</a>
+  <a href="arkitektur.html" style="color:#fff;text-decoration:none;font-size:14px;">Arkitektur</a>
+  <a href="anbefaling.html" class="active" style="color:#fff;text-decoration:underline;font-size:14px;font-weight:bold;">Anbefaling</a>
+  <a href="gjennomfoering.html" style="color:#fff;text-decoration:none;font-size:14px;">Gjennomforing</a>
+  <a href="visualiseringer.html" style="color:#fff;text-decoration:none;font-size:14px;">Visualiseringer</a>
+</nav>
+<main>
+
+<h1>Anbefaling: EHDS-implementering i Norge</h1>
+
+<h2>Ledersammendrag</h2>
+
+<p><strong>Anbefaling: Norge bor velge en hybridstrategi der alternativ 1 (stegvis minimum) brukes som taktisk startpunkt for a mote de forste EHDS-fristene, med alternativ 2 (akselerert helhetlig) som bindende strategisk mal, og alternativ 3 (nordisk samarbeid) som parallell samarbeidsdimensjon.</strong></p>
+
+<p>Denne anbefalingen er forankret i en sammenstilling av seks delrapporter som dekker kunnskapsgrunnlag, problemdefinisjon, tiltaksalternativer, prinsipielle sporsmal, samfunnsokonomisk vurdering, helsepersonellkonsekvenser og arkitekturkonsekvenser.</p>
+
+<p><strong>Nokkeltall:</strong></p>
+<ul>
+<li>EHDS-forordningen (EU 2025/327) tradte i kraft mars 2025. Gruppe 1-fristen er mars 2029, gruppe 2-fristen er mars 2031.</li>
+<li>Estimert investeringskostnad: 3-6 mrd. NOK for alternativ 1 alene, 6-12 mrd. NOK for alternativ 2. Hybridstrategien antas a ligge i omradet 5-9 mrd. NOK.</li>
+<li>EU anslar EUR 11 mrd. i besparelser over ti ar for hele EU. Norges andel er grovt anslatt til 1,2-2,5 mrd. NOK.</li>
+<li>21 identifiserte gap fordelt pa rettslige (5), tekniske (6), organisatoriske (5) og semantiske (5) dimensjoner.</li>
+<li>Arkitekturkvalitet: Alternativ 2 scorer 4,2/5, alternativ 3: 2,8/5, alternativ 1: 2,0/5.</li>
+</ul>
+
+<p><strong>Hovedbegrunnelse:</strong> Rent alternativ 1 gir for stor teknisk gjeld og for lav nasjonal nytteverdi. Rent alternativ 2 har for hoy gjennomforingsrisiko og for hoye kortsiktige kostnader. En hybridstrategi henter de beste elementene fra begge: pragmatisk start med tydelig retning mot langsiktig modernisering.</p>
+
+<p><strong>Det kritiske designprinsippet:</strong> Gateway-laget som etableres i forste fase, ma designes eksplisitt som midlertidig infrastruktur med en bindende utfasingsplan. Dersom gateway-laget sementeres som permanent arkitektur, vil Norge akkumulere teknisk gjeld som blir stadig dyrere a handtere.</p>
+
+<hr>
+
+<h2>Samlet vurdering av alternativene</h2>
+
+<h3>Alternativ 1 &ndash; Samlet vurdering</h3>
+
+<p><strong>Stegvis minimumstilnaerming: Gateway-basert etterlevelse av EHDS-krav.</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Perspektiv</th><th>Vurdering</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Okonomi</strong></td><td>Investeringskostnad 3-6 mrd. NOK. Arlig merkostnad 300-600 mill. NOK for doble standarder. Lavest kortsiktig kostnad, men okende totalkostnad over tid.</td></tr>
+<tr><td><strong>Helsepersonell</strong></td><td>Minst forstyrrende pa kort sikt. Lav nasjonal nytteverdi &ndash; helsepersonell far ikke bedre informasjonstilgang mellom norske virksomheter. Risiko for konverteringsfeil ved grensekryssende deling.</td></tr>
+<tr><td><strong>Arkitektur</strong></td><td>Scorer 2,0/5 pa arkitekturkvalitet. Genererer permanent teknisk gjeld med to parallelle standardverdener. Gateway er et sentralt feilpunkt med 18-24 integrasjonspunkter.</td></tr>
+<tr><td><strong>Prinsipielle sporsmal</strong></td><td>Oppfyller minimumskravene, men utnytter ikke handlingsrommet for a styrke pasientrettigheter eller nasjonal interoperabilitet.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Styrker:</strong> Lavest kortsiktig risiko. Mest gjennomforbart innenfor stramme tidsfrister. Minst endringsmotstand.</p>
+
+<p><strong>Svakheter:</strong> Skaper varig teknisk gjeld. Doble standarder oker driftskostnadene over tid. Begrenset nasjonal verdi utover EOS-rettslig etterlevelse. Leverandorer har ikke insentiv til a modernisere til FHIR nasjonalt.</p>
+
+<h3>Alternativ 2 &ndash; Samlet vurdering</h3>
+
+<p><strong>Akselerert helhetlig implementering: FHIR som nasjonal standard, bredere modernisering.</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Perspektiv</th><th>Vurdering</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Okonomi</strong></td><td>Investeringskostnad 6-12 mrd. NOK. Arlig driftskostnad 200-400 mill. NOK (konsolidert). Hoyest initialkostnad, men mest lonnsomt over 15 ar.</td></tr>
+<tr><td><strong>Helsepersonell</strong></td><td>Storst langsiktig gevinst med bedre nasjonal informasjonstilgang. Hoyest kortsiktig endringsbelastning. Risiko for &laquo;Helseplattformen i nasjonal skala&raquo; ved darlig gjennomforing. 16 anbefalinger for a ivareta helsepersonell.</td></tr>
+<tr><td><strong>Arkitektur</strong></td><td>Scorer 4,2/5 pa arkitekturkvalitet. Ferrest transformasjonspunkter (12-15). Eliminerer doble standarder. Skalerer best til nye datakategorier.</td></tr>
+<tr><td><strong>Prinsipielle sporsmal</strong></td><td>Sterkest posisjon for a realisere bade EHDS-krav og nasjonale digitaliseringsambisjoner. Storst potensial for a styrke pasientrettigheter og forskningstilgang.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Styrker:</strong> Best arkitekturkvalitet. Storst nasjonal nytteverdi. Samsvarer med &laquo;En innbygger &ndash; en journal&raquo;-visjonen. Eliminerer doble standarder. Best posisjonert for fremtidige krav.</p>
+
+<p><strong>Svakheter:</strong> Hoy gjennomforingskompleksitet. Hoy kostnad. Hoy endringsmotstand, saerlig fra leverandorer og virksomheter. Kapasitetsbegrensninger i bade offentlig og privat sektor. Erfaringene fra Helseplattformen viser risikoen ved store systemendringer.</p>
+
+<h3>Alternativ 3 &ndash; Samlet vurdering</h3>
+
+<p><strong>Nordisk samarbeidstilnaerming: Delte komponenter og koordinering med nordiske land.</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Perspektiv</th><th>Vurdering</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Okonomi</strong></td><td>Tilleggskostnad 0,2-0,5 mrd. NOK for koordinering, men besparelse 10-25 % pa delte komponenter. Kostnadseffektivt supplement.</td></tr>
+<tr><td><strong>Helsepersonell</strong></td><td>Verdi gjennom erfaringsdeling &ndash; laere av land som innforer EHDS for Norge. Koordinert leverandordialog gir bedre EPJ-tilpasninger.</td></tr>
+<tr><td><strong>Arkitektur</strong></td><td>Scorer 2,8/5 som selvstendig alternativ, men loser ikke nasjonale arkitektursporsmal. Reell verdi i delte terminologitjenester, testinfrastruktur og FHIR-profiler.</td></tr>
+<tr><td><strong>Prinsipielle sporsmal</strong></td><td>Sterkere nordisk forhandlingsposisjon overfor EU ved gjennomforingsrettsakter. Koordinert tolkning av handlingsrommet.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Styrker:</strong> Kostnadseffektivt. Stordriftsfordeler i leverandordialog (DIPS, CGM, Visma opererer i flere nordiske land). Erfaringsdeling reduserer implementeringsrisiko.</p>
+
+<p><strong>Svakheter:</strong> Ikke et selvstendig alternativ &ndash; Norge ma uansett velge mellom gateway (alt. 1) eller FHIR-first (alt. 2) nasjonalt. Koordineringskompleksitet mellom selvstendige nasjoner. EU-land og EOS-land har ulike tidsfrister. Risiko for &laquo;laveste felles nevner&raquo;.</p>
+
+<hr>
+
+<h2>Anbefaling</h2>
+
+<h3>Den anbefalte hybridstrategien</h3>
+
+<p>Basert pa sammenstillingen av alle delrapporter anbefales folgende hybridstrategi:</p>
+
+<p><strong>Fase 1 (2026-2029): Taktisk etterlevelse med strategisk retning</strong></p>
+<ul>
+<li>Etabler gateway-laget for gruppe 1-kategoriene (pasientoppsummeringer, e-resept) basert pa alternativ 1.</li>
+<li>Bygg pa kjernejournals eksisterende FHIR-API-er og reseptformidlerens MyHealth@EU-pilot.</li>
+<li><strong>Kritisk:</strong> Design gateway-laget eksplisitt som midlertidig infrastruktur. Bygg det modulaert slik at det kan fases ut komponent for komponent.</li>
+<li>Publiser en bindende nasjonal FHIR-overgangsplan (roadmap) med konkrete milepaler.</li>
+<li>Krev at alle nye integrasjoner bruker FHIR fra dag en.</li>
+<li>Etabler digital helsemyndighet og HDAB.</li>
+</ul>
+
+<p><strong>Fase 2 (2029-2031): Gradvis overgang til FHIR</strong></p>
+<ul>
+<li>Implementer gruppe 2-kategoriene (bilder, lab, epikriser) med FHIR-baserte grensesnitt der mulig.</li>
+<li>Start utfasing av gateway-konvertering for komponenter der kildene er blitt FHIR-native.</li>
+<li>Sett krav til EPJ-leverandorer om FHIR-stotte i anskaffelsesavtaler og kontraktsfornyelser.</li>
+<li>Evaluer og juster planen basert pa erfaringer fra fase 1.</li>
+</ul>
+
+<p><strong>Fase 3 (2031-2035): Konsolidering til alternativ 2</strong></p>
+<ul>
+<li>Fullfore utfasing av nasjonale meldingsstandarder.</li>
+<li>Alle EPJ-leverandorer leverer FHIR-baserte API-er.</li>
+<li>Gateway-laget fases ut.</li>
+<li>Nasjonal og europeisk interoperabilitet konvergerer.</li>
+</ul>
+
+<p><strong>Parallelt spor: Nordisk samarbeid</strong></p>
+<ul>
+<li>Etabler nordisk EHDS-koordineringsgruppe innen 2026 Q2.</li>
+<li>Prioriter delte terminologitjenester, testinfrastruktur og FHIR-basisprofiler.</li>
+<li>Koordiner leverandordialog med DIPS, CGM og Visma.</li>
+<li>Bruk erfaringer fra EU-land (Sverige, Danmark, Finland) som starter implementeringen for Norge.</li>
+</ul>
+
+<h3>Begrunnelse forankret i alle analysene</h3>
+
+<p><strong>Fra det samfunnsokonomiske perspektivet:</strong> Alternativ 2 er mest lonnsomt over 15 ar, men usikkerheten er svaert hoy. Hybridstrategien reduserer risikoen for store feilinvesteringer tidlig, samtidig som den sikrer at Norge beveger seg mot den langsiktig optimale losningen. Nordisk samarbeid gir 10-25 % besparelse pa delte komponenter.</p>
+
+<p><strong>Fra helsepersonellperspektivet:</strong> Hybridstrategien gir minst mulig forstyrrelse pa kort sikt (alternativ 1 for gruppe 1), men sikrer langsiktig forbedring av informasjonstilgangen (alternativ 2 som mal). Det er avgjorende at de 16 anbefalingene fra helsepersonellvurderingen folges, saerlig kravet om netto-noytral dokumentasjonsbirde og praksisnaer opplaering.</p>
+
+<p><strong>Fra arkitekturperspektivet:</strong> Hybridstrategien innebar en kompromissperiode med noe teknisk gjeld (gateway-laget), men unngaer den permanente gjelden ved rent alternativ 1. Det kritiske designprinsippet &ndash; at gateway-laget er midlertidig &ndash; er det viktigste enkeltpunktet i hele anbefalingen. Arkitekturkonsekvensanalysen viser at alternativ 2 scorer 4,2/5 mot alternativ 1s 2,0/5, noe som gir klar retning.</p>
+
+<p><strong>Fra det prinsipielle perspektivet:</strong> Hybridstrategien gir tid til grundig politisk behandling av de prinsipielle sporsmaalene (personvern vs. datatilgjengelighet, nasjonal suverenitet, pasientrettigheter) i fase 1, samtidig som den sikrer at Norge ikke faller etter fristene. Det nasjonale handlingsrommet bor utnyttes strategisk, saerlig for a styrke opt-out-rettigheter og ivareta taushetsplikten.</p>
+
+<h3>Avveininger og usikkerhet</h3>
+
+<p><strong>Avveininger:</strong></p>
+<ul>
+<li>Hybridstrategien er et kompromiss som ikke gir den laveste kostnaden pa kort sikt (det gjor rent alternativ 1) eller den hoyeste arkitekturkvaliteten umiddelbart (det gjor rent alternativ 2). Den gir i stedet den beste balansen mellom risiko, kostnad og langsiktig verdi.</li>
+<li>Det er en reell risiko for at den politiske forpliktelsen til overgang fra fase 1 til fase 2/3 svekkes over tid. Gateway-laget kan bli permanent &laquo;fordi det fungerer&raquo;. Dette er den storste risikoen ved hybridstrategien.</li>
+</ul>
+
+<p><strong>Usikkerhet:</strong></p>
+<ul>
+<li>Gjennomforingsrettsaktene fra EU-kommisjonen er ikke vedtatt. Dersom disse krever mer enn antatt, styrkes argumentet for alternativ 2. Dersom de tillater mer fleksibilitet, styrkes argumentet for alternativ 1.</li>
+<li>Tidspunktet for EOS-innlemmelse er uavklart. Forsinkelse gir mer forberedelsestid, men kan ogsa gi kortere implementeringstid.</li>
+<li>Leverandorkapasiteten er ukjent. Dersom leverandorene ikke har kapasitet, kan selv minimumstilnaermingen bli vanskelig.</li>
+<li>Helseplattformen/Epic representerer en saerskilt usikkerhet uavhengig av alternativ.</li>
+</ul>
+
+<p><strong>Minoritetssyn:</strong></p>
+<ul>
+<li><em>Arkitekturperspektivet</em> argumenterer for a ga mer direkte pa alternativ 2, fordi gateway-laget introduserer risiko og teknisk gjeld som kunne vaert unngatt. Dette perspektivet anerkjennes, men vurderes som for risikabelt gitt usikkerhetene og den korte tiden til forste frist.</li>
+<li><em>Helsepersonellperspektivet</em> argumenterer for a prioritere minimal forstyrrelse (alternativ 1 uten overgangsplan), for a unnga risikoen for &laquo;Helseplattformen i nasjonal skala&raquo;. Dette perspektivet anerkjennes, men vurderes som utilstrekkelig langsiktig.</li>
+</ul>
+
+<hr>
+
+<h2>Kritiske suksessfaktorer</h2>
+
+<p>For at hybridstrategien skal lykkes, ma folgende vaere pa plass:</p>
+
+<h3>1. Politisk forpliktelse til langsiktig retning</h3>
+<ul>
+<li>HOD ma forplikte seg til FHIR som nasjonal standard, ikke bare til EHDS-etterlevelse.</li>
+<li>Stortinget ma gi langsiktig finansieringsramme som strekker seg utover enkeltbudsjettar.</li>
+<li>Overgangen fra fase 1 til fase 2 ma forankres i politisk bindende vedtak (f.eks. stortingsmelding eller proposisjon), ikke kun i administrative planer.</li>
+</ul>
+
+<h3>2. Tydelig programorganisasjon</h3>
+<ul>
+<li>Nasjonalt EHDS-program med klart mandat, budsjett og styringsstruktur, ledet av Helsedirektoratet.</li>
+<li>Programmet ma ha myndighet pa tvers av sektorens aktorer og beslutningsmyndighet for arkitekturvalg.</li>
+<li>Tydelig ansvarsfordeling mellom Helsedirektoratet (strategi, standarder), NHN (drift, infrastruktur) og andre aktorer.</li>
+</ul>
+
+<h3>3. Bindende FHIR-overgangsplan</h3>
+<ul>
+<li>En tydelig, offentlig og bindende plan for overgang fra nasjonale meldingsstandarder til FHIR.</li>
+<li>Konkrete milepaler for nar gateway-laget skal fases ut per komponent.</li>
+<li>Krav om FHIR i alle nye anskaffelser og kontraktsfornyelser fra 2027.</li>
+</ul>
+
+<h3>4. Tidlig og systematisk leverandordialog</h3>
+<ul>
+<li>Leverandormote innen 2026 Q3 med tydelige signaler om krav og tidsfrister.</li>
+<li>Saerlig dialog med Epic/Helseplattformen om hvordan Epics integrasjonsmodell skal fungere med norske FHIR-profiler.</li>
+<li>Koordinert nordisk leverandordialog med DIPS, CGM og Visma.</li>
+</ul>
+
+<h3>5. Kommunesektoren ma stottes</h3>
+<ul>
+<li>Statlig finansiering av kommunenes EHDS-tilpasning i trad med prinsippet om at palagte oppgaver fullfinansieres.</li>
+<li>Kompetansebistand til sma kommuner.</li>
+<li>Koordinering med KS som kommunenes interesseorganisasjon.</li>
+</ul>
+
+<h3>6. Klinisk forankring gjennom hele prosessen</h3>
+<ul>
+<li>Kliniske referansegrupper med representanter fra alle bererte yrkesgrupper.</li>
+<li>Krav om brukertesting med reelle kliniske scenarioer.</li>
+<li>Netto-noytral dokumentasjonsbirde som designprinsipp.</li>
+<li>Laerdom fra Helseplattformen ma brukes aktivt.</li>
+</ul>
+
+<h3>7. Kompetansebygging</h3>
+<ul>
+<li>Nasjonalt FHIR-kompetanseprogram som starter senest 2027.</li>
+<li>Nordisk samarbeid om kompetanseutvikling.</li>
+<li>HL7 FHIR, EEHRxF og europeisk helseinteroperabilitet som prioriterte kompetanseomrader.</li>
+</ul>
+
+<hr>
+
+<h2>Neste steg</h2>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Nr</th><th>Handling</th><th>Ansvarlig</th><th>Frist</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><strong>Forankre hybridstrategien politisk.</strong> Legge frem anbefaling for HOD med anmodning om prinsippvedtak om FHIR som nasjonal standard og bindende overgangsplan.</td><td>Helsedirektoratet</td><td>2026 Q2</td></tr>
+<tr><td>2</td><td><strong>Etablere nasjonalt EHDS-program</strong> med mandat, budsjett og styringsstruktur. Programmet skal dekke bade fase 1 og den langsiktige overgangen.</td><td>HOD / Helsedirektoratet</td><td>2026 Q2</td></tr>
+<tr><td>3</td><td><strong>Utpeke digital helsemyndighet formelt.</strong> Avklare ansvarsfordelingen mellom Helsedirektoratet og NHN.</td><td>HOD</td><td>2026 Q3</td></tr>
+<tr><td>4</td><td><strong>Publisere nasjonal FHIR-overgangsplan (roadmap)</strong> med konkrete milepaler, krav til leverandorer og utfasingsplan for gateway-laget.</td><td>Helsedirektoratet</td><td>2026 Q4</td></tr>
+<tr><td>5</td><td><strong>Gjennomfore leverandordialog.</strong> Innkalle DIPS, Epic, CGM, Visma og Infodoc til felles mote med tydelige signaler om krav og tidsfrister. Saerskilt dialog med Epic om Helseplattformen.</td><td>Helsedirektoratet / NHN</td><td>2026 Q3</td></tr>
+<tr><td>6</td><td><strong>Etablere nordisk EHDS-koordineringsgruppe</strong> i samarbeid med svenske, danske, finske og islandske helsemyndigheter.</td><td>Helsedirektoratet</td><td>2026 Q2</td></tr>
+<tr><td>7</td><td><strong>Fremme lovproposisjon for Stortinget</strong> med nodvendige lovendringer for EOS-innlemmelse av EHDS.</td><td>HOD</td><td>2027 Q1</td></tr>
+<tr><td>8</td><td><strong>Etablere HDAB</strong> med grunnleggende funksjonalitet, bygget pa helsedata.no/Helsedataservice-infrastrukturen.</td><td>Helsedirektoratet / FHI</td><td>2028 Q2</td></tr>
+<tr><td>9</td><td><strong>Gjennomfore fullverdig samfunnsokonomisk analyse</strong> nar gjennomforingsrettsaktene er vedtatt.</td><td>Helsedirektoratet / DFO</td><td>2027 Q4</td></tr>
+<tr><td>10</td><td><strong>Etablere kliniske referansegrupper</strong> med representanter fra Legeforeningen, NSF, Farmasoytforbundet og andre fagorganisasjoner.</td><td>Helsedirektoratet</td><td>2026 Q3</td></tr>
+<tr><td>11</td><td><strong>Starte nasjonalt FHIR-kompetanseprogram</strong> i samarbeid med HL7 Norway og nordiske partnere.</td><td>Helsedirektoratet / NHN</td><td>2027 Q1</td></tr>
+<tr><td>12</td><td><strong>Etablere nasjonal testinfrastruktur</strong> for obligatorisk testing av EHR-systemer mot EEHRxF.</td><td>NHN</td><td>2028 Q4</td></tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2>Referanser</h2>
+
+<p>Denne anbefalingen er basert pa folgende delrapporter fra prosjektet:</p>
+
+<ol>
+<li><code>rapporter/kunnskapsgrunnlag-ehds.md</code> &ndash; Kunnskapsgrunnlag for EHDS-utredning</li>
+<li><code>rapporter/problemdefinisjon-ehds.md</code> &ndash; Problemdefinisjon med gap-analyse</li>
+<li><code>rapporter/tiltaksalternativer-ehds.md</code> &ndash; Beskrivelse av tiltaksalternativer</li>
+<li><code>rapporter/prinsipielle-spoersmaal-ehds.md</code> &ndash; Prinsipielle sporsmal ved EHDS-innforing</li>
+<li><code>rapporter/samfunnsoekonomisk-vurdering-ehds.md</code> &ndash; Samfunnsokonomisk vurdering</li>
+<li><code>rapporter/helsepersonellvurdering-ehds.md</code> &ndash; Helsepersonellvurdering</li>
+<li><code>rapporter/arkitekturkonsekvenser-ehds.md</code> &ndash; Arkitekturkonsekvensanalyse</li>
+</ol>
+
+<hr>
+
+<p><em>Denne anbefalingen er utarbeidet 15. mars 2026 som en sammenstilling av alle delrapporter i Helsedirektoratets arkitekturvurdering for EHDS-implementering i Norge. Anbefalingen bor revideres nar gjennomforingsrettsakter fra EU-kommisjonen vedtas, EOS-innlemmelse avklares, og mer detaljerte kostnadsestimater foreligger.</em></p>
+
+</main>
+</body>
+</html>

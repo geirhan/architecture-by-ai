@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arkitekturkonsekvensanalyse: EHDS-implementering i Norge</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #ffffff; color: #333; line-height: 1.7; }
+  nav a.active { text-decoration: underline; font-weight: bold; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { color: #1a1a2e; font-size: 2em; margin: 1em 0 0.5em; border-bottom: 2px solid #003366; padding-bottom: 0.3em; }
+  h2 { color: #003366; font-size: 1.5em; margin: 1.5em 0 0.5em; border-bottom: 1px solid #ddd; padding-bottom: 0.2em; }
+  h3 { color: #1a1a2e; font-size: 1.2em; margin: 1.2em 0 0.4em; }
+  h4 { color: #1a1a2e; font-size: 1.05em; margin: 1em 0 0.3em; }
+  p { margin: 0.6em 0; }
+  a { color: #0066cc; }
+  ul, ol { margin: 0.6em 0 0.6em 1.5em; }
+  li { margin: 0.3em 0; }
+  strong { color: #1a1a2e; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 2em 0; }
+  .table-wrap { overflow-x: auto; margin: 1em 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 500px; }
+  th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; color: #333; }
+  th { background: #003366; color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: #f9f9f9; }
+  tr:hover { background: #eef4fb; }
+  blockquote { border-left: 4px solid #003366; padding: 0.5em 1em; margin: 1em 0; background: #f7f9fc; color: #333; }
+  em { color: #555; }
+  code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-size: 0.95em; }
+  pre { background: #f4f4f4; padding: 1em; border-radius: 4px; overflow-x: auto; margin: 1em 0; font-size: 0.9em; line-height: 1.5; }
+  @media print {
+    nav { display: none; }
+    main { max-width: 100%; padding: 0; }
+    body { font-size: 11pt; }
+    table { font-size: 9pt; }
+    h1, h2, h3 { break-after: avoid; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<nav style="background:#003366;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;">
+  <a href="index.html" style="color:#fff;text-decoration:none;font-size:14px;">Forside</a>
+  <a href="ledersammendrag.html" style="color:#fff;text-decoration:none;font-size:14px;">Ledersammendrag</a>
+  <a href="kunnskapsgrunnlag.html" style="color:#fff;text-decoration:none;font-size:14px;">Kunnskapsgrunnlag</a>
+  <a href="problemdefinisjon.html" style="color:#fff;text-decoration:none;font-size:14px;">Problemdefinisjon</a>
+  <a href="tiltaksalternativer.html" style="color:#fff;text-decoration:none;font-size:14px;">Tiltaksalternativer</a>
+  <a href="prinsipielle-spoersmaal.html" style="color:#fff;text-decoration:none;font-size:14px;">Prinsipielle sporsmal</a>
+  <a href="samfunnsoekonomisk.html" style="color:#fff;text-decoration:none;font-size:14px;">Samfunnsokonomi</a>
+  <a href="helsepersonell.html" style="color:#fff;text-decoration:none;font-size:14px;">Helsepersonell</a>
+  <a href="arkitektur.html" class="active" style="color:#fff;text-decoration:underline;font-size:14px;font-weight:bold;">Arkitektur</a>
+  <a href="anbefaling.html" style="color:#fff;text-decoration:none;font-size:14px;">Anbefaling</a>
+  <a href="gjennomfoering.html" style="color:#fff;text-decoration:none;font-size:14px;">Gjennomforing</a>
+  <a href="visualiseringer.html" style="color:#fff;text-decoration:none;font-size:14px;">Visualiseringer</a>
+</nav>
+<main>
+
+<h1>Arkitekturkonsekvensanalyse: EHDS-implementering i Norge</h1>
+
+<h2>Sammendrag</h2>
+
+<p>Denne rapporten analyserer arkitekturkonsekvensene av tre tiltaksalternativer for EHDS-implementering i Norge. Analysen vurderer hvert alternativ langs fem kvalitetsdimensjoner (interoperabilitet, teknisk gjeld, vendor lock-in, skalerbarhet, sikkerhet) og gjennomforer en komponentanalyse av pavirkningen pa kjernejournal, reseptformidleren, helsenorge.no, EPJ-systemer og nye EHDS-komponenter.</p>
+
+<p><strong>Hovedfunn:</strong></p>
+
+<ul>
+<li><strong>Alternativ 1 (Stegvis minimum)</strong> gir lavest kortsiktig risiko, men skaper et permanent gateway-lag som genererer teknisk gjeld og opprettholder to parallelle standardverdener. Konverteringstap mellom nasjonale formater og EEHRxF er en reell pasientsikkerhetsrisiko.</li>
+<li><strong>Alternativ 2 (Akselerert helhetlig)</strong> gir best arkitekturkvalitet over tid ved a konsolidere til FHIR som nasjonal standard, men har svaert hoy gjennomforingskompleksitet og krever omfattende endringsledelse.</li>
+<li><strong>Alternativ 3 (Nordisk samarbeid)</strong> gir pragmatisk verdi gjennom delte komponenter og stordriftsfordeler i leverandordialog, men loser ikke de nasjonale arkitektursporsmaalene isolert.</li>
+</ul>
+
+<p><strong>Anbefaling:</strong> Fra et arkitekturperspektiv anbefales en hybridtilnaerming der alternativ 2 settes som strategisk mal, med alternativ 1 som taktisk startpunkt for de forste fristene, og alternativ 3 som en parallell samarbeidsdimensjon. Det kritiske er a unnga at gateway-laget i alternativ 1 sementeres som permanent arkitektur.</p>
+
+<hr>
+
+<h2>1. Vurdering av na-situasjonen</h2>
+
+<h3>Styrker i dagens arkitektur</h3>
+
+<p>Norsk helsesektor har flere arkitekturmessige styrker som gir et godt utgangspunkt for EHDS-implementering:</p>
+
+<ol>
+<li><strong>Kjernejournal er operativ og utbredt.</strong> Norge har allerede en nasjonal oppsummeringslosning (Summary Care Record) som dekker kritisk informasjon, legemiddelopplysninger og journaldokumenter. Kjernejournal har FHIR-baserte API-er for kritisk informasjon og dokumentdeling (IHE MHD-profil). Dette gir et konkret fundament for Patient Summary-kategorien i EHDS.</li>
+
+<li><strong>Reseptformidleren (e-resept) er moden.</strong> Norge har en velfungerende nasjonal e-reseptlosning som allerede er pilotert mot MyHealth@EU. Sentrale legemiddelregistre (FEST) og prosesser for e-forskrivning er etablert.</li>
+
+<li><strong>HelseID gir nasjonal identitets- og tilgangsinfrastruktur.</strong> En sentral identitetstjeneste med OAuth 2.0/OpenID Connect er allerede pa plass, noe som forenkler tilgangskontroll i EHDS-kontekst.</li>
+
+<li><strong>Helsenettet (NHN) gir sikker transportinfrastruktur.</strong> Etablert nettverksinfrastruktur med sikkerhetssoner og adressregister.</li>
+
+<li><strong>MyHealth@EU-pilotering er gjennomfort.</strong> NHN har allerede pilotert grensekryssende datautveksling, noe som gir erfaring med NCPeH-arkitekturen (National Contact Point for eHealth).</li>
+
+<li><strong>FHIR-kompetanse er under oppbygging.</strong> DIPS har FHIR-baserte API-er (Open DIPS), HL7 Norway har publisert 20 nasjonale FHIR-basisprofiler, og det gjennomfores nordiske FHIR-hackathons.</li>
+</ol>
+
+<h3>Svakheter i dagens arkitektur</h3>
+
+<ol>
+<li><strong>Meldingsbasert integrasjon dominerer.</strong> Norsk helsesektor er bygget rundt punkt-til-punkt-meldingsutveksling med nasjonale meldingsstandarder. Denne arkitekturen er fundamentalt annerledes enn den API-baserte, ressursorienterte tilnaermingen i FHIR/EEHRxF.</li>
+
+<li><strong>Fragmentert EPJ-landskap.</strong> DIPS Arena (fleste helseforetak), Helseplattformen/Epic (Helse Midt-Norge), og flere leverandorer i primaerhelsetjenesten (CGM, Visma, Infodoc) skaper et heterogent integrasjonsbilde. Helseplattformen har en helt annen arkitektur (Epic) enn resten av sektoren.</li>
+
+<li><strong>Semantisk heterogenitet.</strong> Ulike kodeverk, terminologier og detaljeringsniva pa tvers av virksomheter. Begrenset bruk av SNOMED CT og LOINC som EHDS forutsetter. Mapping mellom nasjonale kodeverk (ICD-10, ICPC-2, NKPK) og europeiske er ufullstendig.</li>
+
+<li><strong>Manglende nasjonal informasjonsmodell.</strong> Helse-NIM for oppsummerende helseopplysninger er under utvikling, men ikke ferdigstilt. Uten en autoritativ nasjonal informasjonsmodell er det vanskelig a sikre konsistent datarepresentasjon.</li>
+
+<li><strong>Ingen infrastruktur for sekundaerbruk.</strong> Sikre analyserom (SPE) og HealthData@EU-tilkobling er i tidlig fase. Tilgangsmodellen for sekundaerbruk er ikke etablert.</li>
+
+<li><strong>Ingen nasjonal testinfrastruktur for EHR-sertifisering.</strong> EHDS krever obligatorisk testing i nasjonalt testmiljo. Denne infrastrukturen eksisterer ikke.</li>
+</ol>
+
+<h3>Vurdering av arkitekturmodenhet</h3>
+
+<p>Samlet sett befinner norsk helsesektor seg i en overgangsfase: nasjonale felleskomponenter (kjernejournal, e-resept, HelseID) gir et solid fundament, men integrasjonsmonster (meldingsbasert), det semantiske grunnlaget og infrastrukturen for nye EHDS-funksjoner (sekundaerbruk, sertifisering, grensekryssende utveksling) har betydelige gap.</p>
+
+<hr>
+
+<h2>2. Gap-analyse per alternativ</h2>
+
+<h3>2.1 Alternativ 1 &ndash; Teknisk gap og konsekvenser</h3>
+
+<p><strong>Arkitekturvalg:</strong> Foderert arkitektur med sentralt gateway-lag for konvertering mellom nasjonale formater og EEHRxF.</p>
+
+<p><strong>Gap som ma lukkes:</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Gap</th><th>Tiltak</th><th>Kompleksitet</th><th>Risiko</th></tr>
+</thead>
+<tbody>
+<tr><td>Manglende EEHRxF-stotte</td><td>Gateway-lag konverterer ved grensekryssing</td><td>Middels</td><td>Konverteringstap, semantisk informasjonstap</td></tr>
+<tr><td>Manglende NCPeH</td><td>Bygge videre pa NHN-pilot</td><td>Middels</td><td>Avhengig av gateway-kvalitet</td></tr>
+<tr><td>Manglende HDAB</td><td>Ny funksjon pa helsedata.no/FHI</td><td>Middels</td><td>Organisatorisk, ikke primaert teknisk</td></tr>
+<tr><td>Manglende testinfrastruktur</td><td>Begrenset testmiljo for prioriterte kategorier</td><td>Lav-Middels</td><td>Utilstrekkelig testdekning</td></tr>
+<tr><td>Manglende sikre analyserom</td><td>SPUHiN viderefores</td><td>Middels</td><td>Knapp tidslinje</td></tr>
+<tr><td>Semantisk mapping</td><td>Konverteringsregler i gateway</td><td>Hoy</td><td>Feilmapping, datatap</td></tr>
+<tr><td>Innbyggerrettigheter</td><td>Tilpasning av helsenorge.no</td><td>Middels</td><td>Avhengig av gateway for EEHRxF-nedlasting</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Kritisk konsekvens:</strong> Gateway-tilnaermingen introduserer et sentralt feilpunkt (single point of failure) og en permanent konverteringskostnad. Erfaringer fra europeiske NCPeH-implementeringer viser at semantisk konvertering mellom nasjonale formater og felleseuropeiske formater er det mest feilprone leddet i grensekryssende datautveksling. Nasjonale systemer vil ikke dra nytte av FHIR-modernisering &ndash; gevinsten begrenses til grensekryssende scenarioer.</p>
+
+<p><strong>Teknisk gjeld som genereres:</strong></p>
+<ul>
+<li>To parallelle standardverdener (nasjonale meldingsstandarder + EEHRxF) som begge ma vedlikeholdes</li>
+<li>Gateway-konverteringsregler som ma oppdateres nar EEHRxF-spesifikasjoner endres</li>
+<li>EPJ-leverandorer har ikke insentiv til a modernisere til FHIR nasjonalt</li>
+</ul>
+
+<h3>2.2 Alternativ 2 &ndash; Teknisk gap og konsekvenser</h3>
+
+<p><strong>Arkitekturvalg:</strong> FHIR som nasjonal standard, nasjonale meldingsstandarder fases ut.</p>
+
+<p><strong>Gap som ma lukkes:</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Gap</th><th>Tiltak</th><th>Kompleksitet</th><th>Risiko</th></tr>
+</thead>
+<tbody>
+<tr><td>Manglende nasjonal FHIR-arkitektur</td><td>Helse-NIM, nasjonale FHIR-profiler, infrastruktur</td><td>Hoy</td><td>Spesifikasjonsarbeid tar tid</td></tr>
+<tr><td>EPJ-migrering til FHIR</td><td>Alle leverandorer ma implementere FHIR-API</td><td>Svaert hoy</td><td>Kapasitet, endringsmotstand</td></tr>
+<tr><td>Utfasing av meldingsstandarder</td><td>Gradvis overgangsplan</td><td>Hoy</td><td>Overgangsperiode med to systemer</td></tr>
+<tr><td>Manglende NCPeH</td><td>Bygge pa NHN-pilot, direkte FHIR</td><td>Middels</td><td>Enklere uten gateway-konvertering</td></tr>
+<tr><td>HDAB, testinfrastruktur, SPE</td><td>Som alternativ 1, men bredere</td><td>Middels-Hoy</td><td>Parallell med FHIR-overgang</td></tr>
+<tr><td>Terminologitjenester</td><td>Sentral nasjonal tjeneste for SNOMED CT, LOINC, ATC</td><td>Hoy</td><td>Krever nasjonal lisens og kompetanse</td></tr>
+<tr><td>Kompetansebygging</td><td>Nasjonalt FHIR-kompetanseprogram</td><td>Middels</td><td>Kapasitetsmangel i overgangsperioden</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Kritisk konsekvens:</strong> Alternativ 2 krever at alle EPJ-leverandorer (DIPS, Epic/Helseplattformen, CGM, Visma, Infodoc) implementerer FHIR-baserte grensesnitt. DIPS har allerede FHIR-API-er (Open DIPS), men Epic/Helseplattformen opererer med sin egen integrasjonsmodell. Primaerhelsetjenesten har svaert mange installasjoner med begrenset teknisk modenhet.</p>
+
+<p><strong>Teknisk gjeld som unngaas:</strong></p>
+<ul>
+<li>Ingen varig gateway-konvertering</li>
+<li>Nasjonale og europeiske standarder konvergerer</li>
+<li>EPJ-leverandorer moderniserer en gang, ikke to</li>
+</ul>
+
+<p><strong>Ny risiko som introduseres:</strong></p>
+<ul>
+<li>Overgangsperioden (anslagsvis 3-5 ar) krever midlertidig stotte for bade gamle og nye standarder</li>
+<li>Helseplattformen/Epic har en annen arkitekturfilosofi enn FHIR-basert nasjonal standard</li>
+</ul>
+
+<h3>2.3 Alternativ 3 &ndash; Teknisk gap og konsekvenser</h3>
+
+<p><strong>Arkitekturvalg:</strong> Felles nordisk referansearkitektur, delte komponenter, nasjonal kjerneinfrastruktur beholdes.</p>
+
+<p><strong>Gap som ma lukkes:</strong></p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Gap</th><th>Tiltak</th><th>Kompleksitet</th><th>Risiko</th></tr>
+</thead>
+<tbody>
+<tr><td>Manglende nordisk referansearkitektur</td><td>Felles spesifikasjonsarbeid</td><td>Middels (teknisk), Hoy (koordinering)</td><td>Ulik modenhet, ulike tidsplaner</td></tr>
+<tr><td>Delte terminologitjenester</td><td>Felles nordisk plattform</td><td>Middels</td><td>Ulike nasjonale kodeverk</td></tr>
+<tr><td>Delt testinfrastruktur</td><td>Felles nordisk testmiljo</td><td>Middels</td><td>Ulike kravnivaer</td></tr>
+<tr><td>Koordinert leverandordialog</td><td>Felles nordisk kravspesifikasjon</td><td>Lav-Middels</td><td>Begrenset formelt mandat</td></tr>
+<tr><td>Nasjonale gap (som alt. 1 eller 2)</td><td>Nasjonal implementering</td><td>Avhenger av nasjonal tilnaerming</td><td>Avhenger av nasjonal tilnaerming</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Kritisk konsekvens:</strong> Alternativ 3 loser ikke de nasjonale arkitektursporsmaalene &ndash; Norge ma uansett velge mellom en gateway-tilnaerming (alternativ 1) eller en FHIR-first-tilnaerming (alternativ 2) nasjonalt. Det nordiske samarbeidet gir imidlertid reell verdi i tre omrader:</p>
+
+<ol>
+<li><strong>Leverandoroverlapp:</strong> DIPS, Epic, CGM og Visma opererer i flere nordiske land. Koordinerte krav gir stordriftsfordeler.</li>
+<li><strong>FHIR-basisprofiler:</strong> Nordiske HL7-affiliater har allerede pabegynt harmonisering av nasjonale FHIR-basisprofiler (Organization, Patient, Practitioner er profilert i alle land). Dette arbeidet kan akselereres.</li>
+<li><strong>Terminologi og testing:</strong> Delte ressurser for terminologimapping og testinfrastruktur kan redusere kostnadene for hvert land.</li>
+</ol>
+
+<p><strong>Begrensning:</strong> EU-landene (Sverige, Danmark, Finland) har andre frister enn EOS-landene (Norge, Island). Sveriges e-helsemyndighet og Finlands FHIR-miljo har ulik modenhet. Risikoen for &laquo;laveste felles nevner&raquo; er reell.</p>
+
+<hr>
+
+<h2>3. Arkitekturkvalitet per alternativ</h2>
+
+<h3>3.1 Interoperabilitet</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Nasjonal interoperabilitet</td><td>Lav (status quo)</td><td>Hoy (FHIR-konvergens)</td><td>Avhenger av nasjonal tilnaerming</td></tr>
+<tr><td>Europeisk interoperabilitet</td><td>Middels (via gateway)</td><td>Hoy (native FHIR)</td><td>Middels-Hoy</td></tr>
+<tr><td>Nordisk interoperabilitet</td><td>Lav</td><td>Middels</td><td>Hoy (felles profiler)</td></tr>
+<tr><td>Semantisk interoperabilitet</td><td>Lav (konvertering)</td><td>Middels-Hoy (felles kodeverk)</td><td>Middels (delte terminologitjenester)</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Alternativ 1 gir &laquo;tilsynelatende interoperabilitet&raquo; gjennom gateway-konvertering, men reell semantisk interoperabilitet oppnaas ikke fordi kildedataene forblir i nasjonale formater. Erfaringer fra europeiske NCPeH-implementeringer bekrefter at gateway-basert konvertering er det svakeste leddet. Alternativ 2 gir best interoperabilitet over tid fordi nasjonale og europeiske standarder konvergerer. Alternativ 3 gir merverdi for nordisk interoperabilitet, men er avhengig av nasjonal tilnaerming for faktisk interoperabilitetsniva.</p>
+
+<h3>3.2 Teknisk gjeld</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Doble standarder</td><td>Ja (permanent)</td><td>Nei (overgangsperiode)</td><td>Avhenger av nasjonal tilnaerming</td></tr>
+<tr><td>Gateway-vedlikehold</td><td>Varig kostnad</td><td>Ingen</td><td>Mulig delt kostnad</td></tr>
+<tr><td>Migrasjonsgjeld</td><td>Utsettes, akkumuleres</td><td>Haandteres proaktivt</td><td>Delvis delt</td></tr>
+<tr><td>Konverteringsregler</td><td>Ma holdes oppdatert</td><td>Ikke relevant</td><td>Kan deles</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Alternativ 1 genererer storst teknisk gjeld fordi det sementerer to parallelle standardverdener. Hvert gang EEHRxF-spesifikasjonene oppdateres, ma konverteringsreglene i gateway-laget oppdateres tilsvarende. Over tid vil denne gjelden oke, ikke avta. Alternativ 2 har en overgangsperiode med midlertidig gjeld, men den langsiktige posisjonen er konsolidert. Alternativ 3 kan redusere vedlikeholdskostnadene gjennom deling, men loser ikke det underliggende problemet.</p>
+
+<h3>3.3 Vendor lock-in</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>EPJ-leverandoravhengighet</td><td>Hoy (status quo)</td><td>Middels (apne API-er)</td><td>Middels (koordinerte krav)</td></tr>
+<tr><td>Gateway-leverandor</td><td>Ny avhengighet (NHN/leverandor)</td><td>Ikke relevant</td><td>Mulig delt</td></tr>
+<tr><td>Plattformavhengighet</td><td>Lav</td><td>Middels (FHIR-plattform)</td><td>Lav-Middels</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Alternativ 1 opprettholder dagens leverandoravhengighet og legger til en ny avhengighet av gateway-leverandoren. Alternativ 2 reduserer leverandoravhengigheten gjennom standardiserte FHIR-API-er &ndash; data blir mer portabel og leverandorbytte enklere. Helseplattformen/Epic representerer en saerskilt lock-in-utfordring uavhengig av alternativ fordi Epic har en proprietaer integrasjonsmodell som avviker fra apne FHIR-baserte tilnaerminger. Alternativ 3 kan styrke forhandlingsposisjonen overfor leverandorer gjennom koordinerte nordiske krav.</p>
+
+<h3>3.4 Skalerbarhet</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Nye datakategorier</td><td>Vanskelig (ny konvertering per kategori)</td><td>Enklere (utvidelse av FHIR-profiler)</td><td>Avhenger av nasjonal tilnaerming</td></tr>
+<tr><td>Okt volum</td><td>Gateway kan bli flaskehals</td><td>Distribuert, skalerbart</td><td>Delt lastfordeling mulig</td></tr>
+<tr><td>Nye tjenester</td><td>Begrenset av gateway</td><td>Nye tjenester kan bygges direkte pa FHIR</td><td>Delte nordiske tjenester mulig</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> EHDS innforer datakategorier i to faser (gruppe 1: mars 2029, gruppe 2: mars 2031), men forordningen apner for fremtidig utvidelse. Alternativ 1 skalerer darlig fordi hver ny datakategori krever nye konverteringsregler i gateway. Alternativ 2 skalerer bedre fordi FHIR-ressursmodellen er designet for utvidelse. Alternativ 3 gir potensial for delt skalering, men er avhengig av nordisk enighet om nye kategorier.</p>
+
+<h3>3.5 Sikkerhet og personvern by design</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Dimensjon</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Tilgangskontroll</td><td>HelseID + gateway-lag</td><td>HelseID + FHIR-autorisasjon</td><td>HelseID + nordisk IAM-samarbeid</td></tr>
+<tr><td>Sporbarhet/logging</td><td>Gateway-logging + nasjonale logger</td><td>Ende-til-ende FHIR AuditEvent</td><td>Delt loggingsstandard mulig</td></tr>
+<tr><td>Opt-out/reservasjon</td><td>Gateway ma handheve</td><td>Native i FHIR Consent</td><td>Koordinert implementering</td></tr>
+<tr><td>Dataminimering</td><td>Gateway kan filtrere</td><td>FHIR-profiler styrer omfang</td><td>Felles profiler sikrer konsistens</td></tr>
+<tr><td>Grensekryssende sikkerhet</td><td>eHDSI-sikkerhet via NCPeH</td><td>eHDSI-sikkerhet via NCPeH</td><td>eHDSI-sikkerhet via NCPeH</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Alle tre alternativer kan i prinsippet oppfylle sikkerhetskravene, men de gjor det pa ulike mater. Alternativ 2 har en arkitekturmessig fordel fordi FHIR har innebygde ressurser for samtykke (Consent), sporbarhet (AuditEvent) og tilgangskontroll som kan brukes ende-til-ende. Alternativ 1 krever at gateway-laget implementerer disse funksjonene som et ekstra lag, noe som oker kompleksiteten og risikoen for feil. Alternativ 3 kan gi merverdi gjennom delt utvikling av sikkerhetsmonster.</p>
+
+<hr>
+
+<h2>4. Integrasjonskompleksitet</h2>
+
+<h3>Integrasjonspunkter per alternativ</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Integrasjonspunkt</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>EPJ &rarr; Gateway/FHIR-plattform</td><td>~5-7 leverandorer</td><td>~5-7 leverandorer</td><td>~5-7 leverandorer</td></tr>
+<tr><td>Gateway/FHIR &rarr; NCPeH</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>NCPeH &rarr; MyHealth@EU</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>Kjernejournal &rarr; Gateway/FHIR</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>Reseptformidleren &rarr; Gateway/FHIR</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>Helsenorge.no &rarr; Gateway/FHIR</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>HDAB &rarr; HealthData@EU</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>Sikre analyserom &rarr; HDAB</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>Gateway-konverteringsmoduler</td><td>~6-10 (per datakategori)</td><td>0</td><td>0-5 (delt)</td></tr>
+<tr><td>Nordisk koordinering</td><td>0</td><td>0</td><td>~4-6 (per delt komponent)</td></tr>
+<tr><td><strong>Totalt estimat</strong></td><td><strong>~18-24</strong></td><td><strong>~12-15</strong></td><td><strong>~16-22</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Avhengighetsanalyse</h3>
+
+<p><strong>Alternativ 1 &ndash; Kritisk avhengighetskjede:</strong></p>
+<pre>EPJ (nasjonalt format) &rarr; Gateway-konvertering &rarr; EEHRxF &rarr; NCPeH &rarr; MyHealth@EU</pre>
+<p>Enhver feil i gateway-konverteringen propagerer til grensekryssende utveksling. Gateway er et sentralt feilpunkt.</p>
+
+<p><strong>Alternativ 2 &ndash; Enklere avhengighetskjede:</strong></p>
+<pre>EPJ (FHIR) &rarr; Nasjonal FHIR-plattform &rarr; NCPeH &rarr; MyHealth@EU</pre>
+<p>Faerre transformasjonspunkter, men avhengig av at alle leverandorer leverer FHIR.</p>
+
+<p><strong>Alternativ 3 &ndash; Tillegg av nordisk lag:</strong></p>
+<pre>[Nasjonal kjede som alt. 1 eller 2] + Nordisk koordineringslag</pre>
+<p>Legger til en koordineringsdimensjon som kan forsinke nasjonal beslutningsevne.</p>
+
+<h3>Risikovurdering av integrasjonskompleksitet</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Risikofaktor</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Antall transformasjonspunkter</td><td>Hoy</td><td>Lav</td><td>Middels</td></tr>
+<tr><td>Avhengighet av enkeltkomponent</td><td>Hoy (gateway)</td><td>Middels</td><td>Middels</td></tr>
+<tr><td>Leverandorkoordinering</td><td>Middels</td><td>Hoy</td><td>Hoy</td></tr>
+<tr><td>Tidskritisk avhengighet</td><td>Middels</td><td>Hoy</td><td>Hoy</td></tr>
+<tr><td>Semantisk feilrisiko</td><td>Hoy</td><td>Middels</td><td>Middels</td></tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+
+<h2>5. Komponentanalyse</h2>
+
+<h3>5.1 Kjernejournal &ndash; pavirkning og tilpasningsbehov</h3>
+
+<p>Kjernejournal er den nasjonale komponenten som er naermest EHDS-kravene for Patient Summary (prioritert kategori, gruppe 1).</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Aspekt</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Tilpasning</td><td>Middels: Eksisterende data eksponeres via gateway i EEHRxF</td><td>Hoy: Kjernejournal migrerer til FHIR-basert datamodell, blir nasjonal Patient Summary-tjeneste</td><td>Middels: Som alt. 1 eller 2, med nordisk profilering</td></tr>
+<tr><td>FHIR-modenhet</td><td>Har allerede FHIR-API for kritisk informasjon og dokumentdeling (MHD)</td><td>Utvides med IPS (International Patient Summary) FHIR-profil</td><td>Nordisk IPS-profilering</td></tr>
+<tr><td>Risiko</td><td>Konverteringstap ved gateway-oversettelse</td><td>Migrasjonsrisiko, men bedre langsiktig</td><td>Koordineringsrisiko</td></tr>
+<tr><td>Estimert innsats</td><td>Middels</td><td>Hoy</td><td>Middels-Hoy</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Kjernejournal har et godt utgangspunkt med eksisterende FHIR-API-er. I alternativ 1 eksponeres kjernejournaldata via gateway, men konvertering fra nasjonalt format til IPS kan gi informasjonstap (f.eks. i struktureringen av kritisk informasjon, legemiddelopplysninger). I alternativ 2 videreutvikles kjernejournal til en fullverdig nasjonal IPS-tjeneste basert pa HL7 FHIR IPS-profilen. Alternativ 2 er mest arkitekturryddig, men krever storst innsats.</p>
+
+<h3>5.2 Reseptformidleren &ndash; pavirkning og tilpasningsbehov</h3>
+
+<p>Reseptformidleren (e-resept) er allerede pilotert mot MyHealth@EU og handterer en prioritert kategori (gruppe 1).</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Aspekt</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Tilpasning</td><td>Lav-Middels: Viderefore pilot, gateway-konvertering til ePrescription/eDispensation</td><td>Middels: Migrering til FHIR-basert reseptmodell nasjonalt</td><td>Lav-Middels: Som alt. 1, med nordisk harmonisering av legemiddeldata</td></tr>
+<tr><td>MyHealth@EU-tilkobling</td><td>Via NCPeH, allerede pilotert</td><td>Via NCPeH, enklere med native FHIR</td><td>Via NCPeH, nordisk koordinering</td></tr>
+<tr><td>FEST-tilpasning</td><td>Mapping fra FEST til europeiske legemiddelkodeverk</td><td>FEST moderniseres til FHIR-terminologi</td><td>Nordisk mapping av legemiddeldata</td></tr>
+<tr><td>Risiko</td><td>Begrenset &ndash; e-resept er relativt modent</td><td>Migrering av FEST er omfattende</td><td>Ulike nasjonale legemiddelregistre</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Reseptformidleren er den mest modne komponenten for EHDS. MyHealth@EU-piloteringen har allerede vist at grensekryssende e-resept fungerer. Hovedutfordringen er semantisk: mapping mellom norske legemiddelkodeverk (FEST/ATC) og europeiske formater. I alternativ 1 handteres dette i gateway, i alternativ 2 moderniseres FEST-integrasjonen til FHIR. Alternativ 3 gir verdi fordi nordiske legemiddelmarkeder har overlapp og delt terminologiarbeid er nyttig.</p>
+
+<h3>5.3 Helsenorge.no &ndash; pavirkning og tilpasningsbehov</h3>
+
+<p>Helsenorge.no er innbyggerportalen som ma understotte nye EHDS-rettigheter.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Aspekt</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Innbyggerrettigheter</td><td>Tilgangsbegrensning, nedlasting i EEHRxF, opt-out</td><td>Samme + native FHIR-basert innsyn</td><td>Samme + nordisk harmonisering</td></tr>
+<tr><td>Nedlasting av EEHRxF</td><td>Via gateway-konvertering</td><td>Direkte fra FHIR-kilde</td><td>Via gateway eller direkte</td></tr>
+<tr><td>Opt-out-mekanisme</td><td>Ny funksjonalitet</td><td>Ny funksjonalitet (FHIR Consent)</td><td>Koordinert nordisk tilnaerming</td></tr>
+<tr><td>Grensekryssende innsyn</td><td>Ny funksjonalitet via MyHealth@EU</td><td>Ny funksjonalitet via MyHealth@EU</td><td>Ny funksjonalitet via MyHealth@EU</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> Helsenorge.no krever ny funksjonalitet uavhengig av alternativ: nedlasting av helseopplysninger i EEHRxF, mekanisme for tilgangsbegrensning overfor helsepersonell, og opt-out fra sekundaerbruk. Forskjellen mellom alternativene er primaert i backend: i alternativ 1 henter helsenorge.no data via gateway i EEHRxF-format, i alternativ 2 hentes data direkte fra FHIR-kilder.</p>
+
+<h3>5.4 EPJ-systemer &ndash; pavirkning og tilpasningsbehov</h3>
+
+<p>EPJ-systemene er det mest heterogene og risikofylte omradet for alle tre alternativer.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>EPJ-system</th><th>Markedsandel</th><th>FHIR-modenhet</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>DIPS Arena</td><td>~73% HF</td><td>Middels-Hoy (Open DIPS FHIR)</td><td>Minimal endring nasjonalt, gateway-konvertering</td><td>Full FHIR-migrering, bygge pa eksisterende API</td><td>Koordinert med nordiske DIPS-kunder</td></tr>
+<tr><td>Epic/Helseplattformen</td><td>Helse Midt-Norge</td><td>Middels (Epic FHIR R4)</td><td>Gateway-konvertering fra Epic-format</td><td>Epic har FHIR, men proprietaer modell</td><td>Begrenset nordisk relevans (kun Norge)</td></tr>
+<tr><td>CGM</td><td>Primaerhelsetjeneste</td><td>Lav</td><td>Gateway-konvertering</td><td>Full FHIR-implementering</td><td>Koordinert med nordiske CGM-kunder</td></tr>
+<tr><td>Visma</td><td>Kommunal omsorg</td><td>Lav</td><td>Gateway-konvertering</td><td>Full FHIR-implementering</td><td>Koordinert med nordiske Visma-kunder</td></tr>
+<tr><td>Infodoc</td><td>Fastleger</td><td>Lav</td><td>Gateway-konvertering</td><td>Full FHIR-implementering</td><td>Begrenset nordisk relevans</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong></p>
+
+<p><strong>DIPS Arena</strong> er best posisjonert for FHIR-overgang med eksisterende FHIR-API-er og openEHR-basert arkitektur. DIPS opererer ogsa i Danmark, noe som gir nordisk synergi.</p>
+
+<p><strong>Epic/Helseplattformen</strong> er en saerskilt utfordring. Epic har FHIR R4-stotte, men Epics integrasjonsmodell er proprietaer og styrt fra leverandorens side. I alternativ 1 kan Helseplattformen levere data til gateway i sitt format. I alternativ 2 ma Epic/Helseplattformen tilpasse seg norske FHIR-profiler, noe som krever forhandling med Epic (USA-basert leverandor).</p>
+
+<p><strong>Primaerhelsetjenesten</strong> (CGM, Visma, Infodoc) har lavest FHIR-modenhet og flest installasjoner. I alternativ 1 skjermes disse i stor grad fra EHDS-krav. I alternativ 2 ma alle implementere FHIR, noe som er den mest krevende overgangen i hele sektoren.</p>
+
+<h3>5.5 Nye komponenter (NCP, HDAB, sikre analyserom)</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Ny komponent</th><th>Formal</th><th>Alle alternativer</th><th>Alt. 3 tilleggsverdi</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>NCPeH (National Contact Point for eHealth)</strong></td><td>Gateway til MyHealth@EU</td><td>Ma etableres. NHN har piloterfaring. Bygger pa OpenNCP-programvare.</td><td>Nordisk erfaringsdeling om NCPeH-implementering</td></tr>
+<tr><td><strong>HDAB (Health Data Access Body)</strong></td><td>Administrere sekundaerbruk-tilgang</td><td>Ma etableres. Bygge pa helsedata.no-infrastruktur. Vurdere soknader, utstede datatillatelser, fore tilsyn med SPE.</td><td>Nordisk harmonisering av soknadsprosesser</td></tr>
+<tr><td><strong>Sikre analyserom (SPE)</strong></td><td>Trygge miljoer for sekundaerbruksanalyse</td><td>Ma etableres. SPUHiN-prosjektet gir grunnlag. Krever sertifisering etter EHDS-krav.</td><td>Nordisk deling av SPE-infrastruktur eller krav</td></tr>
+<tr><td><strong>Nasjonal testinfrastruktur</strong></td><td>Obligatorisk testing av EHR-systemer</td><td>Ma etableres. Testmiljo for EEHRxF-konformitet.</td><td>Delt nordisk testinfrastruktur</td></tr>
+<tr><td><strong>Terminologitjeneste</strong></td><td>Mapping mellom kodeverk</td><td>Sentral nasjonal tjeneste for SNOMED CT, LOINC, ATC-mapping.</td><td>Delt nordisk terminologiplattform</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Vurdering:</strong> De nye komponentene ma etableres uavhengig av alternativ. Forskjellen er omfanget: i alternativ 1 er de begrenset til grensekryssende bruk, i alternativ 2 er de nasjonale kjernekomponenter, og i alternativ 3 kan de deles med nordiske naboer. Alternativ 3 gir storst kostnadsbesparelse for nye komponenter fordi utviklingskostnadene kan deles.</p>
+
+<hr>
+
+<h2>6. Anbefaling fra arkitekturperspektiv</h2>
+
+<h3>Samlet arkitekturvurdering</h3>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Kvalitetsdimensjon</th><th>Alt. 1</th><th>Alt. 2</th><th>Alt. 3</th></tr>
+</thead>
+<tbody>
+<tr><td>Interoperabilitet</td><td>2/5</td><td>5/5</td><td>3/5</td></tr>
+<tr><td>Teknisk gjeld</td><td>1/5</td><td>4/5</td><td>2/5</td></tr>
+<tr><td>Vendor lock-in</td><td>2/5</td><td>4/5</td><td>3/5</td></tr>
+<tr><td>Skalerbarhet</td><td>2/5</td><td>4/5</td><td>3/5</td></tr>
+<tr><td>Sikkerhet by design</td><td>3/5</td><td>4/5</td><td>3/5</td></tr>
+<tr><td><strong>Gjennomsnitt</strong></td><td><strong>2.0</strong></td><td><strong>4.2</strong></td><td><strong>2.8</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<p><em>(1 = darlig, 5 = utmerket)</em></p>
+
+<h3>Anbefaling</h3>
+
+<p>Fra et rent arkitekturperspektiv gir <strong>alternativ 2 (Akselerert helhetlig)</strong> klart best arkitekturkvalitet over tid. Det er det eneste alternativet som:</p>
+
+<ol>
+<li>Eliminerer doble standarder og varig teknisk gjeld</li>
+<li>Gir reell nasjonal interoperabilitet som bivirkning av EHDS-implementeringen</li>
+<li>Reduserer vendor lock-in gjennom standardiserte, apne API-er</li>
+<li>Skalerer naturlig til nye datakategorier</li>
+<li>Bruker FHIR-standardens innebygde sikkerhets- og samtykkemekanismer</li>
+</ol>
+
+<p><strong>Men:</strong> Arkitekturkvalitet er bare en dimensjon. Alternativ 2 har hoyest gjennomforingskompleksitet, hoyest kostnad og storst endringsmotstand. En pragmatisk tilnaerming er:</p>
+
+<p><strong>Anbefalt hybridstrategi:</strong></p>
+
+<ol>
+<li><strong>Start med alternativ 1 for de forste fristene</strong> (gruppe 1, mars 2029): Etabler gateway for pasientoppsummeringer og e-resept. Bruk kjernejournals eksisterende FHIR-API-er og reseptformidlerens MyHealth@EU-pilot som fundament.</li>
+
+<li><strong>Sett alternativ 2 som strategisk mal fra dag en</strong>: Publiser en nasjonal FHIR-overgangsplan (roadmap). Krev at alle nye integrasjoner bruker FHIR. Sett krav til EPJ-leverandorer om FHIR-stotte i anskaffelsesavtaler.</li>
+
+<li><strong>Unnga at gateway sementeres</strong>: Design gateway-laget eksplisitt som midlertidig. Bygg det modulaert slik at det kan fases ut komponent for komponent etter hvert som kildene blir FHIR-native.</li>
+
+<li><strong>Forfolg alternativ 3 parallelt</strong>: Nordisk samarbeid om terminologitjenester, testinfrastruktur og FHIR-basisprofiler gir verdi uavhengig av nasjonal tilnaerming. Koordinert leverandordialog med DIPS, CGM og Visma er pragmatisk fordi disse opererer i flere nordiske markeder.</li>
+
+<li><strong>Prioriter Epic/Helseplattformen-dialogen tidlig</strong>: Helseplattformen representerer den storste arkitekturrisikoen uavhengig av alternativ. Avklar tidlig hvordan Epic-plattformen skal integreres med norske FHIR-krav og FHIR-profiler.</li>
+</ol>
+
+<h3>Kritisk suksessfaktor</h3>
+
+<p>Den viktigste arkitekturbeslutningen er <strong>ikke valget mellom alternativ 1, 2 eller 3</strong>, men om gateway-laget i alternativ 1 designes som <strong>midlertidig bro</strong> eller <strong>permanent infrastruktur</strong>. Hvis det blir permanent, akkumulerer Norge teknisk gjeld som blir stadig dyrere a handtere. Hvis det designes som midlertidig med en tydelig utfasingsplan, kan det fungere som et pragmatisk steg mot alternativ 2.</p>
+
+<hr>
+
+<h2>Kilder</h2>
+
+<h3>Prosjektinterne rapporter</h3>
+<ul>
+<li><code>rapporter/kunnskapsgrunnlag-ehds.md</code> &ndash; Kunnskapsgrunnlag for EHDS-utredning</li>
+<li><code>rapporter/problemdefinisjon-ehds.md</code> &ndash; Problemdefinisjon med gap-analyse</li>
+<li><code>rapporter/tiltaksalternativer-ehds.md</code> &ndash; Beskrivelse av tiltaksalternativer</li>
+</ul>
+
+<h3>Norske kilder</h3>
+<ul>
+<li><a href="https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025">Helsedirektoratets EHDS konsekvensvurdering &ndash; Gapanalyse pr. 11. april 2025</a></li>
+<li><a href="https://utviklerportal.nhn.no/informasjonstjenester/kjernejournal/kritisk-informasjon/kritisk-info-fhir-api/">NHN Utviklerportal &ndash; Kjernejournal FHIR API</a></li>
+<li><a href="https://open.dips.no/docs/fhir">Open DIPS &ndash; FHIR-dokumentasjon</a></li>
+<li><a href="https://simplifier.net/organization/hl7norway">HL7 Norway &ndash; Nasjonale FHIR-profiler</a></li>
+<li><a href="https://hl7norway.github.io/FHIR-hackathon-2025/currentbuild/index.html">HL7 Norway FHIR Hackathon 2025</a></li>
+<li><a href="https://www.nhn.no/tjenester/myhealth">MyHealth@EU &ndash; Norsk helsenett</a></li>
+</ul>
+
+<h3>Nordiske kilder</h3>
+<ul>
+<li><a href="https://invitepeople.com/public/events/bd0a6002b4/seminars/de0ea39774">FHIR Base Profiles in the Nordics &ndash; Vitalis 2025</a></li>
+<li><a href="https://fhir.fi/en/demo2025/nhip/">Nordic Health Information Partnership</a></li>
+<li><a href="https://hl7.dk/fhir/core/">DK Core FHIR Implementation Guide v3.5.0</a></li>
+<li><a href="https://fhir.fi/en/demo2025/hl7-finland/">HL7 Finland &ndash; FHIR Demo 2025</a></li>
+<li><a href="https://www.ehalsomyndigheten.se/globalassets/ehm/3_om-oss/rapporter/cross-border-ep-and-ps-in-the-nordic-countries.pdf">Cross-border eP and PS in the Nordic countries &ndash; E-halsomyndigheten</a></li>
+</ul>
+
+<h3>Europeiske kilder</h3>
+<ul>
+<li><a href="https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2025.1644719/full">Frontiers: Challenges of national health data ecosystems &ndash; Italian example</a></li>
+<li><a href="https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2024.1480600/full">Frontiers: Interoperability using FHIR Mapping Language &ndash; CDA to FHIR</a></li>
+<li><a href="https://www.better.care/blog-en/ehds-infrastructure-platforms/">EHDS infrastructure: platforms powering EU health data</a></li>
+<li><a href="https://medium.com/digital-health-brief/hl7-europe-publishes-new-fhir-implementation-guides-for-the-ehds-61baceae06b4">HL7 Europe publishes new FHIR implementation guides for the EHDS</a></li>
+<li><a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/digital-health-and-care/electronic-cross-border-health-services_en">EU-kommisjonen &ndash; Electronic cross-border health services</a></li>
+</ul>
+
+<hr>
+
+<p><em>Denne rapporten er utarbeidet 15. mars 2026 som del av Helsedirektoratets arkitekturvurdering for EHDS-implementering i Norge. Rapporten bygger pa kunnskapsgrunnlaget, problemdefinisjonen og tiltaksalternativene, supplert med websok om nordiske FHIR-implementeringserfaringer og europeiske arkitekturtilnaerminger. Vurderingene bor revideres nar gjennomforingsrettsakter vedtas og mer detaljert teknisk informasjon fra leverandorer foreligger.</em></p>
+
+</main>
+</body>
+</html>

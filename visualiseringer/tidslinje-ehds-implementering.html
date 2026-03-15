@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tidslinje: EHDS-implementering i Norge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; color: #333; padding: 20px; }
+        h1 { text-align: center; color: #1a365d; margin-bottom: 5px; font-size: 1.6em; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 20px; font-size: 0.95em; }
+        .legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.85em; }
+        .legend-color { width: 16px; height: 16px; border-radius: 3px; }
+        .timeline-container { position: relative; overflow-x: auto; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px; }
+        .timeline-header { display: flex; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 0; position: sticky; top: 0; background: white; z-index: 10; }
+        .track-label-header { width: 180px; min-width: 180px; font-weight: 700; color: #1a365d; font-size: 0.85em; }
+        .years-header { display: flex; flex: 1; }
+        .year-header { flex: 1; text-align: center; font-weight: 700; color: #1a365d; font-size: 0.85em; min-width: 120px; border-left: 1px solid #e2e8f0; }
+        .track { display: flex; align-items: stretch; min-height: 70px; border-bottom: 1px solid #f0f0f0; }
+        .track:hover { background: #f8fafc; }
+        .track-label { width: 180px; min-width: 180px; display: flex; align-items: center; padding: 10px; font-weight: 600; font-size: 0.8em; color: #2d3748; }
+        .track-content { display: flex; flex: 1; position: relative; align-items: center; }
+        .year-col { flex: 1; min-width: 120px; border-left: 1px solid #f0f0f0; position: relative; }
+        .milestone { position: absolute; height: 28px; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; font-size: 0.7em; font-weight: 600; cursor: pointer; z-index: 5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: transform 0.2s, box-shadow 0.2s; top: 50%; transform: translateY(-50%); }
+        .milestone:hover { transform: translateY(-50%) scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.25); z-index: 20; }
+        .eu-deadline { position: absolute; top: 0; bottom: 0; width: 3px; background: #e53e3e; z-index: 8; }
+        .eu-deadline-label { position: absolute; top: -18px; font-size: 0.65em; color: #e53e3e; font-weight: 700; white-space: nowrap; }
+        .tooltip { display: none; position: fixed; background: #1a365d; color: white; padding: 12px 16px; border-radius: 8px; font-size: 0.82em; max-width: 350px; z-index: 100; box-shadow: 0 4px 16px rgba(0,0,0,0.3); line-height: 1.5; }
+        .tooltip.show { display: block; }
+        .tooltip-title { font-weight: 700; margin-bottom: 4px; }
+        .tooltip-date { color: #90cdf4; font-size: 0.9em; }
+        .tooltip-desc { margin-top: 6px; color: #e2e8f0; }
+        .dependency-line { position: absolute; z-index: 3; pointer-events: none; }
+        .phase-label { position: absolute; top: 5px; font-size: 0.65em; font-weight: 700; color: #1a365d; opacity: 0.4; }
+        .source-note { text-align: center; color: #999; font-size: 0.75em; margin-top: 15px; }
+        @media (max-width: 768px) {
+            .track-label, .track-label-header { width: 120px; min-width: 120px; font-size: 0.7em; }
+            .milestone { font-size: 0.6em; height: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Tidslinje: EHDS-implementering i Norge</h1>
+    <p class="subtitle">Hybridstrategi: Alternativ 1 som taktisk start, alternativ 2 som strategisk mal, nordisk samarbeid parallelt</p>
+
+    <div class="legend">
+        <div class="legend-item"><div class="legend-color" style="background:#3182ce"></div> Juridisk</div>
+        <div class="legend-item"><div class="legend-color" style="background:#38a169"></div> Organisatorisk</div>
+        <div class="legend-item"><div class="legend-color" style="background:#d69e2e"></div> Primaerbruk (teknisk)</div>
+        <div class="legend-item"><div class="legend-color" style="background:#805ad5"></div> Sekundaerbruk</div>
+        <div class="legend-item"><div class="legend-color" style="background:#dd6b20"></div> FHIR-overgang</div>
+        <div class="legend-item"><div class="legend-color" style="background:#e53e3e; width:3px; height:16px;"></div> EU-frist</div>
+    </div>
+
+    <div class="timeline-container" id="timeline">
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <p class="source-note">Basert pa: rapporter/anbefaling-ehds.md og rapporter/gjennomfoeringsforutsetninger-ehds.md | Oppdatert: 15. mars 2026</p>
+
+    <script>
+        const YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032, 2033, 2034, 2035];
+        const START_YEAR = 2026;
+        const END_YEAR = 2035;
+        const QUARTERS_TOTAL = (END_YEAR - START_YEAR + 1) * 4;
+
+        const COLORS = {
+            juridisk: '#3182ce',
+            organisatorisk: '#38a169',
+            primaerbruk: '#d69e2e',
+            sekundaerbruk: '#805ad5',
+            fhir: '#dd6b20'
+        };
+
+        const tracks = [
+            {
+                label: 'EU-frister',
+                items: [
+                    { start: '2027-Q1', end: '2027-Q1', label: 'EHDS gjeldende i EU', color: '#e53e3e', desc: 'EHDS-forordningen far anvendelse i EU (2 ar etter ikrafttredelse, mars 2027).' },
+                    { start: '2029-Q1', end: '2029-Q1', label: 'Gruppe 1 frist', color: '#e53e3e', desc: 'Pasientoppsummeringer og e-resept skal vaere operativt for grensekryssende bruk.' },
+                    { start: '2031-Q1', end: '2031-Q1', label: 'Gruppe 2 frist', color: '#e53e3e', desc: 'Bilder, lab, epikriser og utskrivningsrapporter skal vaere operativt.' }
+                ]
+            },
+            {
+                label: 'Juridisk spor',
+                items: [
+                    { start: '2026-Q3', end: '2026-Q4', label: 'Horing', color: COLORS.juridisk, desc: 'Horingsutkast for lovendringer utarbeides og sendes pa horing.' },
+                    { start: '2027-Q1', end: '2027-Q1', label: 'Proposisjon', color: COLORS.juridisk, desc: 'Lovproposisjon fremmes for Stortinget.' },
+                    { start: '2027-Q2', end: '2027-Q3', label: 'Stortingsvedtak', color: COLORS.juridisk, desc: 'Stortinget behandler og vedtar lovendringer og EOS-innlemmelse.' },
+                    { start: '2027-Q4', end: '2027-Q4', label: 'I kraft', color: COLORS.juridisk, desc: 'Lovendringer tradt i kraft.' }
+                ]
+            },
+            {
+                label: 'Organisatorisk spor',
+                items: [
+                    { start: '2026-Q2', end: '2026-Q2', label: 'Program etablert', color: COLORS.organisatorisk, desc: 'Nasjonalt EHDS-program etablert med mandat og budsjett.' },
+                    { start: '2026-Q2', end: '2026-Q2', label: 'Nordisk gruppe', color: COLORS.organisatorisk, desc: 'Nordisk EHDS-koordineringsgruppe etablert.' },
+                    { start: '2026-Q3', end: '2026-Q3', label: 'DHA utpekt', color: COLORS.organisatorisk, desc: 'Digital helsemyndighet formelt utpekt (Helsedirektoratet).' },
+                    { start: '2026-Q3', end: '2026-Q3', label: 'Ref.grupper', color: COLORS.organisatorisk, desc: 'Kliniske referansegrupper etablert med helsepersonell.' },
+                    { start: '2027-Q1', end: '2029-Q4', label: 'FHIR-kompetanseprogram', color: COLORS.organisatorisk, desc: 'Nasjonalt kompetanseprogram for HL7 FHIR og europeisk interoperabilitet. Mal: 200+ spesialister innen 2029.' }
+                ]
+            },
+            {
+                label: 'Primaerbruk (tekn.)',
+                items: [
+                    { start: '2027-Q1', end: '2027-Q2', label: 'Helse-NIM gr.1', color: COLORS.primaerbruk, desc: 'Nasjonal informasjonsmodell for gruppe 1-kategorier ferdigstilt.' },
+                    { start: '2028-Q1', end: '2028-Q2', label: 'Gateway testdrift', color: COLORS.primaerbruk, desc: 'Gateway for EEHRxF-konvertering i testdrift. Designet som midlertidig infrastruktur.' },
+                    { start: '2028-Q2', end: '2028-Q4', label: 'EHR-testing', color: COLORS.primaerbruk, desc: 'Forste EHR-systemer i test mot EEHRxF. Testmiljo operativt.' },
+                    { start: '2028-Q4', end: '2029-Q1', label: 'NCPeH/MyHealth@EU', color: COLORS.primaerbruk, desc: 'NCPeH operativ for gruppe 1. Pasientoppsummeringer og e-resept tilgjengelig grensekryssende.' },
+                    { start: '2029-Q3', end: '2030-Q1', label: 'Helse-NIM gr.2', color: COLORS.primaerbruk, desc: 'Nasjonal informasjonsmodell for gruppe 2-kategorier ferdigstilt.' },
+                    { start: '2030-Q2', end: '2031-Q1', label: 'Gruppe 2 impl.', color: COLORS.primaerbruk, desc: 'Gruppe 2-kategorier (bilder, lab, epikriser) implementert og operativt.' }
+                ]
+            },
+            {
+                label: 'Sekundaerbruk',
+                items: [
+                    { start: '2028-Q1', end: '2028-Q2', label: 'HDAB operativ', color: COLORS.sekundaerbruk, desc: 'HDAB operativ med grunnleggende funksjonalitet. Bygget pa helsedata.no.' },
+                    { start: '2029-Q1', end: '2029-Q4', label: 'SPE pilot', color: COLORS.sekundaerbruk, desc: 'Sikre analyserom i pilotdrift. Bygger pa SPUHiN-prosjektet.' },
+                    { start: '2030-Q1', end: '2030-Q2', label: 'HealthData@EU', color: COLORS.sekundaerbruk, desc: 'HealthData@EU og sikre analyserom fullt operativt.' }
+                ]
+            },
+            {
+                label: 'FHIR-overgang',
+                items: [
+                    { start: '2026-Q3', end: '2026-Q4', label: 'FHIR-roadmap', color: COLORS.fhir, desc: 'Nasjonal FHIR-overgangsplan publisert med bindende milepaler.' },
+                    { start: '2027-Q1', end: '2027-Q1', label: 'FHIR i anskaffelser', color: COLORS.fhir, desc: 'Krav om FHIR i alle nye anskaffelser og kontraktsfornyelser.' },
+                    { start: '2029-Q1', end: '2031-Q4', label: 'Gradvis FHIR-overgang', color: COLORS.fhir, desc: 'Gradvis overgang til FHIR-baserte grensesnitt nasjonalt. Leverandorer implementerer FHIR-API-er.' },
+                    { start: '2032-Q1', end: '2033-Q4', label: 'Gateway utfasing', color: COLORS.fhir, desc: 'Gateway-laget fases ut komponent for komponent etter hvert som kilder blir FHIR-native.' },
+                    { start: '2034-Q1', end: '2035-Q4', label: 'Konsolidering', color: COLORS.fhir, desc: 'Nasjonale meldingsstandarder fullt utfaset for EHDS-kategorier. FHIR er nasjonal standard.' }
+                ]
+            }
+        ];
+
+        function getContrastColor(hex) {
+            // Beregn relativ luminans og returner hvit eller mørk tekst
+            const r = parseInt(hex.slice(1,3), 16) / 255;
+            const g = parseInt(hex.slice(3,5), 16) / 255;
+            const b = parseInt(hex.slice(5,7), 16) / 255;
+            const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+            return luminance > 0.5 ? '#1a1a2e' : '#ffffff';
+        }
+
+        function quarterToIndex(q) {
+            const [year, quarter] = q.split('-Q');
+            return (parseInt(year) - START_YEAR) * 4 + (parseInt(quarter) - 1);
+        }
+
+        function buildTimeline() {
+            const container = document.getElementById('timeline');
+
+            // Header
+            const header = document.createElement('div');
+            header.className = 'timeline-header';
+            const labelHeader = document.createElement('div');
+            labelHeader.className = 'track-label-header';
+            labelHeader.textContent = 'Spor';
+            header.appendChild(labelHeader);
+
+            const yearsHeader = document.createElement('div');
+            yearsHeader.className = 'years-header';
+            YEARS.forEach(y => {
+                const yh = document.createElement('div');
+                yh.className = 'year-header';
+                yh.textContent = y;
+                yearsHeader.appendChild(yh);
+            });
+            header.appendChild(yearsHeader);
+            container.appendChild(header);
+
+            // Tracks
+            tracks.forEach(track => {
+                const trackDiv = document.createElement('div');
+                trackDiv.className = 'track';
+
+                const label = document.createElement('div');
+                label.className = 'track-label';
+                label.textContent = track.label;
+                trackDiv.appendChild(label);
+
+                const content = document.createElement('div');
+                content.className = 'track-content';
+
+                YEARS.forEach(y => {
+                    const col = document.createElement('div');
+                    col.className = 'year-col';
+                    content.appendChild(col);
+                });
+
+                // Add milestones
+                track.items.forEach(item => {
+                    const startIdx = quarterToIndex(item.start);
+                    const endIdx = quarterToIndex(item.end);
+                    const ms = document.createElement('div');
+                    ms.className = 'milestone';
+                    const totalWidth = content.offsetWidth || (YEARS.length * 120);
+                    const qWidth = 100 / QUARTERS_TOTAL;
+                    ms.style.left = (startIdx * qWidth) + '%';
+                    ms.style.width = Math.max(((endIdx - startIdx + 1) * qWidth), qWidth) + '%';
+                    ms.style.background = item.color;
+                    // Sett tekstfarge basert på bakgrunnsfarge for god kontrast
+                    ms.style.color = getContrastColor(item.color);
+                    ms.textContent = item.label;
+                    ms.dataset.title = item.label;
+                    ms.dataset.date = item.start === item.end ? item.start : item.start + ' - ' + item.end;
+                    ms.dataset.desc = item.desc;
+
+                    ms.addEventListener('mouseenter', showTooltip);
+                    ms.addEventListener('mouseleave', hideTooltip);
+                    ms.addEventListener('click', function(e) {
+                        const tt = document.getElementById('tooltip');
+                        if (tt.classList.contains('show')) {
+                            hideTooltip();
+                        } else {
+                            showTooltip(e);
+                        }
+                    });
+
+                    content.appendChild(ms);
+                });
+
+                // Add EU deadline markers for the EU-frister track
+                if (track.label === 'EU-frister') {
+                    track.items.forEach(item => {
+                        const idx = quarterToIndex(item.start);
+                        const qWidth = 100 / QUARTERS_TOTAL;
+                        const marker = document.createElement('div');
+                        marker.style.position = 'absolute';
+                        marker.style.left = (idx * qWidth + qWidth/2) + '%';
+                        marker.style.top = '0';
+                        marker.style.bottom = '0';
+                        marker.style.width = '2px';
+                        marker.style.background = 'rgba(229,62,62,0.15)';
+                        marker.style.zIndex = '1';
+                        content.appendChild(marker);
+                    });
+                }
+
+                trackDiv.appendChild(content);
+                container.appendChild(trackDiv);
+            });
+
+            // Phase labels at bottom
+            const phaseDiv = document.createElement('div');
+            phaseDiv.style.display = 'flex';
+            phaseDiv.style.marginTop = '10px';
+            phaseDiv.style.paddingLeft = '180px';
+
+            const phases = [
+                { label: 'Fase 1: Taktisk etterlevelse', start: 0, end: 12, color: '#3182ce' },
+                { label: 'Fase 2: Gradvis FHIR-overgang', start: 12, end: 20, color: '#dd6b20' },
+                { label: 'Fase 3: Konsolidering', start: 20, end: 40, color: '#38a169' }
+            ];
+
+            const phaseBar = document.createElement('div');
+            phaseBar.style.flex = '1';
+            phaseBar.style.display = 'flex';
+            phaseBar.style.height = '24px';
+            phaseBar.style.borderRadius = '4px';
+            phaseBar.style.overflow = 'hidden';
+
+            phases.forEach(p => {
+                const seg = document.createElement('div');
+                seg.style.flex = (p.end - p.start);
+                seg.style.background = p.color;
+                seg.style.display = 'flex';
+                seg.style.alignItems = 'center';
+                seg.style.justifyContent = 'center';
+                seg.style.fontSize = '0.7em';
+                seg.style.fontWeight = '600';
+                seg.style.color = getContrastColor(p.color);
+                seg.textContent = p.label;
+                phaseBar.appendChild(seg);
+            });
+
+            phaseDiv.appendChild(phaseBar);
+            container.appendChild(phaseDiv);
+        }
+
+        function showTooltip(e) {
+            const tt = document.getElementById('tooltip');
+            const target = e.currentTarget;
+            tt.innerHTML = `
+                <div class="tooltip-title">${target.dataset.title}</div>
+                <div class="tooltip-date">${target.dataset.date}</div>
+                <div class="tooltip-desc">${target.dataset.desc}</div>
+            `;
+            tt.classList.add('show');
+
+            const rect = target.getBoundingClientRect();
+            let left = rect.left;
+            let top = rect.bottom + 8;
+
+            if (left + 350 > window.innerWidth) left = window.innerWidth - 360;
+            if (left < 10) left = 10;
+            if (top + 150 > window.innerHeight) top = rect.top - 100;
+
+            tt.style.left = left + 'px';
+            tt.style.top = top + 'px';
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').classList.remove('show');
+        }
+
+        buildTimeline();
+    </script>
+</body>
+</html>

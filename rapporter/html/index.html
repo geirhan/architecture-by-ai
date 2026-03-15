@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHDS-utredning - Forside</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: #003366;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 14px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background: #005299;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            color: #003366;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: #333;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+        }
+        .subtitle {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .intro {
+            background: #f0f4f8;
+            padding: 1.5rem;
+            border-left: 4px solid #003366;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .toc {
+            margin: 2rem 0;
+        }
+        .toc-item {
+            display: block;
+            padding: 1rem 1.2rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #222;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .toc-item:hover {
+            border-color: #003366;
+            background: #f0f4f8;
+        }
+        .toc-item strong {
+            color: #003366;
+            display: block;
+            font-size: 1.05rem;
+        }
+        .toc-item span {
+            color: #555;
+            font-size: 0.92rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+        th {
+            background: #003366;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            table { font-size: 0.82rem; }
+            nav a { padding: 10px 10px; font-size: 0.8rem; }
+        }
+        @media print {
+            nav { display: none; }
+            .container { max-width: 100%; }
+        }
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ccc;
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html" class="active">Forside</a>
+    <a href="ledersammendrag.html">Ledersammendrag</a>
+    <a href="kunnskapsgrunnlag.html">Kunnskapsgrunnlag</a>
+    <a href="problemdefinisjon.html">Problemdefinisjon</a>
+    <a href="tiltaksalternativer.html">Tiltaksalternativer</a>
+    <a href="prinsipielle-spoersmaal.html">Prinsipielle sp&oslash;rsm&aring;l</a>
+    <a href="samfunnsoekonomisk.html">Samfunns&oslash;konomi</a>
+    <a href="helsepersonell.html">Helsepersonell</a>
+    <a href="arkitektur.html">Arkitektur</a>
+    <a href="anbefaling.html">Anbefaling</a>
+    <a href="gjennomfoering.html">Gjennomf&oslash;ring</a>
+    <a href="visualiseringer.html">Visualiseringer</a>
+</nav>
+
+<div class="container">
+    <h1>Utredning: EHDS-forordningens konsekvenser for digitaliseringen i norsk helsesektor</h1>
+    <p class="subtitle">Utarbeidet for Helsedirektoratet, mars 2026</p>
+
+    <div class="intro">
+        <p>EHDS (European Health Data Space) er en EU-forordning som skal gjore det mulig a dele helseopplysninger trygt og effektivt mellom aktorer i EU/EOS-land. Denne utredningen vurderer forordningens konsekvenser for norsk helsesektor og gir en anbefaling for gjennomforing. Utredningen er strukturert etter utredningsinstruksens seks sporsmal og dekker kunnskapsgrunnlag, problemanalyse, tiltaksalternativer, konsekvensvurderinger, anbefaling og gjennomforingsforutsetninger.</p>
+    </div>
+
+    <h2>Innhold</h2>
+    <div class="toc">
+        <a class="toc-item" href="ledersammendrag.html">
+            <strong>Ledersammendrag</strong>
+            <span>Overordnet sammenfatning med hovedfunn, anbefalt hybridstrategi, kostnad, risikoer og konkrete neste steg.</span>
+        </a>
+        <a class="toc-item" href="kunnskapsgrunnlag.html">
+            <strong>Kunnskapsgrunnlag</strong>
+            <span>Faktagrunnlag med over 30 kilder. EHDS-forordningens innhold, tidsfrister, norske utfordringer og pag&aring;ende initiativer.</span>
+        </a>
+        <a class="toc-item" href="problemdefinisjon.html">
+            <strong>Problemdefinisjon</strong>
+            <span>Fire grunnarsaker og 21 identifiserte gap langs rettslige, tekniske, organisatoriske og semantiske dimensjoner. Mal og berorte aktorer.</span>
+        </a>
+        <a class="toc-item" href="tiltaksalternativer.html">
+            <strong>Tiltaksalternativer</strong>
+            <span>Nullalternativet og tre alternativer: stegvis minimum, akselerert helhetlig og nordisk samarbeid. Sammenlignende vurdering.</span>
+        </a>
+        <a class="toc-item" href="prinsipielle-spoersmaal.html">
+            <strong>Prinsipielle sp&oslash;rsm&aring;l</strong>
+            <span>Seks hovedomrader: personvern vs. datatilgjengelighet, nasjonal suverenitet, maktfordeling, pasientrettigheter, interoperabilitet og likebehandling.</span>
+        </a>
+        <a class="toc-item" href="samfunnsoekonomisk.html">
+            <strong>Samfunns&oslash;konomisk vurdering</strong>
+            <span>Forenklet analyse etter DFOs 8-trinnsmodell. Kostnadsestimater (3&ndash;12 mrd. NOK), nyttevirkninger og usikkerhetsvurdering.</span>
+        </a>
+        <a class="toc-item" href="helsepersonell.html">
+            <strong>Helsepersonellvurdering</strong>
+            <span>Konsekvenser for dokumentasjonsbyrde, informasjonstilgang og pasientsikkerhet. Vurdering per yrkesgruppe og 16 anbefalinger.</span>
+        </a>
+        <a class="toc-item" href="arkitektur.html">
+            <strong>Arkitekturkonsekvenser</strong>
+            <span>Gap-analyse per alternativ, arkitekturkvalitet langs fem dimensjoner og komponentanalyse. Hybridstrategi anbefalt.</span>
+        </a>
+        <a class="toc-item" href="anbefaling.html">
+            <strong>Anbefaling</strong>
+            <span>Hybridstrategi i tre faser med nordisk samarbeid. Samlet vurdering fra alle perspektiver. Kritiske suksessfaktorer og 12 neste steg.</span>
+        </a>
+        <a class="toc-item" href="gjennomfoering.html">
+            <strong>Gjennomf&oslash;ringsforutsetninger</strong>
+            <span>Juridiske, organisatoriske, kompetanse-, tekniske og okonomiske forutsetninger. Tidslinje 2026&ndash;2035. Risikomatrise med 15 risikoer.</span>
+        </a>
+        <a class="toc-item" href="visualiseringer.html">
+            <strong>Visualiseringer</strong>
+            <span>Interaktive diagrammer, dashbord og oversikter for a kommunisere utredningens funn visuelt.</span>
+        </a>
+    </div>
+
+    <h2>Ordliste</h2>
+    <table>
+        <thead>
+            <tr><th>Forkortelse</th><th>Forklaring</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>ATC</td><td>Anatomisk terapeutisk kjemisk klassifikasjon (kodeverk for legemidler)</td></tr>
+            <tr><td>CEF</td><td>Connecting Europe Facility (EUs finansieringsmekanisme for digital infrastruktur)</td></tr>
+            <tr><td>DFO</td><td>Direktoratet for forvaltning og okonomistyring</td></tr>
+            <tr><td>DHA</td><td>Digital Health Authority (nasjonal digital helsemyndighet)</td></tr>
+            <tr><td>DPIA</td><td>Data Protection Impact Assessment (personvernkonsekvensutredning)</td></tr>
+            <tr><td>EEHRxF</td><td>European Electronic Health Record exchange Format (det europeiske utvekslingsformatet for helsedata)</td></tr>
+            <tr><td>EHDS</td><td>European Health Data Space (det europeiske helsedataomradet, forordning EU 2025/327)</td></tr>
+            <tr><td>eIDAS</td><td>Electronic Identification, Authentication and Trust Services (EU-forordning om digital identitet)</td></tr>
+            <tr><td>EPJ</td><td>Elektronisk pasientjournal</td></tr>
+            <tr><td>EUDI</td><td>European Digital Identity (europeisk digital identitet, digital lommebok)</td></tr>
+            <tr><td>FEST</td><td>Forskrivnings- og ekspedisjonsstotte (norsk legemiddeldatabase)</td></tr>
+            <tr><td>FHIR</td><td>Fast Healthcare Interoperability Resources (HL7-standard for helsedatautveksling)</td></tr>
+            <tr><td>FHI</td><td>Folkehelseinstituttet</td></tr>
+            <tr><td>GDPR</td><td>General Data Protection Regulation (personvernforordningen)</td></tr>
+            <tr><td>HDAB</td><td>Health Data Access Body (nasjonalt tilgangsorgan for helsedata til sekundaerbruk)</td></tr>
+            <tr><td>HelseID</td><td>Norsk identitets- og tilgangsinfrastruktur for helsesektoren</td></tr>
+            <tr><td>Helse-NIM</td><td>Nasjonal informasjonsmodell for helseopplysninger</td></tr>
+            <tr><td>HL7</td><td>Health Level Seven International (standardiseringsorganisasjon for helseinformatikk)</td></tr>
+            <tr><td>HOD</td><td>Helse- og omsorgsdepartementet</td></tr>
+            <tr><td>ICD-10</td><td>International Classification of Diseases, 10. revisjon</td></tr>
+            <tr><td>ICPC-2</td><td>International Classification of Primary Care, 2. utgave</td></tr>
+            <tr><td>IHE</td><td>Integrating the Healthcare Enterprise (interoperabilitetsinitiativ)</td></tr>
+            <tr><td>IPS</td><td>International Patient Summary (internasjonal pasientoppsummering)</td></tr>
+            <tr><td>KS</td><td>Kommunesektorens organisasjon</td></tr>
+            <tr><td>LOINC</td><td>Logical Observation Identifiers Names and Codes (kodeverk for laboratoriesvar)</td></tr>
+            <tr><td>MHD</td><td>Mobile access to Health Documents (IHE-profil)</td></tr>
+            <tr><td>NCPeH</td><td>National Contact Point for eHealth (nasjonalt kontaktpunkt for grensekryssende e-helse)</td></tr>
+            <tr><td>NHN</td><td>Norsk helsenett</td></tr>
+            <tr><td>NOU</td><td>Norsk offentlig utredning</td></tr>
+            <tr><td>RHF</td><td>Regionalt helseforetak</td></tr>
+            <tr><td>SMART</td><td>Substitutable Medical Applications, Reusable Technologies (applikasjonsrammeverk for FHIR)</td></tr>
+            <tr><td>SNOMED CT</td><td>Systematized Nomenclature of Medicine &ndash; Clinical Terms (medisinsk terminologi)</td></tr>
+            <tr><td>SPE</td><td>Secure Processing Environment (sikkert analyserom)</td></tr>
+            <tr><td>SPUHiN</td><td>Secure Provision and Use of Health data in Norway (EU4Health-prosjekt)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Kilder</h2>
+    <h3>EU-rettsakter og EU-kilder</h3>
+    <ol>
+        <li>Regulation (EU) 2025/327 &ndash; EUR-Lex</li>
+        <li>European Health Data Space Regulation &ndash; EU-kommisjonen</li>
+        <li>Impact Assessment SWD(2022) 131 &ndash; EU-kommisjonen</li>
+        <li>HDABs Community of Practice &ndash; EU-kommisjonen</li>
+    </ol>
+    <h3>Norske myndighetskilder</h3>
+    <ol start="5">
+        <li>Helsedirektoratets EHDS konsekvensvurdering &ndash; Gapanalyse pr. 11. april 2025</li>
+        <li>EOS-notat: Forordning om det europeiske helsedataomradet &ndash; regjeringen.no</li>
+        <li>Prop. 91 L (2021&ndash;2022) &ndash; Endringer i pasientjournalloven</li>
+        <li>Prop. 1 S (2025&ndash;2026) &ndash; Helse- og omsorgsdepartementet</li>
+        <li>Nasjonal e-helsestrategi &ndash; Helsedirektoratet</li>
+        <li>Meld. St. 9 (2023&ndash;2024) &ndash; Nasjonal helse- og samhandlingsplan</li>
+        <li>Meld. St. 23 (2024&ndash;2025) &ndash; regjeringen.no</li>
+        <li>Oversikt over kriterier til sikre analyserom &ndash; Helsedirektoratet</li>
+        <li>SPUHiN-prosjektet &ndash; Helsedirektoratet</li>
+        <li>Nasjonal informasjonsmodell (Helse-NIM) &ndash; Helsedirektoratet</li>
+        <li>MyHealth@EU &ndash; Norsk helsenett</li>
+        <li>Standardiseringstiltak knyttet til EHDS &ndash; Helsedirektoratet</li>
+    </ol>
+    <h3>Helsepersonell og sektor</h3>
+    <ol start="17">
+        <li>Helsepersonellundersokelsen om digitalisering 2024 &ndash; Helsedirektoratet</li>
+        <li>Helseplattformen &ndash; Tidsskrift for Den norske legeforening</li>
+        <li>Legeforeningen: Brukervennlighet er pasientsikkerhet</li>
+        <li>Sykepleien: Sykepleiere bruker to timer per dag pa EPJ</li>
+        <li>Kartlegging av digital modenhet &ndash; KS</li>
+    </ol>
+    <h3>Stortinget</h3>
+    <ol start="22">
+        <li>Enighet om helsedata (EHDS) &ndash; Stortinget EU/EOS-nytt</li>
+        <li>Nytt regelverk for deling av helsedata &ndash; Stortinget</li>
+    </ol>
+    <h3>Juridiske kilder</h3>
+    <ol start="24">
+        <li>Forordning om europeisk helsedataomrade &ndash; europalov.no</li>
+        <li>EOS-avtalen artikkel 103 &ndash; europalov.no</li>
+        <li>DLA Piper: EHDS og GDPR</li>
+    </ol>
+    <h3>Tekniske kilder</h3>
+    <ol start="27">
+        <li>HL7 Europe: FHIR Implementation Guides for EHDS</li>
+        <li>HL7 Norway &ndash; Nasjonale FHIR-profiler</li>
+        <li>Open DIPS &ndash; FHIR-dokumentasjon</li>
+        <li>NHN Utviklerportal &ndash; Kjernejournal FHIR API</li>
+        <li>DFO: Veileder i samfunnsokonomiske analyser</li>
+    </ol>
+    <h3>Nordiske kilder</h3>
+    <ol start="32">
+        <li>FHIR Base Profiles in the Nordics &ndash; Vitalis 2025</li>
+        <li>Cross-border eP and PS in the Nordic countries &ndash; E-halsomyndigheten</li>
+    </ol>
+
+    <div class="footer">
+        <p>Denne utredningen er utarbeidet mars 2026 som del av Helsedirektoratets arbeid med a vurdere konsekvensene av EHDS-forordningen for norsk helsesektor. Utredningen bor revideres nar gjennomforingsrettsakter fra EU-kommisjonen vedtas, EOS-innlemmelse avklares og mer detaljerte kostnadsestimater foreligger.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualiseringer - EHDS-utredning</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: #003366;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 14px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background: #005299;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            color: #003366;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.3rem;
+        }
+        .subtitle {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .intro {
+            background: #f0f4f8;
+            padding: 1.5rem;
+            border-left: 4px solid #003366;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .viz-card {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            margin: 0.8rem 0;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #222;
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+        .viz-card:hover {
+            border-color: #003366;
+            background: #f0f4f8;
+            box-shadow: 0 2px 8px rgba(0,51,102,0.1);
+        }
+        .viz-card strong {
+            color: #003366;
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+        .viz-card span {
+            color: #555;
+            font-size: 0.92rem;
+        }
+        .viz-card .badge {
+            display: inline-block;
+            background: #003366;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin-top: 0.4rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            nav a { padding: 10px 10px; font-size: 0.8rem; }
+        }
+        @media print {
+            nav { display: none; }
+            .container { max-width: 100%; }
+        }
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ccc;
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html">Forside</a>
+    <a href="ledersammendrag.html">Ledersammendrag</a>
+    <a href="kunnskapsgrunnlag.html">Kunnskapsgrunnlag</a>
+    <a href="problemdefinisjon.html">Problemdefinisjon</a>
+    <a href="tiltaksalternativer.html">Tiltaksalternativer</a>
+    <a href="prinsipielle-spoersmaal.html">Prinsipielle sp&oslash;rsm&aring;l</a>
+    <a href="samfunnsoekonomisk.html">Samfunns&oslash;konomi</a>
+    <a href="helsepersonell.html">Helsepersonell</a>
+    <a href="arkitektur.html">Arkitektur</a>
+    <a href="anbefaling.html">Anbefaling</a>
+    <a href="gjennomfoering.html">Gjennomf&oslash;ring</a>
+    <a href="visualiseringer.html" class="active">Visualiseringer</a>
+</nav>
+
+<div class="container">
+    <h1>Visualiseringer</h1>
+    <p class="subtitle">Interaktive diagrammer og oversikter for EHDS-utredningen</p>
+
+    <div class="intro">
+        <p>Visualiseringene nedenfor er utviklet for a kommunisere utredningens funn pa en visuell og tilgjengelig mate. Alle er selvstendige HTML-filer som kan apnes direkte i nettleseren. Klikk pa en visualisering for a apne den i et nytt vindu.</p>
+    </div>
+
+    <h2>Oversikt over visualiseringer</h2>
+
+    <a class="viz-card" href="../../visualiseringer/naa-situasjon-arkitektur.html" target="_blank">
+        <strong>Dagens helsedata-landskap</strong>
+        <span>ArchiMate-inspirert diagram som viser dagens arkitektur for helsedatadeling i Norge. Inkluderer forretningslag (aktorer), applikasjonslag (nasjonale e-helselosninger, EPJ-systemer, stottetjenester), teknologilag (helsenettet, sikkerhet) og internasjonalt grensesnitt (MyHealth@EU pilotstatus). Interaktive tooltips med detaljert informasjon per komponent.</span>
+        <div class="badge">Arkitektur</div>
+    </a>
+
+    <a class="viz-card" href="../../visualiseringer/ehds-maalarkitektur.html" target="_blank">
+        <strong>EHDS-malarkitektur</strong>
+        <span>ArchiMate-inspirert diagram som viser EHDS-malarkitekturen for Norge basert pa forordning (EU) 2025/327. Inkluderer styrings- og forvaltningslag, utvidede rettigheter, primaer- og sekundaerbruk, EU-infrastruktur (MyHealth@EU og HealthData@EU), og nye standarder (EEHRxF). Viser prioriterte helsedatakategorier med tidsfrister og implementeringstidslinje 2025&ndash;2035.</span>
+        <div class="badge">Arkitektur</div>
+    </a>
+
+    <a class="viz-card" href="../../visualiseringer/gap-analyse-per-alternativ.html" target="_blank">
+        <strong>Sammenligning av alternativer</strong>
+        <span>Visuell sammenligning av tre EHDS-tiltaksalternativer langs fem arkitekturkvalitetsdimensjoner (interoperabilitet, teknisk gjeld, vendor lock-in, skalerbarhet, sikkerhet by design). Inkluderer radardiagram, stolpediagram for samlet score og integrasjonskompleksitet, detaljert heatmap per dimensjon med underkategorier, og komponentpavirkningsoversikt.</span>
+        <div class="badge">Analyse</div>
+    </a>
+
+    <a class="viz-card" href="../../visualiseringer/tidslinje-ehds-implementering.html" target="_blank">
+        <strong>Tidslinje 2026&ndash;2035</strong>
+        <span>Interaktiv tidslinje som viser EHDS-implementeringsplanen for Norge fra 2026 til 2035. Inkluderer EU-frister (2027, 2029, 2031), norske milepaler for EOS-innlemmelse, lovendringer og teknisk utvikling, og parallelle spor for juridisk arbeid, organisatorisk etablering, primaerbruk, sekundaerbruk og FHIR-overgang.</span>
+        <div class="badge">Tidslinje</div>
+    </a>
+
+    <a class="viz-card" href="../../visualiseringer/risikomatrise-ehds.html" target="_blank">
+        <strong>Risikomatrise med 15 risikoer</strong>
+        <span>Interaktiv risikomatrise med 15 identifiserte risikoer for EHDS-implementering i Norge. Risikoer plottet pa sannsynlighet (1&ndash;4) x konsekvens (1&ndash;4) med fargekoding (gronn/gul/oransje/rod). Kategorimerking (juridisk, organisatorisk, teknisk, okonomisk, ekstern). Klikk for detaljer om hver risiko inkludert beskrivelse og risikoreduserende tiltak.</span>
+        <div class="badge">Risiko</div>
+    </a>
+
+    <a class="viz-card" href="../../visualiseringer/ehds-utredning-dashbord.html" target="_blank">
+        <strong>Ledelsesdashbord</strong>
+        <span>Overordnet dashbord for ledelsen med nokkeltall (kostnad, tidsfrister, antall gap, antall risikoer), anbefalt strategi i kortversjon med tre faser, samsvarsstatus per omrade med fargekoding, radardiagram for arkitekturkvalitet per alternativ, tidslinjeoversikt og top 5 risikoer med tiltak.</span>
+        <div class="badge">Dashbord</div>
+    </a>
+
+    <a class="viz-card" href="../../visualiseringer/aktoer-ansvar-oversikt.html" target="_blank">
+        <strong>Roller og ansvar</strong>
+        <span>Visualisering av hvem gjor hva i EHDS-innforingen. Viser seks aktorer (HOD, Helsedirektoratet, NHN, RHF-ene, KS/kommuner, EPJ-leverandorer) med roller, konkrete oppgaver per fase, tidshorisont per aktor og FHIR-modenhet for EPJ-leverandorer. Inkluderer ansvarsmatrise (RACI-inspirert) for ni funksjonsomrader.</span>
+        <div class="badge">Organisasjon</div>
+    </a>
+
+    <div class="footer">
+        <p>Alle visualiseringer er selvstendige HTML-filer med innebygd CSS og JavaScript. De kan apnes direkte i alle moderne nettlesere uten behov for en server.</p>
+    </div>
+</div>
+</body>
+</html>

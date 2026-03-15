@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHDS: Aktoer- og ansvarsoversikt</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.5; }
+        .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 24px 32px; }
+        .header h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+        .header p { font-size: 13px; opacity: 0.8; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+        .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; padding: 16px; background: white; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+        .legend-dot { width: 14px; height: 14px; border-radius: 3px; }
+
+        .role-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; margin-bottom: 24px; }
+
+        .actor-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .actor-header { padding: 16px 20px; color: white; display: flex; justify-content: space-between; align-items: center; }
+        .actor-header h3 { font-size: 15px; font-weight: 600; }
+        .actor-header .actor-type { font-size: 11px; opacity: 0.85; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 3px; }
+        .actor-body { padding: 16px 20px; }
+
+        .role-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+        .role-tag { font-size: 11px; padding: 3px 10px; border-radius: 4px; font-weight: 500; }
+
+        .task-list { list-style: none; }
+        .task-list li { padding: 6px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; display: flex; align-items: flex-start; gap: 8px; }
+        .task-list li:last-child { border-bottom: none; }
+        .task-phase { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px; }
+        .tp1 { background: #dbeafe; color: #1e40af; }
+        .tp2 { background: #fef3c7; color: #92400e; }
+        .tp3 { background: #d1fae5; color: #065f46; }
+        .tp-all { background: #f3e8ff; color: #6b21a8; }
+
+        .timeline-bar { margin-top: 12px; padding-top: 12px; border-top: 1px solid #eee; }
+        .timeline-bar-label { font-size: 11px; color: #555; margin-bottom: 6px; }
+        .bar-track { height: 8px; background: #f0f0f0; border-radius: 4px; position: relative; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 4px; position: absolute; top: 0; }
+
+        /* Farger per aktor */
+        .c-hod { background: #1a1a2e; }
+        .c-hdir { background: #0f3460; }
+        .c-nhn { background: #16697a; }
+        .c-rhf { background: #2c7a7b; }
+        .c-ks { background: #38a169; }
+        .c-lev { background: #805ad5; }
+
+        .rt-strategi { background: #e8eef8; color: #0f3460; }
+        .rt-lovgivning { background: #fde8e8; color: #c0392b; }
+        .rt-drift { background: #e8f8f0; color: #1a7a4c; }
+        .rt-etterlevelse { background: #fef9e7; color: #92610e; }
+        .rt-utvikling { background: #f3e8ff; color: #6b21a8; }
+
+        .section { background: white; border-radius: 10px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .section h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #1a1a2e; border-bottom: 2px solid #f0f2f5; padding-bottom: 8px; }
+
+        /* Samspillsdiagram */
+        .interaction-grid { display: grid; grid-template-columns: auto repeat(6, 1fr); gap: 0; font-size: 11px; }
+        .ig-cell { padding: 8px 6px; text-align: center; border: 1px solid #eee; }
+        .ig-header { background: #f0f2f5; font-weight: 600; font-size: 10px; }
+        .ig-label { background: #f8f9ff; font-weight: 500; text-align: left; padding-left: 10px; font-size: 10px; }
+        .ig-full { background: #0f3460; color: white; font-weight: 600; }
+        .ig-part { background: #d0e8ff; color: #0f3460; }
+        .ig-support { background: #f0f0f0; color: #444; }
+        .ig-none { background: white; color: #999; }
+
+        .source-note { font-size: 11px; color: #555; margin-top: 16px; text-align: center; font-style: italic; }
+
+        @media (max-width: 768px) {
+            .role-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>EHDS: Hvem gjor hva i innforingen?</h1>
+        <p>Aktoer- og ansvarsoversikt | Mars 2026 | Basert pa rapporter/ehds-utredning-samlet.md og rapporter/gjennomfoeringsforutsetninger-ehds.md</p>
+    </div>
+    <div class="container">
+
+        <!-- Forklaring -->
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#0f3460"></div> Strategi</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#c0392b"></div> Lovgivning</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#1a7a4c"></div> Drift</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#92610e"></div> Etterlevelse</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#6b21a8"></div> Utvikling</div>
+            <div style="margin-left: auto; font-size: 11px; color: #555;">Faser: <span class="task-phase tp1">1</span> <span class="task-phase tp2">2</span> <span class="task-phase tp3">3</span> <span class="task-phase tp-all">Alle</span></div>
+        </div>
+
+        <!-- Aktoerkort -->
+        <div class="role-grid">
+
+            <!-- HOD -->
+            <div class="actor-card">
+                <div class="actor-header c-hod">
+                    <h3>Helse- og omsorgsdepartementet (HOD)</h3>
+                    <span class="actor-type">Departement</span>
+                </div>
+                <div class="actor-body">
+                    <div class="role-tag-row">
+                        <span class="role-tag rt-strategi">Strategi</span>
+                        <span class="role-tag rt-lovgivning">Lovgivning</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><span class="task-phase tp1">F1</span> Utpeke digital helsemyndighet (Q3 2026)</li>
+                        <li><span class="task-phase tp1">F1</span> Fremme lovproposisjon for Stortinget (Q1 2027)</li>
+                        <li><span class="task-phase tp1">F1</span> Forhandle EOS-tilpasningstekst med overgangsfrister</li>
+                        <li><span class="task-phase tp-all">Alle</span> Politisk styring og budsjettforslag</li>
+                        <li><span class="task-phase tp-all">Alle</span> Sikre langsiktig finansieringsramme</li>
+                    </ul>
+                    <div class="timeline-bar">
+                        <div class="timeline-bar-label">Tyngdepunkt: 2026-2028 (lovarbeid og organisering)</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="left:0%;width:30%;background:#1a1a2e;opacity:0.9;"></div>
+                            <div class="bar-fill" style="left:30%;width:70%;background:#1a1a2e;opacity:0.3;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Helsedirektoratet -->
+            <div class="actor-card">
+                <div class="actor-header c-hdir">
+                    <h3>Helsedirektoratet</h3>
+                    <span class="actor-type">Digital helsemyndighet</span>
+                </div>
+                <div class="actor-body">
+                    <div class="role-tag-row">
+                        <span class="role-tag rt-strategi">Strategi</span>
+                        <span class="role-tag rt-lovgivning">Regulering</span>
+                        <span class="role-tag rt-utvikling">Utvikling</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><span class="task-phase tp1">F1</span> Lede nasjonalt EHDS-program (Q2 2026)</li>
+                        <li><span class="task-phase tp1">F1</span> Publisere FHIR-overgangsplan (Q4 2026)</li>
+                        <li><span class="task-phase tp1">F1</span> Etablere kliniske referansegrupper (Q3 2026)</li>
+                        <li><span class="task-phase tp1">F1</span> Etablere nordisk koordineringsgruppe (Q2 2026)</li>
+                        <li><span class="task-phase tp1">F1</span> Gjennomfore leverandordialog (Q3 2026)</li>
+                        <li><span class="task-phase tp1">F1</span> Etablere HDAB pa helsedata.no/FHI (Q2 2028)</li>
+                        <li><span class="task-phase tp-all">Alle</span> Standarder, informasjonsmodeller, kodeverk</li>
+                        <li><span class="task-phase tp-all">Alle</span> Terminologitjeneste (SNOMED CT, LOINC)</li>
+                        <li><span class="task-phase tp2">F2</span> Starte nasjonalt FHIR-kompetanseprogram</li>
+                    </ul>
+                    <div class="timeline-bar">
+                        <div class="timeline-bar-label">Tyngdepunkt: Hele perioden (strategisk og normerende)</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="left:0%;width:100%;background:#0f3460;opacity:0.7;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NHN -->
+            <div class="actor-card">
+                <div class="actor-header c-nhn">
+                    <h3>Norsk helsenett (NHN)</h3>
+                    <span class="actor-type">Nasjonal tjenesteleverandor</span>
+                </div>
+                <div class="actor-body">
+                    <div class="role-tag-row">
+                        <span class="role-tag rt-drift">Drift</span>
+                        <span class="role-tag rt-utvikling">Utvikling</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><span class="task-phase tp1">F1</span> NCPeH (kontaktpunkt for MyHealth@EU) operativt (Q4 2028)</li>
+                        <li><span class="task-phase tp1">F1</span> Gateway-lag for EEHRxF i testdrift (Q1 2028)</li>
+                        <li><span class="task-phase tp1">F1</span> Testinfrastruktur for EPJ-systemer (Q4 2028)</li>
+                        <li><span class="task-phase tp2">F2</span> Nasjonal FHIR-infrastruktur i pilot (Q3 2029)</li>
+                        <li><span class="task-phase tp2">F2</span> Sikre analyserom operativt (Q1 2030)</li>
+                        <li><span class="task-phase tp3">F3</span> Gateway-utfasing (2033-2035)</li>
+                        <li><span class="task-phase tp-all">Alle</span> Drift av nasjonale komponenter og helsenettet</li>
+                    </ul>
+                    <div class="timeline-bar">
+                        <div class="timeline-bar-label">Tyngdepunkt: 2027-2031 (bygging og drift)</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="left:0%;width:10%;background:#16697a;opacity:0.3;"></div>
+                            <div class="bar-fill" style="left:10%;width:60%;background:#16697a;opacity:0.8;"></div>
+                            <div class="bar-fill" style="left:70%;width:30%;background:#16697a;opacity:0.5;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RHF-ene -->
+            <div class="actor-card">
+                <div class="actor-header c-rhf">
+                    <h3>Regionale helseforetak (RHF-ene)</h3>
+                    <span class="actor-type">Helse Sor-Ost, Vest, Nord, Midt</span>
+                </div>
+                <div class="actor-body">
+                    <div class="role-tag-row">
+                        <span class="role-tag rt-etterlevelse">Etterlevelse</span>
+                        <span class="role-tag rt-utvikling">Utvikling</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><span class="task-phase tp1">F1</span> Leverandorstyring: krav til DIPS og Epic</li>
+                        <li><span class="task-phase tp1">F1</span> Risikovurdering av grensekryssende deling</li>
+                        <li><span class="task-phase tp2">F2</span> Systemtilpasning for gruppe 1 og 2</li>
+                        <li><span class="task-phase tp2">F2</span> Opplaering av helsepersonell</li>
+                        <li><span class="task-phase tp3">F3</span> FHIR-migrering i helseforetakene</li>
+                        <li><span class="task-phase tp-all">Alle</span> Risikovurderinger og informasjonssikkerhet</li>
+                    </ul>
+                    <div class="timeline-bar">
+                        <div class="timeline-bar-label">Tyngdepunkt: 2028-2033 (implementering i sykehus)</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="left:0%;width:20%;background:#2c7a7b;opacity:0.3;"></div>
+                            <div class="bar-fill" style="left:20%;width:60%;background:#2c7a7b;opacity:0.8;"></div>
+                            <div class="bar-fill" style="left:80%;width:20%;background:#2c7a7b;opacity:0.4;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:8px; font-size:11px; color:#b35900; font-style:italic;">Obs: Helse Midt-Norge (Helseplattformen/Epic) har saerskilte utfordringer</div>
+                </div>
+            </div>
+
+            <!-- KS/kommuner -->
+            <div class="actor-card">
+                <div class="actor-header c-ks">
+                    <h3>KS og kommunene</h3>
+                    <span class="actor-type">350+ kommuner</span>
+                </div>
+                <div class="actor-body">
+                    <div class="role-tag-row">
+                        <span class="role-tag rt-etterlevelse">Etterlevelse</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><span class="task-phase tp1">F1</span> KS koordinerer kommunesektorens behov</li>
+                        <li><span class="task-phase tp2">F2</span> Tilpasning av kommunale EPJ-systemer</li>
+                        <li><span class="task-phase tp2">F2</span> Opplaering av ansatte i omsorgstjenester</li>
+                        <li><span class="task-phase tp3">F3</span> FHIR-migrering i kommunehelsetjenesten</li>
+                        <li><span class="task-phase tp-all">Alle</span> Etterlevelse av standarder og kodeverk</li>
+                    </ul>
+                    <div class="timeline-bar">
+                        <div class="timeline-bar-label">Tyngdepunkt: 2029-2035 (gradvis implementering)</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="left:0%;width:30%;background:#38a169;opacity:0.2;"></div>
+                            <div class="bar-fill" style="left:30%;width:70%;background:#38a169;opacity:0.7;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:8px; font-size:11px; color:#b35900; font-style:italic;">Forutsetning: Staten fullfinansierer kommunenes merkostnader</div>
+                </div>
+            </div>
+
+            <!-- EPJ-leverandorer -->
+            <div class="actor-card">
+                <div class="actor-header c-lev">
+                    <h3>EPJ-leverandorer</h3>
+                    <span class="actor-type">DIPS, Epic, CGM, Visma, Infodoc</span>
+                </div>
+                <div class="actor-body">
+                    <div class="role-tag-row">
+                        <span class="role-tag rt-utvikling">Utvikling</span>
+                        <span class="role-tag rt-etterlevelse">Etterlevelse</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><span class="task-phase tp1">F1</span> EEHRxF-stotte for grensekryssende bruk</li>
+                        <li><span class="task-phase tp1">F1</span> Selvdeklarasjon og obligatorisk testing</li>
+                        <li><span class="task-phase tp2">F2</span> FHIR-baserte API-er for gruppe 1 og 2</li>
+                        <li><span class="task-phase tp3">F3</span> Full FHIR-migrering, nasjonale standarder</li>
+                        <li><span class="task-phase tp-all">Alle</span> CE-merking (for markedsplasserte systemer)</li>
+                    </ul>
+                    <div class="timeline-bar">
+                        <div class="timeline-bar-label">Tyngdepunkt: 2027-2033 (systemutvikling)</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="left:0%;width:10%;background:#805ad5;opacity:0.3;"></div>
+                            <div class="bar-fill" style="left:10%;width:70%;background:#805ad5;opacity:0.7;"></div>
+                            <div class="bar-fill" style="left:80%;width:20%;background:#805ad5;opacity:0.4;"></div>
+                        </div>
+                    </div>
+                    <table style="width:100%; margin-top:10px; font-size:11px; border-collapse:collapse;">
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:3px 0; font-weight:500;">DIPS Arena</td>
+                            <td style="color:#27ae60;">FHIR: Middels-hoy</td>
+                            <td>73% av HF</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:3px 0; font-weight:500;">Epic</td>
+                            <td style="color:#e67e22;">FHIR: Middels</td>
+                            <td>Helse Midt</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:3px 0; font-weight:500;">CGM</td>
+                            <td style="color:#e74c3c;">FHIR: Lav</td>
+                            <td>Primaerhelse</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #eee;">
+                            <td style="padding:3px 0; font-weight:500;">Visma</td>
+                            <td style="color:#e74c3c;">FHIR: Lav</td>
+                            <td>Kommunal</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:3px 0; font-weight:500;">Infodoc</td>
+                            <td style="color:#e74c3c;">FHIR: Lav</td>
+                            <td>Fastleger</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ansvarsmatrise -->
+        <div class="section">
+            <h2>Ansvarsmatrise: Roller per funksjon</h2>
+            <p style="font-size: 12px; color: #444; margin-bottom: 12px;">A = Ansvarlig (eier), U = Utforer, S = Stotter, I = Informeres</p>
+            <div class="interaction-grid">
+                <div class="ig-cell ig-header">Funksjon</div>
+                <div class="ig-cell ig-header">HOD</div>
+                <div class="ig-cell ig-header">Helsedir.</div>
+                <div class="ig-cell ig-header">NHN</div>
+                <div class="ig-cell ig-header">RHF</div>
+                <div class="ig-cell ig-header">KS/komm.</div>
+                <div class="ig-cell ig-header">Leverand.</div>
+
+                <div class="ig-cell ig-label">Politisk styring og lovarbeid</div>
+                <div class="ig-cell ig-full">A</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+
+                <div class="ig-cell ig-label">Digital helsemyndighet</div>
+                <div class="ig-cell ig-part">A</div>
+                <div class="ig-cell ig-full">U</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+
+                <div class="ig-cell ig-label">Standarder og informasjonsmodeller</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-full">A/U</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-part">S</div>
+
+                <div class="ig-cell ig-label">Nasjonal infrastruktur (NCPeH, gateway)</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-part">A</div>
+                <div class="ig-cell ig-full">U</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-part">S</div>
+
+                <div class="ig-cell ig-label">HDAB (sekundaerbruk)</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-full">A</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-none">-</div>
+
+                <div class="ig-cell ig-label">EPJ-systemtilpasning</div>
+                <div class="ig-cell ig-none">-</div>
+                <div class="ig-cell ig-part">A (krav)</div>
+                <div class="ig-cell ig-part">S (test)</div>
+                <div class="ig-cell ig-part">A (HF)</div>
+                <div class="ig-cell ig-part">A (komm.)</div>
+                <div class="ig-cell ig-full">U</div>
+
+                <div class="ig-cell ig-label">Opplaering av helsepersonell</div>
+                <div class="ig-cell ig-none">-</div>
+                <div class="ig-cell ig-part">S (rammer)</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-full">A/U</div>
+                <div class="ig-cell ig-full">A/U</div>
+                <div class="ig-cell ig-part">S</div>
+
+                <div class="ig-cell ig-label">Risikovurdering egen virksomhet</div>
+                <div class="ig-cell ig-none">-</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-full">A/U</div>
+                <div class="ig-cell ig-full">A/U</div>
+                <div class="ig-cell ig-none">-</div>
+
+                <div class="ig-cell ig-label">Nordisk samarbeid</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-full">A/U</div>
+                <div class="ig-cell ig-part">S</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+                <div class="ig-cell ig-support">I</div>
+            </div>
+        </div>
+
+        <p class="source-note">Basert pa rapporter/ehds-utredning-samlet.md, rapporter/gjennomfoeringsforutsetninger-ehds.md og rapporter/anbefaling-ehds.md. Mars 2026.</p>
+    </div>
+</body>
+</html>

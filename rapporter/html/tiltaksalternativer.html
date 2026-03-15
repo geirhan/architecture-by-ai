@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiltaksalternativer - EHDS-utredning</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.7; color: #222; background: #fff; margin: 0; padding: 0; }
+        nav { background: #003366; padding: 0; position: sticky; top: 0; z-index: 100; overflow-x: auto; white-space: nowrap; }
+        nav a { color: #fff; text-decoration: none; padding: 12px 14px; display: inline-block; font-size: 0.9rem; transition: background 0.2s; }
+        nav a:hover, nav a.active { background: #005299; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        h1 { color: #003366; font-size: 2rem; margin-bottom: 0.3rem; border-bottom: 3px solid #003366; padding-bottom: 0.5rem; }
+        h2 { color: #003366; font-size: 1.5rem; margin-top: 2.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
+        h3 { color: #333; font-size: 1.15rem; margin-top: 1.5rem; }
+        .subtitle { color: #555; font-size: 1.1rem; margin-bottom: 2rem; }
+        .highlight-box { background: #f0f4f8; padding: 1.5rem; border-left: 4px solid #003366; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.92rem; }
+        .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+        th { background: #003366; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+        td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; color: #333; vertical-align: top; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        ul, ol { margin-bottom: 1rem; }
+        ul li, ol li { margin-bottom: 0.5rem; }
+        a { color: #0066cc; }
+        hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+        @media (max-width: 600px) { .container { padding: 1rem; } h1 { font-size: 1.5rem; } table { font-size: 0.82rem; } nav a { padding: 10px 10px; font-size: 0.8rem; } }
+        @media print { nav { display: none; } .container { max-width: 100%; } body { font-size: 11pt; } a { color: #000; text-decoration: underline; } th { background: #ccc; color: #000; } }
+        .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #ccc; color: #666; font-size: 0.85rem; font-style: italic; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html">Forside</a>
+    <a href="ledersammendrag.html">Ledersammendrag</a>
+    <a href="kunnskapsgrunnlag.html">Kunnskapsgrunnlag</a>
+    <a href="problemdefinisjon.html">Problemdefinisjon</a>
+    <a href="tiltaksalternativer.html" class="active">Tiltaksalternativer</a>
+    <a href="prinsipielle-spoersmaal.html">Prinsipielle sp&oslash;rsm&aring;l</a>
+    <a href="samfunnsoekonomisk.html">Samfunns&oslash;konomi</a>
+    <a href="helsepersonell.html">Helsepersonell</a>
+    <a href="arkitektur.html">Arkitektur</a>
+    <a href="anbefaling.html">Anbefaling</a>
+    <a href="gjennomfoering.html">Gjennomf&oslash;ring</a>
+    <a href="visualiseringer.html">Visualiseringer</a>
+</nav>
+<div class="container">
+    <h1>Tiltaksalternativer</h1>
+    <p class="subtitle">For EHDS-implementering i Norge</p>
+
+    <div class="highlight-box">
+        <h2 style="margin-top:0;border:none;padding:0;font-size:1.2rem;">Sammendrag</h2>
+        <p>Denne rapporten beskriver tre tiltaksalternativer for implementering av EHDS-forordningen i Norge, samt nullalternativet. Alternativene varierer i ambisjonsniv&aring;, tempo og kostnad:</p>
+        <ul>
+            <li><strong>Nullalternativet</strong>: Videref&oslash;ring av p&aring;g&aring;ende initiativer uten nye tiltak rettet mot EHDS. Konsekvens: Norge oppfyller ikke forordningens krav og risikerer E&Oslash;S-rettslige sanksjoner.</li>
+            <li><strong>Alternativ 1 &ndash; Stegvis minimumstilnaerming</strong>: Implementere kun det som er strengt n&oslash;dvendig for &aring; oppfylle forordningens minimumskrav, trinnvis i takt med fristene.</li>
+            <li><strong>Alternativ 2 &ndash; Akselerert helhetlig implementering</strong>: Bruke EHDS som katalysator for bredere modernisering av norsk e-helseinfrastruktur.</li>
+            <li><strong>Alternativ 3 &ndash; Nordisk samarbeidstilnaerming</strong>: Koordinert implementering med de &oslash;vrige nordiske landene for &aring; dele kostnader, erfaringer og infrastruktur.</li>
+        </ul>
+        <p>Alle tre tiltaksalternativene forutsetter E&Oslash;S-innlemmelse med artikkel 103-forbehold og n&oslash;dvendige lovendringer.</p>
+    </div>
+
+    <hr>
+
+    <h2>Nullalternativet</h2>
+
+    <h3>Beskrivelse</h3>
+    <p>Nullalternativet inneb&aelig;rer at Norge videref&oslash;rer p&aring;g&aring;ende initiativer uten nye tiltak spesifikt rettet mot EHDS. Dette inkluderer:</p>
+    <ul>
+        <li>Videref&oslash;ring av arbeidet med &laquo;&Eacute;n innbygger &ndash; &eacute;n journal&raquo; og endringer i pasientjournalloven</li>
+        <li>Videref&oslash;ring av NHNs MyHealth@EU-pilotering i begrenset omfang</li>
+        <li>Videref&oslash;ring av SPUHiN-prosjektet for sikre analyserom</li>
+        <li>Videref&oslash;ring av p&aring;g&aring;ende standardiseringsarbeid</li>
+        <li>Ingen nye bevilgninger eller organisatoriske endringer rettet mot EHDS</li>
+    </ul>
+
+    <h3>Konsekvenser av nullalternativet</h3>
+
+    <p><strong>Rettslige konsekvenser:</strong></p>
+    <ul>
+        <li>Norge vil ikke oppfylle EHDS-forordningens krav ved E&Oslash;S-innlemmelse. Forordningen er E&Oslash;S-relevant, og manglende gjennomf&oslash;ring kan f&oslash;re til prosedyrer under E&Oslash;S-avtalen (ESA-tilsyn, potensielle sanksjoner).</li>
+        <li>Innbyggernes rettigheter etter EHDS (tilgang, nedlasting, opt-out) vil ikke ha rettslig forankring i norsk lov.</li>
+    </ul>
+
+    <p><strong>Tekniske konsekvenser:</strong></p>
+    <ul>
+        <li>Norske EHR-systemer vil ikke st&oslash;tte EEHRxF. Helseopplysninger kan ikke utveksles i europeisk format.</li>
+        <li>Norge vil ikke v&aelig;re tilkoblet MyHealth@EU eller HealthData@EU operativt.</li>
+        <li>Norske pasienter som behandles i andre EU/E&Oslash;S-land vil ikke ha tilgang til sine helseopplysninger, og helsepersonell vil ikke kunne motta opplysninger om pasienter fra andre land.</li>
+    </ul>
+
+    <p><strong>Organisatoriske konsekvenser:</strong></p>
+    <ul>
+        <li>Ingen digital helsemyndighet utpekt, ingen HDAB etablert. Norge vil mangle de forvaltningsstrukturene forordningen krever.</li>
+    </ul>
+
+    <p><strong>Konsekvenser for forskning og innovasjon:</strong></p>
+    <ul>
+        <li>Norge vil st&aring; utenfor den europeiske infrastrukturen for sekund&aelig;rbruk av helsedata. Norske forskere f&aring;r begrenset tilgang til europeiske helsedata, og europeiske forskere f&aring;r ikke tilgang til norske data gjennom HealthData@EU.</li>
+        <li>Konkurranseulempe for norske forskningsmilj&oslash;er og helsen&aelig;ring.</li>
+    </ul>
+
+    <p><strong>Samlet vurdering:</strong></p>
+    <p>Nullalternativet er i praksis ikke et reelt alternativ dersom Norge innlemmer EHDS i E&Oslash;S-avtalen, fordi manglende gjennomf&oslash;ring vil utgj&oslash;re et brudd p&aring; Norges E&Oslash;S-rettslige forpliktelser. Selv om innlemmelsestidspunktet er uavklart, er det en klar forventning om at EHDS vil bli innlemmet. Nullalternativet fungerer derfor prim&aelig;rt som referansepunkt for &aring; vurdere verdien av de &oslash;vrige alternativene.</p>
+
+    <hr>
+
+    <h2>Alternativ 1: Stegvis minimumstilnaerming</h2>
+
+    <h3>Overordnet beskrivelse</h3>
+    <p>Norge implementerer kun det som er strengt n&oslash;dvendig for &aring; oppfylle EHDS-forordningens minimumskrav, trinnvis i takt med fristene. Fokus er p&aring; &aring; m&oslash;te de rettslige forpliktelsene med lavest mulig kostnad og risiko, uten &aring; bruke EHDS som anledning til bredere modernisering.</p>
+
+    <h3>Arkitekturvalg</h3>
+    <ul>
+        <li><strong>F&oslash;derert arkitektur med sentralt kontaktpunkt.</strong> Eksisterende systemer beholdes i st&oslash;rst mulig grad. Det etableres et sentralt &laquo;oversettingslag&raquo; (gateway) som konverterer mellom nasjonale formater og EEHRxF ved grensekryssende utveksling.</li>
+        <li><strong>Begrenset gjenbruk.</strong> Eksisterende nasjonale meldingsstandarder beholdes for nasjonal bruk. EEHRxF implementeres kun for grensekryssende scenarioer.</li>
+        <li><strong>Minimum nasjonal testinfrastruktur.</strong> Testmilj&oslash; etableres for de prioriterte kategoriene, men ikke bredere.</li>
+    </ul>
+
+    <h3>Regulatorisk tilnaerming</h3>
+    <ul>
+        <li>Lovendringer begrenses til det som er strengt n&oslash;dvendig for &aring; gjennomf&oslash;re forordningen i norsk rett.</li>
+        <li>Innbyggerrettigheter implementeres i tr&aring;d med forordningens minimumskrav.</li>
+        <li>Nasjonalt handlingsrom utnyttes for &aring; begrense omfanget av endringer der forordningen tillater det.</li>
+    </ul>
+
+    <h3>Organisatorisk modell</h3>
+    <ul>
+        <li>Helsedirektoratet utpekes som digital helsemyndighet, med eksisterende organisasjon og begrenset styrking.</li>
+        <li>HDAB etableres som en ny funksjon, fortrinnsvis ved &aring; bygge videre p&aring; helsedata.no/FHI-infrastrukturen.</li>
+        <li>NHN videref&oslash;rer operativt ansvar for MyHealth@EU-tilkobling.</li>
+        <li>Koordinering skjer gjennom eksisterende styringsstrukturer, uten nye programorganisasjoner.</li>
+    </ul>
+
+    <h3>Tidslinje og milep&aelig;ler</h3>
+
+    <div class="table-wrapper">
+    <table>
+        <thead><tr><th>Tidspunkt</th><th>Milep&aelig;l</th></tr></thead>
+        <tbody>
+            <tr><td>2026 Q3</td><td>Digital helsemyndighet formelt utpekt</td></tr>
+            <tr><td>2027 Q1</td><td>Lovproposisjon fremmet for Stortinget</td></tr>
+            <tr><td>2027 Q4</td><td>Lovendringer vedtatt og tr&aring;dt i kraft</td></tr>
+            <tr><td>2028 Q1</td><td>Nasjonal gateway for EEHRxF-konvertering i testdrift</td></tr>
+            <tr><td>2028 Q2</td><td>HDAB etablert med grunnleggende funksjonalitet</td></tr>
+            <tr><td>2028 Q4</td><td>Testmilj&oslash; for obligatorisk testing av EHR-systemer operativt</td></tr>
+            <tr><td>2029 Q1</td><td>Gruppe 1 (pasientoppsummeringer, e-resept) operativt via MyHealth@EU</td></tr>
+            <tr><td>2030 Q1</td><td>Sikre analyserom for sekund&aelig;rbruk operativt</td></tr>
+            <tr><td>2031 Q1</td><td>Gruppe 2 (bilder, lab, epikriser) operativt via MyHealth@EU</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3>Viktigste risikoer</h3>
+    <ol>
+        <li><strong>Gateway-tilnaermingen kan gi lav datakvalitet.</strong> Automatisk konvertering mellom nasjonale formater og EEHRxF kan gi tap av informasjon eller feilaktig mapping, med potensiell pasientsikkerhetsrisiko.</li>
+        <li><strong>Begrenset nasjonal nytteverdi.</strong> Dersom EEHRxF kun brukes for grensekryssende scenarioer, f&aring;r ikke Norge den fulle gevinsten av bedre nasjonal interoperabilitet.</li>
+        <li><strong>Teknisk gjeld.</strong> &Aring; opprettholde to parallelle standarder (nasjonale meldingsstandarder + EEHRxF for grensekryssende) &oslash;ker kompleksiteten og vedlikeholdskostnadene over tid.</li>
+        <li><strong>Leverand&oslash;rkapasitet.</strong> Selv minimumskravene krever at EHR-leverand&oslash;rer gjennomf&oslash;rer betydelig utvikling. Det er usikkert om kapasiteten er tilstrekkelig.</li>
+        <li><strong>Stramme tidsfrister.</strong> Selv med minimumstilnaerming er tidsplanen krevende, gitt usikkerhet om E&Oslash;S-innlemmelse og mange avhengigheter.</li>
+    </ol>
+
+    <h3>Estimert kostnadsniv&aring;</h3>
+    <p><strong>Middels.</strong> Lavere enn alternativ 2, men fortsatt betydelige investeringer knyttet til gateway-utvikling, HDAB-etablering, lovendringer, testinfrastruktur og leverand&oslash;rtilpasning. L&oslash;pende driftskostnader for to parallelle standarder kan over tid bli kostbare.</p>
+
+    <hr>
+
+    <h2>Alternativ 2: Akselerert helhetlig implementering</h2>
+
+    <h3>Overordnet beskrivelse</h3>
+    <p>Norge bruker EHDS som katalysator for en bredere modernisering av nasjonal e-helseinfrastruktur. EEHRxF (HL7 FHIR) innf&oslash;res som nasjonal standard for datautveksling, ikke bare for grensekryssende scenarioer. Eksisterende initiativer (&Eacute;n innbygger &ndash; &eacute;n journal, Helse-NIM, MyHealth@EU) akselereres og koordineres under ett program.</p>
+
+    <h3>Arkitekturvalg</h3>
+    <ul>
+        <li><strong>Nasjonal FHIR-basert arkitektur.</strong> EEHRxF/HL7 FHIR innf&oslash;res som nasjonal standard for datautveksling, i tillegg til grensekryssende bruk. Nasjonale meldingsstandarder fases gradvis ut.</li>
+        <li><strong>Sentralisert informasjonsmodell.</strong> Helse-NIM utvides til &aring; dekke alle prioriterte kategorier og danner grunnlaget for nasjonal og europeisk interoperabilitet.</li>
+        <li><strong>Sentral nasjonal infrastruktur.</strong> NHN utvikler og drifter sentrale komponenter for formatkonvertering, terminologitjenester, sertifiseringsverkt&oslash;y og testinfrastruktur.</li>
+        <li><strong>Maksimal gjenbruk og konsolidering.</strong> Eksisterende l&oslash;sninger (kjernejournal, reseptformidleren, helsenorge.no) videreutvikles for &aring; oppfylle EHDS-krav, fremfor &aring; bygge parallelle systemer.</li>
+    </ul>
+
+    <h3>Regulatorisk tilnaerming</h3>
+    <ul>
+        <li>Lovendringer gjennomf&oslash;res bredt, med sikte p&aring; &aring; ikke bare oppfylle minimumskravene, men ogs&aring; legge til rette for videre digitalisering.</li>
+        <li>P&aring;g&aring;ende lovarbeid (pasientjournalloven, helseregisterloven, helseforskningsloven) koordineres tett med EHDS-kravene.</li>
+        <li>Norge bruker det nasjonale handlingsrommet proaktivt for &aring; styrke pasientrettigheter og forskningsdata-tilgang.</li>
+    </ul>
+
+    <h3>Organisatorisk modell</h3>
+    <ul>
+        <li><strong>Nasjonalt EHDS-program.</strong> Det etableres et tverrsektorielt program med tydelig mandat, budsjett og styringsstruktur, ledet av Helsedirektoratet i samarbeid med HOD.</li>
+        <li><strong>Styrket digital helsemyndighet.</strong> Helsedirektoratets rolle som digital helsemyndighet styrkes med dedikerte ressurser for EHDS-implementering, europeisk samarbeid og standardisering.</li>
+        <li><strong>Profesjonell HDAB.</strong> HDAB etableres som en robust funksjon med tilstrekkelig kapasitet, bygget p&aring; helsedata.no-infrastrukturen men med vesentlig styrking.</li>
+        <li><strong>Koordinert leverand&oslash;rdialog.</strong> Systematisk samarbeid med EHR-leverand&oslash;rer for &aring; sikre rettidig tilpasning, inkludert felles veikart og incitamenter.</li>
+        <li><strong>Kompetanseprogram.</strong> Nasjonalt program for &aring; bygge kompetanse innen HL7 FHIR, EEHRxF og europeisk helseinteroperabilitet.</li>
+    </ul>
+
+    <h3>Tidslinje og milep&aelig;ler</h3>
+
+    <div class="table-wrapper">
+    <table>
+        <thead><tr><th>Tidspunkt</th><th>Milep&aelig;l</th></tr></thead>
+        <tbody>
+            <tr><td>2026 Q2</td><td>Nasjonalt EHDS-program etablert med mandat og budsjett</td></tr>
+            <tr><td>2026 Q3</td><td>Digital helsemyndighet formelt utpekt og styrket</td></tr>
+            <tr><td>2026 Q4</td><td>Nasjonal veikart for FHIR-overgang publisert</td></tr>
+            <tr><td>2027 Q1</td><td>Lovproposisjon fremmet for Stortinget</td></tr>
+            <tr><td>2027 Q2</td><td>Helse-NIM for gruppe 1 ferdigstilt</td></tr>
+            <tr><td>2027 Q4</td><td>Lovendringer vedtatt. Nasjonal FHIR-infrastruktur i testdrift</td></tr>
+            <tr><td>2028 Q1</td><td>HDAB operativ med grunnleggende funksjonalitet</td></tr>
+            <tr><td>2028 Q2</td><td>F&oslash;rste EHR-systemer sertifisert for EEHRxF</td></tr>
+            <tr><td>2028 Q4</td><td>MyHealth@EU operativt for gruppe 1</td></tr>
+            <tr><td>2029 Q1</td><td>Gruppe 1 fullt operativt. Sikre analyserom i pilotdrift</td></tr>
+            <tr><td>2029 Q3</td><td>Helse-NIM for gruppe 2 ferdigstilt</td></tr>
+            <tr><td>2030 Q1</td><td>HealthData@EU og sikre analyserom fullt operativt</td></tr>
+            <tr><td>2030 Q4</td><td>F&oslash;rste EHR-systemer sertifisert for gruppe 2</td></tr>
+            <tr><td>2031 Q1</td><td>Gruppe 2 fullt operativt</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3>Viktigste risikoer</h3>
+    <ol>
+        <li><strong>H&oslash;y kompleksitet.</strong> &Aring; kombinere EHDS-implementering med bredere modernisering &oslash;ker prosjektets kompleksitet og antall avhengigheter.</li>
+        <li><strong>H&oslash;y kostnad.</strong> Vesentlig h&oslash;yere investeringsbehov enn alternativ 1, med usikkerhet om totalrammen.</li>
+        <li><strong>Endringsmotstand.</strong> Utfasing av nasjonale meldingsstandarder til fordel for FHIR kan m&oslash;te motstand fra leverand&oslash;rer og virksomheter som har investert tungt i eksisterende l&oslash;sninger.</li>
+        <li><strong>Kapasitetsbegrensninger.</strong> B&aring;de offentlige og private akt&oslash;rer kan mangle kapasitet til &aring; gjennomf&oslash;re endringene i det tempoet som kreves.</li>
+        <li><strong>Avhengighet av EU-prosesser.</strong> Gjennomf&oslash;ringsrettsaktene fra EU-kommisjonen er ikke vedtatt. Dersom disse forsinkes eller endrer innretning, kan den norske planen m&aring;tte revideres.</li>
+    </ol>
+
+    <h3>Estimert kostnadsniv&aring;</h3>
+    <p><strong>H&oslash;y.</strong> Vesentlig h&oslash;yere investeringskostnad enn alternativ 1, men potensielt lavere totalkostnad over tid fordi man unng&aring;r doble standarder og teknisk gjeld. Den bredere moderniseringen kan ogs&aring; gi nasjonale effektiviseringsgevinster som delvis motvirker merkostnaden.</p>
+
+    <hr>
+
+    <h2>Alternativ 3: Nordisk samarbeidstilnaerming</h2>
+
+    <h3>Overordnet beskrivelse</h3>
+    <p>Norge koordinerer EHDS-implementeringen med de &oslash;vrige nordiske landene (Sverige, Danmark, Finland, Island) for &aring; dele erfaringer, kostnader og infrastruktur. De nordiske landene har lignende helsesystemer, offentlige forvaltningsstrukturer og digitaliseringsmodenhet, og st&aring;r overfor mange av de samme utfordringene.</p>
+
+    <h3>Arkitekturvalg</h3>
+    <ul>
+        <li><strong>Felles nordisk referansearkitektur.</strong> De nordiske landene utvikler en felles referansearkitektur for EHDS-implementering, med nasjonale tilpasninger der det er n&oslash;dvendig.</li>
+        <li><strong>Delte komponenter.</strong> Terminologitjenester, konverteringsverkt&oslash;y, testinfrastruktur og kompetanseressurser utvikles i fellesskap og deles mellom landene.</li>
+        <li><strong>Koordinert leverand&oslash;rdialog.</strong> Flere nordiske leverand&oslash;rer opererer i flere nordiske markeder. En koordinert tilnaerming til leverand&oslash;rkrav og sertifisering kan gi stordriftsfordeler.</li>
+        <li><strong>Nasjonal kjerneinfrastruktur.</strong> Hver nasjon beholder sin kjerneinfrastruktur (MyHealth@EU-kontaktpunkt, HDAB), men med felles standarder og grensesnitt.</li>
+    </ul>
+
+    <h3>Regulatorisk tilnaerming</h3>
+    <ul>
+        <li>Nasjonale lovendringer gjennomf&oslash;res i hvert land, men med koordinert tolkning av forordningens krav.</li>
+        <li>Felles nordisk posisjon i EU-prosesser for gjennomf&oslash;ringsrettsakter, for &aring; sikre at nordiske hensyn ivaretas.</li>
+        <li>Erfaringsutveksling om nasjonalt handlingsrom og rettslig tilpasning.</li>
+    </ul>
+
+    <h3>Organisatorisk modell</h3>
+    <ul>
+        <li><strong>Nordisk EHDS-koordineringsgruppe.</strong> Etablering av et uformelt eller formelt nordisk samarbeidsforum for EHDS-implementering, forankret i eksisterende nordiske samarbeidsstrukturer (f.eks. Nordisk ministerr&aring;d, NordForsk).</li>
+        <li><strong>Nasjonale program med nordisk koordinering.</strong> Hvert land har sitt nasjonale program, men med faste koordineringspunkter for erfaringsdeling, felles spesifikasjoner og delt utvikling.</li>
+        <li><strong>Felles kompetansebygging.</strong> Nordisk program for kompetanseutvikling innen HL7 FHIR, EEHRxF og EHDS-relaterte temaer.</li>
+    </ul>
+
+    <h3>Tidslinje og milep&aelig;ler</h3>
+
+    <div class="table-wrapper">
+    <table>
+        <thead><tr><th>Tidspunkt</th><th>Milep&aelig;l</th></tr></thead>
+        <tbody>
+            <tr><td>2026 Q2</td><td>Nordisk EHDS-koordineringsgruppe etablert</td></tr>
+            <tr><td>2026 Q3</td><td>Felles nordisk referansearkitektur p&aring;begynt</td></tr>
+            <tr><td>2026 Q4</td><td>Nasjonal digital helsemyndighet utpekt i alle nordiske land</td></tr>
+            <tr><td>2027 Q2</td><td>Felles nordisk spesifikasjon for terminologitjenester</td></tr>
+            <tr><td>2027 Q4</td><td>Delt nordisk testinfrastruktur i pilotdrift</td></tr>
+            <tr><td>2028 Q2</td><td>HDAB operativ i alle nordiske land</td></tr>
+            <tr><td>2029 Q1</td><td>Gruppe 1 operativt. Nordisk pilottest av grensekryssende utveksling</td></tr>
+            <tr><td>2030 Q1</td><td>HealthData@EU og sikre analyserom operativt</td></tr>
+            <tr><td>2031 Q1</td><td>Gruppe 2 fullt operativt</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3>Viktigste risikoer</h3>
+    <ol>
+        <li><strong>Koordineringskompleksitet.</strong> Nordisk samarbeid krever enighet mellom selvstendige nasjoner med ulike politiske prosesser og tidsplaner. EU-land (Sverige, Danmark, Finland) og E&Oslash;S-land (Norge, Island) har ulike tidsfrister.</li>
+        <li><strong>Ulik modenhet.</strong> De nordiske landene har ulik teknisk modenhet og ulike nasjonale systemer, noe som begrenser hva som kan deles.</li>
+        <li><strong>Risiko for forsinkelse.</strong> Avhengighet av nordisk koordinering kan forsinke nasjonale beslutninger og implementering dersom enighet tar tid.</li>
+        <li><strong>Begrenset formelt mandat.</strong> Nordisk samarbeid er frivillig, og det er begrenset formell myndighet til &aring; forplikte deltakerlandene.</li>
+        <li><strong>Potensial for &laquo;laveste felles nevner&raquo;.</strong> Felles l&oslash;sninger kan bli kompromisser som ikke er optimale for noe enkelt land.</li>
+    </ol>
+
+    <h3>Estimert kostnadsniv&aring;</h3>
+    <p><strong>Middels til h&oslash;y.</strong> H&oslash;yere koordineringskostnad enn alternativ 1, men potensielt lavere totalkostnad enn alternativ 2 gjennom deling av utviklingskostnader. Besparelsene avhenger av i hvilken grad felles komponenter faktisk lar seg realisere.</p>
+
+    <hr>
+
+    <h2>Sammenligning av alternativer</h2>
+
+    <div class="table-wrapper">
+    <table>
+        <thead>
+            <tr><th>Dimensjon</th><th>Nullalternativet</th><th>Alt. 1: Stegvis minimum</th><th>Alt. 2: Akselerert helhetlig</th><th>Alt. 3: Nordisk samarbeid</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Investeringskostnad</strong></td><td>Lav (kun p&aring;g&aring;ende)</td><td>Middels</td><td>H&oslash;y</td><td>Middels&ndash;H&oslash;y</td></tr>
+            <tr><td><strong>Driftskostnad over tid</strong></td><td>Lav (men manglende etterlevelse)</td><td>Middels&ndash;H&oslash;y (doble standarder)</td><td>Middels (konsolidert)</td><td>Middels</td></tr>
+            <tr><td><strong>Risiko for forsinket etterlevelse</strong></td><td>Sv&aelig;rt h&oslash;y</td><td>Middels</td><td>Middels&ndash;Lav</td><td>Middels</td></tr>
+            <tr><td><strong>Risiko for E&Oslash;S-rettslige sanksjoner</strong></td><td>Sv&aelig;rt h&oslash;y</td><td>Lav</td><td>Lav</td><td>Lav</td></tr>
+            <tr><td><strong>Nasjonal nytteverdi utover EHDS</strong></td><td>Ingen</td><td>Lav</td><td>H&oslash;y</td><td>Middels</td></tr>
+            <tr><td><strong>Kompleksitet</strong></td><td>Lav</td><td>Middels</td><td>H&oslash;y</td><td>H&oslash;y (koordinering)</td></tr>
+            <tr><td><strong>Gjenbruk av eksisterende l&oslash;sninger</strong></td><td>Ja (uten tilpasning)</td><td>H&oslash;y</td><td>Middels (gradvis utfasing)</td><td>Middels&ndash;H&oslash;y</td></tr>
+            <tr><td><strong>Tidslinje for gruppe 1</strong></td><td>Ikke oppn&aring;elig</td><td>Mars 2029 (stram)</td><td>Q4 2028 (margin)</td><td>Mars 2029</td></tr>
+            <tr><td><strong>Tidslinje for gruppe 2</strong></td><td>Ikke oppn&aring;elig</td><td>Mars 2031 (stram)</td><td>Mars 2031 (med margin)</td><td>Mars 2031</td></tr>
+            <tr><td><strong>Ambisjonsniv&aring;</strong></td><td>Ingen</td><td>Minimum etterlevelse</td><td>Bredere modernisering</td><td>Etterlevelse med nordisk samarbeid</td></tr>
+            <tr><td><strong>Endringsmotstand</strong></td><td>Lav</td><td>Middels</td><td>H&oslash;y</td><td>Middels</td></tr>
+            <tr><td><strong>Avhengighet av andre akt&oslash;rer</strong></td><td>Lav</td><td>Middels</td><td>Middels</td><td>H&oslash;y (nordisk enighet)</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3>Anbefalt retning</h3>
+
+    <p>Denne rapporten anbefaler ikke et bestemt alternativ, men peker p&aring; f&oslash;lgende vurderingspunkter for beslutningstakere:</p>
+
+    <ol>
+        <li><strong>Nullalternativet er ikke reelt</strong> dersom EHDS innlemmes i E&Oslash;S-avtalen. Det fungerer kun som referansepunkt.</li>
+        <li><strong>Alternativ 1 er lavest risiko p&aring; kort sikt</strong>, men skaper teknisk gjeld og doble standarder som &oslash;ker kostnadene over tid. Det gir begrenset nasjonal nytteverdi utover det som er p&aring;krevd.</li>
+        <li><strong>Alternativ 2 gir st&oslash;rst langsiktig verdi</strong>, men krever politisk vilje til h&oslash;yere investeringer, sterk programstyring og aksept for h&oslash;yere gjennomf&oslash;ringsrisiko.</li>
+        <li><strong>Alternativ 3 kan kombineres</strong> med enten alternativ 1 eller 2 som en tilleggsdimensjon. Nordisk samarbeid er verdifullt uavhengig av nasjonalt ambisjonsniv&aring;, men b&oslash;r ikke brukes som erstatning for nasjonale beslutninger og handlingsevne.</li>
+        <li><strong>En pragmatisk mellomvei</strong> kan v&aelig;re &aring; starte med alternativ 1 for &aring; m&oslash;te de f&oslash;rste fristene, men med en tydelig plan for overgang til alternativ 2 etter hvert som erfaringsgrunnlaget og de europeiske spesifikasjonene modnes. Nordisk samarbeid (alternativ 3) b&oslash;r uansett forf&oslash;lges parallelt.</li>
+    </ol>
+
+    <div class="footer">
+        <p>Denne rapporten er basert p&aring; kunnskapsgrunnlaget (rapporter/kunnskapsgrunnlag-ehds.md) og problemdefinisjonen (rapporter/problemdefinisjon-ehds.md) for EHDS, utarbeidet 15. mars 2026. Tiltaksalternativene b&oslash;r revideres n&aring;r gjennomf&oslash;ringsrettsakter fra EU-kommisjonen vedtas, E&Oslash;S-innlemmelse avklares, og mer detaljert informasjon om kostnader og leverand&oslash;rkapasitet foreligger.</p>
+    </div>
+</div>
+</body>
+</html>

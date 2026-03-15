@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gap-analyse per alternativ: EHDS-implementering i Norge</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1a3a5c, #2c5f8a);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 1.8em; margin-bottom: 10px; }
+        .header p { font-size: 1em; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+        .header .date { font-size: 0.85em; margin-top: 10px; opacity: 0.85; }
+        .header .source { font-size: 0.8em; margin-top: 5px; opacity: 0.8; }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+        }
+        .section h2 {
+            font-size: 1.4em;
+            color: #1a3a5c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2c5f8a;
+        }
+        .section p.description {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 768px) {
+            .chart-row { grid-template-columns: 1fr; }
+        }
+
+        .radar-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Heatmap styles */
+        .heatmap-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        .heatmap-table th {
+            background: #1a3a5c;
+            color: white;
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .heatmap-table th:first-child {
+            text-align: left;
+            min-width: 180px;
+        }
+        .heatmap-table td {
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85em;
+            border-bottom: 1px solid #eee;
+        }
+        .heatmap-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            color: #333;
+            background: #fafafa;
+        }
+        .heatmap-table tr:hover td {
+            opacity: 0.9;
+        }
+
+        .cell-green { background: #c8e6c9; color: #1b5e20; }
+        .cell-light-green { background: #dcedc8; color: #33691e; }
+        .cell-yellow { background: #fff9c4; color: #b36a00; }
+        .cell-orange { background: #ffe0b2; color: #bf360c; }
+        .cell-red { background: #ffcdd2; color: #b71c1c; }
+
+        .legend-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+        }
+        .legend-color {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .summary-box {
+            background: #e8f4fd;
+            border-left: 4px solid #2c5f8a;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+        .summary-box h3 {
+            color: #1a3a5c;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .summary-box p {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .score-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        .score-high { background: #c8e6c9; color: #1b5e20; }
+        .score-medium { background: #fff9c4; color: #b36a00; }
+        .score-low { background: #ffcdd2; color: #b71c1c; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Gap-analyse per alternativ</h1>
+        <p>Visuell sammenligning av tre EHDS-tiltaksalternativer for Norge langs arkitekturkvalitetsdimensjoner og komponentpåvirkning</p>
+        <div class="date">Dato: 15. mars 2026</div>
+        <div class="source">Basert på: rapporter/arkitekturkonsekvenser-ehds.md</div>
+    </div>
+
+    <!-- Radar chart -->
+    <div class="section">
+        <h2>Arkitekturkvalitet per alternativ</h2>
+        <p class="description">Radardiagrammet viser hvert alternativ vurdert langs fem arkitekturkvalitetsdimensjoner. Skala 1-5 der 5 er best. Alternativ 2 scorer best samlet (4.2/5), men har hoyest gjennomforingskompleksitet.</p>
+        <div class="chart-container">
+            <div class="radar-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-row">
+            <div class="chart-container">
+                <h3 style="color:#1a3a5c; margin-bottom:15px; font-size:1.1em;">Samlet score per alternativ</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3 style="color:#1a3a5c; margin-bottom:15px; font-size:1.1em;">Integrasjonskompleksitet (antall integrasjonspunkter)</h3>
+                <canvas id="complexityChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Heatmap: Arkitekturkvalitet -->
+    <div class="section">
+        <h2>Detaljert vurdering per dimensjon</h2>
+        <p class="description">Tabellen viser detaljert vurdering av hvert alternativ per kvalitetsdimensjon med underkategorier. Fargekoding: gronn = god, gul = middels, rod = utfordring.</p>
+
+        <div class="legend-bar">
+            <div class="legend-item"><div class="legend-color" style="background:#c8e6c9;"></div>God (4-5)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#dcedc8;"></div>Tilfredsstillende (3)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#fff9c4;"></div>Middels (2-3)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#ffe0b2;"></div>Svak (2)</div>
+            <div class="legend-item"><div class="legend-color" style="background:#ffcdd2;"></div>Utilstrekkelig (1)</div>
+        </div>
+
+        <div class="chart-container">
+            <table class="heatmap-table">
+                <thead>
+                    <tr>
+                        <th>Dimensjon</th>
+                        <th>Alt. 1 – Stegvis minimum</th>
+                        <th>Alt. 2 – Akselerert helhetlig</th>
+                        <th>Alt. 3 – Nordisk samarbeid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Interoperabilitet</strong></td>
+                        <td class="cell-orange">2/5 – Gateway-konvertering</td>
+                        <td class="cell-green">5/5 – Native FHIR</td>
+                        <td class="cell-light-green">3/5 – Avhenger av nasjonal tilnærming</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Nasjonal</td>
+                        <td class="cell-red">Lav (status quo)</td>
+                        <td class="cell-green">Hoy (FHIR-konvergens)</td>
+                        <td class="cell-yellow">Avhenger av nasjonal tilnærming</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Europeisk</td>
+                        <td class="cell-yellow">Middels (via gateway)</td>
+                        <td class="cell-green">Hoy (native FHIR)</td>
+                        <td class="cell-light-green">Middels-Hoy</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Semantisk</td>
+                        <td class="cell-red">Lav (konverteringstap)</td>
+                        <td class="cell-light-green">Middels-Hoy</td>
+                        <td class="cell-yellow">Middels</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Teknisk gjeld</strong></td>
+                        <td class="cell-red">1/5 – Permanent doble standarder</td>
+                        <td class="cell-green">4/5 – Konsolidert langsiktig</td>
+                        <td class="cell-orange">2/5 – Avhenger av nasjonal tilnærming</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Doble standarder</td>
+                        <td class="cell-red">Ja, permanent</td>
+                        <td class="cell-green">Nei (overgangsperiode)</td>
+                        <td class="cell-yellow">Avhenger av tilnærming</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Gateway-vedlikehold</td>
+                        <td class="cell-red">Varig kostnad</td>
+                        <td class="cell-green">Ikke relevant</td>
+                        <td class="cell-yellow">Mulig delt kostnad</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vendor lock-in</strong></td>
+                        <td class="cell-orange">2/5 – Status quo + gateway</td>
+                        <td class="cell-green">4/5 – Apne FHIR-API-er</td>
+                        <td class="cell-light-green">3/5 – Koordinerte krav</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;EPJ-leverandoravhengighet</td>
+                        <td class="cell-red">Hoy (uendret)</td>
+                        <td class="cell-yellow">Middels (apne API-er)</td>
+                        <td class="cell-yellow">Middels (koordinert)</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Ny avhengighet</td>
+                        <td class="cell-orange">Gateway-leverandor</td>
+                        <td class="cell-green">Ingen ny</td>
+                        <td class="cell-light-green">Lav</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skalerbarhet</strong></td>
+                        <td class="cell-orange">2/5 – Ny konvertering per kategori</td>
+                        <td class="cell-green">4/5 – FHIR-profiler utvidbare</td>
+                        <td class="cell-light-green">3/5 – Delt skalering mulig</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Nye datakategorier</td>
+                        <td class="cell-red">Vanskelig</td>
+                        <td class="cell-green">Enklere</td>
+                        <td class="cell-yellow">Avhenger av tilnærming</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Volumokning</td>
+                        <td class="cell-orange">Gateway kan bli flaskehals</td>
+                        <td class="cell-green">Distribuert</td>
+                        <td class="cell-light-green">Delt last mulig</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sikkerhet by design</strong></td>
+                        <td class="cell-light-green">3/5 – HelseID + gateway</td>
+                        <td class="cell-green">4/5 – Ende-til-ende FHIR</td>
+                        <td class="cell-light-green">3/5 – Delte mønstre</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Sporbarhet</td>
+                        <td class="cell-yellow">Dobbel logging</td>
+                        <td class="cell-green">FHIR AuditEvent</td>
+                        <td class="cell-light-green">Delt standard</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;Samtykke/opt-out</td>
+                        <td class="cell-yellow">Gateway-handhevelse</td>
+                        <td class="cell-green">FHIR Consent</td>
+                        <td class="cell-light-green">Koordinert</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Heatmap: Komponentpåvirkning -->
+    <div class="section">
+        <h2>Komponentpåvirkning per alternativ</h2>
+        <p class="description">Oversikt over tilpasningsbehov for eksisterende og nye komponenter. Fargekoding viser grad av endring/innsats: gronn = lav, gul = middels, rod = hoy.</p>
+
+        <div class="legend-bar">
+            <div class="legend-item"><div class="legend-color" style="background:#c8e6c9;"></div>Lav innsats</div>
+            <div class="legend-item"><div class="legend-color" style="background:#fff9c4;"></div>Middels innsats</div>
+            <div class="legend-item"><div class="legend-color" style="background:#ffe0b2;"></div>Hoy innsats</div>
+            <div class="legend-item"><div class="legend-color" style="background:#ffcdd2;"></div>Svært hoy innsats</div>
+        </div>
+
+        <div class="chart-container">
+            <table class="heatmap-table">
+                <thead>
+                    <tr>
+                        <th>Komponent</th>
+                        <th>Alt. 1 – Stegvis minimum</th>
+                        <th>Alt. 2 – Akselerert helhetlig</th>
+                        <th>Alt. 3 – Nordisk samarbeid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="4" style="background:#e3eef7; font-weight:700; color:#1a3a5c;">Eksisterende nasjonale komponenter</td></tr>
+                    <tr>
+                        <td>Kjernejournal</td>
+                        <td class="cell-yellow">Middels – Gateway-konvertering av eksisterende data</td>
+                        <td class="cell-orange">Hoy – Migrering til FHIR IPS, nasjonal Patient Summary</td>
+                        <td class="cell-yellow">Middels – Som alt. 1/2, nordisk profilering</td>
+                    </tr>
+                    <tr>
+                        <td>Reseptformidleren</td>
+                        <td class="cell-light-green">Lav-Middels – Videreføre MyHealth@EU-pilot</td>
+                        <td class="cell-yellow">Middels – FHIR-basert reseptmodell</td>
+                        <td class="cell-light-green">Lav-Middels – Nordisk legemiddelharmonisering</td>
+                    </tr>
+                    <tr>
+                        <td>Helsenorge.no</td>
+                        <td class="cell-yellow">Middels – Nye rettigheter (nedlasting, opt-out)</td>
+                        <td class="cell-yellow">Middels – Nye rettigheter + FHIR-backend</td>
+                        <td class="cell-yellow">Middels – Koordinert med Norden</td>
+                    </tr>
+                    <tr>
+                        <td>HelseID</td>
+                        <td class="cell-green">Lav – Tilpasning for grensekryssende autentisering</td>
+                        <td class="cell-yellow">Middels – Utvidet med FHIR-autorisasjon</td>
+                        <td class="cell-green">Lav – Nordisk IAM-koordinering</td>
+                    </tr>
+                    <tr><td colspan="4" style="background:#e3eef7; font-weight:700; color:#1a3a5c;">EPJ-systemer</td></tr>
+                    <tr>
+                        <td>DIPS Arena (~73% HF)</td>
+                        <td class="cell-green">Lav – Minimal nasjonal endring</td>
+                        <td class="cell-yellow">Middels – Full FHIR (har allerede API)</td>
+                        <td class="cell-green">Lav-Middels – Nordisk koordinering</td>
+                    </tr>
+                    <tr>
+                        <td>Epic/Helseplattformen</td>
+                        <td class="cell-yellow">Middels – Gateway-konvertering</td>
+                        <td class="cell-orange">Hoy – Proprietær modell, forhandling med Epic</td>
+                        <td class="cell-yellow">Middels – Begrenset nordisk relevans</td>
+                    </tr>
+                    <tr>
+                        <td>CGM, Visma, Infodoc</td>
+                        <td class="cell-green">Lav – Skjermes via gateway</td>
+                        <td class="cell-red">Svært hoy – Full FHIR fra lav modenhet</td>
+                        <td class="cell-yellow">Middels – Nordisk koordinering (CGM, Visma)</td>
+                    </tr>
+                    <tr><td colspan="4" style="background:#e3eef7; font-weight:700; color:#1a3a5c;">Nye komponenter</td></tr>
+                    <tr>
+                        <td>NCPeH (National Contact Point)</td>
+                        <td class="cell-yellow">Middels – Bygge pa NHN-pilot + gateway</td>
+                        <td class="cell-yellow">Middels – Bygge pa NHN-pilot, native FHIR</td>
+                        <td class="cell-yellow">Middels – Nordisk erfaringsdeling</td>
+                    </tr>
+                    <tr>
+                        <td>HDAB</td>
+                        <td class="cell-yellow">Middels – Bygge pa helsedata.no</td>
+                        <td class="cell-orange">Hoy – Robust funksjon, styrket kapasitet</td>
+                        <td class="cell-yellow">Middels – Nordisk harmonisering</td>
+                    </tr>
+                    <tr>
+                        <td>Sikre analyserom (SPE)</td>
+                        <td class="cell-yellow">Middels – Videreføre SPUHiN</td>
+                        <td class="cell-orange">Hoy – Full SPE med bredere scope</td>
+                        <td class="cell-yellow">Middels – Mulig delt infrastruktur</td>
+                    </tr>
+                    <tr>
+                        <td>Nasjonal testinfrastruktur</td>
+                        <td class="cell-green">Lav-Middels – Begrenset testmiljo</td>
+                        <td class="cell-yellow">Middels – Bredere testmiljo</td>
+                        <td class="cell-green">Lav – Delt nordisk testinfrastruktur</td>
+                    </tr>
+                    <tr>
+                        <td>Terminologitjeneste</td>
+                        <td class="cell-yellow">Middels – Konverteringsregler i gateway</td>
+                        <td class="cell-orange">Hoy – Sentral nasjonal tjeneste</td>
+                        <td class="cell-green">Lav-Middels – Delt nordisk plattform</td>
+                    </tr>
+                    <tr>
+                        <td>Gateway/konverteringslag</td>
+                        <td class="cell-orange">Hoy – Sentralt, kritisk komponent</td>
+                        <td class="cell-green">Ikke relevant</td>
+                        <td class="cell-yellow">Middels – Mulig delt</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Oppsummering -->
+    <div class="section">
+        <h2>Oppsummering og anbefaling</h2>
+        <div class="chart-container">
+            <div class="chart-row">
+                <div>
+                    <h3 style="color:#1a3a5c; margin-bottom:15px;">Alternativenes profil</h3>
+                    <div style="margin-bottom:15px; padding:12px; background:#fff3e0; border-radius:8px; border-left:4px solid #ff9800;">
+                        <strong>Alt. 1 – Stegvis minimum</strong> <span class="score-badge score-low">2.0/5</span>
+                        <p style="font-size:0.85em; margin-top:5px; color:#555;">Lavest kortsiktig risiko, men genererer permanent teknisk gjeld. Gateway blir et sentralt feilpunkt og konverteringsflaskehals.</p>
+                    </div>
+                    <div style="margin-bottom:15px; padding:12px; background:#e8f5e9; border-radius:8px; border-left:4px solid #4caf50;">
+                        <strong>Alt. 2 – Akselerert helhetlig</strong> <span class="score-badge score-high">4.2/5</span>
+                        <p style="font-size:0.85em; margin-top:5px; color:#555;">Best arkitekturkvalitet over tid. Eliminerer doble standarder, gir nasjonal interoperabilitet. Hoyest gjennomforingskompleksitet.</p>
+                    </div>
+                    <div style="margin-bottom:15px; padding:12px; background:#e3f2fd; border-radius:8px; border-left:4px solid #2196f3;">
+                        <strong>Alt. 3 – Nordisk samarbeid</strong> <span class="score-badge score-medium">2.8/5</span>
+                        <p style="font-size:0.85em; margin-top:5px; color:#555;">Gir pragmatisk verdi gjennom delte komponenter og leverandordialog. Loser ikke nasjonale arkitektursporsmal isolert.</p>
+                    </div>
+                </div>
+                <div>
+                    <canvas id="summaryChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h3>Anbefalt hybridstrategi</h3>
+            <p>
+                <strong>Start med Alt. 1 for forste frister</strong> (gruppe 1, mars 2029), men <strong>sett Alt. 2 som strategisk mal fra dag en</strong>.
+                Design gateway-laget eksplisitt som midlertidig. Krev FHIR i alle nye integrasjoner.
+                <strong>Forfolg Alt. 3 parallelt</strong> for terminologitjenester, testinfrastruktur og leverandordialog.
+                Den kritiske beslutningen er om gateway-laget blir permanent infrastruktur eller midlertidig bro.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Color palette
+        const colors = {
+            alt1: { bg: 'rgba(255, 152, 0, 0.2)', border: 'rgba(255, 152, 0, 1)' },
+            alt2: { bg: 'rgba(76, 175, 80, 0.2)', border: 'rgba(76, 175, 80, 1)' },
+            alt3: { bg: 'rgba(33, 150, 243, 0.2)', border: 'rgba(33, 150, 243, 1)' }
+        };
+
+        // Radar Chart
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Interoperabilitet', 'Teknisk gjeld\n(lav = darlig)', 'Vendor lock-in\n(lav = darlig)', 'Skalerbarhet', 'Sikkerhet\nby design'],
+                datasets: [
+                    {
+                        label: 'Alt. 1 – Stegvis minimum',
+                        data: [2, 1, 2, 2, 3],
+                        backgroundColor: colors.alt1.bg,
+                        borderColor: colors.alt1.border,
+                        borderWidth: 2,
+                        pointBackgroundColor: colors.alt1.border,
+                        pointRadius: 4
+                    },
+                    {
+                        label: 'Alt. 2 – Akselerert helhetlig',
+                        data: [5, 4, 4, 4, 4],
+                        backgroundColor: colors.alt2.bg,
+                        borderColor: colors.alt2.border,
+                        borderWidth: 2,
+                        pointBackgroundColor: colors.alt2.border,
+                        pointRadius: 4
+                    },
+                    {
+                        label: 'Alt. 3 – Nordisk samarbeid',
+                        data: [3, 2, 3, 3, 3],
+                        backgroundColor: colors.alt3.bg,
+                        borderColor: colors.alt3.border,
+                        borderWidth: 2,
+                        pointBackgroundColor: colors.alt3.border,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 13 }, padding: 20 } },
+                    title: { display: true, text: 'Arkitekturkvalitet per alternativ (1-5, 5 = best)', font: { size: 16 } }
+                },
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 5,
+                        ticks: { stepSize: 1, font: { size: 11 } },
+                        pointLabels: { font: { size: 12 } }
+                    }
+                }
+            }
+        });
+
+        // Bar Chart - Samlet score
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Alt. 1\nStegvis minimum', 'Alt. 2\nAkselerert helhetlig', 'Alt. 3\nNordisk samarbeid'],
+                datasets: [{
+                    label: 'Gjennomsnittlig arkitekturscore (1-5)',
+                    data: [2.0, 4.2, 2.8],
+                    backgroundColor: [colors.alt1.border, colors.alt2.border, colors.alt3.border],
+                    borderWidth: 0,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: false }
+                },
+                scales: {
+                    y: { min: 0, max: 5, ticks: { stepSize: 1 } }
+                }
+            }
+        });
+
+        // Complexity Chart
+        new Chart(document.getElementById('complexityChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Alt. 1\nStegvis minimum', 'Alt. 2\nAkselerert helhetlig', 'Alt. 3\nNordisk samarbeid'],
+                datasets: [
+                    {
+                        label: 'Integrasjonspunkter (min)',
+                        data: [18, 12, 16],
+                        backgroundColor: 'rgba(100, 100, 100, 0.3)',
+                        borderColor: 'rgba(100, 100, 100, 0.8)',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Integrasjonspunkter (maks)',
+                        data: [24, 15, 22],
+                        backgroundColor: 'rgba(100, 100, 100, 0.6)',
+                        borderColor: 'rgba(100, 100, 100, 0.9)',
+                        borderWidth: 1,
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 11 } } },
+                    title: { display: false }
+                },
+                scales: {
+                    y: { min: 0, max: 30, ticks: { stepSize: 5 } }
+                }
+            }
+        });
+
+        // Summary horizontal bar
+        new Chart(document.getElementById('summaryChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Interoperabilitet', 'Teknisk gjeld', 'Vendor lock-in', 'Skalerbarhet', 'Sikkerhet'],
+                datasets: [
+                    {
+                        label: 'Alt. 1',
+                        data: [2, 1, 2, 2, 3],
+                        backgroundColor: colors.alt1.border,
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Alt. 2',
+                        data: [5, 4, 4, 4, 4],
+                        backgroundColor: colors.alt2.border,
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Alt. 3',
+                        data: [3, 2, 3, 3, 3],
+                        backgroundColor: colors.alt3.border,
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 11 } } },
+                    title: { display: true, text: 'Score per dimensjon', font: { size: 14 } }
+                },
+                scales: {
+                    x: { min: 0, max: 5, ticks: { stepSize: 1 } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

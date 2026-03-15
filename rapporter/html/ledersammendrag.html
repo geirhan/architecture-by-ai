@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledersammendrag - EHDS-utredning</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: #003366;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 14px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a.active {
+            background: #005299;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        h1 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            color: #003366;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: #333;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+        }
+        .subtitle {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .highlight-box {
+            background: #f0f4f8;
+            padding: 1.5rem;
+            border-left: 4px solid #003366;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning-box {
+            background: #fff8e1;
+            padding: 1.5rem;
+            border-left: 4px solid #f9a825;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .phase-box {
+            background: #f8f9fa;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            margin: 0.8rem 0;
+        }
+        .phase-box strong {
+            color: #003366;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.92rem;
+        }
+        th {
+            background: #003366;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        .risk-high {
+            color: #c62828;
+            font-weight: 600;
+        }
+        ol li, ul li {
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            table { font-size: 0.82rem; }
+            nav a { padding: 10px 10px; font-size: 0.8rem; }
+        }
+        @media print {
+            nav { display: none; }
+            .container { max-width: 100%; }
+        }
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ccc;
+            color: #666;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="index.html">Forside</a>
+    <a href="ledersammendrag.html" class="active">Ledersammendrag</a>
+    <a href="kunnskapsgrunnlag.html">Kunnskapsgrunnlag</a>
+    <a href="problemdefinisjon.html">Problemdefinisjon</a>
+    <a href="tiltaksalternativer.html">Tiltaksalternativer</a>
+    <a href="prinsipielle-spoersmaal.html">Prinsipielle sp&oslash;rsm&aring;l</a>
+    <a href="samfunnsoekonomisk.html">Samfunns&oslash;konomi</a>
+    <a href="helsepersonell.html">Helsepersonell</a>
+    <a href="arkitektur.html">Arkitektur</a>
+    <a href="anbefaling.html">Anbefaling</a>
+    <a href="gjennomfoering.html">Gjennomf&oslash;ring</a>
+    <a href="visualiseringer.html">Visualiseringer</a>
+</nav>
+
+<div class="container">
+    <h1>Ledersammendrag</h1>
+    <p class="subtitle">EHDS-forordningens konsekvenser for digitaliseringen i norsk helsesektor</p>
+
+    <h2>Hva er EHDS?</h2>
+    <p>EHDS (forordning om det europeiske helsedataomradet, EU 2025/327) er en EU-forordning som skal gjore det mulig a dele helseopplysninger trygt og effektivt mellom aktorer i EU/EOS-land. Forordningen dekker to hovedomrader: <strong>primaerbruk</strong> (deling av helseopplysninger for behandling) og <strong>sekundaerbruk</strong> (bruk av helsedata til forskning, innovasjon og folkehelse).</p>
+
+    <h2>Hvorfor er dette relevant for Norge?</h2>
+    <p>Forordningen er vurdert som EOS-relevant og vil kreve lovendringer, ny forvaltningsstruktur og omfattende teknisk utvikling. Norsk helsesektor har utviklet seg med nasjonale standarder som ikke er kompatible med de felleseuropeiske kravene EHDS stiller. Utredningen har identifisert <strong>21 gap</strong> fordelt pa fire dimensjoner: rettslige (5), tekniske (6), organisatoriske (5) og semantiske (5).</p>
+
+    <h2>Hva er hovedutfordringene?</h2>
+    <p>Fire grunnarsaker:</p>
+    <ol>
+        <li>Historisk nasjonal utvikling uten europeisk harmonisering</li>
+        <li>Fragmentert informasjonslandskap med mange ulike systemer</li>
+        <li>Lovverk som ikke er tilpasset grensekryssende deling</li>
+        <li>Manglende forvaltningsstrukturer (digital helsemyndighet og tilgangsorgan for helsedata)</li>
+    </ol>
+
+    <h2>Hva anbefales?</h2>
+    <div class="highlight-box">
+        <p><strong>Hybridstrategi i tre faser:</strong></p>
+    </div>
+
+    <div class="phase-box">
+        <strong>Fase 1 (2026&ndash;2029): Gateway-losning for gruppe 1</strong>
+        <p>Pasientoppsummeringer og e-resept. Design som midlertidig infrastruktur.</p>
+    </div>
+    <div class="phase-box">
+        <strong>Fase 2 (2029&ndash;2031): Overgang til HL7 FHIR som nasjonal standard</strong>
+        <p>Gruppe 2 (bilder, laboratoriesvar, epikriser) med FHIR-baserte grensesnitt.</p>
+    </div>
+    <div class="phase-box">
+        <strong>Fase 3 (2031&ndash;2035): Fullforing</strong>
+        <p>Utfasing av nasjonale meldingsstandarder. Norsk og europeisk interoperabilitet samles i en standard.</p>
+    </div>
+    <p>Nordisk samarbeid om delte komponenter og erfaringsdeling bor folges parallelt.</p>
+
+    <h2>Hva koster det?</h2>
+    <div class="highlight-box">
+        <p><strong>Hybridstrategien anslas til 5&ndash;9 milliarder kroner</strong> i investeringskostnader over perioden 2026&ndash;2035. EU anslar besparelser pa 11 milliarder euro for hele EU over ti ar. Norges andel tilsvarer grovt 1,2&ndash;2,5 milliarder kroner. Usikkerheten i kostnadsestimatene er svart hoy.</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr><th>Periode</th><th>Arlig investering</th><th>Kumulativt</th><th>Hovedaktiviteter</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>2026&ndash;2027</td><td>500&ndash;800 mill.</td><td>1,0&ndash;1,6 mrd.</td><td>Program, lovarbeid, spesifikasjoner, NCPeH</td></tr>
+            <tr><td>2028&ndash;2029</td><td>800&ndash;1 200 mill.</td><td>2,6&ndash;4,0 mrd.</td><td>Gateway, testinfrastruktur, HDAB, gruppe 1</td></tr>
+            <tr><td>2030&ndash;2031</td><td>600&ndash;1 000 mill.</td><td>3,8&ndash;6,0 mrd.</td><td>Gruppe 2, FHIR-overgang, sikre analyserom</td></tr>
+            <tr><td>2032&ndash;2035</td><td>400&ndash;800 mill./ar</td><td>5,4&ndash;9,2 mrd.</td><td>FHIR-konsolidering, gateway-utfasing</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Hva er de viktigste risikoene?</h2>
+    <div class="warning-box">
+        <ol>
+            <li><strong>Gateway-losningen sementeres som permanent</strong> infrastruktur i stedet for midlertidig bro <span class="risk-high">(risikoniva: hoy)</span></li>
+            <li><strong>Kostnadsoverskridelser</strong> i trad med erfaringer fra Helseplattformen og andre store e-helseprosjekter <span class="risk-high">(risikoniva: hoy)</span></li>
+            <li><strong>Forsinket EOS-innlemmelse</strong> gir kortere implementeringstid <span class="risk-high">(risikoniva: hoy)</span></li>
+            <li><strong>Utilstrekkelig leverandorkapasitet</strong> for a tilpasse EPJ-systemer innen fristene <span class="risk-high">(risikoniva: hoy)</span></li>
+        </ol>
+    </div>
+
+    <h2>Neste steg</h2>
+    <table>
+        <thead>
+            <tr><th>Nr</th><th>Handling</th><th>Ansvarlig</th><th>Frist</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Forankre hybridstrategien politisk hos HOD</td><td>Helsedirektoratet</td><td>2026 Q2</td></tr>
+            <tr><td>2</td><td>Etablere nasjonalt EHDS-program med mandat og budsjett</td><td>HOD / Helsedirektoratet</td><td>2026 Q2</td></tr>
+            <tr><td>3</td><td>Utpeke digital helsemyndighet formelt</td><td>HOD</td><td>2026 Q3</td></tr>
+            <tr><td>4</td><td>Publisere bindende nasjonal FHIR-overgangsplan</td><td>Helsedirektoratet</td><td>2026 Q4</td></tr>
+            <tr><td>5</td><td>Gjennomfore leverandordialog med DIPS, Epic, CGM, Visma, Infodoc</td><td>Helsedirektoratet / NHN</td><td>2026 Q3</td></tr>
+            <tr><td>6</td><td>Etablere nordisk EHDS-koordineringsgruppe</td><td>Helsedirektoratet</td><td>2026 Q2</td></tr>
+            <tr><td>7</td><td>Fremme lovproposisjon for Stortinget</td><td>HOD</td><td>2027 Q1</td></tr>
+            <tr><td>8</td><td>Etablere HDAB med grunnleggende funksjonalitet</td><td>Helsedirektoratet / FHI</td><td>2028 Q2</td></tr>
+            <tr><td>9</td><td>Gjennomfore fullverdig samfunnsokonomisk analyse</td><td>Helsedirektoratet / DFO</td><td>2027 Q4</td></tr>
+            <tr><td>10</td><td>Etablere kliniske referansegrupper</td><td>Helsedirektoratet</td><td>2026 Q3</td></tr>
+            <tr><td>11</td><td>Starte nasjonalt FHIR-kompetanseprogram</td><td>Helsedirektoratet / NHN</td><td>2027 Q1</td></tr>
+            <tr><td>12</td><td>Etablere nasjonal testinfrastruktur for EPJ-systemer</td><td>NHN</td><td>2028 Q4</td></tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>Denne utredningen er utarbeidet mars 2026 som del av Helsedirektoratets arbeid med a vurdere konsekvensene av EHDS-forordningen for norsk helsesektor.</p>
+    </div>
+</div>
+</body>
+</html>
