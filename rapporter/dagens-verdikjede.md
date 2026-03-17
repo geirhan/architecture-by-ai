@@ -96,9 +96,9 @@ Denne strømmen kan reagere på dager til uker ved nye sikkerhetssignaler, og er
 Innbyggere mottar helseinformasjon fra et bredt spekter av aktører med ulike kilder, ulik kvalitetssikring og ulik grad av offentlig styring. Denne strømmen inkluderer både offentlige kanaler (som helsenorge.no) og kommersielle/frivillige aktører.
 
 **Offentlige kanaler:**
-- **helsenorge.no**: Norges digitale helseportal for innbyggere, med Helsedirektoratet som ansvarlig utgiver og NHN som produkteier og drifter [10]. Over 80 organisasjoner bidrar med innhold, inkludert FHI, Helsedirektoratet, DMP, RHF-ene, sykehus og pasientorganisasjoner [10]. Hver innholdsleverandør er selv ansvarlig for at informasjonen er oppdatert og av høy faglig kvalitet. Tilbyr også digitale helsetjenester (timebestilling, resepter, prøvesvar, journal).
-- **FHI (Folkehelseinstituttet)**: Publiserer innbyggerrettet informasjon om smittevern, vaksinasjon, psykisk helse og helsestatistikk direkte på fhi.no [11]. Kommuniserer også via podkast (Folkehelsepodden) og sosiale medier.
-- **FNSP (Felles nettløsning for spesialisthelsetjenesten)**: Nasjonalt samarbeid eid av de fire RHF-ene som sikrer enhetlig pasientinformasjon på over 60 sykehusnettsteder [12]. Forvalter ca. 1 700 behandlingstekster godkjent av medisinske fagpersoner, med en nasjonal medisinsk og helsefaglig redaksjon [12]. Driftes av NHN.
+- **helsenorge.no**: Norges digitale helseportal for innbyggere, eid av NHN (statsforetak under HOD). Innholdsproduksjonen er **desentralisert** med tydelig ansvarsfordeling: Helsedirektoratet har utgiveransvaret og det etiske og rettslige ansvaret for informasjonsinnholdet, mens NHN er produkteier og har redaktøransvaret – inkludert ansvar for at lokale redaktører følger innholdsstrategien og kvalitetsretningslinjene [10]. Innholdet leveres og kvalitetssikres av offentlige helseaktører som sykehus, Helsedirektoratet, Helfo og FHI, og skal være forskningsbasert og i tråd med nasjonale råd og retningslinjer [10]. All informasjon oppdateres jevnlig og minst hvert tredje år [10]. Helsenorge.no tilbyr også digitale helsetjenester (timebestilling, resepter, prøvesvar, journal).
+- **FHI (Folkehelseinstituttet)**: Publiserer innbyggerrettet informasjon om smittevern, vaksinasjon, psykisk helse og helsestatistikk direkte på fhi.no [11]. Er også innholdsleverandør til helsenorge.no. Kommuniserer via podkast (Folkehelsepodden) og sosiale medier.
+- **FNSP (Felles nettløsning for spesialisthelsetjenesten)**: Nasjonalt samarbeid eid av de fire RHF-ene som sikrer enhetlig pasientinformasjon på over 60 sykehusnettsteder [12]. Forvalter ca. 1 700 behandlingstekster godkjent av medisinske fagpersoner, med en nasjonal medisinsk og helsefaglig redaksjon bestående av klinikere og sykepleiere [12]. Driftes av NHN. Tett integrert med helsenorge.no: helsenorge.no dekker sykdom og diagnose, mens FNSP dekker informasjon om utredning og behandling ved sykehusbesøk [12].
 
 **Kommersielle kunnskapsaktører:**
 - **NHI.no (Norsk Helseinformatikk)**: Norges største helseoppslagsverk for allmennheten, eid av Bonnier Healthcare (del av svenske Bonnier Group) [13]. Grunnlagt i 1996 med utspring fra allmennpraktiserende leger, NTNU, St. Olavs Hospital og SINTEF. Har ca. 100 millioner sidevisninger per år [14]. NHI utviklet opprinnelig NEL (Norsk Elektronisk Legehåndbok), et oppslagsverk brukt av nesten alle norske allmennleger [13].
@@ -228,10 +228,10 @@ Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktør
 
 ### Strøm 3d: Den innbyggerrettede strømmen
 
-#### 3.14 helsenorge.no (forvaltes av NHN/Helsedirektoratet)
+#### 3.14 helsenorge.no (eid av NHN)
 
 - **Rolle i verdikjeden**: Norges digitale helseportal for innbyggere (strøm 3d)
-- **Ansvar og mandat**: Helsedirektoratet er ansvarlig utgiver, NHN er produkteier og drifter [10]. Over 80 organisasjoner bidrar med innhold. Tilbyr både helseinformasjon og digitale helsetjenester (timebestilling, resepter, prøvesvar, journal).
+- **Ansvar og mandat**: Helsedirektoratet har utgiveransvaret og det etiske/rettslige ansvaret. NHN er produkteier med redaktøransvaret, og koordinerer lokale redaktører [10]. Innholdet leveres av offentlige helseaktører (sykehus, Helsedirektoratet, Helfo, FHI m.fl.) og skal være forskningsbasert og i tråd med nasjonale råd og retningslinjer. Oppdateres minst hvert tredje år [10].
 - **Viktigste leveranser**: Kvalitetssikret helseinformasjon i klarspråk, digitale helsetjenester, helserettigheter.
 
 #### 3.15 FHI – innbyggerrettet informasjon
@@ -396,7 +396,7 @@ Disse observasjonene danner grunnlag for **delrapport 2**, som vil analysere utf
 7. Tidsskrift for Den norske legeforening. *Om Tidsskriftet*. https://tidsskriftet.no/annet/om-tidsskriftet
 8. Sykepleien. *Forfatterinstruksjoner Sykepleien Forskning*. https://sykepleien.no/en/forfatterveiledningforskning
 9. Den norske legeforening. *Fagmedisinske foreninger*. https://www.legeforeningen.no/foreningsledd/fagmed/
-10. Helsenorge. *Kilder og samarbeidspartnere*. https://www.helsenorge.no/samarbeidspartnere/
+10. Helsenorge. *Om helsenorge.no*. https://www.helsenorge.no/om-helsenorge-no/
 11. Folkehelseinstituttet. https://www.fhi.no
 12. FNSP. *Hva er FNSP?* https://www.fnsp.no/hva-er-fnsp/
 13. NHI.no / Wikipedia. *Norsk Helseinformatikk*. https://no.wikipedia.org/wiki/Norsk_Helseinformatikk
