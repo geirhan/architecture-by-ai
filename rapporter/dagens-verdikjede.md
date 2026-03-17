@@ -77,19 +77,19 @@ Denne strømmen har typisk en gjennomløpstid på uker til måneder fra forsknin
 
 #### 3c. Legemiddelstrømmen
 
-Informasjon om legemidler følger en delvis egen verdikjede med egne regulatoriske prosesser. Denne strømmen når både helsepersonell og innbyggere gjennom dedikerte kanaler som ikke er avhengige av Helsedirektoratets retningslinjeprosess.
+Informasjon om legemidler følger en delvis egen verdikjede med egne regulatoriske prosesser. Kunnskapen har sin opprinnelse i klinisk forskning og regulatorisk vurdering (primært via EMA – European Medicines Agency), og når både helsepersonell og innbyggere gjennom dedikerte kanaler som ikke er avhengige av Helsedirektoratets retningslinjeprosess.
 
-- **Direktoratet for medisinske produkter (DMP)**: Norges sentrale forvaltningsmyndighet for legemidler og medisinsk utstyr (tidligere Statens legemiddelverk). Vurderer søknader om markedsføringstillatelse, overvåker bivirkninger og publiserer sikkerhetsinformasjon og varsler.
-- **Felleskatalogen**: Felleskatalogen AS samler og tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg, interaksjonsdata og bivirkningsinformasjon. Fungerer som den sentrale legemiddeldatabasen i Norge, brukt daglig av helsepersonell. Tilbyr også pakningsvedlegg og pasientrettet legemiddelinformasjon direkte til innbyggere.
-- **RELIS** (Regionale legemiddelinformasjonssentre): Fire regionale sentre gir produsentuavhengig, individuell rådgivning til helsepersonell om legemiddelbruk. Spesialisttjenester inkluderer Trygg Mammamedisin (gravide og ammende) og KUPP-kampanjer (kunnskapsbaserte oppdateringsvisitter til fastleger). Mottar også bivirkningsrapporter.
+- **Direktoratet for medisinske produkter (DMP)**: Norges sentrale forvaltningsmyndighet for legemidler og medisinsk utstyr (tidligere Statens legemiddelverk) [16]. Vurderer søknader om markedsføringstillatelse i samarbeid med EMA, overvåker bivirkninger og publiserer sikkerhetsinformasjon. Forvalter FEST-databasen (Forskrivnings- og ekspedisjonsstøtte) som inneholder interaksjonsdata fra de tidligere databasene DRUID og Apriori [17]. Både helsepersonell og pasienter kan melde bivirkninger til DMP [16].
+- **Felleskatalogen**: Felleskatalogen AS samler og tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg og bivirkningsinformasjon [17]. Interaksjonssøket er basert på data fra DMPs FEST-database [17]. Brukes daglig av helsepersonell for legemiddelrelaterte beslutninger. Tilbyr også pakningsvedlegg og pasientrettet legemiddelinformasjon direkte til innbyggere.
+- **RELIS** (Regionale legemiddelinformasjonssentre): Fire regionale sentre (Midt-Norge, Nord-Norge, Sør-Øst og Vest) gir produsentuavhengig, individuell rådgivning til helsepersonell om legemiddelbruk [18]. Spesialisttjenester inkluderer Trygg Mammamedisin (gravide og ammende) og KUPP-kampanjer (kunnskapsbaserte oppdateringsvisitter til fastleger). Mottar også bivirkningsrapporter.
 
 Denne strømmen kan reagere på dager til uker ved nye sikkerhetssignaler, og er den raskeste strømmen for legemiddelspesifikk kunnskap.
 
-| Aktør | Rolle | Leveranse |
-|-------|-------|-----------|
-| DMP | Regulatorisk myndighet | Markedsføringstillatelser, sikkerhetsvarsler, veiledere |
-| Felleskatalogen | Legemiddeldatabase | Preparatomtaler, pakningsvedlegg, interaksjonssøk |
-| RELIS | Uavhengig rådgiver | Individuell rådgivning, fagartikler, bivirkningsrapporter |
+| Aktør | Rolle | Kilde for innholdet |
+|-------|-------|---------------------|
+| DMP | Regulatorisk myndighet | EMA, kliniske studier, bivirkningsrapporter |
+| Felleskatalogen | Legemiddeldatabase | DMPs FEST-database, godkjente SPC-er |
+| RELIS | Uavhengig rådgiver | Forskning, klinisk erfaring, produsentuavhengig |
 
 #### 3d. Den innbyggerrettede strømmen
 
@@ -211,19 +211,19 @@ Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktør
 #### 3.11 Direktoratet for medisinske produkter (DMP)
 
 - **Rolle i verdikjeden**: Legemiddelgodkjenning og -sikkerhet (strøm 3c)
-- **Ansvar og mandat**: Norges sentrale forvaltningsmyndighet for legemidler og medisinsk utstyr. Vurderer søknader om markedsføringstillatelse, overvåker bivirkninger og publiserer sikkerhetsinformasjon. Tidligere Statens legemiddelverk (SLV).
-- **Viktigste leveranser**: Markedsføringstillatelser, sikkerhetsvarsler, veiledere, terapirapporter.
+- **Ansvar og mandat**: Norges sentrale forvaltningsmyndighet for legemidler og medisinsk utstyr (tidligere Statens legemiddelverk) [16]. Vurderer søknader om markedsføringstillatelse i samarbeid med EMA, overvåker bivirkninger og publiserer sikkerhetsinformasjon. Forvalter FEST-databasen med interaksjonsdata [17].
+- **Viktigste leveranser**: Markedsføringstillatelser, sikkerhetsvarsler, FEST-database, veiledere.
 
 #### 3.12 Felleskatalogen
 
 - **Rolle i verdikjeden**: Legemiddelinformasjon til helsepersonell og innbyggere (strøm 3c)
-- **Ansvar og mandat**: Felleskatalogen AS samler og tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg, interaksjonsdata og bivirkningsinformasjon. Fungerer som den sentrale legemiddeldatabasen i Norge.
-- **Viktigste leveranser**: Preparatomtaler, pakningsvedlegg, interaksjonssøk, ATC-register. Oppdateres fortløpende ved nye godkjenninger og sikkerhetsoppdateringer.
+- **Ansvar og mandat**: Felleskatalogen AS samler og tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg og bivirkningsinformasjon [17]. Interaksjonssøket er basert på DMPs FEST-database (inkl. DRUID og Apriori).
+- **Viktigste leveranser**: Preparatomtaler, pakningsvedlegg, interaksjonssøk, ATC-register.
 
 #### 3.13 RELIS (Regionale legemiddelinformasjonssentre)
 
 - **Rolle i verdikjeden**: Uavhengig legemiddelinformasjon (strøm 3c)
-- **Ansvar og mandat**: Fire regionale sentre gir produsentuavhengig, individuell rådgivning til helsepersonell om legemiddelbruk. Spesialisttjenester inkluderer Trygg Mammamedisin og KUPP-kampanjer (kunnskapsbaserte oppdateringsvisitter til fastleger). Mottar bivirkningsrapporter.
+- **Ansvar og mandat**: Fire regionale sentre (Midt-Norge, Nord-Norge, Sør-Øst og Vest) gir produsentuavhengig, individuell rådgivning til helsepersonell om legemiddelbruk [18]. Spesialisttjenester inkluderer Trygg Mammamedisin og KUPP-kampanjer.
 - **Viktigste leveranser**: Individuell rådgivning, fagartikler, bivirkningsrapporter, undervisning og kampanjer.
 
 ### Strøm 3d: Den innbyggerrettede strømmen
@@ -402,3 +402,6 @@ Disse observasjonene danner grunnlag for **delrapport 2**, som vil analysere utf
 13. NHI.no / Wikipedia. *Norsk Helseinformatikk*. https://no.wikipedia.org/wiki/Norsk_Helseinformatikk
 14. NHO Trøndelag. *Månedens bedrift: Norsk Helseinformatikk*. https://www.nho.no/regionforeninger/nho-trondelag/artikkelarkiv/manedens-bedrift-norsk-helseinformatikk/
 15. NAFKAM. *Norske pasientorganisasjoner*. https://nafkam.no/norske-pasientorganisasjonar
+16. Direktoratet for medisinske produkter. *Om DMP*. https://www.dmp.no/
+17. Felleskatalogen. *Interaksjonssøk – om datagrunnlaget*. https://www.felleskatalogen.no/m/medisin/interaksjon
+18. RELIS. *Produsentuavhengig legemiddelinformasjon*. https://relis.no
