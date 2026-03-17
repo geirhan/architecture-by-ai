@@ -912,21 +912,16 @@
         svg.appendChild(line);
     }
 
-    // L-shaped arrow: horizontal from source, rounded corner, vertical, rounded corner, horizontal into target
+    // L-shaped arrow: horizontal → vertical → horizontal, with simple right-angle corners
     function arrowL(x1, y1, x2, y2, color, marker, bendX) {
         var bx = bendX || (x2 - 80);
-        var r = 12; // corner radius
         var sx = x1 + 78;  // start after source box
         var ex = x2 - 78;  // end before target box
-        var goingDown = y2 > y1;
-        var dir = goingDown ? 1 : -1;
 
-        // Path: horizontal → rounded corner → vertical → rounded corner → horizontal
+        // Three straight segments: horizontal, vertical, horizontal
         var d = 'M ' + sx + ' ' + y1
-              + ' L ' + (bx - r) + ' ' + y1
-              + ' Q ' + bx + ' ' + y1 + ' ' + bx + ' ' + (y1 + dir*r)
-              + ' L ' + bx + ' ' + (y2 - dir*r)
-              + ' Q ' + bx + ' ' + y2 + ' ' + (bx + r) + ' ' + y2
+              + ' L ' + bx + ' ' + y1
+              + ' L ' + bx + ' ' + y2
               + ' L ' + ex + ' ' + y2;
 
         var p = document.createElementNS(ns, 'path');
@@ -935,6 +930,7 @@
         p.setAttribute('stroke', color);
         p.setAttribute('stroke-width', '1.8');
         p.setAttribute('stroke-opacity', '0.45');
+        p.setAttribute('stroke-linejoin', 'round');
         p.setAttribute('marker-end', 'url(#' + marker + ')');
         svg.appendChild(p);
     }
