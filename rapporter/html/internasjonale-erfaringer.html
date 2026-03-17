@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delrapport 6: Internasjonale erfaringer – Utredning om kunnskapsforvaltning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fff;
+        }
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 1.5rem 1rem;
+        }
+        header h1 {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        header p {
+            max-width: 900px;
+            margin: 0.5rem auto 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        nav {
+            background: #002244;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        nav ul li a:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+        nav ul li a.active {
+            color: #fff;
+            border-bottom-color: #4da6ff;
+            font-weight: 600;
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 3rem;
+        }
+        h2 {
+            color: #003366;
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        h3 {
+            color: #004488;
+            font-size: 1.2rem;
+            margin: 1.8rem 0 0.8rem;
+        }
+        h4 {
+            color: #333;
+            font-size: 1.05rem;
+            margin: 1.3rem 0 0.6rem;
+        }
+        p {
+            margin: 0.8rem 0;
+        }
+        ul, ol {
+            margin: 0.8rem 0 0.8rem 1.5rem;
+        }
+        li {
+            margin: 0.3rem 0;
+        }
+        strong {
+            color: #222;
+        }
+        em {
+            font-style: italic;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 2.5rem 0;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 500px;
+        }
+        th {
+            background: #003366;
+            color: #fff;
+            padding: 0.7rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+        a {
+            color: #004488;
+        }
+        a:hover {
+            color: #003366;
+        }
+        footer {
+            background: #f5f5f5;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        @media print {
+            nav { display: none; }
+            header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+            header h1 { color: #003366; }
+            header p { color: #333; }
+            main { padding: 1rem 0; }
+            footer { background: #fff; border-top: 1px solid #333; color: #333; }
+            th { background: #eee; color: #333; border: 1px solid #999; }
+            td { border: 1px solid #999; }
+        }
+        @media (max-width: 600px) {
+            nav ul { flex-wrap: nowrap; }
+            nav ul li a { padding: 0.5rem 0.7rem; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delrapport 6: Internasjonale erfaringer med KI-støttet kunnskapsforvaltning i helse</h1>
+        <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+            <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+            <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+            <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+            <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+            <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+            <li><a href="internasjonale-erfaringer.html" class="active">Internasjonale erfaringer</a></li>
+            <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+            <li><a href="visualiseringer.html">Visualiseringer</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>1. Innledning</h2>
+        <p>Denne delrapporten kartlegger internasjonale erfaringer med bruk av kunstig intelligens (KI) i kunnskapsforvaltning innen helsesektoren. Formålet er å identifisere relevante initiativ, trekke ut lærdommer og vurdere overførbarhet til norsk kontekst – spesielt med tanke på en ny verdikjede for kunnskapsforvaltning.</p>
+        <p>Rapporten dekker både etablerte rammeverk (WHO SMART Guidelines, NICE Evidence Standards Framework), pågående pilotprosjekter (Cochrane), nordiske erfaringer og fremvoksende initiativ fra teknologiselskaper og forlagsaktører. For hvert initiativ vurderes relevans, modenhet og hva Norge kan lære.</p>
+        <p><strong>Metodisk merknad:</strong> Kartleggingen er basert på offentlig tilgjengelig dokumentasjon og publiserte rapporter. Flere av initiativene beskrevet her er under rask utvikling, og status kan ha endret seg siden kildene ble publisert. Usikkerhet er eksplisitt markert der det er relevant.</p>
+
+        <hr>
+
+        <h2>2. WHO SMART Guidelines</h2>
+
+        <h3>Bakgrunn og motivasjon</h3>
+        <p>WHO har utviklet SMART Guidelines som en systematisk tilnærming til digitalisering av kliniske retningslinjer. SMART står for <strong>Standards-based, Machine-readable, Adaptive, Requirements-based, Testable</strong>. Rammeverket ble utviklet fordi tradisjonelle retningslinjer i PDF- eller tekstformat har vist seg vanskelige å implementere konsistent i kliniske beslutningsstøttesystemer.</p>
+
+        <h3>Femstegsmodellen</h3>
+        <p>SMART Guidelines følger en femstegsmodell for å transformere narrative anbefalinger til digitale artefakter:</p>
+        <ol>
+            <li><strong>Narrative retningslinjer</strong> – Tradisjonelle kliniske anbefalinger</li>
+            <li><strong>Semistrukturert innhold</strong> – Beslutningslogikk og arbeidsflyter dokumenteres</li>
+            <li><strong>Maskinlesbare representasjoner</strong> – Formalisering i standarder som FHIR og CQL (Clinical Quality Language)</li>
+            <li><strong>Eksekverbare spesifikasjoner</strong> – Programvarenøytrale implementeringsguider</li>
+            <li><strong>Dynamiske, tilpasningsdyktige systemer</strong> – Kontinuerlig oppdatering basert på ny evidens</li>
+        </ol>
+        <p>Rammeverket er per i dag tilgjengelig for ni helseområder, inkludert svangerskapsomsorg, HIV, tuberkulose og immunisering.</p>
+
+        <h3>Maskinlesbare retningslinjer</h3>
+        <p>Et sentralt bidrag fra WHO er demonstrasjonen av at FHIR-baserte implementeringsguider kan fungere som et programvarenøytralt format for retningslinjer. Dette muliggjør at ulike EPJ-leverandører kan implementere samme retningslinje uten å måtte utvikle egne tolkninger av det kliniske innholdet.</p>
+
+        <h3>Relevans for Norge og EHDS</h3>
+        <p>WHO SMART Guidelines er særlig relevant for Norge av tre grunner:</p>
+        <ul>
+            <li><strong>FHIR-kompatibilitet:</strong> Norge har allerede investert betydelig i HL7 FHIR som interoperabilitetsstandard, noe som gir et godt utgangspunkt for å ta i bruk maskinlesbare retningslinjer.</li>
+            <li><strong>EHDS-kobling:</strong> EHDS forutsetter økt datadeling på tvers av landegrenser. Maskinlesbare retningslinjer kan bidra til at beslutningsstøtte fungerer konsistent uavhengig av nasjonale EPJ-systemer.</li>
+            <li><strong>Metodisk rammeverk:</strong> Femstegsmodellen gir en konkret modenhetsmodell som norske aktører kan bruke for å vurdere hvor langt de er kommet i digitaliseringen av retningslinjer.</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. NICE (Storbritannia)</h2>
+
+        <h3>Evidence Standards Framework for digitale helseteknologier</h3>
+        <p>National Institute for Health and Care Excellence (NICE) i Storbritannia har utviklet et Evidence Standards Framework (ESF) for å evaluere digitale helseteknologier. Rammeverket ble oppdatert i 2022 for å adressere KI-spesifikke problemstillinger, inkludert adaptive algoritmer.</p>
+        <p>ESF klassifiserer digitale helseteknologier i funksjonskategorier med tilhørende krav til evidens. Teknologier med høyere risiko (for eksempel KI-basert diagnostikk) krever strengere evidens enn informasjonsverktøy. Oppdateringen i 2022 ble gjennomført i samarbeid med blant annet Imperial College London, University of Birmingham og Alan Turing Institute.</p>
+        <p><strong>Viktig presisering:</strong> At en teknologi møter ESF-standardene betyr ikke at den har fått NICE-godkjenning. ESF er et vurderingsrammeverk, ikke en godkjenningsordning.</p>
+
+        <h3>NICEs tilnærming til KI i retningslinjer</h3>
+        <p>NICE har begynt å utforske hvordan KI kan støtte retningslinjearbeidet internt. Dette inkluderer bruk av KI-verktøy for å akselerere evidensgjennomgang og identifisere relevante studier i store dokumentmengder. Tilnærmingen er gradvis og forsiktig, med vekt på transparens og menneskelig overstyring.</p>
+
+        <h3>Lessons learned</h3>
+        <p>Erfaringene fra NICE peker på flere viktige lærdommer:</p>
+        <ul>
+            <li><strong>Tydelig klassifisering er nødvendig:</strong> Ikke alle KI-systemer i helse krever samme evidensnivå. Et differensiert rammeverk reduserer unødvendige barrierer for lavrisikoteknologier.</li>
+            <li><strong>Transparens og forklarbarhet:</strong> NICE legger vekt på at KI-baserte anbefalinger skal kunne forklares for klinikere.</li>
+            <li><strong>Iterativ oppdatering:</strong> Rammeverket oppdateres jevnlig i takt med teknologisk utvikling, noe som er viktig gitt det raske tempoet i KI-feltet.</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. Cochrane – KI-piloter</h2>
+
+        <h3>Bruk av KI i systematiske oversikter</h3>
+        <p>Cochrane, som er den ledende internasjonale aktøren for produksjon av systematiske oversikter, har igangsatt flere pilotprosjekter for å undersøke hvordan KI kan effektivisere oversiktsprosessen. Systematiske oversikter er svært arbeidskrevende – en typisk oversikt tar 12–18 måneder å produsere.</p>
+
+        <h3>Automatisert screening og dataekstraksjon</h3>
+        <p>De mest lovende anvendelsesområdene inkluderer:</p>
+        <ul>
+            <li><strong>Tittel- og abstraktscreening:</strong> KI-verktøy brukes for å redusere antall artikler som må vurderes manuelt, typisk med 50–70 % tidsbesparelse. Verktøyene prioriterer artikler etter sannsynlighet for relevans.</li>
+            <li><strong>Dataekstraksjon:</strong> Semiautomatisk ekstraksjon av nøkkeldata fra inkluderte studier (studiepopulasjon, intervensjon, utfall).</li>
+            <li><strong>Kvalitetsvurdering:</strong> Foreløpige forsøk med KI-støttet vurdering av risiko for systematiske skjevheter (bias).</li>
+        </ul>
+
+        <h3>Resultater og utfordringer</h3>
+        <p>Resultatene er lovende, men det er viktige forbehold:</p>
+        <ul>
+            <li><strong>Sensitivitet versus spesifisitet:</strong> I screening er det kritisk å ikke miste relevante studier. KI-verktøy må kalibreres for høy sensitivitet, noe som kan begrense tidsbesparelsen.</li>
+            <li><strong>Faglig kontroll:</strong> Cochrane understreker at KI-verktøyene støtter, men ikke erstatter, faglig vurdering. Alle KI-assisterte trinn gjennomgås av fagpersoner.</li>
+            <li><strong>Reproduserbarhet:</strong> Det er utfordringer knyttet til reproduserbarhet når KI-modeller oppdateres over tid.</li>
+        </ul>
+
+        <h3>Implikasjoner for FHIs arbeid</h3>
+        <p>Folkehelseinstituttet (FHI) produserer kunnskapsoppsummeringer og systematiske oversikter for norsk helsetjeneste. Cochranes erfaringer er direkte relevante:</p>
+        <ul>
+            <li>FHI kan vurdere å ta i bruk KI-støttet screening for å redusere tidsbruk i kunnskapsproduksjonen.</li>
+            <li>Cochranes vektlegging av menneskelig overstyring er godt i tråd med FHIs etablerte metodetradisjon.</li>
+            <li>FHI bør følge Cochranes arbeid med validering av KI-verktøy og eventuelt delta i internasjonale valideringsstudier.</li>
+        </ul>
+
+        <hr>
+
+        <h2>5. Nordiske erfaringer</h2>
+
+        <h3>Danmark</h3>
+        <p>Sundhedsdatastyrelsen har arbeidet med standardisering av helsedata og har hatt fokus på sekundærbruk av helsedata. AI Danmark-initiativet har inkludert helse som et prioritert satsingsområde, med vekt på ansvarlig bruk av KI. Danmark har kommet relativt langt med sentral infrastruktur for helsedata (Sundhedsdatanettet), noe som gir et bedre grunnlag for KI-anvendelser enn i mer fragmenterte systemer.</p>
+        <p><em>Usikkerhet: Detaljert informasjon om spesifikke KI-piloter innen kunnskapsforvaltning i dansk helsevesen har vært vanskelig å verifisere gjennom offentlig tilgjengelige kilder. Beskrivelsen baserer seg på overordnet informasjon.</em></p>
+
+        <h3>Sverige</h3>
+        <p>eHälsomyndigheten koordinerer digital helseutvikling i Sverige. Socialstyrelsen, som har ansvar for nasjonale retningslinjer, har begynt å utforske KI-støttet retningslinjearbeid. Sverige har en tradisjon for registerbasert forskning som gir et godt datagrunnlag for KI-utvikling, men retningslinjearbeidet er fortsatt i stor grad manuelt.</p>
+
+        <h3>Finland</h3>
+        <p>Finland skiller seg ut med Kanta-systemet, en nasjonal infrastruktur for helsedata som dekker resepter, pasientjournaler og arkiv. Finlands nasjonale KI-strategi for helse inkluderer tiltak for sekundærbruk av helsedata (Findata) og utforsking av KI i klinisk beslutningsstøtte. Finlands tilnærming med sentral datainfrastruktur har potensielt overføringsverdi til Norge.</p>
+
+        <h3>Island</h3>
+        <p>Island har en liten, men digitalt avansert helsesektor. Digital helsestrategi fokuserer på integrerte systemer og datadeling. Størrelsen gjør at implementering kan skje raskt, men erfaringene er vanskeligere å skalere til norske forhold.</p>
+
+        <h3>Samlet nordisk vurdering</h3>
+        <p>De nordiske landene deler mange felles trekk: universelle helsesystemer, høy digital modenhet og sterke personverntradisjoner. Samtidig er det forskjeller i grad av sentralisering og infrastrukturmodenhet. Finland og Danmark har kommet lengst med sentral helsedata-infrastruktur, noe som gir bedre forutsetninger for KI-anvendelser. Norge har en mer fragmentert struktur, noe som representerer både en utfordring og et argument for å investere i felles arkitektur.</p>
+
+        <hr>
+
+        <h2>6. Andre relevante initiativ</h2>
+
+        <h3>Store språkmodeller i medisinsk kontekst</h3>
+        <p>Store språkmodeller (LLM-er) fra aktører som OpenAI og Google har vist oppsiktsvekkende ytelse på medisinske benchmarks. Googles Med-PaLM 2 oppnådde i 2023 resultater på nivå med ekspertnivå på den amerikanske medisinske lisensieringseksamen (USMLE). OpenAIs GPT-4 har vist tilsvarende resultater.</p>
+        <p><strong>Viktig forbehold:</strong> Ytelse på standardiserte tester oversettes ikke direkte til klinisk nytteverdi. Utfordringer inkluderer hallusinering (fabrikering av fakta), manglende oppdatering med ny evidens, og begrenset tilpasning til lokale retningslinjer og praksis. Disse verktøyene er per i dag best egnet som støtteverktøy for fagpersoner, ikke som autonome beslutningsverktøy.</p>
+
+        <h3>Forlagsaktører og KI-støttet kunnskapsproduksjon</h3>
+        <p>Elsevier (del av RELX Group) har investert betydelig i KI-støttet kunnskapsproduksjon, inkludert verktøy for automatisert litteratursøk, datautvinning og kunnskapsgrafer. Disse verktøyene er primært rettet mot forskere og kunnskapsprodusenter, men har potensielle anvendelser for retningslinjearbeid.</p>
+
+        <h3>Living guidelines-bevegelsen</h3>
+        <p>Australia har vært en pioner innen «living guidelines» – retningslinjer som oppdateres kontinuerlig i stedet for periodisk. Australian Living Evidence Consortium har utviklet metoder og infrastruktur for dette. WHO har også tatt i bruk living guidelines for utvalgte emner. KI-støttet overvåking av ny evidens er en nøkkelkomponent som gjør kontinuerlig oppdatering praktisk gjennomførbar.</p>
+        <p>Living guidelines-konseptet er svært relevant for norsk kunnskapsforvaltning, da det adresserer et kjent problem med at retningslinjer kan bli utdaterte mellom revisjonssykluser.</p>
+
+        <hr>
+
+        <h2>7. Overførbarhet til Norge</h2>
+
+        <h3>WHO SMART Guidelines</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspekt</th>
+                        <th>Vurdering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Relevans</strong></td>
+                        <td>Høy. Norge har allerede FHIR-kompetanse og -infrastruktur.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva kan Norge lære?</strong></td>
+                        <td>Femstegsmodellen som modenhetsrammeverk. Programvarenøytral tilnærming til maskinlesbare retningslinjer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva er ulikt?</strong></td>
+                        <td>WHO fokuserer primært på lav- og mellominntektsland. Norsk helsesektor har mer komplekse EPJ-systemer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konkret adopsjon</strong></td>
+                        <td>Pilotere SMART Guidelines-tilnærmingen for utvalgte nasjonale retningslinjer. Vurdere bruk av CQL for beslutningslogikk.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>NICE Evidence Standards Framework</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspekt</th>
+                        <th>Vurdering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Relevans</strong></td>
+                        <td>Høy. Norge trenger tilsvarende rammeverk for vurdering av KI-teknologier i helse.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva kan Norge lære?</strong></td>
+                        <td>Differensiert klassifisering av digitale helseteknologier etter risikonivå. Iterativ oppdatering av rammeverk.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva er ulikt?</strong></td>
+                        <td>NICE har en mer sentral rolle i teknologivurdering enn noen enkelt norsk aktør. NHS er mer sentralisert enn norsk helsetjeneste.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konkret adopsjon</strong></td>
+                        <td>Helsedirektoratet kan vurdere å utvikle et tilsvarende nasjonalt rammeverk, tilpasset norsk regulering og EU AI Act.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Cochrane KI-piloter</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspekt</th>
+                        <th>Vurdering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Relevans</strong></td>
+                        <td>Høy for FHI og kunnskapsproduksjonsmiljøer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva kan Norge lære?</strong></td>
+                        <td>Hvilke trinn i systematisk oversiktsproduksjon som egner seg best for KI-støtte. Validerings- og kvalitetssikringsmetoder.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva er ulikt?</strong></td>
+                        <td>Cochrane har større volum og internasjonalt nedslagsfelt. FHI opererer i norsk kontekst med egne prioriteringskriterier.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konkret adopsjon</strong></td>
+                        <td>FHI kan pilotere KI-støttet screening i utvalgte kunnskapsoppsummeringer, med Cochranes metoder som utgangspunkt.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Nordiske erfaringer</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspekt</th>
+                        <th>Vurdering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Relevans</strong></td>
+                        <td>Høy, gitt likheter i helsesystemer og regulering.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva kan Norge lære?</strong></td>
+                        <td>Finlands sentraliserte datainfrastruktur (Kanta/Findata). Danmarks tilnærming til helsedata-standardisering.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva er ulikt?</strong></td>
+                        <td>Ulik grad av sentralisering. Norge har et mer fragmentert helsedata-landskap.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konkret adopsjon</strong></td>
+                        <td>Etablere nordisk erfaringsutveksling om KI i kunnskapsforvaltning. Vurdere Findata-modellen for sekundærbruk av data.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Living guidelines</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspekt</th>
+                        <th>Vurdering</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Relevans</strong></td>
+                        <td>Svært høy. Adresserer et konkret problem i norsk retningslinjearbeid.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva kan Norge lære?</strong></td>
+                        <td>Metoder for kontinuerlig evidensovervåking. Infrastruktur for oppdatering av retningslinjer.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hva er ulikt?</strong></td>
+                        <td>Australsk helsetjeneste har annen struktur, men metodene er overførbare.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konkret adopsjon</strong></td>
+                        <td>Pilotere living guidelines-tilnærmingen for utvalgte retningslinjer, med KI-støttet evidensovervåking.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <h2>8. Oppsummering og nøkkelfunn</h2>
+
+        <h3>Trender på tvers av land</h3>
+        <ol>
+            <li><strong>Fra periodisk til kontinuerlig oppdatering:</strong> Flere land beveger seg mot living guidelines og kontinuerlig evidensovervåking.</li>
+            <li><strong>Maskinlesbarhet som mål:</strong> WHO, NICE og flere nasjonale aktører arbeider mot maskinlesbare retningslinjer, med FHIR som sentral standard.</li>
+            <li><strong>KI som støtteverktøy, ikke erstatning:</strong> Ingen av de kartlagte initiativene erstatter faglig vurdering med KI. KI brukes for effektivisering og kvalitetsstøtte.</li>
+            <li><strong>Differensiert regulering:</strong> Det er en internasjonal trend mot risikobasert regulering av KI i helse, i tråd med EU AI Act.</li>
+            <li><strong>Sentral infrastruktur som forutsetning:</strong> Land med mer sentralisert helsedata-infrastruktur (Finland, Danmark) har bedre forutsetninger for KI-anvendelser.</li>
+        </ol>
+
+        <h3>Felles utfordringer</h3>
+        <ul>
+            <li><strong>Kvalitetssikring:</strong> Hvordan validere KI-genererte bidrag i kunnskapsproduksjonen?</li>
+            <li><strong>Reproduserbarhet:</strong> KI-modeller endrer seg over tid, noe som utfordrer reproduserbarhet i vitenskapelig arbeid.</li>
+            <li><strong>Kompetanse:</strong> Behov for tverrfaglig kompetanse som kombinerer klinisk kunnskap, informatikk og KI.</li>
+            <li><strong>Personvern og etikk:</strong> Balanse mellom datautnyttelse og personvern, særlig ved sekundærbruk av helsedata.</li>
+            <li><strong>Leverandøravhengighet:</strong> Risiko for å bli avhengig av proprietære KI-løsninger fra store teknologiselskaper.</li>
+        </ul>
+
+        <h3>Beste praksis som bør vurderes i norsk sammenheng</h3>
+        <ol>
+            <li><strong>Adopt WHO SMART Guidelines-tilnærmingen</strong> for strukturering av nasjonale retningslinjer, med prioriterte pilotområder.</li>
+            <li><strong>Utvikle et nasjonalt rammeverk</strong> for evaluering av KI-teknologier i helse, inspirert av NICE ESF og tilpasset EU AI Act.</li>
+            <li><strong>Pilotere KI-støttet kunnskapsproduksjon</strong> i samarbeid mellom FHI, Helsedirektoratet og akademiske miljøer, med Cochranes metoder som referanse.</li>
+            <li><strong>Etablere nordisk samarbeid</strong> om KI i kunnskapsforvaltning for å dele erfaringer og redusere duplisert arbeid.</li>
+            <li><strong>Utforske living guidelines-modellen</strong> for utvalgte retningslinjer der evidensgrunnlaget endres raskt.</li>
+            <li><strong>Investere i sentral infrastruktur</strong> for helsedata som grunnlag for KI-anvendelser, med lærdommer fra Finland og Danmark.</li>
+        </ol>
+
+        <hr>
+
+        <p><em>Denne rapporten er del av en utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren. Vurderingene er basert på offentlig tilgjengelig dokumentasjon og må ses i sammenheng med de øvrige delrapportene i utredningen.</em></p>
+
+        <p><strong>Kilder:</strong></p>
+        <ul>
+            <li>WHO SMART Guidelines: <a href="https://www.who.int/teams/digital-health-and-innovation/smart-guidelines" target="_blank">https://www.who.int/teams/digital-health-and-innovation/smart-guidelines</a></li>
+            <li>NICE Evidence Standards Framework: <a href="https://www.nice.org.uk/about/what-we-do/our-programmes/evidence-standards-framework-for-digital-health-technologies" target="_blank">https://www.nice.org.uk/about/what-we-do/our-programmes/evidence-standards-framework-for-digital-health-technologies</a></li>
+            <li>Cochrane – KI og systematiske oversikter: <a href="https://www.cochrane.org/news/artificial-intelligence-and-evidence-synthesis" target="_blank">https://www.cochrane.org/news/artificial-intelligence-and-evidence-synthesis</a></li>
+        </ul>
+    </main>
+    <footer>
+        Utredning gjennomført av Helsedirektoratet, 2026
+    </footer>
+</body>
+</html>

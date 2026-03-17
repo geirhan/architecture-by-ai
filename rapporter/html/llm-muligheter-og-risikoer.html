@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delrapport 3: Store språkmodeller &ndash; muligheter og risikoer for kunnskapsforvaltning i helse</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.7;
+        }
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        nav {
+            background: #002244;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        nav ul li å{
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            padding: 0.6rem 0.9rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav ul li a:hover {
+            background: #003366;
+            color: #fff;
+        }
+        nav ul li a.active {
+            color: #fff;
+            border-bottom-color: #4da6ff;
+            background: #003366;
+            font-weight: 600;
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+        h2 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        h3 {
+            color: #004488;
+            font-size: 1.15rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+        strong {
+            color: #222;
+        }
+        em {
+            color: #555;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        thead {
+            background: #f0f4f8;
+        }
+        th {
+            text-align: left;
+            padding: 0.7rem 0.8rem;
+            border-bottom: 2px solid #003366;
+            color: #003366;
+            font-weight: 600;
+        }
+        td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+        tr:hover {
+            background: #f8fafc;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid #e0e0e0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media print {
+            nav { display: none; }
+            header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+            main { padding: 0; }
+            body { font-size: 11pt; }
+            h2 { page-break-after: avoid; }
+            table { font-size: 9pt; }
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.2rem; }
+            nav ul li å{ padding: 0.5rem 0.6rem; font-size: 0.78rem; }
+            main { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delrapport 3: Store språkmodeller &ndash; muligheter og risikoer for kunnskapsforvaltning i helse</h1>
+        <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+            <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+            <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+            <li><a href="llm-muligheter-og-risikoer.html" class="active">LLM muligheter</a></li>
+            <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+            <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+            <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
+            <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+            <li><a href="visualiseringer.html">Visualiseringer</a></li>
+        </ul>
+    </nav>
+    <main>
+
+        <h2>1. Innledning</h2>
+        <p>Store språkmodeller (Large Language Models, LLM) og generativ kunstig intelligens (KI) har gjennomgått en eksepsjonell utvikling de siste årene. Fra å være forskningsverktøy med begrenset praktisk nytte, har modellene nådd et ytelsesnivå som gjør dem relevante for en rekke kunnskapsintensive oppgaver &ndash; inkludert oppgaver som tidligere var forbeholdt fageksperter.</p>
+        <p>For kunnskapsforvaltning i helsesektoren representerer dette både betydelige muligheter og vesentlige risikoer. Som beskrevet i delrapport 1, er dagens verdikjede fra forskning til innbyggerrettet helseinformasjon preget av lange ledetider, ressurskrevende manuelle prosesser og utfordringer med å holde innholdet oppdatert. LLM-teknologi har potensial til å adressere flere av disse utfordringene &ndash; men introduserer samtidig nye typer risiko som er spesielt alvorlige i et helsedomene.</p>
+        <p>Formålet med denne delrapporten er å gi en balansert vurdering av muligheter og risikoer ved bruk av LLM-er i kunnskapsforvaltning i helsesektoren, med særlig vekt på de regulatoriske rammene som følger av EU AI Act og relevansen for EHDS-konteksten.</p>
+        <p><strong>Metodisk merknad:</strong> Vurderingene i denne rapporten er basert på publisert forskning, offisielle dokumenter fra EU og erfaringer fra tidlige implementeringer internasjonalt. Feltet er i rask utvikling, og flere av de kvantitative estimatene som presenteres bør forstås som scenariobaserte anslag snarere enn etablerte fakta. Usikkerhet er markert der det er relevant.</p>
+
+        <hr>
+
+        <h2>2. Hva er store språkmodeller?</h2>
+
+        <h3>Grunnleggende egenskaper</h3>
+        <p>En stor språkmodell er et KI-system som er trent på store mengder tekst for å forstå og generere menneskelig språk. Modellene lærer statistiske mønstre i språket &ndash; ordvalg, setningsstruktur, resonnementskjeder &ndash; og kan bruke denne kunnskapen til å utføre et bredt spekter av språkoppgaver uten å være spesifikt programmert for hver enkelt oppgave.</p>
+        <p>Nøkkelegenskaper som gjør LLM-er relevante for kunnskapsforvaltning inkluderer:</p>
+        <ul>
+            <li><strong>Språkforståelse:</strong> Evne til å tolke komplekse tekster, identifisere nøkkelinformasjon og forstå kontekst</li>
+            <li><strong>Oppsummering:</strong> Kondensering av lange dokumenter til kortere sammendrag med bevart innhold</li>
+            <li><strong>Oversettelse:</strong> Konvertering mellom språk, inkludert fagspråk til klarspråk</li>
+            <li><strong>Generering:</strong> Produksjon av ny tekst basert på gitte premisser og instruksjoner</li>
+            <li><strong>Klassifisering:</strong> Kategorisering av innhold etter type, relevans eller kvalitet</li>
+        </ul>
+
+        <h3>Eksempler på aktuelle modeller</h3>
+        <p>Markedet for LLM-er er mangfoldig. Kommersielle modeller som GPT-4 (OpenAI), Claude (Anthropic) og Gemini (Google) tilbys som skytjenester. Åpne modeller som Llama (Meta) kan kjøres på egen infrastruktur. I nordisk kontekst finnes det arbeid med modeller som har bedre forståelse av skandinaviske språk, selv om disse per i dag er mindre modne enn de ledende internasjonale modellene.</p>
+
+        <h3>Ytelse på medisinske benchmarks</h3>
+        <p>LLM-er har vist økende ytelse på medisinske kunnskapstester. GPT-4 bestod den amerikanske legeeksamenen (USMLE) med god margin, og nyere modeller scorer over 85 % på benchmarks som MedQA. Det er imidlertid viktig å understreke at gode resultater på standardiserte tester ikke automatisk betyr at modellene er pålitelige i klinisk praksis. Benchmarks tester gjenkjenning av fakta og resonnement under kontrollerte betingelser, mens klinisk og faglig arbeid krever helhetsvurdering, kontekstforståelse og håndtering av usikkerhet.</p>
+
+        <hr>
+
+        <h2>3. Muligheter for kunnskapsforvaltning</h2>
+
+        <h3>3.1 Akselerert kunnskapssyntese</h3>
+        <p>Den mest umiddelbare muligheten ligger i å effektivisere prosessen med å sammenstille forskningsevidens. Dagens prosess for systematiske oversikter, som beskrevet i delrapport 1, er svært ressurskrevende.</p>
+        <p><strong>Automatisert screening av forskningslitteratur:</strong> LLM-er kan gjennomgå store mengder forskningsartikler og identifisere hvilke som er relevante for en gitt problemstilling. I tradisjonell systematisk oversiktsarbeid bruker forskere betydelig tid på å screene titler og sammendrag. KI-assistert screening har potensial til å redusere denne tiden vesentlig.</p>
+        <p><strong>KI-assistert dataekstraksjon:</strong> Etter at relevante studier er identifisert, må nøkkeldata ekstraheres &ndash; studiedesign, deltakertall, utfallsmål, resultater. LLM-er kan automatisere deler av denne prosessen, med menneskelig kvalitetssikring av resultatene.</p>
+        <p><strong>Raskere oppdatering av systematiske oversikter:</strong> Et sentralt problem i dag er at systematiske oversikter ofte er utdaterte når de publiseres. KI-støttet overvåking og screening kan bidra til hyppigere oppdateringer.</p>
+        <p><strong>Scenariobaserte estimater for tidsbesparelse:</strong></p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Prosesstrinn</th>
+                        <th>Tradisjonell tidsbruk</th>
+                        <th>Estimert tidsbruk med KI-støtte</th>
+                        <th>Estimert besparelse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Screening av titler/sammendrag</td>
+                        <td>2&ndash;4 uker</td>
+                        <td>2&ndash;5 dager</td>
+                        <td>50&ndash;80 %</td>
+                    </tr>
+                    <tr>
+                        <td>Fulltekstgjennomgang</td>
+                        <td>2&ndash;3 uker</td>
+                        <td>1&ndash;2 uker</td>
+                        <td>30&ndash;50 %</td>
+                    </tr>
+                    <tr>
+                        <td>Dataekstraksjon</td>
+                        <td>2&ndash;4 uker</td>
+                        <td>1&ndash;2 uker</td>
+                        <td>30&ndash;50 %</td>
+                    </tr>
+                    <tr>
+                        <td>Kvalitetsvurdering</td>
+                        <td>1&ndash;2 uker</td>
+                        <td>1&ndash;2 uker</td>
+                        <td>Begrenset</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><em>Merknad: Disse estimatene er scenariobaserte og bygger på tidlige erfaringer fra blant annet Cochrane og NICE (se delrapport 6). Faktisk tidsbesparelse vil avhenge av domene, datakvalitet og grad av menneskelig kvalitetssikring.</em></p>
+
+        <h3>3.2 Retningslinjestøtte</h3>
+        <p>LLM-er kan støtte retningslinjearbeidet på flere nivåer:</p>
+        <p><strong>Identifisering av ny evidens:</strong> Kontinuerlig overvåking av publisert forskning for å identifisere studier som kan påvirke eksisterende retningslinjer. Dette adresserer en vesentlig utfordring i dagens verdikjede, der det kan gå lang tid mellom publisert forskning og oppdaterte retningslinjer.</p>
+        <p><strong>Utkast til retningslinjetekst:</strong> Gitt et oppsummert kunnskapsgrunnlag, kan LLM-er generere utkast til retningslinjeformuleringer. Det er viktig å understreke at dette er utkast som må gjennomgås og godkjennes av fageksperter og retningslinjepaneler &ndash; ikke ferdige produkter.</p>
+        <p><strong>Konsistenssjekk:</strong> Norske retningslinjer utvikles av ulike arbeidsgrupper over tid. LLM-er kan brukes til å identifisere motstridende eller inkonsistente anbefalinger på tvers av retningslinjer.</p>
+        <p><strong>Pasientversjoner:</strong> Automatisk generering av lettleste versjoner av faglige retningslinjer, tilpasset innbyggere uten helsefaglig bakgrunn. Dette kan bidra til raskere tilgjengeliggjøring av oppdatert informasjon på helsenorge.no.</p>
+
+        <h3>3.3 Forbedret innbyggerinformasjon</h3>
+        <p><strong>Klarspråk og tilgjengelighet:</strong> LLM-er kan konvertere fagspråk til klarspråk systematisk og konsistent, og dermed forbedre tilgjengeligheten av helseinformasjon for innbyggere med ulik bakgrunn.</p>
+        <p><strong>Flerspråklig tilgjengeliggjøring:</strong> Med økende mangfold i befolkningen er det behov for helseinformasjon på flere språk. LLM-er kan bidra til raskere oversettelse, men kvalitetssikring av medisinsk oversettelse er kritisk og krever faglig gjennomgang.</p>
+        <p><strong>Konversasjonsbasert helseinformasjon:</strong> KI-baserte chatboter kan gi innbyggere mulighet til å stille spørsmål og få svar basert på kvalitetssikret innhold. Slike løsninger kan gi mer tilgjengelig helseinformasjon, men reiser samtidig vesentlige spørsmål om ansvar og kvalitetssikring (se kapittel 4).</p>
+
+        <h3>3.4 Kontinuerlig kunnskapsoppdatering</h3>
+        <p>LLM-er kan muliggjøre en overgang fra periodisk oppdaterte retningslinjer til &laquo;living guidelines&raquo; &ndash; retningslinjer som oppdateres kontinuerlig etter hvert som ny evidens publiseres:</p>
+        <ul>
+            <li><strong>Sanntidsovervåking</strong> av nye publikasjoner innen definerte fagområder</li>
+            <li><strong>Automatisert varsling</strong> til retningslinjepaneler når ny evidens kan påvirke eksisterende anbefalinger</li>
+            <li><strong>KI-assistert vurdering</strong> av om ny evidens endrer evidensgrunnlaget vesentlig</li>
+        </ul>
+        <p>Dette konseptet krever robuste kvalitetssikringsmekanismer og tydelig governance for å fungere i praksis. Erfaringer fra WHO SMART Guidelines og Cochrane (se delrapport 6) gir nyttige referansepunkter.</p>
+
+        <hr>
+
+        <h2>4. Risikoer og utfordringer</h2>
+
+        <h3>4.1 Hallusinering og faktafeil</h3>
+        <p>LLM-er kan generere tekst som fremstår plausibel og velformulert, men som inneholder faktiske feil. Denne egenskapen, ofte kalt &laquo;hallusinering&raquo;, er en iboende egenskap ved hvordan modellene fungerer &ndash; de genererer tekst basert på statistisk sannsynlighet, ikke basert på en verifisert kunnskapsbase.</p>
+        <p>I helsedomenet er dette spesielt alvorlig. En feilaktig referanse i en akademisk tekst kan være pinlig; et feilaktig helseråd kan i verste fall være skadelig. Dokumenterte eksempler inkluderer modeller som har angitt feil dosering av legemidler, oppgitt ikke-eksisterende interaksjoner eller generert referanser til studier som ikke finnes.</p>
+        <p><strong>Mitigeringsstrategier:</strong></p>
+        <ul>
+            <li><strong>RAG (Retrieval-Augmented Generation):</strong> LLM-en kobles mot en verifisert kunnskapsbase og genererer svar basert på faktisk dokumentasjon snarere enn intern &laquo;hukommelse&raquo;. Dette reduserer, men eliminerer ikke, risikoen for feil.</li>
+            <li><strong>Human-in-the-loop:</strong> Menneskelig fagekspertise i kvalitetssikringen av alle KI-genererte produkter, med tydelige prosesser for godkjenning for publisering.</li>
+            <li><strong>Automatisert faktasjekk:</strong> Kryssverifisering av påstander mot etablerte kilder.</li>
+        </ul>
+
+        <h3>4.2 Tillit og legitimitet</h3>
+        <p>Bruk av KI i helseinformasjon berører flere tillitsdimensjoner:</p>
+        <p><strong>Innbyggernes tillit:</strong> Undersøkelser tyder på at befolkningen har varierende tillit til KI-generert helseinformasjon. Noen studier indikerer at innbyggere foretrekker informasjon de oppfatter som skrevet av mennesker, selv når KI-generert informasjon objektivt sett er likeverdig. Transparens om KI-bruk kan både styrke og svekke tillit, avhengig av kontekst og kommunikasjon.</p>
+        <p><strong>Helsepersonells aksept:</strong> Helsepersonell som skal bruke KI-støttede verktøy må ha tillit til systemenes pålitelighet. Tidlige erfaringer tyder på at aksepten er høyere når KI presenteres som et støtteverktøy som fagpersonell kan overprøve, snarere enn et autonomt beslutningssystem.</p>
+        <p><strong>Institusjonell legitimitet:</strong> For Helsedirektoratet som fagmyndighet er det avgjørende at KI-bruk ikke undergraver myndighetens troverdighet. Dersom innbyggere opplever at helseråd &laquo;bare er generert av en maskin&raquo;, kan det svekke tilliten til offentlig helseinformasjon generelt. Tydelig kommunikasjon om hvordan KI brukes &ndash; og om at fagpersoner alltid har det endelige ansvaret &ndash; er nødvendig.</p>
+
+        <h3>4.3 Bias og rettferdighet</h3>
+        <p>LLM-er trenes på store tekstkorpus som reflekterer eksisterende skjevheter i medisinsk forskning og samfunnet for øvrig:</p>
+        <ul>
+            <li><strong>Underrepresentasjon:</strong> Minoritetsgrupper, kvinner og eldre er historisk underrepresentert i kliniske studier. KI-modeller som trenes på denne litteraturen kan reprodusere og forsterke slike skjevheter.</li>
+            <li><strong>Språkbias:</strong> De fleste ledende LLM-er er primært trent på engelskspråklig tekst. Ytelsen på norsk er typisk lavere, og modellene kan ha begrenset forståelse av norsk helsekontekst, organisering og terminologi.</li>
+            <li><strong>Kulturell bias:</strong> Helseråd som er tilpasset en kulturell kontekst er ikke nødvendigvis overførbare til norske forhold. LLM-er kan generere anbefalinger som er fornuftige i en amerikansk kontekst men irrelevante eller misvisende i Norge.</li>
+        </ul>
+
+        <h3>4.4 Personvern og datasikkerhet</h3>
+        <p>Helsedata er klassifisert som særlig sensitive personopplysninger under GDPR artikkel 9. Bruk av LLM-er i kunnskapsforvaltning reiser flere personvernspørsmål:</p>
+        <ul>
+            <li><strong>Skytjenester:</strong> De mest kapable LLM-ene tilbys som skytjenester fra amerikanske selskaper. Overføring av helsedata til slike tjenester krever særskilt rettslig grunnlag og risikovurdering.</li>
+            <li><strong>Nasjonal kontroll:</strong> Det er et prinsipielt spørsmål om kritisk infrastruktur for helseinformasjon bør avhenge av utenlandske leverandører og modeller som norske myndigheter har begrenset innsyn i.</li>
+            <li><strong>Treningsdata:</strong> Spørsmål om hvorvidt data som sendes til skytjenester kan bli brukt til videre modelltrening, krever avtalemessige og tekniske avklaringer.</li>
+        </ul>
+        <p>For kunnskapsforvaltning &ndash; i motsetning til klinisk beslutningsstøtte &ndash; vil mye av arbeidet handle om offentlig tilgjengelig forskning snarere enn individuelle pasientdata. Dette reduserer personvernrisikoen for flere bruksområder, men fjerner den ikke helt, spesielt dersom modellene skal brukes med kontekstuell informasjon.</p>
+
+        <h3>4.5 Juridiske risikoer</h3>
+        <p><strong>Ansvar ved feil:</strong> Dersom KI-generert helseinformasjon fører til skade, oppstår spørsmål om hvem som er ansvarlig. Helsedirektoratet som avsender av informasjonen vil sannsynligvis bære ansvaret uavhengig av om innholdet er generert av KI eller mennesker &ndash; men dette er foreløpig rettslig uavklart.</p>
+        <p><strong>Regulatorisk usikkerhet:</strong> EU AI Act trådte i kraft i 2024, men flere sentrale bestemmelser har trinnvis ikrafttredelse frem til 2027. Det gjenstår å se hvordan reglene vil bli tolket og håndhevet i praksis, spesielt i grensesnittet mellom helseinformasjon og medisinsk utstyr.</p>
+        <p><strong>Medisinsk utstyr eller ikke?</strong> Et sentralt grensedragningsspørsmål er om et KI-system som gir helseråd til innbyggere klassifiseres som medisinsk utstyr etter MDR (Medical Device Regulation). Informasjonssystemer faller normalt utenfor, men jo mer personaliserte og handlingsrettede rådene er, desto nærmere kommer man grensen for medisinsk utstyr.</p>
+
+        <hr>
+
+        <h2>5. EU AI Act &ndash; implikasjoner for helsesektoren</h2>
+
+        <h3>Risikoklassifisering</h3>
+        <p>EU AI Act klassifiserer KI-systemer i risikoer. KI-systemer som er sikkerhetskomponenter i medisinsk utstyr klassifiseres som <strong>høyrisiko</strong>. For kunnskapsforvaltning i helse avhenger klassifiseringen av systemets konkrete bruk:</p>
+        <ul>
+            <li><strong>Generell helseinformasjon</strong> (f.eks. oppsummering av retningslinjer): Sannsynligvis ikke høyrisiko</li>
+            <li><strong>Personaliserte helseråd:</strong> Kan falle inn under høyrisiko, avhengig av grad av personalisering og medisinsk innhold</li>
+            <li><strong>Klinisk beslutningsstøtte:</strong> Typisk høyrisiko</li>
+        </ul>
+
+        <h3>Krav til høyrisiko KI-systemer</h3>
+        <p>For systemer som klassifiseres som høyrisiko, stiller EU AI Act krav om:</p>
+        <ul>
+            <li><strong>Risikostyringssystem:</strong> Løpende identifisering og håndtering av risikoer</li>
+            <li><strong>Datakvalitet:</strong> Trenings-, validerings- og testdata skal være relevante, representative og frie for feil</li>
+            <li><strong>Teknisk dokumentasjon:</strong> Detaljert dokumentasjon av systemets virkemåte og begrensninger</li>
+            <li><strong>Logging:</strong> Automatisk registrering av hendelser for sporbarhet</li>
+            <li><strong>Transparens:</strong> Brukere skal informeres om at de interagerer med et KI-system, og om systemets evner og begrensninger</li>
+            <li><strong>Menneskelig tilsyn:</strong> Systemet skal utformes slik at mennesker kan overstyre det</li>
+            <li><strong>Nøyaktighet og robusthet:</strong> Systemet skal fungere konsistent og pålitelig</li>
+        </ul>
+
+        <h3>Samsvar med medisinsk utstyr-forordning</h3>
+        <p>EU AI Act krever at KI-systemer som klassifiseres som medisinsk utstyr også oppfyller kravene i MDR. Dette innebærer samsvarsvurdering, CE-merking og oppfølging etter markedsføring. For kunnskapsforvaltningssystemer er det avgjørende å avklare om og i hvilken grad MDR-kravene kommer til anvendelse.</p>
+
+        <h3>Implikasjoner for norsk implementering</h3>
+        <p>Som EØS-land vil Norge implementere EU AI Act. I kombinasjon med EHDS innebærer dette at norske helsemyndigheter må:</p>
+        <ul>
+            <li>Kartlegge hvilke eksisterende og planlagte KI-systemer som faller inn under reguleringsregimet</li>
+            <li>Etablere prosesser for samsvarsvurdering og tilsyn</li>
+            <li>Sikre at KI-systemer som brukes i verdikjeden for kunnskapsforvaltning oppfyller kravene til transparens, datakvalitet og menneskelig tilsyn</li>
+            <li>Vurdere behovet for nasjonal veiledning om grensedragningen mellom helseinformasjon og medisinsk utstyr</li>
+        </ul>
+
+        <h3>Tidsplan</h3>
+        <p>EU AI Act har trinnvis ikrafttredelse:</p>
+        <ul>
+            <li><strong>Februar 2025:</strong> Forbud mot uakseptabel risiko</li>
+            <li><strong>August 2025:</strong> Krav til generelle KI-modeller (GPAI)</li>
+            <li><strong>August 2026:</strong> Hovedkravene for høyrisiko-systemer</li>
+            <li><strong>August 2027:</strong> Utvidede krav for høyrisiko-systemer som også er medisinsk utstyr</li>
+        </ul>
+        <p>Denne tidsplanen gir norske aktører en avgrenset periode til å forberede seg, men arbeidet bør starte tidlig gitt kompleksiteten i helsedomenet.</p>
+
+        <hr>
+
+        <h2>6. Prinsipielle spørsmål</h2>
+        <p>Innføring av LLM-er i kunnskapsforvaltning i helse reiser flere prinsipielle spørsmål som krever politisk og faglig avklaring:</p>
+        <p><strong>Bør offentlige helsemyndigheter bruke KI i kunnskapsproduksjon?</strong><br>
+        Spørsmålet er ikke lenger om KI vil bli tatt i bruk &ndash; det skjer allerede &ndash; men hvordan offentlige myndigheter skal forholde seg til teknologien. Alternativet til styrt innføring er ikke fravær av KI, men ukontrollert bruk av kommersielle KI-verktøy uten kvalitetssikring og governance.</p>
+        <p><strong>Hvor går grensen mellom KI-støtte og KI-autonomi?</strong><br>
+        Det er en vesentlig forskjell mellom KI som assisterer en fagperson (foreslår, sorterer, oppsummerer) og KI som produserer ferdige helseråd uten menneskelig gjennomgang. For kunnskapsforvaltning i en myndighetsrolle bør prinsippet om menneskelig tilsyn stå sentralt, i tråd med EU AI Acts krav.</p>
+        <p><strong>Hvem har ansvar når KI bidrar til feilaktige helseråd?</strong><br>
+        Selv med menneskelig tilsyn kan feil slippe gjennom. Det er behov for tydelig ansvarsallokering, både juridisk og organisatorisk. Helsedirektoratets rolle som fagmyndighet tilsier at direktoratet vil bære ansvaret for innholdet uavhengig av produksjonsmetode.</p>
+        <p><strong>Hvordan sikre demokratisk kontroll over KI i helse?</strong><br>
+        KI-systemer som påvirker offentlig helseinformasjon bør være underlagt demokratisk kontroll. Dette inkluderer innsyn i hvordan systemene fungerer, mulighet for offentlig debatt om bruksområder, og politisk styring av rammer og grenser.</p>
+        <p><strong>Bør Norge utvikle egne modeller eller bruke kommersielle?</strong><br>
+        Det er et strategisk valg mellom å bruke kommersielle modeller (raskere, mer kapable, men avhengig av utenlandske leverandører) og å investere i egne eller nordiske modeller (større kontroll, men høyere kostnad og sannsynligvis lavere ytelse på kort sikt). En mellomvei kan være å bruke kommersielle modeller med nasjonalt kontrollerte kunnskapsbaser gjennom RAG-arkitekturer.</p>
+
+        <hr>
+
+        <h2>7. Oppsummering</h2>
+        <p>Store språkmodeller representerer en teknologi med betydelig potensial for å forbedre kunnskapsforvaltning i helsesektoren. De mest lovende bruksområdene &ndash; akselerert kunnskapssyntese, retningslinjestøtte, forbedret innbyggerinformasjon og kontinuerlig kunnskapsoppdatering &ndash; adresserer reelle og dokumenterte utfordringer i dagens verdikjede.</p>
+        <p>Samtidig medfører teknologien vesentlige risikoer. Hallusinering, tillitsutfordringer, bias, personvernhensyn og juridisk usikkerhet er ikke hypotetiske bekymringer, men konkrete problemstillinger som må håndteres før og under innføring.</p>
+        <p>Nøkkelen til vellykket bruk av LLM-er i kunnskapsforvaltning ligger i tre forhold:</p>
+        <ol>
+            <li><strong>Governance:</strong> Tydelige rammer for hvilke bruksområder som er akseptable, hvem som har beslutningsmyndighet, og hvordan KI-bruk styres og kontrolleres.</li>
+            <li><strong>Kvalitetssikring:</strong> Robuste prosesser for menneskelig gjennomgang av KI-generert innhold, med særlig vekt på faktasjekk og kildeverifisering.</li>
+            <li><strong>Menneskelig tilsyn:</strong> Prinsippet om at fagpersoner alltid har det endelige ansvaret for innholdet som publiseres, i tråd med EU AI Acts krav.</li>
+        </ol>
+        <p>EU AI Act gir et regulatorisk rammeverk som norske helsemyndigheter må forholde seg til, og som gir nyttige føringer for ansvarlig innføring av KI. Den trinnvise ikrafttredelsen gir et tidsvindu for forberedelse, men arbeidet med å etablere governance-strukturer, kvalitetssikringsprosesser og kompetanse bør starte umiddelbart.</p>
+        <p>Delrapport 4 vil bygge videre på denne analysen og beskrive en konkret ny verdikjede for kunnskapsforvaltning med KI-støtte, der mulighetene og risikoene som er beskrevet her adresseres gjennom arkitektur, prosesser og organisering.</p>
+
+    </main>
+    <footer>
+        Utredning gjennomført av Helsedirektoratet, 2026
+    </footer>
+</body>
+</html>

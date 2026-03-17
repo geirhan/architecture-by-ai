@@ -1,6 +1,39 @@
 {
-    "helsedirektoratet": {"EHDS konsekvensvurdering": "https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025",
-                          "Lenke beskrivelse": "url"},
-    "EU-kommisjonen": {},
-    "andre":{}   
+    "helsedirektoratet": {
+        "EHDS konsekvensvurdering": "https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025",
+        "Nasjonale faglige retningslinjer": "https://www.helsedirektoratet.no/retningslinjer",
+        "E-helsestandarder": "https://www.ehelse.no/standardisering"
+    },
+    "fhi": {
+        "Kunnskapsoppsummeringer og systematiske oversikter": "https://www.fhi.no/publ/",
+        "Folkehelseinstituttets metode": "https://www.fhi.no/systematiske-oversikter/metode/"
+    },
+    "helsebiblioteket": {
+        "Helsebiblioteket – kunnskapsbasert praksis": "https://www.helsebiblioteket.no/"
+    },
+    "helsenorge": {
+        "Helsenorge – helseinformasjon til innbyggere": "https://www.helsenorge.no/"
+    },
+    "norsk-helsenett": {
+        "NHN om EHDS": "https://www.nhn.no/ehds"
+    },
+    "who": {
+        "WHO SMART Guidelines": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines"
+    },
+    "nice": {
+        "NICE Evidence Standards Framework": "https://www.nice.org.uk/about/what-we-do/our-programmes/evidence-standards-framework-for-digital-health-technologies"
+    },
+    "cochrane": {
+        "Cochrane – KI og systematiske oversikter": "https://www.cochrane.org/news/artificial-intelligence-and-evidence-synthesis"
+    },
+    "eu": {
+        "EU AI Act": "https://artificialintelligenceact.eu/",
+        "EU AI Act full tekst": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"
+    },
+    "regjeringen": {
+        "Nasjonal helse- og samhandlingsplan Meld. St. 9 (2023-2024)": "https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018394/"
+    },
+    "andre": {
+        "Utredningsinstruksen": "https://www.regjeringen.no/no/dokumenter/instruks-om-utredning-av-statlige-tiltak-utredningsinstruksen/id2476518/"
+    }
 }

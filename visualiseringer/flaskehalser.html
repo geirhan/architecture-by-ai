@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varmekart: Flaskehalser i verdikjeden for kunnskapsforvaltning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .description {
+            background-color: #f5f7fa;
+            border-left: 4px solid #003366;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .description p {
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .legend {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .legend-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .legend-swatch {
+            width: 24px;
+            height: 24px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .swatch-high { background-color: #c0392b; }
+        .swatch-medium { background-color: #e67e22; }
+        .swatch-low { background-color: #f0f0f0; }
+
+        .heatmap-wrapper {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .heatmap-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .heatmap-table th {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 0.75rem 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-align: center;
+            border: 1px solid #002244;
+            vertical-align: bottom;
+        }
+
+        .heatmap-table th:first-child {
+            text-align: left;
+            min-width: 280px;
+            padding-left: 1rem;
+        }
+
+        .heatmap-table th:last-child {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .heatmap-table td {
+            padding: 0.6rem 0.5rem;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.85rem;
+        }
+
+        .heatmap-table td:first-child {
+            text-align: left;
+            padding-left: 1rem;
+            font-weight: 500;
+            color: #333;
+            background-color: #fafbfc;
+        }
+
+        .heatmap-table tbody tr:hover td:first-child {
+            background-color: #eef2f7;
+        }
+
+        .cell-high {
+            background-color: #c0392b;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .cell-medium {
+            background-color: #e67e22;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .cell-empty {
+            background-color: #f9f9f9;
+            color: #ccc;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-high {
+            background-color: #c0392b;
+            color: #ffffff;
+        }
+
+        .badge-medium {
+            background-color: #e67e22;
+            color: #ffffff;
+        }
+
+        .rank-number {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #003366;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .details-section {
+            margin-top: 2.5rem;
+        }
+
+        .details-section h2 {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.5rem;
+        }
+
+        .bottleneck-card {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .bottleneck-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .bottleneck-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .bottleneck-card-header h3 {
+            font-size: 1rem;
+            color: #333;
+            flex: 1;
+        }
+
+        .bottleneck-card .meta {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 0.3rem;
+        }
+
+        .bottleneck-card .rationale {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .source-note {
+            margin-top: 2.5rem;
+            padding: 1rem 1.5rem;
+            background-color: #f5f7fa;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .source-note strong {
+            color: #333;
+        }
+
+        @media print {
+            header {
+                background-color: #003366 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .cell-high, .cell-medium, .badge-high, .badge-medium {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+            .legend {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Varmekart: Flaskehalser i verdikjeden for kunnskapsforvaltning</h1>
+    <p>Visualisering av 8 identifiserte flaskehalser og hvilke steg i verdikjeden de p&aring;virker, rangert etter alvorlighetsgrad.</p>
+</header>
+
+<div class="container">
+
+    <div class="description">
+        <p><strong>Kilde:</strong> Delrapport 2 &ndash; Utfordringer og flaskehalser i verdikjeden for kunnskapsforvaltning.
+        Varmekartet viser hvilke steg i verdikjeden som p&aring;virkes av hver flaskehals.
+        R&oslash;de celler indikerer h&oslash;y alvorlighetsgrad, oransje celler indikerer middels alvorlighetsgrad.</p>
+    </div>
+
+    <div class="legend">
+        <span class="legend-title">Alvorlighetsgrad:</span>
+        <div class="legend-item">
+            <div class="legend-swatch swatch-high"></div>
+            <span>H&oslash;y &ndash; Prim&aelig;rt p&aring;virket steg</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch swatch-medium"></div>
+            <span>Middels &ndash; Prim&aelig;rt p&aring;virket steg</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch swatch-low"></div>
+            <span>Ikke direkte p&aring;virket</span>
+        </div>
+    </div>
+
+    <div class="heatmap-wrapper">
+        <table class="heatmap-table" id="heatmapTable">
+            <thead>
+                <tr>
+                    <th>Flaskehals</th>
+                    <th>Steg 1<br>Forskning</th>
+                    <th>Steg 2<br>Syst. oversikter</th>
+                    <th>Steg 3<br>Retningslinjer</th>
+                    <th>Steg 4<br>Kunnskaps&shy;formidling</th>
+                    <th>Steg 5<br>Innbygger&shy;informasjon</th>
+                    <th>Steg 6<br>Klinisk praksis</th>
+                    <th>Rang</th>
+                </tr>
+            </thead>
+            <tbody id="heatmapBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="details-section">
+        <h2>Detaljert beskrivelse av flaskehalsene</h2>
+        <div id="detailCards"></div>
+    </div>
+
+    <div class="source-note">
+        <strong>Kilde:</strong> Delrapport 2 &ndash; Utfordringer og flaskehalser i verdikjeden for kunnskapsforvaltning i helsesektoren.
+        Visualiseringen er basert p&aring; rangering og analyse fra rapportens kapittel 7.1.
+        <br><strong>Sist oppdatert:</strong> 2026-03-15
+    </div>
+
+</div>
+
+<script>
+(function() {
+    // Verdikjedens steg (kolonne-indekser 0-5)
+    // 0: Forskning, 1: Syst. oversikter, 2: Retningslinjer,
+    // 3: Kunnskapsformidling, 4: Innbyggerinformasjon, 5: Klinisk praksis
+
+    var bottlenecks = [
+        {
+            rank: 1,
+            name: "Foreldelse av kunnskapsgrunnlag underveis i retningslinjeprosessen",
+            severity: "high",
+            severityLabel: "H\u00f8y",
+            rationale: "Lengste enkeltforsinkelse i verdikjeden (12\u201324 m\u00e5neder). Ny forskning kan ha endret evidensgrunnlaget vesentlig f\u00f8r retningslinjen ferdigstilles, noe som direkte p\u00e5virker kvaliteten p\u00e5 anbefalingene.",
+            affectedSteps: [2, 3],
+            stepLabels: "Retningslinjer (steg 3), med opphav i systematiske oversikter (steg 2)"
+        },
+        {
+            rank: 2,
+            name: "Kapasitetsbegrensning for systematiske oversikter",
+            severity: "high",
+            severityLabel: "H\u00f8y",
+            rationale: "Manuell screening av tusenvis av artikler krever spesialistkompetanse og er sv\u00e6rt tidkrevende. FHI har begrenset kapasitet, noe som begrenser volumet av oppdatert kunnskap som kan produseres \u00e5rlig.",
+            affectedSteps: [1],
+            stepLabels: "Systematiske oversikter (steg 2)"
+        },
+        {
+            rank: 3,
+            name: "Manglende kobling mellom retningslinje og innbyggerinformasjon",
+            severity: "high",
+            severityLabel: "H\u00f8y",
+            rationale: "Ingen automatisert kobling mellom oppdaterte retningslinjer og tilh\u00f8rende innbyggerinformasjon. Oppdatering skjer manuelt og ad hoc, slik at forsinkelsen forsterkes i siste ledd.",
+            affectedSteps: [2, 3, 4],
+            stepLabels: "Retningslinjer (steg 3), Kunnskapsformidling (steg 4), Innbyggerinformasjon (steg 5)"
+        },
+        {
+            rank: 4,
+            name: "Siloorganisering og fragmentert ansvar",
+            severity: "medium",
+            severityLabel: "Middels",
+            rationale: "Ansvaret er fordelt p\u00e5 flere organisasjoner (FHI, Helsedirektoratet, NHN, helseforetak, kommuner) med ulike styringslinjer. Det finnes ikke et helhetlig styringsmandat for verdikjeden, noe som er strukturell \u00e5rsak til flere av de \u00f8vrige flaskehalsene.",
+            affectedSteps: [0, 1, 2, 3, 4, 5],
+            stepLabels: "Alle steg i verdikjeden"
+        },
+        {
+            rank: 5,
+            name: "Manglende strukturerte data og metadata",
+            severity: "medium",
+            severityLabel: "Middels",
+            rationale: "Innhold gjennom verdikjeden er hovedsakelig fritekstbasert med begrenset bruk av strukturerte metadata. Dette hindrer automatisert identifisering av utdatert innhold, kobling og sporbarhet.",
+            affectedSteps: [1, 2, 3, 4],
+            stepLabels: "Systematiske oversikter (steg 2), Retningslinjer (steg 3), Kunnskapsformidling (steg 4), Innbyggerinformasjon (steg 5)"
+        },
+        {
+            rank: 6,
+            name: "Implementeringsgapet i klinisk praksis",
+            severity: "medium",
+            severityLabel: "Middels",
+            rationale: "Velkjent gap mellom anbefalt og faktisk praksis i helsetjenesten. Variasjon mellom virksomheter og manglende m\u00e5lingsmekanismer gj\u00f8r at retningslinjene ikke n\u00e5r fullt ut frem til innbyggerne.",
+            affectedSteps: [5],
+            stepLabels: "Klinisk praksis (steg 6)"
+        },
+        {
+            rank: 7,
+            name: "Manglende personalisering av innbyggerinformasjon",
+            severity: "medium",
+            severityLabel: "Middels",
+            rationale: "Dagens innbyggerinformasjon er generisk og tar ikke hensyn til individuelle faktorer som alder, kj\u00f8nn, kroniske sykdommer eller medisinbruk. Reduserer relevans og nytteverdi for den enkelte.",
+            affectedSteps: [4],
+            stepLabels: "Innbyggerinformasjon (steg 5)"
+        },
+        {
+            rank: 8,
+            name: "Tilgjengelighetsutfordringer",
+            severity: "medium",
+            severityLabel: "Middels",
+            rationale: "Digital kompetanse, spr\u00e5klig mangfold og funksjonsnedsettelser gj\u00f8r at ikke alle innbyggere har samme forutsetninger for \u00e5 finne og forst\u00e5 digital helseinformasjon. Ekskluderer s\u00e5rbare grupper.",
+            affectedSteps: [4],
+            stepLabels: "Innbyggerinformasjon (steg 5)"
+        }
+    ];
+
+    var totalSteps = 6;
+
+    // Bygg varmekart-tabell
+    var tbody = document.getElementById("heatmapBody");
+
+    bottlenecks.forEach(function(b) {
+        var tr = document.createElement("tr");
+
+        // Navn-celle
+        var tdName = document.createElement("td");
+        var rankSpan = document.createElement("span");
+        rankSpan.className = "rank-number";
+        rankSpan.textContent = b.rank;
+        tdName.appendChild(rankSpan);
+        tdName.appendChild(document.createTextNode(b.name));
+        tr.appendChild(tdName);
+
+        // Steg-celler
+        for (var s = 0; s < totalSteps; s++) {
+            var td = document.createElement("td");
+            if (b.affectedSteps.indexOf(s) !== -1) {
+                if (b.severity === "high") {
+                    td.className = "cell-high";
+                    td.textContent = "H\u00d8Y";
+                } else {
+                    td.className = "cell-medium";
+                    td.textContent = "MIDDELS";
+                }
+            } else {
+                td.className = "cell-empty";
+                td.textContent = "\u2013";
+            }
+            tr.appendChild(td);
+        }
+
+        // Rang-celle
+        var tdRank = document.createElement("td");
+        tdRank.style.fontWeight = "700";
+        tdRank.style.fontSize = "1.1rem";
+        tdRank.style.color = "#003366";
+        tdRank.textContent = "#" + b.rank;
+        tr.appendChild(tdRank);
+
+        tbody.appendChild(tr);
+    });
+
+    // Bygg detaljkort
+    var cardsContainer = document.getElementById("detailCards");
+
+    bottlenecks.forEach(function(b) {
+        var card = document.createElement("div");
+        card.className = "bottleneck-card";
+
+        var headerDiv = document.createElement("div");
+        headerDiv.className = "bottleneck-card-header";
+
+        var rankEl = document.createElement("span");
+        rankEl.className = "rank-number";
+        rankEl.textContent = b.rank;
+
+        var nameEl = document.createElement("h3");
+        nameEl.textContent = b.name;
+
+        var badgeEl = document.createElement("span");
+        badgeEl.className = "severity-badge " + (b.severity === "high" ? "badge-high" : "badge-medium");
+        badgeEl.textContent = b.severityLabel;
+
+        headerDiv.appendChild(rankEl);
+        headerDiv.appendChild(nameEl);
+        headerDiv.appendChild(badgeEl);
+
+        var metaEl = document.createElement("div");
+        metaEl.className = "meta";
+        metaEl.innerHTML = "<strong>P\u00e5virket steg:</strong> " + b.stepLabels;
+
+        var rationaleEl = document.createElement("div");
+        rationaleEl.className = "rationale";
+        rationaleEl.textContent = b.rationale;
+
+        card.appendChild(headerDiv);
+        card.appendChild(metaEl);
+        card.appendChild(rationaleEl);
+
+        cardsContainer.appendChild(card);
+    });
+})();
+</script>
+
+</body>
+</html>

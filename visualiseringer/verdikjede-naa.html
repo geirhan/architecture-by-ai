@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagens verdikjede for kunnskapsforvaltning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #003366;
+            color: #ffffff;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .description {
+            background: #f0f4f8;
+            border-left: 4px solid #003366;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .description p {
+            color: #333333;
+            font-size: 0.95rem;
+        }
+
+        .total-time {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #003366;
+            color: #ffffff;
+            border-radius: 8px;
+        }
+
+        .total-time .label {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+        }
+
+        .total-time .value {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-top: 0.3rem;
+        }
+
+        .total-time .scenarios {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .total-time .scenario {
+            text-align: center;
+        }
+
+        .total-time .scenario .s-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .total-time .scenario .s-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .section-heading {
+            font-size: 1.3rem;
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            background: #f0f4f8;
+            border-left: 4px solid #003366;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.93rem;
+            color: #333333;
+        }
+
+        /* Linear steps (steg 1-2) */
+        .linear-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .linear-step {
+            background: #ffffff;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            min-width: 240px;
+            max-width: 320px;
+        }
+
+        .linear-step .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #003366;
+            color: #ffffff;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .linear-step .step-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #003366;
+            margin-bottom: 0.3rem;
+        }
+
+        .linear-step .step-output {
+            font-size: 0.85rem;
+            color: #555555;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .linear-step .actor-tag {
+            display: inline-block;
+            background: #e8eef5;
+            color: #003366;
+            font-size: 0.72rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            margin: 0.15rem;
+            font-weight: 600;
+        }
+
+        .linear-step .time-info {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #666666;
+        }
+
+        .linear-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            flex-shrink: 0;
+        }
+
+        .linear-arrow svg {
+            width: 50px;
+            height: 24px;
+        }
+
+        /* Network diagram */
+        .network-container {
+            overflow-x: auto;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .network-svg-wrapper {
+            min-width: 1000px;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            color: #333333;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        /* Comparison table */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            min-width: 700px;
+        }
+
+        th, td {
+            padding: 0.7rem 0.8rem;
+            text-align: left;
+            border: 1px solid #dde3ea;
+            color: #333333;
+        }
+
+        th {
+            background: #f0f4f8;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        th.col-3a { border-bottom: 3px solid #003366; }
+        th.col-3b { border-bottom: 3px solid #27ae60; }
+        th.col-3c { border-bottom: 3px solid #e67e22; }
+        th.col-3d { border-bottom: 3px solid #8e44ad; }
+
+        tr:nth-child(even) {
+            background: #fafbfc;
+        }
+
+        /* Actor cards */
+        .actor-section {
+            margin-top: 2.5rem;
+        }
+
+        .stream-group {
+            margin-bottom: 2rem;
+        }
+
+        .stream-group-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 6px 6px 0 0;
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+
+        .stream-group-title.stream-3a { background: #003366; }
+        .stream-group-title.stream-3b { background: #27ae60; }
+        .stream-group-title.stream-3c { background: #e67e22; }
+        .stream-group-title.stream-3d { background: #8e44ad; }
+
+        .actor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fb;
+            border: 1px solid #dde3ea;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .actor-card {
+            background: #ffffff;
+            border: 1px solid #dde3ea;
+            border-radius: 6px;
+            padding: 1rem;
+        }
+
+        .actor-card h3 {
+            font-size: 0.95rem;
+            color: #003366;
+            margin-bottom: 0.3rem;
+        }
+
+        .actor-card .role {
+            font-size: 0.82rem;
+            color: #555555;
+            margin-bottom: 0.4rem;
+        }
+
+        .actor-card .deliveries {
+            font-size: 0.8rem;
+            color: #333333;
+        }
+
+        .actor-card .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .badge-3a { background: #003366; }
+        .badge-3b { background: #27ae60; }
+        .badge-3c { background: #e67e22; }
+        .badge-3d { background: #8e44ad; }
+
+        .actor-card.border-3a { border-left: 4px solid #003366; }
+        .actor-card.border-3b { border-left: 4px solid #27ae60; }
+        .actor-card.border-3c { border-left: 4px solid #e67e22; }
+        .actor-card.border-3d { border-left: 4px solid #8e44ad; }
+
+        .source-note {
+            margin-top: 2.5rem;
+            padding: 1rem 1.5rem;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #555555;
+        }
+
+        .source-note strong {
+            color: #333333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .total-time .value {
+                font-size: 1.8rem;
+            }
+
+            .linear-flow {
+                flex-direction: column;
+            }
+
+            .linear-arrow {
+                transform: rotate(90deg);
+            }
+
+            .actor-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            header {
+                background: #003366 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .total-time {
+                background: #003366 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .network-container {
+                overflow: visible;
+            }
+
+            .network-svg-wrapper {
+                min-width: auto;
+            }
+
+            .stream-group-title {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .badge {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dagens verdikjede for kunnskapsforvaltning</h1>
+    <p>Fra internasjonal forskning til kvalitetssikret helseinformasjon for helsepersonell og innbyggere i Norge &ndash; tre steg, fire strømmer</p>
+</header>
+
+<div class="container">
+
+    <!-- Del 1: Oversikt -->
+    <div class="description">
+        <p>
+            Denne visualiseringen viser dagens verdikjede for kunnskapsforvaltning i helsesektoren,
+            fra internasjonal forskning publiseres til helsepersonell og innbyggere mottar oppdatert helseinformasjon.
+            Verdikjeden består av <strong>tre steg</strong>: forskning, kunnskapsoppsummering og kunnskapsomsetting/formidling.
+            Det tredje steget er ikke lineært, men et <strong>nettverk av fire parallelle strømmer</strong> med ulike aktører,
+            ulik hastighet og ulik grad av kvalitetssikring. Den normerende strømmen (3a) har en gjennomløpstid
+            på 2&ndash;6,5 år, mens de parallelle strømmene kan nå frem på timer til uker.
+        </p>
+    </div>
+
+    <div class="total-time">
+        <div class="label">Gjennomløpstid for den normerende strømmen (steg 1 &rarr; 3a &rarr; innbygger)</div>
+        <div class="value">2 &ndash; 6,5 år</div>
+        <div class="scenarios">
+            <div class="scenario">
+                <div class="s-label">Optimistisk</div>
+                <div class="s-value">~2 år</div>
+            </div>
+            <div class="scenario">
+                <div class="s-label">Moderat</div>
+                <div class="s-value">~3&ndash;4,5 år</div>
+            </div>
+            <div class="scenario">
+                <div class="s-label">Konservativt</div>
+                <div class="s-value">~6,5 år</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Del 2: Steg 1-2 (lineært) -->
+    <h2 class="section-heading">Del 1: Den lineære delen &ndash; steg 1 og 2</h2>
+
+    <div class="section-description">
+        De to første stegene i verdikjeden er i hovedsak lineære: internasjonal forskning publiseres som studier,
+        som deretter sammenstilles til systematiske oversikter og kunnskapsoppsummeringer. Disse danner kunnskapsgrunnlaget
+        for alle fire strømmene i steg 3.
+    </div>
+
+    <div class="linear-flow">
+        <div class="linear-step">
+            <div class="step-number">1</div>
+            <div class="step-title">Internasjonal forskning</div>
+            <div class="step-output">&rarr; Publiserte studier</div>
+            <div>
+                <span class="actor-tag">Internasjonale forskningsmiljøer</span>
+                <span class="actor-tag">Norske forskningsmiljøer</span>
+            </div>
+            <div class="time-info">Utgangspunkt &ndash; kontinuerlig produksjon</div>
+        </div>
+
+        <div class="linear-arrow">
+            <svg viewBox="0 0 50 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 12 L40 12 M34 5 L42 12 L34 19" fill="none" stroke="#003366" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <div class="linear-step">
+            <div class="step-number">2</div>
+            <div class="step-title">Systematiske oversikter</div>
+            <div class="step-output">&rarr; Kunnskapsoppsummeringer</div>
+            <div>
+                <span class="actor-tag">FHI</span>
+                <span class="actor-tag">Cochrane Collaboration</span>
+            </div>
+            <div class="time-info">6&ndash;24 måneder fra publisert forskning</div>
+        </div>
+    </div>
+
+    <!-- Del 3: Steg 3 – nettverksdiagram -->
+    <h2 class="section-heading">Del 2: Kunnskapsomsetting og formidling &ndash; fire parallelle strømmer</h2>
+
+    <div class="section-description">
+        Kunnskapen fra steg 2 omsettes og formidles gjennom <strong>fire parallelle strømmer</strong>.
+        Ingen enkelt strøm dekker hele kunnskapsbehovet &ndash; det er samspillet mellom dem som utgjør
+        den reelle kunnskapsforsyningen i helsesektoren. Merk den dramatiske forskjellen i hastighet:
+        fra timer (medier) til flere år (normerende strøm).
+    </div>
+
+    <!-- Legend for network diagram -->
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background: #003366;"></div>
+            <span>3a Normerende (1&ndash;5 år)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #27ae60;"></div>
+            <span>3b Klinisk (uker&ndash;mnd)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #e67e22;"></div>
+            <span>3c Legemiddel (dager&ndash;uker)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #8e44ad;"></div>
+            <span>3d Innbyggerrettet (timer&ndash;mnd)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #f1c40f; border: 1px solid #d4a800;"></div>
+            <span>Mottaker</span>
+        </div>
+    </div>
+
+    <div class="network-container">
+        <div class="network-svg-wrapper">
+            <svg id="networkDiagram" width="1100" height="580" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg">
+            </svg>
+        </div>
+    </div>
+
+    <!-- Del 4: Sammenligningstabell -->
+    <h2 class="section-heading">Del 3: Sammenligning av de fire strømmene</h2>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Egenskap</th>
+                    <th class="col-3a">3a. Normerende</th>
+                    <th class="col-3b">3b. Klinisk</th>
+                    <th class="col-3c">3c. Legemiddel</th>
+                    <th class="col-3d">3d. Innbyggerrettet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hastighet</strong></td>
+                    <td>1&ndash;5 år</td>
+                    <td>Uker&ndash;måneder</td>
+                    <td>Dager&ndash;uker</td>
+                    <td>Timer&ndash;måneder</td>
+                </tr>
+                <tr>
+                    <td><strong>Normativ kraft</strong></td>
+                    <td>Høy (formelt normerende)</td>
+                    <td>Middels (faglig autoritet)</td>
+                    <td>Høy (regulatorisk)</td>
+                    <td>Lav (informerende)</td>
+                </tr>
+                <tr>
+                    <td><strong>Kvalitetssikring</strong></td>
+                    <td>GRADE, høring, faglig redaksjon</td>
+                    <td>Redaksjonell, fagfelle</td>
+                    <td>Regulatorisk godkjenning</td>
+                    <td>Varierer sterkt</td>
+                </tr>
+                <tr>
+                    <td><strong>Dekningsgrad</strong></td>
+                    <td>Utvalgte tema</td>
+                    <td>Bred klinisk dekning</td>
+                    <td>Legemiddelspesifikk</td>
+                    <td>Ujevn</td>
+                </tr>
+                <tr>
+                    <td><strong>Tilpasning til norsk kontekst</strong></td>
+                    <td>Høy</td>
+                    <td>Lav (internasjonal)</td>
+                    <td>Middels</td>
+                    <td>Varierer</td>
+                </tr>
+                <tr>
+                    <td><strong>Primær målgruppe</strong></td>
+                    <td>Helsepersonell + innbyggere</td>
+                    <td>Helsepersonell</td>
+                    <td>Helsepersonell + innbyggere</td>
+                    <td>Innbyggere</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Del 5: Aktørkort -->
+    <h2 class="section-heading">Del 4: Aktørkort etter strøm</h2>
+
+    <!-- Strøm 3a -->
+    <div class="stream-group">
+        <div class="stream-group-title stream-3a">Strøm 3a: Den normerende strømmen</div>
+        <div class="actor-grid">
+            <div class="actor-card border-3a">
+                <span class="badge badge-3a">Normerende</span>
+                <h3>Helsedirektoratet</h3>
+                <div class="role">Retningslinjeutvikler og normerende myndighet</div>
+                <div class="deliveries">Nasjonale faglige retningslinjer, veiledere, faglige råd, innbyggerrettede helseråd</div>
+            </div>
+            <div class="actor-card border-3a">
+                <span class="badge badge-3a">Normerende</span>
+                <h3>Helsebiblioteket (FHI)</h3>
+                <div class="role">Kunnskapsformidler til helsepersonell</div>
+                <div class="deliveries">Retningslinjesamlinger, tilgang til databaser og oppslagsverk, fagprosedyrer</div>
+            </div>
+            <div class="actor-card border-3a">
+                <span class="badge badge-3a">Normerende</span>
+                <h3>helsenorge.no (NHN / Helsedirektoratet)</h3>
+                <div class="role">Innbyggerrettet formidlingskanal</div>
+                <div class="deliveries">Kvalitetssikret helseinformasjon i klarspråk, helseråd, informasjon om rettigheter</div>
+            </div>
+            <div class="actor-card border-3a">
+                <span class="badge badge-3a">Normerende</span>
+                <h3>Regionale helseforetak (RHF-ene)</h3>
+                <div class="role">Implementering i spesialisthelsetjenesten</div>
+                <div class="deliveries">Implementerte behandlingsprosedyrer, oppdatert klinisk praksis</div>
+            </div>
+            <div class="actor-card border-3a">
+                <span class="badge badge-3a">Normerende</span>
+                <h3>KS og kommunene</h3>
+                <div class="role">Implementering i kommunal helse- og omsorgstjeneste</div>
+                <div class="deliveries">Oppdatert praksis i primærhelsetjenesten, lokalt tilpassede helseråd</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strøm 3b -->
+    <div class="stream-group">
+        <div class="stream-group-title stream-3b">Strøm 3b: Den kliniske kunnskapsstrømmen</div>
+        <div class="actor-grid">
+            <div class="actor-card border-3b">
+                <span class="badge badge-3b">Klinisk</span>
+                <h3>UpToDate / BMJ Best Practice</h3>
+                <div class="role">Internasjonal sanntids-kunnskap for helsepersonell</div>
+                <div class="deliveries">Evidensbaserte kliniske anbefalinger, kalkulatorer. Tilgjengelig via Helsebiblioteket.</div>
+            </div>
+            <div class="actor-card border-3b">
+                <span class="badge badge-3b">Klinisk</span>
+                <h3>Fagprosedyrer.no / OUS</h3>
+                <div class="role">Lokal og regional kunnskapsproduksjon</div>
+                <div class="deliveries">Kunnskapsbaserte fagprosedyrer for diagnostikk, behandling og pleie</div>
+            </div>
+            <div class="actor-card border-3b">
+                <span class="badge badge-3b">Klinisk</span>
+                <h3>Fagmedisinske foreninger og tidsskrifter</h3>
+                <div class="role">Faglig formidling til helsepersonell</div>
+                <div class="deliveries">Tidsskriftartikler, faglige debatter, kurs og konferanser</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strøm 3c -->
+    <div class="stream-group">
+        <div class="stream-group-title stream-3c">Strøm 3c: Legemiddelstrømmen</div>
+        <div class="actor-grid">
+            <div class="actor-card border-3c">
+                <span class="badge badge-3c">Legemiddel</span>
+                <h3>Direktoratet for medisinske produkter (DMP)</h3>
+                <div class="role">Regulatorisk myndighet for legemidler og medisinsk utstyr</div>
+                <div class="deliveries">Markedsføringstillatelser, sikkerhetsvarsler, veiledere, terapirapporter</div>
+            </div>
+            <div class="actor-card border-3c">
+                <span class="badge badge-3c">Legemiddel</span>
+                <h3>Felleskatalogen</h3>
+                <div class="role">Legemiddeldatabase for helsepersonell og innbyggere</div>
+                <div class="deliveries">Preparatomtaler (SPC), pakningsvedlegg, interaksjonssøk, ATC-register</div>
+            </div>
+            <div class="actor-card border-3c">
+                <span class="badge badge-3c">Legemiddel</span>
+                <h3>RELIS (Regionale legemiddelinformasjonssentre)</h3>
+                <div class="role">Uavhengig legemiddelinformasjon</div>
+                <div class="deliveries">Individuell rådgivning, fagartikler, Trygg Mammamedisin, KUPP-kampanjer</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Strøm 3d -->
+    <div class="stream-group">
+        <div class="stream-group-title stream-3d">Strøm 3d: Den innbyggerrettede strømmen</div>
+        <div class="actor-grid">
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>Pasientorganisasjoner</h3>
+                <div class="role">Erfaringsbasert kunnskap og innbyggerformidling</div>
+                <div class="deliveries">Pasientrettet informasjon, rådgivningstjenester, likepersonstøtte (Kreftforeningen, Diabetesforbundet, FFO m.fl.)</div>
+            </div>
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>Medier og helsejournalistikk</h3>
+                <div class="role">Formidling av forskningsfunn direkte til innbyggere</div>
+                <div class="deliveries">Nyhetsartikler, populærvitenskapelig formidling. Rask, men varierende kvalitetssikring.</div>
+            </div>
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>Sosiale medier og nettfora</h3>
+                <div class="role">Uformell formidling</div>
+                <div class="deliveries">Erfaringsdeling, diskusjoner. Stor innflytelse på helseadferd, minst kontrollerte kanalen.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="source-note">
+        <strong>Kilde:</strong> Basert på Delrapport 1: Dagens verdikjede for kunnskapsforvaltning i helsesektoren (oppdatert 2026-03-17).
+        Tidsestimatene er scenariobaserte og representerer typiske forløp, ikke unntakssituasjoner.
+        I hastesituasjoner (som under covid-19-pandemien) har prosessene blitt gjennomført vesentlig raskere.
+    </div>
+
+</div>
+
+<script>
+(function() {
+    var svg = document.getElementById('networkDiagram');
+    var ns = 'http://www.w3.org/2000/svg';
+
+    // Colors
+    var C = {
+        norm: '#003366',   // 3a
+        klin: '#27ae60',   // 3b
+        lege: '#e67e22',   // 3c
+        innb: '#8e44ad',   // 3d
+        target: '#f1c40f',
+        source: '#5d6d7e'
+    };
+
+    // Node definitions
+    // Source node (steg 2 output)
+    var sourceNode = { id: 'S2', label: 'Steg 2:\nKunnskaps-\noppsummeringer', x: 100, y: 290, color: C.source, textColor: '#ffffff' };
+
+    // Stream 3a nodes
+    var nodes3a = [
+        { id: 'HDIR',  label: 'Helsedirektoratet',    x: 340, y: 60,  stream: '3a' },
+        { id: 'HBIB',  label: 'Helsebiblioteket',      x: 580, y: 60,  stream: '3a' },
+        { id: 'HNOR',  label: 'helsenorge.no',          x: 580, y: 140, stream: '3a' }
+    ];
+
+    // Stream 3b nodes
+    var nodes3b = [
+        { id: 'UTD',  label: 'UpToDate /\nBMJ Best Practice', x: 340, y: 220, stream: '3b' },
+        { id: 'FPROC',label: 'Fagprosedyrer.no\n/ OUS',       x: 540, y: 220, stream: '3b' },
+        { id: 'FFORE',label: 'Fagmedisinske\nforeninger',      x: 540, y: 300, stream: '3b' }
+    ];
+
+    // Stream 3c nodes
+    var nodes3c = [
+        { id: 'DMP',  label: 'DMP',            x: 340, y: 380, stream: '3c' },
+        { id: 'FK',   label: 'Felleskatalogen', x: 540, y: 380, stream: '3c' },
+        { id: 'RELIS',label: 'RELIS',           x: 540, y: 450, stream: '3c' }
+    ];
+
+    // Stream 3d nodes
+    var nodes3d = [
+        { id: 'PORG', label: 'Pasient-\norganisasjoner', x: 340, y: 520, stream: '3d' },
+        { id: 'MEDI', label: 'Medier',                    x: 540, y: 520, stream: '3d' },
+    ];
+
+    // Target nodes
+    var targetHP  = { id: 'HP',  label: 'Helsepersonell', x: 880, y: 220, color: C.target, textColor: '#333333' };
+    var targetINN = { id: 'INN', label: 'Innbyggere',      x: 880, y: 440, color: C.target, textColor: '#333333' };
+
+    // Speed labels positioned between streams and targets
+    var speedLabels = [
+        { text: '1\u20135 år',       x: 750, y: 95,  color: C.norm },
+        { text: 'Uker\u2013mnd',    x: 750, y: 260, color: C.klin },
+        { text: 'Dager\u2013uker',  x: 750, y: 410, color: C.lege },
+        { text: 'Timer\u2013mnd',   x: 750, y: 520, color: C.innb }
+    ];
+
+    // All nodes in a lookup
+    var allStreamNodes = nodes3a.concat(nodes3b).concat(nodes3c).concat(nodes3d);
+    var allNodes = {};
+    allStreamNodes.forEach(function(n) { allNodes[n.id] = n; });
+    allNodes[sourceNode.id] = sourceNode;
+    allNodes[targetHP.id] = targetHP;
+    allNodes[targetINN.id] = targetINN;
+
+    // Stream color map
+    function streamColor(stream) {
+        if (stream === '3a') return C.norm;
+        if (stream === '3b') return C.klin;
+        if (stream === '3c') return C.lege;
+        if (stream === '3d') return C.innb;
+        return '#999999';
+    }
+
+    // Edges
+    var edges = [
+        // From source to first node in each stream
+        { from: 'S2', to: 'HDIR',  stream: '3a' },
+        { from: 'S2', to: 'UTD',   stream: '3b' },
+        { from: 'S2', to: 'DMP',   stream: '3c' },
+        { from: 'S2', to: 'PORG',  stream: '3d' },
+
+        // Internal 3a
+        { from: 'HDIR', to: 'HBIB', stream: '3a' },
+        { from: 'HDIR', to: 'HNOR', stream: '3a' },
+
+        // Internal 3b
+        { from: 'UTD',   to: 'FPROC', stream: '3b' },
+        { from: 'UTD',   to: 'FFORE', stream: '3b' },
+
+        // Internal 3c
+        { from: 'DMP',   to: 'FK',    stream: '3c' },
+        { from: 'DMP',   to: 'RELIS', stream: '3c' },
+
+        // Internal 3d
+        { from: 'PORG',  to: 'MEDI',  stream: '3d' },
+
+        // To helsepersonell
+        { from: 'HBIB',  to: 'HP', stream: '3a' },
+        { from: 'UTD',   to: 'HP', stream: '3b' },
+        { from: 'FPROC', to: 'HP', stream: '3b' },
+        { from: 'FFORE', to: 'HP', stream: '3b' },
+        { from: 'FK',    to: 'HP', stream: '3c' },
+        { from: 'RELIS', to: 'HP', stream: '3c' },
+
+        // To innbyggere
+        { from: 'HNOR',  to: 'INN', stream: '3a' },
+        { from: 'FK',    to: 'INN', stream: '3c' },
+        { from: 'PORG',  to: 'INN', stream: '3d' },
+        { from: 'MEDI',  to: 'INN', stream: '3d' }
+    ];
+
+    // Arrow markers
+    function addMarker(id, color) {
+        var defs = svg.querySelector('defs');
+        if (!defs) {
+            defs = document.createElementNS(ns, 'defs');
+            svg.insertBefore(defs, svg.firstChild);
+        }
+        var marker = document.createElementNS(ns, 'marker');
+        marker.setAttribute('id', id);
+        marker.setAttribute('viewBox', '0 0 10 10');
+        marker.setAttribute('refX', '9');
+        marker.setAttribute('refY', '5');
+        marker.setAttribute('markerWidth', '6');
+        marker.setAttribute('markerHeight', '6');
+        marker.setAttribute('orient', 'auto-start-reverse');
+        var path = document.createElementNS(ns, 'path');
+        path.setAttribute('d', 'M 0 0 L 10 5 L 0 10 z');
+        path.setAttribute('fill', color);
+        marker.appendChild(path);
+        defs.appendChild(marker);
+    }
+
+    addMarker('arrow-3a', C.norm);
+    addMarker('arrow-3b', C.klin);
+    addMarker('arrow-3c', C.lege);
+    addMarker('arrow-3d', C.innb);
+    addMarker('arrow-src', C.source);
+
+    // Draw stream lane backgrounds
+    var lanes = [
+        { y: 30,  h: 130, color: C.norm, label: '3a. Normerende',       labelY: 100 },
+        { y: 180, h: 140, color: C.klin, label: '3b. Klinisk',          labelY: 260 },
+        { y: 340, h: 130, color: C.lege, label: '3c. Legemiddel',       labelY: 410 },
+        { y: 490, h: 80,  color: C.innb, label: '3d. Innbyggerrettet',  labelY: 530 }
+    ];
+
+    lanes.forEach(function(lane) {
+        var rect = document.createElementNS(ns, 'rect');
+        rect.setAttribute('x', 220);
+        rect.setAttribute('y', lane.y);
+        rect.setAttribute('width', 600);
+        rect.setAttribute('height', lane.h);
+        rect.setAttribute('rx', 8);
+        rect.setAttribute('fill', lane.color);
+        rect.setAttribute('opacity', '0.06');
+        svg.appendChild(rect);
+
+        // Lane border left
+        var border = document.createElementNS(ns, 'rect');
+        border.setAttribute('x', 220);
+        border.setAttribute('y', lane.y);
+        border.setAttribute('width', 4);
+        border.setAttribute('height', lane.h);
+        border.setAttribute('rx', 2);
+        border.setAttribute('fill', lane.color);
+        border.setAttribute('opacity', '0.4');
+        svg.appendChild(border);
+
+        // Lane label (vertical along left edge)
+        var text = document.createElementNS(ns, 'text');
+        text.setAttribute('x', 232);
+        text.setAttribute('y', lane.y + 16);
+        text.setAttribute('fill', lane.color);
+        text.setAttribute('font-size', '11');
+        text.setAttribute('font-weight', '700');
+        text.setAttribute('font-family', 'system-ui, sans-serif');
+        text.setAttribute('opacity', '0.7');
+        text.textContent = lane.label;
+        svg.appendChild(text);
+    });
+
+    // Draw edges
+    function drawEdge(fromNode, toNode, color, markerRef) {
+        var x1 = fromNode.x, y1 = fromNode.y;
+        var x2 = toNode.x,   y2 = toNode.y;
+
+        var dx = x2 - x1;
+        var dy = y2 - y1;
+        var len = Math.sqrt(dx*dx + dy*dy);
+        if (len === 0) return;
+        var ux = dx / len;
+        var uy = dy / len;
+
+        // Shorten by node half-width approximation
+        var r1 = fromNode.id === 'S2' ? 65 : 70;
+        var r2 = (toNode.id === 'HP' || toNode.id === 'INN') ? 65 : 70;
+
+        var sx = x1 + ux * r1;
+        var sy = y1 + uy * r1;
+        var ex = x2 - ux * r2;
+        var ey = y2 - uy * r2;
+
+        var line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', sx);
+        line.setAttribute('y1', sy);
+        line.setAttribute('x2', ex);
+        line.setAttribute('y2', ey);
+        line.setAttribute('stroke', color);
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-opacity', '0.7');
+        line.setAttribute('marker-end', 'url(#' + markerRef + ')');
+        svg.appendChild(line);
+    }
+
+    edges.forEach(function(e) {
+        var fromNode = allNodes[e.from];
+        var toNode = allNodes[e.to];
+        var color = streamColor(e.stream);
+        var marker = 'arrow-' + e.stream;
+        if (e.from === 'S2') {
+            color = streamColor(e.stream);
+            marker = 'arrow-' + e.stream;
+        }
+        drawEdge(fromNode, toNode, color, marker);
+    });
+
+    // Draw nodes
+    function drawNode(node, fillColor, textColor, strokeColor, w, h) {
+        var lines = node.label.split('\n');
+        var boxW = w || 130;
+        var boxH = h || (lines.length > 2 ? 56 : (lines.length > 1 ? 46 : 34));
+        var rx = 8;
+
+        var rect = document.createElementNS(ns, 'rect');
+        rect.setAttribute('x', node.x - boxW/2);
+        rect.setAttribute('y', node.y - boxH/2);
+        rect.setAttribute('width', boxW);
+        rect.setAttribute('height', boxH);
+        rect.setAttribute('rx', rx);
+        rect.setAttribute('ry', rx);
+        rect.setAttribute('fill', fillColor);
+        rect.setAttribute('stroke', strokeColor);
+        rect.setAttribute('stroke-width', '2');
+        svg.appendChild(rect);
+
+        lines.forEach(function(line, i) {
+            var text = document.createElementNS(ns, 'text');
+            text.setAttribute('x', node.x);
+            var lineY = node.y + (i - (lines.length - 1) / 2) * 15;
+            text.setAttribute('y', lineY);
+            text.setAttribute('text-anchor', 'middle');
+            text.setAttribute('dominant-baseline', 'central');
+            text.setAttribute('fill', textColor);
+            text.setAttribute('font-size', '11.5');
+            text.setAttribute('font-weight', '600');
+            text.setAttribute('font-family', 'system-ui, sans-serif');
+            text.textContent = line;
+            svg.appendChild(text);
+        });
+    }
+
+    // Draw source node
+    drawNode(sourceNode, C.source, '#ffffff', '#3d4d5e', 140, 60);
+
+    // Draw stream nodes
+    allStreamNodes.forEach(function(n) {
+        var c = streamColor(n.stream);
+        drawNode(n, '#ffffff', c, c);
+    });
+
+    // Draw target nodes
+    drawNode(targetHP,  C.target, '#333333', '#d4a800', 140, 44);
+    drawNode(targetINN, C.target, '#333333', '#d4a800', 140, 44);
+
+    // Draw speed labels
+    speedLabels.forEach(function(sl) {
+        // Background pill
+        var pill = document.createElementNS(ns, 'rect');
+        var pw = 90, ph = 24;
+        pill.setAttribute('x', sl.x - pw/2);
+        pill.setAttribute('y', sl.y - ph/2);
+        pill.setAttribute('width', pw);
+        pill.setAttribute('height', ph);
+        pill.setAttribute('rx', 12);
+        pill.setAttribute('fill', sl.color);
+        pill.setAttribute('opacity', '0.15');
+        svg.appendChild(pill);
+
+        var text = document.createElementNS(ns, 'text');
+        text.setAttribute('x', sl.x);
+        text.setAttribute('y', sl.y);
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('dominant-baseline', 'central');
+        text.setAttribute('fill', sl.color);
+        text.setAttribute('font-size', '12');
+        text.setAttribute('font-weight', '700');
+        text.setAttribute('font-family', 'system-ui, sans-serif');
+        text.textContent = sl.text;
+        svg.appendChild(text);
+    });
+
+})();
+</script>
+
+</body>
+</html>

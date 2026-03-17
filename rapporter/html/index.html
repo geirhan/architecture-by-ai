@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ny verdikjede for kunnskapsforvaltning i helsesektoren</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+
+    h3 {
+      color: #003366;
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    p, li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: #005599;
+    }
+    a:hover {
+      color: #003366;
+    }
+
+    /* TOC list */
+    .toc-list {
+      list-style: none;
+      padding: 0;
+    }
+    .toc-list li {
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      background: #f5f7fa;
+      border-left: 4px solid #003366;
+      border-radius: 0 4px 4px 0;
+    }
+    .toc-list li a {
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+    .toc-list li a:hover {
+      text-decoration: underline;
+    }
+    .toc-list li p {
+      margin: 0.3rem 0 0;
+      color: #555;
+      font-size: 0.92rem;
+    }
+
+    /* Ordliste */
+    .glossary {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .glossary-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .glossary th, .glossary td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    .glossary th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    .glossary tr:hover {
+      background: #f9fafb;
+    }
+    .glossary td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+      color: #003366;
+    }
+
+    /* Kildeliste */
+    .source-list {
+      list-style: none;
+      padding: 0;
+    }
+    .source-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #eef1f5;
+    }
+    .source-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      .toc-list li { background: #fff; border-left-color: #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Ny verdikjede for kunnskapsforvaltning i helsesektoren</h1>
+  <p>Utredning om modernisering av kunnskapsforvaltningen med KI-støtte</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html" class="active">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <h2>Innholdsfortegnelse</h2>
+
+  <ul class="toc-list">
+    <li>
+      <a href="ledersammendrag.html">Ledersammendrag</a>
+      <p>Overordnede funn, hovedanbefaling og nokkeltall fra utredningen. Gir et raskt overblikk for beslutningstakere.</p>
+    </li>
+    <li>
+      <a href="dagens-verdikjede.html">Delrapport 1: Dagens verdikjede</a>
+      <p>Kartlegging av dagens prosess fra forskning til formidlet kunnskap til innbyggere. Dekker verdikjeden i fem hovedsteg, aktorkart, tidsbruk, informasjonsflyt og kvalitetssikringsmekanismer.</p>
+    </li>
+    <li>
+      <a href="utfordringer-og-flaskehalser.html">Delrapport 2: Utfordringer og flaskehalser</a>
+      <p>Kartlegging av utfordringer og flaskehalser i verdikjeden. Analyserer forsinkelser i hvert steg, konsekvenser for innbyggere og helsepersonell, kvantitative indikatorer, strukturelle utfordringer og rangering etter alvorlighet.</p>
+    </li>
+    <li>
+      <a href="llm-muligheter-og-risikoer.html">Delrapport 3: Store sprakmodeller &ndash; muligheter og risikoer</a>
+      <p>Balansert vurdering av LLM-teknologiens potensial og risikobilde for kunnskapsforvaltning i helse. Inkluderer akselerert kunnskapssyntese, retningslinjestotte, hallusinering, bias, personvern og EU AI Act-implikasjoner.</p>
+    </li>
+    <li>
+      <a href="ny-verdikjede.html">Delrapport 4: Alternativer for ny verdikjede</a>
+      <p>Presenterer og vurderer tre alternativer: nullalternativet, moderat KI-støtte og ambisiøs KI-pipeline. Inkluderer sammenligningstabell, governance-modell, kvalitetssikringsprosess og faseinndelt anbefaling.</p>
+    </li>
+    <li>
+      <a href="arkitektur-og-komponenter.html">Delrapport 5: Arkitektur og komponenter</a>
+      <p>Teknisk og organisatorisk arkitektur med ArchiMate-struktur (forretningslag, applikasjonslag, teknologilag), seks kjernekomponenter, integrasjoner, EHDS-kobling, standarder, sikkerhet og personvern.</p>
+    </li>
+    <li>
+      <a href="internasjonale-erfaringer.html">Delrapport 6: Internasjonale erfaringer</a>
+      <p>Kartlegger WHO SMART Guidelines, NICE Evidence Standards Framework, Cochrane KI-piloter, nordiske erfaringer og andre relevante initiativ, med vurdering av overførbarhet til norsk kontekst.</p>
+    </li>
+    <li>
+      <a href="samlet-vurdering.html">Delrapport 7: Samlet vurdering og anbefaling</a>
+      <p>Syntetiserer funn fra delrapport 1&ndash;6 og gir helhetlig anbefaling om faseinndelt innføring av KI-støttet kunnskapsforvaltning. Inkluderer risikomatrise, fremdriftsplan med milepæler og kostnadsramme.</p>
+    </li>
+    <li>
+      <a href="visualiseringer.html">Visualiseringer</a>
+      <p>Interaktive visualiseringer som oppsummerer sentrale funn fra utredningen, inkludert verdikjedeoversikter, gap-analyser og arkitekturdiagrammer.</p>
+    </li>
+  </ul>
+
+  <h2>Ordliste</h2>
+
+  <div class="glossary-wrapper">
+    <table class="glossary">
+      <thead>
+        <tr><th>Forkortelse</th><th>Forklaring</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>DPIA</td><td>Data Protection Impact Assessment &ndash; vurdering av personvernkonsekvenser</td></tr>
+        <tr><td>EHDS</td><td>European Health Data Space &ndash; det europeiske helsedataområdet</td></tr>
+        <tr><td>EPJ</td><td>Elektronisk pasientjournal</td></tr>
+        <tr><td>EU AI Act</td><td>EUs forordning om kunstig intelligens</td></tr>
+        <tr><td>FHI</td><td>Folkehelseinstituttet</td></tr>
+        <tr><td>FHIR</td><td>Fast Healthcare Interoperability Resources &ndash; standard for utveksling av helseinformasjon</td></tr>
+        <tr><td>GRADE</td><td>Grading of Recommendations Assessment, Development and Evaluation &ndash; rammeverk for vurdering av kunnskapsgrunnlag</td></tr>
+        <tr><td>HOD</td><td>Helse- og omsorgsdepartementet</td></tr>
+        <tr><td>KI</td><td>Kunstig intelligens</td></tr>
+        <tr><td>KS</td><td>Kommunesektorens organisasjon</td></tr>
+        <tr><td>LLM</td><td>Large Language Model &ndash; stor språkmodell</td></tr>
+        <tr><td>MDR</td><td>Medical Devices Regulation &ndash; EUs forordning om medisinsk utstyr</td></tr>
+        <tr><td>NHN</td><td>Norsk helsenett</td></tr>
+        <tr><td>NICE</td><td>National Institute for Health and Care Excellence &ndash; britisk institutt for helse og klinisk kvalitet</td></tr>
+        <tr><td>RAG</td><td>Retrieval-Augmented Generation &ndash; gjenfinningsforsterket tekstgenerering</td></tr>
+        <tr><td>RHF</td><td>Regionalt helseforetak</td></tr>
+        <tr><td>SMART</td><td>Standards-based, Machine-readable, Adaptive, Requirements-based, Testable &ndash; WHOs rammeverk for digitale retningslinjer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Kildeliste</h2>
+
+  <ul class="source-list">
+    <li><strong>Helsedirektoratet</strong> &ndash; <a href="https://www.helsedirektoratet.no/" target="_blank" rel="noopener">Retningslinjer og veiledere</a></li>
+    <li><strong>Helsedirektoratet</strong> &ndash; <a href="https://www.helsedirektoratet.no/tema/ehds" target="_blank" rel="noopener">EHDS konsekvensvurdering</a></li>
+    <li><strong>Folkehelseinstituttet (FHI)</strong> &ndash; <a href="https://www.fhi.no/publ/systematiske-oversikter/" target="_blank" rel="noopener">Kunnskapsoppsummeringer og systematiske oversikter</a></li>
+    <li><strong>Helsebiblioteket</strong> &ndash; <a href="https://www.helsebiblioteket.no/" target="_blank" rel="noopener">helsebiblioteket.no</a></li>
+    <li><strong>helsenorge.no</strong> &ndash; <a href="https://www.helsenorge.no/" target="_blank" rel="noopener">Helseinformasjon til innbyggere</a></li>
+    <li><strong>Norsk helsenett (NHN)</strong> &ndash; <a href="https://www.nhn.no/ehds" target="_blank" rel="noopener">Informasjon om EHDS-implementering</a></li>
+    <li><strong>WHO</strong> &ndash; <a href="https://www.who.int/teams/digital-health-and-innovation/smart-guidelines" target="_blank" rel="noopener">SMART Guidelines</a></li>
+    <li><strong>NICE</strong> &ndash; <a href="https://www.nice.org.uk/about/what-we-do/our-programmes/evidence-standards-framework-for-digital-health-technologies" target="_blank" rel="noopener">Evidence Standards Framework for Digital Health Technologies</a></li>
+    <li><strong>EU</strong> &ndash; <a href="https://artificialintelligenceact.eu/" target="_blank" rel="noopener">EU AI Act &ndash; forordning om kunstig intelligens</a></li>
+    <li><strong>Regjeringen</strong> &ndash; <a href="https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018462/" target="_blank" rel="noopener">Meld. St. 9 (2023&ndash;2024) Nasjonal helse- og samhandlingsplan</a></li>
+    <li><strong>DFO</strong> &ndash; <a href="https://dfo.no/fagomrader/utredning/utredningsinstruksen" target="_blank" rel="noopener">Utredningsinstruksen</a></li>
+  </ul>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

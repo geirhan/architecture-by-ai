@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komponentarkitektur – KI-støttet kunnskapsforvaltning</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #fff;
+    color: #333;
+    line-height: 1.7;
+  }
+  header {
+    background: #003366;
+    color: #fff;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  header h1 { font-size: 1.5rem; font-weight: 600; }
+  header p { font-size: 0.9rem; opacity: 0.85; margin-top: 0.3rem; }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  .description {
+    background: #f0f4f8;
+    border-left: 4px solid #003366;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+  }
+  .description strong { color: #003366; }
+
+  /* Diagram container */
+  .diagram {
+    position: relative;
+    width: 100%;
+  }
+
+  /* Layer styling */
+  .layer {
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .layer-label {
+    position: absolute;
+    top: -0.75rem;
+    left: 1rem;
+    padding: 0 0.5rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* ArchiMate colors */
+  .layer-ui {
+    border-color: #d4a017;
+    background: #fef9e7;
+  }
+  .layer-ui .layer-label {
+    background: #fef9e7;
+    color: #8b6914;
+  }
+  .layer-app {
+    border-color: #2980b9;
+    background: #eaf2f8;
+  }
+  .layer-app .layer-label {
+    background: #eaf2f8;
+    color: #1a5276;
+  }
+  .layer-integration {
+    border-color: #27ae60;
+    background: #eafaf1;
+  }
+  .layer-integration .layer-label {
+    background: #eafaf1;
+    color: #1e7e46;
+  }
+  .layer-infra {
+    border-color: #27ae60;
+    background: #e8f8f0;
+  }
+  .layer-infra .layer-label {
+    background: #e8f8f0;
+    color: #1e7e46;
+  }
+
+  /* Component boxes */
+  .components {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .component {
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    position: relative;
+    min-width: 150px;
+    flex: 1 1 auto;
+    max-width: 240px;
+  }
+  .component .sub {
+    display: block;
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: #555;
+    margin-top: 0.2rem;
+  }
+  /* Component icon (ArchiMate-style) */
+  .component::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid;
+    border-radius: 2px;
+  }
+
+  /* UI components - yellow */
+  .comp-ui {
+    background: #fdf2c5;
+    border-color: #d4a017;
+    color: #5a4510;
+  }
+  .comp-ui::before { border-color: #d4a017; }
+
+  /* App components - blue */
+  .comp-app {
+    background: #d4e6f1;
+    border-color: #2980b9;
+    color: #1a3c5e;
+  }
+  .comp-app::before { border-color: #2980b9; }
+
+  /* Integration components - green */
+  .comp-int {
+    background: #d5f5e3;
+    border-color: #27ae60;
+    color: #145a32;
+  }
+  .comp-int::before { border-color: #27ae60; }
+
+  /* Infra components - darker green */
+  .comp-infra {
+    background: #c8f0da;
+    border-color: #1e8449;
+    color: #0e4a25;
+  }
+  .comp-infra::before { border-color: #1e8449; }
+
+  /* Sub-groups within a layer */
+  .sub-group {
+    margin-top: 0.5rem;
+  }
+  .sub-group-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+    padding-left: 0.3rem;
+  }
+
+  /* Arrows between layers */
+  .arrows {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: -0.5rem 0;
+    position: relative;
+    z-index: 1;
+  }
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #666;
+  }
+  .arrow svg {
+    width: 24px;
+    height: 28px;
+  }
+  .arrow-label {
+    font-size: 0.65rem;
+    color: #888;
+  }
+
+  /* Quality module spanning */
+  .quality-span {
+    border: 2px dashed #e74c3c;
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #fdedec;
+    color: #922b21;
+    position: relative;
+    width: 100%;
+    max-width: none;
+    flex-basis: 100%;
+  }
+  .quality-span::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    width: 14px;
+    height: 14px;
+    border: 1.5px dashed #e74c3c;
+    border-radius: 2px;
+  }
+  .quality-span .sub {
+    color: #78281f;
+  }
+
+  /* Data flow indicator */
+  .dataflow {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+  }
+  .dataflow h3 {
+    font-size: 0.9rem;
+    color: #003366;
+    margin-bottom: 0.4rem;
+  }
+  .dataflow-arrow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .dataflow-step {
+    background: #003366;
+    color: #fff;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .dataflow-sep {
+    color: #003366;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.8rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .legend-swatch {
+    width: 20px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1.5px solid;
+    flex-shrink: 0;
+  }
+
+  /* Source reference */
+  .source {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1rem;
+    background: #f0f4f8;
+    border-left: 4px solid #003366;
+    font-size: 0.82rem;
+    color: #444;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .component, .quality-span { min-width: 120px; font-size: 0.72rem; }
+    .component .sub, .quality-span .sub { font-size: 0.65rem; }
+    .components { gap: 0.5rem; }
+    header h1 { font-size: 1.2rem; }
+  }
+
+  /* Print */
+  @media print {
+    header { background: #003366 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .layer, .component, .quality-span { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { font-size: 10pt; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Komponentarkitektur for KI-st&oslash;ttet kunnskapsforvaltning</h1>
+  <p>ArchiMate-inspirert lagdelt diagram &ndash; Delrapport 5</p>
+</header>
+
+<div class="container">
+
+  <div class="description">
+    Diagrammet viser den overordnede komponentarkitekturen for KI-st&oslash;ttet kunnskapsforvaltning i helsesektoren, strukturert etter ArchiMate-rammeverkets lag. <strong>Forretningslaget</strong> (gult) viser brukergrensesnittene, <strong>applikasjonslaget</strong> (bl&aring;tt) viser de seks kjernekomponentene, og <strong>teknologilaget</strong> (gr&oslash;nt) viser integrasjoner og infrastruktur. Kvalitetssikringsmodulen (r&oslash;d stiplet boks) opererer som en tversg&aring;ende kontroll p&aring; alle trinn.
+  </div>
+
+  <div class="diagram">
+
+    <!-- LAG 1: Brukergrensesnitt -->
+    <div class="layer layer-ui">
+      <span class="layer-label">Forretningslag &ndash; Brukergrensesnitt</span>
+      <div class="components">
+        <div class="component comp-ui">
+          Innbyggerportal
+          <span class="sub">helsenorge.no</span>
+        </div>
+        <div class="component comp-ui">
+          Helsepersonellportal
+          <span class="sub">Helsebiblioteket / fagportalen</span>
+        </div>
+        <div class="component comp-ui">
+          Fagekspertverkt&oslash;y
+          <span class="sub">Retningslinjearbeid, syntese, QA</span>
+        </div>
+        <div class="component comp-ui">
+          Administratorkonsoll
+          <span class="sub">Konfigurasjon og drift</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow down -->
+    <div class="arrows">
+      <div class="arrow">
+        <svg viewBox="0 0 24 28"><path d="M12 2 L12 22 M6 16 L12 24 L18 16" stroke="#888" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="arrow">
+        <svg viewBox="0 0 24 28"><path d="M12 24 L12 4 M6 10 L12 2 L18 10" stroke="#888" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="arrow-label" style="align-self:center">brukerinteraksjon</div>
+    </div>
+
+    <!-- LAG 2: Applikasjonstjenester -->
+    <div class="layer layer-app">
+      <span class="layer-label">Applikasjonslag &ndash; Kjernekomponenter</span>
+
+      <div class="sub-group">
+        <div class="sub-group-label">Produksjonskomponenter</div>
+        <div class="components">
+          <div class="component comp-app">
+            1. Kunnskapssyntese-motor
+            <span class="sub">LLM + RAG + vitenskapelige databaser</span>
+          </div>
+          <div class="component comp-app">
+            2. Retningslinsjest&oslash;ttesystem
+            <span class="sub">Utkast, konsistens, versjon</span>
+          </div>
+          <div class="component comp-app">
+            3. Kunnskapsformidlingsplattform
+            <span class="sub">Klarspr&aring;k, flerspr&aring;klig, multiformat</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-group">
+        <div class="sub-group-label">St&oslash;ttekomponenter</div>
+        <div class="components">
+          <div class="component comp-app">
+            4. Innbygger-chatbot
+            <span class="sub">RAG mot verifiserte kilder</span>
+          </div>
+          <div class="component comp-app">
+            6. Kunnskapsbase
+            <span class="sub">Versjonering, metadata, FHIR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-group" style="margin-top: 0.7rem;">
+        <div class="sub-group-label">Tversg&aring;ende kvalitetskontroll</div>
+        <div class="components">
+          <div class="quality-span">
+            5. Kvalitetssikringsmodul
+            <span class="sub">Faktasjekk &bull; Hallusinering-deteksjon &bull; Sporbarhet &bull; Revisjonslogg &ndash; kobler til alle komponenter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow down -->
+    <div class="arrows">
+      <div class="arrow">
+        <svg viewBox="0 0 24 28"><path d="M12 2 L12 22 M6 16 L12 24 L18 16" stroke="#888" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="arrow">
+        <svg viewBox="0 0 24 28"><path d="M12 24 L12 4 M6 10 L12 2 L18 10" stroke="#888" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="arrow-label" style="align-self:center">API-er og standarder</div>
+    </div>
+
+    <!-- LAG 3: Integrasjonslag -->
+    <div class="layer layer-integration">
+      <span class="layer-label">Teknologilag &ndash; Integrasjoner</span>
+      <div class="components">
+        <div class="component comp-int">
+          FHIR API-er
+          <span class="sub">Clinical Knowledge Resources, CDS Hooks</span>
+        </div>
+        <div class="component comp-int">
+          EHDS-grensesnitt
+          <span class="sub">MyHealth@EU-adapter</span>
+        </div>
+        <div class="component comp-int">
+          HelseID
+          <span class="sub">Autentisering og autorisasjon</span>
+        </div>
+        <div class="component comp-int">
+          Nasjonale registre
+          <span class="sub">Helseregistre, Grunndata</span>
+        </div>
+        <div class="component comp-int">
+          PubMed / Cochrane
+          <span class="sub">Vitenskapelige databaser</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow down -->
+    <div class="arrows">
+      <div class="arrow">
+        <svg viewBox="0 0 24 28"><path d="M12 2 L12 22 M6 16 L12 24 L18 16" stroke="#888" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="arrow">
+        <svg viewBox="0 0 24 28"><path d="M12 24 L12 4 M6 10 L12 2 L18 10" stroke="#888" stroke-width="2" fill="none"/></svg>
+      </div>
+      <div class="arrow-label" style="align-self:center">infrastrukturtjenester</div>
+    </div>
+
+    <!-- LAG 4: Infrastruktur -->
+    <div class="layer layer-infra">
+      <span class="layer-label">Teknologilag &ndash; Infrastruktur</span>
+      <div class="components">
+        <div class="component comp-infra">
+          Nasjonal skyinfrastruktur
+          <span class="sub">NHN &ndash; compute, storage, nettverk</span>
+        </div>
+        <div class="component comp-infra">
+          KI-beregningsressurser
+          <span class="sub">GPU-klynger, LLM-API-er</span>
+        </div>
+        <div class="component comp-infra">
+          Sikker datalagring
+          <span class="sub">Kryptering (AES-256, TLS 1.3)</span>
+        </div>
+        <div class="component comp-infra">
+          Nettverk og sikkerhetssoner
+          <span class="sub">NHN sikkerhetsarkitektur</span>
+        </div>
+        <div class="component comp-infra">
+          Observerbarhet
+          <span class="sub">Logging, monitorering, sporbarhet</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /diagram -->
+
+  <!-- Data flow -->
+  <div class="dataflow">
+    <h3>Dataflyt gjennom arkitekturen</h3>
+    <p>Kunnskap flyter fra eksterne kilder gjennom produksjonskomponentene til kunnskapsbasen, og derfra ut til brukerne. Kvalitetssikringsmodulen opererer som en tversg&aring;ende kontroll p&aring; alle trinn.</p>
+    <div class="dataflow-arrow">
+      <span class="dataflow-step">Eksterne kilder (PubMed, Cochrane)</span>
+      <span class="dataflow-sep">&rarr;</span>
+      <span class="dataflow-step">Kunnskapssyntese-motor</span>
+      <span class="dataflow-sep">&rarr;</span>
+      <span class="dataflow-step">Retningslinsjest&oslash;ttesystem</span>
+      <span class="dataflow-sep">&rarr;</span>
+      <span class="dataflow-step">Kunnskapsbase</span>
+      <span class="dataflow-sep">&rarr;</span>
+      <span class="dataflow-step">Formidling / Chatbot</span>
+      <span class="dataflow-sep">&rarr;</span>
+      <span class="dataflow-step">Innbyggere og helsepersonell</span>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#fdf2c5; border-color:#d4a017;"></div>
+      Forretningslag (gul)
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#d4e6f1; border-color:#2980b9;"></div>
+      Applikasjonslag (bl&aring;)
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#d5f5e3; border-color:#27ae60;"></div>
+      Teknologilag &ndash; integrasjon (gr&oslash;nn)
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#c8f0da; border-color:#1e8449;"></div>
+      Teknologilag &ndash; infrastruktur (gr&oslash;nn)
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#fdedec; border-color:#e74c3c; border-style:dashed;"></div>
+      Tversg&aring;ende kvalitetskontroll (r&oslash;d)
+    </div>
+  </div>
+
+  <!-- Source -->
+  <div class="source">
+    <strong>Kilde:</strong> Delrapport 5 &ndash; Arkitektur og komponenter for KI-st&oslash;ttet kunnskapsforvaltning (arkitektur-og-komponenter.md). Diagrammet er basert p&aring; kapittel 3&ndash;5 og 9 i delrapporten.
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>

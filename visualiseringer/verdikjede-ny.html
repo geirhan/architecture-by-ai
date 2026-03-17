@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ny KI-støttet verdikjede for kunnskapsforvaltning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #fff;
+            color: #333;
+            line-height: 1.7;
+        }
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+        header p { font-size: 0.95rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+        .intro {
+            background: #f0f4f8;
+            border-left: 4px solid #003366;
+            padding: 1rem 1.2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .intro p { font-size: 0.92rem; }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .legend-swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* Pipeline */
+        .pipeline { margin-bottom: 3rem; }
+        .pipeline h2 {
+            font-size: 1.3rem;
+            color: #003366;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.4rem;
+        }
+        .steps { display: flex; flex-direction: column; gap: 0; }
+
+        .step {
+            display: grid;
+            grid-template-columns: 56px 1fr 220px;
+            gap: 0;
+            position: relative;
+        }
+
+        /* Vertical connector line */
+        .step-number-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .step-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            background: #003366;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+        .step-line {
+            width: 3px;
+            flex: 1;
+            background: #b0c4de;
+        }
+        .step:last-child .step-line { display: none; }
+
+        .step-content {
+            background: #fff;
+            border: 1px solid #d0d8e0;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin: 0 0 1rem 0;
+        }
+        .step-content h3 {
+            font-size: 1rem;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.6rem;
+        }
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        .badge-ai {
+            background: #0d7c5f;
+            color: #fff;
+        }
+        .badge-human {
+            background: #c05621;
+            color: #fff;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        /* Time comparison sidebar */
+        .time-col {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 0.5rem;
+            padding-left: 0.8rem;
+        }
+        .time-box {
+            background: #f7f7f7;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+            font-size: 0.78rem;
+            width: 100%;
+        }
+        .time-box .label { font-weight: 600; color: #666; margin-bottom: 0.3rem; }
+        .time-bar {
+            height: 10px;
+            border-radius: 5px;
+            margin: 0.2rem 0;
+        }
+        .time-bar-old { background: #cc3333; }
+        .time-bar-new { background: #0d7c5f; }
+        .time-text { font-size: 0.72rem; color: #555; }
+
+        /* Phases */
+        .phases { margin-bottom: 2rem; }
+        .phases h2 {
+            font-size: 1.3rem;
+            color: #003366;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.4rem;
+        }
+
+        .phase-timeline {
+            position: relative;
+            padding: 0 0 0 0;
+        }
+
+        .phase-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .phase-label {
+            background: #003366;
+            color: #fff;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .phase-label h3 { font-size: 0.95rem; margin-bottom: 0.15rem; }
+        .phase-label .phase-period { font-size: 0.78rem; opacity: 0.85; }
+
+        .phase-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-content: flex-start;
+            padding: 0.3rem 0;
+        }
+        .phase-item {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid;
+        }
+        .phase-item.pilot {
+            background: #e8f5e9;
+            border-color: #81c784;
+            color: #2e7d32;
+        }
+        .phase-item.expand {
+            background: #e3f2fd;
+            border-color: #64b5f6;
+            color: #1565c0;
+        }
+        .phase-item.transform {
+            background: #f3e5f5;
+            border-color: #ba68c8;
+            color: #7b1fa2;
+        }
+
+        /* Gantt-style bar chart */
+        .gantt { margin: 2rem 0; }
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 180px repeat(48, 1fr);
+            gap: 0;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            padding-left: 0;
+        }
+        .gantt-header span { text-align: center; }
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 0;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+        .gantt-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #333;
+            padding-right: 0.5rem;
+        }
+        .gantt-bar-container {
+            position: relative;
+            height: 32px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .gantt-bar {
+            position: absolute;
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Summary stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: #f0f4f8;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+            border-top: 4px solid #003366;
+        }
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #003366;
+        }
+        .stat-label {
+            font-size: 0.82rem;
+            color: #555;
+            margin-top: 0.3rem;
+        }
+
+        footer {
+            background: #f5f5f5;
+            border-top: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .step {
+                grid-template-columns: 44px 1fr;
+            }
+            .time-col {
+                grid-column: 2;
+                padding-left: 0;
+                padding-top: 0;
+            }
+            .phase-row {
+                grid-template-columns: 1fr;
+            }
+            .gantt-header { display: none; }
+            .gantt-row { grid-template-columns: 1fr; }
+            .gantt-label { margin-bottom: 0.2rem; }
+        }
+
+        @media print {
+            header { background: #003366 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .step-content { break-inside: avoid; }
+            .phase-row { break-inside: avoid; }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dotted #888;
+        }
+        .tooltip:hover::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 0.4rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        /* Arrow between steps */
+        .arrow-down {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #b0c4de;
+            line-height: 1;
+            margin: -0.3rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Ny KI-støttet verdikjede for kunnskapsforvaltning</h1>
+    <p>Visualisering av verdikjeden fra internasjonal forskning til personaliserte helseråd, med KI-støttepunkter og menneskelig kvalitetssikring. Basert på delrapport 4: Alternativer for ny verdikjede.</p>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <p><strong>Om denne visualiseringen:</strong> Dagens verdikjede for kunnskapsforvaltning i helsesektoren har en gjennomløpstid på 2,5-5 år fra ny forskningsevidens til formidlet kunnskap til innbyggere. Den nye KI-støttede verdikjeden kan redusere dette til uker-måneder gjennom en faseinndelt tilnærming. Alle KI-genererte produkter kvalitetssikres av mennesker før publisering.</p>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #0d7c5f;"></div>
+            <span>KI-støttepunkt</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch" style="background: #c05621;"></div>
+            <span>Menneskelig kvalitetssikring</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch time-bar-old" style="width:30px; height:12px; border-radius:3px;"></div>
+            <span>Gammel tidsbruk</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-swatch time-bar-new" style="width:30px; height:12px; border-radius:3px;"></div>
+            <span>Ny tidsbruk</span>
+        </div>
+    </div>
+
+    <!-- Summary stats -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value">2,5-5 år</div>
+            <div class="stat-label">Dagens gjennomløpstid</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">1-3 år</div>
+            <div class="stat-label">Fase 1-2 (moderat KI-støtte)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">Uker-mnd</div>
+            <div class="stat-label">Fase 3 (full KI-pipeline)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">70-90 %</div>
+            <div class="stat-label">Maks tidsbesparelse</div>
+        </div>
+    </div>
+
+    <!-- Pipeline steps -->
+    <div class="pipeline">
+        <h2>Verdikjede med KI-støttepunkter</h2>
+        <div class="steps" id="steps-container"></div>
+    </div>
+
+    <!-- Phases -->
+    <div class="phases">
+        <h2>Implementeringsfaser</h2>
+
+        <!-- Gantt chart -->
+        <div class="gantt">
+            <div class="gantt-row">
+                <div class="gantt-label"></div>
+                <div style="display:flex; justify-content: space-between; font-size: 0.75rem; color: #666; padding: 0 0.2rem;">
+                    <span>0 mnd</span><span>12 mnd</span><span>24 mnd</span><span>36 mnd</span><span>48 mnd</span>
+                </div>
+            </div>
+            <div class="gantt-row">
+                <div class="gantt-label" style="color: #2e7d32;">Fase 1: Pilotering</div>
+                <div class="gantt-bar-container">
+                    <div class="gantt-bar" style="left: 0%; width: 37.5%; background: #4caf50;">0-18 mnd</div>
+                </div>
+            </div>
+            <div class="gantt-row">
+                <div class="gantt-label" style="color: #1565c0;">Fase 2: Utvidelse</div>
+                <div class="gantt-bar-container">
+                    <div class="gantt-bar" style="left: 25%; width: 50%; background: #2196f3;">12-36 mnd</div>
+                </div>
+            </div>
+            <div class="gantt-row">
+                <div class="gantt-label" style="color: #7b1fa2;">Fase 3: Transformasjon</div>
+                <div class="gantt-bar-container">
+                    <div class="gantt-bar" style="left: 50%; width: 50%; background: #9c27b0;">24-48 mnd</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase details -->
+        <div class="phase-row">
+            <div class="phase-label" style="background: #2e7d32;">
+                <h3>Fase 1</h3>
+                <div class="phase-period">Pilotering<br>0-18 mnd</div>
+            </div>
+            <div class="phase-items">
+                <div class="phase-item pilot">KI-screening av litteratur (2-3 fagområder)</div>
+                <div class="phase-item pilot">KI-oversettelse til klarspråk (pilot)</div>
+                <div class="phase-item pilot">Etablere governance-rammeverk</div>
+                <div class="phase-item pilot">Kompetanseheving nøkkelpersonell</div>
+                <div class="phase-item pilot">Evaluering av pilotresultater</div>
+            </div>
+        </div>
+
+        <div class="phase-row">
+            <div class="phase-label" style="background: #1565c0;">
+                <h3>Fase 2</h3>
+                <div class="phase-period">Utvidelse<br>12-36 mnd</div>
+            </div>
+            <div class="phase-items">
+                <div class="phase-item expand">Skalere screening alle fagområder</div>
+                <div class="phase-item expand">KI-utkast til systematiske oversikter</div>
+                <div class="phase-item expand">Automatisk evidensvarsling</div>
+                <div class="phase-item expand">KI-chatbot helsenorge.no (RAG)</div>
+                <div class="phase-item expand">Videreutvikle governance</div>
+            </div>
+        </div>
+
+        <div class="phase-row">
+            <div class="phase-label" style="background: #7b1fa2;">
+                <h3>Fase 3</h3>
+                <div class="phase-period">Transformasjon<br>24-48 mnd</div>
+            </div>
+            <div class="phase-items">
+                <div class="phase-item transform">Living guidelines</div>
+                <div class="phase-item transform">Full KI-pipeline evidens → innbygger</div>
+                <div class="phase-item transform">EHDS-integrasjon</div>
+                <div class="phase-item transform">Personaliserte helseråd (pilot)</div>
+                <div class="phase-item transform">Feedback-loop fra praksis</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk/benefit comparison -->
+    <div class="phases">
+        <h2>Risiko og investering per fase</h2>
+        <div id="risk-chart" style="margin: 1rem 0;"></div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Basert på delrapport 4: Alternativer for ny verdikjede for kunnskapsforvaltning | Sist oppdatert: 2026-03-15</p>
+</footer>
+
+<script>
+(function() {
+    // Pipeline steps data
+    var steps = [
+        {
+            num: 1,
+            title: 'Internasjonal forskning — KI-overvåking av ny evidens',
+            ai: ['KI-overvåking', 'Auto-varsling'],
+            human: ['Faglig vurdering av relevans'],
+            desc: 'KI-systemer monitorerer publiserte studier kontinuerlig og varsler fagpersonell når ny evidens potensielt påvirker eksisterende retningslinjer. Muliggjør proaktiv oppdatering fremfor dagens reaktive tilnærming.',
+            oldTime: { label: '6-12 mnd', pct: 100 },
+            newTime: { label: 'Dager-uker', pct: 15 }
+        },
+        {
+            num: 2,
+            title: 'KI-assistert screening og dataekstraksjon — akselerert kunnskapssyntese',
+            ai: ['Automatisert screening', 'Dataekstraksjon', 'Mønsteridentifisering'],
+            human: ['Validering av utvalg', 'Fagfellevurdering'],
+            desc: 'KI rangerer artikler etter relevans, ekstraherer nøkkeldata og identifiserer mønstre. Internasjonale erfaringer (Cochrane-piloter) viser 50-70 % redusert screeningtid uten tap av sensitivitet.',
+            oldTime: { label: '12-24 mnd', pct: 100 },
+            newTime: { label: '3-6 mnd', pct: 30 }
+        },
+        {
+            num: 3,
+            title: 'KI-støttet retningslinjeutvikling — living guidelines',
+            ai: ['Utkast til retningslinjer', 'Evidensgradering', 'Konsistenssjekk'],
+            human: ['Medisinsk validering', 'Klinisk relevans', 'Godkjenning'],
+            desc: 'KI genererer utkast med referanser, evidensgradering og begrunnelse. Retningslinjer oppdateres kontinuerlig basert på ny evidens i stedet for gjennom diskrete revisjonssykluser.',
+            oldTime: { label: '6-18 mnd', pct: 100 },
+            newTime: { label: '2-8 uker', pct: 15 }
+        },
+        {
+            num: 4,
+            title: 'KI-assistert klarspråkoversettelse — automatisert formidling',
+            ai: ['Klarspråkoversettelse', 'Flerspråklig støtte', 'Multimodalt format'],
+            human: ['Medisinsk korrekthet', 'Klarspråkvurdering'],
+            desc: 'KI genererer utkast til innbyggerrettet informasjon. Fagperson kontrollerer medisinsk korrekthet, kommunikasjonsrådgiver vurderer klarspråk. KI-merking iht. EU AI Act.',
+            oldTime: { label: '3-6 mnd', pct: 100 },
+            newTime: { label: '1-2 uker', pct: 12 }
+        },
+        {
+            num: 5,
+            title: 'KI-chatbot med RAG — personaliserte helseråd til innbyggere',
+            ai: ['RAG mot verifiserte kilder', 'Personalisering', 'Hallusinerings-deteksjon'],
+            human: ['Stikkprøvekontroll', 'Tilbaketrekking ved feil', 'Innbyggerpanel'],
+            desc: 'Chatbot på helsenorge.no gir svar basert utelukkende på verifisert innhold og henviser til kilder. Personaliserte helseråd (fase 3) tilpasses alder, kjønn og risikofaktorer med samtykke.',
+            oldTime: { label: 'N/A (eksisterer ikke)', pct: 0 },
+            newTime: { label: 'Sanntid', pct: 5 }
+        }
+    ];
+
+    // Render pipeline steps
+    var container = document.getElementById('steps-container');
+    steps.forEach(function(step) {
+        var aiBadges = step.ai.map(function(a) {
+            return '<span class="badge badge-ai">' + a + '</span>';
+        }).join('');
+        var humanBadges = step.human.map(function(h) {
+            return '<span class="badge badge-human">' + h + '</span>';
+        }).join('');
+
+        var oldBarWidth = step.oldTime.pct > 0 ? Math.max(step.oldTime.pct, 10) : 0;
+        var newBarWidth = Math.max(step.newTime.pct, 8);
+
+        var timeHTML = '<div class="time-box">';
+        if (step.oldTime.pct > 0) {
+            timeHTML += '<div class="label">Tidsbruk</div>';
+            timeHTML += '<div class="time-text">Gammel: ' + step.oldTime.label + '</div>';
+            timeHTML += '<div class="time-bar time-bar-old" style="width:' + oldBarWidth + '%"></div>';
+            timeHTML += '<div class="time-text">Ny: ' + step.newTime.label + '</div>';
+            timeHTML += '<div class="time-bar time-bar-new" style="width:' + newBarWidth + '%"></div>';
+        } else {
+            timeHTML += '<div class="label">Tidsbruk</div>';
+            timeHTML += '<div class="time-text" style="color:#999;">Gammel: ' + step.oldTime.label + '</div>';
+            timeHTML += '<div class="time-text">Ny: ' + step.newTime.label + '</div>';
+            timeHTML += '<div class="time-bar time-bar-new" style="width:' + newBarWidth + '%"></div>';
+        }
+        timeHTML += '</div>';
+
+        var html = '<div class="step">' +
+            '<div class="step-number-col"><div class="step-num">' + step.num + '</div><div class="step-line"></div></div>' +
+            '<div class="step-content"><h3>' + step.title + '</h3>' +
+            '<div class="badges">' + aiBadges + humanBadges + '</div>' +
+            '<p class="step-desc">' + step.desc + '</p></div>' +
+            '<div class="time-col">' + timeHTML + '</div>' +
+            '</div>';
+        container.innerHTML += html;
+    });
+
+    // Risk/benefit chart - simple horizontal bar chart
+    var riskData = [
+        { label: 'Alt. 0: Nullalternativet', risk: 'Lav', riskPct: 15, benefit: 'Ingen', benefitPct: 0, cost: 'Ingen', color: '#999' },
+        { label: 'Alt. 1: Moderat KI-støtte', risk: 'Lav-moderat', riskPct: 35, benefit: '40-60 %', benefitPct: 50, cost: '20-50 MNOK', color: '#4caf50' },
+        { label: 'Alt. 2: Ambisiøs KI-pipeline', risk: 'Moderat-høy', riskPct: 70, benefit: '70-90 %', benefitPct: 80, cost: '100-250 MNOK', color: '#9c27b0' }
+    ];
+
+    var chartContainer = document.getElementById('risk-chart');
+    var tableHTML = '<table style="width:100%; border-collapse:collapse; font-size:0.85rem;">';
+    tableHTML += '<thead><tr style="background:#f0f4f8; text-align:left;">' +
+        '<th style="padding:0.6rem; border-bottom:2px solid #003366; width:200px;">Alternativ</th>' +
+        '<th style="padding:0.6rem; border-bottom:2px solid #003366;">Tidsbesparelse</th>' +
+        '<th style="padding:0.6rem; border-bottom:2px solid #003366;">Risiko</th>' +
+        '<th style="padding:0.6rem; border-bottom:2px solid #003366; width:120px;">Investering</th>' +
+        '</tr></thead><tbody>';
+
+    riskData.forEach(function(d) {
+        tableHTML += '<tr style="border-bottom:1px solid #e0e0e0;">';
+        tableHTML += '<td style="padding:0.6rem; font-weight:600;">' + d.label + '</td>';
+        tableHTML += '<td style="padding:0.6rem;"><div style="display:flex;align-items:center;gap:0.5rem;">' +
+            '<div style="height:14px;width:' + (d.benefitPct > 0 ? d.benefitPct * 2 : 0) + 'px;background:' + d.color + ';border-radius:3px;"></div>' +
+            '<span>' + d.benefit + '</span></div></td>';
+        tableHTML += '<td style="padding:0.6rem;"><div style="display:flex;align-items:center;gap:0.5rem;">' +
+            '<div style="height:14px;width:' + (d.riskPct * 1.5) + 'px;background:#cc3333;border-radius:3px;opacity:0.7;"></div>' +
+            '<span>' + d.risk + '</span></div></td>';
+        tableHTML += '<td style="padding:0.6rem;">' + d.cost + '</td>';
+        tableHTML += '</tr>';
+    });
+    tableHTML += '</tbody></table>';
+    chartContainer.innerHTML = tableHTML;
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risikomatrise – KI-støttet kunnskapsforvaltning</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, sans-serif; background: #fff; color: #333; line-height: 1.7; }
+header { background: #003366; color: #fff; padding: 1.5rem 2rem; }
+header h1 { font-size: 1.6rem; font-weight: 600; }
+header p { font-size: 0.95rem; opacity: 0.9; margin-top: 0.3rem; }
+.container { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+.intro { margin-bottom: 1.5rem; font-size: 0.95rem; color: #555; }
+.intro strong { color: #333; }
+
+/* Matrix */
+.matrix-wrapper { overflow-x: auto; margin-bottom: 2rem; }
+.matrix-area { display: grid; grid-template-columns: 40px repeat(5, 1fr); grid-template-rows: repeat(5, 1fr) 40px; gap: 3px; width: 100%; min-width: 500px; aspect-ratio: 6/5.5; position: relative; }
+.y-label { writing-mode: vertical-rl; transform: rotate(180deg); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: #003366; grid-row: 1 / 6; grid-column: 1; }
+.x-label { display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: #003366; grid-row: 6; grid-column: 2 / 7; }
+
+.cell {
+  position: relative;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+  min-height: 80px;
+}
+.cell::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  font-size: 0.6rem;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Severity colours */
+.sev-low    { background: #c8e6c9; }
+.sev-mod    { background: #fff9c4; }
+.sev-high   { background: #ffe0b2; }
+.sev-crit   { background: #ffcdd2; }
+
+/* Risk chips */
+.chip {
+  width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem; cursor: pointer; color: #fff; transition: transform .15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25); position: relative; z-index: 2;
+}
+.chip:hover { transform: scale(1.2); }
+.chip.crit  { background: #c62828; }
+.chip.high  { background: #e65100; }
+.chip.mod   { background: #f9a825; color: #333; }
+.chip.low   { background: #2e7d32; }
+
+/* Axis ticks */
+.tick-y, .tick-x {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; color: #666;
+}
+
+/* Detail panel */
+.detail-panel {
+  display: none; background: #f5f7fa; border-left: 4px solid #003366;
+  padding: 1.2rem 1.5rem; margin-bottom: 1.5rem; border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.detail-panel.active { display: block; }
+.detail-panel h3 { color: #003366; margin-bottom: 0.4rem; font-size: 1.1rem; }
+.detail-panel .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; margin-right: 6px; }
+.badge-crit { background: #c62828; color: #fff; }
+.badge-high { background: #e65100; color: #fff; }
+.badge-mod  { background: #f9a825; color: #333; }
+.badge-low  { background: #2e7d32; color: #fff; }
+.detail-panel .meta { font-size: 0.88rem; margin: 0.5rem 0; }
+.detail-panel .mitigering { margin-top: 0.6rem; padding: 0.8rem; background: #e8f5e9; border-radius: 6px; font-size: 0.9rem; }
+.detail-panel .mitigering strong { color: #1b5e20; }
+
+/* Summary table */
+h2 { color: #003366; margin: 1.5rem 0 0.8rem; font-size: 1.3rem; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+thead th { background: #003366; color: #fff; padding: 0.6rem 0.8rem; text-align: left; }
+tbody td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
+tbody tr:hover { background: #f0f4f8; cursor: pointer; }
+tbody tr:nth-child(even) { background: #fafafa; }
+tbody tr:nth-child(even):hover { background: #f0f4f8; }
+.id-col { font-weight: 700; text-align: center; width: 2.5rem; }
+
+/* Legend */
+.legend { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0 1.5rem; font-size: 0.85rem; }
+.legend-item { display: flex; align-items: center; gap: 5px; }
+.legend-swatch { width: 18px; height: 18px; border-radius: 4px; }
+
+footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; margin-top: 2rem; }
+
+@media print {
+  .chip { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .detail-panel { display: block !important; break-inside: avoid; }
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 1.2rem; }
+  .cell { min-height: 60px; }
+  .chip { width: 28px; height: 28px; font-size: 0.7rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Risikomatrise: KI-støttet kunnskapsforvaltning i helsesektoren</h1>
+  <p>Basert på delrapport 7 – Vurdering av KI-støttet kunnskapsforvaltning for EHDS i Norge</p>
+</header>
+
+<div class="container">
+  <p class="intro">Matrisen viser 10 identifiserte risikoer plassert etter <strong>sannsynlighet</strong> (y-akse) og <strong>konsekvens</strong> (x-akse). Klikk p&aring; en risiko (sirkel eller tabellrad) for &aring; se detaljer og mitigeringstiltak.</p>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch" style="background:#c8e6c9"></div> Lav</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#fff9c4"></div> Moderat</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ffe0b2"></div> H&oslash;y</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ffcdd2"></div> Kritisk</div>
+  </div>
+
+  <div id="detailPanel" class="detail-panel"></div>
+
+  <!-- Matrix grid built by JS -->
+  <div class="matrix-wrapper">
+    <div style="display:flex;gap:4px;">
+      <div style="display:flex;flex-direction:column;justify-content:flex-start;height:calc(5 * 80px + 4 * 3px);">
+        <div class="y-label" style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:0.85rem;font-weight:700;color:#003366;height:100%;display:flex;align-items:center;justify-content:center;">Sannsynlighet &rarr;</div>
+      </div>
+      <div style="flex:1">
+        <!-- tick labels y -->
+        <div style="display:grid;grid-template-columns:70px repeat(5,1fr);grid-template-rows:repeat(5,80px) 36px;gap:3px;">
+          <!-- Row 5 (Svært høy) -->
+          <div class="tick-y">Sv&aelig;rt h&oslash;y</div>
+          <div class="cell sev-high" id="c5-1" data-label=""></div>
+          <div class="cell sev-high" id="c5-2" data-label=""></div>
+          <div class="cell sev-crit" id="c5-3" data-label=""></div>
+          <div class="cell sev-crit" id="c5-4" data-label=""></div>
+          <div class="cell sev-crit" id="c5-5" data-label=""></div>
+          <!-- Row 4 (Høy) -->
+          <div class="tick-y">H&oslash;y</div>
+          <div class="cell sev-mod" id="c4-1" data-label=""></div>
+          <div class="cell sev-high" id="c4-2" data-label=""></div>
+          <div class="cell sev-high" id="c4-3" data-label=""></div>
+          <div class="cell sev-crit" id="c4-4" data-label=""></div>
+          <div class="cell sev-crit" id="c4-5" data-label=""></div>
+          <!-- Row 3 (Moderat) -->
+          <div class="tick-y">Moderat</div>
+          <div class="cell sev-low" id="c3-1" data-label=""></div>
+          <div class="cell sev-mod" id="c3-2" data-label=""></div>
+          <div class="cell sev-high" id="c3-3" data-label=""></div>
+          <div class="cell sev-high" id="c3-4" data-label=""></div>
+          <div class="cell sev-crit" id="c3-5" data-label=""></div>
+          <!-- Row 2 (Lav) -->
+          <div class="tick-y">Lav</div>
+          <div class="cell sev-low" id="c2-1" data-label=""></div>
+          <div class="cell sev-low" id="c2-2" data-label=""></div>
+          <div class="cell sev-mod" id="c2-3" data-label=""></div>
+          <div class="cell sev-high" id="c2-4" data-label=""></div>
+          <div class="cell sev-high" id="c2-5" data-label=""></div>
+          <!-- Row 1 (Svært lav) -->
+          <div class="tick-y">Sv&aelig;rt lav</div>
+          <div class="cell sev-low" id="c1-1" data-label=""></div>
+          <div class="cell sev-low" id="c1-2" data-label=""></div>
+          <div class="cell sev-low" id="c1-3" data-label=""></div>
+          <div class="cell sev-mod" id="c1-4" data-label=""></div>
+          <div class="cell sev-high" id="c1-5" data-label=""></div>
+          <!-- X axis ticks -->
+          <div></div>
+          <div class="tick-x">Sv&aelig;rt lav</div>
+          <div class="tick-x">Lav</div>
+          <div class="tick-x">Moderat</div>
+          <div class="tick-x">H&oslash;y</div>
+          <div class="tick-x">Sv&aelig;rt h&oslash;y</div>
+        </div>
+        <div class="x-label" style="text-align:center;margin-top:4px;font-size:0.85rem;font-weight:700;color:#003366;">Konsekvens &rarr;</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Oppsummering av risikoer</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th class="id-col">#</th><th>Risiko</th><th>Sannsynlighet</th><th>Konsekvens</th><th>Samlet</th><th>Mitigering</th></tr>
+      </thead>
+      <tbody id="summaryBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>Visualisering basert p&aring; delrapport 7 – KI-st&oslash;ttet kunnskapsforvaltning | Sist oppdatert mars 2026</footer>
+
+<script>
+const risks = [
+  { id:1, name:"Hallusinering i KI-generert helseinnhold", prob:4, cons:5, level:"crit", levelNo:"Kritisk",
+    mitigering:"RAG (Retrieval-Augmented Generation), human-in-the-loop-validering, automatisert faktasjekk mot autoritative kilder." },
+  { id:2, name:"Tap av tillit til offentlig helseinformasjon", prob:3, cons:5, level:"high", levelNo:"H\u00f8y",
+    mitigering:"Transparent KI-merking, gradvis innf\u00f8ring med pilotering, tydelig kommunikasjonsstrategi." },
+  { id:3, name:"Personvernbrudd", prob:2, cons:5, level:"high", levelNo:"H\u00f8y",
+    mitigering:"DPIA (Data Protection Impact Assessment), dataminimering, nasjonal skyinfrastruktur." },
+  { id:4, name:"Implementeringsforsinkelser", prob:4, cons:3, level:"high", levelNo:"H\u00f8y",
+    mitigering:"Faseinndelt tiln\u00e6rming, realistisk planlegging med buffere." },
+  { id:5, name:"Teknologiavhengighet / leverand\u00f8rl\u00e5sing", prob:3, cons:4, level:"high", levelNo:"H\u00f8y",
+    mitigering:"\u00c5pne standarder, abstraksjonslag, multi-vendor-strategi." },
+  { id:6, name:"Regulatorisk usikkerhet (EU AI Act)", prob:3, cons:3, level:"mod", levelNo:"Moderat",
+    mitigering:"Proaktiv regulatorisk dialog, fleksibel arkitektur som t\u00e5ler regelendringer." },
+  { id:7, name:"Organisatorisk motstand", prob:4, cons:3, level:"high", levelNo:"H\u00f8y",
+    mitigering:"Endringsledelse, tidlig involvering av interessenter, kompetanseheving." },
+  { id:8, name:"Kompetansemangel", prob:4, cons:4, level:"high", levelNo:"H\u00f8y",
+    mitigering:"M\u00e5lrettet rekrutteringsstrategi, samarbeid med akademia, internoppl\u00e6ring." },
+  { id:9, name:"Budsjettoverskridelser", prob:3, cons:3, level:"mod", levelNo:"Moderat",
+    mitigering:"Faseinndelt investering, pilotering f\u00f8r oppskalering, gate-reviews." },
+  { id:10, name:"Innbyggere bruker ukvalifiserte KI-kilder", prob:5, cons:4, level:"crit", levelNo:"Kritisk",
+    mitigering:"Tilby kvalitetssikret KI-alternativ raskt, aktiv kommunikasjon om risiko ved uoffisielle kilder." }
+];
+
+const probLabel = ["","Sv\u00e6rt lav","Lav","Moderat","H\u00f8y","Sv\u00e6rt h\u00f8y"];
+const consLabel = ["","Sv\u00e6rt lav","Lav","Moderat","H\u00f8y","Sv\u00e6rt h\u00f8y"];
+
+function showDetail(r) {
+  const p = document.getElementById("detailPanel");
+  const badgeCls = "badge badge-" + r.level;
+  p.innerHTML = `
+    <h3>${r.id}. ${r.name}</h3>
+    <div style="margin:0.4rem 0"><span class="${badgeCls}">${r.levelNo}</span></div>
+    <p class="meta"><strong>Sannsynlighet:</strong> ${probLabel[r.prob]} &nbsp;|&nbsp; <strong>Konsekvens:</strong> ${consLabel[r.cons]}</p>
+    <div class="mitigering"><strong>Mitigering:</strong> ${r.mitigering}</div>
+  `;
+  p.classList.add("active");
+  p.scrollIntoView({ behavior:"smooth", block:"nearest" });
+}
+
+// Place chips
+risks.forEach(r => {
+  const cellId = "c" + r.prob + "-" + r.cons;
+  const cell = document.getElementById(cellId);
+  if (!cell) return;
+  const chip = document.createElement("div");
+  chip.className = "chip " + r.level;
+  chip.textContent = r.id;
+  chip.title = r.name;
+  chip.addEventListener("click", () => showDetail(r));
+  cell.appendChild(chip);
+});
+
+// Build summary table
+const tbody = document.getElementById("summaryBody");
+risks.forEach(r => {
+  const tr = document.createElement("tr");
+  tr.addEventListener("click", () => showDetail(r));
+  tr.innerHTML = `
+    <td class="id-col"><span class="chip ${r.level}" style="width:28px;height:28px;font-size:0.75rem;display:inline-flex;">${r.id}</span></td>
+    <td>${r.name}</td>
+    <td>${probLabel[r.prob]}</td>
+    <td>${consLabel[r.cons]}</td>
+    <td><span class="badge badge-${r.level}">${r.levelNo}</span></td>
+    <td style="font-size:0.82rem">${r.mitigering}</td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
+</body>
+</html>

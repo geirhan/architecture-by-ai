@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledersammendrag – Utredning: Kunnskapsforvaltning i helsesektoren</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 1.5rem 1rem;
+        }
+
+        header .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.85;
+            color: #ccd9e6;
+        }
+
+        nav {
+            background: #002244;
+            border-bottom: 3px solid #005599;
+            padding: 0 1rem;
+            overflow-x: auto;
+        }
+
+        nav ul {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 0.7rem 1rem;
+            color: #ccd9e6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -3px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+
+        nav ul li a.active {
+            color: #fff;
+            font-weight: 600;
+            border-bottom-color: #66aadd;
+            background: rgba(255,255,255,0.05);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 3rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #003366;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #003366;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin: 0.75rem 0;
+            color: #333;
+        }
+
+        strong {
+            color: #222;
+        }
+
+        ul, ol {
+            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        thead th {
+            background: #003366;
+            color: #fff;
+            padding: 0.7rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        tbody td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f5f7fa;
+        }
+
+        tbody tr:hover {
+            background: #eef2f7;
+        }
+
+        .highlight-box {
+            background: #fff3e0;
+            border-left: 4px solid #e65100;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #333;
+        }
+
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        @media print {
+            nav {
+                display: none;
+            }
+
+            header {
+                background: none;
+                color: #003366;
+                border-bottom: 2px solid #003366;
+                padding: 0.5rem 0;
+            }
+
+            header h1 {
+                color: #003366;
+            }
+
+            header p {
+                color: #555;
+            }
+
+            body {
+                font-size: 11pt;
+            }
+
+            main {
+                padding: 1rem 0;
+            }
+
+            .table-wrapper {
+                overflow-x: visible;
+            }
+
+            footer {
+                border-top: 1px solid #999;
+                color: #555;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            nav ul li a {
+                padding: 0.6rem 0.7rem;
+                font-size: 0.8rem;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren</h1>
+            <p>Helsedirektoratet, 2026</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="ledersammendrag.html" class="active">Ledersammendrag</a></li>
+            <li><a href="dagens-verdikjede.html">Delrapport 1</a></li>
+            <li><a href="utfordringer-og-flaskehalser.html">Delrapport 2</a></li>
+            <li><a href="llm-muligheter-og-risikoer.html">Delrapport 3</a></li>
+            <li><a href="ny-verdikjede.html">Delrapport 4</a></li>
+            <li><a href="arkitektur-og-komponenter.html">Delrapport 5</a></li>
+            <li><a href="internasjonale-erfaringer.html">Delrapport 6</a></li>
+            <li><a href="samlet-vurdering-kunnskapsforvaltning.html">Delrapport 7</a></li>
+            <li><a href="visualiseringer.html">Visualiseringer</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Ledersammendrag</h1>
+
+        <h2>Bakgrunn</h2>
+        <p>Helsedirektoratet har gjennomført denne utredningen for å vurdere om og hvordan verdikjeden for kunnskapsforvaltning i helsesektoren bør moderniseres. Verdikjeden dekker hele løpet fra internasjonal forskning til kvalitetssikret helseinformasjon til innbyggere, og involverer FHI, Helsedirektoratet, Norsk helsenett (NHN), de regionale helseforetakene og KS.</p>
+        <p>Utredningen er motivert av tre samtidige utviklingstrekk: (1) forskningsproduksjonen øker eksponentielt og overgår kapasiteten for manuell bearbeiding, (2) innbyggere i økende grad søker helseinformasjon fra kommersielle KI-tjenester uten kvalitetssikring, og (3) nye regulatoriske rammer gjennom EU AI Act og EHDS stiller krav til digital modenhet.</p>
+
+        <h2>Hovedfunn</h2>
+        <p><strong>Dagens verdikjede er ikke bærekraftig.</strong> Gjennomløpstiden fra ny forskning til oppdatert innbyggerinformasjon er 2–6,5 år. De tre mest alvorlige flaskehalsene er foreldelse av kunnskapsgrunnlaget underveis i retningslinjeprosessen, kapasitetsbegrensning for systematiske oversikter, og manglende kobling mellom retningslinjer og innbyggerinformasjon.</p>
+        <p><strong>KI-teknologi kan adressere flaskehalsene.</strong> Store språkmodeller kan akselerere kunnskapssyntese, støtte retningslinjeutvikling, forbedre innbyggerinformasjon og muliggjøre kontinuerlig oppdatering. Samtidig medfører teknologien risikoer knyttet til hallusinering, tillit, bias og personvern.</p>
+        <p><strong>Internasjonale erfaringer støtter en faseinndelt tilnærming.</strong> WHO SMART Guidelines, NICE, Cochrane og nordiske land viser at KI som støtteverktøy med menneskelig kontroll gir resultater.</p>
+
+        <h2>Anbefaling</h2>
+        <p>Faseinndelt innføring over tre faser (0–48 måneder):</p>
+        <ul>
+            <li><strong>Fase 1 (0–18 mnd):</strong> Pilotering – KI-screening + klarspråk. Kostnad: 5–15 MNOK.</li>
+            <li><strong>Fase 2 (12–36 mnd):</strong> Utvidelse – Full screening + chatbot. Kostnad: 15–35 MNOK.</li>
+            <li><strong>Fase 3 (24–48 mnd):</strong> Transformasjon – Living guidelines + EHDS. Kostnad: 80–200 MNOK.</li>
+        </ul>
+
+        <h2>Nøkkeltall</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indikator</th>
+                        <th>Dagens situasjon</th>
+                        <th>Med anbefalt tiltak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gjennomløpstid</td>
+                        <td>2–6,5 år</td>
+                        <td>1–3 år (fase 1–2), uker–måneder (fase 3)</td>
+                    </tr>
+                    <tr>
+                        <td>Tidsbesparelse</td>
+                        <td>N/A</td>
+                        <td>40–60 % (fase 1–2), 70–90 % (fase 3)</td>
+                    </tr>
+                    <tr>
+                        <td>Investeringskostnad fase 1–2</td>
+                        <td>N/A</td>
+                        <td>20–50 MNOK</td>
+                    </tr>
+                    <tr>
+                        <td>Total investeringskostnad</td>
+                        <td>N/A</td>
+                        <td>100–250 MNOK</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Konsekvens av å ikke handle</h2>
+        <div class="highlight-box">
+            <p><strong>Nullalternativet er ikke bærekraftig på mellomlang sikt.</strong> Konsekvensene: økende kunnskapsgap, tap av innbyggertillit, regulatorisk etterslep, kompetanseflukt.</p>
+        </div>
+    </main>
+
+    <footer>
+        Utredning gjennomført av Helsedirektoratet, 2026
+    </footer>
+</body>
+</html>

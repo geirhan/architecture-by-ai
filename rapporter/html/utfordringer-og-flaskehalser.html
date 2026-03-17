@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delrapport 2: Utfordringer og flaskehalser i verdikjeden for kunnskapsforvaltning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #333;
+            background: #fff;
+            line-height: 1.7;
+        }
+        header {
+            background: #003366;
+            color: #fff;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        nav {
+            background: #002244;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            padding: 0.6rem 0.9rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav ul li a:hover {
+            background: #003366;
+            color: #fff;
+        }
+        nav ul li a.active {
+            color: #fff;
+            border-bottom-color: #4da6ff;
+            background: #003366;
+            font-weight: 600;
+        }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+        h2 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        h3 {
+            color: #004488;
+            font-size: 1.15rem;
+            margin-top: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+        strong {
+            color: #222;
+        }
+        em {
+            color: #555;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        thead {
+            background: #f0f4f8;
+        }
+        th {
+            text-align: left;
+            padding: 0.7rem 0.8rem;
+            border-bottom: 2px solid #003366;
+            color: #003366;
+            font-weight: 600;
+        }
+        td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+        tr:hover {
+            background: #f8fafc;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid #e0e0e0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media print {
+            nav { display: none; }
+            header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+            main { padding: 0; }
+            body { font-size: 11pt; }
+            h2 { page-break-after: avoid; }
+            table { font-size: 9pt; }
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.2rem; }
+            nav ul li a { padding: 0.5rem 0.6rem; font-size: 0.78rem; }
+            main { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delrapport 2: Utfordringer og flaskehalser i verdikjeden for kunnskapsforvaltning</h1>
+        <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Forside</a></li>
+            <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+            <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+            <li><a href="utfordringer-og-flaskehalser.html" class="active">Utfordringer</a></li>
+            <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+            <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+            <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+            <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
+            <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+            <li><a href="visualiseringer.html">Visualiseringer</a></li>
+        </ul>
+    </nav>
+    <main>
+
+        <h2>1. Innledning</h2>
+
+        <h3>1.1 Formål</h3>
+        <p>Denne rapporten kartlegger og analyserer utfordringer og flaskehalser i dagens verdikjede for kunnskapsforvaltning i helsesektoren. Kartleggingen bygger på funn fra delrapport 1 (Dagens verdikjede) og har som mål å identifisere de mest kritiske hindringene for effektiv og rettidig kunnskapsformidling fra forskning til innbyggere.</p>
+        <p>En systematisk forståelse av hvor og hvorfor forsinkelser oppstår er en forutsetning for å vurdere forbedringstiltak, herunder bruk av storspråkmodeller (LLM) og andre teknologiske virkemidler som analyseres i delrapport 3.</p>
+
+        <h3>1.2 Metodisk tilnærming</h3>
+        <p>Analysen baserer seg på:</p>
+        <ul>
+            <li><strong>Offentlig tilgjengelige kilder:</strong> Rapporter fra Helsedirektoratet, FHI, Riksrevisjonen og internasjonale organisasjoner (WHO, Cochrane).</li>
+            <li><strong>Scenarioanalyse:</strong> Der presise tall ikke er tilgjengelige, benyttes scenariobaserte estimater (konservativt, moderat, optimistisk) med eksplisitt markering av usikkerhet.</li>
+            <li><strong>Funn fra delrapport 1:</strong> Tidsestimatene og aktørkartleggingen fra den forrige delrapporten danner grunnlag for analysen.</li>
+        </ul>
+        <p><strong>Viktig merknad:</strong> Kvantitative indikatorer i denne rapporten er estimater basert på tilgjengelig informasjon og scenarioanalyse. Der tallgrunnlaget er usikkert, er dette eksplisitt markert.</p>
+
+        <hr>
+
+        <h2>2. Flaskehalser i verdikjeden</h2>
+
+        <h3>2.1 Forskningsproduksjon til systematisk oversikt</h3>
+        <p><strong>Flaskehals: Volumet overgår kapasiteten for manuell bearbeiding.</strong></p>
+        <p>Den globale forskningsproduksjonen innen helse og medisin har økt eksponentielt de siste tiårene. Estimater fra internasjonale kilder indikerer at det publiseres over 3 millioner vitenskapelige artikler årlig på tvers av alle fagområder, med en betydelig andel innen medisin og helsefag. For FHI og andre kunnskapsprodusenter innebærer dette at mengden potensielt relevant forskning langt overstiger kapasiteten for manuell screening og kvalitetsvurdering.</p>
+        <p>Sentrale utfordringer i dette steget:</p>
+        <ul>
+            <li><strong>Skalering:</strong> Manuell screening av titler, sammendrag og fulltekst krever spesialistkompetanse og er svært tidkrevende. En enkelt systematisk oversikt kan kreve gjennomgang av flere tusen artikler.</li>
+            <li><strong>Språkbarriere:</strong> Forskningslitteraturen er i all hovedsak på engelsk. Kontekstualisering til norske forhold krever faglig vurdering som går utover ren oversettelse.</li>
+            <li><strong>Kapasitetsbegrensninger:</strong> FHI har en begrenset stab av fagpersoner med kompetanse til å utføre systematiske oversikter. Antallet oversikter som kan produseres årlig er derfor begrenset.</li>
+            <li><strong>Reproduserbarhet:</strong> Den manuelle prosessen gjør det krevende å oppdatere oversikter når ny forskning publiseres.</li>
+        </ul>
+        <p><strong>Typisk tidsbruk:</strong> 12&ndash;24 måneder per systematisk oversikt (jf. delrapport 1).</p>
+
+        <h3>2.2 Systematisk oversikt til retningslinje</h3>
+        <p><strong>Flaskehals: Kunnskapsgrunnlaget foreldes underveis i retningslinjeprosessen.</strong></p>
+        <p>Overgangen fra ferdig kunnskapsoppsummering til publisert nasjonal faglig retningslinje er den mest tidkrevende enkeltovergangen i verdikjeden. Det er også her den største risikoen for at kunnskapsgrunnlaget blir utdatert for retningslinjen ferdigstilles.</p>
+        <p>Sentrale utfordringer:</p>
+        <ul>
+            <li><strong>Foreldelse underveis:</strong> Med en typisk utviklingstid på 12&ndash;24 måneder kan ny forskning ha endret evidensgrunnlaget vesentlig for retningslinjen publiseres. I noen tilfeller er kunnskapsoppsummeringen flere år gammel når retningslinjen ferdigstilles.</li>
+            <li><strong>Kompleks konsensusprosess:</strong> Retningslinjeutvikling involverer tverrfaglige arbeidsgrupper med representanter fra kliniske fagmiljøer, brukerorganisasjoner og forvaltning. Konsensusbygging er nødvendig, men tidkrevende.</li>
+            <li><strong>Høringsrunder:</strong> Offentlige høringer gir viktige innspill og forankring, men legger typisk 3&ndash;6 måneder til prosessen. I tilfeller med mange høringsinnspill kan bearbeidingen ta enda lengre tid.</li>
+            <li><strong>Begrenset kapasitet:</strong> Helsedirektoratet har et begrenset antall retningslinjeprosjekter som kan pågå parallelt. Prioritering mellom fagområder er nødvendig, noe som innebærer at enkelte områder får lenger ventetid.</li>
+            <li><strong>Avhengighet mellom retningslinjer:</strong> Noen retningslinjer avhenger av oppdatering av andre retningslinjer eller lovverk, noe som kan skape ytterligere forsinkelser.</li>
+        </ul>
+        <p><strong>Typisk tidsbruk:</strong> 12&ndash;24 måneder (jf. delrapport 1).</p>
+
+        <h3>2.3 Retningslinje til formidlet kunnskap</h3>
+        <p><strong>Flaskehals: Oversettelse fra fagspråk til innbyggerspråk er ressurskrevende og ikke systematisert.</strong></p>
+        <p>Når en retningslinje er publisert, gjenstår arbeidet med å gjøre innholdet tilgjengelig for helsepersonell (via Helsebiblioteket) og innbyggere (via helsenorge.no og andre kanaler). Denne overgangen er ofte undervurdert i ressursplanlegging.</p>
+        <p>Sentrale utfordringer:</p>
+        <ul>
+            <li><strong>Klarspråk er en fagdisiplin:</strong> Å oversette komplekst medisinsk innhold til klarspråk uten å miste presisjon krever både medisinsk og kommunikasjonsfaglig kompetanse. Denne kombinasjonen er begrenset tilgjengelig.</li>
+            <li><strong>Fragmentert formidling:</strong> Innbyggerrettet helseinformasjon formidles gjennom flere kanaler (helsenorge.no, Helsedirektoratets nettsider, kommunale nettsider, helseforetak). Det er begrenset koordinering mellom kanalene, noe som kan gi inkonsistent informasjon.</li>
+            <li><strong>Manglende systematisk oppdatering:</strong> Det finnes ingen automatisert kobling mellom oppdaterte retningslinjer og tilhørende innbyggerinformasjon. Oppdatering skjer i praksis manuelt og ad hoc, noe som innebærer risiko for at innbyggerinformasjon ikke reflekterer gjeldende anbefalinger.</li>
+            <li><strong>Prioritering:</strong> Ikke alle retningslinjer resulterer i oppdatert innbyggerinformasjon. Områder med lavere offentlig oppmerksomhet kan ha utdatert informasjon over lengre tid.</li>
+        </ul>
+        <p><strong>Typisk tidsbruk:</strong> 6&ndash;12 måneder (jf. delrapport 1).</p>
+
+        <h3>2.4 Formidlet kunnskap til endret praksis</h3>
+        <p><strong>Flaskehals: Implementeringsgapet mellom anbefaling og klinisk praksis.</strong></p>
+        <p>Selv når oppdaterte retningslinjer og innbyggerinformasjon foreligger, er det et velkjent gap mellom anbefalt praksis og faktisk praksis i helsetjenesten. Denne flaskehalsen påvirker ikke bare helsepersonells praksis, men også kvaliteten på informasjonen innbyggere mottar i møtet med helsetjenesten.</p>
+        <p>Sentrale utfordringer:</p>
+        <ul>
+            <li><strong>Variasjon mellom virksomheter:</strong> Etterlevelse av nasjonale retningslinjer varierer betydelig mellom helseforetak, kommuner og fastleger. Riksrevisjonen har ved flere anledninger pekt på slik variasjon.</li>
+            <li><strong>Manglende målingsmekanismer:</strong> Det er begrenset systematisk overvåking av i hvilken grad retningslinjer følges i klinisk praksis.</li>
+            <li><strong>Informasjonsoverbelastning:</strong> Helsepersonell forholder seg til et stort antall retningslinjer og oppdateringer, noe som kan føre til at enkeltvise endringer overses.</li>
+            <li><strong>Lokal tilpasning:</strong> Retningslinjer må ofte tilpasses lokale forhold, noe som krever lokal kapasitet og kompetanse.</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. Konsekvenser av forsinkelser</h2>
+        <p>Forsinkelsene i verdikjeden har direkte konsekvenser for kvaliteten på helsetjenester og helseinformasjon som når innbyggere.</p>
+
+        <h3>3.1 Utdaterte helseråd</h3>
+        <p>Når gjennomløpstiden fra ny evidens til oppdatert innbyggerinformasjon er 2&ndash;6,5 år (jf. delrapport 1), innebærer det at innbyggere i noen tilfeller mottar helseråd basert på forskning som er betydelig eldre enn hva den tilgjengelige kunnskapen tilsier. Dette kan gjelde alt fra ernæringsråd til anbefalinger om medisinbruk og livsstilsendringer.</p>
+
+        <h3>3.2 Helsepersonell uten oppdatert kunnskapsgrunnlag</h3>
+        <p>Forsinkelser i retningslinjeoppdateringer innebærer at helsepersonell risikerer å basere sine kliniske vurderinger på utdaterte anbefalinger. Dette er særlig problematisk i fagfelt med rask kunnskapsutvikling.</p>
+
+        <h3>3.3 Innbyggere søker alternative kilder</h3>
+        <p>Når offentlige kilder oppleves som utdaterte eller utilstrekkelige, søker innbyggere informasjon fra andre kilder. Søkedata og brukerundersøkelser indikerer at en betydelig andel av befolkningen bruker Google, sosiale medier og i økende grad generative AI-verktøy som ChatGPT for å finne helseinformasjon. Disse kildene har variabel kvalitet og mangler den systematiske kvalitetssikringen som kjennetegner den offisielle verdikjeden.</p>
+
+        <h3>3.4 Lærdommer fra COVID-19</h3>
+        <p>COVID-19-pandemien demonstrerte tydelig at den tradisjonelle verdikjeden ikke skalerer til krisesituasjoner. Kunnskapsgrunnlaget endret seg daglig, og de etablerte prosessene for kunnskapsoppsummering og retningslinjeutvikling var for langsomme til å holde tritt. Helsemyndighetene måtte improvisere hurtigprosesser, noe som viste at det er mulig å akselerere verdikjeden, men også at det krever ekstraordinære ressurser og medfører økt risiko for feil.</p>
+
+        <h3>3.5 Eksempel: Ernæringsråd</h3>
+        <p>Ernæringsområdet illustrerer utfordringen: Ny forskning om for eksempel tilsatt sukker, mettet fett eller kosttilskudd kan endre evidensgrunnlaget vesentlig, men de offisielle ernæringsrådene oppdateres sjelden. Kostradsrapporten fra Helsedirektoratet har historisk hatt lang tid mellom revisjonene, noe som kan bidra til at innbyggere opplever et gap mellom medieomtale av ny forskning og offisielle anbefalinger.</p>
+
+        <hr>
+
+        <h2>4. Kvantitative indikatorer</h2>
+        <p>Tabellene nedenfor gir scenariobaserte estimater for sentrale indikatorer. Estimatene er basert på tilgjengelige offentlige kilder og faglig vurdering. <strong>Tallene er estimater og skal ikke behandles som presise måleresultater.</strong></p>
+
+        <h3>4.1 Produksjonskapasitet</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indikator</th>
+                        <th>Konservativt</th>
+                        <th>Moderat</th>
+                        <th>Optimistisk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Systematiske oversikter produsert per år (FHI)</td>
+                        <td>15&ndash;20</td>
+                        <td>25&ndash;35</td>
+                        <td>40&ndash;50</td>
+                    </tr>
+                    <tr>
+                        <td>Nye/oppdaterte retningslinjer per år (Hdir)</td>
+                        <td>5&ndash;8</td>
+                        <td>10&ndash;15</td>
+                        <td>15&ndash;20</td>
+                    </tr>
+                    <tr>
+                        <td>Innbyggerartikler oppdatert per år (helsenorge.no)</td>
+                        <td>50&ndash;100</td>
+                        <td>100&ndash;200</td>
+                        <td>200&ndash;400</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><em>Merknad: Estimatene for FHI inkluderer ulike typer kunnskapsoppsummeringer, ikke bare fulle systematiske oversikter. Faktisk kapasitet avhenger av bevilgninger, bemanning og kompleksitet.</em></p>
+
+        <h3>4.2 Oppdateringsgrad for retningslinjer</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indikator</th>
+                        <th>Konservativt</th>
+                        <th>Moderat</th>
+                        <th>Optimistisk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Andel retningslinjer oppdatert siste 5 år</td>
+                        <td>30&ndash;40 %</td>
+                        <td>50&ndash;60 %</td>
+                        <td>70&ndash;80 %</td>
+                    </tr>
+                    <tr>
+                        <td>Andel retningslinjer som kan anses som ikke-oppdatert</td>
+                        <td>40&ndash;50 %</td>
+                        <td>20&ndash;30 %</td>
+                        <td>10&ndash;15 %</td>
+                    </tr>
+                    <tr>
+                        <td>Gjennomsnittlig alder på gjeldende retningslinjer</td>
+                        <td>6&ndash;8 år</td>
+                        <td>4&ndash;5 år</td>
+                        <td>2&ndash;3 år</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><em>Merknad: Definisjonen av &laquo;ikke-oppdatert&raquo; er skjønnsmessig. En retningslinje kan være klinisk relevant selv om den er eldre enn 5 år, dersom kunnskapsgrunnlaget ikke har endret seg vesentlig.</em></p>
+
+        <h3>4.3 Gjennomløpstider</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indikator</th>
+                        <th>Konservativt</th>
+                        <th>Moderat</th>
+                        <th>Optimistisk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tid fra ny evidens til oppdatert retningslinje</td>
+                        <td>4&ndash;6 år</td>
+                        <td>2.5&ndash;4 år</td>
+                        <td>1.5&ndash;2 år</td>
+                    </tr>
+                    <tr>
+                        <td>Tid fra oppdatert retningslinje til oppdatert innbyggerinfo</td>
+                        <td>6&ndash;12 mnd</td>
+                        <td>3&ndash;6 mnd</td>
+                        <td>1&ndash;3 mnd</td>
+                    </tr>
+                    <tr>
+                        <td>Tid fra ny evidens til oppdatert innbyggerinformasjon</td>
+                        <td>5&ndash;7 år</td>
+                        <td>3&ndash;4.5 år</td>
+                        <td>2&ndash;2.5 år</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>4.4 Innbyggernes informasjonskilder</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Indikator</th>
+                        <th>Konservativt</th>
+                        <th>Moderat</th>
+                        <th>Optimistisk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Andel som bruker helsenorge.no som første kilde</td>
+                        <td>15&ndash;20 %</td>
+                        <td>25&ndash;35 %</td>
+                        <td>40&ndash;50 %</td>
+                    </tr>
+                    <tr>
+                        <td>Andel som bruker Google som første kilde</td>
+                        <td>50&ndash;60 %</td>
+                        <td>40&ndash;50 %</td>
+                        <td>30&ndash;40 %</td>
+                    </tr>
+                    <tr>
+                        <td>Andel som har brukt generativ AI for helseinfo</td>
+                        <td>10&ndash;15 %</td>
+                        <td>20&ndash;30 %</td>
+                        <td>30&ndash;40 %</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><em>Merknad: Disse estimatene er basert på generelle trender i digitale brukerundersøkelser og internasjonale studier. Norske tall kan avvike. Andelen som bruker generativ AI antas å øke raskt.</em></p>
+
+        <hr>
+
+        <h2>5. Strukturelle utfordringer</h2>
+        <p>Utover flaskehalsene i hvert enkelt steg i verdikjeden, finnes det overordnede strukturelle utfordringer som påvirker verdikjeden som helhet.</p>
+
+        <h3>5.1 Siloorganisering</h3>
+        <p>Ansvaret for de ulike stegene i verdikjeden er fordelt på flere organisasjoner (FHI, Helsedirektoratet, NHN, helseforetak, kommuner) med ulike styringslinjer, budsjettprosesser og prioriteringer. Det finnes ikke et helhetlig styringsmandat for verdikjeden fra forskning til innbygger, noe som kan føre til suboptimalisering innenfor det enkelte steg uten at helheten ivaretas.</p>
+
+        <h3>5.2 Manglende standardisert informasjonsflyt</h3>
+        <p>Som beskrevet i delrapport 1 mangler det gjennomgående maskinlesbare formater og standardiserte grensesnitt mellom stegene. Kunnskapen transporteres i stor grad som ustrukturert fritekst, noe som gjør automatisert videreforedling og sporbarhet vanskelig.</p>
+
+        <h3>5.3 Dobbeltarbeid</h3>
+        <p>Flere aktører utfører overlappende oppgaver uten tilstrekkelig koordinering. Eksempler inkluderer:</p>
+        <ul>
+            <li>Flere organisasjoner oversetter og kontekstualiserer den samme internasjonale forskningen uavhengig av hverandre.</li>
+            <li>Innbyggerinformasjon om samme tema kan finnes på både helsenorge.no, Helsedirektoratets nettsider og regionale helseforetaks nettsider, uten systematisk koordinering.</li>
+            <li>Fagprosedyrer utvikles lokalt i helseforetak uten systematisk gjenbruk på tvers.</li>
+        </ul>
+
+        <h3>5.4 Fragmenterte IT-systemer</h3>
+        <p>Verdikjeden støtter seg på ulike IT-systemer som i begrenset grad er integrert. Retningslinjeverktøy, publiseringsløsninger, Helsebibliotekets systemer og helsenorge.no har separate innholdsforvaltningssystemer uten automatisert informasjonsflyt mellom seg.</p>
+
+        <h3>5.5 Begrenset bruk av strukturerte data og metadata</h3>
+        <p>Innhold gjennom verdikjeden er i hovedsak fritekstbasert med begrenset bruk av strukturerte metadata. Dette vanskeliggjør:</p>
+        <ul>
+            <li>Automatisert identifisering av utdatert innhold</li>
+            <li>Kobling mellom retningslinjer og tilhørende innbyggerinformasjon</li>
+            <li>Sporbarhet fra anbefaling tilbake til underliggende evidens</li>
+            <li>Gjenbruk av innhold på tvers av kanaler og formater</li>
+        </ul>
+
+        <hr>
+
+        <h2>6. Utfordringer spesifikke for innbyggerrettet informasjon</h2>
+
+        <h3>6.1 Klarspråk møter kompleksitet</h3>
+        <p>Mange helsefaglige temaer er iboende komplekse. Å formidle usikkerhet, betinget risiko og individuelle forskjeller i et klarspråk som er tilgjengelig for hele befolkningen, er en varig utfordring. Forenkling kan gå på bekostning av presisjon, og omvendt.</p>
+
+        <h3>6.2 Manglende personalisering</h3>
+        <p>Dagens innbyggerinformasjon er i all hovedsak generisk. Den tar ikke hensyn til individuelle faktører som alder, kjønn, kroniske sykdommer, medisinbruk eller risikoprofil. Innbyggere med sammensatte helsebehov må selv syntetisere informasjon fra flere artikler og kilder for å få et relevant bilde av sin situasjon.</p>
+
+        <h3>6.3 Tilgjengelighet</h3>
+        <p>Ikke alle innbyggere har samme forutsetninger for å finne og forstå digital helseinformasjon:</p>
+        <ul>
+            <li><strong>Digital kompetanse:</strong> Eldre og personer med lav digital kompetanse kan ha vanskeligheter med å navigere nettbasert helseinformasjon.</li>
+            <li><strong>Språklig mangfold:</strong> Innbyggere med andre morsmål enn norsk har begrenset tilgang til kvalitetssikret helseinformasjon på sitt språk.</li>
+            <li><strong>Funksjonsnedsettelser:</strong> Universell utforming av helseinformasjon er ikke gjennomgående ivaretatt.</li>
+        </ul>
+
+        <h3>6.4 Manglende feedback-loop</h3>
+        <p>Det finnes begrensede mekanismer for å fange opp innbyggernes erfaringer med og behov for helseinformasjon. Det mangler systematiske tilbakemeldingskanaler som gjør det mulig å:</p>
+        <ul>
+            <li>Identifisere hvilke temaer innbyggere etterlyser informasjon om</li>
+            <li>Avdekke misforståelser eller feilinformasjon som er utbredt</li>
+            <li>Måle om innbyggerinformasjonen faktisk fører til bedre helsevalg</li>
+            <li>Prioritere innholdsproduksjon basert på faktisk behov</li>
+        </ul>
+
+        <hr>
+
+        <h2>7. Oppsummering</h2>
+
+        <h3>7.1 De viktigste flaskehalsene rangert etter alvorlighet</h3>
+        <p>Basert på analysen over rangeres de viktigste flaskehalsene etter samlet alvorlighet, vurdert ut fra påvirkning på innbyggernes tilgang til oppdatert helseinformasjon:</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rang</th>
+                        <th>Flaskehals</th>
+                        <th>Alvorlighet</th>
+                        <th>Begrunnelse</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Foreldelse av kunnskapsgrunnlag underveis i retningslinjeprosessen</td>
+                        <td>Høy</td>
+                        <td>Lengste enkeltforsinkelse, direkte påvirkning på kvalitet</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Kapasitetsbegrensning for systematiske oversikter</td>
+                        <td>Høy</td>
+                        <td>Begrenser volumet av oppdatert kunnskap som kan produseres</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Manglende kobling mellom retningslinje og innbyggerinformasjon</td>
+                        <td>Høy</td>
+                        <td>Gjør at forsinkelsen forsterkes i siste ledd</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Siloorganisering og fragmentert ansvar</td>
+                        <td>Middels</td>
+                        <td>Strukturell årsak til flere av de ovrige flaskehalsene</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Manglende strukturerte data og metadata</td>
+                        <td>Middels</td>
+                        <td>Hindrer automatisering og sporbarhet</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Implementeringsgapet i klinisk praksis</td>
+                        <td>Middels</td>
+                        <td>Påvirker innbyggere indirekte gjennom helsetjenesten</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Manglende personalisering av innbyggerinformasjon</td>
+                        <td>Middels</td>
+                        <td>Reduserer relevans og nytteverdi for den enkelte</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Tilgjengelighetsutfordringer</td>
+                        <td>Middels</td>
+                        <td>Ekskluderer sårbare grupper</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>7.2 Videre analyser</h3>
+        <p>Flaskehalsene identifisert i denne rapporten danner grunnlag for de neste delrapportene i utredningen:</p>
+        <ul>
+            <li><strong>Delrapport 3</strong> vil analysere hvordan storspråkmodeller (LLM) og annen KI-teknologi kan adressere de identifiserte flaskehalsene, med særlig vekt på akselerering av kunnskapsoppsummering, oversettelse og klarspråkformidling.</li>
+            <li><strong>Delrapport 4</strong> vil skissere en ny verdikjede som utnytter teknologiske muligheter for å redusere gjennomløpstid og øke kvalitet, samtidig som nødvendig menneskelig kvalitetssikring ivaretas.</li>
+        </ul>
+
+        <hr>
+        <p><em>Sist oppdatert: 2026-03-15</em></p>
+
+    </main>
+    <footer>
+        Utredning gjennomført av Helsedirektoratet, 2026
+    </footer>
+</body>
+</html>
