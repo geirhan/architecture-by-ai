@@ -531,7 +531,7 @@
 
     <div class="network-container">
         <div class="network-svg-wrapper">
-            <svg id="networkDiagram" width="1100" height="780" viewBox="0 0 1100 780" xmlns="http://www.w3.org/2000/svg">
+            <svg id="networkDiagram" width="1100" height="900" viewBox="0 0 1100 900" xmlns="http://www.w3.org/2000/svg">
             </svg>
         </div>
     </div>
@@ -612,15 +612,15 @@
             </div>
             <div class="actor-card border-3a">
                 <span class="badge badge-3a">Normerende</span>
-                <h3>Helsebiblioteket (FHI)</h3>
-                <div class="role">Kunnskapsformidler til helsepersonell</div>
-                <div class="deliveries">Retningslinjesamlinger, tilgang til databaser og oppslagsverk, fagprosedyrer</div>
+                <h3>helsedirektoratet.no</h3>
+                <div class="role">Primær formidlingskanal til sektor</div>
+                <div class="deliveries">Fulltekst normerende produkter: retningslinjer, veiledere og faglige råd</div>
             </div>
             <div class="actor-card border-3a">
                 <span class="badge badge-3a">Normerende</span>
-                <h3>helsenorge.no (NHN / Helsedirektoratet)</h3>
-                <div class="role">Innbyggerrettet formidlingskanal</div>
-                <div class="deliveries">Kvalitetssikret helseinformasjon i klarspråk, helseråd, informasjon om rettigheter</div>
+                <h3>Helsebiblioteket (FHI)</h3>
+                <div class="role">Kunnskapsformidler til helsepersonell</div>
+                <div class="deliveries">Retningslinjesamlinger, tilgang til databaser og oppslagsverk, fagprosedyrer</div>
             </div>
             <div class="actor-card border-3a">
                 <span class="badge badge-3a">Normerende</span>
@@ -693,6 +693,30 @@
         <div class="actor-grid">
             <div class="actor-card border-3d">
                 <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>helsenorge.no (NHN / Helsedirektoratet)</h3>
+                <div class="role">Norges digitale helseportal for innbyggere</div>
+                <div class="deliveries">Kvalitetssikret helseinformasjon i klarspråk, digitale helsetjenester, helserettigheter. 80+ innholdsleverandører.</div>
+            </div>
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>FHI &ndash; innbyggerrettet informasjon</h3>
+                <div class="role">Folkehelseinformasjon direkte til innbyggere</div>
+                <div class="deliveries">Smittevernråd, vaksineinformasjon, helsestatistikk, beredskapsrådgivning via fhi.no</div>
+            </div>
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>FNSP (Felles nettløsning for spesialisthelsetjenesten)</h3>
+                <div class="role">Enhetlig pasientinformasjon fra sykehusene</div>
+                <div class="deliveries">Ca. 1 700 behandlingstekster, publisert på 60+ sykehusnettsteder. Eid av RHF-ene, driftet av NHN.</div>
+            </div>
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
+                <h3>NHI.no (Norsk Helseinformatikk)</h3>
+                <div class="role">Kommersielt helseoppslagsverk for allmennheten</div>
+                <div class="deliveries">Norges største nettbaserte helseoppslagsverk. Ca. 100 mill. sidevisninger/år. Eid av Bonnier Healthcare.</div>
+            </div>
+            <div class="actor-card border-3d">
+                <span class="badge badge-3d">Innbyggerrettet</span>
                 <h3>Pasientorganisasjoner</h3>
                 <div class="role">Erfaringsbasert kunnskap og innbyggerformidling</div>
                 <div class="deliveries">Pasientrettet informasjon, rådgivningstjenester, likepersonstøtte (Kreftforeningen, Diabetesforbundet, FFO m.fl.)</div>
@@ -702,12 +726,6 @@
                 <h3>Medier og helsejournalistikk</h3>
                 <div class="role">Formidling av forskningsfunn direkte til innbyggere</div>
                 <div class="deliveries">Nyhetsartikler, populærvitenskapelig formidling. Rask, men varierende kvalitetssikring.</div>
-            </div>
-            <div class="actor-card border-3d">
-                <span class="badge badge-3d">Innbyggerrettet</span>
-                <h3>Sosiale medier og nettfora</h3>
-                <div class="role">Uformell formidling</div>
-                <div class="deliveries">Erfaringsdeling, diskusjoner. Stor innflytelse på helseadferd, minst kontrollerte kanalen.</div>
             </div>
         </div>
     </div>
@@ -738,13 +756,14 @@
     // LAYOUT: Source top-left, four lanes stacked, targets right
     // ============================================================
     //
-    //  [Steg 2]──┬──[3a lane: Hdir → Hbibl / helsenorge]────→ [HP]
-    //            │                                               │
-    //            ├──[3b lane: UTD → Fagpros / Fagmed]──────→ [HP]│
-    //            │                                               │
+    //  [Steg 2]──┬──[3a lane: Hdir → helsedir.no / Hbibl]────→ [HP]
+    //            │
+    //            ├──[3b lane: UTD → Fagpros / Fagmed]──────→ [HP]
+    //            │
     //            ├──[3c lane: DMP → FK / RELIS]──────────→ [HP]+[INN]
-    //            │                                               │
-    //            └──[3d lane: Pasientorg → Medier]────────→ [INN]
+    //            │
+    //            └──[3d lane: helsenorge / FHI / FNSP /  ]──→ [INN]
+    //                        NHI / Pasientorg / Medier
     //
 
     // Source node – top left
@@ -760,34 +779,45 @@
     var tgtX = 1000;
 
     // Lane vertical positions – each lane has a top y and height
+    // 3d lane is now taller to accommodate 6 actors in two rows
     var L = {
         a: { y: 10,  h: 150 },
         b: { y: 190, h: 160 },
         c: { y: 380, h: 160 },
-        d: { y: 570, h: 100 }
+        d: { y: 570, h: 220 }
     };
 
     // Actor y positions (centered within lanes)
     var ay = {
-        hdir:  L.a.y + 55,           // Helsedirektoratet
-        hbibl: L.a.y + 55,           // Helsebiblioteket (same row)
-        hnor:  L.a.y + 115,          // helsenorge.no
+        hdir:   L.a.y + 55,           // Helsedirektoratet
+        hdirno: L.a.y + 55,           // helsedirektoratet.no (same row as Hdir)
+        hbibl:  L.a.y + 115,          // Helsebiblioteket (second row)
 
-        utd:   L.b.y + 55,           // UpToDate
-        fproc: L.b.y + 55,           // Fagprosedyrer (same row)
-        fmed:  L.b.y + 120,          // Fagmed. foreninger
+        utd:   L.b.y + 55,            // UpToDate
+        fproc: L.b.y + 55,            // Fagprosedyrer (same row)
+        fmed:  L.b.y + 120,           // Fagmed. foreninger
 
-        dmp:   L.c.y + 55,           // DMP
-        fk:    L.c.y + 55,           // Felleskatalogen (same row)
-        relis: L.c.y + 120,          // RELIS
+        dmp:   L.c.y + 55,            // DMP
+        fk:    L.c.y + 55,            // Felleskatalogen (same row)
+        relis: L.c.y + 120,           // RELIS
 
-        porg:  L.d.y + 50,           // Pasientorganisasjoner
-        medi:  L.d.y + 50            // Medier (same row)
+        // 3d: two rows of three actors each
+        hnor:  L.d.y + 60,            // helsenorge.no (row 1)
+        fhi:   L.d.y + 60,            // FHI (row 1)
+        fnsp:  L.d.y + 60,            // FNSP (row 1) – third column
+        nhi:   L.d.y + 140,           // NHI.no (row 2)
+        porg:  L.d.y + 140,           // Pasientorganisasjoner (row 2)
+        medi:  L.d.y + 140            // Medier (row 2)
     };
 
-    // Target y: HP between 3b and 3c, INN between 3c and 3d
+    // Three columns for 3d lane
+    var col3d_1 = 250;
+    var col3d_2 = 430;
+    var col3d_3 = 610;
+
+    // Target y: HP between 3b and 3c, INN below 3d
     var hpY = 310;
-    var innY = 620;
+    var innY = 850;
 
     // ============================================================
     // Arrow markers
@@ -892,11 +922,9 @@
         var horizontal = Math.abs(dy) < 5;
         var sx, sy, ex, ey;
         if (horizontal) {
-            // Shorten by half box width (~75-80px)
             sx = x1 + 78; sy = y1;
             ex = x2 - 78; ey = y2;
         } else {
-            // Diagonal: shorten by approximate node radius
             var len = Math.sqrt(dx*dx + dy*dy);
             var ux = dx/len, uy = dy/len;
             sx = x1 + ux*78; sy = y1 + uy*20;
@@ -918,7 +946,6 @@
         var sx = x1 + 78;  // start after source box
         var ex = x2 - 78;  // end before target box
 
-        // Three straight segments: horizontal, vertical, horizontal
         var d = 'M ' + sx + ' ' + y1
               + ' L ' + bx + ' ' + y1
               + ' L ' + bx + ' ' + y2
@@ -956,14 +983,14 @@
     // ============================================================
     var trunkX = 160;
     var trunkTop = srcY + 30;
-    var trunkBot = ay.porg;
+    var trunkBot = ay.hnor;  // first row of 3d lane
 
     // Small arrow helper for trunk/branch (shorter shortening)
     function smallArrow(x1, y1, x2, y2, color, marker) {
         var dx = x2-x1, dy = y2-y1, len = Math.sqrt(dx*dx+dy*dy);
         if (len < 1) return;
         var ux = dx/len, uy = dy/len;
-        var s1 = 5, s2 = 78; // small start gap, normal end gap
+        var s1 = 5, s2 = 78;
         var line = document.createElementNS(ns, 'line');
         line.setAttribute('x1', x1 + ux*s1); line.setAttribute('y1', y1 + uy*s1);
         line.setAttribute('x2', x2 - ux*s2); line.setAttribute('y2', y2 - uy*s2);
@@ -983,11 +1010,12 @@
     svg.appendChild(trunk);
 
     // Horizontal branches from trunk to col1 nodes
-    [[ay.hdir, C.norm, 'a-norm'],
-     [ay.utd,  C.klin, 'a-klin'],
-     [ay.dmp,  C.lege, 'a-lege'],
-     [ay.porg, C.innb, 'a-innb']].forEach(function(b) {
-        smallArrow(trunkX, b[0], col1, b[0], b[1], b[2]);
+    // 3a, 3b, 3c branch to col1; 3d branches to col3d_1
+    [[ay.hdir, C.norm, 'a-norm', col1],
+     [ay.utd,  C.klin, 'a-klin', col1],
+     [ay.dmp,  C.lege, 'a-lege', col1],
+     [ay.hnor, C.innb, 'a-innb', col3d_1]].forEach(function(b) {
+        smallArrow(trunkX, b[0], b[3], b[0], b[1], b[2]);
     });
 
     // Source box → trunk (short horizontal)
@@ -1000,7 +1028,7 @@
     svg.appendChild(srcLine);
 
     // Small dots at branch points
-    [[srcY], [ay.hdir], [ay.utd], [ay.dmp], [ay.porg]].forEach(function(b) {
+    [[srcY], [ay.hdir], [ay.utd], [ay.dmp], [ay.hnor]].forEach(function(b) {
         var dot = document.createElementNS(ns, 'circle');
         dot.setAttribute('cx', trunkX); dot.setAttribute('cy', b[0]);
         dot.setAttribute('r', 4);
@@ -1011,9 +1039,9 @@
     // ============================================================
     // DRAW EDGES – internal lane connections
     // ============================================================
-    // 3a: Hdir → Hbibl (horizontal), Hdir → helsenorge (diagonal down)
+    // 3a: Hdir → helsedirektoratet.no (horizontal), Hdir → Helsebiblioteket (diagonal down)
+    arrow(col1, ay.hdir, col2, ay.hdirno, C.norm, 'a-norm');
     arrow(col1, ay.hdir, col2, ay.hbibl, C.norm, 'a-norm');
-    arrow(col1, ay.hdir, col2, ay.hnor, C.norm, 'a-norm');
 
     // 3b: UTD → Fagpros (horizontal), UTD → Fagmed (diagonal)
     arrow(col1, ay.utd, col2, ay.fproc, C.klin, 'a-klin');
@@ -1023,24 +1051,34 @@
     arrow(col1, ay.dmp, col2, ay.fk, C.lege, 'a-lege');
     arrow(col1, ay.dmp, col2, ay.relis, C.lege, 'a-lege');
 
-    // 3d: Pasientorg → Medier (horizontal)
-    arrow(col1, ay.porg, col2, ay.medi, C.innb, 'a-innb');
+    // 3d: Row 1 connections (helsenorge → FHI, helsenorge → FNSP)
+    arrow(col3d_1, ay.hnor, col3d_2, ay.fhi, C.innb, 'a-innb');
+    arrow(col3d_1, ay.hnor, col3d_3, ay.fnsp, C.innb, 'a-innb');
+    // Row 2 connections (NHI → Pasientorg, NHI → Medier)
+    arrow(col3d_1, ay.nhi, col3d_2, ay.porg, C.innb, 'a-innb');
+    arrow(col3d_1, ay.nhi, col3d_3, ay.medi, C.innb, 'a-innb');
 
     // ============================================================
     // DRAW EDGES – to targets (L-shaped to avoid crossing)
     // ============================================================
     // To Helsepersonell – bend at different x to spread
-    arrowL(col2, ay.hbibl, tgtX, hpY - 12, C.norm, 'a-norm', 800);
-    arrowL(col2, ay.fproc, tgtX, hpY - 4,  C.klin, 'a-klin', 830);
-    arrowL(col2, ay.fmed,  tgtX, hpY + 4,  C.klin, 'a-klin', 860);
-    arrowL(col2, ay.fk,    tgtX, hpY + 12, C.lege, 'a-lege', 890);
-    arrowL(col2, ay.relis, tgtX, hpY + 18, C.lege, 'a-lege', 910);
+    arrowL(col2, ay.hdirno, tgtX, hpY - 16, C.norm, 'a-norm', 790);
+    arrowL(col2, ay.hbibl, tgtX, hpY - 8, C.norm, 'a-norm', 810);
+    arrowL(col2, ay.fproc, tgtX, hpY,      C.klin, 'a-klin', 830);
+    arrowL(col2, ay.fmed,  tgtX, hpY + 8,  C.klin, 'a-klin', 860);
+    arrowL(col2, ay.fk,    tgtX, hpY + 16, C.lege, 'a-lege', 890);
+    arrowL(col2, ay.relis, tgtX, hpY + 22, C.lege, 'a-lege', 910);
 
-    // To Innbyggere
-    arrowL(col2, ay.hnor,  tgtX, innY - 12, C.norm, 'a-norm', 820);
-    arrowL(col2, ay.fk,    tgtX, innY - 4,  C.lege, 'a-lege', 850);
-    arrowL(col2, ay.porg,  tgtX, innY + 4,  C.innb, 'a-innb', 880);
-    arrowL(col2, ay.medi,  tgtX, innY + 12, C.innb, 'a-innb', 900);
+    // To Innbyggere – from 3d actors
+    arrowL(col3d_1, ay.hnor,  tgtX, innY - 20, C.innb, 'a-innb', 800);
+    arrowL(col3d_2, ay.fhi,   tgtX, innY - 12, C.innb, 'a-innb', 820);
+    arrowL(col3d_3, ay.fnsp,  tgtX, innY - 4,  C.innb, 'a-innb', 840);
+    arrowL(col3d_1, ay.nhi,   tgtX, innY + 4,  C.innb, 'a-innb', 860);
+    arrowL(col3d_2, ay.porg,  tgtX, innY + 12, C.innb, 'a-innb', 880);
+    arrowL(col3d_3, ay.medi,  tgtX, innY + 20, C.innb, 'a-innb', 900);
+
+    // Also FK to Innbyggere (legemiddelinfo)
+    arrowL(col2, ay.fk,    tgtX, innY + 28, C.lege, 'a-lege', 920);
 
     // ============================================================
     // DRAW NODES (on top of edges)
@@ -1049,9 +1087,9 @@
     drawNode(srcX, srcY, 'Steg 2:\nKunnskaps-\noppsummeringer', C.source, '#ffffff', '#3d4d5e', 150, 58);
 
     // 3a
-    drawNode(col1, ay.hdir,  'Helsedirektoratet',  '#ffffff', C.norm, C.norm, 150, 36);
-    drawNode(col2, ay.hbibl, 'Helsebiblioteket',    '#ffffff', C.norm, C.norm, 150, 36);
-    drawNode(col2, ay.hnor,  'helsenorge.no',       '#ffffff', C.norm, C.norm, 150, 36);
+    drawNode(col1, ay.hdir,   'Helsedirektoratet',    '#ffffff', C.norm, C.norm, 150, 36);
+    drawNode(col2, ay.hdirno, 'helsedirektoratet.no',  '#ffffff', C.norm, C.norm, 160, 36);
+    drawNode(col2, ay.hbibl,  'Helsebiblioteket',      '#ffffff', C.norm, C.norm, 150, 36);
 
     // 3b
     drawNode(col1, ay.utd,   'UpToDate /\nBMJ Best Practice', '#ffffff', C.klin, C.klin, 160, 48);
@@ -1063,9 +1101,14 @@
     drawNode(col2, ay.fk,    'Felleskatalogen',  '#ffffff', C.lege, C.lege, 150, 36);
     drawNode(col2, ay.relis, 'RELIS',            '#ffffff', C.lege, C.lege, 140, 36);
 
-    // 3d
-    drawNode(col1, ay.porg,  'Pasient-\norganisasjoner', '#ffffff', C.innb, C.innb, 160, 48);
-    drawNode(col2, ay.medi,  'Medier',                    '#ffffff', C.innb, C.innb, 140, 36);
+    // 3d – row 1
+    drawNode(col3d_1, ay.hnor, 'helsenorge.no',  '#ffffff', C.innb, C.innb, 140, 36);
+    drawNode(col3d_2, ay.fhi,  'FHI',             '#ffffff', C.innb, C.innb, 120, 36);
+    drawNode(col3d_3, ay.fnsp, 'FNSP',            '#ffffff', C.innb, C.innb, 120, 36);
+    // 3d – row 2
+    drawNode(col3d_1, ay.nhi,  'NHI.no',                    '#ffffff', C.innb, C.innb, 140, 36);
+    drawNode(col3d_2, ay.porg, 'Pasient-\norganisasjoner',  '#ffffff', C.innb, C.innb, 150, 48);
+    drawNode(col3d_3, ay.medi, 'Medier',                    '#ffffff', C.innb, C.innb, 120, 36);
 
     // Targets
     drawNode(tgtX, hpY,  'Helsepersonell', C.target, '#333333', '#d4a800', 150, 44);
