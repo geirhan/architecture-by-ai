@@ -886,39 +886,48 @@
         });
     }
 
-    // Simple straight arrow with shortening
-    function arrow(x1, y1, x2, y2, color, marker, sw) {
-        var dx = x2-x1, dy = y2-y1, len = Math.sqrt(dx*dx+dy*dy);
-        if (len < 1) return;
-        var ux = dx/len, uy = dy/len, s = 38;
+    // Straight arrow between two nodes, shortening by half-width/height of each box
+    function arrow(x1, y1, x2, y2, color, marker) {
+        var dx = x2 - x1, dy = y2 - y1;
+        var horizontal = Math.abs(dy) < 5;
+        var sx, sy, ex, ey;
+        if (horizontal) {
+            // Shorten by half box width (~75-80px)
+            sx = x1 + 78; sy = y1;
+            ex = x2 - 78; ey = y2;
+        } else {
+            // Diagonal: shorten by approximate node radius
+            var len = Math.sqrt(dx*dx + dy*dy);
+            var ux = dx/len, uy = dy/len;
+            sx = x1 + ux*78; sy = y1 + uy*20;
+            ex = x2 - ux*78; ey = y2 - uy*20;
+        }
         var line = document.createElementNS(ns, 'line');
-        line.setAttribute('x1', x1 + ux*s); line.setAttribute('y1', y1 + uy*s);
-        line.setAttribute('x2', x2 - ux*s); line.setAttribute('y2', y2 - uy*s);
+        line.setAttribute('x1', sx); line.setAttribute('y1', sy);
+        line.setAttribute('x2', ex); line.setAttribute('y2', ey);
         line.setAttribute('stroke', color);
-        line.setAttribute('stroke-width', sw || '1.8');
+        line.setAttribute('stroke-width', '1.8');
         line.setAttribute('stroke-opacity', '0.5');
         line.setAttribute('marker-end', 'url(#' + marker + ')');
         svg.appendChild(line);
     }
 
-    // Horizontal-then-vertical L-shaped arrow (goes right, then bends down/up to target)
+    // L-shaped arrow: horizontal from source, rounded corner, vertical, rounded corner, horizontal into target
     function arrowL(x1, y1, x2, y2, color, marker, bendX) {
-        var bx = bendX || (x2 - 60);
-        var s = 38;
-        // Shorten start
-        var sx = x1 + s;
-        // Shorten end
-        var dx = x2 - bx, dy = y2 > y1 ? -1 : 1;
-        var elen = Math.sqrt(dx*dx + (y2 - y2)*(y2 - y2)); // just horizontal to target
-        var ex = x2 - s;
-        var ey = y2;
+        var bx = bendX || (x2 - 80);
+        var r = 12; // corner radius
+        var sx = x1 + 78;  // start after source box
+        var ex = x2 - 78;  // end before target box
+        var goingDown = y2 > y1;
+        var dir = goingDown ? 1 : -1;
 
+        // Path: horizontal → rounded corner → vertical → rounded corner → horizontal
         var d = 'M ' + sx + ' ' + y1
-              + ' L ' + bx + ' ' + y1
-              + ' Q ' + (bx+20) + ' ' + y1 + ' ' + (bx+20) + ' ' + (y1 + (y2>y1?20:-20))
-              + ' L ' + (bx+20) + ' ' + (y2 + (y2>y1?-20:20))
-              + ' Q ' + (bx+20) + ' ' + y2 + ' ' + (bx+40) + ' ' + y2
-              + ' L ' + ex + ' ' + ey;
+              + ' L ' + (bx - r) + ' ' + y1
+              + ' Q ' + bx + ' ' + y1 + ' ' + bx + ' ' + (y1 + dir*r)
+              + ' L ' + bx + ' ' + (y2 - dir*r)
+              + ' Q ' + bx + ' ' + y2 + ' ' + (bx + r) + ' ' + y2
+              + ' L ' + ex + ' ' + y2;
 
         var p = document.createElementNS(ns, 'path');
         p.setAttribute('d', d);
@@ -947,13 +956,29 @@
     }
 
     // ============================================================
-    // DRAW EDGES – source to lanes (vertical lines down left side)
+    // DRAW EDGES – source to lanes (vertical trunk + horizontal branches)
     // ============================================================
-    // Vertical trunk from source down
     var trunkX = 160;
     var trunkTop = srcY + 30;
     var trunkBot = ay.porg;
 
+    // Small arrow helper for trunk/branch (shorter shortening)
+    function smallArrow(x1, y1, x2, y2, color, marker) {
+        var dx = x2-x1, dy = y2-y1, len = Math.sqrt(dx*dx+dy*dy);
+        if (len < 1) return;
+        var ux = dx/len, uy = dy/len;
+        var s1 = 5, s2 = 78; // small start gap, normal end gap
+        var line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', x1 + ux*s1); line.setAttribute('y1', y1 + uy*s1);
+        line.setAttribute('x2', x2 - ux*s2); line.setAttribute('y2', y2 - uy*s2);
+        line.setAttribute('stroke', color);
+        line.setAttribute('stroke-width', '1.8');
+        line.setAttribute('stroke-opacity', '0.5');
+        line.setAttribute('marker-end', 'url(#' + marker + ')');
+        svg.appendChild(line);
+    }
+
+    // Vertical trunk line
     var trunk = document.createElementNS(ns, 'line');
     trunk.setAttribute('x1', trunkX); trunk.setAttribute('y1', trunkTop);
     trunk.setAttribute('x2', trunkX); trunk.setAttribute('y2', trunkBot);
@@ -961,16 +986,31 @@
     trunk.setAttribute('stroke-opacity', '0.3');
     svg.appendChild(trunk);
 
-    // Horizontal branches from trunk to col1
+    // Horizontal branches from trunk to col1 nodes
     [[ay.hdir, C.norm, 'a-norm'],
      [ay.utd,  C.klin, 'a-klin'],
      [ay.dmp,  C.lege, 'a-lege'],
      [ay.porg, C.innb, 'a-innb']].forEach(function(b) {
-        arrow(trunkX, b[0], col1, b[0], b[1], b[2]);
+        smallArrow(trunkX, b[0], col1, b[0], b[1], b[2]);
     });
 
-    // Source → trunk
-    arrow(srcX, srcY, trunkX, srcY, C.source, 'a-src');
+    // Source box → trunk (short horizontal)
+    var srcLine = document.createElementNS(ns, 'line');
+    srcLine.setAttribute('x1', srcX + 78); srcLine.setAttribute('y1', srcY);
+    srcLine.setAttribute('x2', trunkX); srcLine.setAttribute('y2', srcY);
+    srcLine.setAttribute('stroke', C.source);
+    srcLine.setAttribute('stroke-width', '2');
+    srcLine.setAttribute('stroke-opacity', '0.4');
+    svg.appendChild(srcLine);
+
+    // Small dots at branch points
+    [[srcY], [ay.hdir], [ay.utd], [ay.dmp], [ay.porg]].forEach(function(b) {
+        var dot = document.createElementNS(ns, 'circle');
+        dot.setAttribute('cx', trunkX); dot.setAttribute('cy', b[0]);
+        dot.setAttribute('r', 4);
+        dot.setAttribute('fill', C.source); dot.setAttribute('opacity', '0.4');
+        svg.appendChild(dot);
+    });
 
     // ============================================================
     // DRAW EDGES – internal lane connections
