@@ -36,35 +36,44 @@ Kunnskapen fra steg 1 og 2 omsettes og formidles til helsepersonell og innbygger
 
 #### 3a. Den normerende strømmen
 
-Helsedirektoratet utvikler nasjonale faglige retningslinjer basert på kunnskapsoppsummeringer. Retningslinjene er normerende for helsetjenesten og gir anbefalinger for diagnostikk, behandling, forebygging og organisering. Utviklingsprosessen involverer tverrfaglige arbeidsgrupper, ekstern høring og systematisk vurdering av evidens opp mot norske forhold.
+Helsedirektoratet utvikler tre typer normerende produkter basert på kunnskapsoppsummeringer: **nasjonale faglige retningslinjer**, **veiledere** og **faglige råd** [1]. Retningslinjene er normerende for helsetjenesten og gir anbefalinger for diagnostikk, behandling, forebygging og organisering. Utviklingsprosessen involverer tverrfaglige arbeidsgrupper med bidrag fra fagmedisinske foreninger og brukerrepresentanter, ekstern høring og systematisk vurdering av evidens opp mot norske forhold [2].
 
-Retningslinjene formidles videre gjennom to hovedkanaler:
-- **Helsebiblioteket** (drives av FHI) tilgjengeliggjør retningslinjene sammen med andre kunnskapsressurser for helsepersonell.
-- **helsenorge.no** (forvaltes av NHN med innholdsbidrag fra Helsedirektoratet) omarbeider retningslinjene til kvalitetssikret innbyggerinformasjon i klarspråk.
+**Formidling til helsepersonell og sektor:** Helsedirektoratets primære formidlingskanal er **helsedirektoratet.no**, der retningslinjer, veiledere og faglige råd publiseres i fulltekst [1]. Helsebiblioteket (drives av FHI) tilgjengeliggjør også retningslinjene sammen med andre kunnskapsressurser [3].
 
-Dette er den mest autoritative strømmen – den eneste der kunnskap gjennomgår formell normering for norsk kontekst. Den er også den langsomste, med en gjennomløpstid på 1–5 år fra kunnskapsoppsummering til oppdatert innbyggerinformasjon.
+**Implementering i helsetjenesten:** Etter publisering skal retningslinjene implementeres i klinisk praksis:
+- **Spesialisthelsetjenesten**: RHF-ene/HF-ene operasjonaliserer retningslinjene til lokale fagprosedyrer og behandlingslinjer. Fagprosedyrer.no (koordinert av OUS, publisert via Helsebiblioteket) er den nasjonale plattformen for deling av kunnskapsbaserte fagprosedyrer [4].
+- **Primærhelsetjenesten**: Kommunene og fastlegene er ansvarlige for å følge retningslinjene. Helsebiblioteket har lansert en egen portal for kommunehelsetjenesten [3]. Det finnes ikke en tilsvarende systematisk operasjonaliseringsmekanisme som fagprosedyrer for primærhelsetjenesten.
+
+**Formidling til innbyggere:** Retningslinjene danner grunnlag for innbyggerrettet informasjon som publiseres på helsenorge.no (se strøm 3d).
+
+Dette er den mest autoritative strømmen – den eneste der kunnskap gjennomgår formell normering for norsk kontekst. Den er også den langsomste, med en gjennomløpstid på 1–5 år fra kunnskapsoppsummering til oppdatert praksis.
 
 | Aktør | Rolle | Leveranse |
 |-------|-------|-----------|
 | Helsedirektoratet | Retningslinjeutvikler | Nasjonale faglige retningslinjer, veiledere, faglige råd |
-| Helsebiblioteket / FHI | Formidler til helsepersonell | Retningslinjesamlinger, databaser |
-| helsenorge.no / NHN | Formidler til innbyggere | Klarspråklig helseinformasjon |
+| helsedirektoratet.no | Primær formidlingskanal til sektor | Fulltekst normerende produkter |
+| Helsebiblioteket / FHI | Kunnskapsformidler | Retningslinjesamlinger, databaser, kommunehelseportal |
+| RHF-ene / HF-ene | Implementering i sykehus | Fagprosedyrer, behandlingslinjer |
+| KS / kommunene | Implementering i primærhelsetjenesten | Lokal praksis |
 
 #### 3b. Den kliniske kunnskapsstrømmen
 
-Parallelt med den normerende strømmen når forskningsbasert kunnskap helsepersonell gjennom kanaler som oppdateres raskere enn nasjonale retningslinjer. For mange klinikere er dette den primære kunnskapskilden i daglig praksis.
+Parallelt med den normerende strømmen når forskningsbasert kunnskap helsepersonell gjennom kanaler som oppdateres raskere enn nasjonale retningslinjer. For mange klinikere er dette den primære kunnskapskilden i daglig praksis. Kunnskapen i denne strømmen hentes primært direkte fra internasjonal forskning (publisert i vitenskapelige tidsskrifter, PubMed/MEDLINE), uten å gå via formelle kunnskapsoppsummeringer i steg 2.
 
-- **Kliniske oppslagsverk** (UpToDate, BMJ Best Practice): Internasjonale, kommersielle kunnskapstjenester som sammenstiller forskning til klinisk anvendbare anbefalinger med løpende oppdatering. Tilgjengelige for norsk helsepersonell gjennom nasjonale lisensavtaler via Helsebiblioteket. Oppdateres vesentlig raskere enn nasjonale retningslinjer.
-- **Fagprosedyrer** (fagprosedyrer.no): Sykehusenes kvalitetsavdelinger utvikler kunnskapsbaserte fagprosedyrer som operasjonaliserer retningslinjer til konkrete handlingsanvisninger. Oslo universitetssykehus (OUS) er den største bidragsyteren, og fagprosedyrene gjøres tilgjengelige nasjonalt via Helsebiblioteket. Fagprosedyrer kan også inkorporere kunnskap som ennå ikke er dekket av nasjonale retningslinjer.
-- **Fagmedisinske foreninger og tidsskrifter**: Norske fagmedisinske foreninger og Tidsskrift for Den norske legeforening formidler ny forskning og faglige debatter direkte til helsepersonell.
+- **Kliniske oppslagsverk** (UpToDate, BMJ Best Practice, Micromedex): Internasjonale, kommersielle kunnskapstjenester som sammenstiller forskning til klinisk anvendbare anbefalinger med løpende oppdatering. Tilgjengelige for norsk helsepersonell gjennom nasjonale lisensavtaler via Helsebiblioteket [3]. BMJ Best Practice er tilgjengelig for alle med norsk IP-adresse, mens UpToDate krever registrering via arbeidsgiver [5]. Fra 2023 mistet norsk helsepersonell nasjonal tilgang til Cochrane Library, Embase og flere andre databaser som følge av budsjettkutt ved FHI [6].
+- **Fagprosedyrer** (Helsebiblioteket/fagprosedyrer): Fagprosedyrer.no omdirigerer nå til Helsebiblioteket [4]. OUS koordinerer arbeidet med kunnskapsbaserte fagprosedyrer, som operasjonaliserer retningslinjer til konkrete handlingsanvisninger. Tjenesten var nedlagt i en periode, men er under gjenoppbygging [4]. Fagprosedyrer kan inkorporere kunnskap som ennå ikke er dekket av nasjonale retningslinjer.
+- **Tidsskrift for Den norske legeforening**: Fagfellevurdert vitenskapelig tidsskrift utgitt av Legeforeningen. Alt innhold er fritt tilgjengelig (open access) på tidsskriftet.no [7]. Viktig arena for norsk medisinsk fagdebatt og kritisk gjennomgang av retningslinjer.
+- **Sykepleien Forskning**: Fagfellevurdert sykepleieforskning (nivå 1-tidsskrift), utgitt av Norsk Sykepleierforbund [8]. Relevant kunnskapskilde for sykepleiere i praksis og utdanning.
+- **Fagmedisinske foreninger**: Legeforeningens fagmedisinske foreninger (én per spesialitet) utvikler faglige anbefalinger innenfor sine spesialområder og bidrar til Helsedirektoratets retningslinjearbeid [9].
 
 Denne strømmen har typisk en gjennomløpstid på uker til måneder fra forskning til tilgjengelig kunnskap for helsepersonell.
 
 | Aktør | Rolle | Leveranse |
 |-------|-------|-----------|
 | UpToDate / BMJ Best Practice | Klinisk oppslagsverk | Evidensbaserte anbefalinger, kalkulatorer |
-| Fagprosedyrer.no / OUS | Fagprosedyreprodusent | Handlingsanvisninger for klinisk praksis |
-| Fagmedisinske foreninger | Faglig formidling | Tidsskriftartikler, debatter, kurs |
+| Helsebiblioteket (fagprosedyrer) | Fagprosedyreplattform | Handlingsanvisninger for klinisk praksis |
+| Tidsskriftet / Sykepleien | Fagtidsskrifter (open access) | Originalartikler, oversikter, fagdebatt |
+| Fagmedisinske foreninger | Spesialitetsspesifikk formidling | Faglige anbefalinger, kurs, konferanser |
 
 #### 3c. Legemiddelstrømmen
 
@@ -84,17 +93,33 @@ Denne strømmen kan reagere på dager til uker ved nye sikkerhetssignaler, og er
 
 #### 3d. Den innbyggerrettede strømmen
 
-Utover helsenorge.no (som er en del av den normerende strømmen 3a) mottar innbyggere helseinformasjon fra flere aktører som opererer uavhengig av den formelle verdikjeden. Disse kanalene har varierende grad av kvalitetssikring.
+Innbyggere mottar helseinformasjon fra et bredt spekter av aktører med ulike kilder, ulik kvalitetssikring og ulik grad av offentlig styring. Denne strømmen inkluderer både offentlige kanaler (som helsenorge.no) og kommersielle/frivillige aktører.
 
-- **Pasientorganisasjoner**: Organisasjoner som Kreftforeningen, Diabetesforbundet og Funksjonshemmedes Fellesorganisasjon (FFO) formidler kvalitetssikret helseinformasjon direkte til sine målgrupper. Disse kombinerer medisinsk kunnskap med erfaringsbasert kunnskap fra pasienter og pårørende, og har ofte høy troverdighet i sine pasientgrupper.
-- **Medier og helsejournalistikk**: Aviser, TV, nettmedier og podkaster formidler ny helseforskning til allmennheten, ofte med vesentlig kortere tidsforsinkelse enn den formelle verdikjeden. Kvaliteten varierer betydelig og er ikke underlagt systematisk faglig kvalitetssikring.
-- **Sosiale medier og nettfora**: Innbyggere deler erfaringer og helseinformasjon seg imellom, med varierende grad av kvalitetssikring. Kan ha stor innflytelse på helseadferd, men er den minst kontrollerte kanalen.
+**Offentlige kanaler:**
+- **helsenorge.no**: Norges digitale helseportal for innbyggere, med Helsedirektoratet som ansvarlig utgiver og NHN som produkteier og drifter [10]. Over 80 organisasjoner bidrar med innhold, inkludert FHI, Helsedirektoratet, DMP, RHF-ene, sykehus og pasientorganisasjoner [10]. Hver innholdsleverandør er selv ansvarlig for at informasjonen er oppdatert og av høy faglig kvalitet. Tilbyr også digitale helsetjenester (timebestilling, resepter, prøvesvar, journal).
+- **FHI (Folkehelseinstituttet)**: Publiserer innbyggerrettet informasjon om smittevern, vaksinasjon, psykisk helse og helsestatistikk direkte på fhi.no [11]. Kommuniserer også via podkast (Folkehelsepodden) og sosiale medier.
+- **FNSP (Felles nettløsning for spesialisthelsetjenesten)**: Nasjonalt samarbeid eid av de fire RHF-ene som sikrer enhetlig pasientinformasjon på over 60 sykehusnettsteder [12]. Forvalter ca. 1 700 behandlingstekster godkjent av medisinske fagpersoner, med en nasjonal medisinsk og helsefaglig redaksjon [12]. Driftes av NHN.
 
-| Aktør | Rolle | Leveranse |
-|-------|-------|-----------|
-| Pasientorganisasjoner | Erfaringsbasert formidling | Pasientrettet informasjon, likepersonstøtte |
-| Medier | Journalistisk formidling | Nyhetsartikler, populærvitenskap |
-| Sosiale medier | Uformell formidling | Erfaringsdeling, diskusjoner |
+**Kommersielle kunnskapsaktører:**
+- **NHI.no (Norsk Helseinformatikk)**: Norges største helseoppslagsverk for allmennheten, eid av Bonnier Healthcare (del av svenske Bonnier Group) [13]. Grunnlagt i 1996 med utspring fra allmennpraktiserende leger, NTNU, St. Olavs Hospital og SINTEF. Har ca. 100 millioner sidevisninger per år [14]. NHI utviklet opprinnelig NEL (Norsk Elektronisk Legehåndbok), et oppslagsverk brukt av nesten alle norske allmennleger [13].
+- **Felleskatalogen**: Tilbyr pakningsvedlegg og pasientrettet legemiddelinformasjon direkte til innbyggere gjennom felleskatalogen.no (se også strøm 3c).
+
+**Pasientorganisasjoner:**
+- Organisasjoner som Kreftforeningen, LHL, Diabetesforbundet, Nasjonalforeningen for folkehelsen og FFO formidler kvalitetssikret helseinformasjon direkte til sine målgrupper [15]. Disse kombinerer medisinsk kunnskap med erfaringsbasert kunnskap fra pasienter og pårørende. Flere er også innholdsleverandører til helsenorge.no [10].
+
+**Uformelle kanaler:**
+- **Medier og helsejournalistikk**: Aviser, TV, nettmedier og podkaster formidler ny helseforskning til allmennheten, ofte med vesentlig kortere tidsforsinkelse enn den formelle verdikjeden. Kvaliteten varierer betydelig.
+- **Sosiale medier og nettfora**: Innbyggere deler erfaringer og helseinformasjon seg imellom. Kan ha stor innflytelse på helseadferd, men er den minst kontrollerte kanalen.
+
+| Aktør | Rolle | Kilde for innholdet |
+|-------|-------|---------------------|
+| helsenorge.no | Offentlig helseportal | 80+ innholdsleverandører, retningslinjer |
+| FHI | Folkehelseinformasjon | Egen forskning og overvåking |
+| FNSP | Sykehusinformasjon | Faglig godkjente behandlingstekster |
+| NHI.no | Kommersielt helseoppslagsverk | Egen redaksjon (oppr. NEL-miljøet) |
+| Felleskatalogen | Legemiddelinformasjon | DMP-godkjente preparatomtaler |
+| Pasientorganisasjoner | Erfaringsbasert formidling | Medisinsk kunnskap + pasienterfaring |
+| Medier | Journalistisk formidling | Forskningspublikasjoner, ekspertkilder |
 
 #### Sammenligning av de fire strømmene
 
@@ -143,19 +168,13 @@ Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktør
 - **Ansvar og mandat**: Tilgjengeliggjør forskningsbasert kunnskap for helsepersonell gjennom databaser, oppslagsverk og tidsskrifter. Gir tilgang til internasjonale kunnskapsressurser tilpasset norsk kontekst.
 - **Viktigste leveranser**: Tilgang til kunnskapsdatabaser, kliniske oppslagsverk (bl.a. BMJ Best Practice, UpToDate), fagprosedyrer, retningslinjesamlinger.
 
-#### 3.5 helsenorge.no (forvaltes av NHN/Helsedirektoratet)
-
-- **Rolle i verdikjeden**: Innbyggerrettet formidlingskanal (strøm 3a)
-- **Ansvar og mandat**: Tilby kvalitetssikret, tilgjengelig helseinformasjon til innbyggere. Informasjonen skal være i klarspråk og basert på gjeldende faglige retningslinjer.
-- **Viktigste leveranser**: Artikler om sykdommer og behandling, helseråd, informasjon om rettigheter og helsetjenester, digitale helsetjenester.
-
-#### 3.6 Regionale helseforetak (RHF-ene)
+#### 3.5 Regionale helseforetak (RHF-ene)
 
 - **Rolle i verdikjeden**: Implementering av retningslinjer i spesialisthelsetjenesten (strøm 3a)
 - **Ansvar og mandat**: Helse Sør-Øst, Helse Vest, Helse Nord og Helse Midt-Norge er ansvarlige for at nasjonale retningslinjer implementeres i klinisk praksis i sine helseforetak. Etterlever overordnet arkitektur, standarder og kodeverk slik Helsedirektoratet beskriver.
 - **Viktigste leveranser**: Implementerte behandlingsprosedyrer, oppdatert klinisk praksis, lokale tilpasninger av nasjonale retningslinjer.
 
-#### 3.7 KS og kommunene
+#### 3.6 KS og kommunene
 
 - **Rolle i verdikjeden**: Implementering av retningslinjer i kommunal helse- og omsorgstjeneste (strøm 3a)
 - **Ansvar og mandat**: KS legger til rette for at kommunene tar i bruk nasjonale faglige retningslinjer og e-helseløsninger. Den enkelte kommune er ansvarlig for at helseråd og retningslinjer følges i fastlegetjenester, helsestasjon, hjemmetjenester og sykehjem.
@@ -163,23 +182,29 @@ Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktør
 
 ### Strøm 3b: Den kliniske kunnskapsstrømmen
 
-#### 3.8 Kliniske oppslagsverk (UpToDate, BMJ Best Practice)
+#### 3.7 Kliniske oppslagsverk (UpToDate, BMJ Best Practice, Micromedex)
 
 - **Rolle i verdikjeden**: Internasjonal sanntids-kunnskap for helsepersonell (strøm 3b)
-- **Ansvar og mandat**: Kommersielle, internasjonale kunnskapstjenester som sammenstiller forskning til klinisk anvendbare anbefalinger med løpende oppdatering. Tilgjengelige for norsk helsepersonell gjennom nasjonale lisensavtaler via Helsebiblioteket.
-- **Viktigste leveranser**: Evidensbaserte kliniske anbefalinger, legemiddelinformasjon, kalkulatorer. Oppdateres vesentlig raskere enn nasjonale retningslinjer.
+- **Ansvar og mandat**: Kommersielle, internasjonale kunnskapstjenester som sammenstiller forskning til klinisk anvendbare anbefalinger med løpende oppdatering. Tilgjengelige for norsk helsepersonell gjennom nasjonale lisensavtaler via Helsebiblioteket [5].
+- **Viktigste leveranser**: Evidensbaserte kliniske anbefalinger, legemiddelinformasjon, kalkulatorer.
 
-#### 3.9 Fagprosedyrer.no / sykehusenes kvalitetsavdelinger
+#### 3.8 Helsebiblioteket / fagprosedyrer
 
-- **Rolle i verdikjeden**: Lokal og regional kunnskapsproduksjon (strøm 3b)
-- **Ansvar og mandat**: Utvikler kunnskapsbaserte fagprosedyrer som operasjonaliserer retningslinjer til konkrete handlingsanvisninger for klinisk praksis. Oslo universitetssykehus (OUS) er største bidragsyter. Fagprosedyrene gjøres tilgjengelige nasjonalt via Helsebiblioteket.
-- **Viktigste leveranser**: Kunnskapsbaserte fagprosedyrer for diagnostikk, behandling og pleie. Oppdateres ofte raskere enn nasjonale retningslinjer.
+- **Rolle i verdikjeden**: Nasjonal fagprosedyreplattform (strøm 3b, også strøm 3a)
+- **Ansvar og mandat**: Fagprosedyrer.no omdirigerer til Helsebiblioteket [4]. OUS koordinerer arbeidet med kunnskapsbaserte fagprosedyrer. Tjenesten er under gjenoppbygging etter en periode med nedleggelse [4].
+- **Viktigste leveranser**: Kunnskapsbaserte fagprosedyrer for diagnostikk, behandling og pleie.
 
-#### 3.10 Fagmedisinske foreninger og tidsskrifter
+#### 3.9 Tidsskriftet og Sykepleien Forskning
 
-- **Rolle i verdikjeden**: Faglig formidling til helsepersonell (strøm 3b)
-- **Ansvar og mandat**: Norske fagmedisinske foreninger og Tidsskrift for Den norske legeforening formidler ny forskning og faglige debatter direkte til helsepersonell.
-- **Viktigste leveranser**: Tidsskriftartikler, faglige debatter, kurs og konferanser.
+- **Rolle i verdikjeden**: Fagfellevurderte fagtidsskrifter (strøm 3b)
+- **Ansvar og mandat**: Tidsskrift for Den norske legeforening er fagfellevurdert og fritt tilgjengelig (open access) [7]. Sykepleien Forskning er nivå 1-tidsskrift utgitt av NSF [8]. Begge er sentrale arenaer for norsk medisinsk fagdebatt.
+- **Viktigste leveranser**: Originalartikler, oversiktsartikler, fagdebatt, kritisk gjennomgang av retningslinjer.
+
+#### 3.10 Fagmedisinske foreninger
+
+- **Rolle i verdikjeden**: Spesialitetsspesifikk faglig formidling (strøm 3b)
+- **Ansvar og mandat**: Legeforeningens fagmedisinske foreninger (én per spesialitet) utvikler faglige anbefalinger og bidrar til Helsedirektoratets retningslinjearbeid [9].
+- **Viktigste leveranser**: Spesialitetsspesifikke anbefalinger, kurs og konferanser.
 
 ### Strøm 3c: Legemiddelstrømmen
 
@@ -203,13 +228,37 @@ Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktør
 
 ### Strøm 3d: Den innbyggerrettede strømmen
 
-#### 3.14 Pasientorganisasjoner
+#### 3.14 helsenorge.no (forvaltes av NHN/Helsedirektoratet)
+
+- **Rolle i verdikjeden**: Norges digitale helseportal for innbyggere (strøm 3d)
+- **Ansvar og mandat**: Helsedirektoratet er ansvarlig utgiver, NHN er produkteier og drifter [10]. Over 80 organisasjoner bidrar med innhold. Tilbyr både helseinformasjon og digitale helsetjenester (timebestilling, resepter, prøvesvar, journal).
+- **Viktigste leveranser**: Kvalitetssikret helseinformasjon i klarspråk, digitale helsetjenester, helserettigheter.
+
+#### 3.15 FHI – innbyggerrettet informasjon
+
+- **Rolle i verdikjeden**: Folkehelseinformasjon direkte til innbyggere (strøm 3d)
+- **Ansvar og mandat**: Publiserer innbyggerrettet informasjon om smittevern, vaksinasjon, psykisk helse og helsestatistikk på fhi.no [11]. Kommuniserer også via Folkehelsepodden og sosiale medier.
+- **Viktigste leveranser**: Smittevernråd, vaksineinformasjon, helsestatistikk, beredskapsrådgivning.
+
+#### 3.16 FNSP (Felles nettløsning for spesialisthelsetjenesten)
+
+- **Rolle i verdikjeden**: Enhetlig pasientinformasjon fra sykehusene (strøm 3d)
+- **Ansvar og mandat**: Nasjonalt samarbeid eid av de fire RHF-ene. Forvalter ca. 1 700 behandlingstekster godkjent av medisinske fagpersoner gjennom en nasjonal medisinsk og helsefaglig redaksjon [12]. Driftes av NHN.
+- **Viktigste leveranser**: Behandlingstekster, praktisk informasjon om utredning og behandling, publisert på over 60 sykehusnettsteder.
+
+#### 3.17 NHI.no (Norsk Helseinformatikk)
+
+- **Rolle i verdikjeden**: Kommersielt helseoppslagsverk for allmennheten (strøm 3d)
+- **Ansvar og mandat**: Norges største nettbaserte helseoppslagsverk for innbyggere, eid av Bonnier Healthcare [13]. Grunnlagt 1996 med utspring fra allmennpraktiserende leger, NTNU, St. Olavs Hospital og SINTEF. Ca. 100 millioner sidevisninger per år [14].
+- **Viktigste leveranser**: Artikler om sykdommer, symptomer og behandling, interaktiv symptomsjekker.
+
+#### 3.18 Pasientorganisasjoner
 
 - **Rolle i verdikjeden**: Erfaringsbasert kunnskap og innbyggerformidling (strøm 3d)
-- **Ansvar og mandat**: Organisasjoner som Kreftforeningen, Diabetesforbundet og Funksjonshemmedes Fellesorganisasjon (FFO) formidler kvalitetssikret helseinformasjon direkte til pasienter og pårørende. Kombinerer medisinsk kunnskap med erfaringsbasert kunnskap.
+- **Ansvar og mandat**: Organisasjoner som Kreftforeningen, LHL, Diabetesforbundet, Nasjonalforeningen for folkehelsen og FFO formidler kvalitetssikret helseinformasjon direkte til pasienter og pårørende [15]. Kombinerer medisinsk kunnskap med erfaringsbasert kunnskap. Flere er også innholdsleverandører til helsenorge.no [10].
 - **Viktigste leveranser**: Pasientrettet informasjon, rådgivningstjenester, likepersonstøtte, høringssvar til myndigheter.
 
-#### 3.15 Medier og helsejournalistikk
+#### 3.19 Medier og helsejournalistikk
 
 - **Rolle i verdikjeden**: Formidling av forskningsfunn direkte til innbyggere (strøm 3d)
 - **Ansvar og mandat**: Aviser, TV, nettmedier og podkaster formidler ny helseforskning til allmennheten, ofte med vesentlig kortere tidsforsinkelse enn den normerende strømmen.
@@ -323,7 +372,7 @@ De viktigste observasjonene fra kartleggingen er:
 - **Dramatisk tidsforskjell mellom strømmene**: Den normerende strømmen (retningslinjer) har en gjennomløpstid på 2–6,5 år, mens kliniske oppslagsverk oppdateres på uker og legemiddelvarsler på dager. Denne forskjellen betyr at helsepersonell som bruker ulike kilder kan basere seg på kunnskap av svært ulik alder.
 - **De parallelle strømmene er ikke «unntak»**: Kliniske oppslagsverk, fagprosedyrer, legemiddelinformasjon og pasientorganisasjoner er i praksis sentrale deler av kunnskapsforsyningen. Den normerende strømmen er den mest autoritative, men ikke nødvendigvis den mest brukte i daglig klinisk praksis.
 - **Konsistensutfordringer**: Fire strømmer med ulik oppdateringshastighet gir risiko for motstridende informasjon – helsepersonell og innbyggere kan motta ulike anbefalinger fra ulike kilder. Det finnes ingen overordnet mekanisme for synkronisering.
-- **Fragmentert ansvar**: Ansvaret er fordelt på 15 aktører – fra Helsedirektoratet og FHI til Felleskatalogen, RELIS, DMP, fagprosedyreforfattere og pasientorganisasjoner – uten et overordnet system for å sikre konsistens på tvers av alle strømmer.
+- **Fragmentert ansvar**: Ansvaret er fordelt på nærmere 20 aktører – fra Helsedirektoratet og FHI til Felleskatalogen, RELIS, DMP, NHI.no, FNSP, fagprosedyreforfattere og pasientorganisasjoner – uten et overordnet system for å sikre konsistens på tvers av alle strømmer.
 - **Manuelle overganger**: Alle strømmene preges av manuelle prosesser for oversettelse, tilpasning og reformatering av innhold.
 - **Robust kvalitetssikring per strøm**: Hver strøm har sine egne kvalitetssikringsmekanismer, men sammenhengen mellom dem er ikke systematisk ivaretatt.
 - **Begrenset strukturering**: Innholdet er i stor grad fritekstbasert på tvers av alle strømmer, noe som begrenser mulighetene for automatisert videreforedling og synkronisering.
@@ -333,3 +382,23 @@ Disse observasjonene danner grunnlag for **delrapport 2**, som vil analysere utf
 ---
 
 *Sist oppdatert: 2026-03-17*
+
+---
+
+## Referanser
+
+1. Helsedirektoratet. *Nasjonale faglige retningslinjer*. https://www.helsedirektoratet.no/retningslinjer
+2. Helsedirektoratet. *Om Helsedirektoratets normerende produkter*. https://www.helsedirektoratet.no/om-oss/om-helsedirektoratets-normerende-produkter
+3. Helsebiblioteket / FHI. *Om Helsebiblioteket – organisering og finansiering*. https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/organisering-og-finansiering
+4. Helsebiblioteket. *Fagprosedyrer på Helsebiblioteket – status*. https://www.helsebiblioteket.no/innhold/artikler/fpr/fagprosedyrer-pa-helsebiblioteket-status
+5. FHI. *Gratis tilgang til kliniske oppslagsverk*. https://www.fhi.no/ku/helsebiblioteket/gratis-tilgang-til-kliniske-oppslagsverk/
+6. Helsebiblioteket. *Kutt i Helsebibliotekets avtaler for 2023*. https://www.helsebiblioteket.no/innhold/artikler/nyheter/kutt-i-helsebibliotekets-avtaler-for-2023
+7. Tidsskrift for Den norske legeforening. *Om Tidsskriftet*. https://tidsskriftet.no/annet/om-tidsskriftet
+8. Sykepleien. *Forfatterinstruksjoner Sykepleien Forskning*. https://sykepleien.no/en/forfatterveiledningforskning
+9. Den norske legeforening. *Fagmedisinske foreninger*. https://www.legeforeningen.no/foreningsledd/fagmed/
+10. Helsenorge. *Kilder og samarbeidspartnere*. https://www.helsenorge.no/samarbeidspartnere/
+11. Folkehelseinstituttet. https://www.fhi.no
+12. FNSP. *Hva er FNSP?* https://www.fnsp.no/hva-er-fnsp/
+13. NHI.no / Wikipedia. *Norsk Helseinformatikk*. https://no.wikipedia.org/wiki/Norsk_Helseinformatikk
+14. NHO Trøndelag. *Månedens bedrift: Norsk Helseinformatikk*. https://www.nho.no/regionforeninger/nho-trondelag/artikkelarkiv/manedens-bedrift-norsk-helseinformatikk/
+15. NAFKAM. *Norske pasientorganisasjoner*. https://nafkam.no/norske-pasientorganisasjonar
