@@ -3,7 +3,7 @@
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
 ### dagens-verdikjede.md
-- **Beskrivelse**: Delrapport 1 – Kartlegging av dagens verdikjede for kunnskapsforvaltning i helsesektoren. 3-stegs modell der steg 3 (kunnskapsomsetting og formidling) beskrives som fire parallelle strømmer: normerende (retningslinjer), klinisk (oppslagsverk/fagprosedyrer), legemiddel (DMP/Felleskatalogen/RELIS) og innbyggerrettet (pasientorganisasjoner/medier). 15 aktører, tidsbruk per strøm, informasjonsflyt og kvalitetssikringsmekanismer.
+- **Beskrivelse**: Delrapport 1 – Kartlegging av dagens verdikjede for kunnskapsforvaltning i helsesektoren. 3-stegs modell der steg 3 (kunnskapsomsetting og formidling) beskrives som fire parallelle strømmer: normerende (helsedirektoratet.no→sektor), klinisk (UpToDate/BMJ/fagprosedyrer), legemiddel (DMP/FEST/Felleskatalogen/RELIS) og innbyggerrettet (helsenorge.no/FHI/FNSP/NHI.no/pasientorg/medier). ~20 aktører, tidsbruk per strøm, informasjonsflyt, kvalitetssikring. 18 verifiserte kildereferanser.
 - **Sist oppdatert**: 2026-03-17
 
 ### utfordringer-og-flaskehalser.md
