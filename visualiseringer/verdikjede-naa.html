@@ -207,7 +207,7 @@
         }
 
         .network-svg-wrapper {
-            min-width: 1000px;
+            min-width: 1060px;
         }
 
         /* Legend */
@@ -531,7 +531,7 @@
 
     <div class="network-container">
         <div class="network-svg-wrapper">
-            <svg id="networkDiagram" width="1100" height="580" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg">
+            <svg id="networkDiagram" width="1060" height="700" viewBox="0 0 1060 700" xmlns="http://www.w3.org/2000/svg">
             </svg>
         </div>
     </div>
@@ -727,113 +727,35 @@
 
     // Colors
     var C = {
-        norm: '#003366',   // 3a
-        klin: '#27ae60',   // 3b
-        lege: '#e67e22',   // 3c
-        innb: '#8e44ad',   // 3d
+        norm: '#003366',
+        klin: '#27ae60',
+        lege: '#e67e22',
+        innb: '#8e44ad',
         target: '#f1c40f',
         source: '#5d6d7e'
     };
 
-    // Node definitions
-    // Source node (steg 2 output)
-    var sourceNode = { id: 'S2', label: 'Steg 2:\nKunnskaps-\noppsummeringer', x: 100, y: 290, color: C.source, textColor: '#ffffff' };
+    // --- Layout constants ---
+    var sourceX = 80;
+    var col1 = 310;   // first actor column
+    var col2 = 530;   // second actor column
+    var col3 = 730;   // third actor column (speed pills)
+    var targetX = 950; // target column
 
-    // Stream 3a nodes
-    var nodes3a = [
-        { id: 'HDIR',  label: 'Helsedirektoratet',    x: 340, y: 60,  stream: '3a' },
-        { id: 'HBIB',  label: 'Helsebiblioteket',      x: 580, y: 60,  stream: '3a' },
-        { id: 'HNOR',  label: 'helsenorge.no',          x: 580, y: 140, stream: '3a' }
-    ];
+    // Lane Y positions (center of each lane)
+    var lane3a_y1 = 80;   // Helsedirektoratet
+    var lane3a_y2 = 160;  // Helsebiblioteket / helsenorge.no
+    var lane3b_y1 = 280;  // UpToDate
+    var lane3b_y2 = 360;  // Fagprosedyrer / Fagmed. foreninger
+    var lane3c_y1 = 460;  // DMP
+    var lane3c_y2 = 540;  // Felleskatalogen / RELIS
+    var lane3d_y1 = 630;  // Pasientorg / Medier
 
-    // Stream 3b nodes
-    var nodes3b = [
-        { id: 'UTD',  label: 'UpToDate /\nBMJ Best Practice', x: 340, y: 220, stream: '3b' },
-        { id: 'FPROC',label: 'Fagprosedyrer.no\n/ OUS',       x: 540, y: 220, stream: '3b' },
-        { id: 'FFORE',label: 'Fagmedisinske\nforeninger',      x: 540, y: 300, stream: '3b' }
-    ];
+    var targetHP_y = 310;
+    var targetINN_y = 570;
+    var sourceY = 360;
 
-    // Stream 3c nodes
-    var nodes3c = [
-        { id: 'DMP',  label: 'DMP',            x: 340, y: 380, stream: '3c' },
-        { id: 'FK',   label: 'Felleskatalogen', x: 540, y: 380, stream: '3c' },
-        { id: 'RELIS',label: 'RELIS',           x: 540, y: 450, stream: '3c' }
-    ];
-
-    // Stream 3d nodes
-    var nodes3d = [
-        { id: 'PORG', label: 'Pasient-\norganisasjoner', x: 340, y: 520, stream: '3d' },
-        { id: 'MEDI', label: 'Medier',                    x: 540, y: 520, stream: '3d' },
-    ];
-
-    // Target nodes
-    var targetHP  = { id: 'HP',  label: 'Helsepersonell', x: 880, y: 220, color: C.target, textColor: '#333333' };
-    var targetINN = { id: 'INN', label: 'Innbyggere',      x: 880, y: 440, color: C.target, textColor: '#333333' };
-
-    // Speed labels positioned between streams and targets
-    var speedLabels = [
-        { text: '1\u20135 år',       x: 750, y: 95,  color: C.norm },
-        { text: 'Uker\u2013mnd',    x: 750, y: 260, color: C.klin },
-        { text: 'Dager\u2013uker',  x: 750, y: 410, color: C.lege },
-        { text: 'Timer\u2013mnd',   x: 750, y: 520, color: C.innb }
-    ];
-
-    // All nodes in a lookup
-    var allStreamNodes = nodes3a.concat(nodes3b).concat(nodes3c).concat(nodes3d);
-    var allNodes = {};
-    allStreamNodes.forEach(function(n) { allNodes[n.id] = n; });
-    allNodes[sourceNode.id] = sourceNode;
-    allNodes[targetHP.id] = targetHP;
-    allNodes[targetINN.id] = targetINN;
-
-    // Stream color map
-    function streamColor(stream) {
-        if (stream === '3a') return C.norm;
-        if (stream === '3b') return C.klin;
-        if (stream === '3c') return C.lege;
-        if (stream === '3d') return C.innb;
-        return '#999999';
-    }
-
-    // Edges
-    var edges = [
-        // From source to first node in each stream
-        { from: 'S2', to: 'HDIR',  stream: '3a' },
-        { from: 'S2', to: 'UTD',   stream: '3b' },
-        { from: 'S2', to: 'DMP',   stream: '3c' },
-        { from: 'S2', to: 'PORG',  stream: '3d' },
-
-        // Internal 3a
-        { from: 'HDIR', to: 'HBIB', stream: '3a' },
-        { from: 'HDIR', to: 'HNOR', stream: '3a' },
-
-        // Internal 3b
-        { from: 'UTD',   to: 'FPROC', stream: '3b' },
-        { from: 'UTD',   to: 'FFORE', stream: '3b' },
-
-        // Internal 3c
-        { from: 'DMP',   to: 'FK',    stream: '3c' },
-        { from: 'DMP',   to: 'RELIS', stream: '3c' },
-
-        // Internal 3d
-        { from: 'PORG',  to: 'MEDI',  stream: '3d' },
-
-        // To helsepersonell
-        { from: 'HBIB',  to: 'HP', stream: '3a' },
-        { from: 'UTD',   to: 'HP', stream: '3b' },
-        { from: 'FPROC', to: 'HP', stream: '3b' },
-        { from: 'FFORE', to: 'HP', stream: '3b' },
-        { from: 'FK',    to: 'HP', stream: '3c' },
-        { from: 'RELIS', to: 'HP', stream: '3c' },
-
-        // To innbyggere
-        { from: 'HNOR',  to: 'INN', stream: '3a' },
-        { from: 'FK',    to: 'INN', stream: '3c' },
-        { from: 'PORG',  to: 'INN', stream: '3d' },
-        { from: 'MEDI',  to: 'INN', stream: '3d' }
-    ];
-
-    // Arrow markers
+    // --- Arrow markers ---
     function addMarker(id, color) {
         var defs = svg.querySelector('defs');
         if (!defs) {
@@ -845,8 +767,8 @@
         marker.setAttribute('viewBox', '0 0 10 10');
         marker.setAttribute('refX', '9');
         marker.setAttribute('refY', '5');
-        marker.setAttribute('markerWidth', '6');
-        marker.setAttribute('markerHeight', '6');
+        marker.setAttribute('markerWidth', '5');
+        marker.setAttribute('markerHeight', '5');
         marker.setAttribute('orient', 'auto-start-reverse');
         var path = document.createElementNS(ns, 'path');
         path.setAttribute('d', 'M 0 0 L 10 5 L 0 10 z');
@@ -855,114 +777,67 @@
         defs.appendChild(marker);
     }
 
-    addMarker('arrow-3a', C.norm);
-    addMarker('arrow-3b', C.klin);
-    addMarker('arrow-3c', C.lege);
-    addMarker('arrow-3d', C.innb);
-    addMarker('arrow-src', C.source);
+    addMarker('a-norm', C.norm);
+    addMarker('a-klin', C.klin);
+    addMarker('a-lege', C.lege);
+    addMarker('a-innb', C.innb);
 
-    // Draw stream lane backgrounds
+    // --- Lane backgrounds ---
     var lanes = [
-        { y: 30,  h: 130, color: C.norm, label: '3a. Normerende',       labelY: 100 },
-        { y: 180, h: 140, color: C.klin, label: '3b. Klinisk',          labelY: 260 },
-        { y: 340, h: 130, color: C.lege, label: '3c. Legemiddel',       labelY: 410 },
-        { y: 490, h: 80,  color: C.innb, label: '3d. Innbyggerrettet',  labelY: 530 }
+        { y: 40,  h: 150, color: C.norm, label: '3a. Den normerende strømmen' },
+        { y: 240, h: 150, color: C.klin, label: '3b. Den kliniske kunnskapsstrømmen' },
+        { y: 420, h: 150, color: C.lege, label: '3c. Legemiddelstrømmen' },
+        { y: 600, h: 80,  color: C.innb, label: '3d. Den innbyggerrettede strømmen' }
     ];
 
     lanes.forEach(function(lane) {
+        // Background
         var rect = document.createElementNS(ns, 'rect');
-        rect.setAttribute('x', 220);
+        rect.setAttribute('x', 200);
         rect.setAttribute('y', lane.y);
         rect.setAttribute('width', 600);
         rect.setAttribute('height', lane.h);
-        rect.setAttribute('rx', 8);
+        rect.setAttribute('rx', 10);
         rect.setAttribute('fill', lane.color);
-        rect.setAttribute('opacity', '0.06');
+        rect.setAttribute('opacity', '0.05');
         svg.appendChild(rect);
 
-        // Lane border left
+        // Left border
         var border = document.createElementNS(ns, 'rect');
-        border.setAttribute('x', 220);
+        border.setAttribute('x', 200);
         border.setAttribute('y', lane.y);
-        border.setAttribute('width', 4);
+        border.setAttribute('width', 5);
         border.setAttribute('height', lane.h);
         border.setAttribute('rx', 2);
         border.setAttribute('fill', lane.color);
-        border.setAttribute('opacity', '0.4');
+        border.setAttribute('opacity', '0.5');
         svg.appendChild(border);
 
-        // Lane label (vertical along left edge)
+        // Label
         var text = document.createElementNS(ns, 'text');
-        text.setAttribute('x', 232);
-        text.setAttribute('y', lane.y + 16);
+        text.setAttribute('x', 215);
+        text.setAttribute('y', lane.y + 18);
         text.setAttribute('fill', lane.color);
         text.setAttribute('font-size', '11');
         text.setAttribute('font-weight', '700');
         text.setAttribute('font-family', 'system-ui, sans-serif');
-        text.setAttribute('opacity', '0.7');
+        text.setAttribute('opacity', '0.6');
         text.textContent = lane.label;
         svg.appendChild(text);
     });
 
-    // Draw edges
-    function drawEdge(fromNode, toNode, color, markerRef) {
-        var x1 = fromNode.x, y1 = fromNode.y;
-        var x2 = toNode.x,   y2 = toNode.y;
-
-        var dx = x2 - x1;
-        var dy = y2 - y1;
-        var len = Math.sqrt(dx*dx + dy*dy);
-        if (len === 0) return;
-        var ux = dx / len;
-        var uy = dy / len;
-
-        // Shorten by node half-width approximation
-        var r1 = fromNode.id === 'S2' ? 65 : 70;
-        var r2 = (toNode.id === 'HP' || toNode.id === 'INN') ? 65 : 70;
-
-        var sx = x1 + ux * r1;
-        var sy = y1 + uy * r1;
-        var ex = x2 - ux * r2;
-        var ey = y2 - uy * r2;
-
-        var line = document.createElementNS(ns, 'line');
-        line.setAttribute('x1', sx);
-        line.setAttribute('y1', sy);
-        line.setAttribute('x2', ex);
-        line.setAttribute('y2', ey);
-        line.setAttribute('stroke', color);
-        line.setAttribute('stroke-width', '2');
-        line.setAttribute('stroke-opacity', '0.7');
-        line.setAttribute('marker-end', 'url(#' + markerRef + ')');
-        svg.appendChild(line);
-    }
-
-    edges.forEach(function(e) {
-        var fromNode = allNodes[e.from];
-        var toNode = allNodes[e.to];
-        var color = streamColor(e.stream);
-        var marker = 'arrow-' + e.stream;
-        if (e.from === 'S2') {
-            color = streamColor(e.stream);
-            marker = 'arrow-' + e.stream;
-        }
-        drawEdge(fromNode, toNode, color, marker);
-    });
-
-    // Draw nodes
-    function drawNode(node, fillColor, textColor, strokeColor, w, h) {
-        var lines = node.label.split('\n');
-        var boxW = w || 130;
-        var boxH = h || (lines.length > 2 ? 56 : (lines.length > 1 ? 46 : 34));
-        var rx = 8;
+    // --- Helper: draw rounded rect node ---
+    function drawNode(x, y, label, fillColor, textColor, strokeColor, w, h) {
+        var lines = label.split('\n');
+        var boxW = w || 140;
+        var boxH = h || (lines.length > 1 ? 48 : 34);
 
         var rect = document.createElementNS(ns, 'rect');
-        rect.setAttribute('x', node.x - boxW/2);
-        rect.setAttribute('y', node.y - boxH/2);
+        rect.setAttribute('x', x - boxW / 2);
+        rect.setAttribute('y', y - boxH / 2);
         rect.setAttribute('width', boxW);
         rect.setAttribute('height', boxH);
-        rect.setAttribute('rx', rx);
-        rect.setAttribute('ry', rx);
+        rect.setAttribute('rx', 8);
         rect.setAttribute('fill', fillColor);
         rect.setAttribute('stroke', strokeColor);
         rect.setAttribute('stroke-width', '2');
@@ -970,13 +845,12 @@
 
         lines.forEach(function(line, i) {
             var text = document.createElementNS(ns, 'text');
-            text.setAttribute('x', node.x);
-            var lineY = node.y + (i - (lines.length - 1) / 2) * 15;
-            text.setAttribute('y', lineY);
+            text.setAttribute('x', x);
+            text.setAttribute('y', y + (i - (lines.length - 1) / 2) * 16);
             text.setAttribute('text-anchor', 'middle');
             text.setAttribute('dominant-baseline', 'central');
             text.setAttribute('fill', textColor);
-            text.setAttribute('font-size', '11.5');
+            text.setAttribute('font-size', '12');
             text.setAttribute('font-weight', '600');
             text.setAttribute('font-family', 'system-ui, sans-serif');
             text.textContent = line;
@@ -984,45 +858,146 @@
         });
     }
 
-    // Draw source node
-    drawNode(sourceNode, C.source, '#ffffff', '#3d4d5e', 140, 60);
+    // --- Helper: draw curved arrow ---
+    function drawArrow(x1, y1, x2, y2, color, markerRef) {
+        var dx = x2 - x1;
+        var dy = y2 - y1;
+        var len = Math.sqrt(dx * dx + dy * dy);
+        if (len < 1) return;
+        var ux = dx / len;
+        var uy = dy / len;
 
-    // Draw stream nodes
-    allStreamNodes.forEach(function(n) {
-        var c = streamColor(n.stream);
-        drawNode(n, '#ffffff', c, c);
-    });
+        // Shorten start/end by 40px
+        var s = 40;
+        var sx = x1 + ux * s;
+        var sy = y1 + uy * s;
+        var ex = x2 - ux * s;
+        var ey = y2 - uy * s;
 
-    // Draw target nodes
-    drawNode(targetHP,  C.target, '#333333', '#d4a800', 140, 44);
-    drawNode(targetINN, C.target, '#333333', '#d4a800', 140, 44);
+        // For mostly horizontal arrows, use straight line
+        // For diagonal, use a gentle curve
+        var path;
+        if (Math.abs(dy) < 30) {
+            path = 'M ' + sx + ' ' + sy + ' L ' + ex + ' ' + ey;
+        } else {
+            // Curve control point: go horizontal first, then vertical
+            var cx = ex;
+            var cy = sy;
+            path = 'M ' + sx + ' ' + sy + ' Q ' + cx + ' ' + cy + ' ' + ex + ' ' + ey;
+        }
 
-    // Draw speed labels
-    speedLabels.forEach(function(sl) {
-        // Background pill
+        var pathEl = document.createElementNS(ns, 'path');
+        pathEl.setAttribute('d', path);
+        pathEl.setAttribute('fill', 'none');
+        pathEl.setAttribute('stroke', color);
+        pathEl.setAttribute('stroke-width', '2');
+        pathEl.setAttribute('stroke-opacity', '0.6');
+        pathEl.setAttribute('marker-end', 'url(#' + markerRef + ')');
+        svg.appendChild(pathEl);
+    }
+
+    // --- Helper: speed pill ---
+    function drawSpeedPill(x, y, text, color) {
+        var pw = 100, ph = 26;
         var pill = document.createElementNS(ns, 'rect');
-        var pw = 90, ph = 24;
-        pill.setAttribute('x', sl.x - pw/2);
-        pill.setAttribute('y', sl.y - ph/2);
+        pill.setAttribute('x', x - pw / 2);
+        pill.setAttribute('y', y - ph / 2);
         pill.setAttribute('width', pw);
         pill.setAttribute('height', ph);
-        pill.setAttribute('rx', 12);
-        pill.setAttribute('fill', sl.color);
-        pill.setAttribute('opacity', '0.15');
+        pill.setAttribute('rx', 13);
+        pill.setAttribute('fill', color);
+        pill.setAttribute('opacity', '0.12');
         svg.appendChild(pill);
 
-        var text = document.createElementNS(ns, 'text');
-        text.setAttribute('x', sl.x);
-        text.setAttribute('y', sl.y);
-        text.setAttribute('text-anchor', 'middle');
-        text.setAttribute('dominant-baseline', 'central');
-        text.setAttribute('fill', sl.color);
-        text.setAttribute('font-size', '12');
-        text.setAttribute('font-weight', '700');
-        text.setAttribute('font-family', 'system-ui, sans-serif');
-        text.textContent = sl.text;
-        svg.appendChild(text);
-    });
+        var t = document.createElementNS(ns, 'text');
+        t.setAttribute('x', x);
+        t.setAttribute('y', y + 1);
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('dominant-baseline', 'central');
+        t.setAttribute('fill', color);
+        t.setAttribute('font-size', '12');
+        t.setAttribute('font-weight', '700');
+        t.setAttribute('font-family', 'system-ui, sans-serif');
+        t.textContent = text;
+        svg.appendChild(t);
+    }
+
+    // ========================================
+    // DRAW EDGES (before nodes, so nodes are on top)
+    // ========================================
+
+    // Source → first node in each stream
+    drawArrow(sourceX, sourceY, col1, lane3a_y1, C.norm, 'a-norm');
+    drawArrow(sourceX, sourceY, col1, lane3b_y1, C.klin, 'a-klin');
+    drawArrow(sourceX, sourceY, col1, lane3c_y1, C.lege, 'a-lege');
+    drawArrow(sourceX, sourceY, col1, lane3d_y1, C.innb, 'a-innb');
+
+    // 3a internal: Hdir → Helsebiblioteket, Hdir → helsenorge
+    drawArrow(col1, lane3a_y1, col2, lane3a_y1, C.norm, 'a-norm');  // Hdir → Hbibl (same y)
+    drawArrow(col1, lane3a_y1, col2, lane3a_y2, C.norm, 'a-norm');  // Hdir → helsenorge
+
+    // 3b internal: UTD → Fagprosedyrer, UTD is standalone, Fagmed standalone
+    drawArrow(col1, lane3b_y1, col2, lane3b_y1, C.klin, 'a-klin');  // alongside
+    drawArrow(col1, lane3b_y1, col2, lane3b_y2, C.klin, 'a-klin');  // to Fagmed
+
+    // 3c internal: DMP → Felleskatalogen, DMP → RELIS
+    drawArrow(col1, lane3c_y1, col2, lane3c_y1, C.lege, 'a-lege');
+    drawArrow(col1, lane3c_y1, col2, lane3c_y2, C.lege, 'a-lege');
+
+    // 3d internal: Pasientorg → Medier
+    drawArrow(col1, lane3d_y1, col2, lane3d_y1, C.innb, 'a-innb');
+
+    // To Helsepersonell
+    drawArrow(col2, lane3a_y1, targetX, targetHP_y, C.norm, 'a-norm');   // Helsebiblioteket → HP
+    drawArrow(col1, lane3b_y1, targetX, targetHP_y, C.klin, 'a-klin');   // UpToDate → HP
+    drawArrow(col2, lane3b_y1, targetX, targetHP_y, C.klin, 'a-klin');   // Fagprosedyrer → HP
+    drawArrow(col2, lane3b_y2, targetX, targetHP_y, C.klin, 'a-klin');   // Fagmed → HP
+    drawArrow(col2, lane3c_y1, targetX, targetHP_y, C.lege, 'a-lege');   // Felleskatalogen → HP
+    drawArrow(col2, lane3c_y2, targetX, targetHP_y, C.lege, 'a-lege');   // RELIS → HP
+
+    // To Innbyggere
+    drawArrow(col2, lane3a_y2, targetX, targetINN_y, C.norm, 'a-norm');  // helsenorge → INN
+    drawArrow(col2, lane3c_y1, targetX, targetINN_y, C.lege, 'a-lege'); // Felleskatalogen → INN
+    drawArrow(col1, lane3d_y1, targetX, targetINN_y, C.innb, 'a-innb'); // Pasientorg → INN
+    drawArrow(col2, lane3d_y1, targetX, targetINN_y, C.innb, 'a-innb'); // Medier → INN
+
+    // ========================================
+    // DRAW NODES
+    // ========================================
+
+    // Source
+    drawNode(sourceX, sourceY, 'Steg 2:\nKunnskaps-\noppsummeringer', C.source, '#ffffff', '#3d4d5e', 150, 64);
+
+    // 3a
+    drawNode(col1, lane3a_y1,  'Helsedirektoratet',  '#ffffff', C.norm, C.norm, 150, 36);
+    drawNode(col2, lane3a_y1,  'Helsebiblioteket',    '#ffffff', C.norm, C.norm, 150, 36);
+    drawNode(col2, lane3a_y2,  'helsenorge.no',       '#ffffff', C.norm, C.norm, 150, 36);
+
+    // 3b
+    drawNode(col1, lane3b_y1, 'UpToDate /\nBMJ Best Practice', '#ffffff', C.klin, C.klin, 160, 48);
+    drawNode(col2, lane3b_y1, 'Fagprosedyrer.no\n/ OUS',       '#ffffff', C.klin, C.klin, 160, 48);
+    drawNode(col2, lane3b_y2, 'Fagmedisinske\nforeninger',      '#ffffff', C.klin, C.klin, 160, 48);
+
+    // 3c
+    drawNode(col1, lane3c_y1, 'DMP',            '#ffffff', C.lege, C.lege, 140, 36);
+    drawNode(col2, lane3c_y1, 'Felleskatalogen', '#ffffff', C.lege, C.lege, 150, 36);
+    drawNode(col2, lane3c_y2, 'RELIS',           '#ffffff', C.lege, C.lege, 140, 36);
+
+    // 3d
+    drawNode(col1, lane3d_y1, 'Pasient-\norganisasjoner', '#ffffff', C.innb, C.innb, 160, 48);
+    drawNode(col2, lane3d_y1, 'Medier',                    '#ffffff', C.innb, C.innb, 140, 36);
+
+    // Targets
+    drawNode(targetX, targetHP_y,  'Helsepersonell', C.target, '#333333', '#d4a800', 150, 44);
+    drawNode(targetX, targetINN_y, 'Innbyggere',      C.target, '#333333', '#d4a800', 150, 44);
+
+    // ========================================
+    // SPEED PILLS
+    // ========================================
+    drawSpeedPill(col3, lane3a_y1 + 30, '1\u20135 \u00e5r', C.norm);
+    drawSpeedPill(col3, lane3b_y1 + 30, 'Uker\u2013m\u00e5neder', C.klin);
+    drawSpeedPill(col3, lane3c_y1 + 30, 'Dager\u2013uker', C.lege);
+    drawSpeedPill(col3, lane3d_y1, 'Timer\u2013m\u00e5neder', C.innb);
 
 })();
 </script>
