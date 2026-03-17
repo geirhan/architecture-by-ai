@@ -531,7 +531,7 @@
 
     <div class="network-container">
         <div class="network-svg-wrapper">
-            <svg id="networkDiagram" width="1100" height="820" viewBox="0 0 1100 820" xmlns="http://www.w3.org/2000/svg">
+            <svg id="networkDiagram" width="1100" height="830" viewBox="0 0 1100 830" xmlns="http://www.w3.org/2000/svg">
             </svg>
         </div>
     </div>
@@ -742,18 +742,25 @@
     var speedX = 740;  // speed pills column
     var targetX = 980; // target column
 
-    // Lane Y positions – generous spacing to avoid overlap
-    var lane3a_y1 = 80;   // Helsedirektoratet
-    var lane3a_y2 = 160;  // Helsebiblioteket / helsenorge.no
-    var lane3b_y1 = 300;  // UpToDate
-    var lane3b_y2 = 390;  // Fagprosedyrer / Fagmed. foreninger
-    var lane3c_y1 = 510;  // DMP
-    var lane3c_y2 = 600;  // Felleskatalogen / RELIS
-    var lane3d_y1 = 730;  // Pasientorg / Medier
+    // Lane backgrounds: y, h → center
+    // 3a: y=40,  h=170 → center=125
+    // 3b: y=260, h=180 → center=350
+    // 3c: y=490, h=170 → center=575
+    // 3d: y=710, h=80  → center=750
 
-    var targetHP_y = 340;
-    var targetINN_y = 660;
-    var sourceY = 420;
+    // First node (col1) centered vertically in its lane
+    // Second nodes (col2) offset ±35px from center
+    var lane3a_y1 = 100;  // Helsedirektoratet (center-25)
+    var lane3a_y2 = 165;  // Helsebiblioteket / helsenorge.no (center+40)
+    var lane3b_y1 = 320;  // UpToDate (center-30)
+    var lane3b_y2 = 400;  // Fagprosedyrer / Fagmed. foreninger (center+50)
+    var lane3c_y1 = 545;  // DMP (center-30)
+    var lane3c_y2 = 620;  // Felleskatalogen / RELIS (center+45)
+    var lane3d_y1 = 750;  // Pasientorg / Medier (center)
+
+    var targetHP_y = 350;
+    var targetINN_y = 680;
+    var sourceY = 440;
 
     // --- Arrow markers ---
     function addMarker(id, color) {
@@ -784,10 +791,10 @@
 
     // --- Lane backgrounds ---
     var lanes = [
-        { y: 40,  h: 155, color: C.norm, label: '3a. Den normerende strømmen' },
-        { y: 255, h: 170, color: C.klin, label: '3b. Den kliniske kunnskapsstrømmen' },
-        { y: 470, h: 165, color: C.lege, label: '3c. Legemiddelstrømmen' },
-        { y: 690, h: 90,  color: C.innb, label: '3d. Den innbyggerrettede strømmen' }
+        { y: 40,  h: 170, color: C.norm, label: '3a. Den normerende strømmen' },
+        { y: 260, h: 180, color: C.klin, label: '3b. Den kliniske kunnskapsstrømmen' },
+        { y: 490, h: 170, color: C.lege, label: '3c. Legemiddelstrømmen' },
+        { y: 710, h: 80,  color: C.innb, label: '3d. Den innbyggerrettede strømmen' }
     ];
 
     lanes.forEach(function(lane) {
