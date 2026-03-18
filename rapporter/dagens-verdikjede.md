@@ -20,7 +20,7 @@ Rapporten avgrenses til **primærbruk – helseråd til innbyggere**. Det vil si
 
 ## 2. Dagens verdikjede – oversikt
 
-Verdikjeden fra forskning til helsepersonell og innbyggere kan beskrives i tre hovedsteg. De to første stegene er i hovedsak lineære, mens det tredje steget – kunnskapsomsetting og formidling – er et **nettverk** der kunnskap flyter gjennom fire parallelle strømmer med ulik hastighet, ulike aktører og ulik grad av kvalitetssikring.
+Verdikjeden fra forskning til helsepersonell og innbyggere kan beskrives i tre hovedsteg, der de to første er lineære og det tredje er et nettverk av parallelle strømmer.
 
 ### Steg 1: Internasjonal forskning → publiserte studier
 
@@ -28,11 +28,18 @@ Grunnlaget for evidensbasert helseinformasjon er enkeltpublikasjoner fra interna
 
 ### Steg 2: Systematiske oversikter → kunnskapsoppsummeringer
 
-Folkehelseinstituttet (FHI) og internasjonale aktører som Cochrane Collaboration sammenstiller enkeltpublikasjoner til systematiske oversikter og kunnskapsoppsummeringer. Disse vurderer den samlede evidensen for en gitt problemstilling og gir en strukturert vurdering av kvaliteten på kunnskapsgrunnlaget. FHI har en sentral rolle i norsk kontekst gjennom sitt område for kunnskapsoppsummering.
+Folkehelseinstituttet (FHI) og internasjonale aktører som Cochrane Collaboration sammenstiller enkeltpublikasjoner til systematiske oversikter og kunnskapsoppsummeringer. Disse vurderer den samlede evidensen for en gitt problemstilling og gir en strukturert vurdering av kvaliteten på kunnskapsgrunnlaget ved bruk av GRADE-metodikken. FHI har en sentral rolle i norsk kontekst gjennom sitt område for kunnskapsoppsummering.
 
-### Steg 3: Kunnskapsomsetting og formidling
+### Steg 3: Kunnskapsomsetting og formidling – fire parallelle strømmer
 
-Kunnskapen fra steg 1 og 2 omsettes og formidles til helsepersonell og innbyggere gjennom **fire parallelle hovedstrømmer**. Disse opererer med ulike aktører, ulik hastighet og ulike mekanismer for kvalitetssikring. Ingen enkelt strøm dekker hele kunnskapsbehovet alene – i praksis er det samspillet mellom dem som utgjør den reelle kunnskapsforsyningen i helsesektoren.
+Kunnskapen fra steg 1 og 2 omsettes og formidles til helsepersonell og innbyggere gjennom **fire parallelle hovedstrømmer**. Disse opererer med ulike aktører, ulik hastighet og ulike mekanismer for kvalitetssikring:
+
+1. **Den normerende strømmen** – formelle nasjonale retningslinjer utviklet av Helsedirektoratet (1–5 år gjennomløpstid)
+2. **Den kliniske kunnskapsstrømmen** – løpende oppdaterte kilder som kliniske oppslagsverk og fagprosedyrer (uker–måneder)
+3. **Legemiddelstrømmen** – regulatorisk styrt informasjon gjennom DMP og Felleskatalogen (dager–uker for sikkerhetsvarsler)
+4. **Den innbyggerrettede strømmen** – kvalitetssikret informasjon via helsenorge.no, pasientorganisasjoner og medier (timer–måneder)
+
+Ingen enkelt strøm dekker hele kunnskapsbehovet alene – i praksis er det samspillet mellom dem som utgjør den reelle kunnskapsforsyningen i helsesektoren. Tidsforskjellen mellom strømmene er en sentral observasjon: helsepersonell som bruker UpToDate kan ha tilgang til oppdatert kunnskap år før den samme kunnskapen gjenspeiles i nasjonale retningslinjer og innbyggerinformasjon.
 
 #### 3a. Den normerende strømmen
 
@@ -123,18 +130,48 @@ Innbyggere mottar helseinformasjon fra et bredt spekter av aktører med ulike ki
 
 #### Sammenligning av de fire strømmene
 
-| Egenskap | 3a. Normerende | 3b. Klinisk | 3c. Legemiddel | 3d. Innbyggerrettet |
-|----------|---------------|-------------|----------------|---------------------|
+| Egenskap | Normerende | Klinisk | Legemiddel | Innbyggerrettet |
+|----------|-----------|---------|-----------|-----------------|
 | **Hastighet** | 1–5 år | Uker–måneder | Dager–uker | Timer–måneder |
-| **Normativ kraft** | Høy (formelt normerende) | Middels (faglig autoritet) | Høy (regulatorisk) | Lav (informerende) |
-| **Kvalitetssikring** | GRADE, høring, faglig redaksjon | Redaksjonell, fagfelle | Regulatorisk godkjenning | Varierer sterkt |
-| **Dekningsgrad** | Utvalgte tema | Bred klinisk dekning | Legemiddelspesifikk | Ujevn |
-| **Tilpasning til norsk kontekst** | Høy | Lav (internasjonal) | Middels | Varierer |
-| **Primær målgruppe** | Helsepersonell + innbyggere | Helsepersonell | Helsepersonell + innbyggere | Innbyggere |
+| **Normativ kraft** | Høy (formelt) | Middels (faglig) | Høy (regulatorisk) | Lav (informerende) |
+| **Kvalitetssikring** | GRADE, høring, redaksjon | Redaksjonell, fagfelle | Regulatorisk godkjenning | Varierer sterkt |
+| **Dekningsgrad** | Utvalgte tema | Bred klinisk | Legemiddelspesifikk | Ujevn |
+| **Tilpasning til norsk** | Høy | Lav (internasjonal) | Middels | Varierer |
+| **Hovedmålgruppe** | Helsepersonell → innbyggere | Helsepersonell | Helsepersonell → innbyggere | Innbyggere |
+| **Eksempler på aktører** | Helsedirektoratet, Helsebiblioteket | UpToDate, fagprosedyrer | DMP, Felleskatalogen, RELIS | helsenorge.no, NHI.no, medier |
 
 ---
 
-## 3. Aktørkart
+## 3. Tidsbruk og gjennomløpstid per strøm
+
+Gjennomløpstiden fra ny forskning til oppdatert kunnskap hos helsepersonell og innbyggere varierer dramatisk mellom de fire strømmene. Denne tidsforskjellen er en av de mest kritiske observasjonene i kartleggingen.
+
+### Den normerende strømmen (3a) – gjennomsnittlig 2–4,5 år
+
+| Steg | Moderat scenario |
+|------|-----------------|
+| Forskning → systematisk oversikt | 12–18 måneder |
+| Kunnskapsgrunnlag → ferdig retningslinje | 12–24 måneder |
+| Retningslinje → oppdatert praksis | 6–12 måneder |
+| **Total gjennomløpstid** | **2–3 år i moderat scenario, opptil 6–7 år i konservative scenarioer** |
+
+I hastesituasjoner (som under covid-19-pandemien) har prosessene blitt gjennomført vesentlig raskere, men dette har vært unntaksvis og ressurskrevende.
+
+### De parallelle strømmene – typisk gjennomløpstid
+
+| Strøm | Fra forskning til tilgjengelig kunnskap |
+|-------|----------------------------------------|
+| **Kliniske oppslagsverk** (UpToDate, BMJ Best Practice) | Uker–måneder (løpende oppdatering) |
+| **Fagprosedyrer** | Måneder |
+| **Legemiddelstrømmen** (sikkerhetsvarsler) | Dager–uker |
+| **Medier/journalistikk** | Timer–dager |
+| **Pasientorganisasjoner** | Uker–måneder |
+
+**Konsekvensen av denne tidsforskjellen**: Helsepersonell som bruker UpToDate kan ha tilgang til oppdatert kunnskap år før den samme kunnskapen gjenspeiles i nasjonale retningslinjer og innbyggerinformasjon på helsenorge.no. Dette skaper potensial for motstridende informasjon.
+
+---
+
+## 4. Aktørkart
 
 Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktører opererer på tvers av strømmene.
 
@@ -266,38 +303,6 @@ Aktørene er organisert etter hvilken strøm de primært tilhører. Flere aktør
 
 ---
 
-## 4. Tidsbruk per strøm
-
-Gjennomløpstiden fra ny forskning til oppdatert kunnskap hos helsepersonell og innbyggere varierer dramatisk mellom de fire strømmene. Tabellen nedenfor kontrasterer den normerende strømmen (3a) med de parallelle strømmene.
-
-### 4.1 Den normerende strømmen (3a) – scenariobaserte estimater
-
-| Steg | Optimistisk | Moderat | Konservativt |
-|------|------------|---------|-------------|
-| Forskning → systematisk oversikt (steg 1→2) | 6 mnd | 12–18 mnd | 24 mnd |
-| Kunnskapsgrunnlag → ferdig retningslinje (steg 2→3a) | 12 mnd | 12–24 mnd | 36 mnd |
-| Retningslinje → oppdatert praksis/formidling (3a) | 3 mnd | 6–12 mnd | 18 mnd |
-| **Total gjennomløpstid (3a)** | **~2 år** | **~3–4,5 år** | **~6,5 år** |
-
-### 4.2 De parallelle strømmene – typisk gjennomløpstid
-
-| Strøm | Fra forskning til tilgjengelig kunnskap | Merknad |
-|-------|----------------------------------------|---------|
-| 3b. Kliniske oppslagsverk | Uker–måneder | Løpende oppdatering, hopper over steg 2 |
-| 3b. Fagprosedyrer | Måneder | Kan inkorporere kunnskap før nasjonale retningslinjer |
-| 3c. Legemiddelstrømmen | Dager–uker (sikkerhetsvarsler) | Egen regulatorisk prosess via DMP |
-| 3d. Medier/journalistikk | Timer–dager | Raskest, men lavest kvalitetssikring |
-| 3d. Pasientorganisasjoner | Uker–måneder | Varierer etter organisasjon og tema |
-
-### 4.3 Merknader til estimatene
-
-- Estimatene for den normerende strømmen er scenariobaserte og basert på kjente tidsforløp i norsk og internasjonal kunnskapsforvaltning. De representerer typiske forløp, ikke unntakssituasjoner.
-- I hastesituasjoner (som under covid-19-pandemien) har prosessene blitt gjennomført vesentlig raskere, men dette har vært unntaksvis og ressurskrevende.
-- Den konservative tidslinjens totale gjennomløpstid på opptil 6,5 år innebærer at innbyggerinformasjon via den normerende strømmen i verste fall kan baseres på forskning som er betydelig eldre enn publiseringstidspunktet tilsier.
-- **Tidsforskjellen mellom strømmene er en sentral observasjon**: Helsepersonell som bruker UpToDate kan ha tilgang til oppdatert kunnskap år før den samme kunnskapen gjenspeiles i nasjonale retningslinjer og innbyggerinformasjon på helsenorge.no.
-
----
-
 ## 5. Informasjonsflyt og formater
 
 ### 5.1 Formatoverganger per strøm
@@ -339,49 +344,94 @@ Dokumentasjonen indikerer at det i dag mangler gjennomgående standardiserte mas
 
 ---
 
-## 6. Kvalitetssikringsmekanismer
+## 6. Kvalitetssikringsmekanismer per strøm
 
-### 6.1 Fagfellevurdering i forskningen
+Hver av de fire strømmene har sine egne kvalitetssikringsmekanismer, men disse er ikke samkjørte på tvers av strømmene.
 
-Publiserte studier gjennomgår fagfellevurdering (peer review) før publisering i vitenskapelige tidsskrifter. Dette er den første kvalitetssikringen i verdikjeden. Prosessen har kjente begrensninger, men representerer etablert internasjonal standard for kvalitetskontroll.
+### Fagfellevurdering i forskningen
 
-### 6.2 GRADE-metodikk for vurdering av evidenskvalitet
+Publiserte studier gjennomgår fagfellevurdering (peer review) før publisering i vitenskapelige tidsskrifter. Dette er den første kvalitetssikringen i verdikjeden og representerer etablert internasjonal standard for kvalitetskontroll.
+
+### GRADE-metodikk for kunnskapsoppsummeringer
 
 Systematiske oversikter og kunnskapsoppsummeringer bruker GRADE-metodikken (Grading of Recommendations Assessment, Development and Evaluation) for å vurdere tilliten til den samlede evidensen. GRADE klassifiserer evidenskvaliteten i fire nivåer: høy, moderat, lav og svært lav. FHI benytter denne metodikken systematisk i sine kunnskapsoppsummeringer.
 
-### 6.3 Høringsrunder for retningslinjer
+### Retningslinjer: Høring og faglig redaksjon
 
-Helsedirektoratets retningslinjer gjennomgår offentlige høringsrunder der fagmiljøer, helseforetak, brukerorganisasjoner og andre interessenter kan gi innspill. Høringsrundene sikrer faglig bredde og forankring, men bidrar også til den samlede tidsbruken i verdikjeden.
+Helsedirektoratets retningslinjer gjennomgår offentlige høringsrunder der fagmiljøer, helseforetak, brukerorganisasjoner og andre interessenter kan gi innspill. Høringsrundene sikrer faglig bredde og forankring, men bidrar også til den samlede tidsbruken i verdikjeden. Innholdet gjennomgår faglig redaksjon før publisering.
 
-### 6.4 Faglig redaksjon av innbyggerinformasjon
+### Kliniske oppslagsverk: Redaksjonell og fagfellekontroll
 
-Innbyggerrettet helseinformasjon på helsenorge.no og i Helsedirektoratets kanaler gjennomgår faglig redaksjon. Innholdet kvalitetssikres mot gjeldende retningslinjer og vurderes for klarspråk og tilgjengelighet. Oppdateringsfrekvens og systematikk for revisjon varierer etter fagområde.
+Kliniske oppslagsverk som UpToDate og BMJ Best Practice anvender redaksjonell kontroll og fagfellekontroll, men disse er interne prosesser uten samme formelle transparens som Helsedirektoratets høring.
 
-### 6.5 Overordnet vurdering
+### Legemiddelinformasjon: Regulatorisk godkjenning
 
-Kvalitetssikringen i verdikjeden er robust i hvert enkelt steg, men det finnes begrenset systematisk kvalitetssikring av sammenheng på tvers av steg. Det er for eksempel ingen automatisert mekanisme som sikrer at innbyggerinformasjon oppdateres når underliggende retningslinjer endres.
+Legemiddelinformasjon kvalitetssikres gjennom regulatorisk prosess via DMP (Direktoratet for medisinske produkter) og EMA (European Medicines Agency). Dette sikrer høy kvalitetssikring, men prosessen er åpen kun for regulatoriske endringer, ikke for faglig debatt.
 
----
+### Innbyggerinformasjon: Variabel kvalitetssikring
 
-## 7. Oppsummering
+Innbyggerrettet helseinformasjon på helsenorge.no gjennomgår faglig redaksjon og kvalitetssikres mot gjeldende retningslinjer, med revis minst hvert tredje år. Medier og sosiale medier har begrenset eller ingen systematisk kvalitetssikring.
 
-Dagens verdikjede for kunnskapsforvaltning i helsesektoren består av tre steg: forskning, kunnskapsoppsummering og kunnskapsomsetting/formidling. Det tredje steget er ikke en lineær prosess, men et **nettverk av fire parallelle strømmer** – den normerende, den kliniske, legemiddelstrømmen og den innbyggerrettede – som opererer med ulik hastighet, ulike aktører og ulik grad av kvalitetssikring.
+### Overordnet vurdering
 
-De viktigste observasjonene fra kartleggingen er:
-
-- **Dramatisk tidsforskjell mellom strømmene**: Den normerende strømmen (retningslinjer) har en gjennomløpstid på 2–6,5 år, mens kliniske oppslagsverk oppdateres på uker og legemiddelvarsler på dager. Denne forskjellen betyr at helsepersonell som bruker ulike kilder kan basere seg på kunnskap av svært ulik alder.
-- **De parallelle strømmene er ikke «unntak»**: Kliniske oppslagsverk, fagprosedyrer, legemiddelinformasjon og pasientorganisasjoner er i praksis sentrale deler av kunnskapsforsyningen. Den normerende strømmen er den mest autoritative, men ikke nødvendigvis den mest brukte i daglig klinisk praksis.
-- **Konsistensutfordringer**: Fire strømmer med ulik oppdateringshastighet gir risiko for motstridende informasjon – helsepersonell og innbyggere kan motta ulike anbefalinger fra ulike kilder. Det finnes ingen overordnet mekanisme for synkronisering.
-- **Fragmentert ansvar**: Ansvaret er fordelt på nærmere 20 aktører – fra Helsedirektoratet og FHI til Felleskatalogen, RELIS, DMP, NHI.no, FNSP, fagprosedyreforfattere og pasientorganisasjoner – uten et overordnet system for å sikre konsistens på tvers av alle strømmer.
-- **Manuelle overganger**: Alle strømmene preges av manuelle prosesser for oversettelse, tilpasning og reformatering av innhold.
-- **Robust kvalitetssikring per strøm**: Hver strøm har sine egne kvalitetssikringsmekanismer, men sammenhengen mellom dem er ikke systematisk ivaretatt.
-- **Begrenset strukturering**: Innholdet er i stor grad fritekstbasert på tvers av alle strømmer, noe som begrenser mulighetene for automatisert videreforedling og synkronisering.
-
-Disse observasjonene danner grunnlag for **delrapport 2**, som vil analysere utfordringer og flaskehalser i dagens verdikjede og identifisere mulighetsrom for forbedring.
+Kvalitetssikringen i verdikjeden er robust *i hvert enkelt steg*, men det finnes **begrenset systematisk kvalitetssikring av sammenheng på tvers av steg**. Det er for eksempel ingen automatisert mekanisme som sikrer at innbyggerinformasjon oppdateres når underliggende retningslinjer endres, eller at motstridigheter mellom strømmene blir identifisert og løst.
 
 ---
 
-*Sist oppdatert: 2026-03-17*
+## 7. Oppsummering – dagens tilstand
+
+Dagens verdikjede for kunnskapsforvaltning i helsesektoren består av tre steg (forskning, kunnskapsoppsummering, kunnskapsomsetting/formidling), der det tredje steget er ikke en lineær prosess, men et **nettverk av fire parallelle strømmer** som opererer uavhengig av hverandre.
+
+### De viktigste observasjonene
+
+**1. Dramatisk tidsforskjell mellom strømmene**
+- Den normerende strømmen (retningslinjer): 2–6,5 år gjennomløpstid
+- Kliniske oppslagsverk: uker–måneder
+- Legemiddelvarsler: dager–uker
+- Medier: timer–dager
+
+Denne tidsforskjellen betyr at helsepersonell som bruker ulike kilder kan basere kliniske avgjørelser på kunnskap som er år unna hverandre i alder.
+
+**2. De parallelle strømmene er ikke periferalt – de er sentrale**
+
+Kliniske oppslagsverk, fagprosedyrer, legemiddelinformasjon og pasientorganisasjoner er i praksis sentrale kilder i kunnskapsforsyningen. Den normerende strømmen er den mest autoritative, men ikke nødvendigvis den mest brukte i daglig praksis.
+
+**3. Konsistensutfordringer fra usynkroniserte strømmer**
+
+Fire strømmer med ulik oppdateringshastighet gir risiko for motstridende informasjon:
+- Helsepersonell kan motta ulike anbefalinger fra nasjonale retningslinjer og kliniske oppslagsverk
+- Innbyggere kan finne informasjon i medier som ennå ikke er reflektert på helsenorge.no
+- Legemiddelinformasjon kan avvike dersom nye sikkerhetssignaler har kommet etter retningslinjens publisering
+
+Det finnes ingen overordnet mekanisme som sikrer konsistens på tvers av alle strømmer.
+
+**4. Fragmentert ansvar uten overordnet koordinering**
+
+Ansvaret er fordelt på nærmere 20 aktører – Helsedirektoratet, FHI, Helsebiblioteket, RHF-ene, KS, DMP, Felleskatalogen, RELIS, NHI.no, FNSP, fagprosedyreforfattere, pasientorganisasjoner, medier og andre – uten et overordnet system som sikrer konsistens.
+
+**5. Manuelle overganger og begrenset strukturering**
+
+Alle strømmene preges av manuelle prosesser for oversettelse, tilpasning og reformatering av innhold. Innholdet er i stor grad fritekstbasert, noe som begrenser mulighetene for automatisert videreforedling og synkronisering.
+
+**6. Robust kvalitetssikring per strøm, svak kvalitetssikring på tvers**
+
+Hver strøm har sine egne kvalitetssikringsmekanismer (fagfellevurdering, GRADE, høring, redaksjon, regulatorisk godkjenning). Men det finnes ingen mekanisme som sikrer at endringer i en strøm propageres til og påvirker konsistensen i de øvrige strømmene.
+
+---
+
+## 8. Konklusjon
+
+Dagens verdikjede fungerer tilstrekkelig for hver enkelt strøm, men systemet som helhet mangler integrasjon. Resultatene er:
+- Ineffektiv ressursbruk (hver strøm gjør sitt eget arbeid med oversettelse og tilpasning)
+- Risiko for motstridende informasjon (spesielt mellom normativ retningslinje og klinisk praksis)
+- Innbyggere og helsepersonell må selv navigere mellom ulike kilder for å få et fullstendig bilde
+- Mulige forbedringer blir ikke fulgt opp systematisk på tvers av strømmer
+
+Disse observasjonene danner grunnlag for **delrapport 2**, som vil analysere spesifikke utfordringer og flaskehalser, og identifisere mulighetsrom for forbedring.
+
+---
+
+*Sist oppdatert: 2026-03-18*
 
 ---
 
