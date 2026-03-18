@@ -113,47 +113,68 @@ Ernæringsområdet illustrerer utfordringen: Ny forskning om for eksempel tilsat
 
 ---
 
-## 4. Kvantitative indikatorer
+## 4. Kvantitative indikatorer og statistikk
 
-Tabellene nedenfor gir scenariobaserte estimater for sentrale indikatorer. Estimatene er basert på tilgjengelige offentlige kilder og faglig vurdering. **Tallene er estimater og skal ikke behandles som presise måleresultater.**
+### 4.1 Produksjonskapasitet for systematiske oversikter og retningslinjer
 
-### 4.1 Produksjonskapasitet
+**Status:** Disse tallene mangler etterprøvbar dokumentasjon og må innhentes direkte fra FHI og Helsedirektoratet gjennom:
+- Offisielle årsrapporter fra FHI om kunnskapsoppsummeringsproduksjon
+- Offisielle oversikter fra Helsedirektoratet over retningslinjeproduuksjon per år
+- Statistikk fra helsenorge.no om oppdateringsfrekvens for innbyggerartikler
 
-| Indikator | Konservativt | Moderat | Optimistisk |
-|-----------|-------------|---------|-------------|
-| Systematiske oversikter produsert per år (FHI) | 15-20 | 25-35 | 40-50 |
-| Nye/oppdaterte retningslinjer per år (Hdir) | 5-8 | 10-15 | 15-20 |
-| Innbyggerartikler oppdatert per år (helsenorge.no) | 50-100 | 100-200 | 200-400 |
-
-*Merknad: Estimatene for FHI inkluderer ulike typer kunnskapsoppsummeringer, ikke bare fulle systematiske oversikter. Faktisk kapasitet avhenger av bevilgninger, bemanning og kompleksitet.*
+Uten slike kilder bør ikke estimater presenteres i denne rapporten.
 
 ### 4.2 Oppdateringsgrad for retningslinjer
 
-| Indikator | Konservativt | Moderat | Optimistisk |
-|-----------|-------------|---------|-------------|
-| Andel retningslinjer oppdatert siste 5 år | 30-40 % | 50-60 % | 70-80 % |
-| Andel retningslinjer som kan anses som ikke-oppdatert | 40-50 % | 20-30 % | 10-15 % |
-| Gjennomsnittlig alder på gjeldende retningslinjer | 6-8 år | 4-5 år | 2-3 år |
+**Status:** Systematisk oversikt over alderen på gjeldende retningslinjer og oppdateringsgraden finnes ikke dokumentert i tilgjengelige kilder. Dette bør kartlegges gjennom direkte undersøkelse av Helsedirektoratets retningslinjearchiv.
 
-*Merknad: Definisjonen av "ikke-oppdatert" er skjønnsmessig. En retningslinje kan være klinisk relevant selv om den er eldre enn 5 år, dersom kunnskapsgrunnlaget ikke har endret seg vesentlig.*
+### 4.3 Gjennomløpstider i verdikjeden
 
-### 4.3 Gjennomløpstider
+**Status:** Som dokumentert i delrapport 1, mangler eksakte tidsestimater kilder. Gjennomløpstiden er kjent som lang, men nøyaktige målinger av hvert ledd mangler.
 
-| Indikator | Konservativt | Moderat | Optimistisk |
-|-----------|-------------|---------|-------------|
-| Tid fra ny evidens til oppdatert retningslinje | 4-6 år | 2.5-4 år | 1.5-2 år |
-| Tid fra oppdatert retningslinje til oppdatert innbyggerinfo | 6-12 mnd | 3-6 mnd | 1-3 mnd |
-| Tid fra ny evidens til oppdatert innbyggerinformasjon | 5-7 år | 3-4.5 år | 2-2.5 år |
+### 4.4 Innbyggernes informasjonskilder og bruk av helsetjenester – dokumenterte tall
 
-### 4.4 Innbyggernes informasjonskilder
+Følgende indikatorer er basert på verifiserte kilder fra Helsedirektoratet (2024) og forskning:
 
-| Indikator | Konservativt | Moderat | Optimistisk |
-|-----------|-------------|---------|-------------|
-| Andel som bruker helsenorge.no som første kilde | 15-20 % | 25-35 % | 40-50 % |
-| Andel som bruker Google som første kilde | 50-60 % | 40-50 % | 30-40 % |
-| Andel som har brukt generativ AI for helseinfo | 10-15 % | 20-30 % | 30-40 % |
+#### Helsenorge.no brukerstatistikk
 
-*Merknad: Disse estimatene er basert på generelle trender i digitale brukerundersøkelser og internasjonale studier. Norske tall kan avvike. Andelen som bruker generativ AI antas å øke raskt.*
+| Indikator | Verdi | År |
+|-----------|-------|-----|
+| Totalt antall besøk på Helsenorge | 131 millioner | 2024 |
+| Gjennomsnittlig månedlige besøk | 10,9 millioner | 2024 |
+| **Innbyggeres kjennskap til Helsenorge** | **99 %** | 2024 |
+| Andel som har logget seg inn på Helsenorge | 80 % | 2024 |
+| Andel som bruker Helsenorge for å finne **generell helseinformasjon** | 51 % | 2024 |
+
+*Kilde: [Innbyggerundersøkelsen om digitalisering i helse- og omsorgstjenesten 2024 – Helsedirektoratet](https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester)*
+
+#### Innbyggeres digitale helsetjenestekontakt
+
+| Indikator | Verdi | År |
+|-----------|-------|-----|
+| Andel som har vært i digital kontakt med helsetjenesten (siste 12 mnd) | 59 % | 2024 |
+| Andel som bruker e-konsultasjon hos fastlege | 18,6 % | 2024 |
+
+*Kilde: [Bruk av digitale helsetjenester – Helsedirektoratet](https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester/funn-og-analyser/bruk-av-digitale-helsetjenester)*
+
+#### Generativ AI og helseinformasjon
+
+| Indikator | Verdi | År/kilde |
+|-----------|-------|----------|
+| Norske befolkningens bruk av generativ AI (ChatGPT, etc.) | 54 % | 2025 |
+| Unge som evaluerte ChatGPT positivt for helsespørsmål | Høy tilfredshet | 2023 studie |
+
+**Kontekst:** En norsk studie av 123 unge (16–20 år) sammenlignet ChatGPT (GPT-4) med fagpersoner på ung.no for mentalhelsespørsmål. Deltakerne vurderte informasjonen fra ChatGPT som god, og ville oftere anbefale den til andre, selv med fagfolk som alternativ.
+
+*Kilder: [Unge og helseinformasjon. ChatGPT vs. Fagpersoner – Utdanningsforskning.no](https://utdanningsforskning.no/artikler/2025/unge-og-helseinformasjon.-chatgpt-vs.-fagpersoner/) og [Slik bruker nordmenn generativ kunstig intelligens – SSB](https://www.ssb.no/teknologi-og-innovasjon/informasjons-og-kommunikasjonsteknologi-ikt/artikler/slik-bruker-nordmenn-kunstig-intelligens)*
+
+#### Helseinformasjon fra Google og andre kilder
+
+Forskning fra Tromsøundersøkelsen (norsk befolkningsstudie) viser at innbyggere bruker nettsøk (Google), sosiale media (Facebook), videosøk (YouTube) og helseapper for å lete etter helseinformasjon. Søk på nettet har størst påvirkning på beslutninger om å oppsøke lege eller ikke, spesielt blant yngre og mer utdannede personer.
+
+*Kilde: [Vi søker etter helseinformasjon på nettet, men går vi til legen etterpå? – Forskning.no](https://www.forskning.no/data-helsetjenester-internett/vi-soker-etter-helseinformasjon-pa-nettet-men-gar-vi-til-legen-etterpa/1709876)*
+
+**Merknad:** Det mangler fortsatt presise tall for hvor stor andel som bruker Google vs. Helsenorge vs. medier som *første kilde* for helseinformasjon, og hvor mye som spesifikt brukes generativ AI for helseinformasjon (i motsetning til generell AI-bruk).
 
 ---
 
@@ -247,4 +268,20 @@ Flaskehalsene identifisert i denne rapporten danner grunnlag for de neste delrap
 
 ---
 
-*Sist oppdatert: 2026-03-15*
+*Sist oppdatert: 2026-03-18*
+
+---
+
+## Merknad om kilder
+
+Flere sentrale indikatorer i denne rapporten mangler etterprøvbar dokumentasjon:
+
+- **Produksjonskapasitet (FHI og Helsedirektoratet)**: Presise tall for årlig produksjon av systematiske oversikter, retningslinjer og innbyggerartikler finnes ikke i offentlig tilgjengelige kilder. Disse bør innhentes gjennom direkte kontakt med organisasjonene.
+
+- **Oppdateringsgrad for retningslinjer**: Systematisk oversikt over hvor stor andel av Helsedirektoratets retningslinjer som er oppdatert eller utdaterte finnes ikke. Dette bør kartlegges gjennom arkivgjennomgang.
+
+- **Gjennomløpstider**: Som dokumentert i delrapport 1, mangler nøyaktige målinger av hvor lang tid hvert ledd i verdikjeden tar.
+
+- **Informasjonskilder**: Presise tall for hvor stor andel av innbyggere som bruker Google vs. Helsenorge vs. medier *som første kilde* for helseinformasjon mangler. Likeledes mangler spesifikk statistikk på bruk av generativ AI *spesifikt for helseinformasjon*.
+
+Disse manglende tallene er kritiske for å vurdere omfanget av utfordringene identifisert i denne rapporten. De bør prioriteres for innsamling i senere faser av prosjektet.
