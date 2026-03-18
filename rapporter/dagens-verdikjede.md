@@ -34,12 +34,12 @@ Folkehelseinstituttet (FHI) og internasjonale aktører som Cochrane Collaboratio
 
 Kunnskapen fra steg 1 og 2 omsettes og formidles til helsepersonell og innbyggere gjennom **fire parallelle hovedstrømmer**. Disse opererer med ulike aktører, ulik hastighet og ulike mekanismer for kvalitetssikring:
 
-1. **Den normerende strømmen** – formelle nasjonale retningslinjer utviklet av Helsedirektoratet (1–5 år gjennomløpstid)
-2. **Den kliniske kunnskapsstrømmen** – løpende oppdaterte kilder som kliniske oppslagsverk og fagprosedyrer (uker–måneder)
-3. **Legemiddelstrømmen** – regulatorisk styrt informasjon gjennom DMP og Felleskatalogen (dager–uker for sikkerhetsvarsler)
-4. **Den innbyggerrettede strømmen** – kvalitetssikret informasjon via helsenorge.no, pasientorganisasjoner og medier (timer–måneder)
+1. **Den normerende strømmen** – formelle nasjonale retningslinjer utviklet av Helsedirektoratet (langsomste prosess)
+2. **Den kliniske kunnskapsstrømmen** – løpende oppdaterte kilder som kliniske oppslagsverk og fagprosedyrer (raskere enn normativ)
+3. **Legemiddelstrømmen** – regulatorisk styrt informasjon gjennom DMP og Felleskatalogen (raskest ved sikkerhetssignaler)
+4. **Den innbyggerrettede strømmen** – kvalitetssikret informasjon via helsenorge.no, pasientorganisasjoner og medier (variabel hastighet)
 
-Ingen enkelt strøm dekker hele kunnskapsbehovet alene – i praksis er det samspillet mellom dem som utgjør den reelle kunnskapsforsyningen i helsesektoren. Tidsforskjellen mellom strømmene er en sentral observasjon: helsepersonell som bruker UpToDate kan ha tilgang til oppdatert kunnskap år før den samme kunnskapen gjenspeiles i nasjonale retningslinjer og innbyggerinformasjon.
+Ingen enkelt strøm dekker hele kunnskapsbehovet alene – i praksis er det samspillet mellom dem som utgjør den reelle kunnskapsforsyningen i helsesektoren. **En sentral observasjon: det finnes betydelige tidsforskjeller mellom strømmene**, der noen kilder oppdateres vesentlig raskere enn andre. Dette betyr at helsepersonell og innbyggere som bruker ulike kilder kan basere seg på kunnskap av svært ulik alder.
 
 #### 3a. Den normerende strømmen
 
@@ -73,7 +73,7 @@ Parallelt med den normerende strømmen når forskningsbasert kunnskap helseperso
 - **Sykepleien Forskning**: Fagfellevurdert sykepleieforskning (nivå 1-tidsskrift), utgitt av Norsk Sykepleierforbund [8]. Relevant kunnskapskilde for sykepleiere i praksis og utdanning.
 - **Fagmedisinske foreninger**: Legeforeningens fagmedisinske foreninger (én per spesialitet) utvikler faglige anbefalinger innenfor sine spesialområder og bidrar til Helsedirektoratets retningslinjearbeid [9].
 
-Denne strømmen har typisk en gjennomløpstid på uker til måneder fra forskning til tilgjengelig kunnskap for helsepersonell.
+Denne strømmen oppdateres raskere enn den normerende strømmen, men nøyaktig tidsbruk er ikke systematisk dokumentert.
 
 | Aktør | Rolle | Leveranse |
 |-------|-------|-----------|
@@ -90,7 +90,7 @@ Informasjon om legemidler følger en delvis egen verdikjede med egne regulatoris
 - **Felleskatalogen**: Felleskatalogen AS samler og tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg og bivirkningsinformasjon [17]. Interaksjonssøket er basert på data fra DMPs FEST-database [17]. Brukes daglig av helsepersonell for legemiddelrelaterte beslutninger. Tilbyr også pakningsvedlegg og pasientrettet legemiddelinformasjon direkte til innbyggere.
 - **RELIS** (Regionale legemiddelinformasjonssentre): Fire regionale sentre (Midt-Norge, Nord-Norge, Sør-Øst og Vest) gir produsentuavhengig, individuell rådgivning til helsepersonell om legemiddelbruk [18]. Spesialisttjenester inkluderer Trygg Mammamedisin (gravide og ammende) og KUPP-kampanjer (kunnskapsbaserte oppdateringsvisitter til fastleger). Mottar også bivirkningsrapporter.
 
-Denne strømmen kan reagere på dager til uker ved nye sikkerhetssignaler, og er den raskeste strømmen for legemiddelspesifikk kunnskap.
+Denne strømmen kan reagere relativt raskt ved nye sikkerhetssignaler sammenlignet med den normerende strømmen, og er den raskeste strømmen for legemiddelspesifikk kunnskap.
 
 | Aktør | Rolle | Kilde for innholdet |
 |-------|-------|---------------------|
@@ -132,7 +132,7 @@ Innbyggere mottar helseinformasjon fra et bredt spekter av aktører med ulike ki
 
 | Egenskap | Normerende | Klinisk | Legemiddel | Innbyggerrettet |
 |----------|-----------|---------|-----------|-----------------|
-| **Hastighet** | 1–5 år | Uker–måneder | Dager–uker | Timer–måneder |
+| **Oppdateringshastighet** | Lang prosess | Raskere | Raskt ved varsler | Variabel |
 | **Normativ kraft** | Høy (formelt) | Middels (faglig) | Høy (regulatorisk) | Lav (informerende) |
 | **Kvalitetssikring** | GRADE, høring, redaksjon | Redaksjonell, fagfelle | Regulatorisk godkjenning | Varierer sterkt |
 | **Dekningsgrad** | Utvalgte tema | Bred klinisk | Legemiddelspesifikk | Ujevn |
@@ -142,32 +142,34 @@ Innbyggere mottar helseinformasjon fra et bredt spekter av aktører med ulike ki
 
 ---
 
-## 3. Tidsbruk og gjennomløpstid per strøm
+## 3. Oppdateringshastighet per strøm
 
-Gjennomløpstiden fra ny forskning til oppdatert kunnskap hos helsepersonell og innbyggere varierer dramatisk mellom de fire strømmene. Denne tidsforskjellen er en av de mest kritiske observasjonene i kartleggingen.
+De fire strømmene har vesentlig ulik oppdateringshastighet fra ny forskning til tilgjengelig kunnskap. Denne forskjellen er en av de mest kritiske observasjonene i kartleggingen, men **de eksakte tidsestimatene mangler etterprøvbar dokumentasjon og må undersøkes nærmere**.
 
-### Den normerende strømmen (3a) – gjennomsnittlig 2–4,5 år
+### Den normerende strømmen – lang og regulert prosess
 
-| Steg | Moderat scenario |
-|------|-----------------|
-| Forskning → systematisk oversikt | 12–18 måneder |
-| Kunnskapsgrunnlag → ferdig retningslinje | 12–24 måneder |
-| Retningslinje → oppdatert praksis | 6–12 måneder |
-| **Total gjennomløpstid** | **2–3 år i moderat scenario, opptil 6–7 år i konservative scenarioer** |
+Den normerende strømmen (nasjonale retningslinjer fra Helsedirektoratet) gjennomgår flere steg:
+- Forskning publiseres
+- Kunnskapsoppsummeringer samles (fra FHI og internasjonale kilder)
+- Retningslinjeprosess gjennomføres (arbeidsgrupper, høring, revisjon)
+- Innholdet formidles til sektor og innbyggere
+- Implementering i praksis
 
-I hastesituasjoner (som under covid-19-pandemien) har prosessene blitt gjennomført vesentlig raskere, men dette har vært unntaksvis og ressurskrevende.
+Prosessen er regulert, faglig grundig og inkluderer høringer, men dette gjør den tidskrevende sammenlignet med andre strømmer. **Dokumentert:** At prosessen er tidskrevende; **Udokumentert:** Nøyaktig hvor lang den gjennomsnittlig er.
 
-### De parallelle strømmene – typisk gjennomløpstid
+### De parallelle strømmene – variabel hastighet
 
-| Strøm | Fra forskning til tilgjengelig kunnskap |
-|-------|----------------------------------------|
-| **Kliniske oppslagsverk** (UpToDate, BMJ Best Practice) | Uker–måneder (løpende oppdatering) |
-| **Fagprosedyrer** | Måneder |
-| **Legemiddelstrømmen** (sikkerhetsvarsler) | Dager–uker |
-| **Medier/journalistikk** | Timer–dager |
-| **Pasientorganisasjoner** | Uker–måneder |
+De tre parallelle strømmene oppdateres raskere enn den normerende:
 
-**Konsekvensen av denne tidsforskjellen**: Helsepersonell som bruker UpToDate kan ha tilgang til oppdatert kunnskap år før den samme kunnskapen gjenspeiles i nasjonale retningslinjer og innbyggerinformasjon på helsenorge.no. Dette skaper potensial for motstridende informasjon.
+- **Kliniske oppslagsverk** (UpToDate, BMJ Best Practice) oppdateres løpende basert på ny forskning, uten formell reguleringsmekanisme
+- **Fagprosedyrer** operasjonaliserer retningslinjer til konkrete handlingsanvisninger, men kan også inkorporere nyere kunnskap
+- **Legemiddelstrømmen** kan reagere raskt på sikkerhetssignaler via DMP/EMA
+- **Medier og pasientorganisasjoner** formidler kunnskap variabelt raskt basert på sitt publiseringsløp
+
+**Konsekvensen:** Helsepersonell og innbyggere som bruker ulike kilder kan basere seg på kunnskap av svært ulik alder. **Dette potensielle problemet krever nærmere undersøkelse gjennom:**
+- Intervjuer med nøkkelaktører om typisk gjennomløpstid
+- Analyse av konkrete eksempler (f.eks. når en ny forskning først dukker opp i UpToDate vs. nasjonale retningslinjer)
+- Gjennomgang av dokumentasjon fra Helsedirektoratet, FHI og andre aktører
 
 ---
 
@@ -384,13 +386,14 @@ Dagens verdikjede for kunnskapsforvaltning i helsesektoren består av tre steg (
 
 ### De viktigste observasjonene
 
-**1. Dramatisk tidsforskjell mellom strømmene**
-- Den normerende strømmen (retningslinjer): 2–6,5 år gjennomløpstid
-- Kliniske oppslagsverk: uker–måneder
-- Legemiddelvarsler: dager–uker
-- Medier: timer–dager
+**1. Betydelig tidsforskjell mellom strømmene**
 
-Denne tidsforskjellen betyr at helsepersonell som bruker ulike kilder kan basere kliniske avgjørelser på kunnskap som er år unna hverandre i alder.
+Den normerende strømmen (retningslinjer) er dokumentert som tidskrevende sammenlignet med:
+- Kliniske oppslagsverk som oppdateres løpende
+- Legemiddelstrømmen som kan reagere raskt på sikkerhetssignaler
+- Medier og pasientorganisasjoner som publiserer variabelt raskt
+
+**Udokumentert:** Nøyaktige tidsestimater for hver strøm. Dette må undersøkes gjennom intervjuer og casestudier for å etablere pålitelige målinger av gjennomløpstider.
 
 **2. De parallelle strømmene er ikke periferalt – de er sentrale**
 
@@ -428,6 +431,8 @@ Dagens verdikjede fungerer tilstrekkelig for hver enkelt strøm, men systemet so
 - Mulige forbedringer blir ikke fulgt opp systematisk på tvers av strømmer
 
 Disse observasjonene danner grunnlag for **delrapport 2**, som vil analysere spesifikke utfordringer og flaskehalser, og identifisere mulighetsrom for forbedring.
+
+**Merknad om kilder:** Kartleggingen i denne rapporten er basert på tilgjengelig dokumentasjon fra offentlige kilder. Flere observasjoner – særlig omkring tidsbruk og gjennomløpstider – mangler etterprøvbar dokumentasjon og bør underbygges gjennom målrettede undersøkelser (intervjuer med nøkkelaktører, casestudier, innsamling av prosessdata fra aktørene).
 
 ---
 
