@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dagens verdikjede - Lysark</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            max-width: 1400px;
+            max-height: 900px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide h1 {
+            color: #003366;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .slide h2 {
+            color: #003366;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        /* === SLIDE 1: TITLE === */
+        #slide-1 {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: #ffffff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #slide-1 h1 {
+            color: #ffffff;
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        #slide-1 p {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        #slide-1 .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* === SLIDE 2: OVERSIKT === */
+        .three-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .step-box {
+            background: #f0f4f8;
+            border: 3px solid #003366;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .step-box h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .step-box p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .step-arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: #003366;
+            font-weight: 700;
+        }
+
+        /* === SLIDE 3: FIRE STRØMMER === */
+        .four-streams {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+            flex: 1;
+            align-items: stretch;
+        }
+
+        .stream-box {
+            border-radius: 12px;
+            padding: 30px 20px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .stream-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .stream-box .key-info {
+            font-size: 0.85rem;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .stream-box.normering {
+            background: linear-gradient(135deg, #d4544f 0%, #c73e39 100%);
+        }
+
+        .stream-box.klinisk {
+            background: linear-gradient(135deg, #4a90e2 0%, #3a7bc8 100%);
+        }
+
+        .stream-box.legemiddel {
+            background: linear-gradient(135deg, #f5a623 0%, #e0950a 100%);
+        }
+
+        .stream-box.innbygger {
+            background: linear-gradient(135deg, #50c878 0%, #3aa860 100%);
+        }
+
+        /* === SLIDE 4: FULL FLOW === */
+        .full-flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 4fr;
+            gap: 20px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .flow-element {
+            background: #f0f4f8;
+            border: 2px solid #003366;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #003366;
+            font-size: 0.95rem;
+        }
+
+        .flow-arrow-large {
+            color: #003366;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .parallel-streams-box {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .mini-stream {
+            background: #f9f9f9;
+            border-left: 5px solid #003366;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #333;
+        }
+
+        .mini-stream.s1 { border-left-color: #d4544f; }
+        .mini-stream.s2 { border-left-color: #4a90e2; }
+        .mini-stream.s3 { border-left-color: #f5a623; }
+        .mini-stream.s4 { border-left-color: #50c878; }
+
+        /* === SLIDE 5: SAMMENLIGNING === */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-table thead {
+            background: #003366;
+            color: #ffffff;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 700;
+            color: #003366;
+            width: 20%;
+        }
+
+        /* === SLIDE 6: TIDSFORSKJELLER === */
+        .timeline {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            flex: 1;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .timeline-bar {
+            width: 100%;
+            background: #f0f4f8;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            color: #003366;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding-top: 10px;
+            position: relative;
+        }
+
+        .timeline-bar.fast {
+            height: 60px;
+            background: #50c878;
+        }
+
+        .timeline-bar.medium {
+            height: 150px;
+            background: #f5a623;
+        }
+
+        .timeline-bar.slow {
+            height: 350px;
+            background: #d4544f;
+        }
+
+        .timeline-bar.variable {
+            height: 200px;
+            background: #4a90e2;
+            background: linear-gradient(90deg, #4a90e2 0%, #50c878 50%, #f5a623 100%);
+        }
+
+        .timeline-item h4 {
+            margin-top: 15px;
+            color: #003366;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .timeline-item p {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* === SLIDE 7: UTFORDRINGER === */
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .challenge-card {
+            background: #fff5e5;
+            border-left: 5px solid #f5a623;
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .challenge-card h4 {
+            color: #d4544f;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .challenge-card p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* === SLIDE 8: ESSENSEN === */
+        .key-findings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .finding-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .finding-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .finding-text h4 {
+            color: #003366;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .finding-text p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* === CONTROLS === */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        button {
+            background: #003366;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        button:hover {
+            background: #004d99;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            color: #333;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1200px) {
+            .slide {
+                padding: 40px;
+                font-size: 0.9rem;
+            }
+
+            .slide h1 { font-size: 2.5rem; }
+            .slide h2 { font-size: 1.8rem; }
+
+            .four-streams {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .challenges-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .controls { display: none; }
+            .slide-counter { display: none; }
+            .slide { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">8</span>
+    </div>
+
+    <div class="slide-container">
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide active" id="slide-1">
+            <div style="text-align: center;">
+                <h1>Dagens verdikjede for kunnskapsforvaltning</h1>
+                <p>Fra forskning til innbyggere</p>
+                <p class="subtitle">Helsesektoren i Norge</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: THREE STEPS -->
+        <div class="slide" id="slide-2">
+            <h2>Tre hovedsteg</h2>
+            <div class="three-steps">
+                <div class="step-box">
+                    <h3>Steg 1</h3>
+                    <p>Internasjonal forskning</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #999;">Vitenskapelige publikasjoner</p>
+                </div>
+                <div class="step-arrow">↓</div>
+                <div class="step-box">
+                    <h3>Steg 2</h3>
+                    <p>Kunnskapsoppsummering</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #999;">Systematiske oversikter (GRADE)</p>
+                </div>
+                <div class="step-arrow">↓</div>
+                <div class="step-box">
+                    <h3>Steg 3</h3>
+                    <p>Fire parallelle strømmer</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #999;">Normering, klinisk, legemiddel, innbygger</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: FOUR STREAMS DETAILED -->
+        <div class="slide" id="slide-3">
+            <h2>Fire parallelle strømmer (Steg 3)</h2>
+            <div class="four-streams">
+                <div class="stream-box normering">
+                    <h3>3a. Normering</h3>
+                    <div class="key-info">
+                        <div>Helsedirektoratet</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Nasjonale retningslinjer</div>
+                        <div style="margin-top: 15px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;">
+                            <strong>Hastighet:</strong> Langsomst (1–5 år)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-box klinisk">
+                    <h3>3b. Klinisk</h3>
+                    <div class="key-info">
+                        <div>UpToDate, BMJ</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Fagprosedyrer, oppslagsverk</div>
+                        <div style="margin-top: 15px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;">
+                            <strong>Hastighet:</strong> Raskere (måneder)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-box legemiddel">
+                    <h3>3c. Legemiddel</h3>
+                    <div class="key-info">
+                        <div>DMP, Felleskatalogen</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Regulatorisk sikkerhet</div>
+                        <div style="margin-top: 15px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;">
+                            <strong>Hastighet:</strong> Raskt ved varsler
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-box innbygger">
+                    <h3>3d. Innbygger</h3>
+                    <div class="key-info">
+                        <div>helsenorge.no, medier</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Klarspråk informasjon</div>
+                        <div style="margin-top: 15px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px;">
+                            <strong>Hastighet:</strong> Variabel
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: FULL FLOW -->
+        <div class="slide" id="slide-4">
+            <h2>Hele verdikjeden – fra forskning til innbyggere</h2>
+            <div class="full-flow">
+                <div class="flow-element">Forskning</div>
+                <div class="flow-arrow-large">→</div>
+                <div class="flow-element">Oppsummering (GRADE)</div>
+                <div class="flow-arrow-large">→</div>
+                <div class="parallel-streams-box">
+                    <div class="mini-stream s1">3a. Retningslinjer</div>
+                    <div class="mini-stream s2">3b. Oppslagsverk</div>
+                    <div class="mini-stream s3">3c. Legemiddel</div>
+                    <div class="mini-stream s4">3d. Innbygger</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: COMPARISON -->
+        <div class="slide" id="slide-5">
+            <h2>Sammenligning av strømmene</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Egenskap</th>
+                        <th style="color: #d4544f;">Normering</th>
+                        <th style="color: #4a90e2;">Klinisk</th>
+                        <th style="color: #f5a623;">Legemiddel</th>
+                        <th style="color: #50c878;">Innbygger</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hastighet</td>
+                        <td>1–5 år</td>
+                        <td>Måneder</td>
+                        <td>Dager–uker</td>
+                        <td>Variabel</td>
+                    </tr>
+                    <tr>
+                        <td>Normativ kraft</td>
+                        <td>Høy</td>
+                        <td>Middels</td>
+                        <td>Høy</td>
+                        <td>Lav</td>
+                    </tr>
+                    <tr>
+                        <td>Kvalitetssikring</td>
+                        <td>GRADE, høring</td>
+                        <td>Redaksjonell</td>
+                        <td>Regulatorisk</td>
+                        <td>Varierer</td>
+                    </tr>
+                    <tr>
+                        <td>Tilpasning</td>
+                        <td>Høy</td>
+                        <td>Lav</td>
+                        <td>Middels</td>
+                        <td>Varierer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SLIDE 6: TIME DIFFERENCES -->
+        <div class="slide" id="slide-6">
+            <h2>Tidsforskjeller – fra forskning til praksis</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-bar fast">Timer–dager</div>
+                    <h4>Medier</h4>
+                    <p>Nyhetsformidling</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-bar medium">Måneder</div>
+                    <h4>Kliniske oppslagsverk</h4>
+                    <p>UpToDate, BMJ</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-bar variable">Variabel</div>
+                    <h4>Legemiddel varsler</h4>
+                    <p>DMP, Felleskatalogen</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-bar slow">1–5 år</div>
+                    <h4>Nasjonale retningslinjer</h4>
+                    <p>Helsedirektoratet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CHALLENGES -->
+        <div class="slide" id="slide-7">
+            <h2>Utfordringer fra parallelle strømmer</h2>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <h4>Tidsforskjeller</h4>
+                    <p>Helsepersonell baserer seg på informasjon av svært ulik alder avhengig av kilde.</p>
+                </div>
+                <div class="challenge-card">
+                    <h4>Fragmentert informasjon</h4>
+                    <p>Innbyggere mottar motstridende råd fra ulike kilder (helsenorge.no vs. medier vs. sosiale medier).</p>
+                </div>
+                <div class="challenge-card">
+                    <h4>Ingen koordinering</h4>
+                    <p>20+ aktører uten overordnet system for å sikre konsistens og oppdatering.</p>
+                </div>
+                <div class="challenge-card">
+                    <h4>Manuelle prosesser</h4>
+                    <p>Alt innhold reformateres manuelt når det beveger seg mellom strømmer. Ingen strukturering.</p>
+                </div>
+                <div class="challenge-card">
+                    <h4>Svak tverrsystemkvalitetssikring</h4>
+                    <p>Robust QA per strøm, men ingen mekanisme som sikrer konsistens på tvers.</p>
+                </div>
+                <div class="challenge-card">
+                    <h4>Bifunksjoner</h4>
+                    <p>Kunnskapsforvaltning er bifunksjon for mange aktører (RHF-er, kommuner, foreninger).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: ESSENCE -->
+        <div class="slide" id="slide-8">
+            <h2>Essensen – fem sentrale observasjoner</h2>
+            <div class="key-findings">
+                <div class="finding-item">
+                    <div class="finding-icon">1.</div>
+                    <div class="finding-text">
+                        <h4>Fire parallelle strømmer</h4>
+                        <p>Ikke én lineær prosess, men fire uavhengige kanaler med ulik hastighet.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-icon">2.</div>
+                    <div class="finding-text">
+                        <h4>Betydelige tidsforskjeller</h4>
+                        <p>Fra timer (medier) til 5 år (retningslinjer). Dette er problemet.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-icon">3.</div>
+                    <div class="finding-text">
+                        <h4>Fragmentert ansvar</h4>
+                        <p>20+ aktører uten ett system som sikrer samordning og konsistens.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-icon">4.</div>
+                    <div class="finding-text">
+                        <h4>Manuelle overganger</h4>
+                        <p>Innhold må reformateres manuelt ved hver overgang mellom strømmer.</p>
+                    </div>
+                </div>
+
+                <div class="finding-item">
+                    <div class="finding-icon">5.</div>
+                    <div class="finding-text">
+                        <h4>Systemet fungerer</h4>
+                        <p>...men mangler integrasjon. Resultat: ineffektivitet, risiko for feil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prev-btn" onclick="previousSlide()">← Forrige</button>
+        <button id="next-btn" onclick="nextSlide()">Neste →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) currentSlide = totalSlides;
+            if (n < 1) currentSlide = 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+
+            document.getElementById('current-slide').textContent = currentSlide;
+            document.getElementById('prev-btn').disabled = currentSlide === 1;
+            document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

@@ -2,6 +2,10 @@
 
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+### verdikjede-lysark.html
+- **Beskrivelse**: Presentasjonslysark (8 lysark) med minimalt med tekst og maksimalt visuell fremstilling. Lysark 1: tittel; Lysark 2: tre hovedsteg; Lysark 3: fire parallelle strømmer med detaljert layout; Lysark 4: hele verdikjeden fra forskning til innbyggere; Lysark 5: sammenligningstabel; Lysark 6: tidsforskjeller med visualiserte tidslinjer; Lysark 7: utfordringer fra parallelle strømmer; Lysark 8: fem sentrale observasjoner. Interaktiv navigasjon (forrige/neste eller piltaster). Egnet for eksport til PowerPoint eller bruk som standalone presentasjon.
+- **Sist oppdatert**: 2026-03-20
+
 ### verdikjede-naa.html
 - **Beskrivelse**: Interaktiv 7-fane visualisering av dagens verdikjede: (1) Hele verdikjeden fra forskning til innbyggere med 3 steg; (2) Fire parallelle strømmer i detalj (normering, klinisk, legemiddel, innbyggerrettet) med sammenligning av oppdateringshastighet, normativ kraft, kvalitetssikring og tilpasning; (3) Aktørkart med 18+ aktører, roller og leveranser; (4) Tidsforskjeller mellom strømmene og estimater for gjennomløpstid; (5) Kvalitetssikringsmekanismer per strøm; (6) Konsistensutfordringer fra parallelle strømmer med eksempler; (7) Samlet oppsummering med 10 sentrale funn. Basert på delrapport 1 (revidert 2026-03-18).
 - **Sist oppdatert**: 2026-03-20
