@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dagens verdikjede for kunnskapsforvaltning</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -13,14 +14,14 @@
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            color: #333333;
+            background: #f5f5f5;
+            color: #333;
             line-height: 1.6;
         }
 
         header {
             background: #003366;
-            color: #ffffff;
+            color: #fff;
             padding: 2rem 1.5rem;
             text-align: center;
         }
@@ -28,7 +29,6 @@
         header h1 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            font-weight: 700;
         }
 
         header p {
@@ -42,207 +42,234 @@
             padding: 2rem 1.5rem;
         }
 
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tab-button {
+            padding: 0.7rem 1.2rem;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #333;
+        }
+
+        .tab-button:hover {
+            background: #e8e8e8;
+        }
+
+        .tab-button.active {
+            background: #003366;
+            color: #fff;
+            border-color: #003366;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .description {
             background: #f0f4f8;
             border-left: 4px solid #003366;
             padding: 1.2rem 1.5rem;
             margin-bottom: 2rem;
             border-radius: 0 4px 4px 0;
-            color: #333333;
-            font-size: 0.95rem;
+            color: #333;
         }
 
         .section-heading {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #003366;
             border-bottom: 2px solid #003366;
             padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1.5rem;
+            margin: 2rem 0 1.5rem 0;
             font-weight: 700;
         }
 
-        /* Main flow diagram */
-        .flow-container {
-            margin: 2rem 0;
-            overflow-x: auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #fafafa;
-            padding: 1.5rem;
-        }
+        /* === TAB 1: Hele verdikjeden === */
 
         .flow-diagram {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 1rem;
-            min-width: 1000px;
-            align-items: start;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .flow-column {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .flow-box {
-            background: #ffffff;
+        .flow-stage {
+            background: #fff;
             border: 2px solid #003366;
-            border-radius: 6px;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .flow-stage h3 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .flow-stage p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .actors-in-stage {
+            background: #f9f9f9;
+            border-left: 3px solid #003366;
             padding: 1rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .actor-item {
+            padding: 0.5rem 0;
             font-size: 0.9rem;
-            font-weight: 500;
         }
 
-        .flow-box.header {
+        .actor-badge {
+            display: inline-block;
             background: #003366;
-            color: #ffffff;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
             font-weight: 700;
-            border: 2px solid #003366;
-        }
-
-        .flow-column > .flow-box:not(.header):nth-child(2) {
-            background: #e8f1f8;
-        }
-
-        .flow-column > .flow-box:not(.header):nth-child(3) {
-            background: #f0f4f8;
-        }
-
-        .flow-column > .flow-box:not(.header):nth-child(4) {
-            background: #f8f8f0;
-        }
-
-        .flow-column > .flow-box:not(.header):nth-child(5) {
-            background: #f0f8f4;
+            margin-right: 0.5rem;
         }
 
         .flow-arrow {
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #003366;
-            padding: 0.5rem 0;
+            margin: 1rem 0;
         }
 
-        /* Stream comparison table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: #ffffff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
+        /* === TAB 2: Fire strømmer === */
 
-        .comparison-table thead {
-            background: #003366;
-            color: #ffffff;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 0.8rem 1rem;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .comparison-table th {
-            font-weight: 700;
-        }
-
-        .comparison-table tbody tr:hover {
-            background: #f5f5f5;
-        }
-
-        .comparison-table td:first-child {
-            font-weight: 600;
-            color: #003366;
-        }
-
-        /* Stream cards */
         .streams-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
 
         .stream-card {
-            background: #ffffff;
+            background: #fff;
             border: 2px solid #ddd;
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .stream-card.normering {
+        .stream-card.s1 {
             border-left: 5px solid #d4544f;
         }
-
-        .stream-card.klinisk {
+        .stream-card.s2 {
             border-left: 5px solid #4a90e2;
         }
-
-        .stream-card.legemiddel {
+        .stream-card.s3 {
             border-left: 5px solid #f5a623;
         }
-
-        .stream-card.innbygger {
+        .stream-card.s4 {
             border-left: 5px solid #50c878;
         }
 
         .stream-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
             color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        .stream-card ul {
-            list-style: none;
-            padding-left: 0;
+        .stream-card .property {
+            margin: 0.8rem 0;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .stream-card li {
-            padding: 0.4rem 0;
-            font-size: 0.9rem;
-            color: #555;
+        .stream-card .property:last-child {
+            border-bottom: none;
         }
 
-        .stream-card li:before {
-            content: "• ";
+        .property-label {
             font-weight: 700;
-            margin-right: 0.5rem;
+            color: #003366;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* Actors table */
+        .property-value {
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .actors-list {
+            background: #f9f9f9;
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .actors-list li {
+            list-style: none;
+            padding: 0.3rem 0;
+            font-size: 0.85rem;
+        }
+
+        .actors-list li:before {
+            content: "→ ";
+            color: #003366;
+            font-weight: 700;
+            margin-right: 0.3rem;
+        }
+
+        /* === TAB 3: Aktørkart === */
+
         .actors-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: #ffffff;
-            font-size: 0.9rem;
+            background: #fff;
+            margin: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .actors-table thead {
             background: #003366;
-            color: #ffffff;
+            color: #fff;
         }
 
         .actors-table th,
         .actors-table td {
-            padding: 0.7rem 1rem;
+            padding: 1rem;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
 
         .actors-table th {
             font-weight: 700;
+            font-size: 0.9rem;
         }
 
         .actors-table tbody tr:hover {
@@ -254,12 +281,14 @@
             color: #003366;
         }
 
-        .actors-table .stream-label {
-            font-size: 0.75rem;
+        .stream-label {
+            display: inline-block;
+            font-size: 0.7rem;
             font-weight: 700;
             padding: 0.2rem 0.5rem;
             border-radius: 3px;
-            display: inline-block;
+            margin-right: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .stream-label.s1 { background: #ffe5e5; color: #d4544f; }
@@ -267,41 +296,188 @@
         .stream-label.s3 { background: #fff5e5; color: #f5a623; }
         .stream-label.s4 { background: #e5ffe5; color: #50c878; }
 
-        /* Key observations */
-        .key-observations {
-            background: #f0f4f8;
-            border-left: 4px solid #003366;
-            padding: 1.5rem;
+        /* === TAB 4: Tidsforskjeller === */
+
+        .timeline-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
             margin: 2rem 0;
-            border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .key-observations h3 {
-            color: #003366;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .key-observations ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .key-observations li {
-            padding: 0.5rem 0 0.5rem 1.5rem;
+        .timeline-item {
+            margin-bottom: 2rem;
             position: relative;
-            font-size: 0.95rem;
+            padding-left: 40px;
         }
 
-        .key-observations li:before {
-            content: "→";
+        .timeline-item:before {
+            content: '';
             position: absolute;
             left: 0;
-            font-weight: 700;
-            color: #003366;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #003366;
+            border-radius: 50%;
+            border: 3px solid #fff;
         }
 
-        /* Metadata */
+        .timeline-item h4 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .timeline-item .time-estimate {
+            background: #f0f4f8;
+            padding: 0.8rem;
+            border-left: 3px solid #003366;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        /* === TAB 5: Kvalitetssikring === */
+
+        .quality-assurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .qa-card {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .qa-card h4 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .qa-card .qa-method {
+            background: #f9f9f9;
+            padding: 0.8rem;
+            border-left: 3px solid #003366;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0.5rem 0;
+        }
+
+        .qa-strengths {
+            color: #50c878;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .qa-weaknesses {
+            color: #d4544f;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* === TAB 6: Konsistensutfordringer === */
+
+        .challenge-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .challenge-card {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 5px solid #f5a623;
+        }
+
+        .challenge-card h4 {
+            color: #003366;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .challenge-card p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .example {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-left: 3px solid #f5a623;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* === TAB 7: Oppsummering === */
+
+        .key-findings {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .finding {
+            padding: 1rem 0 1rem 1.5rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .finding:last-child {
+            border-bottom: none;
+        }
+
+        .finding:before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #003366;
+            font-size: 1.2rem;
+        }
+
+        .finding h4 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .finding p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .streams-grid {
+                grid-template-columns: 1fr;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
         .metadata {
             background: #f9f9f9;
             border: 1px solid #ddd;
@@ -311,291 +487,696 @@
             color: #666;
             border-radius: 4px;
         }
-
-        @media (max-width: 1024px) {
-            .flow-diagram {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .flow-diagram {
-                grid-template-columns: 1fr;
-            }
-            .comparison-table {
-                font-size: 0.85rem;
-            }
-            .comparison-table th,
-            .comparison-table td {
-                padding: 0.5rem 0.7rem;
-            }
-        }
-
-        @media print {
-            body { background: #ffffff; }
-            .container { max-width: 100%; }
-            .flow-container { page-break-inside: avoid; }
-            .stream-card { page-break-inside: avoid; }
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Dagens verdikjede for kunnskapsforvaltning</h1>
-        <p>Visualisering av tre hovedsteg og fire parallelle strømmer fra forskning til innbyggere</p>
+        <p>Interaktiv kartlegging av tre steg, fire parallelle strømmer og 20+ aktører</p>
     </header>
 
     <div class="container">
         <div class="description">
-            <strong>Basert på:</strong> Delrapport 1 – Dagens verdikjede for kunnskapsforvaltning i helsesektoren
-            <br><strong>Oppdatert:</strong> 2026-03-20
-            <br><strong>Formål:</strong> Denne visualiseringen viser hvordan kunnskap beveger seg fra forskning til innbyggere gjennom tre lineære steg og fire parallelle formidlingsstrømmer, hver med ulik hastighet og kvalitetssikring.
+            <strong>Basert på:</strong> Delrapport 1 – Dagens verdikjede for kunnskapsforvaltning i helsesektoren (revidert 2026-03-18)
+            <br><strong>Formål:</strong> Visualisering av hvordan kunnskap beveger seg fra forskning til innbyggere gjennom et komplekst system av tre lineære steg og fire parallelle strømmer, med ulike aktører, tidsforskjeller og kvalitetssikringsmekanismer.
         </div>
 
-        <h2 class="section-heading">Tre hovedsteg og fire parallelle strømmer</h2>
+        <!-- TAB BUTTONS -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab(0)">1. Hele verdikjeden</button>
+            <button class="tab-button" onclick="showTab(1)">2. Fire strømmer</button>
+            <button class="tab-button" onclick="showTab(2)">3. Aktørkart</button>
+            <button class="tab-button" onclick="showTab(3)">4. Tidsforskjeller</button>
+            <button class="tab-button" onclick="showTab(4)">5. Kvalitetssikring</button>
+            <button class="tab-button" onclick="showTab(5)">6. Konsistensutfordringer</button>
+            <button class="tab-button" onclick="showTab(6)">7. Oppsummering</button>
+        </div>
 
-        <div class="flow-container">
+        <!-- TAB 1: HELE VERDIKJEDEN -->
+        <div id="tab-0" class="tab-content active">
+            <h2 class="section-heading">Hele verdikjeden: Fra forskning til innbyggere</h2>
+
             <div class="flow-diagram">
-                <div class="flow-column">
-                    <div class="flow-box header">Steg 1:<br>Forskning</div>
-                    <div class="flow-box">Internasjonale publikasjoner i vitenskapelige tidsskrifter</div>
-                    <div class="flow-arrow">↓</div>
+                <div class="flow-stage">
+                    <h3>Steg 1: Internasjonal forskning</h3>
+                    <p>Grunnlaget for evidensbasert helseinformasjon er enkeltpublikasjoner fra internasjonale forskningsmiljøer, publisert i vitenskapelige tidsskrifter etter fagfellevurdering. Forskningen spenner fra kliniske studier til grunnforskning. Norske forskningsmiljøer bidrar, men den store mengden ny kunnskap genereres internasjonalt.</p>
+                    <div class="actors-in-stage">
+                        <strong>Aktører:</strong>
+                        <div class="actor-item">Internasjonale forskningsmiljøer, PubMed/MEDLINE, vitenskapelige tidsskrifter</div>
+                    </div>
                 </div>
 
-                <div class="flow-column">
-                    <div class="flow-box header">Steg 2:<br>Oppsummering</div>
-                    <div class="flow-box">Systematiske oversikter (FHI, Cochrane)</div>
-                    <div class="flow-box">Kunnskapsoppsummeringer med GRADE-metodikk</div>
-                    <div class="flow-arrow">↓</div>
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-stage">
+                    <h3>Steg 2: Kunnskapsoppsummering</h3>
+                    <p>Folkehelseinstituttet (FHI) og internasjonale aktører som Cochrane Collaboration sammenstiller enkeltpublikasjoner til systematiske oversikter og kunnskapsoppsummeringer ved bruk av GRADE-metodikken, som vurderer kvaliteten på kunnskapsgrunnlaget. FHI har sentral rolle i norsk kontekst.</p>
+                    <div class="actors-in-stage">
+                        <strong>Aktører:</strong>
+                        <div class="actor-item"><span class="actor-badge">Steg 2</span> Folkehelseinstituttet (FHI), Cochrane Collaboration</div>
+                    </div>
                 </div>
 
-                <div class="flow-column">
-                    <div class="flow-box header">Steg 3a:<br>Normering</div>
-                    <div class="flow-box">Nasjonale retningslinjer (Helsedirektoratet)</div>
-                    <div class="flow-box">Fagprosedyrer (RHF-er, kommuner)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-box"><strong>Oppdateringshastighet:</strong> Lang (1–5 år)</div>
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-stage">
+                    <h3>Steg 3: Kunnskapsomsetting og formidling – Fire parallelle strømmer</h3>
+                    <p><strong>Kunnskapen fra steg 1 og 2 omsettes og formidles gjennom fire helt parallelle hovedstrømmer</strong> som opererer uavhengig med ulike aktører, ulik hastighet og ulik kvalitetssikring. Ingen enkelt strøm dekker hele kunnskapsbehovet – det er samspillet mellom dem som utgjør den reelle kunnskapsforsyningen.</p>
+
+                    <div class="actors-in-stage" style="margin-top: 1rem;">
+                        <strong>3a. Den normerende strømmen (langsomst)</strong>
+                        <div class="actor-item">Helsedirektoratet → nasjonale retningslinjer → implementering i RHF/kommuner</div>
+                    </div>
+                    <div class="actors-in-stage">
+                        <strong>3b. Den kliniske kunnskapsstrømmen (raskere)</strong>
+                        <div class="actor-item">UpToDate, BMJ Best Practice, fagprosedyrer, fagtidsskrifter, fagmedisinske foreninger</div>
+                    </div>
+                    <div class="actors-in-stage">
+                        <strong>3c. Legemiddelstrømmen (raskest ved varsler)</strong>
+                        <div class="actor-item">DMP → Felleskatalogen, RELIS, regulatorisk sikkerhetsinformasjon</div>
+                    </div>
+                    <div class="actors-in-stage">
+                        <strong>3d. Den innbyggerrettede strømmen (variabel)</strong>
+                        <div class="actor-item">helsenorge.no, FHI, FNSP, NHI.no, pasientorganisasjoner, medier</div>
+                    </div>
                 </div>
 
-                <div class="flow-column">
-                    <div class="flow-box header">Steg 3b–3d:<br>Formidling</div>
-                    <div class="flow-box">Kliniske oppslagsverk (UpToDate, BMJ)</div>
-                    <div class="flow-box">Legemiddelstøtte (DMP, Felleskatalogen)</div>
-                    <div class="flow-box">Innbyggerformidling (helsenorge.no, medier)</div>
-                    <div class="flow-box"><strong>Oppdateringshastighet:</strong> Variabel (dager–måneder)</div>
+                <div class="flow-arrow">↓</div>
+
+                <div class="flow-stage">
+                    <h3>Sluttresultat: Innbyggere mottar helseinformasjon</h3>
+                    <p>Innbyggere mottar helseinformasjon fra et bredt spekter av kilder med ulike kilder, ulik kvalitetssikring og ulik grad av offentlig styring. Informasjonen kan ha betydelig ulik alder avhengig av hvilken strøm den kom gjennom.</p>
+                </div>
+            </div>
+
+            <div class="description" style="margin-top: 2rem;">
+                <strong>Kritisk observasjon:</strong> De fire strømmene opererer parallelt og uavhengig av hverandre, ikke sekvensielt. Dette betyr at kunnskap kan nå innbyggere og helsepersonell gjennom ulike kanaler samtidig, med potensielt motstridende informasjon.
+            </div>
+        </div>
+
+        <!-- TAB 2: FIRE STRØMMER -->
+        <div id="tab-1" class="tab-content">
+            <h2 class="section-heading">De fire parallelle strømmene – Detaljert sammenligning</h2>
+
+            <div class="streams-grid">
+                <div class="stream-card s1">
+                    <h3>3a. Normerende strøm</h3>
+
+                    <div class="property">
+                        <div class="property-label">Primær aktør</div>
+                        <div class="property-value">Helsedirektoratet</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Leveranse</div>
+                        <div class="property-value">Nasjonale faglige retningslinjer, veiledere, faglige råd</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Implementering</div>
+                        <div class="property-value">RHF-er (fagprosedyrer), KS/kommuner (lokal praksis)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Oppdateringshastighet</div>
+                        <div class="property-value">Langsomst: 1–5 år</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Normativ kraft</div>
+                        <div class="property-value">Høy (formelt bindende)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Kvalitetssikring</div>
+                        <div class="property-value">GRADE-metodikk, faglig høring, redaksjon</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Tilpasning til norsk</div>
+                        <div class="property-value">Høy – spesifikt tilpasset norske forhold</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Aktører i strømmen</div>
+                        <div class="actors-list">
+                            <li>Helsedirektoratet</li>
+                            <li>helsedirektoratet.no</li>
+                            <li>Helsebiblioteket/FHI</li>
+                            <li>RHF-ene</li>
+                            <li>KS/kommuner</li>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card s2">
+                    <h3>3b. Klinisk kunnskapsstrøm</h3>
+
+                    <div class="property">
+                        <div class="property-label">Primære kilder</div>
+                        <div class="property-value">Kliniske oppslagsverk, forskningstidsskrifter</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Leveranse</div>
+                        <div class="property-value">Evidensbaserte anbefalinger, fagprosedyrer, fagartikler</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Oppdateringshastighet</div>
+                        <div class="property-value">Raskere enn normativ (måneder)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Normativ kraft</div>
+                        <div class="property-value">Middels (faglig autoritet)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Kvalitetssikring</div>
+                        <div class="property-value">Redaksjonell kontroll, fagfellekontroll (intern)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Tilpasning til norsk</div>
+                        <div class="property-value">Lav – primært internasjonal uten norsk tilpasning</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Aktører i strømmen</div>
+                        <div class="actors-list">
+                            <li>UpToDate</li>
+                            <li>BMJ Best Practice</li>
+                            <li>Helsebiblioteket (fagprosedyrer)</li>
+                            <li>Tidsskriftet for Den norske legeforening</li>
+                            <li>Sykepleien Forskning</li>
+                            <li>Fagmedisinske foreninger</li>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card s3">
+                    <h3>3c. Legemiddelstrøm</h3>
+
+                    <div class="property">
+                        <div class="property-label">Primær aktør</div>
+                        <div class="property-value">Direktoratet for medisinske produkter (DMP)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Leveranse</div>
+                        <div class="property-value">Godkjente preparatomtaler, pakningsvedlegg, sikkerhetsinformasjon</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Oppdateringshastighet</div>
+                        <div class="property-value">Raskt ved sikkerhetssignaler, regulatorisk kontrollert</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Normativ kraft</div>
+                        <div class="property-value">Høy (regulatorisk bindende)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Kvalitetssikring</div>
+                        <div class="property-value">Regulatorisk godkjenning (EMA, DMP)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Tilpasning til norsk</div>
+                        <div class="property-value">Middels – europeisk regulering med norsk implementering</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Aktører i strømmen</div>
+                        <div class="actors-list">
+                            <li>DMP</li>
+                            <li>Felleskatalogen</li>
+                            <li>RELIS (regionale sentre)</li>
+                            <li>EMA</li>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card s4">
+                    <h3>3d. Innbyggerrettet strøm</h3>
+
+                    <div class="property">
+                        <div class="property-label">Primære kanaler</div>
+                        <div class="property-value">helsenorge.no, kommersielle kilder, medier, sosiale medier</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Leveranse</div>
+                        <div class="property-value">Klarspråk helseinformasjon, nyheter, erfaringsdeling</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Oppdateringshastighet</div>
+                        <div class="property-value">Variabel – fra minst 3 år til daglig</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Normativ kraft</div>
+                        <div class="property-value">Lav (informativ, ikke bindende)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Kvalitetssikring</div>
+                        <div class="property-value">Varierer – fra faglig høring til ingen</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Tilpasning til norsk</div>
+                        <div class="property-value">Varierer – fra høy (helsenorge) til ingen (sosiale medier)</div>
+                    </div>
+
+                    <div class="property">
+                        <div class="property-label">Aktører i strømmen</div>
+                        <div class="actors-list">
+                            <li>helsenorge.no (80+ innholdsleverandører)</li>
+                            <li>FHI (innbyggerrettet)</li>
+                            <li>FNSP</li>
+                            <li>NHI.no</li>
+                            <li>Pasientorganisasjoner</li>
+                            <li>Medier</li>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <h2 class="section-heading">De fire parallelle strømmene</h2>
+        <!-- TAB 3: AKTØRKART -->
+        <div id="tab-2" class="tab-content">
+            <h2 class="section-heading">Aktørkart: 20+ aktører i verdikjeden</h2>
 
-        <div class="streams-grid">
-            <div class="stream-card normering">
-                <h3>1. Normerende strøm</h3>
-                <ul>
-                    <li>Helsedirektoratet utvikler nasjonale faglige retningslinjer</li>
-                    <li>Formidling via helsedirektoratet.no og Helsebiblioteket</li>
-                    <li>Implementering i fagprosedyrer (RHF-er)</li>
-                    <li>Primær målgruppe: Helsepersonell</li>
-                    <li><strong>Hastighet:</strong> Langsomst (1–5 år)</li>
-                </ul>
-            </div>
+            <table class="actors-table">
+                <thead>
+                    <tr>
+                        <th>Aktør</th>
+                        <th>Strøm(er)</th>
+                        <th>Rolle i verdikjeden</th>
+                        <th>Viktigste leveranser</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Helse- og omsorgsdepartementet (HOD)</td>
+                        <td><span class="stream-label s1">Styring</span></td>
+                        <td>Oppdragsgiver og politisk styringsnivå</td>
+                        <td>Politiske føringer, lovendringer, tildelingsbrev</td>
+                    </tr>
+                    <tr>
+                        <td>Folkehelseinstituttet (FHI)</td>
+                        <td><span class="stream-label s1">Steg 2</span><span class="stream-label s2">3b</span><span class="stream-label s4">3d</span></td>
+                        <td>Kunnskapsprodusent og -sammenstiller, Helsebiblioteket-ansvarlig</td>
+                        <td>Systematiske oversikter, kunnskapsoppsummeringer, folkehelsedata</td>
+                    </tr>
+                    <tr>
+                        <td>Helsedirektoratet</td>
+                        <td><span class="stream-label s1">3a</span><span class="stream-label s4">3d</span></td>
+                        <td>Retningslinjeutvikler og normerende myndighet</td>
+                        <td>Nasjonale faglige retningslinjer, faglige råd, helseråd</td>
+                    </tr>
+                    <tr>
+                        <td>Helsebiblioteket (drives av FHI)</td>
+                        <td><span class="stream-label s1">3a</span><span class="stream-label s2">3b</span></td>
+                        <td>Kunnskapsformidler til helsepersonell</td>
+                        <td>Kliniske oppslagsverk, fagprosedyrer, retningslinjesamlinger</td>
+                    </tr>
+                    <tr>
+                        <td>Regionale helseforetak (4 RHF-er)</td>
+                        <td><span class="stream-label s1">3a</span><span class="stream-label s2">3b</span><span class="stream-label s4">3d</span></td>
+                        <td>Implementering av retningslinjer i sykehus</td>
+                        <td>Fagprosedyrer, implementerte behandlingsprosedyrer, FNSP</td>
+                    </tr>
+                    <tr>
+                        <td>KS og kommuner</td>
+                        <td><span class="stream-label s1">3a</span><span class="stream-label s4">3d</span></td>
+                        <td>Implementering i primærhelsetjenesten</td>
+                        <td>Oppdatert praksis i fastlegetjeneste, hjemmetjeneste, sykehjem</td>
+                    </tr>
+                    <tr>
+                        <td>UpToDate / BMJ Best Practice</td>
+                        <td><span class="stream-label s2">3b</span></td>
+                        <td>Klinisk oppslagsverk</td>
+                        <td>Evidensbaserte anbefalinger, kalkulatorer, løpende oppdatering</td>
+                    </tr>
+                    <tr>
+                        <td>Tidsskriftet for Den norske legeforening</td>
+                        <td><span class="stream-label s2">3b</span></td>
+                        <td>Fagfellevurdert fagtidsskrift (open access)</td>
+                        <td>Originalartikler, oversikter, fagdebatt, kritikk av retningslinjer</td>
+                    </tr>
+                    <tr>
+                        <td>Sykepleien Forskning</td>
+                        <td><span class="stream-label s2">3b</span></td>
+                        <td>Fagfellevurdert sykepleieforskning (nivå 1)</td>
+                        <td>Sykepleieforskningsartikler, praksisorientert forskning</td>
+                    </tr>
+                    <tr>
+                        <td>Fagmedisinske foreninger</td>
+                        <td><span class="stream-label s2">3b</span><span class="stream-label s1">3a</span></td>
+                        <td>Spesialitetsspesifikk faglig formidling og retningslinjearbeid</td>
+                        <td>Faglige anbefalinger, kurs, konferanser, høringssvar</td>
+                    </tr>
+                    <tr>
+                        <td>Direktoratet for medisinske produkter (DMP)</td>
+                        <td><span class="stream-label s3">3c</span></td>
+                        <td>Legemiddelgodkjenning og sikkerhetsmyndighet</td>
+                        <td>Markedsføringstillatelser, sikkerhetsvarsler, FEST-database</td>
+                    </tr>
+                    <tr>
+                        <td>Felleskatalogen</td>
+                        <td><span class="stream-label s3">3c</span><span class="stream-label s4">3d</span></td>
+                        <td>Legemiddeldatabase for helsepersonell og innbyggere</td>
+                        <td>Preparatomtaler, pakningsvedlegg, interaksjonssøk</td>
+                    </tr>
+                    <tr>
+                        <td>RELIS (4 regionale sentre)</td>
+                        <td><span class="stream-label s3">3c</span></td>
+                        <td>Uavhengig legemiddelinformasjon</td>
+                        <td>Individuell rådgivning, fagartikler, Trygg Mammamedisin, KUPP</td>
+                    </tr>
+                    <tr>
+                        <td>helsenorge.no (eid av NHN)</td>
+                        <td><span class="stream-label s4">3d</span></td>
+                        <td>Norges digitale helseportal for innbyggere</td>
+                        <td>Kvalitetssikret helseinformasjon, digitale helsetjenester</td>
+                    </tr>
+                    <tr>
+                        <td>FNSP (Felles nettløsning for spesialisthelsetjenesten)</td>
+                        <td><span class="stream-label s4">3d</span></td>
+                        <td>Enhetlig pasientinformasjon fra sykehusene</td>
+                        <td>Behandlingstekster (1700+), praktisk informasjon om utredning/behandling</td>
+                    </tr>
+                    <tr>
+                        <td>NHI.no (Norsk Helseinformatikk)</td>
+                        <td><span class="stream-label s4">3d</span></td>
+                        <td>Kommersielt helseoppslagsverk for innbyggere</td>
+                        <td>Artikler om sykdommer, symptomsjekker, 100M sidevisninger/år</td>
+                    </tr>
+                    <tr>
+                        <td>Pasientorganisasjoner</td>
+                        <td><span class="stream-label s4">3d</span><span class="stream-label s1">3a</span></td>
+                        <td>Erfaringsbasert formidling til pasienter</td>
+                        <td>Pasientrettet informasjon, likepersonstøtte, høringssvar</td>
+                    </tr>
+                    <tr>
+                        <td>Medier og helsejournalistikk</td>
+                        <td><span class="stream-label s4">3d</span></td>
+                        <td>Journalistisk formidling av forskning til allmennheten</td>
+                        <td>Nyhetsartikler, populærvitenskapelig formidling (variabel kvalitet)</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <div class="stream-card klinisk">
-                <h3>2. Klinisk kunnskapsstrøm</h3>
-                <ul>
-                    <li>Kliniske oppslagsverk (UpToDate, BMJ Best Practice)</li>
-                    <li>Fagprosedyrer og fagtidsskrifter</li>
-                    <li>Direktetilgang til forskning (PubMed)</li>
-                    <li>Primær målgruppe: Helsepersonell</li>
-                    <li><strong>Hastighet:</strong> Raskere enn normering</li>
-                </ul>
-            </div>
-
-            <div class="stream-card legemiddel">
-                <h3>3. Legemiddelstrøm</h3>
-                <ul>
-                    <li>Direktoratet for medisinske produkter (DMP)</li>
-                    <li>Felleskatalogen og RELIS-sentre</li>
-                    <li>Regulert av EMA og nasjonale godkjenninger</li>
-                    <li>Primær målgruppe: Helsepersonell og innbyggere</li>
-                    <li><strong>Hastighet:</strong> Rask ved sikkerhetssignaler</li>
-                </ul>
-            </div>
-
-            <div class="stream-card innbygger">
-                <h3>4. Innbyggerrettet strøm</h3>
-                <ul>
-                    <li>helsenorge.no (desentralisert innholdsproduksjon)</li>
-                    <li>NHI.no (kommersielt oppslagsverk)</li>
-                    <li>Pasientorganisasjoner og medier</li>
-                    <li>Primær målgruppe: Innbyggere</li>
-                    <li><strong>Hastighet:</strong> Variabel</li>
-                </ul>
+            <div class="description">
+                <strong>Merknad:</strong> De 4 strømmene er parallelle, ikke sekvensielle. En aktør som helsenorge.no eller pasientorganisasjoner kan ta innhold direkte fra steg 2 (kunnskapsoppsummeringer) uten å vente på den normerende strømmen. Dette gir fleksibilitet men også risiko for inkonsistens.
             </div>
         </div>
 
-        <h2 class="section-heading">Sammenligning av strømmene</h2>
+        <!-- TAB 4: TIDSFORSKJELLER -->
+        <div id="tab-3" class="tab-content">
+            <h2 class="section-heading">Tidsforskjeller mellom strømmene</h2>
 
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Egenskap</th>
-                    <th>Normerende</th>
-                    <th>Klinisk</th>
-                    <th>Legemiddel</th>
-                    <th>Innbyggerrettet</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Oppdateringshastighet</td>
-                    <td>Lang prosess (1–5 år)</td>
-                    <td>Raskere (måneder)</td>
-                    <td>Raskt ved varsler</td>
-                    <td>Variabel</td>
-                </tr>
-                <tr>
-                    <td>Normativ kraft</td>
-                    <td>Høy (formelt)</td>
-                    <td>Middels (faglig)</td>
-                    <td>Høy (regulatorisk)</td>
-                    <td>Lav (informerende)</td>
-                </tr>
-                <tr>
-                    <td>Kvalitetssikring</td>
-                    <td>GRADE, høring, redaksjon</td>
-                    <td>Redaksjonell, fagfelle</td>
-                    <td>Regulatorisk godkjenning</td>
-                    <td>Varierer sterkt</td>
-                </tr>
-                <tr>
-                    <td>Dekningsgrad</td>
-                    <td>Utvalgte tema</td>
-                    <td>Bred klinisk</td>
-                    <td>Legemiddelspesifikk</td>
-                    <td>Ujevn</td>
-                </tr>
-                <tr>
-                    <td>Tilpasning til norsk</td>
-                    <td>Høy</td>
-                    <td>Lav (internasjonal)</td>
-                    <td>Middels</td>
-                    <td>Varierer</td>
-                </tr>
-                <tr>
-                    <td>Hovedmålgruppe</td>
-                    <td>Helsepersonell → innbyggere</td>
-                    <td>Helsepersonell</td>
-                    <td>Helsepersonell → innbyggere</td>
-                    <td>Innbyggere</td>
-                </tr>
-            </tbody>
-        </table>
+            <div class="timeline-container">
+                <h3 style="color: #003366; margin-bottom: 1.5rem;">En sentral observasjon: Betydelige tidsforskjeller fra ny forskning til praktisk anvendelse</h3>
 
-        <h2 class="section-heading">Nøkkelaktører i verdikjeden</h2>
+                <div class="timeline-item">
+                    <h4>Kliniske oppslagsverk (UpToDate, BMJ Best Practice)</h4>
+                    <p>Disse oppdateres løpende basert på ny forskning, uten formell reguleringsmekanisme. En ny publikasjon fra PubMed kan potensielt være inkludert innen uker til få måneder.</p>
+                    <div class="time-estimate">
+                        <strong>Estimert gjennomløpstid:</strong> Dager til måneder<br>
+                        <strong>Kilde:</strong> Intern redaksjonell prosess, ikke dokumentert
+                    </div>
+                </div>
 
-        <table class="actors-table">
-            <thead>
-                <tr>
-                    <th>Aktør</th>
-                    <th>Strøm</th>
-                    <th>Rolle</th>
-                    <th>Viktigste leveranser</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Helsedirektoratet</td>
-                    <td><span class="stream-label s1">3a</span></td>
-                    <td>Retningslinjeutvikler</td>
-                    <td>Nasjonale faglige retningslinjer, faglige råd, veiledere</td>
-                </tr>
-                <tr>
-                    <td>Folkehelseinstituttet (FHI)</td>
-                    <td><span class="stream-label s1">3a</span> <span class="stream-label s2">3b</span> <span class="stream-label s4">3d</span></td>
-                    <td>Kunnskapsprodusent, -sammenstiller</td>
-                    <td>Systematiske oversikter, kunnskapsoppsummeringer, folkehelsedata</td>
-                </tr>
-                <tr>
-                    <td>Helsebiblioteket</td>
-                    <td><span class="stream-label s1">3a</span> <span class="stream-label s2">3b</span></td>
-                    <td>Kunnskapsformidler</td>
-                    <td>Tilgang til kliniske oppslagsverk, fagprosedyrer, retningslinjesamlinger</td>
-                </tr>
-                <tr>
-                    <td>RHF-er / Helseforetak</td>
-                    <td><span class="stream-label s1">3a</span> <span class="stream-label s2">3b</span></td>
-                    <td>Implementering i praksis</td>
-                    <td>Fagprosedyrer, oppdatert klinisk praksis, lokale tilpasninger</td>
-                </tr>
-                <tr>
-                    <td>UpToDate / BMJ Best Practice</td>
-                    <td><span class="stream-label s2">3b</span></td>
-                    <td>Klinisk oppslagsverk</td>
-                    <td>Evidensbaserte anbefalinger, kalkulatorer</td>
-                </tr>
-                <tr>
-                    <td>Direktoratet for medisinske produkter (DMP)</td>
-                    <td><span class="stream-label s3">3c</span></td>
-                    <td>Legemiddelgodkjenning</td>
-                    <td>Markedsføringstillatelser, sikkerhetsvarsler, FEST-database</td>
-                </tr>
-                <tr>
-                    <td>Felleskatalogen</td>
-                    <td><span class="stream-label s3">3c</span></td>
-                    <td>Legemiddelinformasjon</td>
-                    <td>Preparatomtaler, pakningsvedlegg, interaksjonssøk</td>
-                </tr>
-                <tr>
-                    <td>helsenorge.no (NHN)</td>
-                    <td><span class="stream-label s4">3d</span></td>
-                    <td>Offentlig helseportal</td>
-                    <td>Kvalitetssikret helseinformasjon, digitale helsetjenester</td>
-                </tr>
-                <tr>
-                    <td>NHI.no</td>
-                    <td><span class="stream-label s4">3d</span></td>
-                    <td>Kommersielt helseoppslagsverk</td>
-                    <td>Artikler om sykdommer, symptomsjekker</td>
-                </tr>
-                <tr>
-                    <td>Pasientorganisasjoner</td>
-                    <td><span class="stream-label s4">3d</span></td>
-                    <td>Erfaringsbasert formidling</td>
-                    <td>Pasientrettet informasjon, rådgivning, likepersonstøtte</td>
-                </tr>
-            </tbody>
-        </table>
+                <div class="timeline-item">
+                    <h4>Fagprosedyrer og fagmedisinske foreninger</h4>
+                    <p>Fagprosedyrer kan operasjonalisere nasjonale retningslinjer eller innarbeide nyere kunnskap parallel med den normerende prosessen. Fagmedisinske foreninger publiserer faglige anbefalinger på egne initiativ.</p>
+                    <div class="time-estimate">
+                        <strong>Estimert gjennomløpstid:</strong> Måneder<br>
+                        <strong>Kilde:</strong> FHI Helsebiblioteket-dokumentasjon (begrenset)
+                    </div>
+                </div>
 
-        <h2 class="section-heading">Sentrale observasjoner</h2>
+                <div class="timeline-item">
+                    <h4>Legemiddelstrømmen (sikkerhetssignaler)</h4>
+                    <p>DMP og EMA kan reagere raskt på nye sikkerhetssignaler og utstedte sikkerhetsvarsler. Felleskatalogen og RELIS oppdateres basert på dette. Denne strømmen er den raskeste når det gjelder sikkerhetsspørsmål.</p>
+                    <div class="time-estimate">
+                        <strong>Estimert gjennomløpstid:</strong> Dager til uker (ved varsler)<br>
+                        <strong>Kilde:</strong> EMA og DMP prosedyrer
+                    </div>
+                </div>
 
-        <div class="key-observations">
-            <h3>Hvorfor disse observasjonene er viktige:</h3>
-            <ul>
-                <li><strong>Tidsforskjeller:</strong> De fire strømmene oppdateres med vesentlig ulik hastighet. Helsepersonell og innbyggere som bruker ulike kilder kan basere seg på kunnskap av svært ulik alder.</li>
-                <li><strong>Ingen enkelt strøm dekker alt:</strong> Det er samspillet mellom strømmene som utgjør den reelle kunnskapsforsyningen. En retningslinje kan være utdatert mens en klinisk oppslagsverk har nyere informasjon.</li>
-                <li><strong>Desentralisert innholdsproduksjon:</strong> helsenorge.no har desentralisert innholdsproduksjon med over 80 innholdsleverandører. Dette gir fleksibilitet men også risiko for manglende koordinering.</li>
-                <li><strong>Kvalitetssikring varierer:</strong> Fra streng regulatorisk godkjenning (legemidler) til svak eller ingen kvalitetssikring (sosiale medier og nettfora).</li>
-                <li><strong>Norsk vs. internasjonal kunnskap:</strong> Kliniske oppslagsverk er internasjonale uten spesiell tilpasning til norske forhold, mens nasjonale retningslinjer er høyt tilpasset men langsomme å oppdatere.</li>
-                <li><strong>Innholdsproduksjon er bifunksjon:</strong> For mange aktører (RHF-er, kommuner) er kunnskapsforvaltning en bifunksjon, ikke en primær rolle. Dette kan påvirke prioritering og kvalitet.</li>
-            </ul>
+                <div class="timeline-item">
+                    <h4>Medier og sosiale medier</h4>
+                    <p>Medier formidler ny helseforskning ofte samme dag som publikasjon, uten å vente på faglig sammenfatning. Sosiale medier har ingen forsinkelse.</p>
+                    <div class="time-estimate">
+                        <strong>Estimert gjennomløpstid:</strong> Timer til dager<br>
+                        <strong>Kilde:</strong> Nyhetsmediers redaksjonelle valg
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Nasjonale retningslinjer (normativ strøm)</h4>
+                    <p><strong>LANGSOMST:</strong> Prosessen går fra forskning → kunnskapsoppsummering → arbeidsgruppe → høring → revisjon → implementering. Dokumentert som tidskrevende, men nøyaktige gjennomsnittlige tider mangler.</p>
+                    <div class="time-estimate">
+                        <strong>Estimert gjennomløpstid:</strong> 1–5 år fra kunnskapsoppsummering til implementert praksis<br>
+                        <strong>Kilde:</strong> Helsedirektoratet-dokumentasjon (kvalitativ)<br>
+                        <strong>⚠️ Merknad:</strong> NØYAKTIGE TIDER ER IKKE DOKUMENTERT. Denne estimaten mangler etterprøvbar dokumentasjon.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Innbyggerrettet informasjon (helsenorge.no)</h4>
+                    <p>helsenorge.no baseres ideelt sett på nasjonale retningslinjer, men kan også hente innhold direkte fra andre kilder. Oppdateringskrav: minst hvert tredje år. I praksis varierer dette.</p>
+                    <div class="time-estimate">
+                        <strong>Estimert gjennomløpstid:</strong> Variabel – fra normativ strøm (1–5 år) til daglig (hvis direkte fra FHI/medier)<br>
+                        <strong>Kilde:</strong> helsenorge.no retningslinjer
+                    </div>
+                </div>
+            </div>
+
+            <div class="description" style="margin-top: 2rem;">
+                <strong>⚠️ Kritisk merknad:</strong> De eksakte tidsestimatene for normativ strøm mangler etterprøvbar dokumentasjon og må undersøkes nærmere gjennom intervjuer med Helsedirektoratet, FHI og andre aktører.
+            </div>
         </div>
 
-        <h2 class="section-heading">Om dataene i denne visualiseringen</h2>
+        <!-- TAB 5: KVALITETSSIKRING -->
+        <div id="tab-4" class="tab-content">
+            <h2 class="section-heading">Kvalitetssikringsmekanismer per strøm</h2>
 
-        <div class="description">
-            <strong>Kilde:</strong> Delrapport 1 – Dagens verdikjede for kunnskapsforvaltning i helsesektoren, marzo 2026.
-            <br><br>
-            <strong>Merknad om tidsestimater:</strong> De eksakte tidsestimatene for gjennomløp gjennom hver strøm mangler etterprøvbar dokumentasjon. Denne visualiseringen baserer seg på kvalitative beskrivelser fra offentlige kilder (helsedirektoratet.no, nhn.no, helsestafetten.no, fhi.no). Nøyaktige tidsmålinger krever intervjuer med nøkkelaktører og analyse av konkrete eksempler.
+            <div class="quality-assurance-grid">
+                <div class="qa-card">
+                    <h4>Forskning (Steg 1)</h4>
+                    <div class="qa-method"><strong>Fagfellevurdering (Peer Review)</strong> før publisering i vitenskapelig tidsskrift</div>
+                    <div class="qa-strengths">✓ Internasjonal standard for kvalitetskontroll</div>
+                    <div class="qa-weaknesses">✗ Ikke tilpasset norsk kontekst</div>
+                </div>
+
+                <div class="qa-card">
+                    <h4>Kunnskapsoppsummering (Steg 2)</h4>
+                    <div class="qa-method"><strong>GRADE-metodikk</strong> for vurdering av evidenskvalitet (høy, moderat, lav, svært lav)</div>
+                    <div class="qa-method"><strong>Systematiske oversikter</strong> etter Cochrane-standard</div>
+                    <div class="qa-strengths">✓ Strukturert og transparent metode</div>
+                    <div class="qa-weaknesses">✗ Krever ressurser, tidskrevende</div>
+                </div>
+
+                <div class="qa-card">
+                    <h4>Normativ strøm (3a)</h4>
+                    <div class="qa-method"><strong>Offentlig høring</strong> fra fagmiljøer, helseforetak, brukerorganisasjoner</div>
+                    <div class="qa-method"><strong>Faglig redaksjon</strong> før publisering</div>
+                    <div class="qa-method"><strong>Arbeidsgrupper</strong> med tverrfaglig representasjon</div>
+                    <div class="qa-strengths">✓ Bred forankring, høy faglig kvalitet, tilpasset norsk kontekst</div>
+                    <div class="qa-weaknesses">✗ Svært tidskrevende, manglende systematisering av gjennomløpstider</div>
+                </div>
+
+                <div class="qa-card">
+                    <h4>Klinisk strøm (3b)</h4>
+                    <div class="qa-method"><strong>Redaksjonell kontroll</strong> (intern)</div>
+                    <div class="qa-method"><strong>Fagfellekontroll</strong> (intern og ekstern)</div>
+                    <div class="qa-method"><strong>Løpende oppdateringer</strong> basert på ny litteratur</div>
+                    <div class="qa-strengths">✓ Rask oppdatering, løpende vedlikehold</div>
+                    <div class="qa-weaknesses">✗ Ikke transparent som høring, ikke norsk tilpasset, intern prosess</div>
+                </div>
+
+                <div class="qa-card">
+                    <h4>Legemiddelstrøm (3c)</h4>
+                    <div class="qa-method"><strong>Regulatorisk godkjenning</strong> fra EMA og DMP</div>
+                    <div class="qa-method"><strong>Overvåking av bivirkninger</strong> fra helsepersonell og pasienter</div>
+                    <div class="qa-method"><strong>Sikkerhetsvarsler</strong> utstedt ved nye funn</div>
+                    <div class="qa-strengths">✓ Høy regulatorisk sikkerhet, rask respons på varsler</div>
+                    <div class="qa-weaknesses">✗ Åpen kun for regulatoriske endringer, ikke faglig debatt</div>
+                </div>
+
+                <div class="qa-card">
+                    <h4>Innbyggerrettet strøm (3d)</h4>
+                    <div class="qa-method"><strong>helsenorge.no:</strong> Faglig redaksjon, kvalitetssikring mot retningslinjer, revis minst hvert tredje år</div>
+                    <div class="qa-method"><strong>NHI.no:</strong> Egen redaksjonell kontroll (ikke transparent)</div>
+                    <div class="qa-method"><strong>Pasientorganisasjoner:</strong> Variabel intern kvalitetssikring</div>
+                    <div class="qa-method"><strong>Medier:</strong> Ingen systematisk faglig kvalitetssikring</div>
+                    <div class="qa-method"><strong>Sosiale medier:</strong> Ingen kontroll</div>
+                    <div class="qa-strengths">✓ helsenorge.no har faglig kontroll</div>
+                    <div class="qa-weaknesses">✗ Stor variasjon, medier og sosiale medier har minimal/ingen kvalitetssikring</div>
+                </div>
+            </div>
+
+            <div class="description" style="margin-top: 2rem;">
+                <strong>Overordnet vurdering:</strong> Hver strøm har robust kvalitetssikring <em>i sitt eget domene</em>, men det mangler overordnet kvalitetssikring <strong>på tvers av strømmene</strong>. Det finnes ingen mekanisme som sikrer at endringer i en strøm blir koordinert med de øvrige.
+            </div>
         </div>
 
-        <div class="metadata">
-            <strong>Visualisering sist oppdatert:</strong> 2026-03-20<br>
-            <strong>Basert på:</strong> Delrapport 1 (revidert 2026-03-18)<br>
-            <strong>Format:</strong> Selvstendige HTML med innebygd CSS og JavaScript<br>
-            <strong>Kontakt:</strong> Utredning – Ny verdikjede for kunnskapsforvaltning i helsesektoren
+        <!-- TAB 6: KONSISTENSUTFORDRINGER -->
+        <div id="tab-5" class="tab-content">
+            <h2 class="section-heading">Konsistensutfordringer fra parallelle strømmer</h2>
+
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h4>1. Tidsforskjeller fører til motstridende informasjon</h4>
+                    <p>Når en ny forskning publiseres, kan den være tilgjengelig gjennom kliniske oppslagsverk (UpToDate) innen uker, mens nasjonale retningslinjer tar 1–5 år å oppdatere. I mellomtiden kan helsepersonell motta ulike anbefalinger fra ulike kilder.</p>
+                    <div class="example">
+                        <strong>Eksempel:</strong> En ny behandlingsmetode publiseres. UpToDate oppdateres innen 3 måneder. Nasjonale retningslinjer blir ikke oppdatert på 2 år. En fastlege som bruker UpToDate kan anbefale noe som stikk i strid med gjeldende retningslinje.
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h4>2. Innbyggere mottar fragmentert informasjon</h4>
+                    <p>Innbyggere kan samtidig finne informasjon på helsenorge.no (basert på nasjonale retningslinjer fra 2023), NHI.no (med egen redaksjon) og medier (basert på nylige forskning fra 2026). Informasjonen kan være motstridende.</p>
+                    <div class="example">
+                        <strong>Eksempel:</strong> En artikkel i medier rapporterer om ny behandling basert på en fersk studie. helsenorge.no sier ingenting fordi retningslinjene ikke er oppdatert. Innbyggeren er forvirret og vet ikke hva som er riktig.
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h4>3. Legemiddelinformasjon kan avvike fra retningslinjer</h4>
+                    <p>DMP kan utstede sikkerhetsvarsler basert på nye bivirkningsrapporter, og Felleskatalogen oppdateres raskt. Men nasjonale retningslinjer kan fortsatt anbefale bruk av legemidlet med gamle anbefalinger.</p>
+                    <div class="example">
+                        <strong>Eksempel:</strong> DMP utsteder en sikkerhetsvarsler om økt risiko for hjertestans ved en viss bruk av legemiddel X. Felleskatalogen oppdateres samme dag. Men retningslinjene for bruken av legemiddel X fra 2022 sier fortsatt det gamle.
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h4>4. Fragmentert ansvar uten overordnet koordinering</h4>
+                    <p>Ansvaret er fordelt på 20+ aktører uten ett overordnet system som sikrer konsistens. Hvis en retningslinje oppdateres, finnes det ingen automatisk mekanisme for å oppdatere relaterte innputt i fagprosedyrer, helsenorge.no, FNSP osv.</p>
+                    <div class="example">
+                        <strong>Eksempel:</strong> Helsedirektoratet publiserer en ny retningslinje for diabetes-behandling. Hvem er ansvarlig for å oppdatere helsenorge.no, FNSP, fagprosedyrene i alle RHF-ene, og instruere KS? Det finnes ingen tydelig prosess.
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h4>5. Manuelle prosesser og fritekst hemmer standardisering</h4>
+                    <p>Alle strømmene preges av manuelle oversettelser, tilpasninger og reformateringer av innhold. Innholdet er primært fritekst, ikke strukturert maskinlesbar format. Dette hemmer automatisert synkronisering.</p>
+                    <div class="example">
+                        <strong>Eksempel:</strong> En retningslinje publiseres som et 50-siders PDF-dokument. For å få denne informasjonen inn på helsenorge.no, må redaktører gjøre manuell innlegging og omskriving. For fagprosedyrer må det gjøres en ny manuell tilpasning.
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <h4>6. Ingen mekanisme for å identifisere motstridigheter</h4>
+                    <p>Det finnes ingen system som automatisk eller manuelt scanning for motstridigheter mellom strømmene. Hvis UpToDate sier noe annet enn nasjonale retningslinjer, identifiseres dette ikke systematisk.</p>
+                    <div class="example">
+                        <strong>Eksempel:</strong> UpToDate anbefaler behandling A. Nasjonale retningslinjer anbefaler behandling B. Ingen vet om denne motstridigheten. En helsepersonell er usikker på hva som er riktig og velger på egen hånd.
+                    </div>
+                </div>
+            </div>
+
+            <div class="description" style="margin-top: 2rem;">
+                <strong>Overordnet funn:</strong> Det finnes ingen mekanisme som sikrer konsistens mellom de fire strømmene. Hver strøm opererer uavhengig, noe som gir risiko for motstridende informasjon til helsepersonell og innbyggere.
+            </div>
+        </div>
+
+        <!-- TAB 7: OPPSUMMERING -->
+        <div id="tab-6" class="tab-content">
+            <h2 class="section-heading">Samlet oppsummering – dagens tilstand</h2>
+
+            <div class="key-findings">
+                <div class="finding">
+                    <h4>1. Parallelle strømmer, ikke sekvensielle</h4>
+                    <p>Dagens verdikjede er ikke en lineær prosess. Det er et nettverk av fire parallelle strømmer som opererer uavhengig av hverandre. Ingen av dem er "hovedveien" – alle fire er sentrale. Dette gir fleksibilitet men også risiko for fragmen tasjon.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>2. Tidsforskjeller er betydelig</h4>
+                    <p>Tidsforskjellene mellom strømmene er en av de mest kritiske observasjonene. Medier og kliniske oppslagsverk kan oppdateres innen dager til måneder, mens nasjonale retningslinjer tar 1–5 år. Dette betyr at helsepersonell og innbyggere baserer seg på informasjon av svært ulik alder.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>3. 20+ aktører uten overordnet koordinering</h4>
+                    <p>Ansvaret er spredt over 20+ aktører (Helsedirektoratet, FHI, RHF-ene, kommuner, kommersielle kilder, medier) uten ett overordnet system for koordinering. Dette gir risiko for duplikering, motstridigheter og ineffektiv ressursbruk.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>4. Robust kvalitetssikring per strøm, svak på tvers</h4>
+                    <p>Hver strøm har sin egen kvalitetssikring (fagfellevurdering, GRADE, høring, redaksjon, regulatorisk godkjenning). Men det finnes ingen mekanisme som sikrer at endringer i en strøm påvirker konsistensen i de øvrige.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>5. Manuelle prosesser hemmer standardisering</h4>
+                    <p>Alt innhold reformateres og tilpasses manuelt når det beveger seg fra en strøm til en annen. Det finnes begrenset bruk av strukturerte maskinlesbare formater, noe som hemmer automatisert oppdatering og synkronisering.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>6. Desentralisert innholdsproduksjon (helsenorge.no)</h4>
+                    <p>helsenorge.no har 80+ innholdsleverandører som opererer relativt uavhengig. Dette gir fleksibilitet men risiko for manglende koordinering. Helsedirektoratet har utgiveransvar men ikke praktisk redaktørkontroll over alt innhold.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>7. Innholdsproduksjon er bifunksjon for mange aktører</h4>
+                    <p>For RHF-er, kommuner, fagmedisinske foreninger og mange andre er kunnskapsforvaltning en bifunksjon, ikke en primær rolle. Dette kan påvirke prioritering og kontinuitet.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>8. Dokumentert om prosesser, udokumentert om gjennomløpstider</h4>
+                    <p>Dokumentasjonen viser tydelig <em>hva</em> som skjer i verdikjeden, men <em>når</em> det skjer er i stor grad udokumentert. Nøyaktige gjennomløpstider for normativ strøm mangler etterprøvbar dokumentasjon.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>9. Systemet fungerer, men mangler integrasjon</h4>
+                    <p>Dagens verdikjede <em>fungerer</em> for hver enkelt strøm. Men som et samlet system mangler den integrasjon. Resultatene er ineffektiv ressursbruk, risiko for motstridende informasjon, og at innbyggere/helsepersonell selv må navigere mellom kilder.</p>
+                </div>
+
+                <div class="finding">
+                    <h4>10. Muligheter for forbedring er klare</h4>
+                    <p>Kartleggingen viser tydelig hvor problemene ligger og gir grunnlag for å utforme løsninger som sikrer bedre integrasjon, raskere oppdateringer, og mer konsistent informasjon til helsepersonell og innbyggere.</p>
+                </div>
+            </div>
+
+            <div class="description" style="margin-top: 2rem;">
+                <strong>Neste steg:</strong> Delrapport 2 analyserer spesifikke utfordringer og flaskehalser i mer detalj. Delrapporter 4–7 presenterer alternative løsninger og en konkret innføringsplan.
+            </div>
         </div>
     </div>
+
+    <div class="metadata">
+        <strong>Visualisering:</strong> Oppdatert 2026-03-20<br>
+        <strong>Basert på:</strong> Delrapport 1 (revidert 2026-03-18)<br>
+        <strong>Tjenestebeskrivelse:</strong> Interaktiv HTML med faner<br>
+        <strong>Utredning:</strong> Ny verdikjede for kunnskapsforvaltning i helsesektoren
+    </div>
+
+    <script>
+        function showTab(tabIndex) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab
+            const tabId = `tab-${tabIndex}`;
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked button
+            buttons[tabIndex].classList.add('active');
+
+            // Scroll to top of container
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
 </body>
 </html>

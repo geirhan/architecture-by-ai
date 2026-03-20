@@ -3,7 +3,7 @@
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
 ### verdikjede-naa.html
-- **Beskrivelse**: Omfattende visualisering av dagens verdikjede med 3 hovedsteg og 4 parallelle strømmer (normerende, klinisk, legemiddel, innbyggerrettet). Viser hele verdistrømmen fra internasjonal forskning til innbyggere, med detaljerte beskrivelser av hver strøm, sammenligning av egenskaper, aktørkart med roller, og sentrale observasjoner om tidsforskjeller og kvalitetssikring. Basert på delrapport 1.
+- **Beskrivelse**: Interaktiv 7-fane visualisering av dagens verdikjede: (1) Hele verdikjeden fra forskning til innbyggere med 3 steg; (2) Fire parallelle strømmer i detalj (normering, klinisk, legemiddel, innbyggerrettet) med sammenligning av oppdateringshastighet, normativ kraft, kvalitetssikring og tilpasning; (3) Aktørkart med 18+ aktører, roller og leveranser; (4) Tidsforskjeller mellom strømmene og estimater for gjennomløpstid; (5) Kvalitetssikringsmekanismer per strøm; (6) Konsistensutfordringer fra parallelle strømmer med eksempler; (7) Samlet oppsummering med 10 sentrale funn. Basert på delrapport 1 (revidert 2026-03-18).
 - **Sist oppdatert**: 2026-03-20
 
 ### verdikjede-ny.html
