@@ -2,6 +2,10 @@
 
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+### verdikjede.pptx
+- **Beskrivelse**: PowerPoint-fil med ett enkelt, visuelt lysark som viser hele verdikjeden. Inneholder: Steg 1 (Forskning) → Steg 2 (Oppsummering) → Steg 3 med fire fargekodet parallelle strømmer (normering=rød, klinisk=blå, legemiddel=oransje, innbygger=grønn). Hver strøm vises som en vertikal boks med navn, organisasjon og gjennomløpstid. Tidsforskjeller visualisert som horisontale tidslinjer under (timer–dager, måneder, 1–5 år). Essensen oppsummert i bunnen. Minimalt tekst, maksimal visuell effekt.
+- **Sist oppdatert**: 2026-03-20
+
 ### verdikjede-lysark.html
 - **Beskrivelse**: Presentasjonslysark (8 lysark) med minimalt med tekst og maksimalt visuell fremstilling. Lysark 1: tittel; Lysark 2: tre hovedsteg; Lysark 3: fire parallelle strømmer med detaljert layout; Lysark 4: hele verdikjeden fra forskning til innbyggere; Lysark 5: sammenligningstabel; Lysark 6: tidsforskjeller med visualiserte tidslinjer; Lysark 7: utfordringer fra parallelle strømmer; Lysark 8: fem sentrale observasjoner. Interaktiv navigasjon (forrige/neste eller piltaster). Egnet for eksport til PowerPoint eller bruk som standalone presentasjon.
 - **Sist oppdatert**: 2026-03-20
