@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delrapport 8: Aktøranalyse for verdikjeden</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Delrapport 8: Aktøranalyse for verdikjeden</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="aktoeranalyse.html" class="active">Aktøranalyse</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><em>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</em></p>
+<hr />
+<h2 id="innledning">1. Innledning</h2>
+<h3 id="formål">1.1 Formål</h3>
+<p>Denne rapporten gir en systematisk oversikt over aktørene i
+verdikjeden for kunnskapsforvaltning i helsesektoren. Aktøranalysen er
+skilt ut som egen delrapport for å gi en helhetlig fremstilling av
+roller, ansvar og relasjoner som går på tvers av verdikjedens steg og
+strømmer.</p>
+<h3 id="sammenheng-med-øvrige-delrapporter">1.2 Sammenheng med øvrige
+delrapporter</h3>
+<p>Aktørene som beskrives her opptrer i verdikjeden som er kartlagt i
+delrapport 1 (dagens-verdikjede.md). Aktørkartet i kapittel 2 nedenfor
+er organisert etter verdikjedens steg og strømmer slik de er definert i
+delrapport 1.</p>
+<hr />
+<h2 id="aktørkart-for-verdikjeden">2. Aktørkart for verdikjeden</h2>
+<p>Aktørene er organisert etter hvilken strøm de primært tilhører. Flere
+aktører opererer på tvers av strømmene.</p>
+<h3 id="overordnet-styring">Overordnet styring</h3>
+<h4 id="helse--og-omsorgsdepartementet-hod">2.1 Helse- og
+omsorgsdepartementet (HOD)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Oppdragsgiver og politisk
+styringsnivå</li>
+<li><strong>Ansvar og mandat</strong>: Fastsetter overordnet
+helsepolitikk, gir tildelingsbrev og oppdrag til underliggende etater.
+Har ansvar for lovgivning og forskrifter som regulerer
+helsetjenesten.</li>
+<li><strong>Viktigste leveranser</strong>: Politiske føringer,
+lovendringer, tildelingsbrev til Helsedirektoratet og FHI,
+stortingsmeldinger.</li>
+</ul>
+<h3 id="steg-2-kunnskapsoppsummering">Steg 2: Kunnskapsoppsummering</h3>
+<h4 id="folkehelseinstituttet-fhi">2.2 Folkehelseinstituttet (FHI)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Kunnskapsprodusent og
+-sammenstiller (steg 2), samt drifter Helsebiblioteket (strøm 3a og
+3b)</li>
+<li><strong>Ansvar og mandat</strong>: Utarbeider
+kunnskapsoppsummeringer og systematiske oversikter som grunnlag for
+retningslinjer og politikkutforming. Overvåker folkehelsen og driver
+forskning.</li>
+<li><strong>Viktigste leveranser</strong>: Systematiske oversikter,
+kunnskapsoppsummeringer, metodevurderinger, folkehelsedata og
+-rapporter.</li>
+</ul>
+<h3 id="strøm-3a-den-normerende-strømmen">Strøm 3a: Den normerende
+strømmen</h3>
+<h4 id="helsedirektoratet">2.3 Helsedirektoratet</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Retningslinjeutvikler og
+normerende myndighet (strøm 3a)</li>
+<li><strong>Ansvar og mandat</strong>: Utvikler nasjonale faglige
+retningslinjer, veiledere og rundskriv. Ansvarlig for å tolke og
+tydeliggjøre rettslige rammer. Bidrar med innhold til innbyggerrettet
+helseinformasjon.</li>
+<li><strong>Viktigste leveranser</strong>: Nasjonale faglige
+retningslinjer, faglige råd, veiledere, innbyggerrettede helseråd.</li>
+</ul>
+<h4 id="helsebiblioteket-drives-av-fhi">2.4 Helsebiblioteket (drives av
+FHI)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Kunnskapsformidler til
+helsepersonell (strøm 3a og 3b)</li>
+<li><strong>Ansvar og mandat</strong>: Tilgjengeliggjør forskningsbasert
+kunnskap for helsepersonell gjennom databaser, oppslagsverk og
+tidsskrifter. Gir tilgang til internasjonale kunnskapsressurser
+tilpasset norsk kontekst.</li>
+<li><strong>Viktigste leveranser</strong>: Tilgang til
+kunnskapsdatabaser, kliniske oppslagsverk (bl.a. BMJ Best Practice,
+UpToDate), fagprosedyrer, retningslinjesamlinger.</li>
+</ul>
+<h4 id="regionale-helseforetak-rhf-ene">2.5 Regionale helseforetak
+(RHF-ene)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Implementering av
+retningslinjer i spesialisthelsetjenesten (strøm 3a)</li>
+<li><strong>Ansvar og mandat</strong>: Helse Sør-Øst, Helse Vest, Helse
+Nord og Helse Midt-Norge er ansvarlige for at nasjonale retningslinjer
+implementeres i klinisk praksis i sine helseforetak. Etterlever
+overordnet arkitektur, standarder og kodeverk slik Helsedirektoratet
+beskriver.</li>
+<li><strong>Viktigste leveranser</strong>: Implementerte
+behandlingsprosedyrer, oppdatert klinisk praksis, lokale tilpasninger av
+nasjonale retningslinjer.</li>
+</ul>
+<h4 id="ks-og-kommunene">2.6 KS og kommunene</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Implementering av
+retningslinjer i kommunal helse- og omsorgstjeneste (strøm 3a)</li>
+<li><strong>Ansvar og mandat</strong>: KS legger til rette for at
+kommunene tar i bruk nasjonale faglige retningslinjer og
+e-helseløsninger. Den enkelte kommune er ansvarlig for at helseråd og
+retningslinjer følges i fastlegetjenester, helsestasjon, hjemmetjenester
+og sykehjem.</li>
+<li><strong>Viktigste leveranser</strong>: Oppdatert praksis i
+primærhelsetjenesten, lokalt tilpassede helseråd til innbyggere.</li>
+</ul>
+<h3 id="strøm-3b-den-kliniske-kunnskapsstrømmen">Strøm 3b: Den kliniske
+kunnskapsstrømmen</h3>
+<h4 id="kliniske-oppslagsverk-uptodate-bmj-best-practice-micromedex">2.7
+Kliniske oppslagsverk (UpToDate, BMJ Best Practice, Micromedex)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Internasjonal
+sanntids-kunnskap for helsepersonell (strøm 3b)</li>
+<li><strong>Ansvar og mandat</strong>: Kommersielle, internasjonale
+kunnskapstjenester som sammenstiller forskning til klinisk anvendbare
+anbefalinger med løpende oppdatering. Tilgjengelige for norsk
+helsepersonell gjennom nasjonale lisensavtaler via Helsebiblioteket
+[5].</li>
+<li><strong>Viktigste leveranser</strong>: Evidensbaserte kliniske
+anbefalinger, legemiddelinformasjon, kalkulatorer.</li>
+</ul>
+<h4 id="helsebiblioteket-fagprosedyrer">2.8 Helsebiblioteket /
+fagprosedyrer</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Nasjonal fagprosedyreplattform
+(strøm 3b, også strøm 3a)</li>
+<li><strong>Ansvar og mandat</strong>: Fagprosedyrer.no omdirigerer til
+Helsebiblioteket [4]. OUS koordinerer arbeidet med kunnskapsbaserte
+fagprosedyrer. Tjenesten er under gjenoppbygging etter en periode med
+nedleggelse [4].</li>
+<li><strong>Viktigste leveranser</strong>: Kunnskapsbaserte
+fagprosedyrer for diagnostikk, behandling og pleie.</li>
+</ul>
+<h4 id="tidsskriftet-og-sykepleien-forskning">2.9 Tidsskriftet og
+Sykepleien Forskning</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Fagfellevurderte
+fagtidsskrifter (strøm 3b)</li>
+<li><strong>Ansvar og mandat</strong>: Tidsskrift for Den norske
+legeforening er fagfellevurdert og fritt tilgjengelig (open access) [7].
+Sykepleien Forskning er nivå 1-tidsskrift utgitt av NSF [8]. Begge er
+sentrale arenaer for norsk medisinsk fagdebatt.</li>
+<li><strong>Viktigste leveranser</strong>: Originalartikler,
+oversiktsartikler, fagdebatt, kritisk gjennomgang av
+retningslinjer.</li>
+</ul>
+<h4 id="fagmedisinske-foreninger">2.10 Fagmedisinske foreninger</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Spesialitetsspesifikk faglig
+formidling (strøm 3b)</li>
+<li><strong>Ansvar og mandat</strong>: Legeforeningens fagmedisinske
+foreninger (én per spesialitet) utvikler faglige anbefalinger og bidrar
+til Helsedirektoratets retningslinjearbeid [9].</li>
+<li><strong>Viktigste leveranser</strong>: Spesialitetsspesifikke
+anbefalinger, kurs og konferanser.</li>
+</ul>
+<h3 id="strøm-3c-legemiddelstrømmen">Strøm 3c: Legemiddelstrømmen</h3>
+<h4 id="direktoratet-for-medisinske-produkter-dmp">2.11 Direktoratet for
+medisinske produkter (DMP)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Legemiddelgodkjenning og
+-sikkerhet (strøm 3c)</li>
+<li><strong>Ansvar og mandat</strong>: Norges sentrale
+forvaltningsmyndighet for legemidler og medisinsk utstyr (tidligere
+Statens legemiddelverk) [16]. Vurderer søknader om
+markedsføringstillatelse i samarbeid med EMA, overvåker bivirkninger og
+publiserer sikkerhetsinformasjon. Forvalter FEST-databasen med
+interaksjonsdata [17].</li>
+<li><strong>Viktigste leveranser</strong>: Markedsføringstillatelser,
+sikkerhetsvarsler, FEST-database, veiledere.</li>
+</ul>
+<h4 id="felleskatalogen">2.12 Felleskatalogen</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Legemiddelinformasjon til
+helsepersonell og innbyggere (strøm 3c)</li>
+<li><strong>Ansvar og mandat</strong>: Felleskatalogen AS samler og
+tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg og
+bivirkningsinformasjon [17]. Interaksjonssøket er basert på DMPs
+FEST-database (inkl. DRUID og Apriori).</li>
+<li><strong>Viktigste leveranser</strong>: Preparatomtaler,
+pakningsvedlegg, interaksjonssøk, ATC-register.</li>
+</ul>
+<h4 id="relis-regionale-legemiddelinformasjonssentre">2.13 RELIS
+(Regionale legemiddelinformasjonssentre)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Uavhengig
+legemiddelinformasjon (strøm 3c)</li>
+<li><strong>Ansvar og mandat</strong>: Fire regionale sentre
+(Midt-Norge, Nord-Norge, Sør-Øst og Vest) gir produsentuavhengig,
+individuell rådgivning til helsepersonell om legemiddelbruk [18].
+Spesialisttjenester inkluderer Trygg Mammamedisin og
+KUPP-kampanjer.</li>
+<li><strong>Viktigste leveranser</strong>: Individuell rådgivning,
+fagartikler, bivirkningsrapporter, undervisning og kampanjer.</li>
+</ul>
+<h3 id="strøm-3d-den-innbyggerrettede-strømmen">Strøm 3d: Den
+innbyggerrettede strømmen</h3>
+<h4 id="helsenorge.no-eid-av-nhn">2.14 helsenorge.no (eid av NHN)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Norges digitale helseportal
+for innbyggere (strøm 3d)</li>
+<li><strong>Ansvar og mandat</strong>: Helsedirektoratet har
+utgiveransvaret og det etiske/rettslige ansvaret. NHN er produkteier med
+redaktøransvaret, og koordinerer lokale redaktører [10]. Innholdet
+leveres av offentlige helseaktører (sykehus, Helsedirektoratet, Helfo,
+FHI m.fl.) og skal være forskningsbasert og i tråd med nasjonale råd og
+retningslinjer. Oppdateres minst hvert tredje år [10].</li>
+<li><strong>Viktigste leveranser</strong>: Kvalitetssikret
+helseinformasjon i klarspråk, digitale helsetjenester,
+helserettigheter.</li>
+</ul>
+<h4 id="fhi-innbyggerrettet-informasjon">2.15 FHI – innbyggerrettet
+informasjon</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Folkehelseinformasjon direkte
+til innbyggere (strøm 3d)</li>
+<li><strong>Ansvar og mandat</strong>: Publiserer innbyggerrettet
+informasjon om smittevern, vaksinasjon, psykisk helse og helsestatistikk
+på fhi.no [11]. Kommuniserer også via Folkehelsepodden og sosiale
+medier.</li>
+<li><strong>Viktigste leveranser</strong>: Smittevernråd,
+vaksineinformasjon, helsestatistikk, beredskapsrådgivning.</li>
+</ul>
+<h4 id="fnsp-felles-nettløsning-for-spesialisthelsetjenesten">2.16 FNSP
+(Felles nettløsning for spesialisthelsetjenesten)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Enhetlig pasientinformasjon
+fra sykehusene (strøm 3d)</li>
+<li><strong>Ansvar og mandat</strong>: Nasjonalt samarbeid eid av de
+fire RHF-ene. Forvalter ca. 1 700 behandlingstekster godkjent av
+medisinske fagpersoner gjennom en nasjonal medisinsk og helsefaglig
+redaksjon [12]. Driftes av NHN.</li>
+<li><strong>Viktigste leveranser</strong>: Behandlingstekster, praktisk
+informasjon om utredning og behandling, publisert på over 60
+sykehusnettsteder.</li>
+</ul>
+<h4 id="nhi.no-norsk-helseinformatikk">2.17 NHI.no (Norsk
+Helseinformatikk)</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Kommersielt helseoppslagsverk
+for allmennheten (strøm 3d)</li>
+<li><strong>Ansvar og mandat</strong>: Norges største nettbaserte
+helseoppslagsverk for innbyggere, eid av Bonnier Healthcare [13].
+Grunnlagt 1996 med utspring fra allmennpraktiserende leger, NTNU,
+St. Olavs Hospital og SINTEF. Ca. 100 millioner sidevisninger per år
+[14].</li>
+<li><strong>Viktigste leveranser</strong>: Artikler om sykdommer,
+symptomer og behandling, interaktiv symptomsjekker.</li>
+</ul>
+<h4 id="pasientorganisasjoner">2.18 Pasientorganisasjoner</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Erfaringsbasert kunnskap og
+innbyggerformidling (strøm 3d)</li>
+<li><strong>Ansvar og mandat</strong>: Organisasjoner som
+Kreftforeningen, LHL, Diabetesforbundet, Nasjonalforeningen for
+folkehelsen og FFO formidler kvalitetssikret helseinformasjon direkte
+til pasienter og pårørende [15]. Kombinerer medisinsk kunnskap med
+erfaringsbasert kunnskap. Flere er også innholdsleverandører til
+helsenorge.no [10].</li>
+<li><strong>Viktigste leveranser</strong>: Pasientrettet informasjon,
+rådgivningstjenester, likepersonstøtte, høringssvar til
+myndigheter.</li>
+</ul>
+<h4 id="medier-og-helsejournalistikk">2.19 Medier og
+helsejournalistikk</h4>
+<ul>
+<li><strong>Rolle i verdikjeden</strong>: Formidling av forskningsfunn
+direkte til innbyggere (strøm 3d)</li>
+<li><strong>Ansvar og mandat</strong>: Aviser, TV, nettmedier og
+podkaster formidler ny helseforskning til allmennheten, ofte med
+vesentlig kortere tidsforsinkelse enn den normerende strømmen.</li>
+<li><strong>Viktigste leveranser</strong>: Nyhetsartikler om forskning,
+helsejournalistikk, populærvitenskapelig formidling. Kvaliteten varierer
+og er ikke underlagt systematisk faglig kvalitetssikring.</li>
+</ul>
+<hr />
+<h2 id="aktører-på-tvers-av-strømmene">3. Aktører på tvers av
+strømmene</h2>
+<p>Flere aktører opererer i mer enn én strøm. Tabellen nedenfor
+oppsummerer de viktigste kryssreferansene:</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 27%" />
+<col style="width: 39%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktør</th>
+<th>Primær strøm</th>
+<th>Sekundære strømmer</th>
+<th>Merknad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FHI</td>
+<td>Steg 2</td>
+<td>3b (Helsebiblioteket), 3d (innbyggerinfo)</td>
+<td>Sentral i hele verdikjeden</td>
+</tr>
+<tr>
+<td>Helsedirektoratet</td>
+<td>3a</td>
+<td>3d (utgiveransvar helsenorge.no)</td>
+<td>Normerende og innbyggerrettet</td>
+</tr>
+<tr>
+<td>Helsebiblioteket</td>
+<td>3a</td>
+<td>3b (kliniske oppslagsverk, fagprosedyrer)</td>
+<td>Bro mellom normering og klinikk</td>
+</tr>
+<tr>
+<td>RHF-ene</td>
+<td>3a</td>
+<td>3b (fagprosedyrer), 3d (FNSP)</td>
+<td>Implementering og formidling</td>
+</tr>
+<tr>
+<td>Felleskatalogen</td>
+<td>3c</td>
+<td>3d (pakningsvedlegg til innbyggere)</td>
+<td>Helsepersonell og innbyggere</td>
+</tr>
+<tr>
+<td>Pasientorganisasjoner</td>
+<td>3d</td>
+<td>3a (høringssvar)</td>
+<td>Erfaringsbasert + politisk påvirkning</td>
+</tr>
+<tr>
+<td>Fagmedisinske foreninger</td>
+<td>3b</td>
+<td>3a (retningslinjearbeid)</td>
+<td>Faglig og normerende</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="observasjoner">4. Observasjoner</h2>
+<ol type="1">
+<li><strong>Fragmentert ansvar</strong>: Ansvaret er fordelt på nærmere
+20 aktører uten et overordnet system som sikrer konsistens på
+tvers.</li>
+<li><strong>Innholdsproduksjon som bifunksjon</strong>: For RHF-er,
+kommuner, fagmedisinske foreninger og mange andre er
+kunnskapsforvaltning en bifunksjon, ikke en primær rolle. Dette kan
+påvirke prioritering og kontinuitet.</li>
+<li><strong>Desentralisert innholdsproduksjon</strong>: helsenorge.no
+har 80+ innholdsleverandører som opererer relativt uavhengig.
+Helsedirektoratet har utgiveransvar men ikke praktisk redaktørkontroll
+over alt innhold.</li>
+<li><strong>Flere aktører i samme rolle</strong>: Det finnes overlapp
+mellom aktørers leveranser (f.eks. FHI og Helsedirektoratet innen
+innbyggerrettet informasjon), uten tydelig arbeidsdeling.</li>
+</ol>
+<hr />
+<p><em>Sist oppdatert: 2026-03-23</em></p>
+<hr />
+<h2 id="referanser">Referanser</h2>
+<p>Referansene i denne delrapporten følger samme nummerering som
+delrapport 1 (dagens-verdikjede.md), da aktørbeskrivelsene opprinnelig
+var en del av den rapporten.</p>
+<ol start="4" type="1">
+<li>Helsebiblioteket. <em>Fagprosedyrer på Helsebiblioteket –
+status</em>.
+https://www.helsebiblioteket.no/innhold/artikler/fpr/fagprosedyrer-pa-helsebiblioteket-status</li>
+<li>Helsebiblioteket. <em>Tilgang til kliniske oppslagsverk</em>.
+https://www.helsebiblioteket.no</li>
+<li>Tidsskriftet for Den norske legeforening.
+https://tidsskriftet.no</li>
+<li>Sykepleien Forskning. https://sykepleien.no/forskning</li>
+<li>Den norske legeforening. <em>Fagmedisinske foreninger</em>.
+https://www.legeforeningen.no</li>
+<li>helsenorge.no. <em>Om helsenorge.no – innholdsstrategi og
+kvalitetsretningslinjer</em>.</li>
+<li>Folkehelseinstituttet. https://www.fhi.no</li>
+<li>FNSP. <em>Felles nettløsning for spesialisthelsetjenesten</em>.</li>
+<li>NHI.no – Om oss. https://nhi.no/om-nhi/</li>
+<li>NHI.no – Brukstall og historie.</li>
+<li>Kreftforeningen, LHL, Diabetesforbundet, FFO m.fl.</li>
+<li>Direktoratet for medisinske produkter. https://www.dmp.no</li>
+<li>Felleskatalogen. https://www.felleskatalogen.no</li>
+<li>RELIS. https://relis.no</li>
+</ol>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

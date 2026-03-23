@@ -1,456 +1,1063 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samlet vurdering og anbefaling - Utredning om kunnskapsforvaltning</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; background: #fff; line-height: 1.7; }
-        header { background: #003366; color: #fff; padding: 1.5rem 2rem; }
-        header h1 { font-size: 1.4rem; font-weight: 600; max-width: 900px; margin: 0 auto; }
-        nav { background: #002244; padding: 0; overflow-x: auto; white-space: nowrap; }
-        nav ul { list-style: none; max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; }
-        nav ul li { flex-shrink: 0; }
-        nav ul li a { display: block; padding: 0.6rem 0.9rem; color: #ccd9e8; text-decoration: none; font-size: 0.85rem; border-bottom: 3px solid transparent; transition: background 0.2s, color 0.2s; }
-        nav ul li a:hover { background: #003366; color: #fff; }
-        nav ul li a.active { color: #fff; border-bottom-color: #5b9bd5; background: #003366; font-weight: 600; }
-        main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
-        h2 { color: #003366; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.4rem; border-bottom: 2px solid #e0e0e0; }
-        h3 { color: #003366; font-size: 1.15rem; margin: 1.8rem 0 0.6rem; }
-        h4 { color: #444; font-size: 1rem; margin: 1.2rem 0 0.5rem; }
-        p { margin-bottom: 1rem; }
-        ul, ol { margin: 0.5rem 0 1rem 1.5rem; }
-        li { margin-bottom: 0.4rem; }
-        strong { color: #222; }
-        .table-wrapper { overflow-x: auto; margin: 1rem 0 1.5rem; }
-        table { border-collapse: collapse; width: 100%; min-width: 500px; font-size: 0.92rem; }
-        th { background: #003366; color: #fff; padding: 0.6rem 0.8rem; text-align: left; font-weight: 600; }
-        td { padding: 0.6rem 0.8rem; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
-        tr:nth-child(even) td { background: #f7f9fc; }
-        .kritisk { color: #c0392b; font-weight: 700; }
-        .hoy, .høy { color: #e67e22; font-weight: 700; }
-        .moderat { color: #2980b9; font-weight: 700; }
-        .risk-summary { background: #f8f4e8; border-left: 4px solid #e67e22; padding: 1rem 1.2rem; margin: 1rem 0 1.5rem; border-radius: 0 4px 4px 0; }
-        .merknad { background: #f0f4f8; border-left: 4px solid #5b9bd5; padding: 1rem 1.2rem; margin: 1rem 0; border-radius: 0 4px 4px 0; font-size: 0.92rem; color: #444; }
-        hr { border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0; }
-        footer { background: #f5f5f5; border-top: 1px solid #e0e0e0; text-align: center; padding: 1.5rem; color: #666; font-size: 0.85rem; }
-        @media print {
-            nav { display: none; }
-            header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
-            main { max-width: 100%; padding: 1rem 0; }
-            table { font-size: 0.8rem; }
-            footer { border-top: 1px solid #333; background: #fff; }
-        }
-        @media (max-width: 700px) {
-            header h1 { font-size: 1.1rem; }
-            nav ul li a { padding: 0.5rem 0.6rem; font-size: 0.78rem; }
-            main { padding: 1.2rem 1rem 2rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delrapport 7: Samlet vurdering og anbefaling</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Forside</a></li>
-            <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
-            <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
-            <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
-            <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
-            <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
-            <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
-            <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
-            <li><a href="samlet-vurdering.html" class="active">Samlet vurdering</a></li>
-            <li><a href="visualiseringer.html">Visualiseringer</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h2>Delrapport 7: Samlet vurdering og anbefaling</h2>
-        <p><em>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</em></p>
 
-        <hr>
+<header>
+  <h1>Delrapport 7: Samlet vurdering og anbefaling</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
 
-        <h2>2. Innledning</h2>
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
+    <li><a href="samlet-vurdering.html" class="active">Samlet vurdering</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
 
-        <h3>2.1 Utredningens oppdrag og formål</h3>
-        <p>Utredningen har som formål å vurdere hvordan verdikjeden for kunnskapsforvaltning i helsesektoren kan moderniseres for å sikre at innbyggere og helsepersonell får tilgang til oppdatert, kvalitetssikret helseinformasjon innenfor akseptable tidsrammer. Utredningen er strukturert etter utredningsinstruksens minimumskrav.</p>
+<main>
+<p><em>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</em></p>
+<hr />
+<h2 id="ledersammendrag">1. Ledersammendrag</h2>
+<h3 id="bakgrunn">Bakgrunn</h3>
+<p>Helsedirektoratet har gjennomført denne utredningen for å vurdere om
+og hvordan verdikjeden for kunnskapsforvaltning i helsesektoren bør
+moderniseres. Verdikjeden dekker hele løpet fra internasjonal forskning
+til kvalitetssikret helseinformasjon til innbyggere, og involverer FHI,
+Helsedirektoratet, Norsk helsenett (NHN), de regionale helseforetakene
+og KS.</p>
+<p>Utredningen er motivert av tre samtidige utviklingstrekk: (1)
+forskningsproduksjonen øker eksponentielt og overgår kapasiteten for
+manuell bearbeiding, (2) innbyggere i økende grad søker helseinformasjon
+fra kommersielle KI-tjenester uten kvalitetssikring, og (3) nye
+regulatoriske rammer gjennom EU AI Act og EHDS stiller krav til digital
+modenhet.</p>
+<h3 id="hovedfunn">Hovedfunn</h3>
+<p><strong>Dagens verdikjede er ikke bærekraftig.</strong>
+Gjennomløpstiden fra ny forskning til oppdatert innbyggerinformasjon er
+2-6,5 år (delrapport 1). De tre mest alvorlige flaskehalsene er
+foreldelse av kunnskapsgrunnlaget underveis i retningslinjeprosessen,
+kapasitetsbegrensning for systematiske oversikter, og manglende kobling
+mellom retningslinjer og innbyggerinformasjon (delrapport 2).</p>
+<p><strong>KI-teknologi kan adressere flaskehalsene.</strong> Store
+språkmodeller (LLM) kan akselerere kunnskapssyntese, støtte
+retningslinjeutvikling, forbedre innbyggerinformasjon og muliggjøre
+kontinuerlig oppdatering. Samtidig medfører teknologien risikoer knyttet
+til hallusinering, tillit, bias og personvern. EU AI Act klassifiserer
+KI i helse som høyrisiko (delrapport 3).</p>
+<p><strong>Internasjonale erfaringer støtter en faseinndelt
+tilnærming.</strong> WHO SMART Guidelines, NICE, Cochrane og nordiske
+land viser at KI som støtteverktøy med menneskelig kontroll gir
+resultater, mens autonome KI-systemer i helse fortsatt er umodne
+(delrapport 6).</p>
+<h3 id="anbefaling">Anbefaling</h3>
+<p>Utredningen anbefaler en <strong>faseinndelt innføring av KI-støttet
+kunnskapsforvaltning</strong> over tre faser i løpet av 0-48 måneder,
+med alternativ 1 (moderat KI-støtte) som startpunkt og gradvis utvidelse
+mot alternativ 2 (ambisiøs KI-pipeline).</p>
+<h3 id="nøkkeltall">Nøkkeltall</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Indikator</th>
+<th>Dagens situasjon</th>
+<th>Med anbefalt tiltak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gjennomløpstid forskning-innbygger</td>
+<td>2-6,5 år</td>
+<td>1-3 år (fase 1-2), uker-måneder (fase 3)</td>
+</tr>
+<tr>
+<td>Estimert tidsbesparelse</td>
+<td>N/A</td>
+<td>40-60 % (fase 1-2), 70-90 % (fase 3)</td>
+</tr>
+<tr>
+<td>Investeringskostnad (fase 1-2)</td>
+<td>N/A</td>
+<td>20-50 MNOK over 2-3 år</td>
+</tr>
+<tr>
+<td>Investeringskostnad (inkl. fase 3)</td>
+<td>N/A</td>
+<td>100-250 MNOK over 4-6 år</td>
+</tr>
+<tr>
+<td>Kvalitetsrisiko</td>
+<td>Lav (etablerte prosesser, men utdatert innhold)</td>
+<td>Lav-moderat (fase 1-2), moderat-høy (fase 3)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Merknad: Kostnadsestimatene har vesentlig usikkerhet og bør
+verifiseres gjennom detaljerte kost-nytte-analyser.</em></p>
+<h3 id="konsekvens-av-å-ikke-handle">Konsekvens av å ikke handle</h3>
+<p>Nullalternativet (videreføring uten endring) er ikke bærekraftig på
+mellomlang sikt (3-5 år). Konsekvensene inkluderer: økende gap mellom
+tilgjengelig kunnskap og formidlet informasjon, tap av innbyggernes
+tillit til offentlig helseinformasjon i konkurranse med kommersielle
+KI-tjenester, risiko for manglende EHDS-samsvar, og kompetanseflukt fra
+offentlig sektor.</p>
+<h3 id="målgruppe">Målgruppe</h3>
+<p>Denne rapporten er rettet mot Helse- og omsorgsdepartementet (HOD),
+Helsedirektoratets ledelse, de regionale helseforetakene, KS og Norsk
+helsenett.</p>
+<hr />
+<h2 id="innledning">2. Innledning</h2>
+<h3 id="utredningens-oppdrag-og-formål">2.1 Utredningens oppdrag og
+formål</h3>
+<p>Utredningen har som formål å vurdere hvordan verdikjeden for
+kunnskapsforvaltning i helsesektoren kan moderniseres for å sikre at
+innbyggere og helsepersonell får tilgang til oppdatert, kvalitetssikret
+helseinformasjon innenfor akseptable tidsrammer. Utredningen er
+strukturert etter utredningsinstruksens minimumskrav.</p>
+<h3 id="oversikt-over-delrapporter">2.2 Oversikt over delrapporter</h3>
+<p>Utredningen består av syv delrapporter:</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 36%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Tittel</th>
+<th>Innhold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dagens verdikjede</td>
+<td>Kartlegging av verdikjeden fra forskning til innbygger i fem
+steg</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Utfordringer og flaskehalser</td>
+<td>Analyse av åtte rangerte flaskehalser og konsekvenser</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Store språkmodeller - muligheter og risikoer</td>
+<td>Balansert vurdering av LLM-teknologi i helsekontekst</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Alternativer for ny verdikjede</td>
+<td>Tre alternativer med kostnads- og risikovurdering</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Arkitektur og komponenter</td>
+<td>Teknisk og organisatorisk arkitektur med ArchiMate</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Internasjonale erfaringer</td>
+<td>WHO, NICE, Cochrane, nordiske land og living guidelines</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Samlet vurdering og anbefaling</td>
+<td>Denne rapporten</td>
+</tr>
+</tbody>
+</table>
+<p>Denne samlerapporten syntetiserer funn fra alle delrapportene og gir
+en helhetlig anbefaling.</p>
+<hr />
+<h2 id="sammendrag-av-funn-fra-delrapporter">3. Sammendrag av funn fra
+delrapporter</h2>
+<h3 id="delrapport-1-dagens-verdikjede">Delrapport 1: Dagens
+verdikjede</h3>
+<p>Verdikjeden fra forskning til innbygger består av fem hovedsteg: (1)
+internasjonal forskning, (2) systematiske oversikter ved FHI, (3)
+retningslinjeutvikling ved Helsedirektoratet, (4) kunnskapsformidling
+via Helsebiblioteket, og (5) innbyggerinformasjon via helsenorge.no.
+Total gjennomløpstid estimeres til 2-6,5 år avhengig av scenario.</p>
+<p>Kartleggingen viser at verdikjeden preges av manuelle overganger,
+fragmentert ansvar og begrenset strukturering av innhold.
+Kvalitetssikringen er robust innenfor hvert steg, men det finnes ingen
+systematisk mekanisme som sikrer sammenheng på tvers av stegene.
+Innholdet er i stor grad fritekstbasert, noe som begrenser mulighetene
+for automatisert videreforedling.</p>
+<h3 id="delrapport-2-utfordringer-og-flaskehalser">Delrapport 2:
+Utfordringer og flaskehalser</h3>
+<p>Analysen identifiserer åtte rangerte flaskehalser. De tre mest
+alvorlige er: (1) foreldelse av kunnskapsgrunnlaget underveis i
+retningslinjeprosessen, der ny forskning kan endre evidensgrunnlaget
+vesentlig før retningslinjen ferdigstilles, (2) kapasitetsbegrensning
+for systematiske oversikter, der forskningsvolumet langt overstiger FHIs
+kapasitet for manuell screening, og (3) manglende kobling mellom
+retningslinjer og innbyggerinformasjon, der oppdatering skjer manuelt og
+ad hoc.</p>
+<p>Strukturelle utfordringer inkluderer siloorganisering mellom aktører,
+manglende standardisert informasjonsflyt, dobbeltarbeid og fragmenterte
+IT-systemer. Konsekvensene er utdaterte helseråd, at innbyggere søker
+alternative kilder med variabel kvalitet, og et økende gap mellom
+tilgjengelig og formidlet kunnskap.</p>
+<h3
+id="delrapport-3-store-språkmodeller---muligheter-og-risikoer">Delrapport
+3: Store språkmodeller - muligheter og risikoer</h3>
+<p>LLM-teknologi har potensial til å akselerere kunnskapssyntese (50-80
+% tidsbesparelse i screening), støtte retningslinjeutvikling, forbedre
+innbyggerinformasjon gjennom klarspråk-oversettelse, og muliggjøre
+living guidelines. Samtidig medfører teknologien risikoer: hallusinering
+(generering av plausible, men feilaktige utsagn), utfordringer med
+tillit og legitimitet, bias fra treningsdata, personvernhensyn ved
+skybaserte tjenester, og juridisk usikkerhet.</p>
+<p>EU AI Act klassifiserer KI i helse som høyrisiko og stiller krav til
+risikostyring, datakvalitet, transparens, menneskelig tilsyn og logging.
+Trinnvis ikrafttredelse frem til 2027 gir et tidsvindu for forberedelse.
+Rapporten konkluderer med at nøkkelen ligger i governance,
+kvalitetssikring og menneskelig tilsyn.</p>
+<h3 id="delrapport-4-alternativer-for-ny-verdikjede">Delrapport 4:
+Alternativer for ny verdikjede</h3>
+<p>Tre alternativer vurderes. Alternativ 0 (nullalternativet)
+viderefører dagens praksis og vurderes som ikke bærekraftig. Alternativ
+1 (moderat KI-støtte) innfører KI som støtteverktøy med menneskelig
+kontroll, gir 40-60 % tidsbesparelse til en investeringskostnad på 20-50
+MNOK. Alternativ 2 (ambisiøs KI-pipeline) innebærer living guidelines,
+personaliserte helseråd og EHDS-integrasjon, med 70-90 % tidsbesparelse
+og investeringskostnad på 100-250 MNOK.</p>
+<p>Anbefalingen er en faseinndelt tilnærming der alternativ 1
+implementeres først, med gradvis utvidelse mot alternativ 2.
+Governance-modellen spesifiserer roller for Helsedirektoratet
+(overordnet governance), FHI (KI-støttet kunnskapssyntese), NHN (drift
+av infrastruktur) og fageksperter (validering).</p>
+<h3 id="delrapport-5-arkitektur-og-komponenter">Delrapport 5: Arkitektur
+og komponenter</h3>
+<p>Arkitekturen er beskrevet med ArchiMate i tre lag. Seks
+kjernekomponenter identifiseres: kunnskapssyntese-motor,
+retningslinjestøttesystem, kunnskapsformidlingsplattform,
+innbygger-chatbot, kvalitetssikringsmodul og kunnskapsbase. Arkitekturen
+bygger på FHIR for interoperabilitet, HelseID for autentisering, og
+NHN-infrastruktur for drift. EHDS-kobling ivaretas gjennom FHIR-baserte
+grensesnitt og MyHealth@EU-integrasjon.</p>
+<p>Sentrale arkitekturprinsipper er åpenhet og transparens, modularitet,
+gjenbruk av nasjonale felleskomponenter, sikkerhet by design,
+skalerbarhet og leverandøruavhengighet.</p>
+<h3 id="delrapport-6-internasjonale-erfaringer">Delrapport 6:
+Internasjonale erfaringer</h3>
+<p>Kartleggingen viser fem internasjonale trender: (1) bevegelse fra
+periodisk til kontinuerlig oppdatering, (2) maskinlesbarhet som mål med
+FHIR som standard, (3) KI som støtteverktøy med menneskelig kontroll,
+(4) differensiert risikobasert regulering, og (5) sentral infrastruktur
+som forutsetning. WHO SMART Guidelines gir et modenhetssrammeverk for
+maskinlesbare retningslinjer. NICE ESF tilbyr et differensiert rammeverk
+for vurdering av KI-teknologier. Cochranes piloter demonstrerer 50-70 %
+tidsbesparelse i screening. Nordiske land viser at Finland og Danmark
+har kommet lengst med sentral infrastruktur.</p>
+<hr />
+<h2 id="helhetlig-problemanalyse">4. Helhetlig problemanalyse</h2>
+<h3 id="sammenstilling-av-utfordringene">4.1 Sammenstilling av
+utfordringene</h3>
+<p>Utredningen avdekker et mønsterbilde der utfordringene forsterker
+hverandre. Lang gjennomløpstid (delrapport 1) skyldes både
+kapasitetsbegrensninger og prosessdesign (delrapport 2). Mangel på
+strukturerte data og standardiserte grensesnitt (delrapport 1, 2)
+forhindrer automatisering og sporbarhet. Siloorganisering (delrapport 2)
+gjør det vanskelig å optimalisere verdikjeden som helhet. Samtidig
+akselererer forskningsproduksjonen og innbyggernes forventninger til
+oppdatert informasjon.</p>
+<h3 id="kjerneproblemet">4.2 Kjerneproblemet</h3>
+<p>Kjerneproblemet er at <strong>verdikjeden er designet for en
+pre-digital tid</strong>. Prosessene, organisasjonsstrukturene og
+verktøyene ble utviklet i en æra med lavere forskningsvolum, der manuell
+bearbeiding var den eneste tilgjengelige metoden. Denne strukturen har
+tjent sektoren godt, men den skalerer ikke til dagens og fremtidens
+kunnskapsvolum.</p>
+<p>Verdikjeden mangler tre sentrale egenskaper: -
+<strong>Skalerbarhet</strong>: Kapasiteten øker ikke i takt med
+forskningsvolumet. - <strong>Reaktivitet</strong>: Gjennomløpstiden gjør
+det umulig å respondere raskt på ny evidens. -
+<strong>Sammenheng</strong>: Stegene i verdikjeden er ikke koblet på en
+måte som sikrer konsistent og oppdatert informasjon gjennom hele
+kjeden.</p>
+<h3 id="implikasjoner-av-å-videreføre-status-quo">4.3 Implikasjoner av å
+videreføre status quo</h3>
+<p>Dersom dagens verdikjede videreføres uten endring, vil følgende
+konsekvenser med høy sannsynlighet inntreffe i løpet av 3-5 år:</p>
+<ol type="1">
+<li><strong>Kunnskapsgapet øker.</strong> Akselererende
+forskningsproduksjon betyr at en stadig større andel av tilgjengelig
+kunnskap aldri når inn i den offisielle verdikjeden.</li>
+<li><strong>Kommersielle KI-tjenester tar over.</strong> Innbyggere
+bruker allerede ChatGPT, Gemini og lignende tjenester for
+helseinformasjon. Uten et kvalitetssikret offentlig alternativ vil denne
+trenden akselerere.</li>
+<li><strong>Regulatorisk etterslep.</strong> EHDS og EU AI Act
+forutsetter digital modenhet som dagens verdikjede ikke har.</li>
+<li><strong>Tillitserodering.</strong> Dersom offentlig helseinformasjon
+oppleves som utdatert sammenlignet med kommersielle alternativer, kan
+det undergrave tilliten til helsemyndighetene.</li>
+</ol>
+<hr />
+<h2 id="anbefaling-1">5. Anbefaling</h2>
+<h3 id="overordnet-anbefaling">5.1 Overordnet anbefaling</h3>
+<p>Det anbefales en <strong>faseinndelt innføring av KI-støttet
+kunnskapsforvaltning</strong> der alternativ 1 (moderat KI-støtte)
+implementeres som startpunkt, med gradvis utvidelse mot elementer fra
+alternativ 2 etter hvert som teknologi, kompetanse og governance modnes.
+Tilnærmingen balanserer behovet for modernisering mot risikoen for
+feilslått implementering.</p>
+<h3 id="fase-1-pilotering-0-18-måneder">5.2 Fase 1: Pilotering (0-18
+måneder)</h3>
+<p><strong>Målsetning:</strong> Bevise konseptet og bygge
+grunnlaget.</p>
+<ul>
+<li>KI-assistert screening av forskningslitteratur ved FHI (pilot på 2-3
+fagområder)</li>
+<li>KI-assistert oversettelse av retningslinjer til
+klarspråk/innbyggerspråk (pilot)</li>
+<li>Etablering av governance-rammeverk og kvalitetskrav for KI-bruk</li>
+<li>Kompetanseheving hos nøkkelpersonell i FHI, Helsedirektoratet og
+NHN</li>
+<li>Evaluering av pilotresultater som grunnlag for videre
+beslutning</li>
+<li>Juridisk avklaring av forholdet mellom KI-generert helseinnhold og
+EU AI Act</li>
+</ul>
+<p><strong>Estimert kostnad:</strong> 5-15 MNOK.
+<strong>Risiko:</strong> Lav.</p>
+<h3 id="fase-2-utvidelse-12-36-måneder">5.3 Fase 2: Utvidelse (12-36
+måneder)</h3>
+<p><strong>Målsetning:</strong> Skalere det som virker og utvide
+funksjonaliteten.</p>
+<ul>
+<li>Skalering av KI-støttet screening til alle fagområder ved FHI</li>
+<li>KI-støttede utkast til systematiske oversikter</li>
+<li>Implementering av automatisk evidensvarsling for eksisterende
+retningslinjer</li>
+<li>Pilotering av KI-chatbot på helsenorge.no med RAG mot verifiserte
+kunnskapskilder</li>
+<li>Etablering av kunnskapsbase med strukturerte metadata og
+FHIR-grensesnitt</li>
+<li>Videreutvikling av governance basert på erfaringer fra fase 1</li>
+</ul>
+<p><strong>Estimert kostnad:</strong> 15-35 MNOK.
+<strong>Risiko:</strong> Moderat.</p>
+<h3 id="fase-3-transformasjon-24-48-måneder">5.4 Fase 3: Transformasjon
+(24-48 måneder)</h3>
+<p><strong>Målsetning:</strong> Transformere verdikjeden og koble til
+europeisk infrastruktur.</p>
+<ul>
+<li>Overgang til living guidelines på utvalgte fagområder</li>
+<li>Full pipeline fra evidensovervåking til publisert
+innbyggerinformasjon med KI-støtte</li>
+<li>Integrasjon med EHDS-infrastruktur og MyHealth@EU</li>
+<li>Pilotering av personaliserte helseråd (avhengig av regulatorisk
+avklaring)</li>
+<li>Etablering av feedback-loop fra klinisk praksis</li>
+<li>Flerspråklig, multimodal formidling av helseinformasjon</li>
+</ul>
+<p><strong>Estimert kostnad:</strong> 80-200 MNOK.
+<strong>Risiko:</strong> Moderat-høy.</p>
+<p><em>Merknad: Fase 3 representerer et langsiktig mål som forutsetter
+vellykket gjennomføring av fase 1 og 2, samt at teknologien modnes
+ytterligere. Kostnadsestimatet har høy usikkerhet.</em></p>
+<h3 id="samlet-kostnadsramme">5.5 Samlet kostnadsramme</h3>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Periode</th>
+<th>Estimert kostnad</th>
+<th>Usikkerhet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fase 1: Pilotering</td>
+<td>0-18 mnd</td>
+<td>5-15 MNOK</td>
+<td>Moderat</td>
+</tr>
+<tr>
+<td>Fase 2: Utvidelse</td>
+<td>12-36 mnd</td>
+<td>15-35 MNOK</td>
+<td>Moderat-høy</td>
+</tr>
+<tr>
+<td>Fase 3: Transformasjon</td>
+<td>24-48 mnd</td>
+<td>80-200 MNOK</td>
+<td>Høy</td>
+</tr>
+<tr>
+<td><strong>Totalt</strong></td>
+<td><strong>0-48 mnd</strong></td>
+<td><strong>100-250 MNOK</strong></td>
+<td><strong>Høy</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Kostnadsestimatene inkluderer utvikling, anskaffelse,
+kompetanseheving og organisasjonsutvikling. Driftskostnader kommer i
+tillegg. Estimatene er grove og bør verifiseres gjennom detaljerte
+kost-nytte-analyser for hver fase.</p>
+<h3 id="organisatoriske-forutsetninger">5.6 Organisatoriske
+forutsetninger</h3>
+<p>Vellykket gjennomføring forutsetter:</p>
+<ol type="1">
+<li><strong>Tydelig oppdrag fra HOD</strong> med tilhørende finansiering
+og mandat</li>
+<li><strong>Tverrsektoriell forankring</strong> mellom
+Helsedirektoratet, FHI og NHN med felles forståelse av mål og
+ansvarsfordeling</li>
+<li><strong>Kompetanseinvestering</strong> i KI-forståelse og -bruk hos
+fagpersoner, samt rekruttering av teknisk kompetanse</li>
+<li><strong>Regulatorisk proaktivitet</strong> der Helsedirektoratet tar
+en ledende rolle i å operasjonalisere EU AI Act for helsesektoren</li>
+<li><strong>Iterativ tilnærming</strong> der hver fase evalueres før
+neste fase starter, med involvering av fagpersoner og innbyggere</li>
+<li><strong>Realistiske forventninger</strong> om at KI er et
+støtteverktøy, ikke en erstatning for faglig kompetanse</li>
+</ol>
+<hr />
+<h2 id="risikomatrise">6. Risikomatrise</h2>
+<p>Tabellen nedenfor oppsummerer de ti viktigste risikoene for
+KI-støttet kunnskapsforvaltning, med vurdering av sannsynlighet,
+konsekvens og foreslåtte mitigeringstiltak.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 22%" />
+<col style="width: 17%" />
+<col style="width: 22%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Risiko</th>
+<th>Sannsynlighet</th>
+<th>Konsekvens</th>
+<th>Samlet risiko</th>
+<th>Mitigering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hallusinering i KI-generert helseinnhold</td>
+<td>Høy</td>
+<td>Høy</td>
+<td><strong>Kritisk</strong></td>
+<td>RAG mot verifiserte kilder, automatisert faktasjekk, menneskelig
+validering før publisering, hallusinerings-deteksjon</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tap av tillit til offentlig helseinformasjon</td>
+<td>Middels</td>
+<td>Høy</td>
+<td><strong>Høy</strong></td>
+<td>Transparent kommunikasjon om KI-bruk, tydelig faglig ansvar, gradvis
+innføring med evaluering</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Personvernbrudd</td>
+<td>Lav</td>
+<td>Høy</td>
+<td><strong>Moderat</strong></td>
+<td>DPIA før publisering, dataminimering, norsk jurisdiksjon for
+datalagring, databehandleravtaler</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Implementeringsforsinkelser</td>
+<td>Høy</td>
+<td>Middels</td>
+<td><strong>Høy</strong></td>
+<td>Faseinndelt tilnærming, tydelige milepæler, risikobasert
+prioritering</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Teknologiavhengighet/leverandørlåsing</td>
+<td>Middels</td>
+<td>Middels</td>
+<td><strong>Moderat</strong></td>
+<td>Abstraksjonslag mot KI-modeller, åpne standarder,
+leverandøruavhengig arkitektur</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Regulatorisk usikkerhet (EU AI Act)</td>
+<td>Middels</td>
+<td>Middels</td>
+<td><strong>Moderat</strong></td>
+<td>Proaktiv dialog med tilsynsmyndigheter, juridisk kompetanse, følge
+europeisk rettsutvikling</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Organisatorisk motstand</td>
+<td>Middels</td>
+<td>Middels</td>
+<td><strong>Moderat</strong></td>
+<td>Involvering av berørt personell fra start, kompetanseheving, tydelig
+kommunikasjon om at KI støtter, ikke erstatter</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Kompetansemangel</td>
+<td>Høy</td>
+<td>Middels</td>
+<td><strong>Høy</strong></td>
+<td>Langsiktig kompetansestrategi, rekruttering, samarbeid med
+universitetsmiljøer</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Budsjettoverskridelser</td>
+<td>Middels</td>
+<td>Middels</td>
+<td><strong>Moderat</strong></td>
+<td>Faseinndelt investering med evaluering, grove estimater som
+oppdateres per fase</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Innbyggere bruker ukvalifiserte KI-kilder</td>
+<td>Høy</td>
+<td>Høy</td>
+<td><strong>Kritisk</strong></td>
+<td>Proaktivt tilby kvalitetssikret KI-basert helseinformasjon, chatbot
+på helsenorge.no, synlighet i søkeresultater</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Oppsummering av risikobildet:</strong></p>
+<p>To risikoer vurderes som kritiske: hallusinering i helseinnhold og at
+innbyggere søker ukvalifiserte KI-kilder. Begge adresseres direkte av
+den anbefalte tilnærmingen: hallusinering gjennom robust
+kvalitetssikring, og konkurranserisikoen gjennom å tilby et
+kvalitetssikret offentlig alternativ.</p>
+<p>Tre risikoer vurderes som høye: tap av tillit,
+implementeringsforsinkelser og kompetansemangel. Disse krever aktiv
+styring gjennom hele gjennomføringsperioden.</p>
+<hr />
+<h2 id="fremdriftsplan">7. Fremdriftsplan</h2>
+<h3 id="overordnet-tidslinje">7.1 Overordnet tidslinje</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktivitet</th>
+<th>Fase</th>
+<th>Tidsrom</th>
+<th>Ansvarlig</th>
+<th>Avhengigheter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fase 1: Pilotering</strong></td>
+<td></td>
+<td><strong>0-18 mnd</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Oppdrag og finansiering fra HOD</td>
+<td>1</td>
+<td>Mnd 0-3</td>
+<td>HOD</td>
+<td>Politisk beslutning</td>
+</tr>
+<tr>
+<td>Etablere governance-rammeverk</td>
+<td>1</td>
+<td>Mnd 1-6</td>
+<td>Helsedirektoratet</td>
+<td>Oppdrag fra HOD</td>
+</tr>
+<tr>
+<td>KI-screening pilot ved FHI (2-3 fagområder)</td>
+<td>1</td>
+<td>Mnd 3-15</td>
+<td>FHI</td>
+<td>Governance-rammeverk</td>
+</tr>
+<tr>
+<td>KI-klarspråk pilot</td>
+<td>1</td>
+<td>Mnd 6-15</td>
+<td>Helsedirektoratet/NHN</td>
+<td>Governance-rammeverk</td>
+</tr>
+<tr>
+<td>Kompetanseheving nøkkelpersonell</td>
+<td>1</td>
+<td>Mnd 3-18</td>
+<td>Alle aktører</td>
+<td>Budsjett</td>
+</tr>
+<tr>
+<td>Juridisk avklaring EU AI Act</td>
+<td>1</td>
+<td>Mnd 1-12</td>
+<td>Helsedirektoratet</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Milepæl M1:</strong> Pilotevaluering og beslutning om fase
+2</td>
+<td>1</td>
+<td>Mnd 18</td>
+<td>Helsedirektoratet</td>
+<td>Pilotresultater</td>
+</tr>
+<tr>
+<td><strong>Fase 2: Utvidelse</strong></td>
+<td></td>
+<td><strong>12-36 mnd</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Skalere KI-screening til alle fagområder</td>
+<td>2</td>
+<td>Mnd 12-24</td>
+<td>FHI</td>
+<td>M1</td>
+</tr>
+<tr>
+<td>KI-støttede systematiske oversikter</td>
+<td>2</td>
+<td>Mnd 15-30</td>
+<td>FHI</td>
+<td>M1</td>
+</tr>
+<tr>
+<td>Automatisk evidensvarsling</td>
+<td>2</td>
+<td>Mnd 18-30</td>
+<td>FHI/NHN</td>
+<td>Kunnskapsbase</td>
+</tr>
+<tr>
+<td>KI-chatbot pilot på helsenorge.no</td>
+<td>2</td>
+<td>Mnd 18-36</td>
+<td>NHN</td>
+<td>Kunnskapsbase, governance</td>
+</tr>
+<tr>
+<td>Etablere kunnskapsbase med FHIR</td>
+<td>2</td>
+<td>Mnd 12-30</td>
+<td>NHN</td>
+<td>Arkitektur</td>
+</tr>
+<tr>
+<td><strong>Milepæl M2:</strong> Evaluering og beslutning om fase 3</td>
+<td>2</td>
+<td>Mnd 36</td>
+<td>Helsedirektoratet</td>
+<td>Fase 2-resultater</td>
+</tr>
+<tr>
+<td><strong>Fase 3: Transformasjon</strong></td>
+<td></td>
+<td><strong>24-48 mnd</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Living guidelines pilot</td>
+<td>3</td>
+<td>Mnd 24-42</td>
+<td>Helsedirektoratet/FHI</td>
+<td>M2</td>
+</tr>
+<tr>
+<td>EHDS-integrasjon</td>
+<td>3</td>
+<td>Mnd 30-48</td>
+<td>NHN</td>
+<td>Kunnskapsbase, EHDS-tidsplan</td>
+</tr>
+<tr>
+<td>Personaliserte helseråd pilot</td>
+<td>3</td>
+<td>Mnd 36-48</td>
+<td>NHN/Helsedirektoratet</td>
+<td>Regulatorisk avklaring</td>
+</tr>
+<tr>
+<td>Flerspråklig formidling</td>
+<td>3</td>
+<td>Mnd 30-42</td>
+<td>NHN</td>
+<td>Kunnskapsformidlingsplattform</td>
+</tr>
+<tr>
+<td><strong>Milepæl M3:</strong> Full operativ drift</td>
+<td>3</td>
+<td>Mnd 48</td>
+<td>Alle aktører</td>
+<td>Alle faser</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kritiske-avhengigheter">7.2 Kritiske avhengigheter</h3>
+<ul>
+<li><strong>Fase 2 avhenger av fase 1:</strong> Beslutning om skalering
+forutsetter vellykket pilotering og positiv evaluering.</li>
+<li><strong>Fase 3 avhenger av fase 2:</strong> Transformative elementer
+som living guidelines krever at grunnleggende infrastruktur
+(kunnskapsbase, KI-pipeline) er på plass.</li>
+<li><strong>EHDS-integrasjon avhenger av europeisk tidsplan:</strong>
+Norges mulighet for å integrere med EHDS-infrastrukturen er avhengig av
+fremdriften i europeisk implementering.</li>
+<li><strong>Regulatorisk avklaring er tverrgående:</strong> EU AI Acts
+trinnvise ikrafttredelse (2025-2027) påvirker alle faser.</li>
+</ul>
+<hr />
+<h2 id="samsvar-med-utredningsinstruksen">8. Samsvar med
+utredningsinstruksen</h2>
+<p>Utredningen svarer på utredningsinstruksens seks minimumskrav:</p>
+<h3 id="krav-1-problemet-og-målet">Krav 1: Problemet og målet</h3>
+<p><strong>Problemet:</strong> Verdikjeden for kunnskapsforvaltning i
+helsesektoren har en gjennomløpstid på 2-6,5 år fra ny forskning til
+oppdatert innbyggerinformasjon. Verdikjeden skalerer ikke med økende
+forskningsvolum, og innbyggere søker i økende grad helseinformasjon fra
+ukvalifiserte kilder. (Delrapport 1 og 2.)</p>
+<p><strong>Målet:</strong> Redusere gjennomløpstiden vesentlig (40-90
+%), øke kapasiteten for kunnskapsproduksjon, sikre at offentlig
+helseinformasjon er oppdatert og tilgjengelig, og posisjonere Norge for
+EHDS-samsvar.</p>
+<h3 id="krav-2-relevante-tiltak">Krav 2: Relevante tiltak</h3>
+<p>Tre alternativer er vurdert (delrapport 4): - Alternativ 0:
+Videreføring uten endring (ikke bærekraftig) - Alternativ 1: Moderat
+KI-støtte med menneskelig kontroll (anbefalt startpunkt) - Alternativ 2:
+Ambisiøs KI-pipeline med living guidelines (langsiktig mål)</p>
+<h3 id="krav-3-prinsipielle-spørsmål">Krav 3: Prinsipielle spørsmål</h3>
+<p>Utredningen adresserer flere prinsipielle spørsmål (delrapport 3): -
+Bør offentlige helsemyndigheter bruke KI i kunnskapsproduksjon? - Hvor
+går grensen mellom KI-støtte og KI-autonomi? - Hvem har ansvar når KI
+bidrar til feilaktige helseråd? - Hvordan sikre demokratisk kontroll
+over KI i helse? - Bør Norge utvikle egne modeller eller bruke
+kommersielle?</p>
+<h3 id="krav-4-berørte-parter">Krav 4: Berørte parter</h3>
+<p>Berørte parter er kartlagt (delrapport 1 og 4): -
+<strong>HOD</strong> som oppdragsgiver og politisk styringsnivå -
+<strong>Helsedirektoratet</strong> som fagmyndighet og retningslinjeeier
+- <strong>FHI</strong> som kunnskapsprodusent - <strong>NHN</strong> som
+tjenesteleverandør - <strong>RHF-ene</strong> som implementører i
+spesialisthelsetjenesten - <strong>KS og kommunene</strong> som
+implementører i primærhelsetjenesten - <strong>Innbyggere</strong> som
+sluttbrukere av helseinformasjon - <strong>Helsepersonell</strong> som
+brukere av retningslinjer og fagkunnskap</p>
+<h3 id="krav-5-anbefalt-tiltak">Krav 5: Anbefalt tiltak</h3>
+<p>Faseinndelt innføring av KI-støttet kunnskapsforvaltning over tre
+faser (0-48 måneder), med alternativ 1 som startpunkt. Se kapittel
+5.</p>
+<h3 id="krav-6-forutsetninger-for-vellykket-gjennomføring">Krav 6:
+Forutsetninger for vellykket gjennomføring</h3>
+<p>Seks forutsetninger er identifisert (kapittel 5.6): tydelig oppdrag
+fra HOD, tverrsektoriell forankring, kompetanseinvestering, regulatorisk
+proaktivitet, iterativ tilnærming og realistiske forventninger.</p>
+<hr />
+<h2 id="avsluttende-merknad">9. Avsluttende merknad</h2>
+<h3 id="usikkerhet-og-begrensninger">9.1 Usikkerhet og
+begrensninger</h3>
+<p>Denne utredningen har vesentlige begrensninger som leseren bør være
+oppmerksom på:</p>
+<p><strong>Teknologisk usikkerhet.</strong> KI-teknologi er i rask
+utvikling. Estimater for ytelse, kostnad og tidsbesparelse er basert på
+dagens teknologinivå og tidlige erfaringer. Faktisk utvikling kan avvike
+både positivt og negativt.</p>
+<p><strong>Kostnadsusikkerhet.</strong> Kostnadsestimatene er grove
+(størrelsesorden) og har betydelig usikkerhet, særlig for fase 3.
+Detaljerte kost-nytte-analyser bør gjennomføres for hver fase.</p>
+<p><strong>Regulatorisk usikkerhet.</strong> EU AI Act er nylig trådt i
+kraft, og tolkningen for helsedomenet er ikke fullt avklart. Forholdet
+mellom KI-generert helseinformasjon og medisinsk utstyr-forordningen
+(MDR) er et uavklart grenseområde.</p>
+<p><strong>Begrenset empirisk grunnlag.</strong> Flere av de
+internasjonale erfaringene (delrapport 6) er fra pilotprosjekter, ikke
+fullskala implementeringer. Overførbarhet til norsk kontekst er vurdert,
+men kan ikke garanteres.</p>
+<p><strong>Scenariobaserte estimater.</strong> Kvantitative indikatorer
+i utredningen er i hovedsak scenariobaserte estimater, ikke presise
+måleresultater. De bør behandles som retningsgivende.</p>
+<h3 id="behov-for-videre-arbeid">9.2 Behov for videre arbeid</h3>
+<p>Utredningen identifiserer følgende behov for videre arbeid:</p>
+<ol type="1">
+<li><strong>Detaljert kost-nytte-analyse</strong> for fase 1, som
+grunnlag for investeringsbeslutning</li>
+<li><strong>Juridisk utredning</strong> av forholdet mellom KI-generert
+helseinnhold, EU AI Act og MDR i norsk kontekst</li>
+<li><strong>Personvernkonsekvensvurdering (DPIA)</strong> for de
+planlagte komponentene, særlig innbygger-chatbot</li>
+<li><strong>Kompetansekartlegging</strong> i FHI, Helsedirektoratet og
+NHN for å identifisere gap og rekrutteringsbehov</li>
+<li><strong>Teknisk proof-of-concept</strong> for KI-støttet screening
+og klarspråk-oversettelse</li>
+<li><strong>Innbyggerundersøkelse</strong> om holdninger til KI-generert
+helseinformasjon fra offentlige kilder</li>
+<li><strong>Nordisk samarbeidsforum</strong> for erfaringsutveksling om
+KI i kunnskapsforvaltning</li>
+</ol>
+<h3 id="samlet-vurdering">9.3 Samlet vurdering</h3>
+<p>Dagens verdikjede for kunnskapsforvaltning er et resultat av tiårs
+faglig utvikling og har tjent den norske helsesektoren godt.
+Kvalitetssikringsmekanismene er veletablerte, og aktørkartleggingen
+viser at kompetansen og ansvarsfordelingen er på plass.</p>
+<p>Utfordringen er at verdikjeden ikke er designet for det
+kunnskapsvolumet og de forventningene som preger dagens og fremtidens
+helsesektor. Gjennomløpstiden er for lang, kapasiteten for lav, og
+sammenkoblingen mellom stegene for svak.</p>
+<p>KI-teknologi representerer en mulighet til å adressere disse
+utfordringene uten å undergrave kvalitetssikringen. Internasjonale
+erfaringer viser at KI som støtteverktøy med menneskelig kontroll gir
+resultater. Den anbefalte faseinndelte tilnærmingen gir mulighet for å
+hente lærdom og justere underveis, uten å påta seg uakseptabel
+risiko.</p>
+<p>Alternativet til styrt innføring er ikke fravær av KI. Det er
+ukontrollert bruk av kommersielle KI-verktøy uten governance,
+kvalitetssikring eller demokratisk kontroll. Utredningen anbefaler at
+norske helsemyndigheter tar en proaktiv rolle og former utviklingen
+fremfor å la den forme seg.</p>
+<hr />
+<p><em>Sist oppdatert: 2026-03-15</em></p>
+<p><em>Merknader om usikkerhet: Denne rapporten syntetiserer funn fra
+seks foregående delrapporter. Estimatene er scenariobaserte og har
+vesentlig usikkerhet, særlig for kostnader og tidsbesparelse. Rapporten
+er ment som grunnlag for menneskelig beslutningstaking, ikke som en
+endelig beslutning.</em></p>
 
-        <h3>2.2 Oversikt over delrapporter</h3>
-        <p>Utredningen består av syv delrapporter:</p>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr><th>Nr.</th><th>Tittel</th><th>Innhold</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>1</td><td>Dagens verdikjede</td><td>Kartlegging av verdikjeden fra forskning til innbygger i fem steg</td></tr>
-                    <tr><td>2</td><td>Utfordringer og flaskehalser</td><td>Analyse av åtte rangerte flaskehalser og konsekvenser</td></tr>
-                    <tr><td>3</td><td>Store språkmodeller - muligheter og risikoer</td><td>Balansert vurdering av LLM-teknologi i helsekontekst</td></tr>
-                    <tr><td>4</td><td>Alternativer for ny verdikjede</td><td>Tre alternativer med kostnads- og risikovurdering</td></tr>
-                    <tr><td>5</td><td>Arkitektur og komponenter</td><td>Teknisk og organisatorisk arkitektur med ArchiMate</td></tr>
-                    <tr><td>6</td><td>Internasjonale erfaringer</td><td>WHO, NICE, Cochrane, nordiske land og living guidelines</td></tr>
-                    <tr><td>7</td><td>Samlet vurdering og anbefaling</td><td>Denne rapporten</td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p>Denne samlerapporten syntetiserer funn fra alle delrapportene og gir en helhetlig anbefaling.</p>
+</main>
 
-        <hr>
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
 
-        <h2>3. Sammendrag av funn fra delrapporter</h2>
-
-        <h3>Delrapport 1: Dagens verdikjede</h3>
-        <p>Verdikjeden fra forskning til innbygger består av fem hovedsteg: (1) internasjonal forskning, (2) systematiske oversikter ved FHI, (3) retningslinjeutvikling ved Helsedirektoratet, (4) kunnskapsformidling via Helsebiblioteket, og (5) innbyggerinformasjon via helsenorge.no. Total gjennomløpstid estimeres til 2-6,5 år avhengig av scenario.</p>
-        <p>Kartleggingen viser at verdikjeden preges av manuelle overganger, fragmentert ansvar og begrenset strukturering av innhold. Kvalitetssikringen er robust innenfor hvert steg, men det finnes ingen systematisk mekanisme som sikrer sammenheng på tvers av stegene. Innholdet er i stor grad fritekstbasert, noe som begrenser mulighetene for automatisert videreforedling.</p>
-
-        <h3>Delrapport 2: Utfordringer og flaskehalser</h3>
-        <p>Analysen identifiserer åtte rangerte flaskehalser. De tre mest alvorlige er: (1) foreldelse av kunnskapsgrunnlaget underveis i retningslinjeprosessen, der ny forskning kan endre evidensgrunnlaget vesentlig for retningslinjen ferdigstilles, (2) kapasitetsbegrensning for systematiske oversikter, der forskningsvolumet langt overstiger FHIs kapasitet for manuell screening, og (3) manglende kobling mellom retningslinjer og innbyggerinformasjon, der oppdatering skjer manuelt og ad hoc.</p>
-        <p>Strukturelle utfordringer inkluderer siloorganisering mellom aktører, manglende standardisert informasjonsflyt, dobbeltarbeid og fragmenterte IT-systemer. Konsekvensene er utdaterte helseråd, at innbyggere søker alternative kilder med variabel kvalitet, og et økende gap mellom tilgjengelig og formidlet kunnskap.</p>
-
-        <h3>Delrapport 3: Store språkmodeller - muligheter og risikoer</h3>
-        <p>LLM-teknologi har potensial til å akselerere kunnskapssyntese (50-80 % tidsbesparelse i screening), støtte retningslinjeutvikling, forbedre innbyggerinformasjon gjennom klarspråk-oversettelse, og muliggjøre living guidelines. Samtidig medfører teknologien risikoer: hallusinering (generering av plausible, men feilaktige utsagn), utfordringer med tillit og legitimitet, bias fra treningsdata, personvernhensyn ved skybaserte tjenester, og juridisk usikkerhet.</p>
-        <p>EU AI Act klassifiserer KI i helse som høyrisiko og stiller krav til risikostyring, datakvalitet, transparens, menneskelig tilsyn og logging. Trinnvis ikrafttredelse frem til 2027 gir et tidsvindu for forberedelse. Rapporten konkluderer med at nøkkelen ligger i governance, kvalitetssikring og menneskelig tilsyn.</p>
-
-        <h3>Delrapport 4: Alternativer for ny verdikjede</h3>
-        <p>Tre alternativer vurderes. Alternativ 0 (nullalternativet) viderefører dagens praksis og vurderes som ikke bærekraftig. Alternativ 1 (moderat KI-støtte) innfører KI som støtteverktøy med menneskelig kontroll, gir 40-60 % tidsbesparelse til en investeringskostnad på 20-50 MNOK. Alternativ 2 (ambisiøs KI-pipeline) innebærer living guidelines, personaliserte helseråd og EHDS-integrasjon, med 70-90 % tidsbesparelse og investeringskostnad på 100-250 MNOK.</p>
-        <p>Anbefalingen er en faseinndelt tilnærming der alternativ 1 implementeres først, med gradvis utvidelse mot alternativ 2. Governance-modellen spesifiserer roller for Helsedirektoratet (overordnet governance), FHI (KI-støttet kunnskapssyntese), NHN (drift av infrastruktur) og fageksperter (validering).</p>
-
-        <h3>Delrapport 5: Arkitektur og komponenter</h3>
-        <p>Arkitekturen er beskrevet med ArchiMate i tre lag. Seks kjernekomponenter identifiseres: kunnskapssyntese-motor, retningslinjestøttesystem, kunnskapsformidlingsplattform, innbygger-chatbot, kvalitetssikringsmodul og kunnskapsbase. Arkitekturen bygger på FHIR for interoperabilitet, HelseID for autentisering, og NHN-infrastruktur for drift. EHDS-kobling ivaretas gjennom FHIR-baserte grensesnitt og MyHealth@EU-integrasjon.</p>
-        <p>Sentrale arkitekturprinsipper er åpenhet og transparens, modularitet, gjenbruk av nasjonale felleskomponenter, sikkerhet by design, skalerbarhet og leverandøruavhengighet.</p>
-
-        <h3>Delrapport 6: Internasjonale erfaringer</h3>
-        <p>Kartleggingen viser fem internasjonale trender: (1) bevegelse fra periodisk til kontinuerlig oppdatering, (2) maskinlesbarhet som mål med FHIR som standard, (3) KI som støtteverktøy med menneskelig kontroll, (4) differensiert risikobasert regulering, og (5) sentral infrastruktur som forutsetning. WHO SMART Guidelines gir et modenhetssrammeverk for maskinlesbare retningslinjer. NICE ESF tilbyr et differensiert rammeverk for vurdering av KI-teknologier. Cochranes piloter demonstrerer 50-70 % tidsbesparelse i screening. Nordiske land viser at Finland og Danmark har kommet lengst med sentral infrastruktur.</p>
-
-        <hr>
-
-        <h2>4. Helhetlig problemanalyse</h2>
-
-        <h3>4.1 Sammenstilling av utfordringene</h3>
-        <p>Utredningen avdekker et mønsterbilde der utfordringene forsterker hverandre. Lang gjennomløpstid (delrapport 1) skyldes både kapasitetsbegrensninger og prosessdesign (delrapport 2). Mangel på strukturerte data og standardiserte grensesnitt (delrapport 1, 2) forhindrer automatisering og sporbarhet. Siloorganisering (delrapport 2) gjør det vanskelig å optimalisere verdikjeden som helhet. Samtidig akselererer forskningsproduksjonen og innbyggernes forventninger til oppdatert informasjon.</p>
-
-        <h3>4.2 Kjerneproblemet</h3>
-        <p>Kjerneproblemet er at <strong>verdikjeden er designet for en pre-digital tid</strong>. Prosessene, organisasjonsstrukturene og verktøyene ble utviklet i en æra med lavere forskningsvolum, der manuell bearbeiding var den eneste tilgjengelige metoden. Denne strukturen har tjent sektoren godt, men den skalerer ikke til dagens og fremtidens kunnskapsvolum.</p>
-        <p>Verdikjeden mangler tre sentrale egenskaper:</p>
-        <ul>
-            <li><strong>Skalerbarhet:</strong> Kapasiteten øker ikke i takt med forskningsvolumet.</li>
-            <li><strong>Reaktivitet:</strong> Gjennomløpstiden gjør det umulig å respondere raskt på ny evidens.</li>
-            <li><strong>Sammenheng:</strong> Stegene i verdikjeden er ikke koblet på en måte som sikrer konsistent og oppdatert informasjon gjennom hele kjeden.</li>
-        </ul>
-
-        <h3>4.3 Implikasjoner av å videreføre status quo</h3>
-        <p>Dersom dagens verdikjede videreføres uten endring, vil følgende konsekvenser med høy sannsynlighet inntreffe i løpet av 3-5 år:</p>
-        <ol>
-            <li><strong>Kunnskapsgapet øker.</strong> Akselererende forskningsproduksjon betyr at en stadig større andel av tilgjengelig kunnskap aldri når inn i den offisielle verdikjeden.</li>
-            <li><strong>Kommersielle KI-tjenester tar over.</strong> Innbyggere bruker allerede ChatGPT, Gemini og lignende tjenester for helseinformasjon. Uten et kvalitetssikret offentlig alternativ vil denne trenden akselerere.</li>
-            <li><strong>Regulatorisk etterslep.</strong> EHDS og EU AI Act forutsetter digital modenhet som dagens verdikjede ikke har.</li>
-            <li><strong>Tillitserodering.</strong> Dersom offentlig helseinformasjon oppleves som utdatert sammenlignet med kommersielle alternativer, kan det undergrave tilliten til helsemyndighetene.</li>
-        </ol>
-
-        <hr>
-
-        <h2>5. Anbefaling</h2>
-
-        <h3>5.1 Overordnet anbefaling</h3>
-        <p>Det anbefales en <strong>faseinndelt innføring av KI-støttet kunnskapsforvaltning</strong> der alternativ 1 (moderat KI-støtte) implementeres som startpunkt, med gradvis utvidelse mot elementer fra alternativ 2 etter hvert som teknologi, kompetanse og governance modnes. Tilnærmingen balanserer behovet for modernisering mot risikoen for feilslått implementering.</p>
-
-        <h3>5.2 Fase 1: Pilotering (0-18 måneder)</h3>
-        <p><strong>Målsetting:</strong> Bevise konseptet og bygge grunnlaget.</p>
-        <ul>
-            <li>KI-assistert screening av forskningslitteratur ved FHI (pilot på 2-3 fagområder)</li>
-            <li>KI-assistert oversettelse av retningslinjer til klarspråk/innbyggerspråk (pilot)</li>
-            <li>Etablering av governance-rammeverk og kvalitetskrav for KI-bruk</li>
-            <li>Kompetanseheving hos nøkkelpersonell i FHI, Helsedirektoratet og NHN</li>
-            <li>Evaluering av pilotresultater som grunnlag for videre beslutning</li>
-            <li>Juridisk avklaring av forholdet mellom KI-generert helseinnhold og EU AI Act</li>
-        </ul>
-        <p><strong>Estimert kostnad:</strong> 5-15 MNOK. <strong>Risiko:</strong> Lav.</p>
-
-        <h3>5.3 Fase 2: Utvidelse (12-36 måneder)</h3>
-        <p><strong>Målsetting:</strong> Skalere det som virker og utvide funksjonaliteten.</p>
-        <ul>
-            <li>Skalering av KI-støttet screening til alle fagområder ved FHI</li>
-            <li>KI-støttede utkast til systematiske oversikter</li>
-            <li>Implementering av automatisk evidensvarsling for eksisterende retningslinjer</li>
-            <li>Pilotering av KI-chatbot på helsenorge.no med RAG mot verifiserte kunnskapskilder</li>
-            <li>Etablering av kunnskapsbase med strukturerte metadata og FHIR-grensesnitt</li>
-            <li>Videreutvikling av governance basert på erfaringer fra fase 1</li>
-        </ul>
-        <p><strong>Estimert kostnad:</strong> 15-35 MNOK. <strong>Risiko:</strong> Moderat.</p>
-
-        <h3>5.4 Fase 3: Transformasjon (24-48 måneder)</h3>
-        <p><strong>Målsetting:</strong> Transformere verdikjeden og koble til europeisk infrastruktur.</p>
-        <ul>
-            <li>Overgang til living guidelines på utvalgte fagområder</li>
-            <li>Full pipeline fra evidensovervåking til publisert innbyggerinformasjon med KI-støtte</li>
-            <li>Integrasjon med EHDS-infrastruktur og MyHealth@EU</li>
-            <li>Pilotering av personaliserte helseråd (avhengig av regulatorisk avklaring)</li>
-            <li>Etablering av feedback-loop fra klinisk praksis</li>
-            <li>Flerspråklig, multimodal formidling av helseinformasjon</li>
-        </ul>
-        <p><strong>Estimert kostnad:</strong> 80-200 MNOK. <strong>Risiko:</strong> Moderat-høy.</p>
-        <div class="merknad">
-            <strong>Merknad:</strong> Fase 3 representerer et langsiktig mål som forutsetter vellykket gjennomføring av fase 1 og 2, samt at teknologien modnes ytterligere. Kostnadsestimatet har høy usikkerhet.
-        </div>
-
-        <h3>5.5 Samlet kostnadsramme</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr><th>Fase</th><th>Periode</th><th>Estimert kostnad</th><th>Usikkerhet</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Fase 1: Pilotering</td><td>0-18 mnd</td><td>5-15 MNOK</td><td>Moderat</td></tr>
-                    <tr><td>Fase 2: Utvidelse</td><td>12-36 mnd</td><td>15-35 MNOK</td><td>Moderat-høy</td></tr>
-                    <tr><td>Fase 3: Transformasjon</td><td>24-48 mnd</td><td>80-200 MNOK</td><td>Høy</td></tr>
-                    <tr><td><strong>Totalt</strong></td><td><strong>0-48 mnd</strong></td><td><strong>100-250 MNOK</strong></td><td><strong>Høy</strong></td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p>Kostnadsestimatene inkluderer utvikling, anskaffelse, kompetanseheving og organisasjonsutvikling. Driftskostnader kommer i tillegg. Estimatene er grove og bør verifiseres gjennom detaljerte kost-nytte-analyser for hver fase.</p>
-
-        <h3>5.6 Organisatoriske forutsetninger</h3>
-        <p>Vellykket gjennomføring forutsetter:</p>
-        <ol>
-            <li><strong>Tydelig oppdrag fra HOD</strong> med tilhørende finansiering og mandat</li>
-            <li><strong>Tverrsektoriell forankring</strong> mellom Helsedirektoratet, FHI og NHN med felles forståelse av mål og ansvarsfordeling</li>
-            <li><strong>Kompetanseinvestering</strong> i KI-forståelse og -bruk hos fagpersoner, samt rekruttering av teknisk kompetanse</li>
-            <li><strong>Regulatorisk proaktivitet</strong> der Helsedirektoratet tar en ledende rolle i å operasjonalisere EU AI Act for helsesektoren</li>
-            <li><strong>Iterativ tilnærming</strong> der hver fase evalueres for neste fase starter, med involvering av fagpersoner og innbyggere</li>
-            <li><strong>Realistiske forventninger</strong> om at KI er et støtteverktøy, ikke en erstatning for faglig kompetanse</li>
-        </ol>
-
-        <hr>
-
-        <h2>6. Risikomatrise</h2>
-        <p>Tabellen nedenfor oppsummerer de ti viktigste risikoene for KI-støttet kunnskapsforvaltning, med vurdering av sannsynlighet, konsekvens og foreslatte mitigeringstiltak.</p>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr><th>Nr.</th><th>Risiko</th><th>Sannsynlighet</th><th>Konsekvens</th><th>Samlet risiko</th><th>Mitigering</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Hallusinering i KI-generert helseinnhold</td>
-                        <td>Høy</td>
-                        <td>Høy</td>
-                        <td><span class="kritisk">Kritisk</span></td>
-                        <td>RAG mot verifiserte kilder, automatisert faktasjekk, menneskelig validering for publisering, hallusinerings-deteksjon</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Tap av tillit til offentlig helseinformasjon</td>
-                        <td>Middels</td>
-                        <td>Høy</td>
-                        <td><span class="høy">Høy</span></td>
-                        <td>Transparent kommunikasjon om KI-bruk, tydelig faglig ansvar, gradvis innføring med evaluering</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Personvernbrudd</td>
-                        <td>Lav</td>
-                        <td>Høy</td>
-                        <td><span class="moderat">Moderat</span></td>
-                        <td>DPIA for publisering, dataminimering, norsk jurisdiksjon for datalagring, databehandleravtaler</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Implementeringsforsinkelser</td>
-                        <td>Høy</td>
-                        <td>Middels</td>
-                        <td><span class="høy">Høy</span></td>
-                        <td>Faseinndelt tilnærming, tydelige milepaler, risikobasert prioritering</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Teknologiavhengighet/leverandørlåsing</td>
-                        <td>Middels</td>
-                        <td>Middels</td>
-                        <td><span class="moderat">Moderat</span></td>
-                        <td>Abstraksjonslag mot KI-modeller, åpne standarder, leverandøruavhengig arkitektur</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Regulatorisk usikkerhet (EU AI Act)</td>
-                        <td>Middels</td>
-                        <td>Middels</td>
-                        <td><span class="moderat">Moderat</span></td>
-                        <td>Proaktiv dialog med tilsynsmyndigheter, juridisk kompetanse, følge europeisk rettsutvikling</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Organisatorisk motstand</td>
-                        <td>Middels</td>
-                        <td>Middels</td>
-                        <td><span class="moderat">Moderat</span></td>
-                        <td>Involvering av berørt personell fra start, kompetanseheving, tydelig kommunikasjon om at KI støtter, ikke erstatter</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Kompetansemangel</td>
-                        <td>Høy</td>
-                        <td>Middels</td>
-                        <td><span class="høy">Høy</span></td>
-                        <td>Langsiktig kompetansestrategi, rekruttering, samarbeid med universitetsmiljøer</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Budsjettoverskridelser</td>
-                        <td>Middels</td>
-                        <td>Middels</td>
-                        <td><span class="moderat">Moderat</span></td>
-                        <td>Faseinndelt investering med evaluering, grove estimater som oppdateres per fase</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Innbyggere bruker ukvalifiserte KI-kilder</td>
-                        <td>Høy</td>
-                        <td>Høy</td>
-                        <td><span class="kritisk">Kritisk</span></td>
-                        <td>Proaktivt tilby kvalitetssikret KI-basert helseinformasjon, chatbot på helsenorge.no, synlighet i søkeresultater</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="risk-summary">
-            <p><strong>Oppsummering av risikobildet:</strong></p>
-            <p>To risikoer vurderes som kritiske: hallusinering i helseinnhold og at innbyggere søker ukvalifiserte KI-kilder. Begge adresseres direkte av den anbefalte tilnærmingen: hallusinering gjennom robust kvalitetssikring, og konkurranserisikoen gjennom å tilby et kvalitetssikret offentlig alternativ.</p>
-            <p>Tre risikoer vurderes som høye: tap av tillit, implementeringsforsinkelser og kompetansemangel. Disse krever aktiv styring gjennom hele gjennomføringsperioden.</p>
-        </div>
-
-        <hr>
-
-        <h2>7. Fremdriftsplan</h2>
-
-        <h3>7.1 Overordnet tidslinje</h3>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr><th>Aktivitet</th><th>Fase</th><th>Tidsrom</th><th>Ansvarlig</th><th>Avhengigheter</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td colspan="5" style="background: #e8eef5; font-weight: 700;">Fase 1: Pilotering (0-18 mnd)</td></tr>
-                    <tr><td>Oppdrag og finansiering fra HOD</td><td>1</td><td>Mnd 0-3</td><td>HOD</td><td>Politisk beslutning</td></tr>
-                    <tr><td>Etablere governance-rammeverk</td><td>1</td><td>Mnd 1-6</td><td>Helsedirektoratet</td><td>Oppdrag fra HOD</td></tr>
-                    <tr><td>KI-screening pilot ved FHI (2-3 fagområder)</td><td>1</td><td>Mnd 3-15</td><td>FHI</td><td>Governance-rammeverk</td></tr>
-                    <tr><td>KI-klarspråk pilot</td><td>1</td><td>Mnd 6-15</td><td>Helsedirektoratet/NHN</td><td>Governance-rammeverk</td></tr>
-                    <tr><td>Kompetanseheving nøkkelpersonell</td><td>1</td><td>Mnd 3-18</td><td>Alle aktører</td><td>Budsjett</td></tr>
-                    <tr><td>Juridisk avklaring EU AI Act</td><td>1</td><td>Mnd 1-12</td><td>Helsedirektoratet</td><td>-</td></tr>
-                    <tr><td><strong>Milepael M1:</strong> Pilotevaluering og beslutning om fase 2</td><td>1</td><td>Mnd 18</td><td>Helsedirektoratet</td><td>Pilotresultater</td></tr>
-                    <tr><td colspan="5" style="background: #e8eef5; font-weight: 700;">Fase 2: Utvidelse (12-36 mnd)</td></tr>
-                    <tr><td>Skalere KI-screening til alle fagområder</td><td>2</td><td>Mnd 12-24</td><td>FHI</td><td>M1</td></tr>
-                    <tr><td>KI-støttede systematiske oversikter</td><td>2</td><td>Mnd 15-30</td><td>FHI</td><td>M1</td></tr>
-                    <tr><td>Automatisk evidensvarsling</td><td>2</td><td>Mnd 18-30</td><td>FHI/NHN</td><td>Kunnskapsbase</td></tr>
-                    <tr><td>KI-chatbot pilot på helsenorge.no</td><td>2</td><td>Mnd 18-36</td><td>NHN</td><td>Kunnskapsbase, governance</td></tr>
-                    <tr><td>Etablere kunnskapsbase med FHIR</td><td>2</td><td>Mnd 12-30</td><td>NHN</td><td>Arkitektur</td></tr>
-                    <tr><td><strong>Milepael M2:</strong> Evaluering og beslutning om fase 3</td><td>2</td><td>Mnd 36</td><td>Helsedirektoratet</td><td>Fase 2-resultater</td></tr>
-                    <tr><td colspan="5" style="background: #e8eef5; font-weight: 700;">Fase 3: Transformasjon (24-48 mnd)</td></tr>
-                    <tr><td>Living guidelines pilot</td><td>3</td><td>Mnd 24-42</td><td>Helsedirektoratet/FHI</td><td>M2</td></tr>
-                    <tr><td>EHDS-integrasjon</td><td>3</td><td>Mnd 30-48</td><td>NHN</td><td>Kunnskapsbase, EHDS-tidsplan</td></tr>
-                    <tr><td>Personaliserte helseråd pilot</td><td>3</td><td>Mnd 36-48</td><td>NHN/Helsedirektoratet</td><td>Regulatorisk avklaring</td></tr>
-                    <tr><td>Flerspråklig formidling</td><td>3</td><td>Mnd 30-42</td><td>NHN</td><td>Kunnskapsformidlingsplattform</td></tr>
-                    <tr><td><strong>Milepael M3:</strong> Full operativ drift</td><td>3</td><td>Mnd 48</td><td>Alle aktører</td><td>Alle faser</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h3>7.2 Kritiske avhengigheter</h3>
-        <ul>
-            <li><strong>Fase 2 avhenger av fase 1:</strong> Beslutning om skalering forutsetter vellykket pilotering og positiv evaluering.</li>
-            <li><strong>Fase 3 avhenger av fase 2:</strong> Transformative elementer som living guidelines krever at grunnleggende infrastruktur (kunnskapsbase, KI-pipeline) er på plass.</li>
-            <li><strong>EHDS-integrasjon avhenger av europeisk tidsplan:</strong> Norges mulighet for å integrere med EHDS-infrastrukturen er avhengig av fremdriften i europeisk implementering.</li>
-            <li><strong>Regulatorisk avklaring er tverrgående:</strong> EU AI Acts trinnvise ikrafttredelse (2025-2027) påvirker alle faser.</li>
-        </ul>
-
-        <hr>
-
-        <h2>8. Samsvar med utredningsinstruksen</h2>
-        <p>Utredningen svarer på utredningsinstruksens seks minimumskrav:</p>
-
-        <h3>Krav 1: Problemet og målet</h3>
-        <p><strong>Problemet:</strong> Verdikjeden for kunnskapsforvaltning i helsesektoren har en gjennomløpstid på 2-6,5 år fra ny forskning til oppdatert innbyggerinformasjon. Verdikjeden skalerer ikke med økende forskningsvolum, og innbyggere søker i økende grad helseinformasjon fra ukvalifiserte kilder. (Delrapport 1 og 2.)</p>
-        <p><strong>Målet:</strong> Redusere gjennomløpstiden vesentlig (40-90 %), øke kapasiteten for kunnskapsproduksjon, sikre at offentlig helseinformasjon er oppdatert og tilgjengelig, og posisjonere Norge for EHDS-samsvar.</p>
-
-        <h3>Krav 2: Relevante tiltak</h3>
-        <p>Tre alternativer er vurdert (delrapport 4):</p>
-        <ul>
-            <li>Alternativ 0: Videreføring uten endring (ikke bærekraftig)</li>
-            <li>Alternativ 1: Moderat KI-støtte med menneskelig kontroll (anbefalt startpunkt)</li>
-            <li>Alternativ 2: Ambisiøs KI-pipeline med living guidelines (langsiktig mål)</li>
-        </ul>
-
-        <h3>Krav 3: Prinsipielle spørsmål</h3>
-        <p>Utredningen adresserer flere prinsipielle spørsmål (delrapport 3):</p>
-        <ul>
-            <li>Bør offentlige helsemyndigheter bruke KI i kunnskapsproduksjon?</li>
-            <li>Hvor går grensen mellom KI-støtte og KI-autonomi?</li>
-            <li>Hvem har ansvar når KI bidrar til feilaktige helseråd?</li>
-            <li>Hvordan sikre demokratisk kontroll over KI i helse?</li>
-            <li>Bør Norge utvikle egne modeller eller bruke kommersielle?</li>
-        </ul>
-
-        <h3>Krav 4: Berørte parter</h3>
-        <p>Berørte parter er kartlagt (delrapport 1 og 4):</p>
-        <ul>
-            <li><strong>HOD</strong> som oppdragsgiver og politisk styringsnivå</li>
-            <li><strong>Helsedirektoratet</strong> som fagmyndighet og retningslinjeeier</li>
-            <li><strong>FHI</strong> som kunnskapsprodusent</li>
-            <li><strong>NHN</strong> som tjenesteleverandør</li>
-            <li><strong>RHF-ene</strong> som implementører i spesialisthelsetjenesten</li>
-            <li><strong>KS og kommunene</strong> som implementører i primærhelsetjenesten</li>
-            <li><strong>Innbyggere</strong> som sluttbrukere av helseinformasjon</li>
-            <li><strong>Helsepersonell</strong> som brukere av retningslinjer og fagkunnskap</li>
-        </ul>
-
-        <h3>Krav 5: Anbefalt tiltak</h3>
-        <p>Faseinndelt innføring av KI-støttet kunnskapsforvaltning over tre faser (0-48 måneder), med alternativ 1 som startpunkt. Se kapittel 5.</p>
-
-        <h3>Krav 6: Forutsetninger for vellykket gjennomføring</h3>
-        <p>Seks forutsetninger er identifisert (kapittel 5.6): tydelig oppdrag fra HOD, tverrsektoriell forankring, kompetanseinvestering, regulatorisk proaktivitet, iterativ tilnærming og realistiske forventninger.</p>
-
-        <hr>
-
-        <h2>9. Avsluttende merknad</h2>
-
-        <h3>9.1 Usikkerhet og begrensninger</h3>
-        <p>Denne utredningen har vesentlige begrensninger som leseren bør være oppmerksom på:</p>
-        <p><strong>Teknologisk usikkerhet.</strong> KI-teknologi er i rask utvikling. Estimater for ytelse, kostnad og tidsbesparelse er basert på dagens teknologinivå og tidlige erfaringer. Faktisk utvikling kan avvike både positivt og negativt.</p>
-        <p><strong>Kostnadsusikkerhet.</strong> Kostnadsestimatene er grove (størrelsesorden) og har betydelig usikkerhet, særlig for fase 3. Detaljerte kost-nytte-analyser bør gjennomføres for hver fase.</p>
-        <p><strong>Regulatorisk usikkerhet.</strong> EU AI Act er nylig trådt i kraft, og tolkningen for helsedomenet er ikke fullt avklart. Forholdet mellom KI-generert helseinformasjon og medisinsk utstyr-forordningen (MDR) er et uavklart grenseområde.</p>
-        <p><strong>Begrenset empirisk grunnlag.</strong> Flere av de internasjonale erfaringene (delrapport 6) er fra pilotprosjekter, ikke fullskala implementeringer. Overførbarhet til norsk kontekst er vurdert, men kan ikke garanteres.</p>
-        <p><strong>Scenariobaserte estimater.</strong> Kvantitative indikatorer i utredningen er i hovedsak scenariobaserte estimater, ikke presise måleresultater. De bør behandles som retningsgivende.</p>
-
-        <h3>9.2 Behov for videre arbeid</h3>
-        <p>Utredningen identifiserer følgende behov for videre arbeid:</p>
-        <ol>
-            <li><strong>Detaljert kost-nytte-analyse</strong> for fase 1, som grunnlag for investeringsbeslutning</li>
-            <li><strong>Juridisk utredning</strong> av forholdet mellom KI-generert helseinnhold, EU AI Act og MDR i norsk kontekst</li>
-            <li><strong>Personvernkonsekvensvurdering (DPIA)</strong> for de planlagte komponentene, særlig innbygger-chatbot</li>
-            <li><strong>Kompetansekartlegging</strong> i FHI, Helsedirektoratet og NHN for å identifisere gap og rekrutteringsbehov</li>
-            <li><strong>Teknisk proof-of-concept</strong> for KI-støttet screening og klarspråk-oversettelse</li>
-            <li><strong>Innbyggerundersøkelse</strong> om holdninger til KI-generert helseinformasjon fra offentlige kilder</li>
-            <li><strong>Nordisk samarbeidsforum</strong> for erfaringsutveksling om KI i kunnskapsforvaltning</li>
-        </ol>
-
-        <h3>9.3 Samlet vurdering</h3>
-        <p>Dagens verdikjede for kunnskapsforvaltning er et resultat av tiårs faglig utvikling og har tjent den norske helsesektoren godt. Kvalitetssikringsmekanismene er veletablerte, og aktørkartleggingen viser at kompetansen og ansvarsfordelingen er på plass.</p>
-        <p>Utfordringen er at verdikjeden ikke er designet for det kunnskapsvolumet og de forventningene som preger dagens og fremtidens helsesektor. Gjennomløpstiden er for lang, kapasiteten for lav, og sammenkoblingen mellom stegene for svak.</p>
-        <p>KI-teknologi representerer en mulighet til å adressere disse utfordringene uten å undergrave kvalitetssikringen. Internasjonale erfaringer viser at KI som støtteverktøy med menneskelig kontroll gir resultater. Den anbefalte faseinndelte tilnærmingen gir mulighet for å hente lærdom og justere underveis, uten å påta seg uakseptabel risiko.</p>
-        <p>Alternativet til styrt innføring er ikke fravær av KI. Det er ukontrollert bruk av kommersielle KI-verktøy uten governance, kvalitetssikring eller demokratisk kontroll. Utredningen anbefaler at norske helsemyndigheter tar en proaktiv rolle og former utviklingen fremfor å la den forme seg.</p>
-
-        <hr>
-
-        <p><em>Sist oppdatert: 2026-03-15</em></p>
-        <div class="merknad">
-            <strong>Merknader om usikkerhet:</strong> Denne rapporten syntetiserer funn fra seks foregående delrapporter. Estimatene er scenariobaserte og har vesentlig usikkerhet, særlig for kostnader og tidsbesparelse. Rapporten er ment som grunnlag for menneskelig beslutningstaking, ikke som en endelig beslutning.
-        </div>
-    </main>
-    <footer>
-        Utredning gjennomført av Helsedirektoratet, 2026
-    </footer>
 </body>
 </html>

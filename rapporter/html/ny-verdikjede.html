@@ -1,621 +1,862 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delrapport 4: Alternativer for ny verdikjede – Utredning om kunnskapsforvaltning</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: #fff;
-        }
-        header {
-            background: #003366;
-            color: #fff;
-            padding: 1.5rem 1rem;
-        }
-        header h1 {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        header p {
-            max-width: 900px;
-            margin: 0.5rem auto 0;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-        nav {
-            background: #002244;
-            padding: 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-        nav ul li a {
-            display: block;
-            color: #ccc;
-            text-decoration: none;
-            padding: 0.6rem 1rem;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            border-bottom: 3px solid transparent;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        nav ul li a:hover {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-        nav ul li a.active {
-            color: #fff;
-            border-bottom-color: #4da6ff;
-            font-weight: 600;
-        }
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem 3rem;
-        }
-        h2 {
-            color: #003366;
-            font-size: 1.5rem;
-            margin: 2.5rem 0 1rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        h3 {
-            color: #004488;
-            font-size: 1.2rem;
-            margin: 1.8rem 0 0.8rem;
-        }
-        h4 {
-            color: #333;
-            font-size: 1.05rem;
-            margin: 1.3rem 0 0.6rem;
-        }
-        p {
-            margin: 0.8rem 0;
-        }
-        ul, ol {
-            margin: 0.8rem 0 0.8rem 1.5rem;
-        }
-        li {
-            margin: 0.3rem 0;
-        }
-        strong {
-            color: #222;
-        }
-        em {
-            font-style: italic;
-        }
-        hr {
-            border: none;
-            border-top: 2px solid #e0e0e0;
-            margin: 2.5rem 0;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 1rem 0;
-            -webkit-overflow-scrolling: touch;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-            min-width: 500px;
-        }
-        th {
-            background: #003366;
-            color: #fff;
-            padding: 0.7rem 0.8rem;
-            text-align: left;
-            font-weight: 600;
-        }
-        td {
-            padding: 0.6rem 0.8rem;
-            border-bottom: 1px solid #e0e0e0;
-            vertical-align: top;
-        }
-        tr:nth-child(even) td {
-            background: #f8f9fa;
-        }
-        footer {
-            background: #f5f5f5;
-            border-top: 1px solid #e0e0e0;
-            text-align: center;
-            padding: 1.5rem 1rem;
-            font-size: 0.9rem;
-            color: #555;
-        }
-        @media print {
-            nav { display: none; }
-            header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
-            header h1 { color: #003366; }
-            header p { color: #333; }
-            main { padding: 1rem 0; }
-            footer { background: #fff; border-top: 1px solid #333; color: #333; }
-            th { background: #eee; color: #333; border: 1px solid #999; }
-            td { border: 1px solid #999; }
-        }
-        @media (max-width: 600px) {
-            nav ul { flex-wrap: nowrap; }
-            nav ul li a { padding: 0.5rem 0.7rem; font-size: 0.8rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delrapport 4: Alternativer for ny verdikjede</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Delrapport 4: Alternativer for ny verdikjede for kunnskapsforvaltning</h1>
-        <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Forside</a></li>
-            <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
-            <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
-            <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
-            <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
-            <li><a href="ny-verdikjede.html" class="active">Ny verdikjede</a></li>
-            <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
-            <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
-            <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
-            <li><a href="visualiseringer.html">Visualiseringer</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h2>1. Innledning</h2>
 
-        <h3>1.1 Formål</h3>
-        <p>Denne rapporten presenterer og vurderer tre alternativer for fremtidig organisering av verdikjeden for kunnskapsforvaltning i helsesektoren. Alternativene spenner fra videreføring av dagens praksis (nullalternativet) til en ambisiøs, KI-drevet kunnskapspipeline.</p>
-        <p>Som dokumentert i delrapport 1 (Dagens verdikjede) og delrapport 2 (Utfordringer og flaskehalser) tar prosessen fra ny forskningsevidens til formidlet kunnskap til innbyggere i dag typisk 2,5–5 år. Denne gjennomløpstiden skaper et økende gap mellom tilgjengelig kunnskap og den informasjonen innbyggere faktisk mottar. Delrapport 6 (Internasjonale erfaringer) viser at flere land og internasjonale organisasjoner allerede utforsker KI-støttede tilnærminger for å akselerere tilsvarende prosesser.</p>
+<header>
+  <h1>Delrapport 4: Alternativer for ny verdikjede</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html" class="active">Ny verdikjede</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonale erfaringer</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><em>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</em></p>
+<hr />
+<h2 id="innledning">1. Innledning</h2>
+<h3 id="formål">1.1 Formål</h3>
+<p>Denne rapporten presenterer og vurderer tre alternativer for
+fremtidig organisering av verdikjeden for kunnskapsforvaltning i
+helsesektoren. Alternativene spenner fra videreføring av dagens praksis
+(nullalternativet) til en ambisiøs, KI-drevet kunnskapspipeline.</p>
+<p>Som dokumentert i delrapport 1 (Dagens verdikjede) og delrapport 2
+(Utfordringer og flaskehalser) tar prosessen fra ny forskningsevidens
+til formidlet kunnskap til innbyggere i dag typisk 2,5–5 år. Denne
+gjennomløpstiden skaper et økende gap mellom tilgjengelig kunnskap og
+den informasjonen innbyggere faktisk mottar. Delrapport 6
+(Internasjonale erfaringer) viser at flere land og internasjonale
+organisasjoner allerede utforsker KI-støttede tilnærminger for å
+akselerere tilsvarende prosesser.</p>
+<h3 id="strukturering-etter-utredningsinstruksen">1.2 Strukturering
+etter utredningsinstruksen</h3>
+<p>Rapporten er strukturert i tråd med utredningsinstruksens krav 2
+(utrede relevante tiltak) og krav 5 (anbefalt tiltak). Hvert alternativ
+beskrives med konsekvenser, kostnader, risiko og gjennomførbarhet.
+Anbefalingen begrunnes i en samlet vurdering av disse dimensjonene.</p>
+<h3 id="metodisk-merknad">1.3 Metodisk merknad</h3>
+<p>Estimater for tidsbesparelse, kostnader og risiko i denne rapporten
+er basert på scenarioanalyse, internasjonale erfaringer (jf. delrapport
+6) og tilgjengelig faglitteratur. Der tallgrunnlaget er usikkert, er
+dette eksplisitt markert. Estimatene bør betraktes som retningsgivende,
+ikke som presise prognoser.</p>
+<hr />
+<h2 id="alternativ-0-nullalternativet-videreføring-av-dagens-praksis">2.
+Alternativ 0: Nullalternativet – videreføring av dagens praksis</h2>
+<h3 id="beskrivelse">2.1 Beskrivelse</h3>
+<p>Nullalternativet innebærer at dagens verdikjede for
+kunnskapsforvaltning videreføres uten vesentlige endringer. FHI
+utarbeider systematiske oversikter manuelt, Helsedirektoratet utvikler
+retningslinjer gjennom etablerte prosesser, og innbyggerinformasjon på
+helsenorge.no oppdateres etter gjeldende rutiner.</p>
+<p>Mindre justeringer og effektiviseringer innenfor eksisterende rammer
+kan forekomme, men det gjøres ingen systematisk investering i KI-verktøy
+eller grunnleggende endringer i arbeidsprosesser.</p>
+<h3 id="konsekvenser">2.2 Konsekvenser</h3>
+<ul>
+<li><strong>Gjennomløpstid</strong>: Fortsatt 2,5–5 år fra ny evidens
+til formidlet kunnskap. Gitt økende forskningsvolum (jf. delrapport 2,
+punkt 2.1) er det sannsynlig at gjennomløpstiden øker over tid.</li>
+<li><strong>Kapasitet</strong>: FHIs kapasitet til å produsere
+systematiske oversikter forblir begrenset. Antallet retningslinjer
+Helsedirektoratet kan vedlikeholde samtidig endres ikke vesentlig.</li>
+<li><strong>Kvalitet</strong>: Kvalitetssikringsmekanismene er
+veletablerte, men den lange gjennomløpstiden innebærer at retningslinjer
+og innbyggerinformasjon i perioder er basert på foreldet evidens.</li>
+</ul>
+<h3 id="risiko">2.3 Risiko</h3>
+<ul>
+<li><strong>Økende kunnskapsgap</strong>: Gapet mellom tilgjengelig
+forskningskunnskap og formidlet kunnskap til innbyggere vil øke i takt
+med akselererende forskningsproduksjon.</li>
+<li><strong>Kommersiell substitusjon</strong>: Innbyggere vil i økende
+grad søke helseinformasjon fra kommersielle KI-tjenester (ChatGPT,
+Google Gemini, Copilot m.fl.) uten kvalitetssikring mot norske
+retningslinjer. Dette representerer en risiko for feilinformasjon og kan
+undergrave tilliten til offentlig helseinformasjon.</li>
+<li><strong>Kompetanseflukt</strong>: Fagpersoner som ønsker å arbeide
+med moderne verktøy kan søke seg bort fra offentlig sektor dersom
+arbeidsformene ikke moderniseres.</li>
+<li><strong>Regulatorisk etterslep</strong>: Dersom EHDS og EU AI Act
+forutsetter visse digitale kapabiliteter, kan Norge risikere å ikke
+oppfylle fremtidige krav.</li>
+</ul>
+<h3 id="kostnad">2.4 Kostnad</h3>
+<p>Driftskostnadene videreføres på dagens nivå, justert for lønnsvekst
+og prisstigning. Ingen investeringskostnad utover ordinær drift.</p>
+<h3 id="vurdering">2.5 Vurdering</h3>
+<p>Nullalternativet er <strong>ikke bærekraftig på mellomlang
+sikt</strong> (3–5 år). Akselererende forskningsproduksjon og
+innbyggernes forventninger til oppdatert, tilgjengelig helseinformasjon
+gjør at gapet mellom hva som er mulig og hva som leveres vil bli stadig
+tydeligere. Videreføring uten endring innebærer en implisitt aksept av
+at offentlig helseinformasjon gradvis taper relevans sammenlignet med
+kommersielle alternativer.</p>
+<hr />
+<h2 id="alternativ-1-moderat-ki-støtte-anbefalt-startpunkt">3.
+Alternativ 1: Moderat KI-støtte (anbefalt startpunkt)</h2>
+<h3 id="beskrivelse-1">3.1 Beskrivelse</h3>
+<p>Alternativ 1 innebærer å innføre KI som støtteverktøy i eksisterende
+prosesser. Mennesker beholder kontroll over alle beslutninger og
+kvalitetsvurderinger, men KI-verktøy benyttes for å akselerere
+tidkrevende deloppgaver. Organisasjonsstrukturen og ansvarsfordelingen
+mellom aktørene endres ikke grunnleggende.</p>
+<h3 id="elementer">3.2 Elementer</h3>
+<p><strong>KI-assistert screening av forskningslitteratur
+(FHI)</strong></p>
+<p>FHI tar i bruk KI-verktøy for automatisert screening av titler,
+sammendrag og fulltekst i forbindelse med systematiske oversikter.
+KI-verktøyet rangerer artikler etter relevans, og fagpersoner validerer
+utvalget. Internasjonale erfaringer (jf. delrapport 6, Cochrane-piloter)
+indikerer at dette kan redusere screeningtiden med 50–70 % uten
+vesentlig tap av sensitivitet.</p>
+<p><strong>KI-støttede utkast til systematiske oversikter</strong></p>
+<p>KI-verktøy benyttes til å generere første utkast til strukturerte
+sammendrag av inkluderte studier, ekstrahere nøkkeldata og identifisere
+mønstre på tvers av studier. Alle utkast gjennomgås og valideres av
+fagpersoner før de inngår i den endelige oversikten.</p>
+<p><strong>Automatisk varsling om ny evidens</strong></p>
+<p>Et KI-basert overvåkingssystem monitorerer publiserte studier og
+varsler relevant fagpersonell når ny evidens potensielt påvirker
+eksisterende retningslinjer. Dette muliggjør proaktiv oppdatering
+fremfor dagens reaktive tilnærming.</p>
+<p><strong>KI-assistert oversettelse til klarspråk</strong></p>
+<p>KI-verktøy benyttes til å generere utkast til innbyggerrettet
+informasjon basert på retningslinjer og kunnskapsoppsummeringer.
+Utkastene gjennomgås av fagperson for medisinsk korrekthet og av
+kommunikasjonsrådgiver for klarspråk.</p>
+<p><strong>KI-chatbot for helsenorge.no med RAG</strong></p>
+<p>En KI-basert chatbot implementeres på helsenorge.no, basert på
+Retrieval-Augmented Generation (RAG) mot verifiserte kunnskapskilder
+(godkjente retningslinjer, publiserte innbyggertekster). Chatboten gir
+svar basert utelukkende på verifisert innhold og henviser tydelig til
+kilder. Chatboten erstatter ikke eksisterende innhold, men supplerer det
+med en interaktiv kanal.</p>
+<h3 id="governance">3.3 Governance</h3>
+<ul>
+<li><strong>Menneskelig validering</strong>: Alle KI-genererte produkter
+gjennomgås av kvalifisert fagperson før publisering eller bruk i
+beslutningsprosesser.</li>
+<li><strong>Merking</strong>: KI-assistert innhold merkes tydelig i tråd
+med EU AI Acts transparenskrav.</li>
+<li><strong>Sporbarhet</strong>: Alle KI-operasjoner loggføres med
+informasjon om modellversjon, inputdata og tidspunkt. Dette sikrer
+reproduserbarhet og revisjonsspor.</li>
+<li><strong>Kvalitetsrevisjon</strong>: Periodisk kvalitetsrevisjon
+(minst årlig) av KI-verktøyenes ytelse, inkludert vurdering av falske
+positiver/negativer i screening og nøyaktighet i tekstgenerering.</li>
+<li><strong>Databehandleravtaler</strong>: Avklaring av
+databehandleransvar ved bruk av skybaserte KI-tjenester, i tråd med
+personvernlovgivning og Schrems II-vurderinger.</li>
+</ul>
+<h3 id="tidsbesparelse">3.4 Tidsbesparelse</h3>
+<p>Estimert reduksjon i gjennomløpstid: <strong>40–60 %</strong>, som
+gir en forventet gjennomløpstid på 1–3 år fra ny evidens til formidlet
+kunnskap.</p>
+<p><em>Usikkerhet:</em> Estimatet er basert på internasjonale
+pilotprosjekter (jf. delrapport 6) og forutsetter vellykket
+implementering. Faktisk tidsbesparelse avhenger av integrasjonskvalitet,
+brukeradopsjon og organisatorisk endringsvilje.</p>
+<h3 id="kostnad-1">3.5 Kostnad</h3>
+<ul>
+<li><strong>Investeringskostnad</strong>: Moderat. Inkluderer
+anskaffelse eller utvikling av KI-verktøy, teknisk infrastruktur,
+kompetanseheving og organisasjonsutvikling. Grovt estimat: 20–50 MNOK
+over 2–3 år. <em>Usikkerhet: Estimatet er basert på sammenlignbare
+prosjekter i offentlig sektor og bør verifiseres gjennom en detaljert
+kost-nytte-analyse.</em></li>
+<li><strong>Driftskostnad</strong>: Moderat økning fra dagens nivå,
+primært knyttet til lisenser, drift av KI-infrastruktur og vedlikehold
+av kompetanse.</li>
+</ul>
+<h3 id="risiko-1">3.6 Risiko</h3>
+<ul>
+<li><strong>Kvalitetsrisiko</strong>: Lav–moderat. Menneskelig
+kvalitetssikring er bevart i alle ledd. Risikoen ligger primært i at
+fagpersoner over tid kan utvikle «automatiseringstillit» og redusere
+grundigheten i sin validering.</li>
+<li><strong>Implementeringsrisiko</strong>: Moderat. Krever endring i
+arbeidsprosesser og kompetanseheving. Erfaringer fra lignende prosjekter
+i offentlig sektor viser at organisatorisk motstand kan være en større
+utfordring enn teknisk implementering.</li>
+<li><strong>Teknologirisiko</strong>: Lav–moderat. KI-verktøyene som
+inngår i dette alternativet er relativt modne (tekstscreening, RAG,
+tekstgenerering). Risikoen for at teknologien ikke fungerer som
+forventet er begrenset.</li>
+<li><strong>Personvernrisiko</strong>: Lav, gitt at alternativet primært
+håndterer publisert forskningslitteratur og aggregert kunnskap, ikke
+individuelle helseopplysninger. RAG-chatboten krever imidlertid
+vurdering av personvern i brukerinteraksjoner.</li>
+</ul>
+<hr />
+<h2 id="alternativ-2-ambisiøs-ki-pipeline-langsiktig-mål">4. Alternativ
+2: Ambisiøs KI-pipeline (langsiktig mål)</h2>
+<h3 id="beskrivelse-2">4.1 Beskrivelse</h3>
+<p>Alternativ 2 innebærer en gjennomgripende transformasjon av
+verdikjeden, der KI-systemer håndterer store deler av kunnskapsprosessen
+autonomt. Mennesker beholder nøkkelroller i governance,
+kvalitetskontroll og faglig vurdering, men omfanget av manuelt arbeid
+reduseres vesentlig. Alternativet representerer et langsiktig mål som
+forutsetter at teknologi, regulering og organisatorisk modenhet er på
+plass.</p>
+<h3 id="elementer-1">4.2 Elementer</h3>
+<p><strong>Sanntids kunnskapssyntese – «living guidelines»</strong></p>
+<p>Retningslinjer oppdateres kontinuerlig basert på ny evidens, i stedet
+for gjennom diskrete revisjonssykluser. KI-systemer overvåker
+forskningslitteraturen, identifiserer relevant ny evidens, vurderer dens
+implikasjon for eksisterende anbefalinger og foreslår oppdateringer.
+Konseptet bygger på den internasjonale bevegelsen mot «living systematic
+reviews» og «living guidelines», men tar dette et steg videre med
+KI-automatisering.</p>
+<p><strong>Automatisk generering av retningslinjeutkast</strong></p>
+<p>Når ny evidens identifiseres som tilstrekkelig robust til å påvirke
+anbefalinger, genererer KI-systemet et utkast til oppdatert
+retningslinje med referanser, evidensgradering og begrunnelse. Utkastet
+legges frem for faglig validering i en strømlinjeformet prosess.</p>
+<p><strong>Personaliserte helseråd</strong></p>
+<p>Innbyggere kan motta helseråd tilpasset sin kontekst (alder, kjønn,
+risikofaktorer, geografisk tilhørighet) basert på kvalitetssikrede
+kunnskapskilder. Dette krever integrasjon med helsedata (med samtykke)
+og representerer en overgang fra generell til individualisert
+helseinformasjon.</p>
+<p><strong>Flerspråklig, multimodal formidling</strong></p>
+<p>Helseinformasjon tilgjengeliggjøres automatisk i flere formater:
+tekst, video, lyd og infografikk. Flerspråklig støtte sikrer at
+innbyggere med annet morsmål enn norsk får tilgang til kvalitetssikret
+informasjon på sitt foretrukne språk.</p>
+<p><strong>Integrasjon med EHDS-infrastruktur</strong></p>
+<p>Kunnskapspipelinen kobles til EHDS-infrastrukturen, slik at norske
+retningslinjer og helseråd kan deles med andre europeiske land og vice
+versa. Dette muliggjør felles utnyttelse av kunnskapsressurser på tvers
+av landegrenser.</p>
+<p><strong>Feedback-loop fra praksis</strong></p>
+<p>Systematisk innsamling av data om hvordan retningslinjer brukes i
+praksis, hvilke helseråd innbyggere etterspør, og hvilke utfall som
+observeres. Denne informasjonen mates tilbake til kunnskapsproduksjonen
+for å forbedre relevans og treffsikkerhet.</p>
+<h3 id="governance-1">4.3 Governance</h3>
+<ul>
+<li><strong>KI-styringskomité</strong>: Etablering av en tverrsektoriell
+styringskomité med representanter fra Helsedirektoratet, FHI, NHN,
+RHF-ene, KS og brukerorganisasjoner. Komitéen har overordnet ansvar for
+strategisk retning, kvalitetskrav og etiske rammer for KI-bruk.</li>
+<li><strong>Automatisert kvalitetskontroll med stikkprøver</strong>:
+KI-systemer utfører løpende kvalitetskontroll (faktasjekk, konsistens,
+referansevalidering). Fagpersoner utfører stikkprøvebasert validering av
+et definert utvalg av KI-generert innhold.</li>
+<li><strong>Transparente algoritmer</strong>: Algoritmene som benyttes
+skal være dokumenterte og forklarte. Åpen kildekode benyttes der det er
+mulig, og proprietære løsninger skal ha tilstrekkelig dokumentasjon til
+ekstern revisjon.</li>
+<li><strong>Etisk rammeverk</strong>: Utvikling av et dedikert etisk
+rammeverk for KI-bruk i helseråd, med særlig oppmerksomhet på
+rettferdighet (bias), autonomi (innbyggerens rett til å velge), og
+forsiktighet (primum non nocere).</li>
+<li><strong>Nasjonal KI-sandkasse</strong>: Etablering av et testmiljø
+der nye KI-modeller og -tilnærminger kan utprøves i kontrollerte
+omgivelser før de tas i bruk i produksjon.</li>
+</ul>
+<h3 id="tidsbesparelse-1">4.4 Tidsbesparelse</h3>
+<p>Estimert reduksjon i gjennomløpstid: <strong>70–90 %</strong>, som
+gir en forventet gjennomløpstid på uker til måneder fra ny evidens til
+formidlet kunnskap.</p>
+<p><em>Usikkerhet: Høy.</em> Dette estimatet forutsetter at teknologien
+modnes ytterligere, at governance-mekanismene fungerer effektivt, og at
+organisatorisk transformasjon gjennomføres. Realisering av det fulle
+potensialet er avhengig av faktorer som i dag ikke fullt ut kan
+forutsies.</p>
+<h3 id="kostnad-2">4.5 Kostnad</h3>
+<ul>
+<li><strong>Investeringskostnad</strong>: Høy. Inkluderer utvikling av
+avansert KI-infrastruktur, integrasjon med EHDS, organisatorisk
+transformasjon og betydelig kompetanseheving. Grovt estimat: 100–250
+MNOK over 4–6 år. <em>Usikkerhet: Estimatet har stor spennvidde og bør
+oppdateres etter hvert som teknologi og krav modnes.</em></li>
+<li><strong>Driftskostnad</strong>: Potensielt lavere enn dagens
+driftskostnad på sikt, gitt at manuelt arbeid reduseres betydelig.
+Beregningskostnader (compute) og lisenser kan imidlertid være
+vesentlige.</li>
+</ul>
+<h3 id="risiko-2">4.6 Risiko</h3>
+<ul>
+<li><strong>Kvalitetsrisiko</strong>: Moderat–høy. Redusert menneskelig
+involvering øker risikoen for at feil ikke fanges opp. Hallusinering i
+store språkmodeller er en kjent utfordring som per i dag ikke er fullt
+løst.</li>
+<li><strong>Implementeringsrisiko</strong>: Høy. Krever gjennomgripende
+organisatorisk endring, nye kompetanseprofiler og endret
+ansvarsfordeling mellom aktørene. Risikoen for forsinkelser og
+kostnadsoverskridelser er vesentlig.</li>
+<li><strong>Teknologirisiko</strong>: Moderat–høy. Flere av elementene
+(living guidelines, personaliserte helseråd) forutsetter teknologi som i
+dag er under utvikling. Det er usikkert om teknologien vil modnes
+tilstrekkelig raskt.</li>
+<li><strong>Regulatorisk risiko</strong>: Moderat. EU AI Act
+klassifiserer KI i helsesektoren som høyrisiko, noe som innebærer
+strenge krav til dokumentasjon, testing og overvåking. Det er per i dag
+ikke fullt avklart hvordan living guidelines og autonome
+kunnskapssystemer skal håndteres under dette rammeverket.</li>
+<li><strong>Personvernrisiko</strong>: Moderat–høy. Personaliserte
+helseråd krever tilgang til individuelle helseopplysninger, noe som
+reiser vesentlige personvernspørsmål. Integrasjon med EHDS forutsetter
+at dataflytene er i samsvar med GDPR og nasjonal
+personvernlovgivning.</li>
+</ul>
+<hr />
+<h2 id="sammenligningstabell">5. Sammenligningstabell</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimensjon</th>
+<th>Alternativ 0: Nullalternativet</th>
+<th>Alternativ 1: Moderat KI-støtte</th>
+<th>Alternativ 2: Ambisiøs KI-pipeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gjennomløpstid</strong> (ny evidens → innbygger)</td>
+<td>2,5–5 år (økende)</td>
+<td>1–3 år</td>
+<td>Uker–måneder</td>
+</tr>
+<tr>
+<td><strong>Investeringskostnad</strong></td>
+<td>Ingen</td>
+<td>Moderat (20–50 MNOK)</td>
+<td>Høy (100–250 MNOK)</td>
+</tr>
+<tr>
+<td><strong>Driftskostnad</strong></td>
+<td>Uendret</td>
+<td>Moderat økning</td>
+<td>Potensielt lavere på sikt</td>
+</tr>
+<tr>
+<td><strong>Kvalitetsrisiko</strong></td>
+<td>Lav (etablerte prosesser)</td>
+<td>Lav–moderat</td>
+<td>Moderat–høy</td>
+</tr>
+<tr>
+<td><strong>Implementeringsrisiko</strong></td>
+<td>Ingen</td>
+<td>Moderat</td>
+<td>Høy</td>
+</tr>
+<tr>
+<td><strong>Personalebehov</strong></td>
+<td>Uendret</td>
+<td>Omskolering + noe rekruttering</td>
+<td>Vesentlig ny kompetanse</td>
+</tr>
+<tr>
+<td><strong>Tidsperspektiv for implementering</strong></td>
+<td>N/A</td>
+<td>12–24 måneder</td>
+<td>4–6 år</td>
+</tr>
+<tr>
+<td><strong>Samsvar med EHDS</strong></td>
+<td>Svakt (manglende digital modenhet)</td>
+<td>Godt (økt digitaliseringsgrad)</td>
+<td>Svært godt (full integrasjon)</td>
+</tr>
+<tr>
+<td><strong>Samsvar med EU AI Act</strong></td>
+<td>N/A (ingen KI-bruk)</td>
+<td>Godt (menneske i kontroll)</td>
+<td>Krever grundig vurdering</td>
+</tr>
+<tr>
+<td><strong>Skalerbarhet</strong></td>
+<td>Lav (begrenset av manuell kapasitet)</td>
+<td>Moderat</td>
+<td>Høy</td>
+</tr>
+<tr>
+<td><strong>Innbyggernytte</strong></td>
+<td>Lav–moderat (utdatert info)</td>
+<td>Moderat–høy</td>
+<td>Høy (men avhenger av realisering)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Merknad: Kostnadstallene er grove estimater med vesentlig
+usikkerhet og bør verifiseres gjennom detaljerte
+kost-nytte-analyser.</em></p>
+<hr />
+<h2 id="governance-modell-for-ki-støttet-verdikjede">6.
+Governance-modell for KI-støttet verdikjede</h2>
+<h3 id="roller-og-ansvar-i-ny-modell">6.1 Roller og ansvar i ny
+modell</h3>
+<p>Uavhengig av hvilket alternativ som velges, er det behov for å
+tydeliggjøre roller og ansvar knyttet til KI-bruk i
+kunnskapsforvaltningen. Ansvarsfordelingen nedenfor bygger på
+eksisterende roller og mandater, men presiserer nye ansvarsområder:</p>
+<p><strong>Helsedirektoratet</strong> – overordnet governance: -
+Fastsetter standarder, kvalitetskrav og retningslinjer for KI-bruk i
+kunnskapsforvaltning - Eier det overordnede kvalitetsrammeverket for
+KI-generert innhold - Godkjenner hvilke KI-verktøy og -modeller som kan
+benyttes - Sikrer samsvar med EU AI Act og nasjonalt regelverk</p>
+<p><strong>FHI</strong> – KI-støttet kunnskapssyntese: - Implementerer
+og drifter KI-verktøy for forskningsscreening og kunnskapsoppsummering -
+Validerer KI-generert kunnskapsinnhold faglig - Utvikler metodikk for
+KI-støttet systematisk oversiktsarbeid - Rapporterer
+kvalitetsindikatorer til Helsedirektoratet</p>
+<p><strong>NHN</strong> – drift av KI-infrastruktur: - Drifter og
+forvalter den tekniske KI-infrastrukturen - Sikrer oppetid, ytelse og
+sikkerhet i KI-tjenestene - Implementerer og drifter chatbot-løsninger
+på helsenorge.no - Sikrer at teknisk infrastruktur oppfyller
+Helsedirektoratets arkitekturkrav</p>
+<p><strong>Fageksperter</strong> (RHF-er, fagmiljøer): - Deltar i
+validering av KI-genererte retningslinjeutkast - Bidrar med klinisk
+ekspertise i kvalitetssikring - Melder tilbake om relevans og nytteverdi
+fra klinisk praksis</p>
+<p><strong>Innbyggerpanel</strong>: - Representerer
+innbyggerperspektivet i utvikling av KI-støttet helseinformasjon - Gir
+tilbakemelding på forståelighet, relevans og tilgjengelighet - Bidrar
+til å identifisere informasjonsbehov som ikke dekkes</p>
+<h3 id="kvalitetssikringsmekanismer">6.2
+Kvalitetssikringsmekanismer</h3>
+<p>Kvalitetssikringen i en KI-støttet verdikjede opererer på tre
+nivåer:</p>
+<p><strong>Automatisert nivå:</strong> - Faktasjekk mot verifisert
+kunnskapsbase (kryssreferering) - Konsistenssjekk mellom generert
+innhold og kildedokumenter - Hallusinerings-deteksjon gjennom
+sammenligning av generert tekst med kildemateriale - Automatisk
+deteksjon av utdaterte referanser</p>
+<p><strong>Menneskelig nivå:</strong> - Fagfellevurdering av
+KI-genererte utkast til systematiske oversikter og retningslinjer -
+Stikkprøvebasert kontroll av KI-generert innbyggerinformasjon -
+Periodisk revisjon av KI-verktøyenes ytelse (minst årlig) -
+Brukerundersøkelser om kvalitet og nytte</p>
+<p><strong>Hybridnivå:</strong> - KI identifiserer endringer i
+evidensgrunnlaget; mennesker vurderer om endringene er tilstrekkelig
+vesentlige til å utløse oppdatering - KI genererer forslag til oppdatert
+tekst; fagperson validerer og godkjenner - KI overvåker brukeratferd og
+identifiserer potensielle kvalitetsproblemer; mennesker utreder og
+iverksetter tiltak</p>
+<h3 id="eskaleringsmekanisme">6.3 Eskaleringsmekanisme</h3>
+<p>Det etableres klare kriterier for når KI-generert innhold må stoppes
+eller trekkes tilbake:</p>
+<ul>
+<li><strong>Automatisk stopp</strong>: Dersom kvalitetskontrollsystemet
+identifiserer innhold som avviker vesentlig fra verifiserte kilder,
+eller dersom hallusinerings-deteksjonen indikerer upålitelig
+innhold.</li>
+<li><strong>Manuell tilbaketrekking</strong>: Dersom fagperson
+identifiserer feil som er passert automatisk kontroll. Tilbaketrekking
+skal kunne gjennomføres innen 1 time etter identifisering.</li>
+<li><strong>Proaktiv varsling</strong>: Dersom ny evidens viser at
+publisert KI-generert innhold er feilaktig eller misvisende, skal
+berørte aktører varsles umiddelbart.</li>
+<li><strong>Rapporteringsplikt</strong>: Vesentlige kvalitetshendelser
+knyttet til KI-generert innhold rapporteres til Helsedirektoratet og
+inngår i periodisk kvalitetsrapportering.</li>
+</ul>
+<hr />
+<h2 id="kvalitetssikringsprosess-detaljert-beskrivelse">7.
+Kvalitetssikringsprosess – detaljert beskrivelse</h2>
+<p>Følgende trinnvise prosess beskriver kvalitetssikringen av
+KI-assistert innhold i den nye verdikjeden. Prosessen gjelder for
+alternativ 1 og er grunnlaget for en utvidet prosess i alternativ 2.</p>
+<h3 id="trinn-1-automatisert-kvalitetskontroll">Trinn 1: Automatisert
+kvalitetskontroll</h3>
+<p>Når KI-systemet genererer innhold (utkast til systematisk oversikt,
+retningslinjeoppdatering eller innbyggertekst), gjennomgår innholdet
+automatisk kvalitetskontroll:</p>
+<ul>
+<li><strong>Referansevalidering</strong>: Alle referanser sjekkes mot
+kildesystemer. Referanser som ikke kan verifiseres flagges.</li>
+<li><strong>Faktakonsistens</strong>: Påstander i teksten sammenlignes
+med det underliggende kunnskapsgrunnlaget. Avvik flagges.</li>
+<li><strong>Hallusinerings-score</strong>: Innholdet tildeles en
+hallusinerings-score basert på graden av samsvar mellom generert tekst
+og kildemateriale. Innhold over en definert terskelverdi sendes
+automatisk til manuell gjennomgang.</li>
+<li><strong>Formatvalidering</strong>: Innholdet sjekkes mot krav til
+struktur, referansehåndtering og terminologi.</li>
+</ul>
+<h3 id="trinn-2-faglig-vurdering-av-ki-utkast">Trinn 2: Faglig vurdering
+av KI-utkast</h3>
+<p>Fagperson med relevant spesialkompetanse gjennomgår KI-generert
+utkast:</p>
+<ul>
+<li>Vurderer medisinsk korrekthet og klinisk relevans</li>
+<li>Kontrollerer at evidensgraderingen er riktig</li>
+<li>Vurderer om kontekstualiseringen til norske forhold er
+treffende</li>
+<li>Godkjenner, returnerer med merknader eller avviser utkastet</li>
+</ul>
+<h3 id="trinn-3-klarspråkvurdering">Trinn 3: Klarspråkvurdering</h3>
+<p>For innbyggerrettet innhold gjennomgås teksten av
+kommunikasjonsrådgiver:</p>
+<ul>
+<li>Vurderer lesbarhet og forståelighet for målgruppen</li>
+<li>Sikrer at medisinsk innhold er korrekt forenklet uten tap av
+meningsinnhold</li>
+<li>Tilpasser språknivå og format til kanalen (helsenorge.no, chatbot,
+etc.)</li>
+</ul>
+<h3 id="trinn-4-publisering-med-ki-merking">Trinn 4: Publisering med
+KI-merking</h3>
+<p>Godkjent innhold publiseres med følgende metadata:</p>
+<ul>
+<li>Tydelig merking av at innholdet er KI-assistert</li>
+<li>Dato for siste faglige validering</li>
+<li>Referanser til underliggende kunnskapsgrunnlag</li>
+<li>Versjonsnummer og endringshistorikk</li>
+<li>Ansvarlig fagperson og organisasjon</li>
+</ul>
+<h3 id="trinn-5-kontinuerlig-overvåking-og-feedback">Trinn 5:
+Kontinuerlig overvåking og feedback</h3>
+<p>Etter publisering overvåkes innholdet løpende:</p>
+<ul>
+<li>Brukerundersøkelser og tilbakemeldingsmekanismer</li>
+<li>Overvåking av brukeratferd (hvilke sider besøkes, hvilke spørsmål
+stilles til chatbot)</li>
+<li>Automatisk varsling når ny evidens potensielt påvirker publisert
+innhold</li>
+<li>Overvåking av sosiale medier og nyheter for å fange opp
+feilinformasjon som bør adresseres</li>
+</ul>
+<h3 id="trinn-6-periodisk-revisjon">Trinn 6: Periodisk revisjon</h3>
+<p>Minst årlig gjennomføres en systematisk revisjon:</p>
+<ul>
+<li>Gjennomgang av et representativt utvalg KI-generert innhold</li>
+<li>Vurdering av KI-verktøyenes ytelse (presisjon, recall,
+hallusinerings-rate)</li>
+<li>Benchmarking mot manuelt produsert innhold</li>
+<li>Evaluering av governance-mekanismenes effektivitet</li>
+<li>Oppdatering av kvalitetskrav og terskelverdier</li>
+</ul>
+<hr />
+<h2 id="anbefaling">8. Anbefaling</h2>
+<h3 id="overordnet-anbefaling">8.1 Overordnet anbefaling</h3>
+<p>Det anbefales en <strong>faseinndelt tilnærming</strong> der
+alternativ 1 (moderat KI-støtte) implementeres som startpunkt, med
+gradvis utvidelse mot elementer fra alternativ 2 etter hvert som
+teknologi, kompetanse og governance modnes.</p>
+<p>Denne tilnærmingen balanserer behovet for modernisering mot risikoen
+for feilslått implementering. Den gir tidlig nytteverdi gjennom
+lavrisiko-tiltak, samtidig som den bygger grunnlaget for mer ambisiøse
+endringer på sikt.</p>
+<h3 id="faseinndelt-gjennomføringsplan">8.2 Faseinndelt
+gjennomføringsplan</h3>
+<p><strong>Fase 1: Pilotering (0–18 måneder)</strong></p>
+<ul>
+<li>KI-assistert screening av forskningslitteratur ved FHI (pilot på 2–3
+fagområder)</li>
+<li>KI-assistert oversettelse av retningslinjer til
+klarspråk/innbyggerspråk (pilot)</li>
+<li>Etablering av governance-rammeverk og kvalitetskrav</li>
+<li>Kompetanseheving hos nøkkelpersonell</li>
+<li>Evaluering av pilotresultater som grunnlag for videre
+beslutning</li>
+</ul>
+<p><strong>Fase 2: Utvidelse (12–36 måneder)</strong></p>
+<ul>
+<li>Skalering av KI-støttet screening til alle fagområder</li>
+<li>KI-støttede utkast til systematiske oversikter</li>
+<li>Implementering av automatisk evidensvarsling</li>
+<li>Pilotering av KI-chatbot på helsenorge.no med RAG mot verifiserte
+kilder</li>
+<li>Videreutvikling av governance-mekanismer basert på erfaringer fra
+fase 1</li>
+</ul>
+<p><strong>Fase 3: Transformasjon (24–48 måneder)</strong></p>
+<ul>
+<li>Overgang til living guidelines på utvalgte fagområder</li>
+<li>Full pipeline fra evidensovervåking til publisert
+innbyggerinformasjon med KI-støtte</li>
+<li>Integrasjon med EHDS-infrastruktur</li>
+<li>Pilotering av personaliserte helseråd (avhengig av regulatorisk
+avklaring)</li>
+<li>Etablering av feedback-loop fra praksis</li>
+</ul>
+<h3 id="forutsetninger-for-suksess">8.3 Forutsetninger for suksess</h3>
+<ul>
+<li><strong>Tverrsektoriell forankring</strong>: Alle sentrale aktører
+(Helsedirektoratet, FHI, NHN) må ha felles forståelse av mål og
+ansvarsfordeling. HOD må gi tydelig oppdrag og finansiering.</li>
+<li><strong>Kompetanseinvestering</strong>: Fagpersoner trenger
+kompetanseheving i KI-forståelse og -bruk. Det må også rekrutteres
+teknisk kompetanse innen KI og maskinlæring.</li>
+<li><strong>Regulatorisk avklaring</strong>: Forholdet mellom
+KI-generert helseinnhold og EU AI Act/EHDS må avklares tidlig.
+Helsedirektoratet bør ta en proaktiv rolle i å fortolke og
+operasjonalisere regelverket.</li>
+<li><strong>Iterativ tilnærming</strong>: Hver fase må evalueres før
+neste fase starter. Berørte fagpersoner og innbyggere må involveres i
+evalueringen.</li>
+<li><strong>Teknisk infrastruktur</strong>: NHN må bygge opp kapasitet
+for drift og forvaltning av KI-tjenester. Spørsmål om skybaserte
+vs. lokalt driftede løsninger må avklares tidlig, med hensyn til
+personvern, kostnad og ytelse.</li>
+<li><strong>Realistiske forventninger</strong>: KI-verktøy er
+hjelpemidler, ikke erstatninger for faglig kompetanse. Kommunikasjonen
+om prosjektet bør vektlegge at målet er bedre og raskere
+kunnskapsformidling, ikke å erstatte fagpersoner.</li>
+</ul>
+<hr />
+<h2 id="oppsummering">9. Oppsummering</h2>
+<p>Denne rapporten har vurdert tre alternativer for fremtidig
+organisering av verdikjeden for kunnskapsforvaltning i
+helsesektoren:</p>
+<ul>
+<li><p><strong>Alternativ 0 (nullalternativet)</strong> innebærer
+videreføring av dagens praksis. Gjennomløpstiden forblir 2,5–5 år og vil
+sannsynligvis øke. Alternativet vurderes som ikke bærekraftig på
+mellomlang sikt, gitt økende forskningsvolum og innbyggernes
+forventninger til oppdatert helseinformasjon.</p></li>
+<li><p><strong>Alternativ 1 (moderat KI-støtte)</strong> innfører KI som
+støtteverktøy i eksisterende prosesser, med menneskelig kontroll i alle
+ledd. Estimert tidsbesparelse er 40–60 %, med lav–moderat risiko og
+moderat investeringskostnad. Alternativet anbefales som
+startpunkt.</p></li>
+<li><p><strong>Alternativ 2 (ambisiøs KI-pipeline)</strong> innebærer en
+gjennomgripende transformasjon med living guidelines, personaliserte
+helseråd og full EHDS-integrasjon. Estimert tidsbesparelse er 70–90 %,
+men risikoen er moderat–høy og investeringskostnaden vesentlig.
+Alternativet anbefales som langsiktig mål.</p></li>
+</ul>
+<p>Anbefalingen er en faseinndelt tilnærming der alternativ 1
+implementeres først, med gradvis utvidelse mot alternativ 2 over en
+periode på 3–5 år. Denne tilnærmingen balanserer behovet for
+modernisering mot risikoen ved for rask endring, og gir mulighet for
+læring og justering underveis.</p>
+<p>Detaljert arkitektur for den tekniske løsningen beskrives i
+delrapport 5 (Arkitektur for ny verdikjede). En samlet vurdering av alle
+delrapporter, med overordnet anbefaling til HOD, gis i delrapport 7
+(Samlet vurdering og anbefaling).</p>
+<hr />
+<p><em>Sist oppdatert: 2026-03-15</em></p>
+<p><em>Merknader om usikkerhet: Estimatene i denne rapporten er basert
+på scenarioanalyse, internasjonale erfaringer og tilgjengelig
+faglitteratur. Kostnadsestimatene har vesentlig usikkerhet og bør
+verifiseres gjennom detaljerte kost-nytte-analyser. Tidsestimatene for
+implementering forutsetter tilstrekkelig finansiering og organisatorisk
+støtte.</em></p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
 
-        <h3>1.2 Strukturering etter utredningsinstruksen</h3>
-        <p>Rapporten er strukturert i tråd med utredningsinstruksens krav 2 (utrede relevante tiltak) og krav 5 (anbefalt tiltak). Hvert alternativ beskrives med konsekvenser, kostnader, risiko og gjennomførbarhet. Anbefalingen begrunnes i en samlet vurdering av disse dimensjonene.</p>
-
-        <h3>1.3 Metodisk merknad</h3>
-        <p>Estimater for tidsbesparelse, kostnader og risiko i denne rapporten er basert på scenarioanalyse, internasjonale erfaringer (jf. delrapport 6) og tilgjengelig faglitteratur. Der tallgrunnlaget er usikkert, er dette eksplisitt markert. Estimatene bør betraktes som retningsgivende, ikke som presise prognoser.</p>
-
-        <hr>
-
-        <h2>2. Alternativ 0: Nullalternativet – videreføring av dagens praksis</h2>
-
-        <h3>2.1 Beskrivelse</h3>
-        <p>Nullalternativet innebærer at dagens verdikjede for kunnskapsforvaltning videreføres uten vesentlige endringer. FHI utarbeider systematiske oversikter manuelt, Helsedirektoratet utvikler retningslinjer gjennom etablerte prosesser, og innbyggerinformasjon på helsenorge.no oppdateres etter gjeldende rutiner.</p>
-        <p>Mindre justeringer og effektiviseringer innenfor eksisterende rammer kan forekomme, men det gjøres ingen systematisk investering i KI-verktøy eller grunnleggende endringer i arbeidsprosesser.</p>
-
-        <h3>2.2 Konsekvenser</h3>
-        <ul>
-            <li><strong>Gjennomløpstid</strong>: Fortsatt 2,5–5 år fra ny evidens til formidlet kunnskap. Gitt økende forskningsvolum (jf. delrapport 2, punkt 2.1) er det sannsynlig at gjennomløpstiden øker over tid.</li>
-            <li><strong>Kapasitet</strong>: FHIs kapasitet til å produsere systematiske oversikter forblir begrenset. Antallet retningslinjer Helsedirektoratet kan vedlikeholde samtidig endres ikke vesentlig.</li>
-            <li><strong>Kvalitet</strong>: Kvalitetssikringsmekanismene er veletablerte, men den lange gjennomløpstiden innebærer at retningslinjer og innbyggerinformasjon i perioder er basert på foreldet evidens.</li>
-        </ul>
-
-        <h3>2.3 Risiko</h3>
-        <ul>
-            <li><strong>Økende kunnskapsgap</strong>: Gapet mellom tilgjengelig forskningskunnskap og formidlet kunnskap til innbyggere vil øke i takt med akselererende forskningsproduksjon.</li>
-            <li><strong>Kommersiell substitusjon</strong>: Innbyggere vil i økende grad søke helseinformasjon fra kommersielle KI-tjenester (ChatGPT, Google Gemini, Copilot m.fl.) uten kvalitetssikring mot norske retningslinjer. Dette representerer en risiko for feilinformasjon og kan undergrave tilliten til offentlig helseinformasjon.</li>
-            <li><strong>Kompetanseflukt</strong>: Fagpersoner som ønsker å arbeide med moderne verktøy kan søke seg bort fra offentlig sektor dersom arbeidsformene ikke moderniseres.</li>
-            <li><strong>Regulatorisk etterslep</strong>: Dersom EHDS og EU AI Act forutsetter visse digitale kapabiliteter, kan Norge risikere å ikke oppfylle fremtidige krav.</li>
-        </ul>
-
-        <h3>2.4 Kostnad</h3>
-        <p>Driftskostnadene videreføres på dagens nivå, justert for lønnsvekst og prisstigning. Ingen investeringskostnad utover ordinær drift.</p>
-
-        <h3>2.5 Vurdering</h3>
-        <p>Nullalternativet er <strong>ikke bærekraftig på mellomlang sikt</strong> (3–5 år). Akselererende forskningsproduksjon og innbyggernes forventninger til oppdatert, tilgjengelig helseinformasjon gjør at gapet mellom hva som er mulig og hva som leveres vil bli stadig tydeligere. Videreføring uten endring innebærer en implisitt aksept av at offentlig helseinformasjon gradvis taper relevans sammenlignet med kommersielle alternativer.</p>
-
-        <hr>
-
-        <h2>3. Alternativ 1: Moderat KI-støtte (anbefalt startpunkt)</h2>
-
-        <h3>3.1 Beskrivelse</h3>
-        <p>Alternativ 1 innebærer å innføre KI som støtteverktøy i eksisterende prosesser. Mennesker beholder kontroll over alle beslutninger og kvalitetsvurderinger, men KI-verktøy benyttes for å akselerere tidkrevende deloppgaver. Organisasjonsstrukturen og ansvarsfordelingen mellom aktørene endres ikke grunnleggende.</p>
-
-        <h3>3.2 Elementer</h3>
-
-        <h4>KI-assistert screening av forskningslitteratur (FHI)</h4>
-        <p>FHI tar i bruk KI-verktøy for automatisert screening av titler, sammendrag og fulltekst i forbindelse med systematiske oversikter. KI-verktøyet rangerer artikler etter relevans, og fagpersoner validerer utvalget. Internasjonale erfaringer (jf. delrapport 6, Cochrane-piloter) indikerer at dette kan redusere screeningtiden med 50–70 % uten vesentlig tap av sensitivitet.</p>
-
-        <h4>KI-støttede utkast til systematiske oversikter</h4>
-        <p>KI-verktøy benyttes til å generere første utkast til strukturerte sammendrag av inkluderte studier, ekstrahere nøkkeldata og identifisere mønstre på tvers av studier. Alle utkast gjennomgås og valideres av fagpersoner før de inngår i den endelige oversikten.</p>
-
-        <h4>Automatisk varsling om ny evidens</h4>
-        <p>Et KI-basert overvåkingssystem monitorerer publiserte studier og varsler relevant fagpersonell når ny evidens potensielt påvirker eksisterende retningslinjer. Dette muliggjør proaktiv oppdatering fremfor dagens reaktive tilnærming.</p>
-
-        <h4>KI-assistert oversettelse til klarspråk</h4>
-        <p>KI-verktøy benyttes til å generere utkast til innbyggerrettet informasjon basert på retningslinjer og kunnskapsoppsummeringer. Utkastene gjennomgås av fagperson for medisinsk korrekthet og av kommunikasjonsrådgiver for klarspråk.</p>
-
-        <h4>KI-chatbot for helsenorge.no med RAG</h4>
-        <p>En KI-basert chatbot implementeres på helsenorge.no, basert på Retrieval-Augmented Generation (RAG) mot verifiserte kunnskapskilder (godkjente retningslinjer, publiserte innbyggertekster). Chatboten gir svar basert utelukkende på verifisert innhold og henviser tydelig til kilder. Chatboten erstatter ikke eksisterende innhold, men supplerer det med en interaktiv kanal.</p>
-
-        <h3>3.3 Governance</h3>
-        <ul>
-            <li><strong>Menneskelig validering</strong>: Alle KI-genererte produkter gjennomgås av kvalifisert fagperson før publisering eller bruk i beslutningsprosesser.</li>
-            <li><strong>Merking</strong>: KI-assistert innhold merkes tydelig i tråd med EU AI Acts transparenskrav.</li>
-            <li><strong>Sporbarhet</strong>: Alle KI-operasjoner loggføres med informasjon om modellversjon, inputdata og tidspunkt. Dette sikrer reproduserbarhet og revisjonsspor.</li>
-            <li><strong>Kvalitetsrevisjon</strong>: Periodisk kvalitetsrevisjon (minst årlig) av KI-verktøyenes ytelse, inkludert vurdering av falske positiver/negativer i screening og nøyaktighet i tekstgenerering.</li>
-            <li><strong>Databehandleravtaler</strong>: Avklaring av databehandleransvar ved bruk av skybaserte KI-tjenester, i tråd med personvernlovgivning og Schrems II-vurderinger.</li>
-        </ul>
-
-        <h3>3.4 Tidsbesparelse</h3>
-        <p>Estimert reduksjon i gjennomløpstid: <strong>40–60 %</strong>, som gir en forventet gjennomløpstid på 1–3 år fra ny evidens til formidlet kunnskap.</p>
-        <p><em>Usikkerhet:</em> Estimatet er basert på internasjonale pilotprosjekter (jf. delrapport 6) og forutsetter vellykket implementering. Faktisk tidsbesparelse avhenger av integrasjonskvalitet, brukeradopsjon og organisatorisk endringsvilje.</p>
-
-        <h3>3.5 Kostnad</h3>
-        <ul>
-            <li><strong>Investeringskostnad</strong>: Moderat. Inkluderer anskaffelse eller utvikling av KI-verktøy, teknisk infrastruktur, kompetanseheving og organisasjonsutvikling. Grovt estimat: 20–50 MNOK over 2–3 år. <em>Usikkerhet: Estimatet er basert på sammenlignbare prosjekter i offentlig sektor og bør verifiseres gjennom en detaljert kost-nytte-analyse.</em></li>
-            <li><strong>Driftskostnad</strong>: Moderat økning fra dagens nivå, primært knyttet til lisenser, drift av KI-infrastruktur og vedlikehold av kompetanse.</li>
-        </ul>
-
-        <h3>3.6 Risiko</h3>
-        <ul>
-            <li><strong>Kvalitetsrisiko</strong>: Lav–moderat. Menneskelig kvalitetssikring er bevart i alle ledd. Risikoen ligger primært i at fagpersoner over tid kan utvikle «automatiseringstillit» og redusere grundigheten i sin validering.</li>
-            <li><strong>Implementeringsrisiko</strong>: Moderat. Krever endring i arbeidsprosesser og kompetanseheving. Erfaringer fra lignende prosjekter i offentlig sektor viser at organisatorisk motstand kan være en større utfordring enn teknisk implementering.</li>
-            <li><strong>Teknologirisiko</strong>: Lav–moderat. KI-verktøyene som inngår i dette alternativet er relativt modne (tekstscreening, RAG, tekstgenerering). Risikoen for at teknologien ikke fungerer som forventet er begrenset.</li>
-            <li><strong>Personvernrisiko</strong>: Lav, gitt at alternativet primært håndterer publisert forskningslitteratur og aggregert kunnskap, ikke individuelle helseopplysninger. RAG-chatboten krever imidlertid vurdering av personvern i brukerinteraksjoner.</li>
-        </ul>
-
-        <hr>
-
-        <h2>4. Alternativ 2: Ambisiøs KI-pipeline (langsiktig mål)</h2>
-
-        <h3>4.1 Beskrivelse</h3>
-        <p>Alternativ 2 innebærer en gjennomgripende transformasjon av verdikjeden, der KI-systemer håndterer store deler av kunnskapsprosessen autonomt. Mennesker beholder nøkkelroller i governance, kvalitetskontroll og faglig vurdering, men omfanget av manuelt arbeid reduseres vesentlig. Alternativet representerer et langsiktig mål som forutsetter at teknologi, regulering og organisatorisk modenhet er på plass.</p>
-
-        <h3>4.2 Elementer</h3>
-
-        <h4>Sanntids kunnskapssyntese – «living guidelines»</h4>
-        <p>Retningslinjer oppdateres kontinuerlig basert på ny evidens, i stedet for gjennom diskrete revisjonssykluser. KI-systemer overvåker forskningslitteraturen, identifiserer relevant ny evidens, vurderer dens implikasjon for eksisterende anbefalinger og foreslår oppdateringer. Konseptet bygger på den internasjonale bevegelsen mot «living systematic reviews» og «living guidelines», men tar dette et steg videre med KI-automatisering.</p>
-
-        <h4>Automatisk generering av retningslinjeutkast</h4>
-        <p>Når ny evidens identifiseres som tilstrekkelig robust til å påvirke anbefalinger, genererer KI-systemet et utkast til oppdatert retningslinje med referanser, evidensgradering og begrunnelse. Utkastet legges frem for faglig validering i en strømlinjeformet prosess.</p>
-
-        <h4>Personaliserte helseråd</h4>
-        <p>Innbyggere kan motta helseråd tilpasset sin kontekst (alder, kjønn, risikofaktorer, geografisk tilhørighet) basert på kvalitetssikrede kunnskapskilder. Dette krever integrasjon med helsedata (med samtykke) og representerer en overgang fra generell til individualisert helseinformasjon.</p>
-
-        <h4>Flerspråklig, multimodal formidling</h4>
-        <p>Helseinformasjon tilgjengeliggjøres automatisk i flere formater: tekst, video, lyd og infografikk. Flerspråklig støtte sikrer at innbyggere med annet morsmål enn norsk får tilgang til kvalitetssikret informasjon på sitt foretrukne språk.</p>
-
-        <h4>Integrasjon med EHDS-infrastruktur</h4>
-        <p>Kunnskapspipelinen kobles til EHDS-infrastrukturen, slik at norske retningslinjer og helseråd kan deles med andre europeiske land og vice versa. Dette muliggjør felles utnyttelse av kunnskapsressurser på tvers av landegrenser.</p>
-
-        <h4>Feedback-loop fra praksis</h4>
-        <p>Systematisk innsamling av data om hvordan retningslinjer brukes i praksis, hvilke helseråd innbyggere etterspør, og hvilke utfall som observeres. Denne informasjonen mates tilbake til kunnskapsproduksjonen for å forbedre relevans og treffsikkerhet.</p>
-
-        <h3>4.3 Governance</h3>
-        <ul>
-            <li><strong>KI-styringskomite</strong>: Etablering av en tverrsektoriell styringskomite med representanter fra Helsedirektoratet, FHI, NHN, RHF-ene, KS og brukerorganisasjoner. Komiteen har overordnet ansvar for strategisk retning, kvalitetskrav og etiske rammer for KI-bruk.</li>
-            <li><strong>Automatisert kvalitetskontroll med stikkprøver</strong>: KI-systemer utfører løpende kvalitetskontroll (faktasjekk, konsistens, referansevalidering). Fagpersoner utfører stikkprøvebasert validering av et definert utvalg av KI-generert innhold.</li>
-            <li><strong>Transparente algoritmer</strong>: Algoritmene som benyttes skal være dokumenterte og forklarte. Åpen kildekode benyttes der det er mulig, og proprietære løsninger skal ha tilstrekkelig dokumentasjon til ekstern revisjon.</li>
-            <li><strong>Etisk rammeverk</strong>: Utvikling av et dedikert etisk rammeverk for KI-bruk i helseråd, med særlig oppmerksomhet på rettferdighet (bias), autonomi (innbyggerens rett til å velge), og forsiktighet (primum non nocere).</li>
-            <li><strong>Nasjonal KI-sandkasse</strong>: Etablering av et testmiljø der nye KI-modeller og -tilnærminger kan utprøves i kontrollerte omgivelser før de tas i bruk i produksjon.</li>
-        </ul>
-
-        <h3>4.4 Tidsbesparelse</h3>
-        <p>Estimert reduksjon i gjennomløpstid: <strong>70–90 %</strong>, som gir en forventet gjennomløpstid på uker til måneder fra ny evidens til formidlet kunnskap.</p>
-        <p><em>Usikkerhet: Høy.</em> Dette estimatet forutsetter at teknologien modnes ytterligere, at governance-mekanismene fungerer effektivt, og at organisatorisk transformasjon gjennomføres. Realisering av det fulle potensialet er avhengig av faktorer som i dag ikke fullt ut kan forutsies.</p>
-
-        <h3>4.5 Kostnad</h3>
-        <ul>
-            <li><strong>Investeringskostnad</strong>: Høy. Inkluderer utvikling av avansert KI-infrastruktur, integrasjon med EHDS, organisatorisk transformasjon og betydelig kompetanseheving. Grovt estimat: 100–250 MNOK over 4–6 år. <em>Usikkerhet: Estimatet har stor spennvidde og bør oppdateres etter hvert som teknologi og krav modnes.</em></li>
-            <li><strong>Driftskostnad</strong>: Potensielt lavere enn dagens driftskostnad på sikt, gitt at manuelt arbeid reduseres betydelig. Beregningskostnader (compute) og lisenser kan imidlertid være vesentlige.</li>
-        </ul>
-
-        <h3>4.6 Risiko</h3>
-        <ul>
-            <li><strong>Kvalitetsrisiko</strong>: Moderat–høy. Redusert menneskelig involvering øker risikoen for at feil ikke fanges opp. Hallusinering i store språkmodeller er en kjent utfordring som per i dag ikke er fullt løst.</li>
-            <li><strong>Implementeringsrisiko</strong>: Høy. Krever gjennomgripende organisatorisk endring, nye kompetanseprofiler og endret ansvarsfordeling mellom aktørene. Risikoen for forsinkelser og kostnadsoverskridelser er vesentlig.</li>
-            <li><strong>Teknologirisiko</strong>: Moderat–høy. Flere av elementene (living guidelines, personaliserte helseråd) forutsetter teknologi som i dag er under utvikling. Det er usikkert om teknologien vil modnes tilstrekkelig raskt.</li>
-            <li><strong>Regulatorisk risiko</strong>: Moderat. EU AI Act klassifiserer KI i helsesektoren som høyrisiko, noe som innebærer strenge krav til dokumentasjon, testing og overvåking. Det er per i dag ikke fullt avklart hvordan living guidelines og autonome kunnskapssystemer skal håndteres under dette rammeverket.</li>
-            <li><strong>Personvernrisiko</strong>: Moderat–høy. Personaliserte helseråd krever tilgang til individuelle helseopplysninger, noe som reiser vesentlige personvernspørsmål. Integrasjon med EHDS forutsetter at dataflytene er i samsvar med GDPR og nasjonal personvernlovgivning.</li>
-        </ul>
-
-        <hr>
-
-        <h2>5. Sammenligningstabell</h2>
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dimensjon</th>
-                        <th>Alternativ 0: Nullalternativet</th>
-                        <th>Alternativ 1: Moderat KI-støtte</th>
-                        <th>Alternativ 2: Ambisiøs KI-pipeline</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Gjennomløpstid</strong> (ny evidens → innbygger)</td>
-                        <td>2,5–5 år (økende)</td>
-                        <td>1–3 år</td>
-                        <td>Uker–måneder</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Investeringskostnad</strong></td>
-                        <td>Ingen</td>
-                        <td>Moderat (20–50 MNOK)</td>
-                        <td>Høy (100–250 MNOK)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Driftskostnad</strong></td>
-                        <td>Uendret</td>
-                        <td>Moderat økning</td>
-                        <td>Potensielt lavere på sikt</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Kvalitetsrisiko</strong></td>
-                        <td>Lav (etablerte prosesser)</td>
-                        <td>Lav–moderat</td>
-                        <td>Moderat–høy</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Implementeringsrisiko</strong></td>
-                        <td>Ingen</td>
-                        <td>Moderat</td>
-                        <td>Høy</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Personalebehov</strong></td>
-                        <td>Uendret</td>
-                        <td>Omskolering + noe rekruttering</td>
-                        <td>Vesentlig ny kompetanse</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tidsperspektiv for implementering</strong></td>
-                        <td>N/A</td>
-                        <td>12–24 måneder</td>
-                        <td>4–6 år</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Samsvar med EHDS</strong></td>
-                        <td>Svakt (manglende digital modenhet)</td>
-                        <td>Godt (økt digitaliseringsgrad)</td>
-                        <td>Svært godt (full integrasjon)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Samsvar med EU AI Act</strong></td>
-                        <td>N/A (ingen KI-bruk)</td>
-                        <td>Godt (menneske i kontroll)</td>
-                        <td>Krever grundig vurdering</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Skalerbarhet</strong></td>
-                        <td>Lav (begrenset av manuell kapasitet)</td>
-                        <td>Moderat</td>
-                        <td>Høy</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Innbyggernytte</strong></td>
-                        <td>Lav–moderat (utdatert info)</td>
-                        <td>Moderat–høy</td>
-                        <td>Høy (men avhenger av realisering)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p><em>Merknad: Kostnadstallene er grove estimater med vesentlig usikkerhet og bør verifiseres gjennom detaljerte kost-nytte-analyser.</em></p>
-
-        <hr>
-
-        <h2>6. Governance-modell for KI-støttet verdikjede</h2>
-
-        <h3>6.1 Roller og ansvar i ny modell</h3>
-        <p>Uavhengig av hvilket alternativ som velges, er det behov for å tydeliggjøre roller og ansvar knyttet til KI-bruk i kunnskapsforvaltningen. Ansvarsfordelingen nedenfor bygger på eksisterende roller og mandater, men presiserer nye ansvarsområder:</p>
-
-        <p><strong>Helsedirektoratet</strong> – overordnet governance:</p>
-        <ul>
-            <li>Fastsetter standarder, kvalitetskrav og retningslinjer for KI-bruk i kunnskapsforvaltning</li>
-            <li>Eier det overordnede kvalitetsrammeverket for KI-generert innhold</li>
-            <li>Godkjenner hvilke KI-verktøy og -modeller som kan benyttes</li>
-            <li>Sikrer samsvar med EU AI Act og nasjonalt regelverk</li>
-        </ul>
-
-        <p><strong>FHI</strong> – KI-støttet kunnskapssyntese:</p>
-        <ul>
-            <li>Implementerer og drifter KI-verktøy for forskningsscreening og kunnskapsoppsummering</li>
-            <li>Validerer KI-generert kunnskapsinnhold faglig</li>
-            <li>Utvikler metodikk for KI-støttet systematisk oversiktsarbeid</li>
-            <li>Rapporterer kvalitetsindikatorer til Helsedirektoratet</li>
-        </ul>
-
-        <p><strong>NHN</strong> – drift av KI-infrastruktur:</p>
-        <ul>
-            <li>Drifter og forvalter den tekniske KI-infrastrukturen</li>
-            <li>Sikrer oppetid, ytelse og sikkerhet i KI-tjenestene</li>
-            <li>Implementerer og drifter chatbot-løsninger på helsenorge.no</li>
-            <li>Sikrer at teknisk infrastruktur oppfyller Helsedirektoratets arkitekturkrav</li>
-        </ul>
-
-        <p><strong>Fageksperter</strong> (RHF-er, fagmiljøer):</p>
-        <ul>
-            <li>Deltar i validering av KI-genererte retningslinjeutkast</li>
-            <li>Bidrar med klinisk ekspertise i kvalitetssikring</li>
-            <li>Melder tilbake om relevans og nytteverdi fra klinisk praksis</li>
-        </ul>
-
-        <p><strong>Innbyggerpanel</strong>:</p>
-        <ul>
-            <li>Representerer innbyggerperspektivet i utvikling av KI-støttet helseinformasjon</li>
-            <li>Gir tilbakemelding på forståelighet, relevans og tilgjengelighet</li>
-            <li>Bidrar til å identifisere informasjonsbehov som ikke dekkes</li>
-        </ul>
-
-        <h3>6.2 Kvalitetssikringsmekanismer</h3>
-        <p>Kvalitetssikringen i en KI-støttet verdikjede opererer på tre nivåer:</p>
-
-        <p><strong>Automatisert nivå:</strong></p>
-        <ul>
-            <li>Faktasjekk mot verifisert kunnskapsbase (kryssreferering)</li>
-            <li>Konsistenssjekk mellom generert innhold og kildedokumenter</li>
-            <li>Hallusinerings-deteksjon gjennom sammenligning av generert tekst med kildemateriale</li>
-            <li>Automatisk deteksjon av utdaterte referanser</li>
-        </ul>
-
-        <p><strong>Menneskelig nivå:</strong></p>
-        <ul>
-            <li>Fagfellevurdering av KI-genererte utkast til systematiske oversikter og retningslinjer</li>
-            <li>Stikkprøvebasert kontroll av KI-generert innbyggerinformasjon</li>
-            <li>Periodisk revisjon av KI-verktøyenes ytelse (minst årlig)</li>
-            <li>Brukerundersøkelser om kvalitet og nytte</li>
-        </ul>
-
-        <p><strong>Hybridnivå:</strong></p>
-        <ul>
-            <li>KI identifiserer endringer i evidensgrunnlaget; mennesker vurderer om endringene er tilstrekkelig vesentlige til å utløse oppdatering</li>
-            <li>KI genererer forslag til oppdatert tekst; fagperson validerer og godkjenner</li>
-            <li>KI overvåker brukeratferd og identifiserer potensielle kvalitetsproblemer; mennesker utreder og iverksetter tiltak</li>
-        </ul>
-
-        <h3>6.3 Eskaleringsmekanisme</h3>
-        <p>Det etableres klare kriterier for når KI-generert innhold må stoppes eller trekkes tilbake:</p>
-        <ul>
-            <li><strong>Automatisk stopp</strong>: Dersom kvalitetskontrollsystemet identifiserer innhold som avviker vesentlig fra verifiserte kilder, eller dersom hallusinerings-deteksjonen indikerer upålitelig innhold.</li>
-            <li><strong>Manuell tilbaketrekking</strong>: Dersom fagperson identifiserer feil som er passert automatisk kontroll. Tilbaketrekking skal kunne gjennomføres innen 1 time etter identifisering.</li>
-            <li><strong>Proaktiv varsling</strong>: Dersom ny evidens viser at publisert KI-generert innhold er feilaktig eller misvisende, skal berørte aktører varsles umiddelbart.</li>
-            <li><strong>Rapporteringsplikt</strong>: Vesentlige kvalitetshendelser knyttet til KI-generert innhold rapporteres til Helsedirektoratet og inngår i periodisk kvalitetsrapportering.</li>
-        </ul>
-
-        <hr>
-
-        <h2>7. Kvalitetssikringsprosess – detaljert beskrivelse</h2>
-        <p>Følgende trinnvise prosess beskriver kvalitetssikringen av KI-assistert innhold i den nye verdikjeden. Prosessen gjelder for alternativ 1 og er grunnlaget for en utvidet prosess i alternativ 2.</p>
-
-        <h3>Trinn 1: Automatisert kvalitetskontroll</h3>
-        <p>Når KI-systemet genererer innhold (utkast til systematisk oversikt, retningslinjeoppdatering eller innbyggertekst), gjennomgår innholdet automatisk kvalitetskontroll:</p>
-        <ul>
-            <li><strong>Referansevalidering</strong>: Alle referanser sjekkes mot kildesystemer. Referanser som ikke kan verifiseres flagges.</li>
-            <li><strong>Faktakonsistens</strong>: Påstander i teksten sammenlignes med det underliggende kunnskapsgrunnlaget. Avvik flagges.</li>
-            <li><strong>Hallusinerings-score</strong>: Innholdet tildeles en hallusinerings-score basert på graden av samsvar mellom generert tekst og kildemateriale. Innhold over en definert terskelverdi sendes automatisk til manuell gjennomgang.</li>
-            <li><strong>Formatvalidering</strong>: Innholdet sjekkes mot krav til struktur, referansehåndtering og terminologi.</li>
-        </ul>
-
-        <h3>Trinn 2: Faglig vurdering av KI-utkast</h3>
-        <p>Fagperson med relevant spesialkompetanse gjennomgår KI-generert utkast:</p>
-        <ul>
-            <li>Vurderer medisinsk korrekthet og klinisk relevans</li>
-            <li>Kontrollerer at evidensgraderingen er riktig</li>
-            <li>Vurderer om kontekstualiseringen til norske forhold er treffende</li>
-            <li>Godkjenner, returnerer med merknader eller avviser utkastet</li>
-        </ul>
-
-        <h3>Trinn 3: Klarspråkvurdering</h3>
-        <p>For innbyggerrettet innhold gjennomgås teksten av kommunikasjonsrådgiver:</p>
-        <ul>
-            <li>Vurderer lesbarhet og forståelighet for målgruppen</li>
-            <li>Sikrer at medisinsk innhold er korrekt forenklet uten tap av meningsinnhold</li>
-            <li>Tilpasser språknivå og format til kanalen (helsenorge.no, chatbot, etc.)</li>
-        </ul>
-
-        <h3>Trinn 4: Publisering med KI-merking</h3>
-        <p>Godkjent innhold publiseres med følgende metadata:</p>
-        <ul>
-            <li>Tydelig merking av at innholdet er KI-assistert</li>
-            <li>Dato for siste faglige validering</li>
-            <li>Referanser til underliggende kunnskapsgrunnlag</li>
-            <li>Versjonsnummer og endringshistorikk</li>
-            <li>Ansvarlig fagperson og organisasjon</li>
-        </ul>
-
-        <h3>Trinn 5: Kontinuerlig overvåking og feedback</h3>
-        <p>Etter publisering overvåkes innholdet løpende:</p>
-        <ul>
-            <li>Brukerundersøkelser og tilbakemeldingsmekanismer</li>
-            <li>Overvåking av brukeratferd (hvilke sider besøkes, hvilke spørsmål stilles til chatbot)</li>
-            <li>Automatisk varsling når ny evidens potensielt påvirker publisert innhold</li>
-            <li>Overvåking av sosiale medier og nyheter for å fange opp feilinformasjon som bør adresseres</li>
-        </ul>
-
-        <h3>Trinn 6: Periodisk revisjon</h3>
-        <p>Minst årlig gjennomføres en systematisk revisjon:</p>
-        <ul>
-            <li>Gjennomgang av et representativt utvalg KI-generert innhold</li>
-            <li>Vurdering av KI-verktøyenes ytelse (presisjon, recall, hallusinerings-rate)</li>
-            <li>Benchmarking mot manuelt produsert innhold</li>
-            <li>Evaluering av governance-mekanismenes effektivitet</li>
-            <li>Oppdatering av kvalitetskrav og terskelverdier</li>
-        </ul>
-
-        <hr>
-
-        <h2>8. Anbefaling</h2>
-
-        <h3>8.1 Overordnet anbefaling</h3>
-        <p>Det anbefales en <strong>faseinndelt tilnærming</strong> der alternativ 1 (moderat KI-støtte) implementeres som startpunkt, med gradvis utvidelse mot elementer fra alternativ 2 etter hvert som teknologi, kompetanse og governance modnes.</p>
-        <p>Denne tilnærmingen balanserer behovet for modernisering mot risikoen for feilslått implementering. Den gir tidlig nytteverdi gjennom lavrisiko-tiltak, samtidig som den bygger grunnlaget for mer ambisiøse endringer på sikt.</p>
-
-        <h3>8.2 Faseinndelt gjennomføringsplan</h3>
-
-        <h4>Fase 1: Pilotering (0–18 måneder)</h4>
-        <ul>
-            <li>KI-assistert screening av forskningslitteratur ved FHI (pilot på 2–3 fagområder)</li>
-            <li>KI-assistert oversettelse av retningslinjer til klarspråk/innbyggerspråk (pilot)</li>
-            <li>Etablering av governance-rammeverk og kvalitetskrav</li>
-            <li>Kompetanseheving hos nøkkelpersonell</li>
-            <li>Evaluering av pilotresultater som grunnlag for videre beslutning</li>
-        </ul>
-
-        <h4>Fase 2: Utvidelse (12–36 måneder)</h4>
-        <ul>
-            <li>Skalering av KI-støttet screening til alle fagområder</li>
-            <li>KI-støttede utkast til systematiske oversikter</li>
-            <li>Implementering av automatisk evidensvarsling</li>
-            <li>Pilotering av KI-chatbot på helsenorge.no med RAG mot verifiserte kilder</li>
-            <li>Videreutvikling av governance-mekanismer basert på erfaringer fra fase 1</li>
-        </ul>
-
-        <h4>Fase 3: Transformasjon (24–48 måneder)</h4>
-        <ul>
-            <li>Overgang til living guidelines på utvalgte fagområder</li>
-            <li>Full pipeline fra evidensovervåking til publisert innbyggerinformasjon med KI-støtte</li>
-            <li>Integrasjon med EHDS-infrastruktur</li>
-            <li>Pilotering av personaliserte helseråd (avhengig av regulatorisk avklaring)</li>
-            <li>Etablering av feedback-loop fra praksis</li>
-        </ul>
-
-        <h3>8.3 Forutsetninger for suksess</h3>
-        <ul>
-            <li><strong>Tverrsektoriell forankring</strong>: Alle sentrale aktører (Helsedirektoratet, FHI, NHN) må ha felles forståelse av mål og ansvarsfordeling. HOD må gi tydelig oppdrag og finansiering.</li>
-            <li><strong>Kompetanseinvestering</strong>: Fagpersoner trenger kompetanseheving i KI-forståelse og -bruk. Det må også rekrutteres teknisk kompetanse innen KI og maskinlæring.</li>
-            <li><strong>Regulatorisk avklaring</strong>: Forholdet mellom KI-generert helseinnhold og EU AI Act/EHDS må avklares tidlig. Helsedirektoratet bør ta en proaktiv rolle i å fortolke og operasjonalisere regelverket.</li>
-            <li><strong>Iterativ tilnærming</strong>: Hver fase må evalueres før neste fase starter. Berørte fagpersoner og innbyggere må involveres i evalueringen.</li>
-            <li><strong>Teknisk infrastruktur</strong>: NHN må bygge opp kapasitet for drift og forvaltning av KI-tjenester. Spørsmål om skybaserte vs. lokalt driftede løsninger må avklares tidlig, med hensyn til personvern, kostnad og ytelse.</li>
-            <li><strong>Realistiske forventninger</strong>: KI-verktøy er hjelpemidler, ikke erstatninger for faglig kompetanse. Kommunikasjonen om prosjektet bør vektlegge at målet er bedre og raskere kunnskapsformidling, ikke å erstatte fagpersoner.</li>
-        </ul>
-
-        <hr>
-
-        <h2>9. Oppsummering</h2>
-        <p>Denne rapporten har vurdert tre alternativer for fremtidig organisering av verdikjeden for kunnskapsforvaltning i helsesektoren:</p>
-
-        <ul>
-            <li><strong>Alternativ 0 (nullalternativet)</strong> innebærer videreføring av dagens praksis. Gjennomløpstiden forblir 2,5–5 år og vil sannsynligvis øke. Alternativet vurderes som ikke bærekraftig på mellomlang sikt, gitt økende forskningsvolum og innbyggernes forventninger til oppdatert helseinformasjon.</li>
-            <li><strong>Alternativ 1 (moderat KI-støtte)</strong> innfører KI som støtteverktøy i eksisterende prosesser, med menneskelig kontroll i alle ledd. Estimert tidsbesparelse er 40–60 %, med lav–moderat risiko og moderat investeringskostnad. Alternativet anbefales som startpunkt.</li>
-            <li><strong>Alternativ 2 (ambisiøs KI-pipeline)</strong> innebærer en gjennomgripende transformasjon med living guidelines, personaliserte helseråd og full EHDS-integrasjon. Estimert tidsbesparelse er 70–90 %, men risikoen er moderat–høy og investeringskostnaden vesentlig. Alternativet anbefales som langsiktig mål.</li>
-        </ul>
-
-        <p>Anbefalingen er en faseinndelt tilnærming der alternativ 1 implementeres først, med gradvis utvidelse mot alternativ 2 over en periode på 3–5 år. Denne tilnærmingen balanserer behovet for modernisering mot risikoen ved for rask endring, og gir mulighet for læring og justering underveis.</p>
-
-        <p>Detaljert arkitektur for den tekniske løsningen beskrives i delrapport 5 (Arkitektur for ny verdikjede). En samlet vurdering av alle delrapporter, med overordnet anbefaling til HOD, gis i delrapport 7 (Samlet vurdering og anbefaling).</p>
-
-        <hr>
-
-        <p><em>Sist oppdatert: 2026-03-15</em></p>
-        <p><em>Merknader om usikkerhet: Estimatene i denne rapporten er basert på scenarioanalyse, internasjonale erfaringer og tilgjengelig faglitteratur. Kostnadsestimatene har vesentlig usikkerhet og bør verifiseres gjennom detaljerte kost-nytte-analyser. Tidsestimatene for implementering forutsetter tilstrekkelig finansiering og organisatorisk støtte.</em></p>
-    </main>
-    <footer>
-        Utredning gjennomført av Helsedirektoratet, 2026
-    </footer>
 </body>
 </html>

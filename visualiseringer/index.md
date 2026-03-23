@@ -7,12 +7,12 @@
 - **Sist oppdatert**: 2026-03-20
 
 ### verdikjede-lysark.html
-- **Beskrivelse**: Presentasjonslysark (8 lysark) med minimalt med tekst og maksimalt visuell fremstilling. Lysark 1: tittel; Lysark 2: tre hovedsteg; Lysark 3: fire parallelle strømmer med detaljert layout; Lysark 4: hele verdikjeden fra forskning til innbyggere; Lysark 5: sammenligningstabel; Lysark 6: tidsforskjeller med visualiserte tidslinjer; Lysark 7: utfordringer fra parallelle strømmer; Lysark 8: fem sentrale observasjoner. Interaktiv navigasjon (forrige/neste eller piltaster). Egnet for eksport til PowerPoint eller bruk som standalone presentasjon.
-- **Sist oppdatert**: 2026-03-20
+- **Beskrivelse**: Presentasjonslysark (9 lysark) med minimalt med tekst og maksimalt visuell fremstilling. Lysark 1: tittel; Lysark 2: tre hovedsteg; Lysark 3: fire parallelle strømmer med detaljert layout; Lysark 4: hele verdikjeden fra forskning til innbyggere; Lysark 5: sammenligningstabel; Lysark 6: tidsforskjeller med visualiserte tidslinjer; Lysark 7: utfordringer fra parallelle strømmer; Lysark 8: fem sentrale observasjoner; Lysark 9: innbyggerens kilder i og utenfor verdikjeden (blå=kvalitetssikret, oransje=variabel kvalitet). Interaktiv navigasjon (forrige/neste eller piltaster).
+- **Sist oppdatert**: 2026-03-23
 
 ### verdikjede-naa.html
-- **Beskrivelse**: Interaktiv 7-fane visualisering av dagens verdikjede: (1) Hele verdikjeden fra forskning til innbyggere med 3 steg; (2) Fire parallelle strømmer i detalj (normering, klinisk, legemiddel, innbyggerrettet) med sammenligning av oppdateringshastighet, normativ kraft, kvalitetssikring og tilpasning; (3) Aktørkart med 18+ aktører, roller og leveranser; (4) Tidsforskjeller mellom strømmene og estimater for gjennomløpstid; (5) Kvalitetssikringsmekanismer per strøm; (6) Konsistensutfordringer fra parallelle strømmer med eksempler; (7) Samlet oppsummering med 10 sentrale funn. Basert på delrapport 1 (revidert 2026-03-18).
-- **Sist oppdatert**: 2026-03-20
+- **Beskrivelse**: Interaktiv 7-fane visualisering av dagens verdikjede: (1) Hele verdikjeden fra forskning til innbyggere med 3 steg, nå med tydelige input/output-bokser per steg som viser hvem som gir input og hva som er output; (2) Fire parallelle strømmer i detalj med input/output per strøm; (3) Aktørkart med 18+ aktører, roller og leveranser; (4) Tidsforskjeller mellom strømmene; (5) Kvalitetssikringsmekanismer per strøm; (6) Konsistensutfordringer; (7) Samlet oppsummering. Sluttresultatet viser nå at innbyggere mottar kunnskap fra mange kilder utover verdikjeden (sosiale medier, KI-chatboter, internasjonale nettsider, venner/familie m.m.). Basert på delrapport 1 (revidert 2026-03-18).
+- **Sist oppdatert**: 2026-03-23
 
 ### verdikjede-ny.html
 - **Beskrivelse**: Ny KI-støttet verdikjede med KI-støttepunkter, menneskelig kvalitetssikring, tidssammenligning og Gantt-diagram for 3 faser. Basert på delrapport 4.

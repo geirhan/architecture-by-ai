@@ -487,6 +487,133 @@
             color: #666;
             border-radius: 4px;
         }
+
+        /* === INPUT/OUTPUT BOKSER === */
+
+        .io-row {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .io-box {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .io-box.input {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+        }
+
+        .io-box.output {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+        }
+
+        .io-box .io-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .io-box.input .io-label {
+            color: #2e7d32;
+        }
+
+        .io-box.output .io-label {
+            color: #1565c0;
+        }
+
+        .io-box .io-source {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.2rem;
+        }
+
+        .io-box .io-detail {
+            color: #555;
+            font-size: 0.82rem;
+        }
+
+        /* === INNBYGGER KILDER-OVERSIKT === */
+
+        .citizen-sources {
+            background: #fff;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .citizen-sources h4 {
+            color: #003366;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .source-item {
+            padding: 0.7rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+        }
+
+        .source-item.in-chain {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+        }
+
+        .source-item.outside-chain {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .source-item .source-name {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .source-item .source-desc {
+            color: #666;
+            font-size: 0.78rem;
+            margin-top: 0.2rem;
+        }
+
+        .source-legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .source-legend span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-dot.in { background: #2196f3; }
+        .legend-dot.out { background: #ff9800; }
     </style>
 </head>
 <body>
@@ -520,6 +647,18 @@
                 <div class="flow-stage">
                     <h3>Steg 1: Internasjonal forskning</h3>
                     <p>Grunnlaget for evidensbasert helseinformasjon er enkeltpublikasjoner fra internasjonale forskningsmiljøer, publisert i vitenskapelige tidsskrifter etter fagfellevurdering. Forskningen spenner fra kliniske studier til grunnforskning. Norske forskningsmiljøer bidrar, men den store mengden ny kunnskap genereres internasjonalt.</p>
+                    <div class="io-row">
+                        <div class="io-box input">
+                            <div class="io-label">Input</div>
+                            <div class="io-source">Forskningsmiljøer (internasjonale og norske)</div>
+                            <div class="io-detail">Kliniske studier, epidemiologiske undersøkelser, grunnforskning, laboratoriedata, observasjonsstudier</div>
+                        </div>
+                        <div class="io-box output">
+                            <div class="io-label">Output</div>
+                            <div class="io-source">Fagfellevurderte publikasjoner</div>
+                            <div class="io-detail">Publisert i vitenskapelige tidsskrifter, indeksert i PubMed/MEDLINE. Mottakere: Steg 2 (FHI, Cochrane), kliniske oppslagsverk, fagmedisinske foreninger, medier</div>
+                        </div>
+                    </div>
                     <div class="actors-in-stage">
                         <strong>Aktører:</strong>
                         <div class="actor-item">Internasjonale forskningsmiljøer, PubMed/MEDLINE, vitenskapelige tidsskrifter</div>
@@ -531,6 +670,18 @@
                 <div class="flow-stage">
                     <h3>Steg 2: Kunnskapsoppsummering</h3>
                     <p>Folkehelseinstituttet (FHI) og internasjonale aktører som Cochrane Collaboration sammenstiller enkeltpublikasjoner til systematiske oversikter og kunnskapsoppsummeringer ved bruk av GRADE-metodikken, som vurderer kvaliteten på kunnskapsgrunnlaget. FHI har sentral rolle i norsk kontekst.</p>
+                    <div class="io-row">
+                        <div class="io-box input">
+                            <div class="io-label">Input</div>
+                            <div class="io-source">Fagfellevurderte publikasjoner (fra Steg 1)</div>
+                            <div class="io-detail">Levert av: Vitenskapelige tidsskrifter via PubMed/MEDLINE, Cochrane-databaser, kliniske studieregistre</div>
+                        </div>
+                        <div class="io-box output">
+                            <div class="io-label">Output</div>
+                            <div class="io-source">Systematiske oversikter og kunnskapsoppsummeringer</div>
+                            <div class="io-detail">GRADE-vurdert evidens med kvalitetsnivå. Mottakere: Helsedirektoratet (retningslinjer), kliniske oppslagsverk, helsenorge.no, fagprosedyrer</div>
+                        </div>
+                    </div>
                     <div class="actors-in-stage">
                         <strong>Aktører:</strong>
                         <div class="actor-item"><span class="actor-badge">Steg 2</span> Folkehelseinstituttet (FHI), Cochrane Collaboration</div>
@@ -543,21 +694,37 @@
                     <h3>Steg 3: Kunnskapsomsetting og formidling – Fire parallelle strømmer</h3>
                     <p><strong>Kunnskapen fra steg 1 og 2 omsettes og formidles gjennom fire helt parallelle hovedstrømmer</strong> som opererer uavhengig med ulike aktører, ulik hastighet og ulik kvalitetssikring. Ingen enkelt strøm dekker hele kunnskapsbehovet – det er samspillet mellom dem som utgjør den reelle kunnskapsforsyningen.</p>
 
+                    <div class="io-row">
+                        <div class="io-box input">
+                            <div class="io-label">Input (felles for alle strømmer)</div>
+                            <div class="io-source">Kunnskapsoppsummeringer (Steg 2) og/eller forskning (Steg 1)</div>
+                            <div class="io-detail">Merk: Noen strømmer (3b, 3d) henter også direkte fra Steg 1 uten å gå via Steg 2</div>
+                        </div>
+                    </div>
+
                     <div class="actors-in-stage" style="margin-top: 1rem;">
                         <strong>3a. Den normerende strømmen (langsomst)</strong>
+                        <div class="actor-item">Input: Kunnskapsoppsummeringer (Steg 2), fagmedisinske foreninger, brukerrepresentanter</div>
                         <div class="actor-item">Helsedirektoratet → nasjonale retningslinjer → implementering i RHF/kommuner</div>
+                        <div class="actor-item" style="color: #1565c0; font-weight: 600;">Output: Retningslinjer, veiledere, faglige råd → til helsepersonell og helsenorge.no</div>
                     </div>
                     <div class="actors-in-stage">
                         <strong>3b. Den kliniske kunnskapsstrømmen (raskere)</strong>
+                        <div class="actor-item">Input: Forskning (Steg 1) direkte + kunnskapsoppsummeringer (Steg 2)</div>
                         <div class="actor-item">UpToDate, BMJ Best Practice, fagprosedyrer, fagtidsskrifter, fagmedisinske foreninger</div>
+                        <div class="actor-item" style="color: #1565c0; font-weight: 600;">Output: Kliniske anbefalinger, fagprosedyrer → til helsepersonell</div>
                     </div>
                     <div class="actors-in-stage">
                         <strong>3c. Legemiddelstrømmen (raskest ved varsler)</strong>
+                        <div class="actor-item">Input: EMA, kliniske studier, bivirkningsrapporter fra helsepersonell og pasienter</div>
                         <div class="actor-item">DMP → Felleskatalogen, RELIS, regulatorisk sikkerhetsinformasjon</div>
+                        <div class="actor-item" style="color: #1565c0; font-weight: 600;">Output: Preparatomtaler, sikkerhetsvarsler, interaksjonsdata → til helsepersonell og innbyggere</div>
                     </div>
                     <div class="actors-in-stage">
                         <strong>3d. Den innbyggerrettede strømmen (variabel)</strong>
+                        <div class="actor-item">Input: Retningslinjer (3a), kunnskapsoppsummeringer (Steg 2), direkte forskning, redaksjonelt innhold</div>
                         <div class="actor-item">helsenorge.no, FHI, FNSP, NHI.no, pasientorganisasjoner, medier</div>
+                        <div class="actor-item" style="color: #1565c0; font-weight: 600;">Output: Klarspråk helseinformasjon, pasientinformasjon → til innbyggere</div>
                     </div>
                 </div>
 
@@ -565,7 +732,57 @@
 
                 <div class="flow-stage">
                     <h3>Sluttresultat: Innbyggere mottar helseinformasjon</h3>
-                    <p>Innbyggere mottar helseinformasjon fra et bredt spekter av kilder med ulike kilder, ulik kvalitetssikring og ulik grad av offentlig styring. Informasjonen kan ha betydelig ulik alder avhengig av hvilken strøm den kom gjennom.</p>
+                    <p>Innbyggere mottar helseinformasjon fra et bredt spekter av kilder – <strong>både fra denne verdikjeden og fra kilder utenfor den</strong>. Informasjonen varierer i kvalitet, aktualitet og tilpasning til norske forhold. Innbyggeren navigerer selv mellom disse kildene, ofte uten å kunne vurdere kvaliteten.</p>
+
+                    <div class="citizen-sources">
+                        <h4>Innbyggerens kunnskapskilder – i og utenfor verdikjeden</h4>
+                        <div class="source-legend">
+                            <span><span class="legend-dot in"></span> Fra denne verdikjeden (kvalitetssikret)</span>
+                            <span><span class="legend-dot out"></span> Utenfor verdikjeden (variabel kvalitet)</span>
+                        </div>
+                        <div class="source-grid">
+                            <div class="source-item in-chain">
+                                <div class="source-name">helsenorge.no</div>
+                                <div class="source-desc">Offentlig helseportal, faglig kvalitetssikret</div>
+                            </div>
+                            <div class="source-item in-chain">
+                                <div class="source-name">Felleskatalogen</div>
+                                <div class="source-desc">Pakningsvedlegg, legemiddelinfo</div>
+                            </div>
+                            <div class="source-item in-chain">
+                                <div class="source-name">FNSP / sykehusenes nettsider</div>
+                                <div class="source-desc">Behandlingsinformasjon fra spesialisthelsetjenesten</div>
+                            </div>
+                            <div class="source-item in-chain">
+                                <div class="source-name">Pasientorganisasjoner</div>
+                                <div class="source-desc">Diagnosespesifikk informasjon og erfaringsdeling</div>
+                            </div>
+                            <div class="source-item outside-chain">
+                                <div class="source-name">Sosiale medier</div>
+                                <div class="source-desc">Facebook-grupper, TikTok, Instagram – ingen kvalitetssikring</div>
+                            </div>
+                            <div class="source-item outside-chain">
+                                <div class="source-name">Nyhetsmedier</div>
+                                <div class="source-desc">Journalistisk formidling av forskning, ofte forenklet</div>
+                            </div>
+                            <div class="source-item outside-chain">
+                                <div class="source-name">Familie, venner, nettverk</div>
+                                <div class="source-desc">Erfaringsbasert, subjektiv, ingen kvalitetskontroll</div>
+                            </div>
+                            <div class="source-item outside-chain">
+                                <div class="source-name">Internasjonale nettsider</div>
+                                <div class="source-desc">WebMD, Mayo Clinic, Wikipedia – ikke tilpasset norsk kontekst</div>
+                            </div>
+                            <div class="source-item outside-chain">
+                                <div class="source-name">KI-chatboter (ChatGPT mfl.)</div>
+                                <div class="source-desc">Generativ KI uten garantert faglig grunnlag</div>
+                            </div>
+                            <div class="source-item outside-chain">
+                                <div class="source-name">Kommersielle aktører</div>
+                                <div class="source-desc">Helsekost, alternativ medisin, reklame – ofte interessekonflikt</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1151,7 +1368,7 @@
     </div>
 
     <div class="metadata">
-        <strong>Visualisering:</strong> Oppdatert 2026-03-20<br>
+        <strong>Visualisering:</strong> Oppdatert 2026-03-23<br>
         <strong>Basert på:</strong> Delrapport 1 (revidert 2026-03-18)<br>
         <strong>Tjenestebeskrivelse:</strong> Interaktiv HTML med faner<br>
         <strong>Utredning:</strong> Ny verdikjede for kunnskapsforvaltning i helsesektoren

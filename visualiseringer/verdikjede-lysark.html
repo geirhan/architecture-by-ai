@@ -472,7 +472,7 @@
 </head>
 <body>
     <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">8</span>
+        <span id="current-slide">1</span> / <span id="total-slides">9</span>
     </div>
 
     <div class="slide-container">
@@ -725,6 +725,66 @@
                 </div>
             </div>
         </div>
+
+        <!-- SLIDE 9: INNBYGGERENS KILDER -->
+        <div class="slide" id="slide-9">
+            <h2>Innbyggerens virkelighet: kilder i og utenfor verdikjeden</h2>
+            <p style="text-align: center; color: #555; margin-bottom: 1.5rem; font-size: 0.95rem;">Innbyggeren navigerer selv mellom mange kilder – ofte uten å kunne vurdere kvaliteten</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                <!-- Venstre: I verdikjeden -->
+                <div style="background: #e3f2fd; border: 2px solid #2196f3; border-radius: 8px; padding: 1.2rem;">
+                    <h4 style="color: #1565c0; margin-bottom: 0.8rem; font-size: 1rem; text-align: center;">Fra verdikjeden (kvalitetssikret)</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #2196f3;">
+                            <strong style="font-size: 0.85rem; color: #333;">helsenorge.no</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Offentlig helseportal</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #2196f3;">
+                            <strong style="font-size: 0.85rem; color: #333;">Felleskatalogen</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Legemiddelinformasjon</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #2196f3;">
+                            <strong style="font-size: 0.85rem; color: #333;">FNSP / sykehusnettsider</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Behandlingsinformasjon</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #2196f3;">
+                            <strong style="font-size: 0.85rem; color: #333;">Pasientorganisasjoner</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Diagnosespesifikk info</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Høyre: Utenfor verdikjeden -->
+                <div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 8px; padding: 1.2rem;">
+                    <h4 style="color: #e65100; margin-bottom: 0.8rem; font-size: 1rem; text-align: center;">Utenfor verdikjeden (variabel kvalitet)</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #ff9800;">
+                            <strong style="font-size: 0.85rem; color: #333;">Sosiale medier</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Ingen kvalitetssikring</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #ff9800;">
+                            <strong style="font-size: 0.85rem; color: #333;">KI-chatboter (ChatGPT mfl.)</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Ikke garantert faglig grunnlag</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #ff9800;">
+                            <strong style="font-size: 0.85rem; color: #333;">Internasjonale nettsider</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Ikke tilpasset norsk kontekst</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #ff9800;">
+                            <strong style="font-size: 0.85rem; color: #333;">Venner, familie, nettverk</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Subjektivt, ingen kontroll</div>
+                        </div>
+                        <div style="background: #fff; padding: 0.5rem 0.8rem; border-radius: 4px; border-left: 3px solid #ff9800;">
+                            <strong style="font-size: 0.85rem; color: #333;">Kommersielle aktører</strong>
+                            <div style="font-size: 0.75rem; color: #666;">Ofte interessekonflikt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: #333; margin-top: 1.5rem; font-size: 0.9rem; font-weight: 600;">Den offentlige verdikjeden konkurrerer med disse kildene om innbyggerens oppmerksomhet og tillit</p>
+        </div>
     </div>
 
     <div class="controls">
@@ -734,7 +794,7 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 8;
+        const totalSlides = 9;
 
         function showSlide(n) {
             const slides = document.querySelectorAll('.slide');

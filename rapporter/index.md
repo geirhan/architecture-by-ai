@@ -3,8 +3,8 @@
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
 ### dagens-verdikjede.md
-- **Beskrivelse**: Delrapport 1 – Kartlegging av dagens verdikjede for kunnskapsforvaltning i helsesektoren. Reorganisert for bedre helhet: 3-stegs modell der steg 3 beskrives som fire parallelle strømmer (normerende, klinisk, legemiddel, innbyggerrettet). Inneholder: oversikt av strømmene, detaljert tidsbruk per strøm (2–6,5 år for normativ, dager–uker for legemiddel), ~20 aktører med roller, informasjonsflyt og kritiske overganger, kvalitetssikring per strøm, og konklusjon med hovedobservasjoner.
-- **Sist oppdatert**: 2026-03-18
+- **Beskrivelse**: Delrapport 1 – Kartlegging av dagens verdikjede for kunnskapsforvaltning i helsesektoren. 3-stegs modell der steg 3 beskrives som fire parallelle strømmer (normerende, klinisk, legemiddel, innbyggerrettet). Inneholder: oversikt av strømmene inkl. innbyggerkilder utenfor verdikjeden, detaljert tidsbruk per strøm, informasjonsflyt og kritiske overganger, kvalitetssikring per strøm, og konklusjon med hovedobservasjoner. Aktørkartet er flyttet til delrapport 8 (aktoeranalyse.md).
+- **Sist oppdatert**: 2026-03-23
 
 ### utfordringer-og-flaskehalser.md
 - **Beskrivelse**: Delrapport 2 – Kartlegging av utfordringer og flaskehalser i verdikjeden. Analyserer forsinkelser i hvert steg, konsekvenser, kvantitative indikatorer (scenariobasert), strukturelle utfordringer. Rangerer 8 flaskehalser etter alvorlighet.
@@ -29,6 +29,10 @@
 ### samlet-vurdering-kunnskapsforvaltning.md
 - **Beskrivelse**: Delrapport 7 – Samlet vurdering med ledersammendrag, risikomatrise (10 risikoer), fremdriftsplan, kostnadsramme (100-250 MNOK) og samsvar med utredningsinstruksen.
 - **Sist oppdatert**: 2026-03-15
+
+### aktoeranalyse.md
+- **Beskrivelse**: Delrapport 8 – Aktøranalyse for verdikjeden. Systematisk oversikt over ~20 aktører organisert etter verdikjedens steg og strømmer. Inkluderer roller, ansvar, leveranser, kryssreferanser mellom strømmer og observasjoner om fragmentert ansvar og overlappende roller. Utskilt fra delrapport 1 som egen delrapport.
+- **Sist oppdatert**: 2026-03-23
 
 ### html/ (mappe)
 - **Beskrivelse**: Navigerbar HTML-versjon av hele utredningen. 10 HTML-filer med identisk navigasjon, ordliste og kildeliste. Åpne html/index.html for å starte.
