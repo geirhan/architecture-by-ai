@@ -31,7 +31,7 @@
 - **Sist oppdatert**: 2026-03-15
 
 ### aktoeranalyse.md
-- **Beskrivelse**: Delrapport 8 – Aktøranalyse for verdikjeden. Systematisk oversikt over ~20 aktører organisert etter verdikjedens steg og strømmer. Inkluderer roller, ansvar, leveranser, kryssreferanser mellom strømmer og observasjoner om fragmentert ansvar og overlappende roller. Utskilt fra delrapport 1 som egen delrapport.
+- **Beskrivelse**: Delrapport 8 – Aktøranalyse for verdikjeden. Systematisk oversikt over ~20 aktører organisert etter verdikjedens steg og strømmer. Inkluderer roller, ansvar, leveranser, kryssreferanser mellom strømmer, IGOE-analyse (Inputs, Guides, Outputs, Enablers) per strøm, og observasjoner om fragmentert ansvar, overlappende roller og enabler-gap. Utskilt fra delrapport 1 som egen delrapport.
 - **Sist oppdatert**: 2026-03-23
 
 ### html/ (mappe)

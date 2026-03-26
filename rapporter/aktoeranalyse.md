@@ -173,6 +173,109 @@ Flere aktører opererer i mer enn én strøm. Tabellen nedenfor oppsummerer de v
 
 ---
 
+## 5. IGOE-analyse
+
+### 5.1 Om IGOE-rammeverket
+
+IGOE (Inputs, Guides, Outputs, Enablers) er et prosessanalytisk rammeverk som beskriver de grunnleggende komponentene i enhver prosess eller aktivitet. Rammeverket er en videreføring av IDEF0-metodikken, tilpasset tjenestebaserte virksomheter.
+
+De fire komponentene defineres slik:
+
+- **Inputs** – Noe som **transformeres eller forbrukes** av prosessen. Transformasjonen kan være fysisk, informasjonsmessig eller lokasjonsmessig. Det er denne transformasjonen som tilfører verdi. (*Hva vi trenger for å gjøre det*)
+- **Guides** – Politikk, standarder, regelverk, kunnskap og utløsende hendelser som beskriver **når, hvorfor og hvordan** prosessen utføres. Guides transformeres ikke av prosessen – de styrer den. (*Hvorfor, når og hvordan vi gjør det vi gjør*)
+- **Outputs** – Resultatet av transformasjonen av inputs, eller noe som skapes basert på guides. (*Hva vi produserer eller leverer*)
+- **Enablers** – Ressurser og eiendeler som **muliggjør** transformasjonen av inputs til outputs, uten selv å forbrukes. Mennesker, systemer, verktøy, fasiliteter og eiendeler. (*Hvor vi gjør det, og hva og hvem vi gjør det med*)
+
+**Viktig distinksjon:** Inputs *endres* av prosessen, mens guides og enablers *ikke endres*. En kunnskapsoppsummering som bearbeides til en retningslinje er en input (den transformeres). Lovverket som angir rammene for retningslinjen er en guide (det endres ikke av prosessen). Publiseringsplattformen som muliggjør arbeidet er en enabler (den forbrukes ikke).
+
+### 5.2 IGOE per prosess i verdikjeden
+
+Analysen nedenfor anvender IGOE på **hovedprosessene** i verdikjeden, ikke på den enkelte aktør. Hver prosess beskrives med hva som transformeres (I), hva som styrer (G), hva som produseres (O), og hva som muliggjør arbeidet (E). Utløsende hendelser og avsluttende hendelser er angitt som del av Guides.
+
+#### Prosess 1: Kunnskapsoppsummering (steg 2)
+
+*Transformasjon: Enkeltpublikasjoner → strukturert, kvalitetsvurdert kunnskapsgrunnlag*
+
+| Komponent | Aktør(er) | Beskrivelse |
+|-----------|-----------|-------------|
+| **Inputs** (transformeres) | Internasjonale forskningsmiljøer, Cochrane | Publiserte enkeltartikler fra vitenskapelige tidsskrifter (steg 1); helsedata og registerdata; internasjonale systematiske oversikter |
+| **Guides** (styrer prosessen) | HOD, Helsedirektoratet (bestiller); FHI (metodeeier) | *Utløsende hendelse:* Bestilling fra HOD/Hdir eller identifisert kunnskapsbehov. *Metode:* GRADE-metodikk, Cochrane Handbook, systematisk oversiktsmetodikk. *Rammer:* Helseforskningsloven, forskningsetiske retningslinjer, FHIs mandat. *Avsluttende hendelse:* Godkjent og publisert kunnskapsoppsummering |
+| **Outputs** (resultat) | FHI | Systematiske oversikter med GRADE-vurdert evidenskvalitet; kunnskapsoppsummeringer; metodevurderinger | <!-- KOMMENTAR: Dette henger ikke helt sammen med neste steg i verdikjeden. Det er i liten grad FHI som lager normerende produkter -->
+| **Enablers** (muliggjør) | FHI, Helsebiblioteket | Forskere med metodekompetanse; litteraturdatabaser (PubMed, Embase, Cochrane Library); statistiske analyseverktøy; Helsebiblioteket som tilgangsportal |
+
+#### Prosess 2: Retningslinjeutvikling (strøm 3a – normerende del)
+
+*Transformasjon: Kunnskapsoppsummeringer → normerende anbefalinger tilpasset norsk kontekst*
+
+| Komponent | Aktør(er) | Beskrivelse |
+|-----------|-----------|-------------|
+| **Inputs** (transformeres) | FHI (kunnskapsoppsummeringer); fagmedisinske foreninger, brukerorganisasjoner (høringsinnspill); RHF-er, kommuner (praksiserfaring) | Kunnskapsoppsummeringer (output fra prosess 1); høringsinnspill fra fagmiljøer og brukerorganisasjoner; praksiserfaring fra helsetjenesten; internasjonale retningslinjer |
+| **Guides** (styrer prosessen) | HOD (tildelingsbrev); Stortinget (lovgivning) | *Utløsende hendelse:* Tildelingsbrev fra HOD eller identifisert behov for ny/revidert retningslinje. *Metode:* GRADE-fra-evidens-til-anbefaling-rammeverk, Helsedirektoratets retningslinjemetodikk. *Rammer:* Helselovgivning, pasient- og brukerrettighetsloven, forvaltningsloven (høringskrav), helsepolitiske prioriteringer. *Avsluttende hendelse:* Publisert retningslinje/veileder/faglig råd |
+| **Outputs** (resultat) | Helsedirektoratet | Nasjonale faglige retningslinjer; veiledere; faglige råd – alle normerende for norsk helsetjeneste | 
+| **Enablers** (muliggjør) | Helsedirektoratet, fagmedisinske foreninger, brukerrepresentanter, Helsebiblioteket | Tverrfaglige arbeidsgrupper; publiseringsplattform (helsedirektoratet.no); Helsebiblioteket for kunnskapstilgang |
+
+#### Prosess 3: Implementering av retningslinjer i helsetjenesten (strøm 3a – implementeringsdel)
+
+*Transformasjon: Nasjonale retningslinjer → operasjonalisert klinisk praksis*
+
+| Komponent | Aktør(er) | Beskrivelse |
+|-----------|-----------|-------------|
+| **Inputs** (transformeres) | Helsedirektoratet (retningslinjer); RHF-er, kommuner (eksisterende lokale prosedyrer) | Nasjonale faglige retningslinjer, veiledere og faglige råd (output fra prosess 2); eksisterende lokale prosedyrer som skal oppdateres |
+| **Guides** (styrer prosessen) | HOD (oppdragsdokumenter); Stortinget (lovgivning); Helsedirektoratet (standarder, kodeverk) | *Utløsende hendelse:* Publisering av ny eller revidert retningslinje. *Rammer:* Helseforetaksloven, helse- og omsorgstjenesteloven, kommuneloven, oppdragsdokumenter fra HOD, Helsedirektoratets standarder og kodeverk, kvalitetsforskriften. *Avsluttende hendelse:* Retningslinje innarbeidet i lokal praksis |
+| **Outputs** (resultat) | RHF-ene/HF-ene (spesialist); KS/kommunene (primær) | *Spesialisthelsetjenesten:* Lokalt tilpassede fagprosedyrer, behandlingslinjer, oppdaterte kliniske rutiner. *Primærhelsetjenesten:* Oppdatert praksis hos fastleger, helsestasjoner, hjemmetjenester og sykehjem |
+| **Enablers** (muliggjør) | RHF-ene (EPJ, kvalitetsavd.); Helsebiblioteket/OUS (fagprosedyreplattform); KS (verktøy); kommunene (fagsystemer) | *Spesialisthelsetjenesten:* Klinisk personell, EPJ-systemer, fagprosedyreplattform, kvalitetsavdelinger, internopplæring. *Primærhelsetjenesten:* Fastleger, helsesykepleiere, kommunale fagsystemer, KS-verktøy. *Felles:* Helsebiblioteket som tilgangsportal |
+
+#### Prosess 4: Klinisk kunnskapssammenstilling (strøm 3b)
+
+*Transformasjon: Forskningslitteratur → klinisk anvendbare anbefalinger og prosedyrer*
+
+| Komponent | Aktør(er) | Beskrivelse |
+|-----------|-----------|-------------|
+| **Inputs** (transformeres) | Internasjonale forskningsmiljøer (studier); klinikere (manuskripter, erfaring) | Publiserte studier og systematiske oversikter (direkte fra steg 1, uten å gå via formelle kunnskapsoppsummeringer i steg 2); klinisk praksis og erfaring internasjonalt; innsendte manuskripter til fagtidsskrifter |
+| **Guides** (styrer prosessen) | UpToDate, BMJ (redaksjonelle retningslinjer); Tidsskriftet, Sykepleien (publiseringsstandarder); fagmedisinske foreninger (spesialitetsregler) | *Utløsende hendelse:* Ny forskning publisert, eller løpende oppdateringssyklus. *Metode:* Redaksjonelle retningslinjer, evidenshierarkier, kunnskapsbasert praksis-metodikk, fagfellevurderingsstandarder, Vancouver-konvensjonene. *Rammer:* Publiseringsetikk, spesialitetsregler. *Avsluttende hendelse:* Oppdatert oppslagsverk-artikkel, publisert fagprosedyre eller tidsskriftartikkel |
+| **Outputs** (resultat) | UpToDate, BMJ Best Practice (oppslagsverk); Helsebiblioteket/OUS (fagprosedyrer); Tidsskriftet, Sykepleien Forskning (artikler); fagmedisinske foreninger (anbefalinger) | Oppdaterte kliniske anbefalinger i oppslagsverk; kunnskapsbaserte fagprosedyrer; fagfellevurderte artikler; spesialitetsspesifikke anbefalinger |
+| **Enablers** (muliggjør) | UpToDate, BMJ (redaksjoner); Helsebiblioteket/OUS (plattform); Tidsskriftet, Sykepleien (redaksjon, fagfeller); fagmedisinske foreninger (administrasjon) | Internasjonale redaksjoner; fagprosedyreplattform; nasjonale lisensavtaler via Helsebiblioteket; digitale publiseringsplattformer |
+
+#### Prosess 5: Legemiddelgodkjenning og -informasjon (strøm 3c)
+
+*Transformasjon: Kliniske studiedata og regulatorisk dokumentasjon → godkjent, tilgjengelig legemiddelinformasjon*
+
+| Komponent | Aktør(er) | Beskrivelse |
+|-----------|-----------|-------------|
+| **Inputs** (transformeres) | Legemiddelselskaper (søknader, studiedata); helsepersonell og pasienter (bivirkningsrapporter, henvendelser) | Søknader om markedsføringstillatelse med kliniske studiedata; bivirkningsrapporter fra helsepersonell og pasienter; kliniske henvendelser til RELIS; rådata i FEST-databasen som oppdateres |
+| **Guides** (styrer prosessen) | Stortinget (legemiddelloven); EMA (EU-regulering); DMP (SPC-standarder); RELIS (produsentuavhengighetsprinsippet) | *Utløsende hendelse:* Ny søknad om markedsføringstillatelse, nytt sikkerhetssignal, eller klinisk henvendelse. *Rammer:* Legemiddelloven, EU-regulering (EMA-prosedyrer), ICH-retningslinjer, SPC-standarder, produsentuavhengighetsprinsippet. *Metode:* Evidensbasert legemiddelvurdering, nytte-risiko-analyse. *Avsluttende hendelse:* Godkjent markedsføringstillatelse, publisert sikkerhetsvarsel, eller besvart henvendelse |
+| **Outputs** (resultat) | DMP (godkjenninger, FEST, sikkerhetsvarsler); Felleskatalogen (preparatomtaler, interaksjonssøk); RELIS (rådgivning, fagartikler, Trygg Mammamedisin, KUPP) | Markedsføringstillatelser; godkjente preparatomtaler (SPC); pakningsvedlegg; FEST-database; sikkerhetsvarsler; individuell rådgivning; interaksjonssøk; fagartikler; Trygg Mammamedisin; KUPP-kampanjer |
+| **Enablers** (muliggjør) | DMP (ekspertise, EMA-samarbeid); Felleskatalogen (plattform, redaksjon); RELIS (fire regionale sentre) | Farmasøytisk og medisinsk ekspertise; samarbeid med EMA; FEST-forvaltningssystem; Felleskatalogen.no med dataintegrasjon; farmasøyter og leger ved fire regionale sentre; litteraturdatabaser; RELIS-database |
+
+#### Prosess 6: Innbyggerrettet kunnskapsformidling (strøm 3d)
+
+*Transformasjon: Faglig kunnskap fra ulike kilder → tilgjengelig helseinformasjon for innbyggere*
+
+| Komponent | Aktør(er) | Beskrivelse |
+|-----------|-----------|-------------|
+| **Inputs** (transformeres) | Helsedirektoratet (retningslinjer); FHI (folkehelsedata); RHF-ene/FNSP (sykehuskunnskap); NHI.no (faglitteratur); pasientorganisasjoner (erfaringskunnskap); medier (forskningsnyheter); 80+ offentlige helseaktører | Faglig innhold fra offentlige helseaktører; nasjonale retningslinjer og faglige råd; folkehelsedata og overvåkingsdata; medisinsk fagkunnskap fra sykehusene; medisinsk faglitteratur; pasienterfaring og pårørendeperspektiver; forskningspublikasjoner og pressemeldinger |
+| **Guides** (styrer prosessen) | Helsedirektoratet (utgiveransvar); Stortinget (språkloven, personvernregelverk, smittevernloven); Pressens Faglige Utvalg (Vær Varsom); pasientorganisasjoner (vedtekter) | *Utløsende hendelse:* Ny retningslinje publisert, nytt helseutbrudd, oppdateringssyklus (helsenorge.no: minst hvert 3. år), nyhendelse. *Rammer:* Helsedirektoratets utgiveransvar, kvalitetsretningslinjer, klarspråkstandard (språkloven § 9), personvernregelverk, smittevernloven, presseetiske retningslinjer (Vær Varsom-plakaten), redaksjonell uavhengighet. *Metode:* Redaksjonell kvalitetssikring, faglig godkjenning, klarspråkmetodikk. *Avsluttende hendelse:* Publisert innbyggerrettet innhold |
+| **Outputs** (resultat) | helsenorge.no/NHN (helseinformasjon); FHI (smittevernråd, vaksineinformasjon); FNSP (behandlingstekster); NHI.no (artikler, symptomsjekker); pasientorganisasjoner (pasientinfo, likepersonstøtte); medier (nyhetsartikler) | Kvalitetssikret helseinformasjon i klarspråk; smittevernråd og vaksineinformasjon; ca. 1 700 behandlingstekster; artikler om sykdommer og symptomsjekker; pasientrettet informasjon og likepersonstøtte; nyhetsartikler og populærvitenskapelig formidling |
+| **Enablers** (muliggjør) | NHN (plattform, redaktører); FHI (fhi.no, Folkehelsepodden); FNSP/NHN (sykehusnettsteder); NHI.no (redaksjon); pasientorganisasjoner (frivillige, ansatte); medier (journalister, redaksjoner) | NHN-plattform (helsenorge.no) med lokale redaktører og publiseringsverktøy; fhi.no, Folkehelsepodden og sosiale medier; nasjonal medisinsk redaksjon og 60+ sykehusnettsteder; redaksjon av leger og journalister; frivillige og ansatte i pasientorganisasjoner; journalister og redaksjoner i mediene |
+
+### 5.3 Observasjoner fra IGOE-analysen
+
+1. **Inputs transformeres i kjede – forsinkelse akkumuleres**: Output fra én prosess er input til neste. Enkeltpublikasjoner (steg 1) transformeres til kunnskapsoppsummeringer (prosess 1), som igjen transformeres til retningslinjer (prosess 2), som transformeres til klinisk praksis (prosess 3) og innbyggerinformasjon (prosess 6). Forsinkelse i én prosess forplanter seg nedover i kjeden.
+
+2. **Strøm 3b og 3c kortslutter kjeden**: Den kliniske kunnskapsstrømmen (prosess 4) og legemiddelstrømmen (prosess 5) henter inputs direkte fra steg 1 (publiserte studier), uten å gå via de formelle kunnskapsoppsummeringene i prosess 1. Dette forklarer hvorfor disse strømmene er raskere, men også hvorfor de kan divergere fra den normerende strømmen.
+
+3. **Felles guides – men ingen felles mekanisme for oppdatering**: Helselovgivningen opptrer som guide i alle seks prosessene. Endringer i lovverket – som innføringen av EHDS – vil påvirke guides på tvers av alle prosesser. I dag finnes ingen systematisk mekanisme som sikrer at alle prosessene oppdaterer sin praksis når felles guides endres.
+
+4. **Enabler-asymmetri mellom spesialist- og primærhelsetjenesten**: I prosess 3 (implementering) har spesialisthelsetjenesten systematiske enablere (fagprosedyreplattform, EPJ-systemer, kvalitetsavdelinger), mens primærhelsetjenesten mangler tilsvarende. Denne enabler-asymmetrien forklarer hvorfor samme input (retningslinje) kan gi ulik output (implementeringsgrad) i de to delene av helsetjenesten.
+
+5. **Helsebiblioteket er enabler i fire av seks prosesser**: Helsebiblioteket opptrer som enabler i prosess 1 (kunnskapsoppsummering), 2 (retningslinjeutvikling), 3 (implementering) og 4 (klinisk kunnskapssammenstilling). Endringer i Helsebibliotekets tjenester – som budsjettkuttene i 2023 som fjernet tilgang til Cochrane Library og Embase – påvirker enabler-kapasiteten i store deler av verdikjeden.
+
+6. **Output-overlapp i prosess 6 uten guide-koordinering**: Prosess 6 (innbyggerrettet formidling) har mange parallelle aktører som produserer overlappende outputs, men de styres av ulike guides (Helsedirektoratets utgiveransvar vs. Vær Varsom-plakaten vs. organisasjonenes vedtekter). Siden guidene er ulike, finnes det ingen innebygd mekanisme for å sikre konsistens i outputene.
+
+7. **Manglende tilbakekoblingsloop**: IGOE-analysen synliggjør at verdikjeden i hovedsak er lineær – outputs flyter nedover i kjeden. Det finnes ingen formell prosess der output fra prosess 3 (erfaring fra implementering) systematisk tilbakeføres som input til prosess 2 (retningslinjerevisjon). Tilbakekobling skjer ad hoc, ikke strukturert.
+
+---
+
 *Sist oppdatert: 2026-03-23*
 
 ---
