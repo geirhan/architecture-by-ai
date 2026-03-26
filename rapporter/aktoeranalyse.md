@@ -200,7 +200,8 @@ Analysen nedenfor anvender IGOE på **hovedprosessene** i verdikjeden, ikke på 
 |-----------|-----------|-------------|
 | **Inputs** (transformeres) | Internasjonale forskningsmiljøer, Cochrane | Publiserte enkeltartikler fra vitenskapelige tidsskrifter (steg 1); helsedata og registerdata; internasjonale systematiske oversikter |
 | **Guides** (styrer prosessen) | HOD, Helsedirektoratet (bestiller); FHI (metodeeier) | *Utløsende hendelse:* Bestilling fra HOD/Hdir eller identifisert kunnskapsbehov. *Metode:* GRADE-metodikk, Cochrane Handbook, systematisk oversiktsmetodikk. *Rammer:* Helseforskningsloven, forskningsetiske retningslinjer, FHIs mandat. *Avsluttende hendelse:* Godkjent og publisert kunnskapsoppsummering |
-| **Outputs** (resultat) | FHI | Systematiske oversikter med GRADE-vurdert evidenskvalitet; kunnskapsoppsummeringer; metodevurderinger | <!-- KOMMENTAR: Dette henger ikke helt sammen med neste steg i verdikjeden. Det er i liten grad FHI som lager normerende produkter -->
+| **Outputs** (resultat) | FHI | Systematiske oversikter med GRADE-vurdert evidenskvalitet; kunnskapsoppsummeringer; metodevurderinger | 
+<!-- KOMMENTAR: Dette henger ikke helt sammen med neste steg i verdikjeden. Det er i liten grad FHI som lager normerende produkter -->
 | **Enablers** (muliggjør) | FHI, Helsebiblioteket | Forskere med metodekompetanse; litteraturdatabaser (PubMed, Embase, Cochrane Library); statistiske analyseverktøy; Helsebiblioteket som tilgangsportal |
 
 #### Prosess 2: Retningslinjeutvikling (strøm 3a – normerende del)
@@ -211,7 +212,7 @@ Analysen nedenfor anvender IGOE på **hovedprosessene** i verdikjeden, ikke på 
 |-----------|-----------|-------------|
 | **Inputs** (transformeres) | FHI (kunnskapsoppsummeringer); fagmedisinske foreninger, brukerorganisasjoner (høringsinnspill); RHF-er, kommuner (praksiserfaring) | Kunnskapsoppsummeringer (output fra prosess 1); høringsinnspill fra fagmiljøer og brukerorganisasjoner; praksiserfaring fra helsetjenesten; internasjonale retningslinjer |
 | **Guides** (styrer prosessen) | HOD (tildelingsbrev); Stortinget (lovgivning) | *Utløsende hendelse:* Tildelingsbrev fra HOD eller identifisert behov for ny/revidert retningslinje. *Metode:* GRADE-fra-evidens-til-anbefaling-rammeverk, Helsedirektoratets retningslinjemetodikk. *Rammer:* Helselovgivning, pasient- og brukerrettighetsloven, forvaltningsloven (høringskrav), helsepolitiske prioriteringer. *Avsluttende hendelse:* Publisert retningslinje/veileder/faglig råd |
-| **Outputs** (resultat) | Helsedirektoratet | Nasjonale faglige retningslinjer; veiledere; faglige råd – alle normerende for norsk helsetjeneste | 
+| **Outputs** (resultat) | Helsedirektoratet | Nasjonale faglige retningslinjer; veiledere; faglige råd – alle normerende for norsk helsetjeneste |
 | **Enablers** (muliggjør) | Helsedirektoratet, fagmedisinske foreninger, brukerrepresentanter, Helsebiblioteket | Tverrfaglige arbeidsgrupper; publiseringsplattform (helsedirektoratet.no); Helsebiblioteket for kunnskapstilgang |
 
 #### Prosess 3: Implementering av retningslinjer i helsetjenesten (strøm 3a – implementeringsdel)
@@ -284,17 +285,17 @@ Analysen nedenfor anvender IGOE på **hovedprosessene** i verdikjeden, ikke på 
 
 Referansene i denne delrapporten følger samme nummerering som delrapport 1 (dagens-verdikjede.md), da aktørbeskrivelsene opprinnelig var en del av den rapporten.
 
-4. Helsebiblioteket. *Fagprosedyrer på Helsebiblioteket – status*. https://www.helsebiblioteket.no/innhold/artikler/fpr/fagprosedyrer-pa-helsebiblioteket-status
-5. Helsebiblioteket. *Tilgang til kliniske oppslagsverk*. https://www.helsebiblioteket.no
-7. Tidsskriftet for Den norske legeforening. https://tidsskriftet.no
-8. Sykepleien Forskning. https://sykepleien.no/forskning
-9. Den norske legeforening. *Fagmedisinske foreninger*. https://www.legeforeningen.no
-10. helsenorge.no. *Om helsenorge.no – innholdsstrategi og kvalitetsretningslinjer*.
-11. Folkehelseinstituttet. https://www.fhi.no
-12. FNSP. *Felles nettløsning for spesialisthelsetjenesten*.
-13. NHI.no – Om oss. https://nhi.no/om-nhi/
-14. NHI.no – Brukstall og historie.
-15. Kreftforeningen, LHL, Diabetesforbundet, FFO m.fl.
-16. Direktoratet for medisinske produkter. https://www.dmp.no
-17. Felleskatalogen. https://www.felleskatalogen.no
-18. RELIS. https://relis.no
+1. Helsebiblioteket. *Fagprosedyrer på Helsebiblioteket – status*. <https://www.helsebiblioteket.no/innhold/artikler/fpr/fagprosedyrer-pa-helsebiblioteket-status>
+2. Helsebiblioteket. *Tilgang til kliniske oppslagsverk*. <https://www.helsebiblioteket.no>
+3. Tidsskriftet for Den norske legeforening. <https://tidsskriftet.no>
+4. Sykepleien Forskning. <https://sykepleien.no/forskning>
+5. Den norske legeforening. *Fagmedisinske foreninger*. <https://www.legeforeningen.no>
+6. helsenorge.no. *Om helsenorge.no – innholdsstrategi og kvalitetsretningslinjer*.
+7. Folkehelseinstituttet. <https://www.fhi.no>
+8. FNSP. *Felles nettløsning for spesialisthelsetjenesten*.
+9. NHI.no – Om oss. <https://nhi.no/om-nhi/>
+10. NHI.no – Brukstall og historie.
+11. Kreftforeningen, LHL, Diabetesforbundet, FFO m.fl.
+12. Direktoratet for medisinske produkter. <https://www.dmp.no>
+13. Felleskatalogen. <https://www.felleskatalogen.no>
+14. RELIS. <https://relis.no>
