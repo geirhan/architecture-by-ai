@@ -218,8 +218,10 @@
 </nav>
 
 <main>
-<p><em>Del av utredning om ny verdikjede for kunnskapsforvaltning i
-helsesektoren</em></p>
+<h2
+id="del-av-utredning-om-ny-verdikjede-for-kunnskapsforvaltning-i-helsesektoren">Del
+av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</h2>
 <hr />
 <h2 id="innledning">1. Innledning</h2>
 <h3 id="formål">1.1 Formål</h3>
@@ -324,34 +326,39 @@ informasjonsobjektene som arkitekturen skal understøtte.</p>
 <h3 id="forretningsprosesser">3.1 Forretningsprosesser</h3>
 <p>Den nye verdikjeden består av fem hovedprosesser, der KI-støtten
 varierer i grad og karakter:</p>
-<p><strong>1. Kunnskapssyntese (KI-assistert)</strong> Sammenstilling av
-forskningsevidens til strukturerte kunnskapsoppsummeringer.
-KI-komponentene utfører søk, screening og førsteutkast til
-dataekstraksjon, men fageksperter har ansvar for kvalitetsvurdering og
-konklusjon. Som beskrevet i delrapport 3, kan denne prosessen potensielt
-redusere tidsbruken med 30–80 prosent avhengig av prosesstrinn,
-forutsatt tilstrekkelig menneskelig kvalitetssikring.</p>
-<p><strong>2. Retningslinjeutvikling (KI-støttet)</strong> Utvikling og
-oppdatering av nasjonale faglige retningslinjer. KI-komponenter
-identifiserer ny relevant evidens, genererer utkast og utfører
-konsistenssjekk mot eksisterende retningslinjer. Retningslinjepaneler
-beholder beslutningsmyndighet.</p>
-<p><strong>3. Kvalitetssikring (hybrid menneske-KI)</strong> Systematisk
-kontroll av KI-generert innhold. Inkluderer automatisert faktasjekk mot
-kildemateriale, deteksjon av hallusinering og inkonsistens, samt
-menneskelig fagfellevurdering. Denne prosessen er kritisk for å
-opprettholde tillit til kunnskapsproduksjonen.</p>
-<p><strong>4. Kunnskapsformidling (automatisert med redaksjonelt
-tilsyn)</strong> Publisering og distribusjon av verifisert kunnskap.
-KI-komponenter håndterer klarspråk-oversettelse, formatering for ulike
-kanaler og flerspråklig tilpasning. Redaksjonelt ansvar forblir hos
-mennesker.</p>
-<p><strong>5. Innbyggerdialog (KI-chatbot med eskalering til
-menneske)</strong> Konversasjonsbasert helseinformasjon for innbyggere.
-KI-chatboten besvarer spørsmål basert på verifiserte kunnskapskilder,
-med tydelige mekanismer for eskalering til helsepersonell ved behov.
-Chatboten genererer aldri medisinske råd utover det som finnes i de
-godkjente kildene.</p>
+<h4 id="kunnskapssyntese-ki-assistert">1. Kunnskapssyntese
+(KI-assistert)</h4>
+<p>Sammenstilling av forskningsevidens til strukturerte
+kunnskapsoppsummeringer. KI-komponentene utfører søk, screening og
+førsteutkast til dataekstraksjon, men fageksperter har ansvar for
+kvalitetsvurdering og konklusjon. Som beskrevet i delrapport 3, kan
+denne prosessen potensielt redusere tidsbruken med 30–80 prosent
+avhengig av prosesstrinn, forutsatt tilstrekkelig menneskelig
+kvalitetssikring.</p>
+<h4 id="retningslinjeutvikling-ki-støttet">2. Retningslinjeutvikling
+(KI-støttet)</h4>
+<p>Utvikling og oppdatering av nasjonale faglige retningslinjer.
+KI-komponenter identifiserer ny relevant evidens, genererer utkast og
+utfører konsistenssjekk mot eksisterende retningslinjer.
+Retningslinjepaneler beholder beslutningsmyndighet.</p>
+<h4 id="kvalitetssikring-hybrid-menneske-ki">3. Kvalitetssikring (hybrid
+menneske-KI)</h4>
+<p>Systematisk kontroll av KI-generert innhold. Inkluderer automatisert
+faktasjekk mot kildemateriale, deteksjon av hallusinering og
+inkonsistens, samt menneskelig fagfellevurdering. Denne prosessen er
+kritisk for å opprettholde tillit til kunnskapsproduksjonen.</p>
+<h4 id="kunnskapsformidling-automatisert-med-redaksjonelt-tilsyn">4.
+Kunnskapsformidling (automatisert med redaksjonelt tilsyn)</h4>
+<p>Publisering og distribusjon av verifisert kunnskap. KI-komponenter
+håndterer klarspråk-oversettelse, formatering for ulike kanaler og
+flerspråklig tilpasning. Redaksjonelt ansvar forblir hos mennesker.</p>
+<h4 id="innbyggerdialog-ki-chatbot-med-eskalering-til-menneske">5.
+Innbyggerdialog (KI-chatbot med eskalering til menneske)</h4>
+<p>Konversasjonsbasert helseinformasjon for innbyggere. KI-chatboten
+besvarer spørsmål basert på verifiserte kunnskapskilder, med tydelige
+mekanismer for eskalering til helsepersonell ved behov. Chatboten
+genererer aldri medisinske råd utover det som finnes i de godkjente
+kildene.</p>
 <h3 id="forretningsroller">3.2 Forretningsroller</h3>
 <table>
 <colgroup>
@@ -706,10 +713,13 @@ Databehandling av helsedata skal skje innenfor norsk jurisdiksjon, i
 samsvar med krav fra pasientjournalloven og personopplysningsloven.</p>
 <p><strong>KI-beregningsressurser:</strong> LLM-baserte tjenester krever
 betydelig beregningskapasitet. Arkitekturen legger opp til en hybrid
-modell der: - Egne GPU-klynger kan benyttes for sensitive oppgaver og
-egentrenede modeller - Kommersielle KI-API-er kan benyttes for oppgaver
-uten sensitiv data, forutsatt databehandleravtale og godkjent
-jurisdiksjon</p>
+modell der:</p>
+<ul>
+<li>Egne GPU-klynger kan benyttes for sensitive oppgaver og egentrenede
+modeller</li>
+<li>Kommersielle KI-API-er kan benyttes for oppgaver uten sensitiv data,
+forutsatt databehandleravtale og godkjent jurisdiksjon</li>
+</ul>
 <p><strong>Sikker datalagring:</strong> All lagring av
 kunnskapsobjekter, loggdata og metadata skjer på norsk infrastruktur med
 kryptering i hvile og under transport.</p>
@@ -745,7 +755,7 @@ arkitektur</td>
 <tr>
 <td><strong>Orkestrering</strong></td>
 <td>Agentrammeverk for KI-pipelines</td>
-<td>Koordinerer flertrinns KI-prosesser (søk → screening → syntese)</td>
+<td>Koordinerer flertrinns KI-prosesser (søk, screening, syntese)</td>
 </tr>
 <tr>
 <td><strong>Observerbarhet</strong></td>
@@ -952,21 +962,27 @@ Denne beskrivelsen er ment som grunnlag for visualisering.</p>
 (øverst)</h3>
 <p>Tre brukergrupper med tilhørende grensesnitt:</p>
 <ul>
-<li><strong>Innbygger</strong> → helsenorge.no (helseinformasjon og
+<li><strong>Innbygger</strong> -&gt; helsenorge.no (helseinformasjon og
 chatbot)</li>
-<li><strong>Helsepersonell</strong> → Helsepersonellportalen (faglige
-retningslinjer, kunnskapsressurser)</li>
-<li><strong>Fagekspert</strong> → Fagverktøy (kunnskapssyntese,
+<li><strong>Helsepersonell</strong> -&gt; Helsepersonellportalen
+(faglige retningslinjer, kunnskapsressurser)</li>
+<li><strong>Fagekspert</strong> -&gt; Fagverktøy (kunnskapssyntese,
 retningslinjeredigering, kvalitetssikring)</li>
 </ul>
 <h3 id="lag-2-applikasjonstjenester-midten">Lag 2: Applikasjonstjenester
 (midten)</h3>
 <p>De seks kjernekomponentene arrangert i to rader:</p>
-<p><em>Produksjonskomponenter:</em> - Kunnskapssyntese-motor ↔︎
-Retningslinjestøttesystem ↔︎ Kunnskapsformidlingsplattform</p>
-<p><em>Støttekomponenter:</em> - Kvalitetssikringsmodul (kobler til alle
-produksjonskomponenter) - Kunnskapsbase (sentral datakilde for alle
-komponenter) - Innbygger-chatbot (konsumerer fra kunnskapsbasen)</p>
+<h4 id="produksjonskomponenter">Produksjonskomponenter</h4>
+<ul>
+<li>Kunnskapssyntese-motor &lt;-&gt; Retningslinjestøttesystem &lt;-&gt;
+Kunnskapsformidlingsplattform</li>
+</ul>
+<h4 id="støttekomponenter">Støttekomponenter</h4>
+<ul>
+<li>Kvalitetssikringsmodul (kobler til alle produksjonskomponenter)</li>
+<li>Kunnskapsbase (sentral datakilde for alle komponenter)</li>
+<li>Innbygger-chatbot (konsumerer fra kunnskapsbasen)</li>
+</ul>
 <h3 id="lag-3-integrasjonslag">Lag 3: Integrasjonslag</h3>
 <ul>
 <li>API-gateway (ekstern og intern trafikk)</li>
