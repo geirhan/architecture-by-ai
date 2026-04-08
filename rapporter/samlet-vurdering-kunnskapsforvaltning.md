@@ -29,7 +29,10 @@ stiller krav til digital modenhet.
 
 **Dagens verdikjede er ikke bærekraftig.**
 Gjennomløpstiden fra ny forskning til oppdatert
-innbyggerinformasjon er 2-6,5 år (delrapport 1).
+retningslinje er 2-3 år, men casestudier
+(casestudier-forsinkelser.md) dokumenterer at den
+reelle tiden fra forskning til bred praksisendring
+er **7-15+ år** (delrapport 1, revidert).
 De tre mest alvorlige flaskehalsene er foreldelse av
 kunnskapsgrunnlaget underveis i retningslinjeprosessen,
 kapasitetsbegrensning for systematiske oversikter, og
@@ -67,7 +70,8 @@ parallelt.
 
 | Indikator | Dagens situasjon | Med anbefalt tiltak |
 | --- | --- | --- |
-| Gjennomløpstid forskning-innbygger | 2-6,5 år | 1-3 år (fase 1-2), uker-måneder (fase 3) |
+| Gjennomløpstid forskning-retningslinje | 2-3 år | 1-2 år (fase 1-2), uker-måneder (fase 3) |
+| Gjennomløpstid forskning-praksisendring | 7-15+ år (casestudier) | Vesentlig kortere med aktive implementeringstiltak |
 | Estimert tidsbesparelse | N/A | 40-60 % (fase 1-2), 70-90 % (fase 3) |
 | Investeringskostnad (fase 1-2) | N/A | 20-50 MNOK over 2-3 år |
 | Investeringskostnad (inkl. fase 3) | N/A | 100-250 MNOK over 4-6 år |
@@ -135,14 +139,15 @@ delrapportene og gir en helhetlig anbefaling.
 
 ### Delrapport 1: Dagens verdikjede
 
-Verdikjeden fra forskning til innbygger består av fem
-hovedsteg: (1) internasjonal forskning,
-(2) systematiske oversikter ved FHI,
-(3) retningslinjeutvikling ved Helsedirektoratet,
-(4) kunnskapsformidling via Helsebiblioteket, og
-(5) innbyggerinformasjon via helsenorge.no.
-Total gjennomløpstid estimeres til 2-6,5 år avhengig
-av scenario.
+Verdikjeden fra forskning til innbygger består av
+tre hovedsteg med fire parallelle strømmer i
+steg 3. Den normerende strømmens gjennomløpstid
+fra forskning til retningslinje er 2-3 år.
+Casestudier (antibiotika, diabetes type 2,
+slagbehandling) dokumenterer imidlertid at den
+reelle tiden fra forskning til bred praksisendring
+er 7-15+ år, vesentlig lengre enn de opprinnelige
+estimatene.
 
 Kartleggingen viser at verdikjeden preges av manuelle
 overganger, fragmentert ansvar og begrenset strukturering
@@ -154,16 +159,20 @@ for automatisert videreforedling.
 
 ### Delrapport 2: Utfordringer og flaskehalser
 
-Analysen identifiserer åtte rangerte flaskehalser. De
-tre mest alvorlige er: (1) foreldelse av
-kunnskapsgrunnlaget underveis i retningslinjeprosessen,
-der ny forskning kan endre evidensgrunnlaget vesentlig
-før retningslinjen ferdigstilles,
-(2) kapasitetsbegrensning for systematiske oversikter,
-der forskningsvolumet langt overstiger FHIs kapasitet
-for manuell screening, og (3) manglende kobling mellom
-retningslinjer og innbyggerinformasjon, der oppdatering
-skjer manuelt og ad hoc.
+Analysen identifiserer ni rangerte flaskehalser.
+De fem mest alvorlige er:
+(1) foreldelse av kunnskapsgrunnlaget underveis i
+retningslinjeprosessen,
+(2) kapasitetsbegrensning for systematiske
+oversikter,
+(3) manglende kobling mellom retningslinjer og
+innbyggerinformasjon,
+(4) implementeringsgapet i klinisk praksis
+(oppjustert til «høy» basert på casestudier som
+dokumenterer 7-15+ år til praksisendring), og
+(5) refusjonsordninger som barriere for
+legemiddelbruk (ny flaskehals, dokumentert med
+8 år fra forskning til refusjon i diabetes-casen).
 
 Strukturelle utfordringer inkluderer siloorganisering
 mellom aktører, manglende standardisert
@@ -650,11 +659,14 @@ minimumskrav:
 ### Krav 1: Problemet og målet
 
 **Problemet:** Verdikjeden for kunnskapsforvaltning i
-helsesektoren har en gjennomløpstid på 2-6,5 år fra ny
-forskning til oppdatert innbyggerinformasjon.
-Verdikjeden skalerer ikke med økende forskningsvolum,
-og innbyggere søker i økende grad helseinformasjon fra
-ukvalifiserte kilder. (Delrapport 1 og 2.)
+helsesektoren har en gjennomløpstid på 2-3 år fra
+forskning til retningslinje, men casestudier
+dokumenterer 7-15+ år fra forskning til bred
+praksisendring (casestudier-forsinkelser.md).
+Verdikjeden skalerer ikke med økende
+forskningsvolum, og innbyggere søker i økende grad
+helseinformasjon fra ukvalifiserte kilder.
+(Delrapport 1 og 2, revidert med casestudier.)
 
 **Målet:** Redusere gjennomløpstiden vesentlig
 (40-90 %), øke kapasiteten for kunnskapsproduksjon,

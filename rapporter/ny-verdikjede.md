@@ -752,6 +752,19 @@ risikoen for feilslått implementering. Den gir tidlig
 nytteverdi gjennom lavrisiko-tiltak, samtidig som den bygger
 grunnlaget for mer ambisiøse endringer på sikt.
 
+**Merknad om implementering:** Casestudier
+(casestudier-forsinkelser.md) dokumenterer at den reelle
+gjennomløpstiden fra forskning til bred praksisendring er
+7–15+ år, og at passiv publisering av retningslinjer er
+utilstrekkelig for å oppnå praksisendring. Alle
+alternativer som innebærer ny kunnskapsproduksjon må
+derfor inkludere aktive implementeringstiltak
+(audit/feedback, registertilbakemelding,
+handlingsplaner) for å realisere gevinstene. Uten slike
+tiltak vil den nye verdikjeden akselerere midten av
+kjeden (forskning til retningslinje), men ikke
+forbedre siste ledd (retningslinje til praksis).
+
 ### 9.2 Faseinndelt gjennomføringsplan
 
 #### Fase 1: Pilotering (0–18 måneder)

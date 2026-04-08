@@ -207,6 +207,7 @@
     <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
     <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
     <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier:</a></li>
     <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
     <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
     <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
@@ -238,8 +239,10 @@ regulatoriske rammer gjennom EU AI Act og EHDS stiller krav til digital
 modenhet.</p>
 <h3 id="hovedfunn">Hovedfunn</h3>
 <p><strong>Dagens verdikjede er ikke bærekraftig.</strong>
-Gjennomløpstiden fra ny forskning til oppdatert innbyggerinformasjon er
-2-6,5 år (delrapport 1). De tre mest alvorlige flaskehalsene er
+Gjennomløpstiden fra ny forskning til oppdatert retningslinje er 2-3 år,
+men casestudier (casestudier-forsinkelser.md) dokumenterer at den reelle
+tiden fra forskning til bred praksisendring er <strong>7-15+ år</strong>
+(delrapport 1, revidert). De tre mest alvorlige flaskehalsene er
 foreldelse av kunnskapsgrunnlaget underveis i retningslinjeprosessen,
 kapasitetsbegrensning for systematiske oversikter, og manglende kobling
 mellom retningslinjer og innbyggerinformasjon (delrapport 2).</p>
@@ -276,9 +279,14 @@ alternativ 1 anbefales gjennomført parallelt.</p>
 </thead>
 <tbody>
 <tr>
-<td>Gjennomløpstid forskning-innbygger</td>
-<td>2-6,5 år</td>
-<td>1-3 år (fase 1-2), uker-måneder (fase 3)</td>
+<td>Gjennomløpstid forskning-retningslinje</td>
+<td>2-3 år</td>
+<td>1-2 år (fase 1-2), uker-måneder (fase 3)</td>
+</tr>
+<tr>
+<td>Gjennomløpstid forskning-praksisendring</td>
+<td>7-15+ år (casestudier)</td>
+<td>Vesentlig kortere med aktive implementeringstiltak</td>
 </tr>
 <tr>
 <td>Estimert tidsbesparelse</td>
@@ -385,11 +393,12 @@ en helhetlig anbefaling.</p>
 delrapporter</h2>
 <h3 id="delrapport-1-dagens-verdikjede">Delrapport 1: Dagens
 verdikjede</h3>
-<p>Verdikjeden fra forskning til innbygger består av fem hovedsteg: (1)
-internasjonal forskning, (2) systematiske oversikter ved FHI, (3)
-retningslinjeutvikling ved Helsedirektoratet, (4) kunnskapsformidling
-via Helsebiblioteket, og (5) innbyggerinformasjon via helsenorge.no.
-Total gjennomløpstid estimeres til 2-6,5 år avhengig av scenario.</p>
+<p>Verdikjeden fra forskning til innbygger består av tre hovedsteg med
+fire parallelle strømmer i steg 3. Den normerende strømmens
+gjennomløpstid fra forskning til retningslinje er 2-3 år. Casestudier
+(antibiotika, diabetes type 2, slagbehandling) dokumenterer imidlertid
+at den reelle tiden fra forskning til bred praksisendring er 7-15+ år,
+vesentlig lengre enn de opprinnelige estimatene.</p>
 <p>Kartleggingen viser at verdikjeden preges av manuelle overganger,
 fragmentert ansvar og begrenset strukturering av innhold.
 Kvalitetssikringen er robust innenfor hvert steg, men det finnes ingen
@@ -398,14 +407,15 @@ Innholdet er i stor grad fritekstbasert, noe som begrenser mulighetene
 for automatisert videreforedling.</p>
 <h3 id="delrapport-2-utfordringer-og-flaskehalser">Delrapport 2:
 Utfordringer og flaskehalser</h3>
-<p>Analysen identifiserer åtte rangerte flaskehalser. De tre mest
+<p>Analysen identifiserer ni rangerte flaskehalser. De fem mest
 alvorlige er: (1) foreldelse av kunnskapsgrunnlaget underveis i
-retningslinjeprosessen, der ny forskning kan endre evidensgrunnlaget
-vesentlig før retningslinjen ferdigstilles, (2) kapasitetsbegrensning
-for systematiske oversikter, der forskningsvolumet langt overstiger FHIs
-kapasitet for manuell screening, og (3) manglende kobling mellom
-retningslinjer og innbyggerinformasjon, der oppdatering skjer manuelt og
-ad hoc.</p>
+retningslinjeprosessen, (2) kapasitetsbegrensning for systematiske
+oversikter, (3) manglende kobling mellom retningslinjer og
+innbyggerinformasjon, (4) implementeringsgapet i klinisk praksis
+(oppjustert til «høy» basert på casestudier som dokumenterer 7-15+ år
+til praksisendring), og (5) refusjonsordninger som barriere for
+legemiddelbruk (ny flaskehals, dokumentert med 8 år fra forskning til
+refusjon i diabetes-casen).</p>
 <p>Strukturelle utfordringer inkluderer siloorganisering mellom aktører,
 manglende standardisert informasjonsflyt, dobbeltarbeid og fragmenterte
 IT-systemer. Konsekvensene er utdaterte helseråd, at innbyggere søker
@@ -1094,10 +1104,12 @@ utredningsinstruksen</h2>
 <p>Utredningen svarer på utredningsinstruksens seks minimumskrav:</p>
 <h3 id="krav-1-problemet-og-målet">Krav 1: Problemet og målet</h3>
 <p><strong>Problemet:</strong> Verdikjeden for kunnskapsforvaltning i
-helsesektoren har en gjennomløpstid på 2-6,5 år fra ny forskning til
-oppdatert innbyggerinformasjon. Verdikjeden skalerer ikke med økende
-forskningsvolum, og innbyggere søker i økende grad helseinformasjon fra
-ukvalifiserte kilder. (Delrapport 1 og 2.)</p>
+helsesektoren har en gjennomløpstid på 2-3 år fra forskning til
+retningslinje, men casestudier dokumenterer 7-15+ år fra forskning til
+bred praksisendring (casestudier-forsinkelser.md). Verdikjeden skalerer
+ikke med økende forskningsvolum, og innbyggere søker i økende grad
+helseinformasjon fra ukvalifiserte kilder. (Delrapport 1 og 2, revidert
+med casestudier.)</p>
 <p><strong>Målet:</strong> Redusere gjennomløpstiden vesentlig (40-90
 %), øke kapasiteten for kunnskapsproduksjon, sikre at offentlig
 helseinformasjon er oppdatert og tilgjengelig, og posisjonere Norge for

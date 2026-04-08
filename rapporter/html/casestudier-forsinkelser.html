@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casestudier: Dokumenterte forsinkelser i verdikjeden</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Casestudier: Dokumenterte forsinkelser i verdikjeden</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html" class="active">Casestudier:</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="risikoer-overordnet-prosjekt.html">Overordnede risikoer for</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</p>
+<hr />
+<h2 id="innledning">1. Innledning</h2>
+<h3 id="formål">1.1 Formål</h3>
+<p>Denne rapporten underbygger delrapport 1 (Dagens verdikjede) og
+delrapport 2 (Utfordringer og flaskehalser) med konkrete, daterte
+eksempler på forsinkelser i verdikjeden fra forskning til klinisk
+praksis og innbyggerinformasjon.</p>
+<p>Delrapport 1 estimerer en gjennomløpstid på 2,5–5 år, men erkjenner
+at tallene mangler etterprøvbar dokumentasjon. Internasjonalt er det
+mest siterte estimatet <strong>17 år</strong> (Balas &amp; Boren, 2000;
+bekreftet som konvergenspunkt av Morris, Wooding &amp; Grant, 2011).
+Denne rapporten undersøker hvor norske caser plasserer seg mellom disse
+ytterpunktene.</p>
+<h3 id="metode-og-begrensninger">1.2 Metode og begrensninger</h3>
+<p>Casene er valgt etter tre kriterier:</p>
+<ol type="1">
+<li>Identifiserbar forskning med publiseringsdato</li>
+<li>Datert retningslinje fra Helsedirektoratet</li>
+<li>Tilgjengelige data på etterlevelse eller praksisendring</li>
+</ol>
+<p>Alle tidsangivelser er basert på offentlig tilgjengelige kilder
+(retningslinjesider, publiserte studier, kvalitetsregistre). Intern
+revisjonshistorikk fra Helsedirektoratet har ikke vært tilgjengelig. Der
+tallgrunnlag mangler er dette eksplisitt markert.</p>
+<h3 id="referanseramme-17-årsestimatet">1.3 Referanseramme:
+17-årsestimatet</h3>
+<p>Det internasjonale estimatet på 17 år stammer fra tre uavhengige
+studier som konvergerer rundt samme tall, men med svært ulike
+definisjoner og målepunkter <a
+href="Morris%20ZS,%20Wooding%20S,%20Grant%20J.%20The%20answer%20is">1</a>.
+Morris et al. (2011) konkluderer med at tallet er en forenkling som
+skjuler viktige nyanser, men at det likevel fanger en reell utfordring
+<a
+href="Morris%20ZS,%20Wooding%20S,%20Grant%20J.%20The%20answer%20is">2</a>.
+Nyere litteratur bekrefter at gapet vedvarer <a
+href="JAMA%202023.%20It%20Takes%20an%20Average%20of%2017%20Years%20for">3</a>.</p>
+<hr />
+<h2 id="case-1-antibiotikabruk-i-sykehus">2. Case 1: Antibiotikabruk i
+sykehus</h2>
+<h3 id="tidslinje">2.1 Tidslinje</h3>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tidspunkt</th>
+<th>Hendelse</th>
+<th>Kilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feb 2013</td>
+<td>Første nasjonale faglige retningslinje for antibiotikabruk i sykehus
+publisert</td>
+<td><a href="Helsedirektoratet.%20Antibiotika%20i%20sykehus.">4</a></td>
+</tr>
+<tr>
+<td>2013</td>
+<td>Retningslinjen basert på internasjonale retningslinjer – GRADE ikke
+brukt i vesentlig grad pga. ressursbegrensninger</td>
+<td><a href="Farmatid%202016.%20Retningslinjer%20for">5</a></td>
+</tr>
+<tr>
+<td>2014</td>
+<td>Multisenterstudie (3 universitetssykehus, Vest-Norge) måler
+etterlevelse – finner betydelig variasjon</td>
+<td><a
+href="Aricjournal%202019.%20The%20association%20between">6</a></td>
+</tr>
+<tr>
+<td>2015</td>
+<td>Audit-og-feedback-studie ved UNN Tromsø viser at aktiv intervensjon
+øker etterlevelse vesentlig</td>
+<td><a
+href="BMC%20Infectious%20Diseases%202016.%20An%20audit%20and">7</a></td>
+</tr>
+<tr>
+<td>2016</td>
+<td>Handlingsplan mot antibiotikaresistens lansert. Mål: 30 % reduksjon
+i antibiotikabruk innen 2020</td>
+<td><a href="Regjeringen.%20Handlingsplan%20mot">8</a></td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Helsedirektoratets ledermøte vedtar revisjon av retningslinjen</td>
+<td><a
+href="Helsedirektoratet.%20Antibiotika%20i%20sykehus%20--">9</a></td>
+</tr>
+<tr>
+<td>2019–2022</td>
+<td>Reviderte anbefalinger publiseres løpende</td>
+<td><a href="Helsedirektoratet.%20Antibiotika%20i%20sykehus.">4</a></td>
+</tr>
+<tr>
+<td>2020–2021</td>
+<td>Totalmålet nådd: 33 % reduksjon i total antibiotikabruk. Delmålet
+for bredspektrede antibiotika i sykehus <strong>ikke nådd</strong> (kun
+12 % reduksjon)</td>
+<td><a href="Helsedirektoratet.%20Handlingsplan%20mot">10</a></td>
+</tr>
+<tr>
+<td>2023</td>
+<td>Forvaltningsmodell med årlig gjennomgang etablert</td>
+<td><a href="Helsedirektoratet.%20Antibiotika%20i%20sykehus.">4</a></td>
+</tr>
+<tr>
+<td>2023</td>
+<td>Bredspektrede antibiotika: 20 % av total DDD i sykehus, ned fra 26 %
+i 2012</td>
+<td><a href="FHI.%20NORM%20og%20NORM-VET%202023.">11</a></td>
+</tr>
+<tr>
+<td>Feb 2026</td>
+<td>Siste faglige endring i retningslinjen</td>
+<td><a href="Helsedirektoratet.%20Antibiotika%20i%20sykehus.">4</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dokumenterte-forsinkelser">2.2 Dokumenterte forsinkelser</h3>
+<ul>
+<li>Fra retningslinje publisert (2013) til delmål for bredspektrede
+antibiotika fortsatt ikke nådd (2021): <strong>8 år</strong>.</li>
+<li>Fra retningslinje til etablert forvaltningsmodell med årlig
+oppdatering: <strong>10 år</strong> (2013–2023).</li>
+<li>Aktive tiltak (audit/feedback, handlingsplan) var nødvendige for å
+oppnå endring – passiv publisering ga variabel etterlevelse.</li>
+</ul>
+<h3 id="begrensninger">2.3 Begrensninger</h3>
+<p>Retningslinjen var basert på internasjonale retningslinjer, ikke en
+egen systematisk oversikt. Steg 1 og 2 i verdikjeden kan derfor ikke
+tidfestes for denne casen. Det mangler også nasjonale tidsserier for
+etterlevelse – kun enkeltstudier fra utvalgte sykehus.</p>
+<h3 id="tilleggsillustrasjon-antibiotikaprofylakse-ved-hoftebrudd">2.4
+Tilleggsillustrasjon: Antibiotikaprofylakse ved hoftebrudd</h3>
+<p>Hoftebruddregisteret gir et renere bilde fordi registeret dekker
+nasjonalt:</p>
+<ul>
+<li><strong>2013</strong>: Nye retningslinjer for antibiotikaprofylakse
+(cefalotin)</li>
+<li><strong>Før 2013</strong>: 86,2 % brukte anbefalt preparat</li>
+<li><strong>2016</strong>: 99,2 % brukte anbefalt preparat – men kun
+<strong>3 av 5</strong> fikk det administrert korrekt</li>
+</ul>
+<p>Dette viser at selv når etterlevelsen av <em>hvilket</em> preparat er
+nær 100 %, tar det lengre tid å endre <em>hvordan</em> det administreres
+<a
+href="PMC%202020.%20Compliance%20with%20national%20guidelines">12</a>.</p>
+<hr />
+<h2 id="case-2-diabetes-type-2-sglt2-hemmere-og-glp-1-agonister">3. Case
+2: Diabetes type 2 – SGLT2-hemmere og GLP-1-agonister</h2>
+<h3 id="tidslinje-1">3.1 Tidslinje</h3>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tidspunkt</th>
+<th>Hendelse</th>
+<th>Kilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sept 2015</td>
+<td>EMPA-REG OUTCOME publisert: empagliflozin reduserer kardiovaskulær
+død hos T2D med hjerte-karsykdom</td>
+<td>NEJM</td>
+</tr>
+<tr>
+<td>Juni 2016</td>
+<td>LEADER publisert: liraglutid reduserer kardiovaskulær død</td>
+<td>NEJM</td>
+</tr>
+<tr>
+<td>Sept 2016</td>
+<td>Helsedirektoratets retningslinje for diabetes første gang
+publisert</td>
+<td><a
+href="Helsedirektoratet.%20Diabetes%20--%20nasjonal%20faglig">13</a></td>
+</tr>
+<tr>
+<td>Sept 2018</td>
+<td>Retningslinjen oppdatert: SGLT2-hemmere og GLP-1-agonister inkludert
+som likeverdige andrevalg etter metformin</td>
+<td><a
+href="Helsedirektoratet.%20Valg%20av%20blodsukkersenkende">14</a></td>
+</tr>
+<tr>
+<td>Sept 2019</td>
+<td>DAPA-HF publisert: dapagliflozin effektiv ved hjertesvikt uavhengig
+av diabetes</td>
+<td>NEJM</td>
+</tr>
+<tr>
+<td>Des 2019</td>
+<td>Retningslinjen oppdatert (blodsukkersenkende behandling)</td>
+<td><a
+href="Helsedirektoratet.%20Diabetes%20--%20nasjonal%20faglig">13</a></td>
+</tr>
+<tr>
+<td>Okt 2022</td>
+<td>ADA/EASD konsensus: SGLT2/GLP-1 som førstevalg ved
+kardiovaskulær-/nyresykdom, uavhengig av HbA1c</td>
+<td>ADA/EASD</td>
+</tr>
+<tr>
+<td>Feb 2023</td>
+<td>Tidsskriftet: norske retningslinjer henger etter internasjonale
+anbefalinger</td>
+<td><a href="Tidsskriftet%202023.%20New%20international">15</a></td>
+</tr>
+<tr>
+<td>April 2023</td>
+<td>Forhåndsgodkjent refusjon for SGLT2-hemmere som
+førstelinjebehandling ved etablert hjerte-kar-/nyresykdom</td>
+<td><a
+href="NHI.no%202023.%20Refusjon%20av%20SGLT2-hemmere%20ved">16</a></td>
+</tr>
+<tr>
+<td>Juni 2025</td>
+<td>Siste faglige endring i retningslinjen</td>
+<td><a
+href="Helsedirektoratet.%20Diabetes%20--%20nasjonal%20faglig">13</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dokumenterte-forsinkelser-1">3.2 Dokumenterte forsinkelser</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Tid</th>
+<th>Dokumentert?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMPA-REG (2015) til norsk retningslinje (2018)</td>
+<td>~3 år</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>LEADER (2016) til norsk retningslinje (2018)</td>
+<td>~2 år</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>DAPA-HF (2019) til retningslinjeomtale (2019)</td>
+<td>~3 mnd</td>
+<td>Ja (uvanlig raskt)</td>
+</tr>
+<tr>
+<td>EMPA-REG (2015) til refusjonsordning (2023)</td>
+<td>~8 år</td>
+<td>Ja</td>
+</tr>
+</tbody>
+</table>
+<p>Refusjonsordningen utgjør en vesentlig tilleggsforsinkelse. Selv
+etter at retningslinjen anbefalte SGLT2-hemmere i 2018, måtte leger søke
+individuelt om refusjon – en praktisk barriere som reduserte faktisk
+bruk. Denne barrieren ble ikke fjernet før april 2023, nesten 8 år etter
+at EMPA-REG ble publisert.</p>
+<h3 id="etterlevelse-rosa-studiene">3.3 Etterlevelse –
+ROSA-studiene</h3>
+<p>ROSA-prosjektene (Rogaland–Salten) er den viktigste norske
+longitudinelle studieserien for diabetesbehandling i allmennpraksis.</p>
+<table>
+<thead>
+<tr>
+<th>Studie</th>
+<th>År</th>
+<th>Alle tre mål nådd</th>
+<th>Kilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ROSA 3</td>
+<td>2005</td>
+<td>Ikke rapportert kombinert</td>
+<td><a
+href="Cooper%20et%20al.%202017.%20Changes%20in%20risk%20factor">17</a></td>
+</tr>
+<tr>
+<td>ROSA 4</td>
+<td>2014</td>
+<td><strong>17 %</strong> (ca. 1 av 6)</td>
+<td><a
+href="Bakke%20et%20al.%202020.%20Evaluation%20of%20combined%20risk">18</a></td>
+</tr>
+</tbody>
+</table>
+<p>Forbedring fra 2005 til 2014 (Cooper et al., 2017): HbA1c-mål: 54,3 %
+til 62,8 %. Blodtrykk: 36,6 % til 44,9 %. Kolesterol: 33,5 % til 49,9 %.
+Øyeundersøkelse: <strong>nedgang</strong> fra 71,5 % til 61,0 %.
+Albuminuri-testing: <strong>kun 30,3 %</strong> i 2014 <a
+href="Cooper%20et%20al.%202017.%20Changes%20in%20risk%20factor">17</a>.</p>
+<p><strong>Merknad:</strong> ROSA 4 viser 17 % (1 av 6) for kombinerte
+mål. Tallet «1 av 8» som tidvis siteres kunne ikke bekreftes i
+tilgjengelige kilder.</p>
+<h3 id="faktisk-legemiddelbruk">3.4 Faktisk legemiddelbruk</h3>
+<p>DDD/1000 innbyggere/dag fra FHI legemiddelstatistikk <a
+href="FHI.%20Legemiddelforbruket%20i%20Norge%202019--2023.">19</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Virkestoff</th>
+<th>2019</th>
+<th>2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dapagliflozin</td>
+<td>1,96</td>
+<td>6,19</td>
+</tr>
+<tr>
+<td>Empagliflozin</td>
+<td>2,52</td>
+<td>4,91</td>
+</tr>
+<tr>
+<td>Semaglutid</td>
+<td>0,41</td>
+<td>21,12 (inkl. vektreduksjon)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="begrensninger-1">3.5 Begrensninger</h3>
+<ul>
+<li>Norsk diabetesregister for voksne (NOKLUS) har kun ~35 %
+fastlegedekning <a
+href="Diabetes.no.%20Ny%20årsrapport%20fra%20Norsk">20</a></li>
+<li>Legemiddelforbruksdata er ikke koblet til diagnose i offentlig
+tilgjengelige kilder</li>
+<li>Komplett endringslogg for retningslinjen er ikke offentlig
+tilgjengelig</li>
+</ul>
+<hr />
+<h2 id="case-3-slagbehandling-trombolyse-og-trombektomi">4. Case 3:
+Slagbehandling – trombolyse og trombektomi</h2>
+<h3 id="tidslinje-2">4.1 Tidslinje</h3>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tidspunkt</th>
+<th>Hendelse</th>
+<th>Kilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sept 2008</td>
+<td>ECASS III publisert: alteplase effektiv i 3–4,5 timers vindu</td>
+<td><a
+href="Hacke%20et%20al.%202008.%20Thrombolysis%20with%20alteplase">21</a></td>
+</tr>
+<tr>
+<td>2010</td>
+<td>Første norske retningslinje for hjerneslag publisert (IS-1688, ~450
+anbefalinger)</td>
+<td><a
+href="Helsedirektoratet.%20Hjerneslag%20--%20nasjonal">22</a></td>
+</tr>
+<tr>
+<td>Juni 2012</td>
+<td>IST-3 publisert: trombolyse innen 6 timer, inkludert eldre over
+80</td>
+<td><a
+href="IST-3%20collaborative%20group.%202012.%20The%20benefits">23</a></td>
+</tr>
+<tr>
+<td>Jan 2015</td>
+<td>MR CLEAN + fire andre RCT-er: trombektomi virker</td>
+<td><a
+href="Berkhemer%20et%20al.%202015.%20A%20Randomized%20Trial%20of">24</a></td>
+</tr>
+<tr>
+<td>Nov 2017</td>
+<td>Stor revisjon av norsk retningslinje (GRADE, 147 anbefalinger).
+Trombektomi innen 6 timer: sterk anbefaling</td>
+<td><a
+href="Helsedirektoratet.%20Hjerneslag%20--%20nasjonal">22</a></td>
+</tr>
+<tr>
+<td>Jan–feb 2018</td>
+<td>DAWN og DEFUSE-3: trombektomi effektiv 6–24 timer med
+bildediagnostikk</td>
+<td><a
+href="Nogueira%20et%20al.%202018.%20Thrombectomy%206%20to%2024">25</a></td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Norsk retningslinje oppdatert: trombektomi 6–24 timer</td>
+<td><a
+href="Helsedirektoratet.%20Trombektomi%20mellom%206%20og%2024">26</a></td>
+</tr>
+<tr>
+<td>Mai 2019</td>
+<td>EXTEND publisert: trombolyse effektiv i 4,5–9 timers vindu med
+perfusjons-CT</td>
+<td><a
+href="Ma%20et%20al.%202019.%20Thrombolysis%20Guided%20by">27</a></td>
+</tr>
+<tr>
+<td>Des 2024</td>
+<td>Høringsutkast for utvidet trombolyse-tidsvindu (4,5–9 timer)</td>
+<td><a href="Helsedirektoratet.%20Høring:">28</a></td>
+</tr>
+<tr>
+<td>Mars 2026</td>
+<td>Siste oppdatering på Helsedirektoratets nettside</td>
+<td><a
+href="Helsedirektoratet.%20Hjerneslag%20--%20nasjonal">22</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dokumenterte-forsinkelser-2">4.2 Dokumenterte forsinkelser</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Tid</th>
+<th>Dokumentert?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ECASS III (2008) til retningslinje (2010)</td>
+<td>~2 år</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>MR CLEAN (2015) til retningslinje (2017)</td>
+<td>~2,5 år</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>DAWN/DEFUSE-3 (2018) til retningslinje (2019)</td>
+<td>~1 år</td>
+<td>Ja (raskt)</td>
+</tr>
+<tr>
+<td>EXTEND (2019) til høringsutkast (2024)</td>
+<td>~5,5 år</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>EXTEND (2019) til vedtatt retningslinje</td>
+<td><strong>&gt;7 år</strong></td>
+<td>Per april 2026 fortsatt ikke vedtatt</td>
+</tr>
+</tbody>
+</table>
+<p>EXTEND-caset er det sterkeste eksempelet på lang forsinkelse: solid
+evidens fra 2019, høringsutkast først i desember 2024, ikke endelig
+vedtatt per april 2026.</p>
+<h3 id="registerdata-faktisk-praksis">4.3 Registerdata – faktisk
+praksis</h3>
+<p>Norsk hjerneslagregister gir nasjonale data <a
+href="Helsedirektoratet.%20Kvalitetsindikator:">29</a>:</p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 24%" />
+<col style="width: 13%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>Indikator</th>
+<th>Verdi</th>
+<th>År</th>
+<th>Kilde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trombolyseandel</td>
+<td>16,8 %</td>
+<td>2015</td>
+<td><a href="Tidsskriftet%202020.%20Hjerneslag%20i%20Norge">31</a></td>
+</tr>
+<tr>
+<td>Trombolyseandel</td>
+<td>20–22 %</td>
+<td>2017–2024</td>
+<td><a href="Helsedirektoratet.%20Kvalitetsindikator:">29</a></td>
+</tr>
+<tr>
+<td>Door-to-needle innen 40 min</td>
+<td>71,5 %</td>
+<td>2024</td>
+<td><a href="Helsedirektoratet.%20Kvalitetsindikator:">30</a></td>
+</tr>
+<tr>
+<td>Trombektomi-rate</td>
+<td>7,6 % (579 pas.)</td>
+<td>2024</td>
+<td><a
+href="Norsk%20hjerneslagregister.%20Årsrapport%202024.">32</a></td>
+</tr>
+<tr>
+<td>Trombektomi per 100 000</td>
+<td>27 (Telemark) – 60 (Tromsø)</td>
+<td>2020–2023</td>
+<td><a
+href="NTNU%20Open.%20Trombektomi%20i%20Norge%202020--2023.">33</a></td>
+</tr>
+</tbody>
+</table>
+<p>Trombolyseandelen har vært flat på ~20–22 % siden 2017 til tross for
+forbedrede retningslinjer.</p>
+<h3 id="geografisk-variasjon">4.4 Geografisk variasjon</h3>
+<p>Dokumentert i flere kilder:</p>
+<ul>
+<li><strong>Trombolyse</strong>: Signifikante geografiske forskjeller
+mellom by og distrikt <a
+href="Tidsskriftet%202024.%20Geographical%20differences%20in">34</a></li>
+<li><strong>Trombektomi</strong>: Kun 7 sentre nasjonalt. Dobbelt så høy
+rate i Tromsø som i Telemark <a
+href="NTNU%20Open.%20Trombektomi%20i%20Norge%202020--2023.">33</a></li>
+</ul>
+<h3 id="begrensninger-2">4.5 Begrensninger</h3>
+<ul>
+<li>Nøyaktig implementeringstidspunkt per sykehus er ikke dokumentert
+(noen startet trombektomi før retningslinjen i 2017)</li>
+<li>Registerdata viser stabil nasjonal rate, men ikke når endring ble
+innført lokalt</li>
+</ul>
+<hr />
+<h2 id="oppsummering-på-tvers-av-caser">5. Oppsummering på tvers av
+caser</h2>
+<h3 id="dokumenterte-forsinkelser-3">5.1 Dokumenterte forsinkelser</h3>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 30%" />
+<col style="width: 28%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Case</th>
+<th>Forskning til retningslinje</th>
+<th>Retningslinje til praksis</th>
+<th>Total dokumenterbar forsinkelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Antibiotika (bredspektret)</td>
+<td>Ikke tidfestet (int. retningslinjer)</td>
+<td>Mål ikke nådd etter 8 år</td>
+<td>&gt;8 år (ufullstendig)</td>
+</tr>
+<tr>
+<td>Diabetes (SGLT2)</td>
+<td>~3 år</td>
+<td>+5 år til refusjon</td>
+<td>~8 år (forskning til refusjon)</td>
+</tr>
+<tr>
+<td>Slag (EXTEND trombolyse)</td>
+<td>5,5 år+ (fortsatt på høring)</td>
+<td>Ikke relevant ennå</td>
+<td>&gt;7 år og pågår</td>
+</tr>
+<tr>
+<td>Slag (trombektomi)</td>
+<td>~2,5 år</td>
+<td>Flat 7,6 %-rate, stor geografisk variasjon</td>
+<td>Vanskelig å tidfeste</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hovedobservasjoner">5.2 Hovedobservasjoner</h3>
+<ol type="1">
+<li><p><strong>2,5–5 år er et underestimat.</strong> Alle tre casene
+viser forsinkelser på 7–8+ år fra forskning til enten bred
+praksisendring, refusjonsordning eller vedtatt retningslinje. For den
+normerende strømmen alene (forskning til retningslinje) er 2–3 år
+typisk, men dette dekker kun midten av verdikjeden.</p></li>
+<li><p><strong>Refusjonsordninger er en skjult flaskehals.</strong>
+Diabetes-casen viser at selv etter retningslinjeinkludering kan
+praktiske barrierer (individuell refusjonssøknad) forsinke
+implementeringen med ytterligere år.</p></li>
+<li><p><strong>Passiv publisering er utilstrekkelig.</strong> Alle tre
+casene viser at retningslinjer alene ikke endrer praksis. Aktive tiltak
+(audit/feedback, handlingsplaner, registertilbakemelding) er
+nødvendige.</p></li>
+<li><p><strong>Geografisk variasjon vedvarer.</strong> Selv i
+slagbehandling, der akutt tidspress er tydelig, er det dobbelt så høy
+trombektomirate i noen områder som andre.</p></li>
+<li><p><strong>Forsinkelsene varierer.</strong> DAWN/DEFUSE-3 ble
+inkludert i retningslinjen etter ~1 år, mens EXTEND tok &gt;5,5 år bare
+til høringsutkast. Systematiske mekanismer for å prioritere og
+akselerere oppdateringer mangler.</p></li>
+</ol>
+<h3 id="implikasjon-for-verdikjedevurderingen">5.3 Implikasjon for
+verdikjedevurderingen</h3>
+<p>Disse casene understøtter at gjennomløpstiden i delrapport 1 bør
+revideres oppover. Den reelle tiden fra forskning til bred
+praksisendring i Norge er sannsynligvis <strong>7–15+ år</strong>,
+avhengig av fagområde og om aktive implementeringstiltak
+iverksettes.</p>
+<hr />
+<h2 id="referanser">Referanser</h2>
+<p>for health care improvement. <em>Yearbook of Medical Informatics</em>
+2000;9(1):65–70. <a href="https://pubmed.ncbi.nlm.nih.gov/27699347/"
+class="uri">https://pubmed.ncbi.nlm.nih.gov/27699347/</a></p>
+<p>17 years, what is the question: understanding time lags in
+translational research. <em>J R Soc Med</em> 2011;104(12):510–520. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3241518/"
+class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC3241518/</a></p>
+<p>Evidence to Change Practice. <a
+href="https://pubmed.ncbi.nlm.nih.gov/37018006/"
+class="uri">https://pubmed.ncbi.nlm.nih.gov/37018006/</a></p>
+<p><a
+href="https://www.helsedirektoratet.no/retningslinjer/antibiotika-i-sykehus"
+class="uri">https://www.helsedirektoratet.no/retningslinjer/antibiotika-i-sykehus</a></p>
+<p>antibiotikabruk i sykehus. <a
+href="https://www.farmatid.no/vitenskap-og-fag/faglige-artikler/article-2016"
+class="uri">https://www.farmatid.no/vitenskap-og-fag/faglige-artikler/article-2016</a></p>
+<p>adherence to national antibiotic guidelines and mortality,
+readmission and length of stay. <a
+href="https://aricjournal.biomedcentral.com/articles/10.1186/s13756-019-0515-5"
+class="uri">https://aricjournal.biomedcentral.com/articles/10.1186/s13756-019-0515-5</a></p>
+<p>feedback intervention study increased adherence to antibiotic
+prescribing guidelines at a Norwegian hospital. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4769530/"
+class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC4769530/</a></p>
+<p>antibiotikaresistens i helsetjenesten. <a
+href="https://www.regjeringen.no/contentassets/915655269bc04a47928fce917e4b25f5/handlingsplan-antibiotikaresistens.pdf"
+class="uri">https://www.regjeringen.no/contentassets/915655269bc04a47928fce917e4b25f5/handlingsplan-antibiotikaresistens.pdf</a></p>
+<p>endringslogg. <a
+href="https://www.helsedirektoratet.no/retningslinjer/antibiotika-i-sykehus/antibiotika-i-sykehus-endringslogg"
+class="uri">https://www.helsedirektoratet.no/retningslinjer/antibiotika-i-sykehus/antibiotika-i-sykehus-endringslogg</a></p>
+<p>antibiotikaresistens – evalueringsrapport 2022. <a
+href="https://www.helsedirektoratet.no/rapporter/handlingsplan-mot-antibiotikaresistens-i-helsetjenesten--evalueringsrapport-2022"
+class="uri">https://www.helsedirektoratet.no/rapporter/handlingsplan-mot-antibiotikaresistens-i-helsetjenesten--evalueringsrapport-2022</a></p>
+<p><a
+href="https://www.fhi.no/en/publ/2023/norm-og-norm-vet-usage-of-antimicrobial-agents-and-occurrence-of-antimicrobial-resistance-in-norway"
+class="uri">https://www.fhi.no/en/publ/2023/norm-og-norm-vet-usage-of-antimicrobial-agents-and-occurrence-of-antimicrobial-resistance-in-norway</a></p>
+<p>for antibiotic prophylaxis in hip fracture patients: 13 329 patients
+in the Norwegian Hip Fracture Register. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7247399/"
+class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC7247399/</a></p>
+<p>retningslinje. <a
+href="https://www.helsedirektoratet.no/retningslinjer/diabetes"
+class="uri">https://www.helsedirektoratet.no/retningslinjer/diabetes</a></p>
+<p>legemiddel etter metformin ved diabetes type 2. <a
+href="https://www.helsedirektoratet.no/retningslinjer/diabetes/behandling-med-blodsukkersenkende-legemidler-ved-diabetes/blodsukkersenkende-behandling-og-behandlingsmal-ved-diabetes-type-2/valg-av-blodsukkersenkende-legemiddel-etter-metformin-ved-diabetes-type-2"
+class="uri">https://www.helsedirektoratet.no/retningslinjer/diabetes/behandling-med-blodsukkersenkende-legemidler-ved-diabetes/blodsukkersenkende-behandling-og-behandlingsmal-ved-diabetes-type-2/valg-av-blodsukkersenkende-legemiddel-etter-metformin-ved-diabetes-type-2</a></p>
+<p>recommendations for type 2 diabetes – consequences for treatment
+practice in Norway. <a
+href="https://tidsskriftet.no/en/2023/02/perspectives/new-international-recommendations-type-2-diabetes-consequences-treatment-practice-norway"
+class="uri">https://tidsskriftet.no/en/2023/02/perspectives/new-international-recommendations-type-2-diabetes-consequences-treatment-practice-norway</a></p>
+<p>diabetes type 2. <a
+href="https://nhi.no/for-helsepersonell/nytt-om-legemidler/refusjon-av-sglt2-hemmere-ved-diabetes-type-2"
+class="uri">https://nhi.no/for-helsepersonell/nytt-om-legemidler/refusjon-av-sglt2-hemmere-ved-diabetes-type-2</a></p>
+<p>levels from 2005 to 2014 in a Norwegian type 2 diabetes population.
+<em>BMJ Open Diabetes Research &amp; Care</em>. <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5687527/"
+class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC5687527/</a></p>
+<p>factor target achievement in type 2 diabetes (ROSA 4). <em>Diabetic
+Medicine</em>. <a href="https://pubmed.ncbi.nlm.nih.gov/31651045/"
+class="uri">https://pubmed.ncbi.nlm.nih.gov/31651045/</a></p>
+<p><a
+href="https://www.fhi.no/contentassets/b0802ad9303347b682cf6a8fa701ec91/legemiddelforbruket-i-norge-2019-2023-rapport-2024.pdf"
+class="uri">https://www.fhi.no/contentassets/b0802ad9303347b682cf6a8fa701ec91/legemiddelforbruket-i-norge-2019-2023-rapport-2024.pdf</a></p>
+<p>diabetesregister for voksne 2022. <a
+href="https://www.diabetes.no/mer/nyheter-om-diabetes/nyheter-2024/ny-arsrapport-fra-norsk-diabetesregister-for-voksne/"
+class="uri">https://www.diabetes.no/mer/nyheter-om-diabetes/nyheter-2024/ny-arsrapport-fra-norsk-diabetesregister-for-voksne/</a></p>
+<p>3 to 4.5 hours after acute ischemic stroke (ECASS III). <em>NEJM</em>
+359:1317–29. <a
+href="https://www.nejm.org/doi/abs/10.1056/NEJMoa0804656"
+class="uri">https://www.nejm.org/doi/abs/10.1056/NEJMoa0804656</a></p>
+<p>faglig retningslinje. Metode og prosess. <a
+href="https://www.helsedirektoratet.no/retningslinjer/hjerneslag/metode-og-prosess"
+class="uri">https://www.helsedirektoratet.no/retningslinjer/hjerneslag/metode-og-prosess</a></p>
+<p>and harms of intravenous thrombolysis. <em>Lancet</em> 379:2352–63.
+<a
+href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(12)60768-5/fulltext"
+class="uri">https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(12)60768-5/fulltext</a></p>
+<p>Intraarterial Treatment for Acute Ischemic Stroke (MR CLEAN).
+<em>NEJM</em> 372:11–20. <a
+href="https://www.nejm.org/doi/full/10.1056/nejmoa1411587"
+class="uri">https://www.nejm.org/doi/full/10.1056/nejmoa1411587</a></p>
+<p>Hours after Stroke with a Mismatch between Deficit and Infarct
+(DAWN). <em>NEJM</em> 378:11–21. <a
+href="https://www.nejm.org/doi/full/10.1056/NEJMoa1706442"
+class="uri">https://www.nejm.org/doi/full/10.1056/NEJMoa1706442</a></p>
+<p>timer etter symptomdebut. <a
+href="https://www.helsedirektoratet.no/retningslinjer/hjerneslag/akuttfasen-undersokelse-og-behandling-ved-hjerneslag/reperfusjonsbehandling-og-antitrombotisk-behandling-ved-akutt-hjerneinfarkt/trombektomi-mellom-6-og-24-timer-etter-symptomdebut"
+class="uri">https://www.helsedirektoratet.no/retningslinjer/hjerneslag/akuttfasen-undersokelse-og-behandling-ved-hjerneslag/reperfusjonsbehandling-og-antitrombotisk-behandling-ved-akutt-hjerneinfarkt/trombektomi-mellom-6-og-24-timer-etter-symptomdebut</a></p>
+<p>Perfusion Imaging up to 9 Hours after Onset of Stroke (EXTEND).
+<em>NEJM</em> 380:1795–1803. <a
+href="https://www.nejm.org/doi/full/10.1056/NEJMoa1813046"
+class="uri">https://www.nejm.org/doi/full/10.1056/NEJMoa1813046</a></p>
+<p>Reperfusjonsbehandling (trombolyse og trombektomi) ved hjerneinfarkt.
+<a
+href="https://www.helsedirektoratet.no/horinger/reperfusjonsbehandling-trombolyse-og-trombektomi-ved-hjerneinfarkt--endringer-i-to-anbefalinger"
+class="uri">https://www.helsedirektoratet.no/horinger/reperfusjonsbehandling-trombolyse-og-trombektomi-ved-hjerneinfarkt--endringer-i-to-anbefalinger</a></p>
+<p>Trombolysebehandling ved blodpropp i hjernen. <a
+href="https://www.helsedirektoratet.no/statistikk/kvalitetsindikatorer/hjerte-og-karsykdommer/trombolysebehandling-ved-blodpropp-i-hjernen"
+class="uri">https://www.helsedirektoratet.no/statistikk/kvalitetsindikatorer/hjerte-og-karsykdommer/trombolysebehandling-ved-blodpropp-i-hjernen</a></p>
+<p>Trombolysebehandling av hjerneinfarkt innen 40 minutter. <a
+href="https://www.helsedirektoratet.no/statistikk/kvalitetsindikatorer/hjerte-og-karsykdommer/trombolysebehandling-av-hjerneinfarkt-innen-40-minutter"
+class="uri">https://www.helsedirektoratet.no/statistikk/kvalitetsindikatorer/hjerte-og-karsykdommer/trombolysebehandling-av-hjerneinfarkt-innen-40-minutter</a></p>
+<p>2015–16 – behandling og resultater. <a
+href="https://tidsskriftet.no/2020/01/originalartikkel/hjerneslag-i-norge-2015-16-behandling-og-resultater"
+class="uri">https://tidsskriftet.no/2020/01/originalartikkel/hjerneslag-i-norge-2015-16-behandling-og-resultater</a></p>
+<p><a
+href="https://www.kvalitetsregistre.no/49d98a/siteassets/dokumenter/arsrapporter/hjerneslagregisteret/arsapport-norsk-hjerneslagregister-2024.pdf"
+class="uri">https://www.kvalitetsregistre.no/49d98a/siteassets/dokumenter/arsrapporter/hjerneslagregisteret/arsapport-norsk-hjerneslagregister-2024.pdf</a></p>
+<p><a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3189322"
+class="uri">https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3189322</a></p>
+<p>thrombolysis treatment for acute ischaemic stroke. <a
+href="https://tidsskriftet.no/en/2024/12/original-article/geographical-differences-thrombolysis-treatment-acute-ischaemic-stroke"
+class="uri">https://tidsskriftet.no/en/2024/12/original-article/geographical-differences-thrombolysis-treatment-acute-ischaemic-stroke</a></p>
+<hr />
+<p>Sist oppdatert: 2026-04-08</p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

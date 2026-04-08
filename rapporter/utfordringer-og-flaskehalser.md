@@ -27,8 +27,13 @@ analyseres i delrapport 3.
 Analysen baserer seg på:
 
 - **Offentlig tilgjengelige kilder**: Rapporter fra
-  Helsedirektoratet, FHI, Riksrevisjonen og
-  internasjonale organisasjoner (WHO, Cochrane).
+  Helsedirektoratet, FHI, Riksrevisjonen,
+  regjeringen og internasjonale organisasjoner
+  (WHO, Cochrane).
+- **Stortingsmeldinger**: Meld. St. 9 (2023–2024)
+  Nasjonal helse- og samhandlingsplan, særlig
+  kapittel 6 (kunnskapsbasert tjeneste) og
+  kapittel 9 (digitalisering) [1][2].
 - **Scenarioanalyse**: Der presise tall ikke er
   tilgjengelige, benyttes scenariobaserte estimater
   (konservativt, moderat, optimistisk) med eksplisitt
@@ -173,10 +178,14 @@ og klinisk praksis.**
 Selv når oppdaterte retningslinjer og
 innbyggerinformasjon foreligger, er det et velkjent
 gap mellom anbefalt praksis og faktisk praksis i
-helsetjenesten. Denne flaskehalsen påvirker ikke bare
-helsepersonells praksis, men også kvaliteten på
-informasjonen innbyggere mottar i møtet med
-helsetjenesten.
+helsetjenesten. Meld. St. 9 (2023–2024) fastslår at
+«avstanden mellom forskning og praksis skyldes ulike
+forhold», herunder «manglende
+implementeringskompetanse og tilstrekkelig
+kapasitet» [1]. Kommunesektoren er særlig utsatt:
+stortingsmeldingen konstaterer at «kommunene mangler
+strukturer som kan understøtte strategisk innføring
+av kunnskapsbaserte tiltak» [1].
 
 Sentrale utfordringer:
 
@@ -184,17 +193,67 @@ Sentrale utfordringer:
   nasjonale retningslinjer varierer betydelig mellom
   helseforetak, kommuner og fastleger.
   Riksrevisjonen har ved flere anledninger pekt på
-  slik variasjon.
+  slik variasjon. En revisjonsrapport fra Sørlandet
+  sykehus (2025) dokumenterer konkrete gap mellom
+  nasjonale retningslinjer og lokal praksis [3].
 - **Manglende målingsmekanismer**: Det er begrenset
   systematisk overvåking av i hvilken grad
   retningslinjer følges i klinisk praksis.
 - **Informasjonsoverbelastning**: Helsepersonell
   forholder seg til et stort antall retningslinjer
   og oppdateringer, noe som kan føre til at
-  enkeltvise endringer oversees.
+  enkeltvise endringer oversees. En studie
+  publisert i Sykepleien viser at helsesøstres
+  faktiske bruk av kunnskapskilder i praksis
+  avviker fra den intenderte bruken i
+  verdikjeden [4].
 - **Lokal tilpasning**: Retningslinjer må ofte
   tilpasses lokale forhold, noe som krever lokal
   kapasitet og kompetanse.
+- **Digitalisering løser ikke gapet alene**: En
+  DNV-rapport fra 2025 finner at 80 % av
+  helsepersonell mener digitale verktøy har
+  forbedret pasientbehandlingen, men bare 38 %
+  rapporterer redusert klinisk arbeidsbelastning.
+  Kun 47 % opplever at teknologien har lettet
+  administrative oppgaver [5]. Dette tyder på at
+  digitalisering i seg selv ikke er tilstrekkelig
+  for å lukke implementeringsgapet.
+
+### 2.5 Refusjonsordninger som flaskehals
+
+**Flaskehals: Refusjonsordninger forsinker faktisk
+bruk av anbefalte legemidler.**
+
+Casestudier (se casestudier-forsinkelser.md)
+avdekker at refusjonsordninger utgjør en vesentlig,
+men tidligere ikke identifisert, flaskehals i
+verdikjeden. Selv etter at en retningslinje
+anbefaler et legemiddel, kan praktiske barrierer
+i refusjonssystemet forsinke bred klinisk bruk
+med flere år.
+
+Sentrale utfordringer:
+
+- **Individuell søknadsplikt**: Når et legemiddel
+  ikke har forhåndsgodkjent refusjon, må leger
+  søke individuelt om refusjon for hver pasient.
+  Dette er en administrativ barriere som
+  dokumentert reduserer faktisk bruk.
+- **Lang behandlingstid**: Prosessen fra
+  retningslinjeinkludering til forhåndsgodkjent
+  refusjon kan ta flere år. Diabetes-casen viser
+  at det tok nesten 8 år fra EMPA-REG-studien
+  (2015) til forhåndsgodkjent refusjon for
+  SGLT2-hemmere (2023).
+- **Fragmentert beslutningskjede**: Beslutninger
+  om refusjon tas av et annet organ enn det som
+  utvikler retningslinjer, uten systematisk
+  koordinering av tidslinjene.
+
+**Typisk tilleggsforsinkelse**: 3-8 år fra
+retningslinjeinkludering til forhåndsgodkjent
+refusjon (basert på diabetes-casen).
 
 ---
 
@@ -206,11 +265,15 @@ helseinformasjon som når innbyggere.
 
 ### 3.1 Utdaterte helseråd
 
-Når gjennomløpstiden fra ny evidens til oppdatert
-innbyggerinformasjon er 2-6,5 år (jf. delrapport 1),
-innebærer det at innbyggere i noen tilfeller mottar
-helseråd basert på forskning som er betydelig eldre
-enn hva den tilgjengelige kunnskapen tilsier. Dette
+Gjennomløpstiden fra ny evidens til oppdatert
+innbyggerinformasjon var opprinnelig estimert til
+2-6,5 år (delrapport 1). Casestudier
+(casestudier-forsinkelser.md) dokumenterer at den
+reelle tiden fra forskning til bred praksisendring
+er **7-15+ år**, noe som innebærer at innbyggere i
+mange tilfeller mottar helseråd basert på forskning
+som er betydelig eldre enn hva den tilgjengelige
+kunnskapen tilsier. Dette
 kan gjelde alt fra ernæringsråd til anbefalinger om
 medisinbruk og livsstilsendringer.
 
@@ -374,10 +437,16 @@ Ansvaret for de ulike stegene i verdikjeden er
 fordelt på flere organisasjoner (FHI,
 Helsedirektoratet, NHN, helseforetak, kommuner) med
 ulike styringslinjer, budsjettprosesser og
-prioriteringer. Det finnes ikke et helhetlig
+prioriteringer. Meld. St. 9 (2023–2024)
+understreker at «praksisnær forskning,
+implementeringsforskning, kunnskapsutvikling og
+innovasjon er helt nødvendig» og at det kreves
+«endringer av atferd på individ-, organisatorisk-
+og systemnivå» [1]. Det finnes ikke et helhetlig
 styringsmandat for verdikjeden fra forskning til
 innbygger, noe som kan føre til suboptimalisering
-innenfor det enkelte steg uten at helheten ivaretas.
+innenfor det enkelte steg uten at helheten
+ivaretas.
 
 ### 5.2 Manglende standardisert informasjonsflyt
 
@@ -411,6 +480,21 @@ publiseringsløsninger, Helsebibliotekets systemer og
 helsenorge.no har separate
 innholdsforvaltningssystemer uten automatisert
 informasjonsflyt mellom seg.
+
+Meld. St. 9 (2023–2024) konstaterer at det «også
+framover vil være flere systemer i bruk» og at
+«kommunesektoren har de største utfordringene» [2].
+Fragmenteringen er særlig godt dokumentert på
+legemiddelområdet, der Helsedirektoratets
+kunnskapsgrunnlag identifiserer at «aktører
+benytter ulike kodeverk for samme
+informasjonselement» og at spesialisthelsetjenesten
+må «komplettere, kompensere og kvalitetssikre
+legemiddeldata lokalt og regionalt, noe som er
+ressurskrevende» [6]. Helsepersonell «må bruke
+unødvendig mye tid på å få oversikt over hvilke
+legemidler pasienten bruker» ved overganger mellom
+virksomheter [6].
 
 ### 5.5 Begrenset bruk av strukturerte data og metadata
 
@@ -483,21 +567,24 @@ tilbakemeldingskanaler som gjør det mulig å:
 
 ### 7.1 De viktigste flaskehalsene rangert etter alvorlighet
 
-Basert på analysen over rangeres de viktigste
-flaskehalsene etter samlet alvorlighet, vurdert ut
-fra påvirkning på innbyggernes tilgang til oppdatert
-helseinformasjon:
+Basert på analysen over, og underbygget av tre
+casestudier (casestudier-forsinkelser.md), rangeres
+de viktigste flaskehalsene etter samlet
+alvorlighet. Implementeringsgapet og
+refusjonsordninger er oppjustert til «høy» basert
+på casedokumentasjonen:
 
 | Rang | Flaskehals | Alvorlighet | Begrunnelse |
 | --- | --- | --- | --- |
 | 1 | Foreldelse av kunnskapsgrunnlag underveis i retningslinjeprosessen | Høy | Lengste enkeltforsinkelse, direkte påvirkning på kvalitet |
 | 2 | Kapasitetsbegrensning for systematiske oversikter | Høy | Begrenser volumet av oppdatert kunnskap som kan produseres |
 | 3 | Manglende kobling mellom retningslinje og innbyggerinformasjon | Høy | Gjør at forsinkelsen forsterkes i siste ledd |
-| 4 | Siloorganisering og fragmentert ansvar | Middels | Strukturell årsak til flere av de øvrige flaskehalsene |
-| 5 | Manglende strukturerte data og metadata | Middels | Hindrer automatisering og sporbarhet |
-| 6 | Implementeringsgapet i klinisk praksis | Middels | Påvirker innbyggere indirekte gjennom helsetjenesten |
-| 7 | Manglende personalisering av innbyggerinformasjon | Middels | Reduserer relevans og nytteverdi for den enkelte |
-| 8 | Tilgjengelighetsutfordringer | Middels | Ekskluderer sårbare grupper |
+| 4 | Implementeringsgapet i klinisk praksis | Høy | Casestudier dokumenterer 7-15+ år fra forskning til bred praksisendring. Passiv publisering er utilstrekkelig; aktive tiltak er nødvendige |
+| 5 | Refusjonsordninger som barriere for legemiddelbruk | Høy | Diabetes-casen: 8 år fra forskning til forhåndsgodkjent refusjon. Fragmentert beslutningskjede mellom retningslinjer og refusjon |
+| 6 | Siloorganisering og fragmentert ansvar | Middels | Strukturell årsak til flere av de øvrige flaskehalsene |
+| 7 | Manglende strukturerte data og metadata | Middels | Hindrer automatisering og sporbarhet |
+| 8 | Manglende personalisering av innbyggerinformasjon | Middels | Reduserer relevans og nytteverdi for den enkelte |
+| 9 | Tilgjengelighetsutfordringer | Middels | Ekskluderer sårbare grupper |
 
 ### 7.2 Videre analyser
 
@@ -517,7 +604,7 @@ grunnlag for de neste delrapportene i utredningen:
 
 ---
 
-Sist oppdatert: 2026-03-18
+Sist oppdatert: 2026-04-08
 
 ---
 
@@ -555,3 +642,35 @@ Disse manglende tallene er kritiske for å vurdere
 omfanget av utfordringene identifisert i denne
 rapporten. De bør prioriteres for innsamling i
 senere faser av prosjektet.
+
+---
+
+## Referanser
+
+[1]: Helse- og omsorgsdepartementet. *Meld. St. 9
+(2023–2024), kapittel 6: En kunnskapsbasert og godt
+ledet tjeneste med god kvalitet og pasient- og
+brukersikkerhet*.
+<https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/?ch=6>
+
+[2]: Helse- og omsorgsdepartementet. *Meld. St. 9
+(2023–2024), kapittel 9: Digitalisering i helse-
+og omsorgstjenesten*.
+<https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/?ch=9>
+
+[3]: Sørlandet sykehus HF. *Revisjonsrapport:
+Nasjonale faglige retningslinjer – implementering
+og etterlevelse* (2025).
+<https://www.sshf.no/49981b/siteassets/dokumenter/styredokumenter/styredokumenter-2025/2025-05/032-2025-vedl-revisjonsrapport-nasjonale-faglige-retningslinjer---implementering-og-etterlevelse-sshf-1.pdf>
+
+[4]: Sykepleien. *Hvordan helsesøstre bruker
+kunnskapskilder*.
+<https://sykepleien.no/sites/default/files/pdf-export/pdf-export-64242.pdf>
+
+[5]: DNV. *Ny rapport: Digital helse gir bedre
+behandling, men øker ikke produktiviteten* (2025).
+<https://www.dnv.no/news/2025/ny-rapport-digital-helse-gir-bedre-behandling-men-oker-ikke-produktiviteten/>
+
+[6]: Helsedirektoratet. *Kunnskapsgrunnlag for plan
+for digitalisering på legemiddelområdet*.
+<https://www.helsedirektoratet.no/digitalisering-og-e-helse/plan-for-digitalisering-pa-legemiddelomradet/kunnskapsgrunnlag-for-plan-for-digitalisering-pa-legemiddelomradet>

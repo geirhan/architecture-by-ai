@@ -106,7 +106,9 @@ produkter basert på kunnskapsoppsummeringer:
 **faglige råd** [1]. Retningslinjene er normerende for
 helsetjenesten og gir anbefalinger for diagnostikk,
 behandling, forebygging og organisering.
-Utviklingsprosessen involverer tverrfaglige
+Utviklingsprosessen er beskrevet i Helsedirektoratets
+*Veileder for utvikling av kunnskapsbaserte
+retningslinjer* [19] og involverer tverrfaglige
 arbeidsgrupper med bidrag fra fagmedisinske
 foreninger og brukerrepresentanter, ekstern høring
 og systematisk vurdering av evidens opp mot norske
@@ -134,8 +136,11 @@ klinisk praksis:
 - **Primærhelsetjenesten**: Kommunene og fastlegene
   er ansvarlige for å følge retningslinjene.
   Helsebiblioteket har lansert en egen portal for
-  kommunehelsetjenesten [3]. Det finnes ikke en
-  tilsvarende systematisk
+  kommunehelsetjenesten [3]. Meld. St. 9
+  (2023–2024) konstaterer at kommunene «mangler
+  strukturer som kan understøtte strategisk
+  innføring av kunnskapsbaserte tiltak» [23], og
+  det finnes ikke en tilsvarende systematisk
   operasjonaliseringsmekanisme som fagprosedyrer
   for primærhelsetjenesten.
 
@@ -147,7 +152,15 @@ Dette er den mest autoritative strømmen – den eneste
 der kunnskap gjennomgår formell normering for norsk
 kontekst. Den er også den langsomste, med en
 gjennomløpstid på 1–5 år fra kunnskapsoppsummering
-til oppdatert praksis.
+til oppdatert retningslinje. Casestudier
+(se casestudier-forsinkelser.md) dokumenterer
+imidlertid at den reelle tiden fra forskning til
+bred praksisendring er vesentlig lengre – typisk
+**7–15+ år** når implementering, refusjonsordninger
+og etterlevelse inkluderes. For den normerende
+strømmen isolert (forskning til retningslinje) er
+2–3 år typisk, men dette dekker kun midten av
+verdikjeden.
 
 | Aktør | Rolle | Leveranse |
 | ------- | ------- | ----------- |
@@ -285,18 +298,21 @@ aktører.
 ##### Offentlige kanaler
 
 - **helsenorge.no**: Norges digitale helseportal for
-  innbyggere, eid av NHN (statsforetak under HOD).
+  innbyggere, eid av NHN (statsforetak under HOD),
+  med over 131 millioner besøk i 2024 [20].
   Innholdsproduksjonen er **desentralisert** med
   tydelig ansvarsfordeling: Helsedirektoratet har
   utgiveransvaret og det etiske og rettslige
   ansvaret for informasjonsinnholdet, mens NHN er
   produkteier og har redaktøransvaret – inkludert
   ansvar for at lokale redaktører følger
-  innholdsstrategien og
-  kvalitetsretningslinjene [10]. Innholdet leveres
-  og kvalitetssikres av offentlige helseaktører
-  som sykehus, Helsedirektoratet, Helfo og FHI,
-  og skal være forskningsbasert og i tråd med
+  innholdsstrategien [21] og
+  kvalitetsretningslinjene [10]. Alt innhold
+  kvalitetssikres minimum hvert tredje år [22].
+  Innholdet leveres og kvalitetssikres av
+  offentlige helseaktører som sykehus,
+  Helsedirektoratet, Helfo og FHI, og skal være
+  forskningsbasert og i tråd med
   nasjonale råd og retningslinjer [10]. All
   informasjon oppdateres jevnlig og minst hvert
   tredje år [10]. Helsenorge.no tilbyr også
@@ -427,8 +443,7 @@ bedre tilpasset innbyggerens umiddelbare behov.
 | **Dekningsgrad** | Utvalgte tema | Bred klinisk | Legemiddelspesifikk | Ujevn |
 | **Tilpasning til norsk** | Høy | Lav (internasjonal) | Middels | Varierer |
 | **Hovedmålgruppe** | Helsepersonell → innbyggere | Helsepersonell | Helsepersonell → innbyggere | Innbyggere |
-| **Eksempler på aktører** | Helsedirektoratet, Helsebiblioteket | UpToDate, fagprosedyrer | DMP, Felleskatalogen, RELIS | helsenorge.no, NHI.no, medier |
-
+| **Eksempler på aktører** | Helsedirektoratet, Helsebiblioteket (FHI) | UpToDate, fagprosedyrer | DMP, Felleskatalogen, RELIS | helsenorge.no, NHI.no, medier |
 ---
 
 ## 3. Oppdateringshastighet per strøm
@@ -671,10 +686,17 @@ dokumentert som tidskrevende sammenlignet med:
 - Medier og pasientorganisasjoner som publiserer
   variabelt raskt
 
-**Udokumentert:** Nøyaktige tidsestimater for hver
-strøm. Dette må undersøkes gjennom intervjuer og
-casestudier for å etablere pålitelige målinger av
-gjennomløpstider.
+Casestudier av antibiotika, diabetes type 2 og
+slagbehandling (se casestudier-forsinkelser.md)
+dokumenterer at den reelle gjennomløpstiden fra
+forskning til bred praksisendring er **7–15+ år**,
+vesentlig lengre enn de opprinnelige estimatene
+på 2,5–5 år. Internasjonalt er det mest siterte
+estimatet 17 år (Balas & Boren, 2000; Morris
+et al., 2011). De norske casene plasserer seg
+mellom den normerende strømmens isolerte
+gjennomløpstid (2–3 år) og det internasjonale
+17-årsestimatet.
 
 #### 2. De parallelle strømmene er ikke periferalt – de er sentrale
 
@@ -755,17 +777,19 @@ utfordringer og flaskehalser, og identifisere
 mulighetsrom for forbedring.
 
 **Merknad om kilder:** Kartleggingen i denne
-rapporten er basert på tilgjengelig dokumentasjon fra
-offentlige kilder. Flere observasjoner – særlig
-omkring tidsbruk og gjennomløpstider – mangler
-etterprøvbar dokumentasjon og bør underbygges
-gjennom målrettede undersøkelser (intervjuer med
-nøkkelaktører, casestudier, innsamling av
-prosessdata fra aktørene).
+rapporten er basert på tilgjengelig dokumentasjon
+fra offentlige kilder. Gjennomløpstidsestimatene
+er revidert og underbygget med tre casestudier
+(antibiotika, diabetes type 2, slagbehandling)
+dokumentert i casestudier-forsinkelser.md, som
+viser at den reelle tiden fra forskning til bred
+praksisendring er 7–15+ år. Øvrige observasjoner
+om intern prosessvarighet bør fortsatt underbygges
+gjennom målrettede undersøkelser.
 
 ---
 
-Sist oppdatert: 2026-03-23
+Sist oppdatert: 2026-04-08
 
 ---
 
@@ -837,3 +861,24 @@ datagrunnlaget*.
 [18]: RELIS. *Produsentuavhengig
 legemiddelinformasjon*.
 <https://relis.no>
+
+[19]: Helsedirektoratet. *Veileder for utvikling
+av kunnskapsbaserte retningslinjer*.
+<https://www.helsedirektoratet.no/veiledere/utvikling-av-kunnskapsbaserte-retningslinjer>
+
+[20]: Helsedirektoratet.
+*Innbyggerundersøkelsen om digitalisering i
+helse- og omsorgstjenesten 2024*.
+<https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester>
+
+[21]: Helsenorge. *Innholdsstrategi 2021–2026*.
+<https://www.helsenorge.no/49efff/globalassets/redaksjonelt/innholdsstrategi-helsenorge.pdf>
+
+[22]: Norsk helsenett. *Du får kvalitetssikret
+helseinformasjon på Helsenorge*.
+<https://www.nhn.no/nyheter/du-far-kvalitetssikret-helseinformasjon-pa-helsenorge>
+
+[23]: Helse- og omsorgsdepartementet. *Meld. St. 9
+(2023–2024), kapittel 6: En kunnskapsbasert og
+godt ledet tjeneste*.
+<https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/?ch=6>

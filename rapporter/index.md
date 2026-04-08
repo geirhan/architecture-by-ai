@@ -8,22 +8,20 @@
   kunnskapsforvaltning i helsesektoren. 3-stegs modell
   der steg 3 beskrives som fire parallelle strømmer
   (normerende, klinisk, legemiddel, innbyggerrettet).
-  Inneholder: oversikt av strømmene inkl.
-  innbyggerkilder utenfor verdikjeden, detaljert
-  tidsbruk per strøm, informasjonsflyt og kritiske
-  overganger, kvalitetssikring per strøm, og konklusjon
-  med hovedobservasjoner. Aktørkartet er flyttet til
-  delrapport 8.
-- **Sist oppdatert**: 2026-03-23
+  Gjennomløpstidsestimater revidert basert på
+  casestudier: 2-3 år forskning-retningslinje,
+  7-15+ år forskning-praksisendring. Aktørkartet
+  er flyttet til delrapport 8.
+- **Sist oppdatert**: 2026-04-08
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
 - **Beskrivelse**: Kartlegging av utfordringer og
-  flaskehalser i verdikjeden. Analyserer forsinkelser
-  i hvert steg, konsekvenser, kvantitative indikatorer
-  (scenariobasert), strukturelle utfordringer. Rangerer
-  8 flaskehalser etter alvorlighet.
-- **Sist oppdatert**: 2026-03-15
+  flaskehalser i verdikjeden. Rangerer 9 flaskehalser
+  etter alvorlighet. Refusjonsordninger lagt til som
+  ny flaskehals (høy). Implementeringsgapet
+  oppjustert til «høy» basert på casestudier.
+- **Sist oppdatert**: 2026-04-08
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
@@ -77,6 +75,18 @@
   observasjoner om fragmentert ansvar, overlappende
   roller og enabler-gap.
 - **Sist oppdatert**: 2026-03-23
+
+### [Casestudier: Dokumenterte forsinkelser](casestudier-forsinkelser.md)
+
+- **Beskrivelse**: Tre casestudier (antibiotika,
+  diabetes type 2, slagbehandling) som dokumenterer
+  faktiske forsinkelser i verdikjeden fra publisert
+  forskning til retningslinje, refusjonsordning og
+  praksisendring. Basert på daterte, offentlig
+  tilgjengelige kilder. Underbygger og korrigerer
+  gjennomløpstidsestimater i delrapport 1 og 2.
+  34 referanser.
+- **Sist oppdatert**: 2026-04-08
 
 ### [HTML-versjon](html/index.html)
 
