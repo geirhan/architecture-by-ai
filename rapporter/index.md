@@ -34,11 +34,13 @@
 
 ### [Delrapport 4 -- Ny verdikjede](ny-verdikjede.md)
 
-- **Beskrivelse**: Tre alternativer for ny verdikjede:
-  nullalternativet, moderat KI-støtte og ambisiøs
-  KI-pipeline. Governance-modell,
-  kvalitetssikringsprosess og faseinndelt anbefaling.
-- **Sist oppdatert**: 2026-03-15
+- **Beskrivelse**: Fire alternativer for ny verdikjede:
+  nullalternativet, organisatorisk modernisering,
+  moderat KI-støtte og ambisiøs KI-pipeline.
+  Governance-modell, kvalitetssikringsprosess og
+  faseinndelt anbefaling. Bredde i alternativer
+  i tråd med utredningsinstruksen.
+- **Sist oppdatert**: 2026-04-08
 
 ### [Delrapport 5 -- Arkitektur og komponenter](arkitektur-og-komponenter.md)
 
@@ -57,10 +59,13 @@
 ### [Delrapport 7 -- Samlet vurdering](samlet-vurdering-kunnskapsforvaltning.md)
 
 - **Beskrivelse**: Samlet vurdering med
-  ledersammendrag, risikomatrise (10 risikoer),
-  fremdriftsplan, kostnadsramme (100-250 MNOK) og
-  samsvar med utredningsinstruksen.
-- **Sist oppdatert**: 2026-03-15
+  ledersammendrag, virknings- og
+  fordelingsvirkningsanalyse, risikomatrise
+  (10 risikoer), fremdriftsplan, kostnadsramme
+  (100-250 MNOK), juridiske endringsbehov,
+  evalueringsplan og samsvar med
+  utredningsinstruksen.
+- **Sist oppdatert**: 2026-04-08
 
 ### [Delrapport 8 -- Aktøranalyse](aktoeranalyse.md)
 

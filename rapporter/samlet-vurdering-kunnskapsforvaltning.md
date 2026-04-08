@@ -54,10 +54,12 @@ KI-systemer i helse fortsatt er umodne (delrapport 6).
 ### Anbefaling
 
 Utredningen anbefaler en **faseinndelt innføring av
-KI-støttet kunnskapsforvaltning** over tre faser i løpet
-av 0-48 måneder, med alternativ 1 (moderat KI-støtte)
-som startpunkt og gradvis utvidelse mot alternativ 2
-(ambisiøs KI-pipeline).
+KI-støttet kunnskapsforvaltning** over tre faser i
+løpet av 0-48 måneder, med alternativ 2 (moderat
+KI-støtte) som startpunkt og gradvis utvidelse mot
+alternativ 3 (ambisiøs KI-pipeline). Organisatoriske
+tiltak fra alternativ 1 anbefales gjennomført
+parallelt.
 
 ### Nøkkeltall
 
@@ -117,7 +119,7 @@ Utredningen består av syv delrapporter:
 | 1 | Dagens verdikjede | Kartlegging av verdikjeden fra forskning til innbygger i fem steg |
 | 2 | Utfordringer og flaskehalser | Analyse av åtte rangerte flaskehalser og konsekvenser |
 | 3 | Store språkmodeller - muligheter og risikoer | Balansert vurdering av LLM-teknologi i helsekontekst |
-| 4 | Alternativer for ny verdikjede | Tre alternativer med kostnads- og risikovurdering |
+| 4 | Alternativer for ny verdikjede | Fire alternativer med kostnads- og risikovurdering |
 | 5 | Arkitektur og komponenter | Teknisk og organisatorisk arkitektur med ArchiMate |
 | 6 | Internasjonale erfaringer | WHO, NICE, Cochrane, nordiske land og living guidelines |
 | 7 | Samlet vurdering og anbefaling | Denne rapporten |
@@ -194,21 +196,27 @@ tilsyn.
 
 ### Delrapport 4: Alternativer for ny verdikjede
 
-Tre alternativer vurderes. Alternativ 0
-(nullalternativet) viderefører dagens praksis og
-vurderes som ikke bærekraftig. Alternativ 1 (moderat
-KI-støtte) innfører KI som støtteverktøy med
-menneskelig kontroll, gir 40-60 % tidsbesparelse til
-en investeringskostnad på 20-50 MNOK. Alternativ 2
+Fire alternativer vurderes, med ulik
+inngripningsgrad. Alternativ 0 (nullalternativet)
+viderefører dagens praksis og vurderes som ikke
+bærekraftig. Alternativ 1 (organisatorisk
+modernisering) styrker kapasiteten gjennom økt
+bemanning og prosessoptimalisering, med 15-30 %
+tidsbesparelse. Alternativ 2 (moderat KI-støtte)
+innfører KI som støtteverktøy med menneskelig
+kontroll, gir 40-60 % tidsbesparelse til en
+investeringskostnad på 20-50 MNOK. Alternativ 3
 (ambisiøs KI-pipeline) innebærer living guidelines,
 personaliserte helseråd og EHDS-integrasjon, med
 70-90 % tidsbesparelse og investeringskostnad på
 100-250 MNOK.
 
 Anbefalingen er en faseinndelt tilnærming der
-alternativ 1 implementeres først, med gradvis utvidelse
-mot alternativ 2. Governance-modellen spesifiserer
-roller for Helsedirektoratet (overordnet governance),
+alternativ 2 implementeres først, med gradvis
+utvidelse mot alternativ 3. Organisatoriske tiltak
+fra alternativ 1 anbefales gjennomført parallelt.
+Governance-modellen spesifiserer roller for
+Helsedirektoratet (overordnet governance),
 FHI (KI-støttet kunnskapssyntese), NHN (drift av
 infrastruktur) og fageksperter (validering).
 
@@ -306,19 +314,141 @@ i løpet av 3-5 år:
 
 ---
 
-## 5. Anbefaling
+## 5. Virkninger, varighet og fordelingsvirkninger
 
-### 5.1 Overordnet anbefaling
+Utredningsinstruksen krever at positive og negative
+virkninger vurderes for alle alternativer, at
+varigheten angis, og at fordelingsvirkninger
+identifiseres. Dette kapitlet systematiserer denne
+vurderingen.
+
+### 5.1 Positive og negative virkninger per alternativ
+
+#### Alternativ 0 (nullalternativet)
+
+- **Positive virkninger**: Ingen endringskostnader,
+  ingen implementeringsrisiko, bevarelse av kjente
+  arbeidsprosesser.
+- **Negative virkninger**: Økende kunnskapsgap,
+  foreldede helseråd, tap av tillit til offentlig
+  helseinformasjon, manglende EHDS-samsvar,
+  kompetanseflukt fra offentlig sektor. Varig og
+  tiltakende over tid.
+- **Varighet**: Permanent og selvforsterkende.
+
+#### Alternativ 1 (organisatorisk modernisering)
+
+- **Positive virkninger**: 15-30 % kortere
+  gjennomløpstid, bedre koordinering mellom
+  aktørene, styrket kapasitet for
+  kunnskapsproduksjon.
+- **Negative virkninger**: Varig økning i
+  driftskostnader (lønnsutgifter), rekruttering
+  i et stramt arbeidsmarked for
+  spesialkompetanse, organisatorisk
+  endringsmotstand. Løser ikke det underliggende
+  skaleringsproblemet.
+- **Varighet**: Gevinstene er reelle men avtagende
+  over tid etter hvert som forskningsvolumet
+  fortsetter å vokse.
+
+#### Alternativ 2 (moderat KI-støtte)
+
+- **Positive virkninger**: 40-60 % kortere
+  gjennomløpstid, økt kapasitet uten tilsvarende
+  bemanningsøkning, bedre innbyggerinformasjon,
+  posisjonering for EHDS-samsvar.
+- **Negative virkninger**: Investeringskostnad
+  20-50 MNOK, behov for kompetanseomstilling,
+  risiko for automatiseringstillit, avhengighet
+  av teknologileverandører, overgangsperiode med
+  redusert produktivitet under implementering.
+- **Varighet**: Gevinstene er varige og
+  skalerbare. Omstillingskostnadene er
+  forbigående (12-24 mnd).
+
+#### Alternativ 3 (ambisiøs KI-pipeline)
+
+- **Positive virkninger**: 70-90 % kortere
+  gjennomløpstid, living guidelines,
+  personaliserte helseråd, full
+  EHDS-integrasjon, flerspråklig formidling.
+- **Negative virkninger**: Høy
+  investeringskostnad 100-250 MNOK, vesentlig
+  organisatorisk transformasjon, moderat-høy
+  kvalitetsrisiko, regulatorisk usikkerhet, fare
+  for leverandørlåsing, redusert menneskelig
+  kontroll.
+- **Varighet**: Gevinstene er varige og
+  transformative hvis vellykket. Risikoen for
+  feilslått implementering er størst i de
+  første 2-3 årene.
+
+### 5.2 Fordelingsvirkninger
+
+Tabellen nedenfor viser hvem som bærer kostnadene
+og hvem som høster gevinstene av det anbefalte
+tiltaket (alternativ 2 som startpunkt med gradvis
+utvidelse mot alternativ 3).
+
+<!-- markdownlint-disable MD013 -->
+
+| Berørt gruppe | Kostnader | Gevinster |
+| --- | --- | --- |
+| **HOD** | Finansiering (100-250 MNOK), politisk risiko | Bedre måloppnåelse, EHDS-samsvar |
+| **Helsedirektoratet** | Organisasjonsutvikling, governance-ansvar | Raskere retningslinjearbeid, styrket fagmyndighetsrolle |
+| **FHI** | Omstilling, ny kompetanse, endrede roller for fagpersoner | Økt produksjonskapasitet, mer tid til faglig vurdering |
+| **NHN** | Ny KI-driftskapasitet, teknisk rekruttering | Styrket rolle som nasjonal tjenesteleverandør |
+| **RHF-ene** | Tilpasning til nye formater, opplæring | Raskere tilgang til oppdaterte retningslinjer |
+| **KS/kommunene** | Tilpasning av lokale prosesser | Bedre innbyggerinformasjon, redusert lokal kunnskapsproduksjon |
+| **Helsepersonell** | Endrede arbeidsformer, KI-kompetansebehov | Oppdatert kunnskapsgrunnlag, bedre verktøy |
+| **Innbyggere** | Usikkerhet om KI-generert informasjon | Raskere, mer tilgjengelig helseinformasjon |
+
+<!-- markdownlint-enable MD013 -->
+
+### 5.3 Ikke-prissatte virkninger
+
+Flere viktige virkninger lar seg ikke prissette:
+
+- **Tillit til offentlig helseinformasjon**: Både
+  alternativ 0 (tillitserodering pga. utdatert
+  innhold) og alternativ 2-3 (usikkerhet om
+  KI-generert innhold) påvirker tilliten. Samlet
+  vurdering: tiltaket styrker tilliten forutsatt
+  transparent kommunikasjon om KI-bruk.
+- **Faglig autonomi**: KI-verktøy endrer
+  fagpersoners rolle fra produsent til
+  kvalitetskontrollør. Dette kan oppleves som
+  tap av faglig autonomi, men kan også frigjøre
+  tid til faglig vurdering.
+- **Demokratisk kontroll**: KI-systemer i
+  helseinformasjon berører spørsmål om
+  algoritmisk transparens og offentlig innsyn.
+  Styrkes ved åpen kildekode og offentlig
+  dokumentasjon av KI-bruk.
+- **Likeverd og tilgjengelighet**: Forbedret
+  flerspråklig og multimodal formidling kan
+  redusere helseforskjeller. Risiko for at
+  digitalt utenforskap forsterkes dersom
+  tradisjonelle kanaler nedprioriteres.
+
+---
+
+## 6. Anbefaling
+
+### 6.1 Overordnet anbefaling
 
 Det anbefales en **faseinndelt innføring av KI-støttet
-kunnskapsforvaltning** der alternativ 1 (moderat
+kunnskapsforvaltning** der alternativ 2 (moderat
 KI-støtte) implementeres som startpunkt, med gradvis
-utvidelse mot elementer fra alternativ 2 etter hvert
+utvidelse mot elementer fra alternativ 3 etter hvert
 som teknologi, kompetanse og governance modnes.
-Tilnærmingen balanserer behovet for modernisering mot
-risikoen for feilslått implementering.
+Organisatoriske tiltak fra alternativ 1 anbefales
+gjennomført parallelt. Tilnærmingen balanserer
+behovet for modernisering mot risikoen for feilslått
+implementering.
 
-### 5.2 Fase 1: Pilotering (0-18 måneder)
+### 6.2 Fase 1: Pilotering (0-18 måneder)
 
 **Målsetning:** Bevise konseptet og bygge grunnlaget.
 
@@ -337,7 +467,7 @@ risikoen for feilslått implementering.
 
 **Estimert kostnad:** 5-15 MNOK. **Risiko:** Lav.
 
-### 5.3 Fase 2: Utvidelse (12-36 måneder)
+### 6.3 Fase 2: Utvidelse (12-36 måneder)
 
 **Målsetning:** Skalere det som virker og utvide
 funksjonaliteten.
@@ -356,7 +486,7 @@ funksjonaliteten.
 
 **Estimert kostnad:** 15-35 MNOK. **Risiko:** Moderat.
 
-### 5.4 Fase 3: Transformasjon (24-48 måneder)
+### 6.4 Fase 3: Transformasjon (24-48 måneder)
 
 **Målsetning:** Transformere verdikjeden og koble til
 europeisk infrastruktur.
@@ -379,7 +509,7 @@ forutsetter vellykket gjennomføring av fase 1 og 2,
 samt at teknologien modnes ytterligere.
 Kostnadsestimatet har høy usikkerhet.*
 
-### 5.5 Samlet kostnadsramme
+### 6.5 Samlet kostnadsramme
 
 <!-- markdownlint-disable MD013 -->
 
@@ -398,7 +528,7 @@ Driftskostnader kommer i tillegg. Estimatene er grove
 og bør verifiseres gjennom detaljerte
 kost-nytte-analyser for hver fase.
 
-### 5.6 Organisatoriske forutsetninger
+### 6.6 Organisatoriske forutsetninger
 
 Vellykket gjennomføring forutsetter:
 
@@ -422,7 +552,7 @@ Vellykket gjennomføring forutsetter:
 
 ---
 
-## 6. Risikomatrise
+## 7. Risikomatrise
 
 Tabellen nedenfor oppsummerer de ti viktigste risikoene
 for KI-støttet kunnskapsforvaltning, med vurdering av
@@ -461,9 +591,9 @@ krever aktiv styring gjennom hele gjennomføringsperioden.
 
 ---
 
-## 7. Fremdriftsplan
+## 8. Fremdriftsplan
 
-### 7.1 Overordnet tidslinje
+### 8.1 Overordnet tidslinje
 
 <!-- markdownlint-disable MD013 -->
 
@@ -493,7 +623,7 @@ krever aktiv styring gjennom hele gjennomføringsperioden.
 
 <!-- markdownlint-enable MD013 -->
 
-### 7.2 Kritiske avhengigheter
+### 8.2 Kritiske avhengigheter
 
 - **Fase 2 avhenger av fase 1:** Beslutning om
   skalering forutsetter vellykket pilotering og
@@ -512,7 +642,7 @@ krever aktiv styring gjennom hele gjennomføringsperioden.
 
 ---
 
-## 8. Samsvar med utredningsinstruksen
+## 9. Samsvar med utredningsinstruksen
 
 Utredningen svarer på utredningsinstruksens seks
 minimumskrav:
@@ -533,13 +663,16 @@ tilgjengelig, og posisjonere Norge for EHDS-samsvar.
 
 ### Krav 2: Relevante tiltak
 
-Tre alternativer er vurdert (delrapport 4):
+Fire alternativer er vurdert (delrapport 4), med ulik
+inngripningsgrad i tråd med instruksens krav:
 
 - Alternativ 0: Videreføring uten endring
   (ikke bærekraftig)
-- Alternativ 1: Moderat KI-støtte med menneskelig
+- Alternativ 1: Organisatorisk modernisering uten KI
+  (økt bemanning, prosessoptimalisering)
+- Alternativ 2: Moderat KI-støtte med menneskelig
   kontroll (anbefalt startpunkt)
-- Alternativ 2: Ambisiøs KI-pipeline med living
+- Alternativ 3: Ambisiøs KI-pipeline med living
   guidelines (langsiktig mål)
 
 ### Krav 3: Prinsipielle spørsmål
@@ -555,10 +688,16 @@ Utredningen adresserer flere prinsipielle spørsmål
 - Hvordan sikre demokratisk kontroll over KI i helse?
 - Bør Norge utvikle egne modeller eller bruke
   kommersielle?
+- Konsekvenser for maktfordeling mellom stat,
+  kommune og privat sektor ved økt sentralisering
+  av kunnskapsproduksjon
 
-### Krav 4: Berørte parter
+### Krav 4: Berørte parter og virkninger
 
-Berørte parter er kartlagt (delrapport 1 og 4):
+Berørte parter er kartlagt (delrapport 1, 4 og 8)
+med systematisk vurdering av positive og negative
+virkninger, varighet og fordelingsvirkninger
+(kapittel 5):
 
 - **HOD** som oppdragsgiver og politisk styringsnivå
 - **Helsedirektoratet** som fagmyndighet og
@@ -569,28 +708,90 @@ Berørte parter er kartlagt (delrapport 1 og 4):
   spesialisthelsetjenesten
 - **KS og kommunene** som implementører i
   primærhelsetjenesten
-- **Innbyggere** som sluttbrukere av helseinformasjon
-- **Helsepersonell** som brukere av retningslinjer og
-  fagkunnskap
+- **Innbyggere** som sluttbrukere av
+  helseinformasjon
+- **Helsepersonell** som brukere av retningslinjer
+  og fagkunnskap
+
+Fordelingsvirkningstabell i kapittel 5.2 viser
+hvem som bærer kostnader og hvem som høster
+gevinster. Ikke-prissatte virkninger (tillit,
+faglig autonomi, demokratisk kontroll, likeverd)
+er vurdert i kapittel 5.3.
 
 ### Krav 5: Anbefalt tiltak
 
 Faseinndelt innføring av KI-støttet
 kunnskapsforvaltning over tre faser (0-48 måneder),
-med alternativ 1 som startpunkt. Se kapittel 5.
+med alternativ 2 som startpunkt og organisatoriske
+tiltak fra alternativ 1 parallelt. Se kapittel 6.
 
 ### Krav 6: Forutsetninger for vellykket gjennomføring
 
-Seks forutsetninger er identifisert (kapittel 5.6):
-tydelig oppdrag fra HOD, tverrsektoriell forankring,
-kompetanseinvestering, regulatorisk proaktivitet,
-iterativ tilnærming og realistiske forventninger.
+Seks organisatoriske forutsetninger er identifisert
+(kapittel 6.6): tydelig oppdrag fra HOD,
+tverrsektoriell forankring, kompetanseinvestering,
+regulatorisk proaktivitet, iterativ tilnærming og
+realistiske forventninger.
+
+#### Juridiske endringsbehov
+
+Følgende juridiske avklaringer og potensielle
+endringer er identifisert som forutsetninger:
+
+- **Forskriftsendringer**: Vurdering av om
+  forskrift om ledelse og kvalitetsforbedring
+  i helse- og omsorgstjenesten krever oppdatering
+  for å regulere bruk av KI-generert
+  kunnskapsinnhold
+- **Tildelingsbrev**: Oppdaterte tildelingsbrev til
+  Helsedirektoratet og FHI med eksplisitt mandat
+  for KI-støttet kunnskapsforvaltning
+- **Databehandleravtaler**: Nye eller oppdaterte
+  databehandleravtaler for skybaserte
+  KI-tjenester, med særlig vurdering av
+  tredjelandsoverføring (Schrems II)
+- **EU AI Act-implementering**: Norsk
+  gjennomføring av EU AI Act i EØS-avtalen,
+  med operasjonalisering av høyrisikokrav for
+  helsesektoren
+- **MDR-grensedragning**: Rettslig avklaring av
+  om KI-genererte helseråd (særlig
+  personaliserte) klassifiseres som medisinsk
+  utstyr etter MDR
+- **Personvernkonsekvensvurdering (DPIA)**:
+  Obligatorisk DPIA for alle KI-komponenter som
+  behandler helseopplysninger eller
+  brukerinteraksjoner
+
+#### Evalueringsplan
+
+Hver fase skal evalueres før beslutning om neste
+fase. Evalueringsplanen er strukturert slik:
+
+<!-- markdownlint-disable MD013 -->
+
+| Fase | Evalueringstidspunkt | Ansvarlig | Evalueringskriterier | Metode |
+| --- | --- | --- | --- | --- |
+| Fase 1 | Mnd 15-18 | Helsedirektoratet | Faktisk tidsbesparelse vs. estimert, kvalitet på KI-generert innhold (feilrate), brukeraksept hos fagpersoner, samsvar med EU AI Act | Kvantitativ måling, brukerundersøkelse, ekstern kvalitetsrevisjon |
+| Fase 2 | Mnd 30-36 | Helsedirektoratet | Skaleringsresultater, innbyggertilfredshet med chatbot, kostnadsutvikling vs. estimat, KI-systemenes ytelse over tid | Kvantitativ måling, innbyggerundersøkelse, kost-nytte-analyse |
+| Fase 3 | Mnd 42-48 | Helsedirektoratet | Funksjonalitet av living guidelines, EHDS-integrasjon, samlet måloppnåelse for utredningen | Ekstern evaluering, internasjonal benchmarking |
+
+<!-- markdownlint-enable MD013 -->
+
+Evalueringen skal inkludere:
+
+- Uavhengig ekstern vurdering for hver fase
+- Innspill fra berørte aktører (FHI, NHN,
+  helsepersonell, innbyggere)
+- Åpen publisering av evalueringsresultater
+- Eksplisitt go/no-go-beslutning før neste fase
 
 ---
 
-## 9. Avsluttende merknad
+## 10. Avsluttende merknad
 
-### 9.1 Usikkerhet og begrensninger
+### 10.1 Usikkerhet og begrensninger
 
 Denne utredningen har vesentlige begrensninger som
 leseren bør være oppmerksom på:
@@ -623,7 +824,7 @@ i utredningen er i hovedsak scenariobaserte estimater,
 ikke presise måleresultater. De bør behandles som
 retningsgivende.
 
-### 9.2 Behov for videre arbeid
+### 10.2 Behov for videre arbeid
 
 Utredningen identifiserer følgende behov for videre
 arbeid:
@@ -645,7 +846,7 @@ arbeid:
 7. **Nordisk samarbeidsforum** for erfaringsutveksling
    om KI i kunnskapsforvaltning
 
-### 9.3 Samlet vurdering
+### 10.3 Samlet vurdering
 
 Dagens verdikjede for kunnskapsforvaltning er et
 resultat av tiårs faglig utvikling og har tjent den
@@ -677,7 +878,7 @@ utviklingen fremfor å la den forme seg.
 
 ---
 
-Sist oppdatert: 2026-03-15
+Sist oppdatert: 2026-04-08
 
 *Merknader om usikkerhet: Denne rapporten syntetiserer
 funn fra seks foregående delrapporter. Estimatene er
