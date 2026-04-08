@@ -9,11 +9,14 @@ i helsesektoren
 
 ### 1.1 Formål
 
-Denne rapporten presenterer og vurderer tre alternativer
+Denne rapporten presenterer og vurderer fire alternativer
 for fremtidig organisering av verdikjeden for
 kunnskapsforvaltning i helsesektoren. Alternativene spenner
-fra videreføring av dagens praksis (nullalternativet) til en
-ambisiøs, KI-drevet kunnskapspipeline.
+fra videreføring av dagens praksis (nullalternativet)
+gjennom organisatorisk modernisering uten KI til en
+ambisiøs, KI-drevet kunnskapspipeline. Bredden i
+alternativene reflekterer utredningsinstruksens krav om
+tiltak med ulik inngripningsgrad.
 
 Som dokumentert i delrapport 1 (Dagens verdikjede) og
 delrapport 2 (Utfordringer og flaskehalser) tar prosessen
@@ -112,18 +115,134 @@ kommersielle alternativer.
 
 ---
 
-## 3. Alternativ 1: Moderat KI-støtte (anbefalt startpunkt)
+## 3. Alternativ 1: Organisatorisk modernisering uten KI
 
 ### 3.1 Beskrivelse
 
-Alternativ 1 innebærer å innføre KI som støtteverktøy i
+Alternativ 1 innebærer å modernisere verdikjeden
+gjennom organisatoriske og prosessuelle tiltak, uten
+å innføre KI-verktøy. Tiltakene fokuserer på økt
+bemanning, prosessoptimalisering, kortere
+revisjonssykluser og bedre koordinering mellom
+aktørene. Alternativet er inkludert for å synliggjøre
+hva som kan oppnås innenfor en tradisjonell
+organisatorisk tilnærming, i tråd med
+utredningsinstruksens krav om tiltak med ulik
+inngripningsgrad.
+
+### 3.2 Elementer
+
+#### Økt bemanning for systematiske oversikter (FHI)
+
+FHI styrkes med dedikerte stillinger for
+systematiske oversikter, slik at flere fagområder
+kan dekkes parallelt og oppdateringsfrekvensen økes.
+Grovt estimat: 10-15 nye stillinger med
+spesialkompetanse i kunnskapssyntese.
+
+#### Strømlinjeformet retningslinjeprosess (Helsedirektoratet)
+
+Helsedirektoratet gjennomgår og forenkler prosessen
+for retningslinjeutvikling, med mål om å redusere
+gjennomløpstiden fra 12-24 til 9-15 måneder.
+Tiltakene inkluderer:
+
+- Standardiserte maler og arbeidsflyter
+- Parallelle høringsrunder fremfor sekvensielle
+- Forhåndsdefinerte oppdateringskriterier
+- Dedikerte prosjektledere per retningslinjeprosjekt
+
+#### Formalisert kobling mellom retningslinjer og innbyggerinformasjon
+
+Det etableres en systematisk prosess der oppdaterte
+retningslinjer utløser obligatorisk oppdatering av
+tilhørende innbyggerinformasjon på helsenorge.no,
+med definerte tidsfrister og ansvarlige.
+
+#### Bedre koordinering mellom aktørene
+
+Det etableres et tverrsektorielt koordineringsforum
+med representanter fra Helsedirektoratet, FHI og
+NHN som møtes regelmessig for å sikre helhetlig
+styring av verdikjeden. Felles prioriteringsliste
+for hvilke fagområder som skal oppdateres.
+
+#### Strukturert innholdsproduksjon
+
+Innføring av strukturerte metadata og
+innholdsstandarder (uten KI) for å forbedre
+sporbarhet og gjenbruk. Manuell merking av innhold
+med kodeverk og referanser.
+
+### 3.3 Tidsbesparelse
+
+Estimert reduksjon i gjennomløpstid: **15-30 %**,
+som gir en forventet gjennomløpstid på ca. 1,5-4,5
+år fra ny evidens til formidlet kunnskap.
+
+Usikkerhet: Moderat. Tidsbesparelsen avhenger av
+faktisk rekrutteringsevne, evne til
+prosessendring og grad av kulturendring i
+organisasjonene.
+
+### 3.4 Kostnad
+
+- **Investeringskostnad**: Moderat. Primært
+  personalkostnader og prosessutvikling. Grovt
+  estimat: 30-60 MNOK over 3 år, hvorav hoveddelen
+  er løpende lønnskostnader for nye stillinger.
+- **Driftskostnad**: Varig økning tilsvarende nye
+  stillinger. Estimert 15-25 MNOK per år.
+
+### 3.5 Risiko
+
+- **Kvalitetsrisiko**: Lav. Alle prosesser forblir
+  manuelle med etablert faglig kontroll.
+- **Implementeringsrisiko**: Lav-moderat. Tiltak er
+  kjente og velprøvde, men krever organisatorisk
+  endringsvilje og rekruttering av spesialkompetanse
+  i et stramt arbeidsmarked.
+- **Skaleringsrisiko**: Høy. Manuell kapasitet
+  skalerer lineært med bemanning, men
+  forskningsvolumet vokser eksponentielt. Tiltaket
+  gir midlertidig lettelse, men løser ikke det
+  underliggende skaleringsproblemet.
+- **Bærekraft**: Moderat. Tiltaket adresserer
+  symptomene (kapasitetsbegrensning) men ikke
+  grunnårsaken (pre-digital prosessdesign). Etter
+  3-5 år vil sannsynligvis de samme utfordringene
+  gjøre seg gjeldende igjen, forsterket av videre
+  vekst i forskningsvolum.
+
+### 3.6 Vurdering
+
+Alternativ 1 gir en reell, men begrenset
+forbedring. Det reduserer gjennomløpstiden og øker
+kapasiteten, men løser ikke det fundamentale
+skaleringsproblemet. Tiltaket er lavrisiko og kan
+gjennomføres uten vesentlig teknologisk risiko.
+Hovedulempen er at det ikke posisjonerer Norge for
+EHDS-krav til digital modenhet, og at kostnadene
+per ekstra enhet produsert kunnskap forblir høye.
+
+Alternativet kan med fordel kombineres med
+KI-baserte tiltak (alternativ 2 og 3) som en del
+av en helhetlig moderniseringsstrategi.
+
+---
+
+## 4. Alternativ 2: Moderat KI-støtte (anbefalt startpunkt)
+
+### 4.1 Beskrivelse
+
+Alternativ 2 innebærer å innføre KI som støtteverktøy i
 eksisterende prosesser. Mennesker beholder kontroll over
 alle beslutninger og kvalitetsvurderinger, men KI-verktøy
 benyttes for å akselerere tidkrevende deloppgaver.
 Organisasjonsstrukturen og ansvarsfordelingen mellom
 aktørene endres ikke grunnleggende.
 
-### 3.2 Elementer
+### 4.2 Elementer
 
 #### KI-assistert screening av forskningslitteratur (FHI)
 
@@ -170,7 +289,7 @@ verifisert innhold og henviser tydelig til kilder. Chatboten
 erstatter ikke eksisterende innhold, men supplerer det med
 en interaktiv kanal.
 
-### 3.3 Governance
+### 4.3 Governance
 
 - **Menneskelig validering**: Alle KI-genererte produkter
   gjennomgås av kvalifisert fagperson før publisering
@@ -189,7 +308,7 @@ en interaktiv kanal.
   KI-tjenester, i tråd med personvernlovgivning og
   Schrems II-vurderinger.
 
-### 3.4 Tidsbesparelse
+### 4.4 Tidsbesparelse
 
 Estimert reduksjon i gjennomløpstid: **40–60 %**, som gir
 en forventet gjennomløpstid på 1–3 år fra ny evidens til
@@ -201,7 +320,7 @@ implementering. Faktisk tidsbesparelse avhenger av
 integrasjonskvalitet, brukeradopsjon og organisatorisk
 endringsvilje.
 
-### 3.5 Kostnad
+### 4.5 Kostnad
 
 - **Investeringskostnad**: Moderat. Inkluderer anskaffelse
   eller utvikling av KI-verktøy, teknisk infrastruktur,
@@ -214,7 +333,7 @@ endringsvilje.
   primært knyttet til lisenser, drift av
   KI-infrastruktur og vedlikehold av kompetanse.
 
-### 3.6 Risiko
+### 4.6 Risiko
 
 - **Kvalitetsrisiko**: Lav–moderat. Menneskelig
   kvalitetssikring er bevart i alle ledd. Risikoen
@@ -239,11 +358,11 @@ endringsvilje.
 
 ---
 
-## 4. Alternativ 2: Ambisiøs KI-pipeline (langsiktig mål)
+## 5. Alternativ 3: Ambisiøs KI-pipeline (langsiktig mål)
 
-### 4.1 Beskrivelse
+### 5.1 Beskrivelse
 
-Alternativ 2 innebærer en gjennomgripende transformasjon av
+Alternativ 3 innebærer en gjennomgripende transformasjon av
 verdikjeden, der KI-systemer håndterer store deler av
 kunnskapsprosessen autonomt. Mennesker beholder nøkkelroller
 i governance, kvalitetskontroll og faglig vurdering, men
@@ -252,7 +371,7 @@ representerer et langsiktig mål som forutsetter at
 teknologi, regulering og organisatorisk modenhet er på
 plass.
 
-### 4.2 Elementer
+### 5.2 Elementer
 
 #### Sanntids kunnskapssyntese – «living guidelines»
 
@@ -304,7 +423,7 @@ hvilke utfall som observeres. Denne informasjonen mates
 tilbake til kunnskapsproduksjonen for å forbedre relevans
 og treffsikkerhet.
 
-### 4.3 Governance
+### 5.3 Governance
 
 - **KI-styringskomite**: Etablering av en tverrsektoriell
   styringskomite med representanter fra
@@ -332,7 +451,7 @@ og treffsikkerhet.
   kontrollerte omgivelser før de tas i bruk i
   produksjon.
 
-### 4.4 Tidsbesparelse
+### 5.4 Tidsbesparelse
 
 Estimert reduksjon i gjennomløpstid: **70–90 %**, som gir
 en forventet gjennomløpstid på uker til måneder fra ny
@@ -344,7 +463,7 @@ effektivt, og at organisatorisk transformasjon gjennomføres.
 Realisering av det fulle potensialet er avhengig av faktorer
 som i dag ikke fullt ut kan forutsies.
 
-### 4.5 Kostnad
+### 5.5 Kostnad
 
 - **Investeringskostnad**: Høy. Inkluderer utvikling av
   avansert KI-infrastruktur, integrasjon med EHDS,
@@ -358,7 +477,7 @@ som i dag ikke fullt ut kan forutsies.
   reduseres betydelig. Beregningskostnader (compute)
   og lisenser kan imidlertid være vesentlige.
 
-### 4.6 Risiko
+### 5.6 Risiko
 
 - **Kvalitetsrisiko**: Moderat–høy. Redusert menneskelig
   involvering øker risikoen for at feil ikke fanges opp.
@@ -389,21 +508,25 @@ som i dag ikke fullt ut kan forutsies.
 
 ---
 
-## 5. Sammenligningstabell
+## 6. Sammenligningstabell
 
-| Dimensjon | Alt. 0 | Alt. 1 | Alt. 2 |
-| --- | --- | --- | --- |
-| **Gjennomløpstid** | 2,5–5 år (økende) | 1–3 år | Uker–måneder |
-| **Investeringskostnad** | Ingen | 20–50 MNOK | 100–250 MNOK |
-| **Driftskostnad** | Uendret | Moderat økning | Potensielt lavere |
-| **Kvalitetsrisiko** | Lav | Lav–moderat | Moderat–høy |
-| **Impl.risiko** | Ingen | Moderat | Høy |
-| **Personalebehov** | Uendret | Omskolering | Ny kompetanse |
-| **Tid for impl.** | N/A | 12–24 mnd | 4–6 år |
-| **Samsvar EHDS** | Svakt | Godt | Svært godt |
-| **Samsvar AI Act** | N/A | Godt | Krever vurdering |
-| **Skalerbarhet** | Lav | Moderat | Høy |
-| **Innbyggernytte** | Lav–moderat | Moderat–høy | Høy |
+<!-- markdownlint-disable MD013 -->
+
+| Dimensjon | Alt. 0 | Alt. 1 | Alt. 2 | Alt. 3 |
+| --- | --- | --- | --- | --- |
+| **Gjennomløpstid** | 2,5–5 år (økende) | 1,5–4,5 år | 1–3 år | Uker–måneder |
+| **Investeringskostnad** | Ingen | 30–60 MNOK | 20–50 MNOK | 100–250 MNOK |
+| **Driftskostnad** | Uendret | Varig økning | Moderat økning | Potensielt lavere |
+| **Kvalitetsrisiko** | Lav | Lav | Lav–moderat | Moderat–høy |
+| **Impl.risiko** | Ingen | Lav–moderat | Moderat | Høy |
+| **Personalebehov** | Uendret | Økt bemanning | Omskolering | Ny kompetanse |
+| **Tid for impl.** | N/A | 12–24 mnd | 12–24 mnd | 4–6 år |
+| **Samsvar EHDS** | Svakt | Svakt | Godt | Svært godt |
+| **Samsvar AI Act** | N/A | N/A | Godt | Krever vurdering |
+| **Skalerbarhet** | Lav | Lav–moderat | Moderat | Høy |
+| **Innbyggernytte** | Lav–moderat | Moderat | Moderat–høy | Høy |
+
+<!-- markdownlint-enable MD013 -->
 
 Merknad: Kostnadstallene er grove estimater med vesentlig
 usikkerhet og bør verifiseres gjennom detaljerte
@@ -411,9 +534,9 @@ kost-nytte-analyser.
 
 ---
 
-## 6. Governance-modell for KI-støttet verdikjede
+## 7. Governance-modell for KI-støttet verdikjede
 
-### 6.1 Roller og ansvar i ny modell
+### 7.1 Roller og ansvar i ny modell
 
 Uavhengig av hvilket alternativ som velges, er det behov
 for å tydeliggjøre roller og ansvar knyttet til KI-bruk i
@@ -466,7 +589,7 @@ ansvarsområder:
 - Bidrar til å identifisere informasjonsbehov som ikke
   dekkes
 
-### 6.2 Kvalitetssikringsmekanismer
+### 7.2 Kvalitetssikringsmekanismer
 
 Kvalitetssikringen i en KI-støttet verdikjede opererer på
 tre nivåer:
@@ -502,7 +625,7 @@ tre nivåer:
   kvalitetsproblemer; mennesker utreder og iverksetter
   tiltak
 
-### 6.3 Eskaleringsmekanisme
+### 7.3 Eskaleringsmekanisme
 
 Det etableres klare kriterier for når KI-generert innhold
 må stoppes eller trekkes tilbake:
@@ -526,7 +649,7 @@ må stoppes eller trekkes tilbake:
 
 ---
 
-## 7. Kvalitetssikringsprosess – detaljert beskrivelse
+## 8. Kvalitetssikringsprosess – detaljert beskrivelse
 
 Følgende trinnvise prosess beskriver kvalitetssikringen av
 KI-assistert innhold i den nye verdikjeden. Prosessen
@@ -612,21 +735,24 @@ Minst årlig gjennomføres en systematisk revisjon:
 
 ---
 
-## 8. Anbefaling
+## 9. Anbefaling
 
-### 8.1 Overordnet anbefaling
+### 9.1 Overordnet anbefaling
 
-Det anbefales en **faseinndelt tilnærming** der alternativ 1
+Det anbefales en **faseinndelt tilnærming** der alternativ 2
 (moderat KI-støtte) implementeres som startpunkt, med
-gradvis utvidelse mot elementer fra alternativ 2 etter hvert
+gradvis utvidelse mot elementer fra alternativ 3 etter hvert
 som teknologi, kompetanse og governance modnes.
+Organisatoriske tiltak fra alternativ 1 anbefales
+gjennomført parallelt, da de styrker verdikjeden uavhengig
+av KI-innføring.
 
 Denne tilnærmingen balanserer behovet for modernisering mot
 risikoen for feilslått implementering. Den gir tidlig
 nytteverdi gjennom lavrisiko-tiltak, samtidig som den bygger
 grunnlaget for mer ambisiøse endringer på sikt.
 
-### 8.2 Faseinndelt gjennomføringsplan
+### 9.2 Faseinndelt gjennomføringsplan
 
 #### Fase 1: Pilotering (0–18 måneder)
 
@@ -659,7 +785,7 @@ grunnlaget for mer ambisiøse endringer på sikt.
   regulatorisk avklaring)
 - Etablering av feedback-loop fra praksis
 
-### 8.3 Forutsetninger for suksess
+### 9.3 Forutsetninger for suksess
 
 - **Tverrsektoriell forankring**: Alle sentrale aktører
   (Helsedirektoratet, FHI, NHN) må ha felles forståelse
@@ -688,35 +814,43 @@ grunnlaget for mer ambisiøse endringer på sikt.
 
 ---
 
-## 9. Oppsummering
+## 10. Oppsummering
 
-Denne rapporten har vurdert tre alternativer for fremtidig
-organisering av verdikjeden for kunnskapsforvaltning i
-helsesektoren:
+Denne rapporten har vurdert fire alternativer for
+fremtidig organisering av verdikjeden for
+kunnskapsforvaltning i helsesektoren:
 
 - **Alternativ 0 (nullalternativet)** innebærer
   videreføring av dagens praksis. Gjennomløpstiden
   forblir 2,5–5 år og vil sannsynligvis øke.
   Alternativet vurderes som ikke bærekraftig på
-  mellomlang sikt, gitt økende forskningsvolum og
-  innbyggernes forventninger til oppdatert
-  helseinformasjon.
-- **Alternativ 1 (moderat KI-støtte)** innfører KI som
-  støtteverktøy i eksisterende prosesser, med
+  mellomlang sikt.
+- **Alternativ 1 (organisatorisk modernisering)**
+  styrker verdikjeden gjennom økt bemanning,
+  prosessoptimalisering og bedre koordinering.
+  Estimert tidsbesparelse er 15–30 %, med lav
+  risiko. Alternativet løser ikke det underliggende
+  skaleringsproblemet, men gir verdifulle
+  organisatoriske forbedringer.
+- **Alternativ 2 (moderat KI-støtte)** innfører KI
+  som støtteverktøy i eksisterende prosesser, med
   menneskelig kontroll i alle ledd. Estimert
-  tidsbesparelse er 40–60 %, med lav–moderat risiko og
-  moderat investeringskostnad. Alternativet anbefales
-  som startpunkt.
-- **Alternativ 2 (ambisiøs KI-pipeline)** innebærer en
-  gjennomgripende transformasjon med living guidelines,
-  personaliserte helseråd og full EHDS-integrasjon.
-  Estimert tidsbesparelse er 70–90 %, men risikoen er
-  moderat–høy og investeringskostnaden vesentlig.
-  Alternativet anbefales som langsiktig mål.
+  tidsbesparelse er 40–60 %, med lav–moderat risiko
+  og moderat investeringskostnad. Alternativet
+  anbefales som startpunkt.
+- **Alternativ 3 (ambisiøs KI-pipeline)** innebærer
+  en gjennomgripende transformasjon med living
+  guidelines, personaliserte helseråd og full
+  EHDS-integrasjon. Estimert tidsbesparelse er
+  70–90 %, men risikoen er moderat–høy og
+  investeringskostnaden vesentlig. Alternativet
+  anbefales som langsiktig mål.
 
-Anbefalingen er en faseinndelt tilnærming der alternativ 1
-implementeres først, med gradvis utvidelse mot alternativ 2
-over en periode på 3–5 år. Denne tilnærmingen balanserer
+Anbefalingen er en faseinndelt tilnærming der
+alternativ 2 implementeres først, med gradvis
+utvidelse mot alternativ 3 over en periode på
+3–5 år. Organisatoriske tiltak fra alternativ 1
+anbefales gjennomført parallelt. Denne tilnærmingen balanserer
 behovet for modernisering mot risikoen ved for rask endring,
 og gir mulighet for læring og justering underveis.
 
@@ -728,7 +862,7 @@ anbefaling).
 
 ---
 
-Sist oppdatert: 2026-03-15
+Sist oppdatert: 2026-04-08
 
 Merknader om usikkerhet: Estimatene i denne rapporten er
 basert på scenarioanalyse, internasjonale erfaringer og

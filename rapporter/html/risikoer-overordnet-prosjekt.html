@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overordnede risikoer for KI-støttet kunnskapsforvaltning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Overordnede risikoer for KI-støttet kunnskapsforvaltning</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="risikoer-overordnet-prosjekt.html" class="active">Overordnede risikoer for</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p>Risikoer identifisert fra utredningens delrapporter som er relevante
+for prosjektet som helhet, men ikke spesifikke for enkeltteam.</p>
+<hr />
+<h2 id="risikooversikt">Risikooversikt</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Nr.</th>
+<th>Risikofaktor</th>
+<th>Sannsynlighet</th>
+<th>Konsekvens</th>
+<th>Årsak</th>
+<th>Virkning</th>
+<th>Risikoreduserende tiltak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hallusinering i KI-generert helseinnhold</td>
+<td>Høy</td>
+<td>Alvorlig</td>
+<td>LLM-er genererer plausibel men feilaktig tekst basert på statistisk
+sannsynlighet</td>
+<td>Feilaktige helseråd til innbyggere, tap av tillit</td>
+<td>RAG mot verifiserte kilder, automatisert faktasjekk, menneskelig
+validering før publisering</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Innbyggere bruker ukvalifiserte KI-kilder fremfor offentlig
+info</td>
+<td>Høy</td>
+<td>Alvorlig</td>
+<td>Lange gjennomløpstider gjør offentlig info utdatert sammenlignet med
+ChatGPT mfl.</td>
+<td>Feilinformasjon, undergravd tillit til helsemyndighetene</td>
+<td>Proaktivt tilby kvalitetssikret KI-basert helseinformasjon, chatbot
+på helsenorge.no</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Teknologiavhengighet og leverandørlåsing til KI-leverandør</td>
+<td>Moderat</td>
+<td>Moderat</td>
+<td>Kommersielle LLM-er fra utenlandske leverandører dominerer
+markedet</td>
+<td>Manglende nasjonal kontroll, prisøkninger, avhengighet</td>
+<td>Abstraksjonslag mot KI-modeller, åpne standarder,
+leverandøruavhengig arkitektur</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Manglende strukturerte data hindrer KI-automatisering</td>
+<td>Høy</td>
+<td>Moderat</td>
+<td>Verdikjeden bruker fritekst uten standardiserte metadata eller
+FHIR-grensesnitt</td>
+<td>KI-verktøy kan ikke kobles effektivt til verdikjeden, forsinket
+implementering</td>
+<td>Etablere kunnskapsbase med strukturerte metadata og FHIR-grensesnitt
+tidlig</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tap av tillit til offentlig helseinformasjon</td>
+<td>Middels</td>
+<td>Alvorlig</td>
+<td>Innbyggere opplever KI-generert innhold som “bare maskin”</td>
+<td>Svekket troverdighet for Helsedirektoratet som fagmyndighet</td>
+<td>Transparent kommunikasjon om KI-bruk, tydelig faglig ansvar, gradvis
+innføring</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Personvernbrudd ved bruk av skybaserte LLM-er</td>
+<td>Liten</td>
+<td>Alvorlig</td>
+<td>Helsedata er særlig sensitive (GDPR art. 9), skytjenester fra
+utenlandske leverandører</td>
+<td>Brudd på GDPR, tap av tillit, sanksjoner</td>
+<td>DPIA før implementering, dataminimering, norsk jurisdiksjon,
+databehandleravtaler</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Regulatorisk usikkerhet (EU AI Act/MDR)</td>
+<td>Moderat</td>
+<td>Moderat</td>
+<td>Trinnvis ikrafttredelse 2025-2027, uavklart grensedragning
+helseinformasjon vs. medisinsk utstyr</td>
+<td>Forsinkelser, behov for omarbeid, juridisk risiko</td>
+<td>Proaktiv dialog med tilsynsmyndigheter, juridisk kompetanse, følge
+europeisk rettsutvikling</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Kompetansemangel innen KI og helse</td>
+<td>Høy</td>
+<td>Moderat</td>
+<td>Begrenset tilgang på fagpersoner med kombinert KI- og
+helsekompetanse</td>
+<td>Forsinkelser, redusert kvalitet på leveranser</td>
+<td>Langsiktig kompetansestrategi, rekruttering, samarbeid med
+universitetsmiljøer</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Budsjettoverskridelser</td>
+<td>Moderat</td>
+<td>Moderat</td>
+<td>Usikre kostnadsestimater, rask teknologiutvikling</td>
+<td>Ufullstendig implementering, behov for reprioriteringer</td>
+<td>Faseinndelt investering med evaluering per fase</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Organisatorisk motstand mot KI i fagprosesser</td>
+<td>Moderat</td>
+<td>Moderat</td>
+<td>Manglende forankring, frykt for at KI erstatter fagkompetanse</td>
+<td>Lav adopsjonsrate, undergraving av implementering</td>
+<td>Involvering fra start, kompetanseheving, tydelig kommunikasjon om KI
+som støtteverktøy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Kilde: Utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren, delrapport 3 og 7.</p>
+<p>Sist oppdatert: 2026-04-07</p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

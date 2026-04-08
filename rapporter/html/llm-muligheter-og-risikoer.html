@@ -211,6 +211,7 @@
     <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
     <li><a href="llm-muligheter-og-risikoer.html" class="active">LLM muligheter</a></li>
     <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="risikoer-overordnet-prosjekt.html">Overordnede risikoer for</a></li>
     <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
     <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
     <li><a href="visualiseringer.html">Visualiseringer</a></li>
@@ -289,6 +290,24 @@ automatisk betyr at modellene er pålitelige i klinisk praksis.
 Benchmarks tester gjenkjenning av fakta og resonnement under
 kontrollerte betingelser, mens klinisk og faglig arbeid krever
 helhetsvurdering, kontekstforståelse og håndtering av usikkerhet.</p>
+<h3 id="fra-benchmarks-til-klinisk-praksis">Fra benchmarks til klinisk
+praksis</h3>
+<p>Nyere forskning begynner å teste LLM-er i reelle kliniske omgivelser.
+En prospektiv gjennomførlighetsstudie fra Beth Israel Deaconess Medical
+Center og Google DeepMind (2025) testet AMIE (Articulate Medical
+Intelligence Explorer) med 100 pasienter i primærhelsetjenesten. Studien
+viste at AMIE inkluderte korrekt diagnose i sin differensialdiagnose i
+90 % av tilfellene, med 75 % nøyaktighet blant de tre øverste
+kandidatene. Det ble ikke registrert noen sikkerhetsstopp under
+samtalene, som ble overvåket av leger i sanntid. Legene vurderte den
+samlede kvaliteten på differensialdiagnose som sammenlignbar med egen (p
+= 0,6), men utpresterte AMIE på praktikalitet (p = 0,003) og
+kostnadseffektivitet (p = 0,004) i behandlingsplanene (Brodeur mfl.,
+2025 [1]).</p>
+<p>Disse resultatene understreker at LLM-er kan prestere godt på
+strukturerte diagnostiske oppgaver, men at den kliniske
+helhetsforståelsen – inkludert praktiske og økonomiske vurderinger –
+fortsatt er et område der menneskelig ekspertise er overlegen.</p>
 <hr />
 <h2 id="muligheter-for-kunnskapsforvaltning">3. Muligheter for
 kunnskapsforvaltning</h2>
@@ -392,7 +411,18 @@ av medisinsk oversettelse er kritisk og krever faglig gjennomgang.</p>
 chatboter kan gi innbyggere mulighet til å stille spørsmål og få svar
 basert på kvalitetssikret innhold. Slike løsninger kan gi mer
 tilgjengelig helseinformasjon, men reiser samtidig vesentlige spørsmål
-om ansvar og kvalitetssikring (se kapittel 4).</p>
+om ansvar og kvalitetssikring (se kapittel 4). Flere kommersielle
+aktører tilbyr allerede slike verktøy: OpenAI lanserte ChatGPT Health i
+januar 2026 for å gi personalisert medisinsk informasjon, og andre
+KI-baserte løsninger er under utvikling for blant annet postoperativ
+veiledning og informert samtykke (Rubin, 2026 [2]).</p>
+<p>Erfaringer fra AMIE-studien viser at pasienters holdninger til KI i
+helse ble signifikant mer positive etter interaksjon med systemet (p
+&lt; 0,001), og 75 % av legene vurderte KI-forberedelsen som nyttig for
+konsultasjonen (Brodeur mfl., 2025 [1]). Dette tyder på at
+konversasjonsbasert KI kan ha en rolle i å forberede pasienter før
+konsultasjoner og dermed styrke kvaliteten på
+lege-pasient-interaksjonen.</p>
 <h3 id="kontinuerlig-kunnskapsoppdatering">3.4 Kontinuerlig
 kunnskapsoppdatering</h3>
 <p>LLM-er kan muliggjøre en overgang fra periodisk oppdaterte
@@ -421,7 +451,11 @@ verifisert kunnskapsbase.</p>
 en akademisk tekst kan være pinlig; et feilaktig helseråd kan i verste
 fall være skadelig. Dokumenterte eksempler inkluderer modeller som har
 angitt feil dosering av legemidler, oppgitt ikke-eksisterende
-interaksjoner eller generert referanser til studier som ikke finnes.</p>
+interaksjoner eller generert referanser til studier som ikke finnes. I
+en gjennomgang publisert i JAMA beskrives et konkret risikoscenario der
+en chatbot feilaktig kunne informere en pasient om at brystsmerter
+skyldtes fordøyelsesbesvær og ikke hjerteinfarkt – med potensielt
+dødelig utfall (Rubin, 2026 [2]).</p>
 <p><strong>Mitigeringsstrategier:</strong></p>
 <ul>
 <li><strong>RAG (Retrieval-Augmented Generation):</strong> LLM-en kobles
@@ -446,7 +480,11 @@ svekke tillit, avhengig av kontekst og kommunikasjon.</p>
 bruke KI-støttede verktøy må ha tillit til systemenes pålitelighet.
 Tidlige erfaringer tyder på at aksepten er høyere når KI presenteres som
 et støtteverktøy som fagpersonell kan overprøve, snarere enn et autonomt
-beslutningssystem.</p>
+beslutningssystem. I AMIE-studien rapporterte 64 % av legene tillit til
+informasjonen fra KI-systemet, og i intervjuer sammenlignet leger
+KI-samtalene med arbeidet til «en tredjeårs medisinerstudent» – en
+analogi som antyder aksept for KI som forberedende støtte, men ikke som
+erstatning for klinisk vurdering (Brodeur mfl., 2025 [1]).</p>
 <p><strong>Institusjonell legitimitet:</strong> For Helsedirektoratet
 som fagmyndighet er det avgjørende at KI-bruk ikke undergraver
 myndighetens troverdighet. Dersom innbyggere opplever at helseråd «bare
@@ -479,8 +517,13 @@ flere personvernspørsmål:</p>
 <ul>
 <li><strong>Skytjenester:</strong> De mest kapable LLM-ene tilbys som
 skytjenester fra amerikanske selskaper. Overføring av helsedata til
-slike tjenester krever særskilt rettslig grunnlag og
-risikovurdering.</li>
+slike tjenester krever særskilt rettslig grunnlag og risikovurdering.
+Det er verdt å merke seg at selv kommersielle pasientrettede KI-verktøy
+som ChatGPT Health ikke er dekket av HIPAA, noe som innebærer at
+sensitive helseopplysninger som pasienter deler med slike verktøy
+mangler formell rettslig beskyttelse (Rubin, 2026 [2]). I en
+EHDS-kontekst forsterker dette behovet for å sikre at KI-verktøy som
+behandler helseopplysninger oppfyller kravene i GDPR artikkel 9.</li>
 <li><strong>Nasjonal kontroll:</strong> Det er et prinsipielt spørsmål
 om kritisk infrastruktur for helseinformasjon bør avhenge av utenlandske
 leverandører og modeller som norske myndigheter har begrenset innsyn
@@ -597,7 +640,12 @@ Det er en vesentlig forskjell mellom KI som assisterer en fagperson
 (foreslår, sorterer, oppsummerer) og KI som produserer ferdige helseråd
 uten menneskelig gjennomgang. For kunnskapsforvaltning i en
 myndighetsrolle bør prinsippet om menneskelig tilsyn stå sentralt, i
-tråd med EU AI Acts krav.</p>
+tråd med EU AI Acts krav. AMIE-studien illustrerer én modell for slik
+tilsynsorganisering: alle pasient-KI-samtaler ble overvåket i sanntid av
+en spesialist i indremedisin via sikker videolenke, med
+forhåndsdefinerte kriterier for å gripe inn (Brodeur mfl., 2025 [1]).
+Selv om dette er ressurskrevende, viser det at menneskelig tilsyn er
+gjennomførbart selv for sanntids pasientinteraksjoner.</p>
 <p><strong>Hvem har ansvar når KI bidrar til feilaktige
 helseråd?</strong> Selv med menneskelig tilsyn kan feil slippe gjennom.
 Det er behov for tydelig ansvarsallokering, både juridisk og
@@ -650,6 +698,19 @@ kvalitetssikringsprosesser og kompetanse bør starte umiddelbart.</p>
 konkret ny verdikjede for kunnskapsforvaltning med KI-støtte, der
 mulighetene og risikoene som er beskrevet her adresseres gjennom
 arkitektur, prosesser og organisering.</p>
+<hr />
+<h2 id="kilder">Kilder</h2>
+<ul>
+<li>[1] Brodeur, P., Koshy, J.M., Palepu, A. mfl. (2025). «A prospective
+clinical feasibility study of a conversational diagnostic AI in an
+ambulatory primary care clinic». Google DeepMind / Beth Israel Deaconess
+Medical Center. <a href="https://arxiv.org/html/2603.08448v2"
+class="uri">https://arxiv.org/html/2603.08448v2</a></li>
+<li>[2] Rubin, R. (2026). «Are AI Tools Ready to Answer Patients’
+Questions About Their Medical Care?» JAMA, 335(12). <a
+href="https://jamanetwork.com/journals/jama/fullarticle/2846269"
+class="uri">https://jamanetwork.com/journals/jama/fullarticle/2846269</a></li>
+</ul>
 
 </main>
 
