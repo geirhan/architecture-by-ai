@@ -187,6 +187,24 @@ stortingsmeldingen konstaterer at «kommunene mangler
 strukturer som kan understøtte strategisk innføring
 av kunnskapsbaserte tiltak» [1].
 
+Rammeverket for kunnskapsbasert praksis [7]
+identifiserer seks trinn fra refleksjon til
+evaluering. Verdikjedens sentrale infrastruktur
+understøtter primært trinn 1-4 (refleksjon,
+spørsmålsformulering, søk, kritisk vurdering),
+mens trinn 5 (anvende) og 6 (evaluere) overlates
+til den enkelte virksomhet. RNAO
+kunnskap-til-handling-modellen [8], som er oversatt
+og tilpasset til norske forhold, gir et strukturert
+rammeverk for disse siste trinnene, men er ikke
+systematisk integrert i den nasjonale verdikjeden.
+Modellen identifiserer barrierer som negative
+holdninger til endring, manglende
+ledelsesforankring og uenighet om faglig innhold –
+og anbefaler kombinasjon av flere virkemidler
+(audit/feedback, opplæringsmøter, praksisbesøk)
+for å oppnå praksisendring.
+
 Sentrale utfordringer:
 
 - **Variasjon mellom virksomheter**: Etterlevelse av
@@ -674,3 +692,11 @@ behandling, men øker ikke produktiviteten* (2025).
 [6]: Helsedirektoratet. *Kunnskapsgrunnlag for plan
 for digitalisering på legemiddelområdet*.
 <https://www.helsedirektoratet.no/digitalisering-og-e-helse/plan-for-digitalisering-pa-legemiddelomradet/kunnskapsgrunnlag-for-plan-for-digitalisering-pa-legemiddelomradet>
+
+[7]: Helsebiblioteket. *Kunnskapsbasert praksis –
+kunnskapsbasertpraksis.no*.
+<https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no>
+
+[8]: Helsebiblioteket. *Kunnskap til handling –
+implementeringsverktøy basert på RNAO-modellen*.
+<https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no/5.anvende/5.1-kunnskap-til-handling>

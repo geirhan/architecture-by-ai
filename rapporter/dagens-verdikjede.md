@@ -23,7 +23,50 @@ forskningsmiljøer til innbyggere er en forutsetning
 for å vurdere om dagens prosesser er tilstrekkelig
 effektive og treffsikre.
 
-### 1.2 Avgrensning
+### 1.2 Faglig forankring: Kunnskapsbasert praksis
+
+Verdikjeden som kartlegges i denne rapporten kan
+forstås i lys av det etablerte norske rammeverket
+for **kunnskapsbasert praksis** (KBP), slik det er
+beskrevet på kunnskapsbasertpraksis.no [25].
+Rammeverket definerer kunnskapsbasert praksis som
+«å ta faglige avgjørelser basert på systematisk
+innhentet forskningsbasert kunnskap,
+erfaringsbasert kunnskap og pasientens ønsker og
+behov i en gitt situasjon».
+
+KBP-rammeverket beskriver seks trinn:
+(1) refleksjon over egen praksis,
+(2) spørsmålsformulering (PICO),
+(3) litteratursøk,
+(4) kritisk vurdering,
+(5) anvende kunnskap, og
+(6) evaluere praksis.
+
+Verdikjeden i denne rapporten fokuserer primært på
+**infrastrukturen** som understøtter trinnene 1-4
+på nasjonalt nivå – hvordan forskningsbasert
+kunnskap sammenstilles, kvalitetssikres og gjøres
+tilgjengelig. Trinn 5 (anvende) og 6 (evaluere)
+– der kunnskap faktisk omsettes til praksis –
+faller i stor grad utenfor den sentrale
+verdikjeden og overlates til den enkelte
+virksomhet og kliniker. Som casestudiene
+(casestudier-forsinkelser.md) dokumenterer, er det
+nettopp i disse siste trinnene at de største
+forsinkelsene oppstår.
+
+En sentral observasjon er at KBP-rammeverket
+opererer med **tre kunnskapskilder**:
+forskningsbasert kunnskap, erfaringsbasert kunnskap
+og pasientpreferanser. Verdikjeden som kartlegges
+her håndterer primært den forskningsbaserte
+kunnskapen. Erfaringsbasert kunnskap og
+pasientpreferanser ivaretas i begrenset grad
+gjennom høringsrunder og brukermedvirkning, men er
+ikke systematisk integrert i verdikjeden.
+
+### 1.3 Avgrensning
 
 Rapporten avgrenses til **primærbruk – helseråd til
 innbyggere**. Det vil si verdikjeden som ender med at
@@ -882,3 +925,11 @@ helseinformasjon på Helsenorge*.
 (2023–2024), kapittel 6: En kunnskapsbasert og
 godt ledet tjeneste*.
 <https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/?ch=6>
+
+[25]: Helsebiblioteket. *Kunnskapsbasert praksis –
+kunnskapsbasertpraksis.no*.
+<https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no>
+
+[26]: Helsebiblioteket. *Kunnskap til handling –
+implementeringsverktøy basert på RNAO-modellen*.
+<https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no/5.anvende/5.1-kunnskap-til-handling>
