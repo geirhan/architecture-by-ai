@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolledeling i sentral helseforvaltning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Rolledeling i sentral helseforvaltning</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier:</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="risikoer-overordnet-prosjekt.html">Overordnede risikoer for</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html" class="active">Rolledeling i sentral</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p>Betydning for verdikjeden for kunnskapsforvaltning</p>
+<p>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</p>
+<hr />
+<h2 id="innledning">1. Innledning</h2>
+<h3 id="formål">1.1 Formål</h3>
+<p>Denne rapporten undersøker i hvilken grad utfordringene i verdikjeden
+for kunnskapsforvaltning i helsesektoren kan forklares av rolledeling og
+ansvarsfordeling mellom de tre sentrale aktørene: Folkehelseinstituttet
+(FHI), Helsedirektoratet (Hdir) og Norsk helsenett (NHN).</p>
+<p>Rapporten er motivert av innspill fra personer som arbeider i
+verdikjeden, som peker på at omorganiseringen av sentral
+helseforvaltning (iverksatt 1. januar 2024) ikke har løst – og muligens
+har forsterket – grensesnittproblemer mellom aktørene.</p>
+<h3 id="hypotese-og-underhypoteser">1.2 Hypotese og underhypoteser</h3>
+<p><strong>Hovedhypotese</strong>: Utfordringene knyttet til
+kunnskapsforvaltningen i helsesektoren skyldes i betydelig grad
+utfordringer i rolledelingen mellom FHI, Helsedirektoratet og NHN.</p>
+<p>Tre underhypoteser undersøkes:</p>
+<ul>
+<li><strong>H1</strong>: Grensesnittet mellom FHI og Helsedirektoratet
+er uklart, spesielt etter omorganiseringen i 2024</li>
+<li><strong>H2</strong>: Grensesnittet mellom Helsedirektoratet og NHN
+har blitt mer utfordrende etter at Direktoratet for e-helse ble
+innlemmet i Helsedirektoratet</li>
+<li><strong>H3</strong>: Fraværet av et helhetlig styringsmandat for
+verdikjeden fra forskning til innbygger forsterker problemene fra H1 og
+H2</li>
+</ul>
+<h3 id="metodisk-tilnærming">1.3 Metodisk tilnærming</h3>
+<p>Rapporten er basert på dokumentanalyse av følgende kilder:</p>
+<ul>
+<li><strong>Røttingen-rapporten</strong> (11. mars 2023): «Gjennomgang
+av organisering, roller og ansvar i den sentrale helseforvaltningen»
+[1]. Dette er primærkilden for rapportens analyse.</li>
+<li><strong>Prop. 11 L (2023–2024)</strong>: Regjeringens lovforslag om
+endringer i helselovgivningen [2]</li>
+<li><strong>Innst. 113 L (2023–2024)</strong>: Stortingets innstilling
+til lovforslaget [3]</li>
+<li><strong>Koronakommisjonens rapporter</strong>: NOU 2021:6 og NOU
+2022:5 [4]</li>
+<li><strong>Helsedirektoratets årsrapport 2024</strong> [5]</li>
+<li><strong>Riksrevisjonens rapporter</strong> om e-helse og
+helseforvaltning [6]</li>
+<li><strong>Fagforeningsuttalelser</strong> fra Tekna, Forskerforbundet
+og Legeforeningen [7, 8]</li>
+<li><strong>Øvrige offentlige kilder</strong> (tildelingsbrev,
+nettsider, medieomtale)</li>
+</ul>
+<p>Rapporten skiller konsekvent mellom det som er dokumentert i
+offentlige kilder og det som er informantutsagn.</p>
+<h3 id="sammenheng-med-øvrige-delrapporter">1.4 Sammenheng med øvrige
+delrapporter</h3>
+<p>Funnene i denne rapporten må ses i sammenheng med:</p>
+<ul>
+<li><strong>Delrapport 1</strong> (dagens verdikjede): Kartlegger
+verdikjeden og formell rolledeling</li>
+<li><strong>Delrapport 2</strong> (utfordringer): Identifiserer
+siloorganisering og dobbeltarbeid som strukturelle flaskehalser</li>
+<li><strong>Delrapport 4</strong> (ny verdikjede): Governance-modellen
+forutsetter klare roller mellom Hdir, FHI og NHN</li>
+<li><strong>Delrapport 7</strong> (samlet vurdering): Anbefalingen
+krever tverrsektoriell forankring</li>
+<li><strong>Delrapport 8</strong> (aktøranalyse): Dokumenterer
+fragmentert ansvar på ~20 aktører</li>
+</ul>
+<hr />
+<h2 id="bakgrunn-omorganiseringen-av-sentral-helseforvaltning">2.
+Bakgrunn: Omorganiseringen av sentral helseforvaltning</h2>
+<h3 id="tidligere-reformer">2.1 Tidligere reformer</h3>
+<p>Den sentrale helseforvaltningen har gjennomgått tre større reformer
+de siste 25 årene:</p>
+<p><strong>2001-reformen</strong>: Samordning av funksjoner og styrking
+av kompetansemiljøer. Resulterte i en tredeling: tilsyn,
+myndighets-/gjennomføringsoppgaver, og kunnskapsproduksjon. Allerede i
+høringsrunden ble det pekt på tre utfordringer: gråsoner mellom etatene,
+behov for å styrke kunnskapsbasert praksis, og forankring av
+beredskapsoppgaver [1, kap. 2.1].</p>
+<p><strong>2015-reformen</strong>: Rendyrking av hovedmodellen med
+klarere funksjonssdeling mellom forvaltning/myndighet,
+kunnskapsproduksjon og tilsyn. FHI fikk styrket posisjon som
+kunnskapsleverandør. Kunnskapssenteret ble flyttet til FHI. Direktoratet
+for e-helse ble etablert fra 2016 som utskillelse fra Hdir [1, kap.
+2.1].</p>
+<p><strong>Nåsituasjonen (per 2023)</strong>: Røttingen-rapporten
+konstaterer at tredelingen mellom myndighet, kunnskapsproduksjon og
+tilsyn «fremdeles er relevant som en prinsipiell rolledeling, men
+påpeker at dette ikke er gjennomført konsekvent i praksis» [1, s.
+12].</p>
+<h3 id="røttingen-utvalgets-mandat-og-prosess">2.2 Røttingen-utvalgets
+mandat og prosess</h3>
+<p>Helse- og omsorgsdepartementet (HOD) besluttet 26. august 2022 å
+etablere et prosjekt for gjennomgang av den sentrale helseforvaltningen.
+Prosjektet ble ledet av John-Arne Røttingen med en styringsgruppe
+bestående av ekspedisjonssjefer i departementet [1, kap. 1.1].</p>
+<p>Mandatet var å [1, kap. 1.1]:</p>
+<ul>
+<li>Kartlegge arbeidsfordeling mellom etatene og mellom etatene og
+departementet</li>
+<li>Avdekke uklare ansvarsforhold, ulik rolleforståelse og
+organisatoriske forhold som hindrer effektiv ressursutnyttelse</li>
+<li>Fremme forslag til organisatoriske tiltak for å eliminere
+dobbeltarbeid og avklare roller</li>
+</ul>
+<p>Rapporten ble levert 11. mars 2023. Den var i utgangspunktet unntatt
+offentlighet [1, kap. 1.3]. Fem fagforeninger – Tekna, Den norske
+legeforening, Samfunnsviterne, Forskerforbundet og Econa – ba Stortinget
+utsette beslutningen og kritiserte hemmeligholdet [7, 8].</p>
+<h3 id="hva-røttingen-anbefalte">2.3 Hva Røttingen anbefalte</h3>
+<p>Røttingen-rapportens hovedanbefalinger var [1, kap. 12]:</p>
+<ol type="1">
+<li><strong>Heldekkende myndighetsetat</strong> (Hdir) og
+<strong>spisset kunnskapsetat</strong> (FHI) – Modell A med rendyrking
+av rollene. Myndighets-, gjennomførings- og følge-med-funksjoner samlet
+i Hdir. Kunnskapsoppsummeringer og forskning i FHI.</li>
+<li><strong>Direktorat for medisinske produkter</strong> (DiMP) – basert
+på Statens legemiddelverk med utvidet portefølje</li>
+<li><strong>DSA</strong> opprettholdes som selvstendig etat</li>
+<li><strong>Samlet registermiljø</strong> – helseregistrene samles i én
+etat, fortrinnsvis kunnskapsetaten</li>
+<li><strong>Digitalisering</strong> – myndighetsoppgavene vurderes i
+sammenheng med øvrige endringer</li>
+</ol>
+<h3 id="hva-som-ble-implementert">2.4 Hva som ble implementert</h3>
+<p>Regjeringen valgte en delvis gjennomføring av Røttingen-rapportens
+anbefalinger, iverksatt 1. januar 2024 [2]:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Anbefaling</th>
+<th>Implementert?</th>
+<th>Kommentar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rendyrke Hdir som myndighetsetat</td>
+<td>Delvis</td>
+<td>Fikk nye folkehelse-oppgaver fra FHI</td>
+</tr>
+<tr>
+<td>Rendyrke FHI som kunnskapsetat</td>
+<td>Delvis</td>
+<td>Mistet oppgaver til Hdir, fikk registre</td>
+</tr>
+<tr>
+<td>Innlemme Dir. for e-helse i Hdir</td>
+<td>Ja</td>
+<td>Fra 1. januar 2024</td>
+</tr>
+<tr>
+<td>Etablere DiMP</td>
+<td>Ja</td>
+<td>Fra 1. januar 2024</td>
+</tr>
+<tr>
+<td>Samle helseregistre</td>
+<td>Delvis</td>
+<td>FHI fikk NPR, KPR, Kreftregisteret</td>
+</tr>
+<tr>
+<td>Forum for faglig normering</td>
+<td>Nei</td>
+<td>Ikke gjennomført</td>
+</tr>
+<tr>
+<td>Kompetansesentre til kunnskapsetat</td>
+<td>Nei</td>
+<td>Ikke gjennomført</td>
+</tr>
+</tbody>
+</table>
+<p>Stortingets innstilling viser at et flertall (H, FrP, SV, R, KrF,
+Pasientfokus) uttrykte bekymring for at «flere høringsinstanser mener
+det er behov for tydelige rolleavklaringer, da det nye direktoratet både
+vil være myndighets- og kontrollorgan» [3]. Regjeringen valgte bevisst
+ikke å lovfeste detaljert oppgavedeling [3].</p>
+<hr />
+<h2 id="hypotese-1-grensesnittet-fhi-helsedirektoratet">3. Hypotese 1:
+Grensesnittet FHI – Helsedirektoratet</h2>
+<h3 id="formell-rolledeling-etter-omorganiseringen">3.1 Formell
+rolledeling etter omorganiseringen</h3>
+<p>Etter omorganiseringen i 2024 er den formelle rolledelingen:</p>
+<ul>
+<li><strong>Helsedirektoratet</strong>: Myndighetsetat med ansvar for
+nasjonale faglige retningslinjer, veiledere og normerende produkter.
+Overordnet ansvar for folkehelse. Dataansvarlig for kjernejournal og
+reseptformidleren (fra juni 2024) [9].</li>
+<li><strong>FHI</strong>: Kunnskapsetat med ansvar for
+kunnskapsoppsummeringer, systematiske oversikter, forskning,
+helseregistre (NPR, KPR, Kreftregisteret), Helsebiblioteket og
+helseovervåking [10].</li>
+</ul>
+<h3 id="dokumenterte-gråsoner">3.2 Dokumenterte gråsoner</h3>
+<p>Røttingen-rapporten identifiserte at grenseflatene mellom Hdir og FHI
+«ikke er entydige for de ulike fagområdene, spesielt innen smittevern,
+noe som gjør at helseforvaltningen ikke alltid oppleves som enhetlig og
+koordinert» [1, s. 19].</p>
+<p>HODs brev fra 2017 om rolledeling ga føringer som varierte mellom
+fagområdene smittevern/miljømedisin, helsefremmende arbeid/folkehelse,
+og helse- og omsorgstjenester. Figur 3.1 i rapporten viser at
+oppgavefordelingen er en gradient snarere enn et tydelig skille [1, s.
+19].</p>
+<p>Konkret for kunnskapsforvaltningen:</p>
+<ul>
+<li><strong>Kunnskapsoppsummeringer</strong>: FHI produserer
+kunnskapsoppsummeringer som grunnlag for Hdirs normerende produkter.
+Dette er formalisert gjennom en skriftlig avtale, men avtalens innhold
+er ikke offentlig [10].</li>
+<li><strong>Bestiller-utfører-spenning</strong>: Røttingen-rapporten
+peker på en grunnleggende spenning: kunnskapsproduksjonen «må være
+uavhengig» og «må den også kunne styres utfra myndighetenes og
+tjenestenes behov» [1, kap. 2.4]. Et helhetlig ansvar for
+kunnskapsproduksjon «kan i større grad legge til rette for styring og
+prioritering» [1, kap. 2.4].</li>
+<li><strong>Dobbeltarbeid</strong>: Både Hdir og FHI produserer
+helseinformasjon til innbyggere. Delrapport 8 dokumenterer at FHI og
+Hdir har overlappende leveranser innen innbyggerrettet informasjon uten
+tydelig arbeidsdeling [delrapport 8, kap. 4].</li>
+</ul>
+<h3 id="konsekvenser-av-pandemierfaringene">3.3 Konsekvenser av
+pandemierfaringene</h3>
+<p>Koronakommisjonen (NOU 2022:5) fant at «rollefordelingen mellom
+direktoratet og Folkehelseinstituttet var likevel uklar den første delen
+av 2020, og det tok tid for Helsedirektoratet og Folkehelseinstituttet å
+rendyrke rollene» [1, s. 13]. VGs journalistikk dokumenterte «forvirring
+og merarbeid» mellom etatene [11, 12].</p>
+<p>Røttingen-rapporten brukte pandemierfaringene som argument for at
+rollefordelingen måtte avklares: «Det er pekt på behov for avklaring av
+roller og ansvar både i interne og eksterne gjennomganger, herunder av
+Koronakommisjonen» [1, s. 19].</p>
+<h3 id="hva-omorganiseringen-endret">3.4 Hva omorganiseringen
+endret</h3>
+<p>Omorganiseringen i 2024 gjennomførte deler av Modell A, men med
+betydelige avvik:</p>
+<ul>
+<li><strong>Folkehelse ble overført fra FHI til Hdir</strong>, stikk i
+strid med FHIs tradisjonelle rolle. Helsedirektoratets årsrapport 2024
+erkjenner at «det nasjonale folkehelsesystemet må revideres i 2025»
+[5].</li>
+<li><strong>Helseregistre ble overført til FHI</strong>, i tråd med
+anbefalingen, men dette skapte nye grensesnittutfordringer. Årsrapporten
+peker på at «dashboard for løpende statistikk fra NPR og KPR har blitt
+flyttet til FHI og har gitt endringer i brukergrensesnitt og
+tilgjengelighet» [5].</li>
+<li><strong>Et økende kapasitetsgap</strong>: Årsrapporten erkjenner «et
+økende gap mellom muligheter og forventninger til hva vi kan utarbeide
+av styringsinformasjon og analyser og hva vi har kapasitet til»
+[5].</li>
+</ul>
+<h3 id="vurdering-av-h1">3.5 Vurdering av H1</h3>
+<p>Evidensen gir <strong>moderat til sterk støtte</strong> for H1:</p>
+<ul>
+<li>Grensesnittproblemene mellom FHI og Hdir er <strong>dokumentert over
+mer enn 20 år</strong> – fra 2001-reformen, gjennom 2015-reformen, under
+pandemien, og i Røttingen-rapporten</li>
+<li>Omorganiseringen i 2024 adresserte deler av problemet (rendyrking av
+roller), men skapte <strong>nye gråsoner</strong> (folkehelse,
+registre)</li>
+<li>For kunnskapsforvaltningen spesifikt er bestiller-utfører-relasjonen
+mellom Hdir (retningslinjer) og FHI (kunnskaps- oppsummeringer)
+formalisert, men det er dokumentert at den ikke alltid fungerer
+effektivt</li>
+<li>Grensesnittet er <strong>ikke lovfestet</strong> i detalj, men
+styres gjennom tildelingsbrev og samarbeidsavtaler</li>
+</ul>
+<hr />
+<h2 id="hypotese-2-grensesnittet-hdir-nhn">4. Hypotese 2: Grensesnittet
+Hdir – NHN</h2>
+<h3 id="direktoratet-for-e-helse-historikk">4.1 Direktoratet for
+e-helse: Historikk</h3>
+<p>Direktoratet for e-helse ble etablert 1. januar 2016 som utskillelse
+fra Hdir. Direktoratet skulle være «nasjonal myndighet innen
+e-helseområdet» med ansvar for standarder, kodeverk, terminologi,
+arkitektur og informasjonssikkerhet [1, kap. 5.1].</p>
+<p>Fra 1. januar 2020 ble de nasjonale e-helseløsningene (e-resept,
+kjernejournal, helsenorge.no, grunndata) overført fra Direktoratet for
+e-helse til NHN. Om lag 230 årsverk og oppgaver knyttet til drift,
+forvaltning og utvikling ble virksomhetsoverdratt [1, kap. 5.1].</p>
+<h3 id="røttingens-funn-om-digitalisering">4.2 Røttingens funn om
+digitalisering</h3>
+<p>Røttingen-rapporten dokumenterte flere utfordringer i grensesnittet
+mellom Direktoratet for e-helse og NHN [1, kap. 5]:</p>
+<ul>
+<li><strong>Uklar oppgavefordeling</strong>: «Til tross for de
+endringene som er gjennomført for å tydeliggjøre ansvarsfordelingen, er
+det likevel et gjennomgående tema i innspillene til
+forvaltningsgjennomgangen at ansvars- og oppgavefordeling mellom E-helse
+og NHN oppleves som uklar» [1, s. 37].</li>
+<li><strong>Gråsoner og overlapp</strong>: «Samarbeidet mellom
+virksomhetene som delvis kan skyldes gråsoner og overlapp, uklar styring
+fra departementet og at virksomhetene har ulike interesser og
+prioriteringer» [1, s. 37–38].</li>
+<li><strong>Riksrevisjonen</strong>: «Rollen til nasjonale myndigheter
+er ikke tydelig definert, og mekanismene for styring, prioritering og
+forankring av e-helseutviklingen er ikke effektive nok» (revisjon av
+<em>Én innbygger – én journal</em>, 2021) [1, s. 38].</li>
+<li><strong>NHNs voksende rolle</strong>: «NHN har fått en langt mer
+sentral rolle enn tidligere» – NHN tar i praksis selvstendige
+beslutninger om hva som finansieres og videreutvikles [1, s. 39].</li>
+</ul>
+<h3 id="hva-omorganiseringen-endret-1">4.3 Hva omorganiseringen
+endret</h3>
+<p>Fra 1. januar 2024 ble Direktoratet for e-helse innlemmet i
+Helsedirektoratet. Dette innebar:</p>
+<ul>
+<li>Hdir fikk rollen som «nasjonal myndighet for digitalisering og
+informasjonsforvaltning i helse- og omsorgssektoren»</li>
+<li>NHN beholdt rollen som tjenesteleverandør og driftsoperatør</li>
+<li>Fra 1. juni 2024 ble dataansvaret for kjernejournal og
+reseptformidleren overført fra NHN til Hdir [9]</li>
+</ul>
+<h3 id="det-nye-grensesnittet">4.4 Det nye grensesnittet</h3>
+<p>Etter omorganiseringen er forholdet mellom Hdir og NHN preget av en
+todelt ansvarsstruktur:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Funksjon</th>
+<th>Hdir</th>
+<th>NHN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strategi, konsept, standarder</td>
+<td>Ja</td>
+<td>Nei</td>
+</tr>
+<tr>
+<td>Dataansvar (kjernejournal, e-resept)</td>
+<td>Ja (fra juni 2024)</td>
+<td>Nei (tidligere)</td>
+</tr>
+<tr>
+<td>Drift og utvikling av løsningene</td>
+<td>Nei</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>Finansiering av videreutvikling</td>
+<td>Delvis</td>
+<td>Ja</td>
+</tr>
+<tr>
+<td>helsenorge.no – faglig innhold</td>
+<td>Utgiveransvar</td>
+<td>Redaktøransvar</td>
+</tr>
+<tr>
+<td>helsenorge.no – drift og utvikling</td>
+<td>Nei</td>
+<td>Ja (produkteier)</td>
+</tr>
+</tbody>
+</table>
+<p>Røttingen-rapporten advarte mot nettopp dette mønsteret: «Dette
+utfordrer ansvarsforholdet mellom tjenesteleverandør og
+myndighetsorganet, særlig grenseflaten mellom premissgiverrollen og
+løsningsutvikling» [1, s. 39].</p>
+<h3 id="konsekvenser-for-kunnskapsforvaltningen">4.5 Konsekvenser for
+kunnskapsforvaltningen</h3>
+<p>For kunnskapsforvaltningen har grensesnittet Hdir-NHN direkte
+konsekvenser:</p>
+<ul>
+<li><strong>helsenorge.no</strong>: Hdir har utgiveransvaret og det
+etiske/rettslige ansvaret for innholdet, men NHN er produkteier med
+redaktøransvaret og koordinerer 80+ innholdsleverandører [delrapport 8].
+Det er ikke dokumentert tydelige styringslinjer for hvem som har siste
+ord om faglig innhold.</li>
+<li><strong>Retningslinjer til innbyggerinformasjon</strong>: Det finnes
+ingen automatisert kobling mellom oppdaterte retningslinjer (Hdir) og
+tilhørende innbyggerinformasjon på helsenorge.no (NHN) [delrapport 2,
+kap. 3.3].</li>
+<li><strong>Helsebiblioteket</strong>: FHI eier og driver
+Helsebiblioteket, som er en sentral kanal for helsepersonell.
+Budsjettkutt i 2023 fjernet tilgang til Cochrane Library og Embase – en
+beslutning som påvirker hele verdikjeden [delrapport 8].</li>
+</ul>
+<h3 id="vurdering-av-h2">4.6 Vurdering av H2</h3>
+<p>Evidensen gir <strong>moderat støtte</strong> for H2:</p>
+<ul>
+<li>Grensesnittproblemer mellom Direktoratet for e-helse og NHN var
+<strong>dokumentert før</strong> omorganiseringen (Røttingen,
+Riksrevisjonen)</li>
+<li>Innlemmelsen av Dir. for e-helse i Hdir i 2024 <strong>endret ikke
+det operative grensesnittet</strong> mot NHN vesentlig – NHN er fortsatt
+tjenesteleverandør med betydelig autonomi</li>
+<li>Det nye grensesnittet <strong>kan</strong> ha forsterket spenningen
+ved at Hdir nå er både myndighetsorgan, bestiller og dataansvarlig, mens
+NHN er driftsoperatør og tar selvstendige finansieringsbeslutninger</li>
+<li>Det mangler <strong>primærkildedokumentasjon</strong> på at
+situasjonen objektivt ble verre etter 2024 – dette er hovedsakelig
+basert på informantutsagn</li>
+</ul>
+<hr />
+<h2 id="hypotese-3-manglende-helhetlig-styringsmandat">5. Hypotese 3:
+Manglende helhetlig styringsmandat</h2>
+<h3 id="fravær-av-verdikjedeeier">5.1 Fravær av verdikjedeeier</h3>
+<p>Delrapport 2 konstaterer: «Det finnes ikke et helhetlig
+styringsmandat for verdikjeden fra forskning til innbygger, noe som kan
+føre til suboptimalisering innenfor det enkelte steg uten at helheten
+ivaretas» [delrapport 2, kap. 5.2].</p>
+<p>Røttingen-rapporten gir støtte til denne observasjonen gjennom flere
+funn:</p>
+<ul>
+<li><strong>Siloorganisering</strong>: Ansvaret er fordelt på FHI, Hdir,
+NHN, RHF-ene, kommunene og en rekke andre aktører med ulike
+styringslinjer, budsjettprosesser og prioriteringer [delrapport 8, kap.
+4]</li>
+<li><strong>Departementets styring</strong>: Røttingen peker på at
+departementet har «i stor grad delegert ansvaret for gjennomføring av de
+store nasjonale e-helseprosjektene til E-helse» [1, s. 39], og at det er
+behov for «bedre departementets strategiske styring» [1, kap. 10]</li>
+<li><strong>Manglende tverrgående koordinering</strong>: Verdikjeden
+krysser organisasjonsgrenser mellom minst tre etater (FHI → Hdir → NHN)
+uten at noen har et overordnet mandat for å sikre konsistens og
+effektivitet</li>
+</ul>
+<h3 id="røttingens-forslag-om-styringsmessige-grep">5.2 Røttingens
+forslag om styringsmessige grep</h3>
+<p>Røttingen-rapporten foreslo flere tiltak for styrket koordinering [1,
+kap. 10–12]:</p>
+<ul>
+<li><strong>Videreutvikle departementets styring</strong>: Bedre
+samordning mellom eierstyring og innholdsstyring, spesielt overfor NHN
+[1, kap. 10]</li>
+<li><strong>Forum for faglig normering</strong>: Etablering av en felles
+arena for regelverk og faglig normering, etter modell av
+Petroleumstilsynets Regelverksforum [1, kap. 11.9]</li>
+<li><strong>Helhetlige modeller</strong>: Tre alternative
+organisasjonsmodeller der den samlede myndighetsetaten har et bredere
+mandat [1, kap. 12]</li>
+</ul>
+<p>Av disse er <strong>ingen gjennomført</strong> per april 2026. Forum
+for faglig normering ble ikke fulgt opp. Departementets styring er ikke
+vesentlig endret i form.</p>
+<h3 id="konsekvenser-for-kunnskapsforvaltningen-1">5.3 Konsekvenser for
+kunnskapsforvaltningen</h3>
+<p>Fraværet av helhetlig styringsmandat har konkrete konsekvenser for
+verdikjeden:</p>
+<ol type="1">
+<li><strong>Ingen eier av gjennomløpstiden</strong>: Ingen enkelt aktør
+er ansvarlig for den samlede gjennomløpstiden fra forskning til
+praksisendring. Casestudiene dokumenterer at denne er 7–15+ år
+[casestudier].</li>
+<li><strong>Inkonsistent innhold</strong>: Retningslinjer (Hdir),
+innbyggerinformasjon (NHN/ helsenorge.no) og faglig oppdatering
+(FHI/Helsebiblioteket) oppdateres uavhengig av hverandre [delrapport 2,
+kap. 3.3].</li>
+<li><strong>Dobbeltarbeid</strong>: Flere aktører produserer
+overlappende innhold uten systematisk koordinering [delrapport 8, kap.
+4].</li>
+<li><strong>Suboptimal ressursbruk</strong>: Budsjettkutt i én etat
+(FHI/Helsebiblioteket) påvirker enabler-kapasiteten i hele verdikjeden,
+uten at dette kompenseres av andre etater [delrapport 8, kap. 5].</li>
+</ol>
+<h3 id="vurdering-av-h3">5.4 Vurdering av H3</h3>
+<p>Evidensen gir <strong>sterk støtte</strong> for H3:</p>
+<ul>
+<li>Fraværet av helhetlig styringsmandat er dokumentert i
+<strong>både</strong> Røttingen-rapporten, Riksrevisjonens rapporter,
+delrapport 2 og delrapport 8</li>
+<li>Røttingen foreslo konkrete tiltak (forum for faglig normering,
+helhetlige modeller) som <strong>ikke er gjennomført</strong></li>
+<li>Konsekvensene er observerbare i form av lang gjennomløpstid,
+inkonsistent innhold og dobbeltarbeid</li>
+<li>H3 forsterker virkningen av H1 og H2: uklare grensesnitt mellom
+aktørene blir mer problematisk når det heller ikke finnes et overordnet
+koordineringsorgan</li>
+</ul>
+<hr />
+<h2 id="samlet-vurdering">6. Samlet vurdering</h2>
+<h3 id="evidensstyrke-per-underhypotese">6.1 Evidensstyrke per
+underhypotese</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Hypotese</th>
+<th>Evidensstyrke</th>
+<th>Begrunnelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1: FHI-Hdir</td>
+<td>Moderat–sterk</td>
+<td>Dokumentert over 20+ år. Omorganiseringen løste noe, men skapte nye
+gråsoner</td>
+</tr>
+<tr>
+<td>H2: Hdir-NHN</td>
+<td>Moderat</td>
+<td>Dokumentert i Røttingen og Riksrevisjonen. Mangler
+primærkildedokumentasjon post-2024</td>
+</tr>
+<tr>
+<td>H3: Styringsmandat</td>
+<td>Sterk</td>
+<td>Dokumentert i flere uavhengige kilder. Foreslåtte tiltak ikke
+gjennomført</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hva-røttingen-anbefalte-vs.-hva-som-skjedde">6.2 Hva Røttingen
+anbefalte vs. hva som skjedde</h3>
+<p>Røttingen-rapporten anbefalte en <strong>helhetlig
+omorganisering</strong> med tydelig rolledeling. Regjeringen
+gjennomførte en <strong>delvis reform</strong>:</p>
+<ul>
+<li>Dir. for e-helse ble innlemmet i Hdir (anbefalt som alternativ)</li>
+<li>FHI ble rendyrket som kunnskapsetat (delvis i tråd med
+anbefaling)</li>
+<li>Forum for faglig normering, kompetansesenter- samling og helhetlige
+styringsmodeller ble <strong>ikke gjennomført</strong></li>
+<li>Lovfesting av oppgavedeling ble eksplisitt avvist av
+regjeringen</li>
+</ul>
+<p>Konsekvensen er at <strong>grensesnittene i stor grad styres gjennom
+samarbeidsavtaler og tildelingsbrev</strong> – instrumenter som er
+fleksible, men som gir begrenset forutsigbarhet og transparens.</p>
+<h3 id="alternative-forklaringer">6.3 Alternative forklaringer</h3>
+<p>Hovedhypotesen (at utfordringene skyldes rolledeling) må vurderes mot
+alternative forklaringer:</p>
+<ol type="1">
+<li><strong>Kapasitetsbegrensninger</strong>: Utfordringene kan skyldes
+at etatene ikke har tilstrekkelig ressurser til å utføre oppgavene,
+uavhengig av organisering. NOU 2023:4 (Helsepersonellkommisjonen)
+dokumenterer et bredt kapasitetsproblem.</li>
+<li><strong>Teknologisk etterslep</strong>: Mangel på standardiserte
+grensesnitt og strukturerte data kan forklare treghet uavhengig av
+organisasjonsmodell (delrapport 2, kap. 5.3).</li>
+<li><strong>Iboende kompleksitet</strong>: Verdikjeden fra forskning til
+praksisendring er iboende kompleks, og utfordringene kan være
+strukturelle snarere enn organisatoriske.</li>
+<li><strong>Politisk styring</strong>: Departementets detaljstyring
+gjennom tildelingsbrev kan begrense etatenes handlingsrom, uavhengig av
+formell rolledeling.</li>
+</ol>
+<p>Vår vurdering er at disse forklaringene <strong>ikke
+utelukker</strong> hypotesen om rolledeling, men at de
+<strong>modererer</strong> den. Rolledelingsutfordringene forsterker de
+øvrige problemene, og bedre avklarte roller ville gjort det enklere å
+håndtere kapasitetsbegrensninger, teknologisk etterslep og
+kompleksitet.</p>
+<h3 id="samlet-konklusjon">6.4 Samlet konklusjon</h3>
+<p>Hovedhypotesen har <strong>delvis støtte</strong> i kildematerialet,
+med følgende differensiering:</p>
+<p><strong>Støtter hypotesen:</strong></p>
+<ul>
+<li>Grensesnittproblemer mellom FHI, Hdir og NHN er veldokumentert og
+har vedvart gjennom flere reformer</li>
+<li>Omorganiseringen i 2024 løste noen problemer, men skapte nye</li>
+<li>Fraværet av helhetlig styringsmandat er den sterkeste
+forklaringsfaktoren</li>
+<li>Røttingens forslag om forum for faglig normering – direkte relevant
+for kunnskapsforvaltningen – er ikke gjennomført</li>
+</ul>
+<p><strong>Nyanserer hypotesen:</strong></p>
+<ul>
+<li>Omorganiseringen hadde som eksplisitt mål å tydeliggjøre roller, og
+det er for tidlig å konkludere endelig (under 2,5 år siden
+implementering)</li>
+<li>Alternative forklaringer (kapasitet, teknologi, kompleksitet) bidrar
+til utfordringene uavhengig av rolledeling</li>
+<li>Den formelle avtalen mellom FHI og Hdir om kunnskapsoppsummeringer
+eksisterer og er operativ</li>
+</ul>
+<hr />
+<h2 id="implikasjoner-for-ny-verdikjede">7. Implikasjoner for ny
+verdikjede</h2>
+<h3 id="governance-modellens-forutsetninger">7.1 Governance-modellens
+forutsetninger</h3>
+<p>Delrapport 4 og 7 anbefaler en governance-modell der
+Helsedirektoratet har overordnet governance, FHI har ansvar for
+KI-støttet kunnskapssyntese, og NHN har ansvar for drift av
+infrastruktur.</p>
+<p>Denne modellen <strong>forutsetter</strong> at rolledelingen mellom
+aktørene er avklart. Funnene i denne rapporten viser at dette ikke er
+fullt ut tilfellet. Spesifikt:</p>
+<ul>
+<li><strong>Bestiller-utfører</strong>: Governance-modellen forutsetter
+at Hdir kan bestille kunnskapsoppsummeringer fra FHI på en strukturert
+måte. Dagens avtale fungerer, men Røttingen pekte på spenningen mellom
+kunnskapsuavhengighet og styring.</li>
+<li><strong>Teknologiansvar</strong>: KI-infrastruktur vil kreve
+avklaring av hvem som eier, drifter og finansierer løsningene. Dagens
+grensesnitt mellom Hdir (strategi) og NHN (drift/ finansiering) er ikke
+tilstrekkelig avklart for nye, komplekse teknologier.</li>
+<li><strong>Innholdsansvar</strong>: Automatisert generering av
+innbyggerinformasjon basert på retningslinjer vil kreve tydelig
+avklaring av hvem som har det endelige faglige ansvaret for publisert
+innhold.</li>
+</ul>
+<h3 id="anbefalte-styringsmessige-grep">7.2 Anbefalte styringsmessige
+grep</h3>
+<p>Basert på analysens funn anbefales følgende grep som forutsetning for
+vellykket modernisering av verdikjeden:</p>
+<ol type="1">
+<li><strong>Etabler tverrgående styringsmandat</strong>: Det bør
+etableres et eksplisitt mandat for styring av verdikjeden som helhet,
+enten gjennom et forum (jf. Røttingens forslag om forum for faglig
+normering) eller gjennom et formelt koordineringsorgan.</li>
+<li><strong>Avklar KI-ansvar</strong>: Før KI-pilotering igangsettes
+(fase 1 i delrapport 4), må det avklares hvem som eier KI-infrastruktur,
+hvem som validerer KI-generert innhold, og hvem som har det juridiske
+ansvaret.</li>
+<li><strong>Formalisere bestiller-utfører</strong>: Samarbeidsavtalen
+mellom Hdir og FHI om kunnskapsoppsummeringer bør offentliggjøres og
+formaliseres i tildelingsbrevene.</li>
+<li><strong>Tydeliggjøre innholdsansvar for helsenorge.no</strong>:
+Grensesnittet mellom Hdirs utgiveransvar og NHNs redaktøransvar bør
+avklares, spesielt med tanke på automatisert innholdsoppdatering.</li>
+</ol>
+<h3 id="risiko-ved-å-ikke-adressere-rolledeling">7.3 Risiko ved å ikke
+adressere rolledeling</h3>
+<p>Dersom verdikjeden moderniseres (delrapport 4, alternativ 2 eller 3)
+uten at rolledelingen avklares, er risikoen:</p>
+<ul>
+<li><strong>Governance-konflikter</strong>: KI-initiativer kan strande i
+grensesnittet mellom etatene</li>
+<li><strong>Ansvarsfraskrivelse</strong>: Ingen aktør tar eierskap til
+helhetlige KI-løsninger som krysser organisasjonsgrenser</li>
+<li><strong>Duplisering av KI-satsinger</strong>: FHI, Hdir og NHN kan
+utvikle parallelle KI-løsninger uten koordinering</li>
+<li><strong>Regulatorisk risiko</strong>: EU AI Act stiller krav til
+klart definert ansvar for KI-systemer i helse – uavklarte roller kan
+gjøre etterlevelse vanskelig</li>
+</ul>
+<hr />
+<h2 id="kildeliste">8. Kildeliste</h2>
+<ol type="1">
+<li>Røttingen-utvalget (2023). <em>Gjennomgang av organisering, roller
+og ansvar i den sentrale helseforvaltningen. Rapport.</em> 11. mars
+2023. Kilde:
+<code>kilder/Endelig-rapport_organisering- sentral-helseforvaltning.pdf</code></li>
+<li>Prop. 11 L (2023–2024). <em>Endringar i helselovgivinga
+(organisering av sentral helseforvaltning m.m.).</em> Helse- og
+omsorgsdepartementet.</li>
+<li>Innst. 113 L (2023–2024). <em>Innstilling fra helse- og
+omsorgskomiteen om Endringar i helselovgivinga.</em> Stortinget.</li>
+<li>NOU 2022:5. <em>Myndig satisfaksjonsarbeidet – Evaluering av
+satisfaksjonsarbeidet.</em> Koronakommisjonen.</li>
+<li>Helsedirektoratet (2024). <em>Årsrapport 2024.</em> <a
+href="https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024">helsedirektoratet.no</a></li>
+<li>Riksrevisjonen (2021). <em>Riksrevisjonens undersøkelse av
+helseregistrenes funksjon og drift.</em> Dokument 3:12 (2020–2021).</li>
+<li>Tekna (2023). «Uforståelig hemmelighold i helsedepartementet.» <a
+href="https://www.tekna.no/aktuelt/uforstaelig-hemmelighold-helseforvaltningen/">tekna.no</a></li>
+<li>Forskerforbundet (2023). «Brev til HOD om prosjektet Gjennomgang av
+den sentrale helseforvaltningen.» <a
+href="https://www.forskerforbundet.no/var-politikk/uttalelser/2023/brev-til-hod-om-prosjektet-gjennomgang-av-den-sentrale-helseforvaltningen/">forskerforbundet.no</a></li>
+<li>NHN (2024). «Helsedirektoratet overtar dataansvar for kjernejournal
+og reseptformidleren.» <a
+href="https://www.nhn.no/nyheter/helsedirektoratet-overtar-dataansvar">nhn.no</a></li>
+<li>FHI (2024). «Kunnskaps- og beslutningsstøtte for Helsedirektoratet.»
+<a
+href="https://www.fhi.no/ku/kunnskaps-og-beslutningsstotte/helsedirektoratet/">fhi.no</a></li>
+<li>VG (2021). «Rollekluss mellom FHI og Helsedirektoratet: Skurrer
+fortsatt.»</li>
+<li>VG (2021). «FHI-notat avslører uenighet med Helsedirektoratet:
+Skapte forvirring og merarbeid.»</li>
+</ol>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

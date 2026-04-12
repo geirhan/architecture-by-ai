@@ -76,6 +76,17 @@
   roller og enabler-gap.
 - **Sist oppdatert**: 2026-03-23
 
+### [Rolledeling i sentral helseforvaltning](rolledeling-sentral-helseforvaltning.md)
+
+- **Beskrivelse**: Undersøkelse av hypotesen om at
+  utfordringer i kunnskapsforvaltningen skyldes
+  rolledeling mellom FHI, Helsedirektoratet og
+  NHN. Tre underhypoteser (FHI-Hdir, Hdir-NHN,
+  manglende styringsmandat) vurdert mot
+  Røttingen-rapporten, Prop. 11 L, Riksrevisjonen
+  og andre offentlige kilder.
+- **Sist oppdatert**: 2026-04-12
+
 ### [Casestudier: Dokumenterte forsinkelser](casestudier-forsinkelser.md)
 
 - **Beskrivelse**: Tre casestudier (antibiotika,
