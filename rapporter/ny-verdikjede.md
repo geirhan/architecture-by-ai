@@ -67,7 +67,7 @@ endringer i arbeidsprosesser.
 
 - **Gjennomløpstid**: Fortsatt 2,5–5 år fra ny evidens
   til formidlet kunnskap. Gitt økende forskningsvolum
-  (jf. delrapport 2, punkt 2.1) er det sannsynlig at
+  (jf. delrapport 2, punkt 3.1) er det sannsynlig at
   gjennomløpstiden øker over tid.
 - **Kapasitet**: FHIs kapasitet til å produsere
   systematiske oversikter forblir begrenset. Antallet
@@ -531,6 +531,88 @@ som i dag ikke fullt ut kan forutsies.
 Merknad: Kostnadstallene er grove estimater med vesentlig
 usikkerhet og bør verifiseres gjennom detaljerte
 kost-nytte-analyser.
+
+### 6.1 Dekning av rotårsaker
+
+Sammenligningen over måler alternativene på
+operasjonelle og kvalitative dimensjoner, men
+svarer ikke direkte på **hvilke rotårsaker hvert
+alternativ faktisk adresserer**. Rotårsakene R1–R6
+er definert i delrapport 2 kap. 9.2 og oppsummeres
+her:
+
+- **R1** Manglende helhetlig styringsmandat
+- **R2** Verdikjeden er designet for pre-digital
+  tid
+- **R3** Kapasitet skalerer ikke med
+  forskningsvolum
+- **R4** Fragmentert IT-landskap og ulike kodeverk
+- **R5** Manglende insentiver og eierskap for
+  implementering
+- **R6** Manglende feedback- og målemekanismer
+
+Tabellen nedenfor angir i hvilken grad hvert
+alternativ adresserer hver rotårsak. Skalaen er
+**«Ikke»** (ingen effekt), **«Marginalt»**
+(effekt på symptomer, ikke på årsak),
+**«Delvis»** (adresserer en del av årsaken),
+**«Ja»** (adresserer hovedinnholdet i årsaken) og
+**«Fullt»** (adresserer årsaken i sin helhet).
+
+<!-- markdownlint-disable MD013 -->
+
+| Rotårsak | Alt. 0 | Alt. 1 | Alt. 2 | Alt. 3 |
+| --- | --- | --- | --- | --- |
+| **R1** Styringsmandat | Ikke | Delvis | Delvis | Delvis |
+| **R2** Pre-digital design | Ikke | Marginalt | Ja | Fullt |
+| **R3** Kapasitet vs. volum | Ikke | Delvis | Ja | Fullt |
+| **R4** IT-fragmentering | Ikke | Marginalt | Ja | Fullt |
+| **R5** Impl.insentiver | Ikke | Delvis | Delvis | Delvis |
+| **R6** Feedback/måling | Ikke | Delvis | Ja | Fullt |
+
+<!-- markdownlint-enable MD013 -->
+
+#### 6.1.1 Observasjoner
+
+- **R1 og R5 dekkes ikke fullt ut av noen
+  alternativer**. Styringsmandatet krever
+  politiske grep (lovfesting, etablering av forum
+  for faglig normering, tydeligere departemental
+  styring) som ligger utenfor mandatet til et
+  KI-teknologisk tiltak. Refusjonskjeden (del av
+  R5) krever samordning mellom Hdir og det
+  organet som fastsetter refusjon.
+- **R2, R3, R4 og R6 dekkes progressivt bedre
+  fra alt. 1 til alt. 3**. Dette er teknisk/
+  prosessuelle rotårsaker der KI og strukturerte
+  data gir direkte effekt.
+- **Alternativ 1 alene er utilstrekkelig for R2
+  og R4**, fordi organisatorisk modernisering
+  uten digitalt løft ikke endrer verdikjedens
+  fritekstbaserte natur eller IT-fragmenteringen.
+- **Alternativ 3 dekker R2–R4 og R6 fullt**, men
+  skaper økte krav til R1 (governance, regulator-
+  isk tilsyn under EU AI Act). Dersom R1 ikke
+  adresseres parallelt, øker risikoen i
+  alternativ 3.
+
+#### 6.1.2 Implikasjon: parallelle tiltak
+
+Fordi R1 og R5 ikke dekkes fullt av noen av
+alternativene, **må utredningen anbefale
+parallelle tiltak** utenfor dp4-alternativene:
+
+- **R1-tiltak**: Etablere forum for faglig
+  normering (Røttingen kap. 11.9) og vurdere
+  lovfesting av oppgavedeling mellom FHI, Hdir
+  og NHN.
+- **R5-tiltak**: Samordne retningslinje- og
+  refusjonsbeslutninger i felles tidslinje;
+  gi et eksplisitt organ ansvar for
+  implementering og måling av etterlevelse.
+
+Disse tiltakene er behandlet i delrapport 7
+kap. 6 (anbefaling) og i rolledeling-rapporten.
 
 ---
 

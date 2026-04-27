@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotårsaker og relasjoner mellom utfordringer i verdikjeden</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1rem 0 1.5rem 0;
+            padding: 1rem;
+            background-color: #f4f6f8;
+            border-radius: 6px;
+            align-items: center;
+        }
+
+        .controls label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.25rem;
+        }
+
+        .controls button {
+            background-color: #003366;
+            color: #ffffff;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background-color 0.15s;
+        }
+
+        .controls button:hover {
+            background-color: #0055a5;
+        }
+
+        .controls button.active {
+            background-color: #0055a5;
+            box-shadow: inset 0 0 0 2px #ffcc00;
+        }
+
+        .controls select {
+            padding: 0.4rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .alt-label {
+            margin-left: 1rem;
+        }
+
+        .swatch-root { background: #e8883a; }
+        .swatch-high { background: #c0392b; width: 14px; height: 14px; }
+        .swatch-medium { background: #e67e22; width: 12px; height: 12px; }
+        .edge-causes { background: #003366; }
+        .edge-amplifies { background: #888; border-top: 2px dashed #888; height: 0; }
+
+        #graph-container {
+            position: relative;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background: linear-gradient(to bottom, #fafbfc, #ffffff);
+            overflow: hidden;
+        }
+
+        svg {
+            display: block;
+            width: 100%;
+            height: 620px;
+        }
+
+        .node circle {
+            cursor: pointer;
+            stroke: #ffffff;
+            stroke-width: 2px;
+            transition: stroke-width 0.15s, opacity 0.15s;
+        }
+
+        .node text {
+            font-size: 11px;
+            fill: #222;
+            pointer-events: none;
+            text-anchor: middle;
+            font-weight: 600;
+        }
+
+        .node.dimmed circle,
+        .node.dimmed text {
+            opacity: 0.15;
+        }
+
+        .node.highlighted circle {
+            stroke: #ffcc00;
+            stroke-width: 4px;
+        }
+
+        .link {
+            stroke-opacity: 0.55;
+            transition: stroke-opacity 0.15s;
+        }
+
+        .link.dimmed {
+            stroke-opacity: 0.05;
+        }
+
+        .link.highlighted {
+            stroke-opacity: 0.95;
+            stroke-width: 3px;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+            padding: 0.75rem 1rem;
+            background-color: #f4f6f8;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-swatch {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 1px #ccc;
+        }
+
+        .legend-edge {
+            width: 24px;
+            height: 3px;
+        }
+
+        #tooltip {
+            position: absolute;
+            background: #003366;
+            color: #fff;
+            padding: 0.6rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            max-width: 280px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+
+        #tooltip strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: #ffcc00;
+        }
+
+        .details {
+            background-color: #f4f6f8;
+            padding: 1rem 1.25rem;
+            border-left: 4px solid #003366;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .details h2 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: #003366;
+        }
+
+        .details ul {
+            margin-left: 1.25rem;
+            margin-top: 0.4rem;
+        }
+
+        .sources {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .sources p {
+            margin-bottom: 0.3rem;
+        }
+
+        .sources a {
+            color: #003366;
+            text-decoration: underline;
+        }
+
+        @media print {
+            .controls button { display: none; }
+            svg { height: 500px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Rotårsaker og relasjoner mellom utfordringer</h1>
+    <p>Interaktiv kausalgraf basert på delrapport 2 kap. 9,
+    delrapport 4 kap. 6 og rolledeling-sentral-helseforvaltning kap. 5.5.</p>
+</header>
+
+<main>
+    <div class="details">
+        <h2>Slik bruker du grafen</h2>
+        <ul>
+            <li>Hold musen over en node for å se detaljer
+            og kildehenvisning.</li>
+            <li>Klikk på en rotårsak (stor oransje sirkel)
+            for å fremheve hele kausalkjeden.</li>
+            <li>Bruk knappene over for å filtrere, eller
+            velg et alternativ for å se hvilke noder det
+            adresserer.</li>
+            <li>Dra noder for å omplassere grafen.</li>
+        </ul>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-swatch swatch-root"></span>
+            Rotårsak (R1–R6)
+        </div>
+        <div class="legend-item">
+            <span class="legend-swatch swatch-high"></span>
+            Flaskehals, høy alvorlighet
+        </div>
+        <div class="legend-item">
+            <span class="legend-swatch swatch-medium"></span>
+            Flaskehals, middels alvorlighet
+        </div>
+        <div class="legend-item">
+            <span class="legend-edge edge-causes"></span>
+            Forårsaker
+        </div>
+        <div class="legend-item">
+            <span class="legend-edge edge-amplifies"></span>
+            Forsterker
+        </div>
+    </div>
+
+    <div class="controls">
+        <label for="filter-all">Vis:</label>
+        <button type="button" id="filter-all" data-filter="all" class="active">Alle utfordringer</button>
+        <button type="button" data-filter="high">Kun høy alvorlighet</button>
+        <button type="button" data-filter="reset">Nullstill markering</button>
+
+        <label for="alt-select" class="alt-label">Alternativ som dekker:</label>
+        <select id="alt-select" title="Velg alternativ for å fargelegge nodene etter dekning">
+            <option value="none">(Ingen)</option>
+            <option value="alt1">Alt. 1 – Organisatorisk</option>
+            <option value="alt2">Alt. 2 – Moderat KI</option>
+            <option value="alt3">Alt. 3 – Ambisiøs KI</option>
+        </select>
+    </div>
+
+    <div id="graph-container">
+        <svg id="graph"></svg>
+        <div id="tooltip"></div>
+    </div>
+
+    <div class="details">
+        <h2>Seks rotårsaker (delrapport 2 kap. 9.2)</h2>
+        <ul>
+            <li><strong>R1</strong> – Manglende helhetlig
+            styringsmandat for verdikjeden</li>
+            <li><strong>R2</strong> – Verdikjeden er
+            designet for pre-digital tid</li>
+            <li><strong>R3</strong> – Kapasitet skalerer
+            ikke med forskningsvolum</li>
+            <li><strong>R4</strong> – Fragmentert
+            IT-landskap og ulike kodeverk</li>
+            <li><strong>R5</strong> – Manglende insentiver
+            og eierskap for implementering</li>
+            <li><strong>R6</strong> – Manglende feedback-
+            og målemekanismer</li>
+        </ul>
+    </div>
+
+    <div class="sources">
+        <p><strong>Kilder:</strong> Denne visualiseringen
+        er utelukkende basert på funn dokumentert i
+        utredningens rapporter:</p>
+        <p>• <a href="../rapporter/utfordringer-og-flaskehalser.md">Delrapport 2: Utfordringer og flaskehalser</a> – kap. 8.1 og kap. 9</p>
+        <p>• <a href="../rapporter/ny-verdikjede.md">Delrapport 4: Alternativer for ny verdikjede</a> – kap. 6.1</p>
+        <p>• <a href="../rapporter/rolledeling-sentral-helseforvaltning.md">Rolledeling i sentral helseforvaltning</a> – kap. 5.5</p>
+        <p>• <a href="../rapporter/samlet-vurdering-kunnskapsforvaltning.md">Delrapport 7: Samlet vurdering</a> – kap. 4 og 5.4</p>
+        <p style="margin-top:0.5rem">Sist oppdatert:
+        2026-04-21</p>
+    </div>
+</main>
+
+<script>
+// Data: rotårsaker og flaskehalser med relasjoner fra dp2 kap. 9
+const nodes = [
+    // Rotårsaker
+    {id: "R1", label: "R1 Styringsmandat", type: "root",
+     desc: "Manglende helhetlig styringsmandat for verdikjeden.",
+     source: "[DOK] Rolledeling kap. 5 (H3). Røttingens forum for faglig normering ikke gjennomført.",
+     alt1: "delvis", alt2: "delvis", alt3: "delvis"},
+    {id: "R2", label: "R2 Pre-digital design", type: "root",
+     desc: "Verdikjeden er designet for pre-digital tid: fritekst, manuelle overganger.",
+     source: "[DOK] Samlet vurdering kap. 4.2. Dp2 kap. 6.2 og 6.5.",
+     alt1: "marginalt", alt2: "ja", alt3: "fullt"},
+    {id: "R3", label: "R3 Kapasitet vs. volum", type: "root",
+     desc: "Manuell screening skalerer ikke med 3M+ artikler/år.",
+     source: "[DOK] Dp2 kap. 3.1. Hdir årsrapport 2024: økende kapasitetsgap.",
+     alt1: "delvis", alt2: "ja", alt3: "fullt"},
+    {id: "R4", label: "R4 IT-fragmentering", type: "root",
+     desc: "Ulike kodeverk, ingen automatisert informasjonsflyt mellom systemer.",
+     source: "[DOK] Dp2 kap. 6.4 og Helsedirektoratets kunnskapsgrunnlag [6].",
+     alt1: "marginalt", alt2: "ja", alt3: "fullt"},
+    {id: "R5", label: "R5 Impl.insentiver", type: "root",
+     desc: "Ingen aktør eier implementeringsgapet; refusjon er separat beslutningskjede.",
+     source: "[DOK] Meld. St. 9 (2023-2024). Dp2 kap. 3.5 (diabetes-casen).",
+     alt1: "delvis", alt2: "delvis", alt3: "delvis"},
+    {id: "R6", label: "R6 Feedback/måling", type: "root",
+     desc: "Mangler målemekanismer for egen ytelse og for innbyggerbehov.",
+     source: "[DOK] Dp2 kap. 5, kap. 7.4 og 6.6.5.",
+     alt1: "delvis", alt2: "ja", alt3: "fullt"},
+
+    // Flaskehalser (høy alvorlighet)
+    {id: "F1", label: "1. Foreldelse", type: "high",
+     desc: "Kunnskapsgrunnlag foreldes underveis i retningslinjeprosessen (12-24 mnd).",
+     source: "[DOK] Dp2 kap. 3.2 og 8.1.",
+     alt1: "ja", alt2: "ja", alt3: "fullt"},
+    {id: "F2", label: "2. Kap. syst.overs.", type: "high",
+     desc: "FHIs kapasitet begrenser antall systematiske oversikter per år.",
+     source: "[DOK] Dp2 kap. 3.1 og 8.1.",
+     alt1: "delvis", alt2: "ja", alt3: "fullt"},
+    {id: "F3", label: "3. Manglende kobling", type: "high",
+     desc: "Ingen automatisert kobling mellom retningslinje (Hdir) og innbyggerinfo (NHN).",
+     source: "[DOK] Dp2 kap. 3.3 og 6.6.1.",
+     alt1: "marginalt", alt2: "ja", alt3: "fullt"},
+    {id: "F4", label: "4. Implementeringsgap", type: "high",
+     desc: "7-15+ år fra forskning til bred praksisendring (casestudier).",
+     source: "[DOK] Dp2 kap. 3.4 og casestudier-forsinkelser.md.",
+     alt1: "delvis", alt2: "delvis", alt3: "ja"},
+    {id: "F5", label: "5. Refusjon", type: "high",
+     desc: "Diabetes-casen: 8 år fra EMPA-REG til forhåndsgodkjent refusjon.",
+     source: "[DOK] Dp2 kap. 3.5 og casestudier.",
+     alt1: "marginalt", alt2: "marginalt", alt3: "marginalt"},
+
+    // Flaskehalser (middels alvorlighet)
+    {id: "F6", label: "6. Siloorganisering", type: "medium",
+     desc: "Strukturell årsak til flere øvrige flaskehalser; ~20 aktører.",
+     source: "[DOK] Dp2 kap. 6.1 og 6.6.1. Rolledeling kap. 5.",
+     alt1: "delvis", alt2: "delvis", alt3: "delvis"},
+    {id: "F7", label: "7. Fritekst/metadata", type: "medium",
+     desc: "Hindrer automatisering, sporbarhet og kobling mellom kanaler.",
+     source: "[DOK] Dp2 kap. 6.5.",
+     alt1: "marginalt", alt2: "ja", alt3: "fullt"},
+    {id: "F8", label: "8. Personalisering", type: "medium",
+     desc: "Innbyggerinformasjon er generisk; ingen tilpasning til individ.",
+     source: "[DOK] Dp2 kap. 7.2.",
+     alt1: "ikke", alt2: "delvis", alt3: "ja"},
+    {id: "F9", label: "9. Tilgjengelighet", type: "medium",
+     desc: "Digital kompetanse, språk, funksjonsnedsettelser.",
+     source: "[DOK] Dp2 kap. 7.3.",
+     alt1: "ikke", alt2: "delvis", alt3: "ja"}
+];
+
+// Relasjoner: rot → flaskehals (forårsaker), flaskehals → flaskehals (forsterker/forårsaker)
+// Data fra dp2 kap. 9.3 (dekning) og 9.4.2 (relasjonstabell)
+const links = [
+    // R → F (forårsaker, primær)
+    {source: "R3", target: "F1", type: "causes"},
+    {source: "R3", target: "F2", type: "causes"},
+    {source: "R4", target: "F3", type: "causes"},
+    {source: "R5", target: "F4", type: "causes"},
+    {source: "R5", target: "F5", type: "causes"},
+    {source: "R1", target: "F6", type: "causes"},
+    {source: "R2", target: "F7", type: "causes"},
+    {source: "R6", target: "F8", type: "causes"},
+    {source: "R6", target: "F9", type: "causes"},
+
+    // R → F (sekundær, forsterker)
+    {source: "R2", target: "F1", type: "amplifies"},
+    {source: "R6", target: "F1", type: "amplifies"},
+    {source: "R2", target: "F2", type: "amplifies"},
+    {source: "R1", target: "F3", type: "amplifies"},
+    {source: "R2", target: "F3", type: "amplifies"},
+    {source: "R4", target: "F4", type: "amplifies"},
+    {source: "R6", target: "F4", type: "amplifies"},
+    {source: "R1", target: "F5", type: "amplifies"},
+    {source: "R5", target: "F6", type: "amplifies"},
+    {source: "R4", target: "F7", type: "amplifies"},
+    {source: "R2", target: "F8", type: "amplifies"},
+    {source: "R4", target: "F8", type: "amplifies"},
+    {source: "R1", target: "F9", type: "amplifies"},
+
+    // F → F (fra relasjonstabellen 8.4.2)
+    {source: "F2", target: "F1", type: "causes"},
+    {source: "F1", target: "F3", type: "amplifies"},
+    {source: "F1", target: "F4", type: "amplifies"},
+    {source: "F3", target: "F4", type: "amplifies"},
+    {source: "F3", target: "F8", type: "amplifies"},
+    {source: "F3", target: "F9", type: "amplifies"},
+    {source: "F5", target: "F4", type: "amplifies"},
+    {source: "F6", target: "F1", type: "amplifies"},
+    {source: "F6", target: "F2", type: "amplifies"},
+    {source: "F6", target: "F3", type: "causes"},
+    {source: "F6", target: "F4", type: "amplifies"},
+    {source: "F6", target: "F5", type: "causes"},
+    {source: "F6", target: "F7", type: "amplifies"},
+    {source: "F6", target: "F8", type: "amplifies"},
+    {source: "F6", target: "F9", type: "amplifies"},
+    {source: "F7", target: "F1", type: "amplifies"},
+    {source: "F7", target: "F2", type: "amplifies"},
+    {source: "F7", target: "F3", type: "causes"},
+    {source: "F7", target: "F4", type: "amplifies"},
+    {source: "F7", target: "F8", type: "causes"},
+    {source: "F7", target: "F9", type: "amplifies"},
+    {source: "F8", target: "F9", type: "amplifies"},
+    {source: "F9", target: "F8", type: "amplifies"}
+];
+
+const colorMap = {
+    root: "#e8883a",
+    high: "#c0392b",
+    medium: "#e67e22"
+};
+
+const radiusMap = {
+    root: 34,
+    high: 22,
+    medium: 18
+};
+
+const coverageColor = {
+    ikke: "#999",
+    marginalt: "#e8c547",
+    delvis: "#f39c12",
+    ja: "#27ae60",
+    fullt: "#1e8449"
+};
+
+const svg = d3.select("#graph");
+const tooltip = d3.select("#tooltip");
+
+function renderGraph() {
+    const container = document.getElementById("graph-container");
+    const width = container.clientWidth;
+    const height = 620;
+
+    svg.selectAll("*").remove();
+
+    // Define arrow markers
+    svg.append("defs").selectAll("marker")
+        .data(["causes", "amplifies"])
+        .enter().append("marker")
+        .attr("id", d => "arrow-" + d)
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 22)
+        .attr("refY", 0)
+        .attr("markerWidth", 8)
+        .attr("markerHeight", 8)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", d => d === "causes" ? "#003366" : "#888");
+
+    const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).distance(d => d.type === "causes" ? 90 : 70))
+        .force("charge", d3.forceManyBody().strength(-400))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collision", d3.forceCollide().radius(d => radiusMap[d.type] + 6));
+
+    const link = svg.append("g")
+        .selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("class", "link")
+        .attr("stroke", d => d.type === "causes" ? "#003366" : "#888")
+        .attr("stroke-width", d => d.type === "causes" ? 2 : 1.3)
+        .attr("stroke-dasharray", d => d.type === "causes" ? null : "4,3")
+        .attr("marker-end", d => "url(#arrow-" + d.type + ")");
+
+    const node = svg.append("g")
+        .selectAll("g")
+        .data(nodes)
+        .enter().append("g")
+        .attr("class", "node")
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+
+    node.append("circle")
+        .attr("r", d => radiusMap[d.type])
+        .attr("fill", d => colorMap[d.type]);
+
+    node.append("text")
+        .attr("dy", d => d.type === "root" ? 4 : 3)
+        .text(d => d.label)
+        .each(function(d) {
+            const self = d3.select(this);
+            const words = d.label.split(" ");
+            if (d.type === "root" && words.length > 1) {
+                self.text(words[0]);
+                self.append("tspan")
+                    .attr("x", 0).attr("dy", "1.1em")
+                    .text(words.slice(1).join(" "));
+            } else if (d.label.length > 14) {
+                const mid = Math.floor(words.length / 2);
+                self.text(words.slice(0, mid).join(" "));
+                self.append("tspan")
+                    .attr("x", 0).attr("dy", "1.1em")
+                    .text(words.slice(mid).join(" "));
+            }
+        });
+
+    node.on("mouseover", function(event, d) {
+            const coverage = d.alt1 ? `<br>Alt. 1: ${d.alt1} · Alt. 2: ${d.alt2} · Alt. 3: ${d.alt3}` : "";
+            tooltip.style("opacity", 1)
+                .html(`<strong>${d.label}</strong>${d.desc}<br><em>${d.source}</em>${coverage}`);
+        })
+        .on("mousemove", function(event) {
+            const containerRect = container.getBoundingClientRect();
+            tooltip
+                .style("left", (event.clientX - containerRect.left + 15) + "px")
+                .style("top", (event.clientY - containerRect.top + 15) + "px");
+        })
+        .on("mouseout", function() {
+            tooltip.style("opacity", 0);
+        })
+        .on("click", function(event, d) {
+            highlightChain(d);
+            event.stopPropagation();
+        });
+
+    svg.on("click", () => resetHighlight());
+
+    simulation.on("tick", () => {
+        link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+        node.attr("transform", d => `translate(${d.x},${d.y})`);
+    });
+
+    function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+    }
+    function dragged(event, d) {
+        d.fx = event.x; d.fy = event.y;
+    }
+    function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null; d.fy = null;
+    }
+
+    function highlightChain(rootNode) {
+        const reachable = new Set([rootNode.id]);
+        let frontier = [rootNode.id];
+        while (frontier.length > 0) {
+            const next = [];
+            links.forEach(l => {
+                const sid = l.source.id || l.source;
+                const tid = l.target.id || l.target;
+                if (frontier.includes(sid) && !reachable.has(tid)) {
+                    reachable.add(tid);
+                    next.push(tid);
+                }
+            });
+            frontier = next;
+        }
+        node.classed("dimmed", d => !reachable.has(d.id))
+            .classed("highlighted", d => d.id === rootNode.id);
+        link.classed("dimmed", l => {
+                const sid = l.source.id || l.source;
+                const tid = l.target.id || l.target;
+                return !(reachable.has(sid) && reachable.has(tid));
+            })
+            .classed("highlighted", l => {
+                const sid = l.source.id || l.source;
+                const tid = l.target.id || l.target;
+                return reachable.has(sid) && reachable.has(tid) && sid !== tid;
+            });
+    }
+
+    function resetHighlight() {
+        node.classed("dimmed", false).classed("highlighted", false);
+        link.classed("dimmed", false).classed("highlighted", false);
+        // Reset coverage colors
+        node.select("circle").attr("fill", d => colorMap[d.type]);
+    }
+
+    window.resetHighlight = resetHighlight;
+    window.highlightByFilter = function(filter) {
+        resetHighlight();
+        if (filter === "high") {
+            node.classed("dimmed", d => d.type === "medium");
+            link.classed("dimmed", l => {
+                const s = nodes.find(n => n.id === (l.source.id || l.source));
+                const t = nodes.find(n => n.id === (l.target.id || l.target));
+                return s.type === "medium" || t.type === "medium";
+            });
+        }
+    };
+    window.showAltCoverage = function(alt) {
+        resetHighlight();
+        if (alt === "none") return;
+        node.select("circle").attr("fill", d => {
+            const level = d[alt];
+            return level ? coverageColor[level] : colorMap[d.type];
+        });
+    };
+}
+
+renderGraph();
+window.addEventListener("resize", renderGraph);
+
+// Controls
+document.querySelectorAll(".controls button").forEach(btn => {
+    btn.addEventListener("click", function() {
+        document.querySelectorAll(".controls button").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        const filter = this.dataset.filter;
+        if (filter === "reset") {
+            window.resetHighlight();
+            document.getElementById("alt-select").value = "none";
+        } else {
+            window.highlightByFilter(filter);
+        }
+    });
+});
+
+document.getElementById("alt-select").addEventListener("change", function() {
+    window.showAltCoverage(this.value);
+});
+</script>
+</body>
+</html>

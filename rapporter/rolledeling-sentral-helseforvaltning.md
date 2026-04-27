@@ -436,7 +436,7 @@ Delrapport 2 konstaterer: «Det finnes ikke et
 helhetlig styringsmandat for verdikjeden fra
 forskning til innbygger, noe som kan føre til
 suboptimalisering innenfor det enkelte steg uten
-at helheten ivaretas» [delrapport 2, kap. 5.2].
+at helheten ivaretas» [delrapport 2, kap. 6.1].
 
 Røttingen-rapporten gir støtte til denne
 observasjonen gjennom flere funn:
@@ -525,6 +525,125 @@ Evidensen gir **sterk støtte** for H3:
   mer problematisk når det heller ikke finnes
   et overordnet koordineringsorgan
 
+### 5.5 Praktiske konsekvenser på tvers av H1–H3
+
+Dette underkapittelet samler de praktiske
+konsekvensene som følger av rolledelingsutfordringene
+behandlet i kap. 3–5, og som virker inn på
+verdikjeden for kunnskapsforvaltning. Hvert punkt er
+merket **[DOK]** der påstanden er dokumentert i
+kildematerialet, eller **[ANT]** der den er en
+analytisk slutning som ikke er direkte dokumentert.
+
+#### 5.5.1 Konsekvenser av grensesnittet FHI – Hdir (H1)
+
+- **[DOK]** Helsedirektoratets årsrapport 2024
+  erkjenner «et økende gap mellom muligheter og
+  forventninger til hva vi kan utarbeide av
+  styringsinformasjon og analyser og hva vi har
+  kapasitet til» [5].
+- **[DOK]** Folkehelseoppgaver ble overført fra FHI
+  til Hdir i 2024, og Hdirs årsrapport erkjenner
+  at «det nasjonale folkehelsesystemet må revideres
+  i 2025» [5].
+- **[DOK]** Flytting av dashboard for NPR og KPR til
+  FHI har gitt «endringer i brukergrensesnitt og
+  tilgjengelighet» [5].
+- **[DOK]** Koronakommisjonen (NOU 2022:5) fant at
+  rollefordelingen var uklar første del av 2020
+  og at det tok tid for Hdir og FHI å rendyrke
+  rollene [1, s. 13].
+- **[ANT]** Brukere av styringsinformasjon (RHF-er,
+  kommuner) må lære nye grensesnitt og mister
+  kontinuitet etter omorganiseringen. Denne
+  friksjonskostnaden forplanter seg trolig til
+  beslutningstakere som bruker lengre tid på
+  samme beslutning.
+- **[ANT]** Bestiller-utfører-spenningen mellom Hdir
+  (retningslinjer) og FHI (kunnskapsoppsummeringer)
+  kan føre til at retningslinjeprosjekter forsinkes
+  når Hdirs bestillinger ikke står øverst på FHIs
+  faglige prioritering. Dette er ikke direkte
+  dokumentert.
+
+#### 5.5.2 Konsekvenser av grensesnittet Hdir – NHN (H2)
+
+- **[DOK]** Riksrevisjonen (2021, *Én innbygger – én
+  journal*): «Rollen til nasjonale myndigheter er
+  ikke tydelig definert, og mekanismene for styring,
+  prioritering og forankring av e-helseutviklingen
+  er ikke effektive nok» [1, s. 38].
+- **[DOK]** NHN tar «i praksis selvstendige
+  beslutninger om hva som finansieres og
+  videreutvikles» og har «fått en langt mer sentral
+  rolle enn tidligere» [1, s. 39].
+- **[DOK]** For helsenorge.no har Hdir utgiveransvar
+  og det etiske/rettslige ansvaret, mens NHN er
+  produkteier med redaktøransvaret og koordinerer
+  80+ innholdsleverandører. Styringslinjene for
+  siste ord om faglig innhold er ikke dokumentert
+  (kap. 4.5; delrapport 8).
+- **[DOK]** Det finnes ingen automatisert kobling
+  mellom oppdaterte retningslinjer (Hdir) og
+  tilhørende innbyggerinformasjon på helsenorge.no
+  (NHN) (delrapport 2, kap. 3.3).
+- **[ANT]** En oppdatert retningslinje hos Hdir kan
+  leve side om side med utdatert
+  helsenorge-artikkel i måneder eller år, uten at
+  noen har myndighet til å tvinge oppdatering på
+  tvers av etatsgrensen. Forsinkelsen er ikke
+  tallfestet i kildene.
+
+#### 5.5.3 Konsekvenser av manglende helhetlig styringsmandat (H3)
+
+- **[DOK]** Ingen aktør eier samlet gjennomløpstid
+  fra forskning til praksisendring. Casestudiene
+  dokumenterer 7–15+ år
+  (casestudier-forsinkelser.md).
+- **[DOK]** Retningslinjer (Hdir),
+  innbyggerinformasjon (NHN/helsenorge.no) og
+  faglig oppdatering (FHI/Helsebiblioteket)
+  oppdateres uavhengig av hverandre
+  (delrapport 2, kap. 3.3).
+- **[DOK]** Budsjettkutt i én etat rammer hele
+  kjeden: Helsebibliotekets kutt i 2023 fjernet
+  tilgang til Cochrane Library og Embase
+  (delrapport 8).
+- **[DOK]** Røttingens forslag om **forum for faglig
+  normering** (etter modell fra Petroleumstilsynets
+  Regelverksforum) og helhetlige
+  organisasjonsmodeller er **ikke gjennomført** per
+  april 2026 (kap. 5.2).
+- **[DOK]** Stortingets innstilling (Innst. 113 L):
+  flertallet uttrykte bekymring for behov for
+  tydelige rolleavklaringer, men regjeringen valgte
+  bevisst ikke å lovfeste detaljert
+  oppgavedeling [3].
+- **[ANT]** Strukturelle mottiltak krever politiske
+  eller tverrsektorielle beslutninger som i dag
+  ikke har en naturlig arena. Nye tiltak må
+  forankres ad hoc i HOD, noe som gjør større
+  grep treige.
+
+#### 5.5.4 Kunnskapshull som bør lukkes
+
+Følgende spørsmål er ikke besvart i kildematerialet
+og bør undersøkes for å vurdere omfanget av
+konsekvensene over:
+
+- Hvor lang er faktisk forsinkelse mellom en
+  oppdatert retningslinje (Hdir) og oppdatert
+  helsenorge.no-artikkel (NHN), per tema?
+- Har rolledelingen etter 1. januar 2024 *objektivt*
+  forverret situasjonen for verdikjeden, eller
+  bare endret karakter på problemene?
+- Hvor stor del av dobbeltarbeidet mellom FHI og
+  Hdir på innbyggerrettet informasjon kan
+  tallfestes i årsverk eller budsjett?
+- Hvordan fungerer den skriftlige avtalen mellom
+  Hdir og FHI om kunnskapsoppsummeringer i
+  praksis, og bør deler av den gjøres offentlig?
+
 ---
 
 ## 6. Samlet vurdering
@@ -573,7 +692,7 @@ forklaringer:
 2. **Teknologisk etterslep**: Mangel på
    standardiserte grensesnitt og strukturerte
    data kan forklare treghet uavhengig av
-   organisasjonsmodell (delrapport 2, kap. 5.3).
+   organisasjonsmodell (delrapport 2, kap. 6.2).
 3. **Iboende kompleksitet**: Verdikjeden fra
    forskning til praksisendring er iboende
    kompleks, og utfordringene kan være

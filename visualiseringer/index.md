@@ -94,3 +94,30 @@
   10 risikoer. Klikkbare detaljer med mitigering.
   Basert på delrapport 7.
 - **Sist oppdatert**: 2026-03-15
+
+### utfordringer-relasjoner.html
+
+- **Beskrivelse**: Interaktiv D3.js force-directed
+  graph som viser seks rotårsaker (R1–R6) og ni
+  flaskehalser, med kausale og forsterkende
+  relasjoner mellom dem. Klikk på en rotårsak for å
+  fremheve hele kausalkjeden. Filtrering etter
+  alvorlighet og etter hvilket alternativ (1/2/3)
+  som dekker hver node. Tooltip viser
+  [DOK]/[ANT]-kildehenvisning. Basert på
+  delrapport 2 kap. 9, delrapport 4 kap. 6.1 og
+  rolledeling kap. 5.5.
+- **Sist oppdatert**: 2026-04-21
+
+### motivasjonsmodell-kunnskapsforvaltning.xml
+
+- **Beskrivelse**: ArchiMate motivasjonsmodell i Open
+  Exchange Format for import i Archi. Alle elementer
+  er forankret i spesifikke delrapporter med
+  kildehenvisninger. Inneholder 6 interessenter,
+  6 drivere, 4 vurderinger, 7 maal, 3 resultater,
+  7 prinsipper, 6 krav og 5 begrensninger med
+  65 relasjoner. Revidert versjon etter grundig
+  gjennomgang av alle 8 delrapporter.
+  Basert paa delrapport 1-8.
+- **Sist oppdatert**: 2026-04-07

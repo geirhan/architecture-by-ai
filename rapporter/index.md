@@ -17,11 +17,18 @@
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
 - **Beskrivelse**: Kartlegging av utfordringer og
-  flaskehalser i verdikjeden. Rangerer 9 flaskehalser
-  etter alvorlighet. Refusjonsordninger lagt til som
-  ny flaskehals (høy). Implementeringsgapet
-  oppjustert til «høy» basert på casestudier.
-- **Sist oppdatert**: 2026-04-08
+  flaskehalser i verdikjeden. Nytt kap. 2 gir
+  samlende utfordringsbilde med seks dimensjoner
+  (D1–D6) og tre kjerneegenskaper. Rangerer 9
+  flaskehalser etter alvorlighet (kap. 8.1).
+  Refusjonsordninger lagt til som ny flaskehals
+  (høy). Implementeringsgapet oppjustert til «høy»
+  basert på casestudier. Kap. 6.6 samler praktiske
+  konsekvenser av strukturelle svakheter. Kap. 9
+  gir rotårsaksanalyse med seks rotårsaker (R1–R6),
+  dekningsmatrise og relasjonstabell mellom
+  flaskehalsene. Alle utsagn merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-04-27
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
@@ -84,8 +91,10 @@
   NHN. Tre underhypoteser (FHI-Hdir, Hdir-NHN,
   manglende styringsmandat) vurdert mot
   Røttingen-rapporten, Prop. 11 L, Riksrevisjonen
-  og andre offentlige kilder.
-- **Sist oppdatert**: 2026-04-12
+  og andre offentlige kilder. Nytt kap. 5.5 samler
+  praktiske konsekvenser på tvers av H1–H3 med
+  [DOK]/[ANT]-merking og fire kunnskapshull.
+- **Sist oppdatert**: 2026-04-20
 
 ### [Casestudier: Dokumenterte forsinkelser](casestudier-forsinkelser.md)
 

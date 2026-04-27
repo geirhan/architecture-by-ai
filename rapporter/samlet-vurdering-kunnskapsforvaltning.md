@@ -299,6 +299,16 @@ Verdikjeden mangler tre sentrale egenskaper:
   på en måte som sikrer konsistent og oppdatert
   informasjon gjennom hele kjeden.
 
+Delrapport 2 kap. 9 gir en strukturert rotårsaksanalyse
+som identifiserer seks rotårsaker (R1–R6) bak de ni
+rangerte flaskehalsene, samt en relasjonstabell som
+viser hvordan flaskehalsene forsterker hverandre. De
+tre egenskapene over korresponderer direkte med
+rotårsakene: skalerbarhet ↔ R3, reaktivitet ↔ R2 og
+R4, sammenheng ↔ R1, R5 og R6. Rotårsaksrammeverket
+brukes i kap. 5.4 for en differensiert vurdering av
+alternativene.
+
 ### 4.3 Implikasjoner av å videreføre status quo
 
 Dersom dagens verdikjede videreføres uten endring, vil
@@ -440,6 +450,59 @@ Flere viktige virkninger lar seg ikke prissette:
   redusere helseforskjeller. Risiko for at
   digitalt utenforskap forsterkes dersom
   tradisjonelle kanaler nedprioriteres.
+
+### 5.4 Dekning av rotårsaker
+
+Sammenligningen i dp4 kap. 6 måler alternativene på
+operasjonelle og kvalitative dimensjoner (tid,
+kostnad, kvalitet, risiko, EHDS-samsvar osv.).
+Tabellen nedenfor utvider sammenligningen med
+**dekning av rotårsakene R1–R6** (definert i
+delrapport 2 kap. 9). Dette gir beslutningstakere
+et tydeligere bilde av hvilke rotårsaker som
+faktisk adresseres av hvert alternativ – og hvilke
+som krever tiltak **utenfor** dp4-alternativene.
+
+<!-- markdownlint-disable MD013 -->
+
+| Rotårsak | Alt. 0 | Alt. 1 | Alt. 2 | Alt. 3 |
+| --- | --- | --- | --- | --- |
+| **R1** Styringsmandat | Ikke | Delvis | Delvis | Delvis |
+| **R2** Pre-digital design | Ikke | Marginalt | Ja | Fullt |
+| **R3** Kapasitet vs. volum | Ikke | Delvis | Ja | Fullt |
+| **R4** IT-fragmentering | Ikke | Marginalt | Ja | Fullt |
+| **R5** Impl.insentiver | Ikke | Delvis | Delvis | Delvis |
+| **R6** Feedback/måling | Ikke | Delvis | Ja | Fullt |
+
+<!-- markdownlint-enable MD013 -->
+
+**Hovedobservasjoner:**
+
+- **R1 (styringsmandat) og R5 (implementerings-
+  insentiver) dekkes ikke fullt ut av noen av
+  alternativene.** Disse rotårsakene er i hovedsak
+  politiske/organisatoriske og krever tiltak som
+  ligger utenfor et KI-teknologisk program:
+  lovfesting av oppgavedeling, etablering av forum
+  for faglig normering (Røttingen kap. 11.9),
+  samordning av retningslinje- og refusjonsbeslut-
+  ninger, og eksplisitt eierskap til
+  implementeringsgapet. Disse tiltakene anbefales
+  gjennomført **parallelt** med den faseinndelte
+  innføringen av KI-støtte.
+- **R2, R3, R4 og R6 dekkes progressivt bedre fra
+  alt. 1 til alt. 3.** Dette støtter anbefalingen
+  om å starte med alternativ 2 og gradvis utvide
+  mot alternativ 3.
+- **Alternativ 3 skaper økt belastning på R1.**
+  Governance-kravene under EU AI Act og behovet
+  for tverrsektoriell koordinering øker med
+  ambisjonsnivået i alternativ 3. Dersom R1 ikke
+  adresseres parallelt, øker risikoen i senere
+  faser.
+
+Implikasjonen er tatt opp i kap. 6.2 (faseinndelt
+gjennomføringsplan) og i risikomatrisen.
 
 ---
 

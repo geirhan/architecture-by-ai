@@ -49,9 +49,188 @@ usikkert, er dette eksplisitt markert.
 
 ---
 
-## 2. Flaskehalser i verdikjeden
+## 2. Utfordringsbildet -- samlet oversikt
 
-### 2.1 Forskningsproduksjon til systematisk oversikt
+Dette kapittelet gir en kort, samlende beskrivelse
+av utfordringsbildet før de detaljerte analysene i
+kap. 3-9. Hensikten er at leseren skal ha helheten
+i hodet før symptomer (flaskehalser), strukturer
+(kap. 6) og rotårsaker (kap. 9) gjennomgås.
+
+### 2.1 Hovedproblemet i én setning
+
+**Verdikjeden fra forskning til kvalitetssikret
+helseinformasjon for innbyggere holder verken tritt
+med forskningsproduksjonen eller innbyggernes
+informasjonsbehov, og er ikke rustet til å skalere
+i krisesituasjoner.**
+
+Casestudier dokumenterer at den reelle tiden fra
+forskning til bred praksisendring er **7-15+ år**,
+mens forskningsproduksjonen vokser eksponentielt og
+kommersielle KI-tjenester allerede tar over deler
+av rollen offentlig helseinformasjon hadde.
+
+### 2.2 Seks dimensjoner ved utfordringen
+
+Utfordringsbildet har seks dimensjoner som virker
+samtidig og forsterker hverandre. Hver dimensjon
+utdypes i senere kapitler eller i andre
+delrapporter.
+
+#### D1: Tid og gjennomløp
+
+- 2-3 år fra forskning til retningslinje;
+  6-12 måneder videre til oppdatert
+  innbyggerinformasjon.
+- 7-15+ år fra forskning til bred
+  praksisendring (casestudier).
+- 8 år fra publisert evidens til
+  forhåndsgodkjent refusjon (diabetes-casen).
+- *Detaljer*: kap. 3 (flaskehalser), kap. 4
+  (konsekvenser), casestudier-forsinkelser.md.
+
+#### D2: Kapasitet og volum
+
+- Over 3 millioner vitenskapelige artikler
+  publiseres årlig globalt.
+- FHI har begrenset stab for systematiske
+  oversikter; Hdir erkjenner i årsrapport 2024
+  «et økende gap mellom muligheter og
+  forventninger ... og hva vi har kapasitet
+  til».
+- *Detaljer*: kap. 3.1, rolledeling-rapporten
+  kap. 3.4.
+
+#### D3: Struktur og styring
+
+- Ansvar for verdikjeden er fordelt på rundt 20
+  aktører uten helhetlig styringsmandat. Disse
+  inkluderer HOD, Helsedirektoratet, FHI, NHN,
+  Statens legemiddelverk/DMP, de fire RHF-ene
+  med tilhørende helseforetak, KS,
+  fastlegevirksomheter, kommunale helse- og
+  omsorgstjenester, brukerorganisasjoner og
+  fagmiljøer i universitets- og høgskolesektoren.
+  Full oversikt med roller, ansvar og leveranser
+  finnes i delrapport 8 (aktoeranalyse.md).
+- Fragmenterte IT-systemer og ulike kodeverk
+  hindrer informasjonsflyt mellom retningslinjer,
+  Helsebiblioteket, helsenorge.no og EPJ-er.
+- Fritekst-basert innhold uten metadata hindrer
+  automatisering, sporbarhet og gjenbruk.
+- *Detaljer*: kap. 6 (strukturelle utfordringer),
+  rolledeling-rapporten, delrapport 8.
+
+#### D4: Implementering og insentiver
+
+- Ingen aktør eier implementeringsgapet mellom
+  publisert retningslinje og endret klinisk
+  praksis.
+- Refusjonsbeslutninger er en separat
+  beslutningskjede uten systematisk samordning
+  med retningslinjer.
+- Begrenset systematisk overvåking av
+  etterlevelse i kommuner og helseforetak.
+- *Detaljer*: kap. 3.4, 3.5; casestudier.
+
+#### D5: Tillit og innbyggerbehov
+
+- 99 % av befolkningen kjenner Helsenorge,
+  men 54 % bruker generativ KI; mange yngre
+  bruker ChatGPT som kilde til
+  helseinformasjon.
+- Innbyggerinformasjon er generisk og lite
+  tilpasset, og det mangler systematiske
+  feedback-kanaler.
+- Tilgjengelighetsutfordringer for eldre,
+  flerspråklige og personer med
+  funksjonsnedsettelser.
+- *Detaljer*: kap. 4.3, kap. 7.
+
+#### D6: Beredskap
+
+- Verdikjeden skalerer ikke til kriser
+  (COVID-19 krevde improvisering).
+- *Detaljer*: kap. 4.4 (COVID-19).
+
+**Merknad om regulatoriske rammer**: EU AI Act og
+EHDS er ikke direkte regulatoriske krav til
+*dagens* verdikjede for kunnskapsforvaltning.
+De blir derimot bindende rammer **når** verdikjeden
+moderniseres med KI-støtte (alternativ 2 og 3 i
+delrapport 4) eller når retningslinjer skal
+publiseres maskinlesbart for grenseoverskridende
+bruk. Disse rammene behandles derfor i
+delrapport 3 (LLM og EU AI Act) og delrapport 5
+(arkitektur og EHDS), ikke som en selvstendig
+dimensjon ved utfordringsbildet i dag.
+
+### 2.3 Tre kjerneegenskaper verdikjeden mangler
+
+Samlet vurdering (delrapport 7 kap. 4.2)
+oppsummerer dimensjonene D1-D6 i tre kjerne-
+egenskaper som dagens verdikjede mangler:
+
+- **Skalerbarhet** -- kapasiteten øker ikke i
+  takt med forskningsvolumet (jf. D2).
+- **Reaktivitet** -- gjennomløpstiden gjør det
+  umulig å respondere raskt på ny evidens, og
+  spesielt i krisesituasjoner (jf. D1, D6).
+- **Sammenheng** -- stegene er ikke koblet på en
+  måte som sikrer konsistent og oppdatert
+  informasjon gjennom hele kjeden (jf. D3, D4,
+  D5).
+
+### 2.4 Hvorfor utfordringene må forstås samlet
+
+Tre forhold gjør at en sektor- eller
+kapittelvis tilnærming alene er utilstrekkelig:
+
+1. **Utfordringene forsterker hverandre.** En
+   detaljert relasjonstabell (kap. 9.4.2) viser
+   at flere flaskehalser forårsaker eller
+   forsterker andre. Tiltak som adresserer ett
+   symptom uten å adressere driveren gir
+   begrenset effekt.
+2. **Tiltakene må adressere både teknologi og
+   organisasjon.** Rotårsaksanalysen (kap. 9.2)
+   identifiserer seks rotårsaker, hvorav noen
+   er teknisk-prosessuelle (R2, R3, R4, R6) og
+   andre er organisatorisk-politiske (R1, R5).
+   Et rent KI-program vil ikke dekke R1 og R5.
+3. **Konsekvensen av å ikke handle er
+   selvforsterkende.** Jo lengre utdaterte
+   helseråd, kommersielle KI-alternativer og
+   fragmentert IT-landskap forblir uadressert,
+   desto vanskeligere -- og dyrere -- blir det
+   å gjenvinne offentlig sektors rolle som
+   primær kilde til kvalitetssikret
+   helseinformasjon.
+
+### 2.5 Leseveiledning videre
+
+- **Kap. 3** beskriver flaskehalsene per ledd i
+  verdikjeden (D1, D2, D4).
+- **Kap. 4** dokumenterer konsekvensene
+  (D1, D5, D6).
+- **Kap. 5** gir kvantitative indikatorer der
+  de finnes.
+- **Kap. 6** behandler strukturelle utfordringer
+  (D3).
+- **Kap. 7** dekker innbyggerrettet informasjon
+  (D5).
+- **Kap. 8** rangerer flaskehalsene etter
+  alvorlighet og angir videre analyser.
+- **Kap. 9** gir rotårsaksanalysen som binder
+  D1-D6 sammen og kobler hver flaskehals til
+  rotårsakene R1-R6.
+
+---
+
+## 3. Flaskehalser i verdikjeden
+
+### 3.1 Forskningsproduksjon til systematisk oversikt
 
 **Flaskehals: Volumet overgår kapasiteten for manuell
 bearbeiding.**
@@ -89,7 +268,7 @@ Sentrale utfordringer i dette steget:
 **Typisk tidsbruk**: 12-24 måneder per systematisk
 oversikt (jf. delrapport 1).
 
-### 2.2 Systematisk oversikt til retningslinje
+### 3.2 Systematisk oversikt til retningslinje
 
 **Flaskehals: Kunnskapsgrunnlaget foreldes underveis
 i retningslinjeprosessen.**
@@ -131,7 +310,7 @@ Sentrale utfordringer:
 
 **Typisk tidsbruk**: 12-24 måneder (jf. delrapport 1).
 
-### 2.3 Retningslinje til formidlet kunnskap
+### 3.3 Retningslinje til formidlet kunnskap
 
 **Flaskehals: Oversettelse fra fagspråk til
 innbyggerspråk er ressurskrevende og ikke
@@ -170,7 +349,7 @@ Sentrale utfordringer:
 
 **Typisk tidsbruk**: 6-12 måneder (jf. delrapport 1).
 
-### 2.4 Formidlet kunnskap til endret praksis
+### 3.4 Formidlet kunnskap til endret praksis
 
 **Flaskehals: Implementeringsgapet mellom anbefaling
 og klinisk praksis.**
@@ -238,7 +417,7 @@ Sentrale utfordringer:
   digitalisering i seg selv ikke er tilstrekkelig
   for å lukke implementeringsgapet.
 
-### 2.5 Refusjonsordninger som flaskehals
+### 3.5 Refusjonsordninger som flaskehals
 
 **Flaskehals: Refusjonsordninger forsinker faktisk
 bruk av anbefalte legemidler.**
@@ -275,13 +454,13 @@ refusjon (basert på diabetes-casen).
 
 ---
 
-## 3. Konsekvenser av forsinkelser
+## 4. Konsekvenser av forsinkelser
 
 Forsinkelsene i verdikjeden har direkte konsekvenser
 for kvaliteten på helsetjenester og
 helseinformasjon som når innbyggere.
 
-### 3.1 Utdaterte helseråd
+### 4.1 Utdaterte helseråd
 
 Gjennomløpstiden fra ny evidens til oppdatert
 innbyggerinformasjon var opprinnelig estimert til
@@ -295,7 +474,7 @@ kunnskapen tilsier. Dette
 kan gjelde alt fra ernæringsråd til anbefalinger om
 medisinbruk og livsstilsendringer.
 
-### 3.2 Helsepersonell uten oppdatert kunnskapsgrunnlag
+### 4.2 Helsepersonell uten oppdatert kunnskapsgrunnlag
 
 Forsinkelser i retningslinjeoppdateringer innebærer
 at helsepersonell risikerer å basere sine kliniske
@@ -303,7 +482,7 @@ vurderinger på utdaterte anbefalinger. Dette er
 særlig problematisk i fagfelt med rask
 kunnskapsutvikling.
 
-### 3.3 Innbyggere søker alternative kilder
+### 4.3 Innbyggere søker alternative kilder
 
 Når offentlige kilder oppleves som utdaterte eller
 utilstrekkelige, søker innbyggere informasjon fra
@@ -315,7 +494,7 @@ helseinformasjon. Disse kildene har variabel kvalitet
 og mangler den systematiske kvalitetssikringen som
 kjennetegner den offisielle verdikjeden.
 
-### 3.4 Lærdommer fra COVID-19
+### 4.4 Lærdommer fra COVID-19
 
 COVID-19-pandemien demonstrerte tydelig at den
 tradisjonelle verdikjeden ikke skalerer til
@@ -328,7 +507,7 @@ noe som viste at det er mulig å akselerere
 verdikjeden, men også at det krever ekstraordinære
 ressurser og medfører økt risiko for feil.
 
-### 3.5 Eksempel: Ernæringsråd
+### 4.5 Eksempel: Ernæringsråd
 
 Ernæringsområdet illustrerer utfordringen: Ny
 forskning om for eksempel tilsatt sukker, mettet fett
@@ -342,9 +521,9 @@ og offisielle anbefalinger.
 
 ---
 
-## 4. Kvantitative indikatorer og statistikk
+## 5. Kvantitative indikatorer og statistikk
 
-### 4.1 Produksjonskapasitet for systematiske oversikter og retningslinjer
+### 5.1 Produksjonskapasitet for systematiske oversikter og retningslinjer
 
 **Status:** Disse tallene mangler etterprøvbar
 dokumentasjon og må innhentes direkte fra FHI og
@@ -360,7 +539,7 @@ Helsedirektoratet gjennom:
 Uten slike kilder bør ikke estimater presenteres
 i denne rapporten.
 
-### 4.2 Oppdateringsgrad for retningslinjer
+### 5.2 Oppdateringsgrad for retningslinjer
 
 **Status:** Systematisk oversikt over alderen på
 gjeldende retningslinjer og oppdateringsgraden finnes
@@ -368,14 +547,14 @@ ikke dokumentert i tilgjengelige kilder. Dette bør
 kartlegges gjennom direkte undersøkelse av
 Helsedirektoratets retningslinjearchiv.
 
-### 4.3 Gjennomløpstider i verdikjeden
+### 5.3 Gjennomløpstider i verdikjeden
 
 **Status:** Som dokumentert i delrapport 1, mangler
 eksakte tidsestimater kilder. Gjennomløpstiden er
 kjent som lang, men nøyaktige målinger av hvert ledd
 mangler.
 
-### 4.4 Innbyggernes informasjonskilder – dokumenterte tall
+### 5.4 Innbyggernes informasjonskilder – dokumenterte tall
 
 Følgende indikatorer er basert på verifiserte kilder
 fra Helsedirektoratet (2024) og forskning:
@@ -443,13 +622,13 @@ helseinformasjon (i motsetning til generell AI-bruk).
 
 ---
 
-## 5. Strukturelle utfordringer
+## 6. Strukturelle utfordringer
 
 Utover flaskehalsene i hvert enkelt steg i
 verdikjeden, finnes det overordnede strukturelle
 utfordringer som påvirker verdikjeden som helhet.
 
-### 5.1 Siloorganisering
+### 6.1 Siloorganisering
 
 Ansvaret for de ulike stegene i verdikjeden er
 fordelt på flere organisasjoner (FHI,
@@ -466,7 +645,7 @@ innbygger, noe som kan føre til suboptimalisering
 innenfor det enkelte steg uten at helheten
 ivaretas.
 
-### 5.2 Manglende standardisert informasjonsflyt
+### 6.2 Manglende standardisert informasjonsflyt
 
 Som beskrevet i delrapport 1 mangler det
 gjennomgående maskinlesbare formater og
@@ -475,7 +654,7 @@ transporteres i stor grad som ustrukturert fritekst,
 noe som gjør automatisert videreforedling og
 sporbarhet vanskelig.
 
-### 5.3 Dobbeltarbeid
+### 6.3 Dobbeltarbeid
 
 Flere aktører utfører overlappende oppgaver uten
 tilstrekkelig koordinering. Eksempler inkluderer:
@@ -490,7 +669,7 @@ tilstrekkelig koordinering. Eksempler inkluderer:
 - Fagprosedyrer utvikles lokalt i helseforetak uten
   systematisk gjenbruk på tvers.
 
-### 5.4 Fragmenterte IT-systemer
+### 6.4 Fragmenterte IT-systemer
 
 Verdikjeden støtter seg på ulike IT-systemer som i
 begrenset grad er integrert. Retningslinjeverktøy,
@@ -514,7 +693,7 @@ unødvendig mye tid på å få oversikt over hvilke
 legemidler pasienten bruker» ved overganger mellom
 virksomheter [6].
 
-### 5.5 Begrenset bruk av strukturerte data og metadata
+### 6.5 Begrenset bruk av strukturerte data og metadata
 
 Innhold gjennom verdikjeden er i hovedsak
 fritekstbasert med begrenset bruk av strukturerte
@@ -527,11 +706,123 @@ metadata. Dette vanskeliggjør:
   evidens
 - Gjenbruk av innhold på tvers av kanaler og formater
 
+### 6.6 Praktiske konsekvenser av strukturelle svakheter
+
+Dette kapittelet samler de praktiske konsekvensene av
+de strukturelle svakhetene beskrevet i 5.1–5.5 og av
+konsekvensene for innbyggere som utdypes i kapittel 3
+og 6. Hvert punkt er merket **[DOK]** der påstanden er
+dokumentert i kildematerialet, eller **[ANT]** der den
+er en analytisk slutning som ikke er direkte
+dokumentert.
+
+#### 6.6.1 Konsekvenser av siloorganisering og manglende helhetlig styringsmandat
+
+- **[DOK]** Ingen enkelt aktør er ansvarlig for samlet
+  gjennomløpstid fra forskning til praksisendring.
+  Verdikjeden krysser minst tre etater
+  (FHI → Hdir → NHN) uten overordnet mandat
+  (rolledeling-sentral-helseforvaltning.md, kap. 5.3).
+- **[DOK]** Retningslinjer (Hdir), innbyggerinformasjon
+  (NHN/helsenorge.no) og faglig oppdatering
+  (FHI/Helsebiblioteket) oppdateres uavhengig av
+  hverandre, uten automatisert kobling
+  (kap. 3.3 i denne rapporten).
+- **[DOK]** Budsjettkutt i én etat rammer hele kjeden:
+  Helsebibliotekets kutt i 2023 fjernet tilgang til
+  Cochrane Library og Embase -- sentrale kilder for
+  helsepersonell (delrapport 8).
+- **[ANT]** Når ingen eier helheten, blir
+  forbedringstiltak i ett ledd ikke nødvendigvis
+  omsatt i raskere innbyggerinformasjon eller
+  praksisendring. Gevinsten «går tapt» i neste
+  overgang.
+
+#### 6.6.2 Konsekvenser av fragmenterte IT-systemer
+
+- **[DOK]** På legemiddelområdet bruker aktører ulike
+  kodeverk for samme informasjonselement.
+  Spesialisthelsetjenesten må «komplettere,
+  kompensere og kvalitetssikre legemiddeldata lokalt
+  og regionalt» [6].
+- **[DOK]** Ved overganger mellom virksomheter må
+  helsepersonell «bruke unødvendig mye tid på å få
+  oversikt over hvilke legemidler pasienten
+  bruker» [6].
+- **[ANT]** Fragmenteringen forsterker
+  implementeringsgapet: selv oppdaterte
+  retningslinjer når ikke klinikere der de jobber
+  (i EPJ-en), men ligger i separate portaler som
+  må oppsøkes aktivt.
+
+#### 6.6.3 Konsekvenser av dobbeltarbeid
+
+- **[DOK]** FHI og Hdir har overlappende leveranser
+  innen innbyggerrettet informasjon uten tydelig
+  arbeidsdeling (delrapport 8, kap. 4;
+  rolledeling-rapporten, kap. 3.2).
+- **[DOK]** Fagprosedyrer utvikles lokalt i
+  helseforetak uten systematisk gjenbruk på tvers
+  (kap. 6.3 i denne rapporten).
+- **[ANT]** Dobbeltarbeidet binder opp knappe
+  FHI-ressurser som kunne vært brukt på nye
+  systematiske oversikter, og gir inkonsistens når
+  innbyggere finner ulike anbefalinger hos Hdir,
+  FHI og helseforetak.
+
+#### 6.6.4 Konsekvenser av fritekst og manglende metadata
+
+- **[DOK]** Fritekst-basert innhold gjør det vanskelig
+  å identifisere utdatert innhold automatisk, koble
+  retningslinjer til innbyggerinformasjon, spore
+  anbefaling tilbake til evidens og gjenbruke
+  innhold på tvers av kanaler (kap. 6.5).
+- **[ANT]** Dette er en strukturell blokker for en
+  KI-støttet verdikjede (jf. delrapport 4 og 5):
+  uten strukturerte metadata kan ikke living
+  guidelines eller automatisert overvåking av
+  evidensgrunnlag implementeres effektivt.
+
+#### 6.6.5 Konsekvenser av manglende målemekanismer
+
+- **[DOK]** Det er begrenset systematisk overvåking
+  av i hvilken grad retningslinjer følges i klinisk
+  praksis (kap. 3.4). Produksjonskapasitet hos FHI
+  og Hdir samt oppdateringsgrad for retningslinjer
+  mangler etterprøvbar dokumentasjon (kap. 5 og
+  merknad om kilder).
+- **[ANT]** Uten måling vet man ikke om tiltak
+  virker. Dette svekker evidensgrunnlaget for
+  prioriteringer mellom fagområder og for
+  forbedring av selve verdikjeden.
+
+#### 6.6.6 Kunnskapshull som bør lukkes
+
+For å vurdere omfanget av konsekvensene ovenfor mer
+presist, bør følgende spørsmål besvares gjennom
+primærkilder eller intervjuer:
+
+- Hvor lang er faktisk forsinkelse mellom oppdatert
+  retningslinje (Hdir) og oppdatert
+  helsenorge.no-artikkel, per tema?
+- I hvilken grad velger klinikere pragmatiske kilder
+  (kolleger, lokale prosedyrer) framfor nasjonale
+  retningslinjer, og hvordan varierer dette mellom
+  fagområder?
+- Hvor stor andel av innbyggere bruker kommersiell
+  KI (ChatGPT m.fl.) *som første kilde* for
+  helseinformasjon, i motsetning til generell
+  AI-bruk?
+- Har rolledeling etter omorganiseringen i januar
+  2024 *objektivt* forverret situasjonen for
+  verdikjeden, eller bare endret karakter på
+  problemene?
+
 ---
 
-## 6. Utfordringer spesifikke for innbyggerrettet informasjon
+## 7. Utfordringer spesifikke for innbyggerrettet informasjon
 
-### 6.1 Klarspråk møter kompleksitet
+### 7.1 Klarspråk møter kompleksitet
 
 Mange helsefaglige temaer er iboende komplekse. Å
 formidle usikkerhet, betinget risiko og individuelle
@@ -539,7 +830,7 @@ forskjeller i et klarspråk som er tilgjengelig for
 hele befolkningen, er en varig utfordring. Forenkling
 kan gå på bekostning av presisjon, og omvendt.
 
-### 6.2 Manglende personalisering
+### 7.2 Manglende personalisering
 
 Dagens innbyggerinformasjon er i all hovedsak
 generisk. Den tar ikke hensyn til individuelle
@@ -549,7 +840,7 @@ sammensatte helsebehov må selv syntetisere
 informasjon fra flere artikler og kilder for å få et
 relevant bilde av sin situasjon.
 
-### 6.3 Tilgjengelighet
+### 7.3 Tilgjengelighet
 
 Ikke alle innbyggere har samme forutsetninger for å
 finne og forstå digital helseinformasjon:
@@ -563,7 +854,7 @@ finne og forstå digital helseinformasjon:
 - **Funksjonsnedsettelser**: Universell utforming av
   helseinformasjon er ikke gjennomgående ivaretatt.
 
-### 6.4 Manglende feedback-loop
+### 7.4 Manglende feedback-loop
 
 Det finnes begrensede mekanismer for å fange opp
 innbyggernes erfaringer med og behov for
@@ -581,9 +872,9 @@ tilbakemeldingskanaler som gjør det mulig å:
 
 ---
 
-## 7. Oppsummering
+## 8. Oppsummering
 
-### 7.1 De viktigste flaskehalsene rangert etter alvorlighet
+### 8.1 De viktigste flaskehalsene rangert etter alvorlighet
 
 Basert på analysen over, og underbygget av tre
 casestudier (casestudier-forsinkelser.md), rangeres
@@ -604,7 +895,7 @@ på casedokumentasjonen:
 | 8 | Manglende personalisering av innbyggerinformasjon | Middels | Reduserer relevans og nytteverdi for den enkelte |
 | 9 | Tilgjengelighetsutfordringer | Middels | Ekskluderer sårbare grupper |
 
-### 7.2 Videre analyser
+### 8.2 Videre analyser
 
 Flaskehalsene identifisert i denne rapporten danner
 grunnlag for de neste delrapportene i utredningen:
@@ -622,7 +913,323 @@ grunnlag for de neste delrapportene i utredningen:
 
 ---
 
-Sist oppdatert: 2026-04-08
+## 9. Rotårsaksanalyse og relasjoner mellom utfordringer
+
+### 9.1 Formål og metode
+
+De ni flaskehalsene i kap. 8 er rangert etter
+alvorlighet, men de opptrer ikke uavhengig av
+hverandre. Flere av dem deler underliggende
+drivere, og noen flaskehalser **forårsaker** eller
+**forsterker** andre. Dette kapittelet bygger på
+den distribuerte kausallogikken i kap. 6 og 6.6 i
+denne rapporten, kap. 5.5 i rolledeling-rapporten,
+kap. 4 i samlet vurdering (delrapport 7) og
+IGOE-analysen i delrapport 8, og syntetiserer
+disse til **seks rotårsaker** og et knippe
+**kausalkjeder**.
+
+Metoden er en strukturert «hvorfor»-analyse: for
+hver flaskehals stilles spørsmålet «hvorfor
+eksisterer denne?» i opptil 3–4 nivåer, til
+analysen lander på et forhold som ikke kan
+forklares videre innenfor verdikjedens egne
+rammer.
+
+Hvert utsagn er merket **[DOK]** der det er
+dokumentert i kildematerialet, eller **[ANT]** der
+det er en analytisk slutning. Skillet følger
+konvensjonen fra kap. 6.6.
+
+### 9.2 Seks rotårsaker
+
+#### R1: Manglende helhetlig styringsmandat
+
+**Beskrivelse**: Ingen aktør har overordnet
+ansvar for verdikjeden fra forskning til
+innbygger.
+
+- **[DOK]** Dokumentert i rolledeling-rapporten
+  kap. 5 (H3, vurdert som «sterk støtte»), med
+  referanser til Røttingen-rapporten,
+  Riksrevisjonen og delrapport 8.
+- **[DOK]** Røttingens forslag om forum for
+  faglig normering er ikke gjennomført
+  (rolledeling kap. 5.2).
+- **[DOK]** Departementet har «i stor grad
+  delegert ansvaret for gjennomføring» til
+  etatene (rolledeling kap. 5.2).
+
+**Forklarer flaskehalsene**: 3 (manglende
+kobling retningslinje–innbyggerinformasjon), 5
+(refusjonsordninger som separat
+beslutningskjede), 6 (siloorganisering).
+
+#### R2: Verdikjeden er designet for pre-digital tid
+
+**Beskrivelse**: Prosessene, innholdet og
+overgangene er bygd rundt manuell behandling av
+fritekst.
+
+- **[DOK]** Kap. 4.2 i samlet vurdering slår
+  fast: «Verdikjeden er designet for en
+  pre-digital tid.»
+- **[DOK]** Innhold gjennom verdikjeden er i
+  hovedsak fritekstbasert med begrenset bruk av
+  strukturerte metadata (kap. 6.5 i denne
+  rapporten).
+- **[DOK]** Manuelle overganger og ustrukturert
+  fritekst gjør automatisert videreforedling og
+  sporbarhet vanskelig (kap. 6.2).
+
+**Forklarer flaskehalsene**: 1 (foreldelse i
+retningslinjeprosessen), 7 (manglende
+strukturerte data).
+
+#### R3: Kapasitet skalerer ikke med forskningsvolum
+
+**Beskrivelse**: Manuell screening,
+kvalitetsvurdering og retningslinjeutvikling
+kan ikke vokse i takt med en eksponentielt
+økende forskningsproduksjon.
+
+- **[DOK]** Over 3 millioner vitenskapelige
+  artikler publiseres årlig (kap. 3.1).
+- **[DOK]** FHI har begrenset stab av
+  fagpersoner med kompetanse til å utføre
+  systematiske oversikter (kap. 3.1).
+- **[DOK]** Hdirs årsrapport 2024 erkjenner «et
+  økende gap mellom muligheter og
+  forventninger … og hva vi har kapasitet til»
+  (rolledeling kap. 3.4, [5]).
+
+**Forklarer flaskehalsene**: 1, 2
+(kapasitetsbegrensning for systematiske
+oversikter).
+
+#### R4: Fragmentert IT-landskap og ulike kodeverk
+
+**Beskrivelse**: Retningslinjeverktøy,
+Helsebibliotek, helsenorge.no og EPJ-er er
+separate innholdsforvaltningssystemer uten
+automatisert informasjonsflyt.
+
+- **[DOK]** Fragmenterte IT-systemer er
+  dokumentert i kap. 6.4 i denne rapporten og
+  i Helsedirektoratets kunnskapsgrunnlag for
+  legemiddelområdet [6].
+- **[DOK]** Aktører bruker ulike kodeverk for
+  samme informasjonselement
+  (legemiddelområdet) [6].
+- **[DOK]** Ingen automatisert kobling mellom
+  oppdaterte retningslinjer og helsenorge.no
+  (kap. 3.3 og 6.6.1).
+
+**Forklarer flaskehalsene**: 3, 7.
+
+#### R5: Manglende insentiver og eierskap for implementering
+
+**Beskrivelse**: Ingen aktør er formelt
+ansvarlig for at en publisert retningslinje
+faktisk blir fulgt i klinisk praksis, og
+refusjonsordninger er en separat beslutnings-
+kjede.
+
+- **[DOK]** Meld. St. 9 (2023–2024): «avstanden
+  mellom forskning og praksis skyldes ulike
+  forhold», herunder «manglende
+  implementeringskompetanse og tilstrekkelig
+  kapasitet» [1].
+- **[DOK]** Beslutninger om refusjon tas av et
+  annet organ enn det som utvikler
+  retningslinjer, uten systematisk koordinering
+  av tidslinjene (kap. 3.5).
+- **[DOK]** Begrenset systematisk overvåking av
+  i hvilken grad retningslinjer følges i
+  klinisk praksis (kap. 3.4, 6.6.5).
+- **[ANT]** Uten eier av implementeringsgapet
+  blir aktive tiltak (audit/feedback,
+  opplæring, praksisbesøk) ad hoc og avhengig
+  av enkeltvirksomheters kapasitet.
+
+**Forklarer flaskehalsene**: 4
+(implementeringsgapet), 5 (refusjonsordninger).
+
+#### R6: Manglende feedback- og målemekanismer
+
+**Beskrivelse**: Systemet mangler instrumenter
+for å måle sin egen ytelse, eller for å fange
+opp innbyggernes og klinikernes behov.
+
+- **[DOK]** Produksjonskapasitet, oppdaterings-
+  grad for retningslinjer og gjennomløpstider
+  mangler etterprøvbar dokumentasjon (kap. 4,
+  merknad om kilder).
+- **[DOK]** Begrensede mekanismer for å fange
+  opp innbyggernes erfaringer med og behov for
+  helseinformasjon (kap. 7.4).
+- **[ANT]** Uten måling vet verken beslutnings-
+  takere eller fagmiljøer om tiltak virker.
+  Dette svekker grunnlaget for prioriteringer
+  mellom fagområder og for forbedring av selve
+  verdikjeden (kap. 6.6.5).
+
+**Forklarer flaskehalsene**: 8 (manglende
+personalisering), 9 (tilgjengelighetsutfordringer),
+og indirekte 1–5 ved at manglende måling hindrer
+korrigerende tiltak.
+
+### 9.3 Dekning: Hver flaskehals kobles til minst én rotårsak
+
+<!-- markdownlint-disable MD013 -->
+
+| # | Flaskehals (fra kap. 8.1) | Primær rotårsak | Sekundære rotårsaker |
+| --- | --- | --- | --- |
+| 1 | Foreldelse av kunnskapsgrunnlag underveis | R3 (kapasitet vs. volum) | R2, R6 |
+| 2 | Kapasitetsbegrensning for systematiske oversikter | R3 | R2 |
+| 3 | Manglende kobling retningslinje–innbyggerinformasjon | R4 (IT-fragmentering) | R1, R2 |
+| 4 | Implementeringsgapet i klinisk praksis | R5 (manglende insentiver) | R4, R6 |
+| 5 | Refusjonsordninger som barriere | R5 | R1 |
+| 6 | Siloorganisering og fragmentert ansvar | R1 (styringsmandat) | R5 |
+| 7 | Manglende strukturerte data og metadata | R2 (pre-digital design) | R4 |
+| 8 | Manglende personalisering av innbyggerinformasjon | R6 (feedback/måling) | R2, R4 |
+| 9 | Tilgjengelighetsutfordringer | R6 | R1 |
+
+<!-- markdownlint-enable MD013 -->
+
+Alle ni flaskehalser har minst én rotårsak. Fem
+av ni har sekundære rotårsaker, noe som
+bekrefter at utfordringene henger sammen.
+
+### 9.4 Relasjoner mellom utfordringer
+
+Flaskehalsene forsterker hverandre. Kapittelet
+her beskriver først seks sentrale kausalkjeder
+narrativt, og samler deretter relasjonene i en
+tabell.
+
+#### 9.4.1 Seks sentrale kausalkjeder
+
+1. **Kjede A – Styring til implementering**:
+   R1 (manglende styringsmandat) → flaskehals 6
+   (siloorganisering) → flaskehals 3 (manglende
+   kobling mellom retningslinje og
+   innbyggerinformasjon) → tillitstap og økende
+   bruk av kommersielle KI-kilder (kap. 4.3).
+   **[DOK]** kausalkjede i rolledeling kap. 5.5
+   og dp2 kap. 6.6.1.
+2. **Kjede B – Volum slår kapasitet**: Økende
+   forskningsvolum (kap. 3.1) → R3 (kapasitet
+   vs. volum) → flaskehals 2 → flaskehals 1
+   (foreldelse underveis) → utdaterte
+   retningslinjer (kap. 4.2). **[DOK]**.
+3. **Kjede C – Refusjonskjede**: Retningslinje
+   publisert → individuell søknadsplikt (R5) →
+   flaskehals 5 → 3–8 års forsinkelse i faktisk
+   bruk (diabetes-casen). **[DOK]** i
+   casestudier-forsinkelser.md og kap. 3.5.
+4. **Kjede D – Fritekst blokkerer
+   automatisering**: R2 (pre-digital design) →
+   flaskehals 7 (manglende strukturerte data)
+   → KI-støttet verdikjede kan ikke
+   implementeres uten kompenserende
+   tiltak (kap. 6.6.4). **[ANT]** siste ledd.
+5. **Kjede E – Implementeringsgap uten eier**:
+   Publisert retningslinje → ingen aktiv
+   oppfølging (R5) → flaskehals 4 →
+   dokumentert 7–15+ år til praksisendring
+   (casestudier). **[DOK]**.
+6. **Kjede F – Budsjettkutt forplanter seg**:
+   Budsjettkutt hos Helsebiblioteket (2023) →
+   tap av Cochrane/Embase → færre systematiske
+   oversikter → R3 forsterkes → flaskehals 1
+   forsterkes. **[DOK]** i delrapport 8 og
+   kap. 6.6.1.
+
+#### 9.4.2 Relasjonstabell
+
+Tabellen under viser parvise relasjoner mellom
+flaskehalsene (kolonner) og angir om raden
+**forårsaker** (F), **forsterker** (+) eller er
+**uavhengig av** (·) kolonnen. Tabellen leses
+radvis.
+
+<!-- markdownlint-disable MD013 -->
+
+| Fra \ Til | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **1** Foreldelse | – | · | + | + | · | · | · | · | · |
+| **2** Kap. syst. oversikter | F | – | · | · | · | · | · | · | · |
+| **3** Manglende kobling | · | · | – | + | · | · | · | + | + |
+| **4** Implementeringsgap | · | · | · | – | + | · | · | · | · |
+| **5** Refusjon | · | · | · | + | – | · | · | · | · |
+| **6** Siloorganisering | + | + | F | + | F | – | + | + | + |
+| **7** Fritekst/metadata | + | + | F | + | · | · | – | F | + |
+| **8** Personalisering | · | · | · | · | · | · | · | – | + |
+| **9** Tilgjengelighet | · | · | · | · | · | · | · | + | – |
+
+<!-- markdownlint-enable MD013 -->
+
+Tegnforklaring: **F** = forårsaker, **+** =
+forsterker, **·** = uavhengig, **–** = samme
+flaskehals.
+
+Observasjon: Flaskehals 6 (siloorganisering) og
+flaskehals 7 (fritekst/metadata) har flest
+utgående relasjoner, noe som bekrefter at de
+fungerer som **strukturelle drivere** for flere
+av de øvrige flaskehalsene. Dette er konsistent
+med R1 og R2 som de to bredest forklarende
+rotårsakene.
+
+### 9.5 Implikasjoner for valg av tiltak
+
+Rotårsaksanalysen har to direkte implikasjoner
+for vurderingen av alternativene i delrapport 4:
+
+1. **Alternativene måles i dag primært på tid og
+   kostnad** (dp4 kap. 6). En rotårsaksbasert
+   sammenligning (se dp4 kap. 6 i revidert
+   utgave og dp7 kap. 5.4) viser at enkelte
+   rotårsaker – særlig R1 (styringsmandat) og
+   deler av R5 (refusjonskjede) – **ikke
+   adresseres fullt ut av noen av alternativene**
+   i dp4. De krever politiske eller
+   tverrsektorielle tiltak som må løpe parallelt.
+2. **Tekniske alternativer uten organisatorisk
+   tiltak vil gi begrenset effekt**. R1, R5 og
+   R6 er i hovedsak organisatoriske/politiske,
+   mens R2, R3 og R4 er tekniske/prosessuelle.
+   Alternativ 2 og 3 adresserer R2–R4 godt, men
+   må kombineres med tiltak som adresserer
+   R1, R5 og R6.
+
+Disse implikasjonene er tatt opp i den utvidede
+sammenligningstabellen i delrapport 4 kap. 6 og
+gjentatt i delrapport 7 kap. 5.4.
+
+### 9.6 Kunnskapshull
+
+Rotårsaksanalysen hviler på kildene identifisert
+over, men flere spørsmål kan ikke besvares uten
+primærdata:
+
+- Hvilken av rotårsakene R1–R6 er mest
+  kostnadseffektiv å adressere først, når
+  tiltak over flere rotårsaker sammenlignes?
+- I hvilken grad vil organisatoriske tiltak
+  alene (alternativ 1) være tilstrekkelige for
+  R5 og R6, eller forutsetter disse også
+  tekniske tiltak?
+- Hvor robust er kausalkjede D (fritekst →
+  blokkert automatisering) for ulike
+  KI-arkitekturer? Noen modeller kan håndtere
+  ustrukturert fritekst direkte, andre krever
+  strukturerte data.
+
+---
+
+Sist oppdatert: 2026-04-27
 
 ---
 
