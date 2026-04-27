@@ -95,6 +95,19 @@
   Basert på delrapport 7.
 - **Sist oppdatert**: 2026-03-15
 
+### utfordringsbildet-forankring.pptx
+
+- **Beskrivelse**: PowerPoint-presentasjon i
+  Helsedirektoratets mal for forankring av
+  problemforståelsen. 13 lysbilder: forside, agenda,
+  hovedproblemet, seks dimensjoner (D1-D6) over tre
+  lysbilder, tre kjerneegenskaper, hvorfor samlet
+  forståelse, konsekvenser av å ikke handle, seks
+  rotårsaker (R1-R6), hva alternativene dekker, veien
+  videre og kilder. Basert på delrapport 2 kap. 2 og
+  9, delrapport 7 kap. 4 og rolledeling-rapporten.
+- **Sist oppdatert**: 2026-04-27
+
 ### utfordringer-relasjoner.html
 
 - **Beskrivelse**: Interaktiv D3.js force-directed
