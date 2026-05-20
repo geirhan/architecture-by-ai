@@ -27,8 +27,11 @@
   konsekvenser av strukturelle svakheter. Kap. 9
   gir rotårsaksanalyse med seks rotårsaker (R1–R6),
   dekningsmatrise og relasjonstabell mellom
-  flaskehalsene. Alle utsagn merket [DOK]/[ANT].
-- **Sist oppdatert**: 2026-04-27
+  flaskehalsene. Kap. 9.7 introduserer fire
+  løsningsdimensjoner (akser) som operasjonaliserer
+  rotårsakene som beslutningsdimensjoner og fungerer
+  som bro til delrapport 4. Alle utsagn merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-05-20
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
@@ -44,8 +47,11 @@
   moderat KI-støtte og ambisiøs KI-pipeline.
   Governance-modell, kvalitetssikringsprosess og
   faseinndelt anbefaling. Bredde i alternativer
-  i tråd med utredningsinstruksen.
-- **Sist oppdatert**: 2026-04-08
+  i tråd med utredningsinstruksen. Kap. 6.2 plasserer
+  hvert alternativ langs løsningsdimensjonene
+  (aksene) og viser at ingen alternativer dekker
+  alle aksene fullt ut.
+- **Sist oppdatert**: 2026-05-20
 
 ### [Delrapport 5 -- Arkitektur og komponenter](arkitektur-og-komponenter.md)
 
@@ -69,8 +75,10 @@
   (10 risikoer), fremdriftsplan, kostnadsramme
   (100-250 MNOK), juridiske endringsbehov,
   evalueringsplan og samsvar med
-  utredningsinstruksen.
-- **Sist oppdatert**: 2026-04-08
+  utredningsinstruksen. Kap. 4.4 introduserer
+  løsningsdimensjonene (aksene) som lins før
+  virkningsvurderingen.
+- **Sist oppdatert**: 2026-05-20
 
 ### [Delrapport 8 -- Aktøranalyse](aktoeranalyse.md)
 
@@ -107,6 +115,43 @@
   gjennomløpstidsestimater i delrapport 1 og 2.
   34 referanser.
 - **Sist oppdatert**: 2026-04-08
+
+### [Kildeforankring – slide 3](kildeforankring-slide3.md)
+
+- **Beskrivelse**: Kildevurderingsnotat for slide 3 i
+  presentasjonen `utfordringsbildet-forankring.pptx`.
+  Fire parallelle systematiske kildesøk i offentlige og
+  autoritative kilder vurderer hovedsetningen og de tre
+  understøttende kulepunktene. Resultat: kulepunkt 1
+  (7-15+ år) fjernet (jf. Frontiers 2025), kulepunkt 2
+  (forskningsvolum) og 3 (kommersiell KI) omformulert.
+  Alle funn merket [DOK]/[ANT] med kildelenker.
+- **Sist oppdatert**: 2026-05-19
+
+### [Talepunkter – slide 13 (akser)](talepunkter-akser.md)
+
+- **Beskrivelse**: Strukturerte talepunkter for
+  forankrings­presentasjonens slide 13 («Hvor langt
+  kan eller må vi gå i endring?»). Binder de fire
+  løsningsdimensjonene (akser) til rotårsaker
+  R1–R6 og kildegrunnlag, med forventede spørsmål
+  og bro til andre slides. Brukes som muntlig
+  forberedelse uten å tynge selve sliden.
+- **Sist oppdatert**: 2026-05-20
+
+### [Røttingen-rapporten vurdert mot utfordringsbildet](rottingen-utfordringsbildet.md)
+
+- **Beskrivelse**: Kapittelvis gjennomgang av
+  Røttingen-rapporten (Gjennomgang av organisering,
+  roller og ansvar i den sentrale helseforvaltningen,
+  11.3.2023) mot utfordringsbildet i presentasjonen.
+  Norsk offentlig primærkilde som styrker D3–D6,
+  R1/R4/R5/R6 og hovedsetningen. Sentralt funn:
+  kap. 9.2 «Helsenorge.no bør være eneste skriftlige
+  informasjonskanal til befolkningen». Forbehold:
+  helkjedemodell forkastet i kap. 3.2. Alle utsagn
+  merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-05-19
 
 ### [HTML-versjon](html/index.html)
 

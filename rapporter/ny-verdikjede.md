@@ -614,6 +614,81 @@ parallelle tiltak** utenfor dp4-alternativene:
 Disse tiltakene er behandlet i delrapport 7
 kap. 6 (anbefaling) og i rolledeling-rapporten.
 
+### 6.2 Plassering langs løsningsdimensjonene
+
+Rotårsakene R1–R6 er gruppert i fire
+løsningsdimensjoner (akser) i
+[delrapport 2 kap. 9.7](utfordringer-og-flaskehalser.md).
+Aksene uttrykker spenninger enhver løsning må ta
+stilling til, og fungerer som **sjekkliste for
+fullstendighet** ved vurdering av alternativer.
+Tabellen nedenfor angir hvor hvert alternativ
+posisjonerer verdikjeden langs hver akse.
+
+Skala: **«Venstre»** (uendret fra dagens posisjon),
+**«Mot midten»** (delvis bevegelse), **«Mot høyre»**
+(vesentlig bevegelse), **«Høyre»** (full bevegelse
+til den andre enden av aksen).
+
+<!-- markdownlint-disable MD013 -->
+
+| Akse | Adresserer | Alt. 0 | Alt. 1 | Alt. 2 | Alt. 3 |
+| --- | --- | --- | --- | --- | --- |
+| **Menneskedrevet ←→ KI-drevet** | R2, R3 | Venstre | Venstre | Mot høyre | Høyre |
+| **Fragmentert ←→ Sammenhengende** | R4, R1 | Venstre | Mot midten | Mot høyre | Mot høyre |
+| **Frivillig ←→ Forpliktende** | R5 | Venstre | Mot midten | Mot midten | Mot midten |
+| **Behovsstyrt ←→ Kontinuerlig oppdatering** | R3, R6 | Venstre | Mot midten | Mot høyre | Høyre |
+
+<!-- markdownlint-enable MD013 -->
+
+#### 6.2.1 Observasjoner
+
+- **Alt. 0** beveger seg ikke langs noen akse –
+  per definisjon, siden nullalternativet
+  viderefører dagens praksis. Dette er
+  konsistent med rotårsaksvurderingen i
+  6.1 («Ikke» på alle R-er).
+- **Alt. 1** beveger seg primært langs aksene
+  *Fragmentert→Sammenhengende* og
+  *Frivillig→Forpliktende* (organisasjon og
+  styring), men ikke langs *Menneskedrevet→
+  KI-drevet*. Det forklarer hvorfor alt. 1 alene
+  er utilstrekkelig for R2 (pre-digital design).
+- **Alt. 2** beveger seg vesentlig langs alle
+  fire aksene, men når ikke fullt ut på noen av
+  dem. Dette gjør alt. 2 til et godt
+  startpunkt med rom for videre utvikling.
+- **Alt. 3** beveger seg fullt ut langs to akser
+  (*KI-drevet*, *Kontinuerlig oppdatering*), men ikke fullt på
+  *Fragmentert→Sammenhengende* eller
+  *Frivillig→Forpliktende*. De siste to handler
+  om organisatoriske valg som krever politiske
+  beslutninger utenfor delrapportens mandat.
+- **Ingen alternativer når «Høyre» på aksen
+  Frivillig→Forpliktende**. Det reflekterer at
+  R5 (implementeringsinsentiver) ikke kan løses
+  av et teknologisk alternativ alene – det
+  krever politiske grep parallelt, jf. 6.1.2.
+
+#### 6.2.2 Bruk i forankring og videre arbeid
+
+Aksene er brukt som hovedlins i
+forankrings­presentasjonen
+`utfordringsbildet-forankring.pptx` (slide 13),
+der publikum inviteres til å diskutere *hvilke
+akser som krever bevegelse* før konkrete
+alternativer vurderes. Det reduserer
+risikoen for at forankring av et alternativ
+foregriper diskusjonen om hvilken retning som
+er ønskelig.
+
+I videre utredning bør hver akse vurderes
+separat: hvor langt langs aksen bør
+verdikjeden bevege seg, hvilke politiske,
+teknologiske og organisatoriske forutsetninger
+dette krever, og hvilke tiltak (i og utenfor
+dp4) som gir den ønskede bevegelsen.
+
 ---
 
 ## 7. Governance-modell for KI-støttet verdikjede

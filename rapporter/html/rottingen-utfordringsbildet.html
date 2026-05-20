@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Røttingen-rapporten vurdert mot utfordringsbildet</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Røttingen-rapporten vurdert mot utfordringsbildet</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html" class="active">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><strong>Dokumenttype:</strong> Kildegjennomgangsnotat
+<strong>Kilde:</strong> <em>Gjennomgang av organisering, roller og
+ansvar i den sentrale helseforvaltningen.</em> Rapport 11. mars 2023
+(Røttingen-rapporten). Lokalt:
+<code>kilder/Endelig-rapport_organisering-sentral-helseforvaltning.pdf</code>
+(86 sider). Bestilt av HOD 26.8.2022. <strong>Utarbeidet:</strong>
+2026-05-19 <strong>Formål:</strong> Avdekke hva Røttingen-rapporten
+bidrar med til kunnskapsgrunnlaget for utfordringsbildet i
+<code>Presentasjoner/utfordringsbildet-forankring.pptx</code> (slide 3,
+D1–D6, R1–R6). Alle utsagn merket <strong>[DOK]</strong> (direkte
+sitert/dokumentert) eller <strong>[ANT]</strong> (analytisk slutning).
+<strong>Relatert:</strong> <a
+href="kildeforankring-slide3.md">kildeforankring-slide3.md</a>, <a
+href="rolledeling-sentral-helseforvaltning.md">rolledeling-sentral-helseforvaltning.md</a></p>
+<hr />
+<h2 id="konklusjon">Konklusjon</h2>
+<p>Røttingen-rapporten er en <strong>norsk offentlig
+primærkilde</strong> som styrker kunnskapsgrunnlaget på flere punkter
+der forankringen tidligere var svakest – særlig innbyggerinformasjon
+(D5/kulepunkt 3), implementeringsgapet (R5/hovedsetning a) og manglende
+helhetlig styring (R1). Den løfter disse fra internasjonale/interne
+kilder til norsk myndighetsdokument.</p>
+<p><strong>Viktig nyansering:</strong> Rapporten erkjenner manglende
+helhetlig ansvar, men <strong>forkaster eksplisitt
+helkjede-/verdikjedemodeller</strong> som organisatorisk løsning (kap.
+3.2). R1-argumentet i presentasjonen bør derfor formuleres som
+<em>manglende helhetlig styring av kunnskapskjeden</em>, ikke som et
+fravær av én «verdikjede-eier» – Røttingen anbefaler en annen løsning
+(samlet myndighetsetat + forum for faglig normering), ikke ingen
+løsning.</p>
+<hr />
+<h2 id="funn-kapittel-for-kapittel">Funn kapittel for kapittel</h2>
+<h3 id="kap.-2.3-logikk-for-organisering-kartlagt-rolleuklarhet">Kap.
+2.3 – Logikk for organisering: kartlagt rolleuklarhet</h3>
+<blockquote>
+<p>«Prosjektets kartlegging har tydeliggjort flere områder med
+<strong>uklar, overlappende og/eller manglende ansvars- og
+rollefordeling og forståelse</strong>.»</p>
+</blockquote>
+<blockquote>
+<p>«FHI [har] i dag enkelte myndighetsoppgaver innen smittevern, og det
+er overlappende funksjoner innen følge-med-rollen og knyttet til faglig
+rådgivning.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> R1 (manglende helhetlig styringsmandat);
+slide 8/11-poenget om at ingen har sett verdikjeden helhetlig.
+<strong>[DOK]</strong></p>
+<h3 id="kap.-2.4-kunnskapsproduksjon-og-forskning-i-forvaltningen">Kap.
+2.4 – Kunnskapsproduksjon og forskning i forvaltningen</h3>
+<blockquote>
+<p>«[Skillet] kan gi <strong>gråsoner mellom ulike former for
+rådgiving</strong> (faglige råd vs. formell normering) og i overgangen
+mellom kunnskapsprodusenten og etaten(e) med myndighetsrolle.»</p>
+</blockquote>
+<blockquote>
+<p>«Et <strong>helhetlig ansvar kan i større grad legge til rette for
+styring og prioritering av kunnskapsproduksjon</strong>, siden etatene
+da mer direkte også er brukere av kunnskapen.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> R1, R6; D3 (struktur/styring). Bekrefter at
+koblingen kunnskapsprodusent → myndighet har dokumenterte gråsoner.
+<strong>[DOK]</strong></p>
+<h3
+id="kap.-3.2-bakgrunn-for-organisasjonsendringer-helkjedemodell-forkastet">Kap.
+3.2 – Bakgrunn for organisasjonsendringer: helkjedemodell forkastet</h3>
+<blockquote>
+<p>«Den sentrale helseforvaltningen må fremstå som <strong>mer samlet,
+spesielt i krisesituasjoner</strong> hvor det er behov for klare råd og
+anbefalinger.»</p>
+</blockquote>
+<blockquote>
+<p>«Prosjektet har vurdert, men <strong>vil ikke anbefale, separate
+helkjedefunksjoner</strong> innen smittevern, miljømedisin, folkehelse-
+og helsetjenesteområdene … hensynet til enkeltområder og helhet må
+balanseres på tvers av alle helsesektorens behov.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> D6 (krise), hovedsetning (c).
+<strong>Nyanserer/motsier delvis:</strong> Rapporten avviser en egen
+«verdikjede-/helkjede-etat» som løsning. R1-budskapet i presentasjonen
+må ta høyde for dette – problemet (manglende helhetlig styring)
+erkjennes, men den foreslåtte løsningen er en annen enn én
+verdikjede-eier. <strong>[DOK]</strong></p>
+<h3 id="kap.-3.4-3.5-vurdering-fleksibilitet-og-kriseskalering">Kap. 3.4
+/ 3.5 – Vurdering: fleksibilitet og kriseskalering</h3>
+<blockquote>
+<p>«Det kan for eksempel bety at <strong>ressursene i kunnskapsetaten
+brukes i myndighetsetaten under en krise</strong>.»</p>
+</blockquote>
+<blockquote>
+<p>«Fleksibilitet og omstilling er spesielt viktig … erfaringer fra
+bl.a. koronapandemien og krigen i Ukraina.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> D6 (beredskap/skalering), hovedsetning (c).
+Bekrefter at kriseskalering forutsetter organisatorisk omstilling som
+ikke er bygd inn i dag. <strong>[DOK]</strong></p>
+<h3
+id="kap.-7.2-kunnskapsstøtte-til-kommunene-implementeringsgapet">Kap.
+7.2 – Kunnskapsstøtte til kommunene: implementeringsgapet</h3>
+<blockquote>
+<p>«Det er … en utfordring at <strong>kunnskap som utvikles ikke
+utnyttes godt nok i kommunene, at kunnskapen ikke er satt i
+tilstrekkelig system og at det er krevende å spre og implementere
+kunnskapen</strong> som produseres.»</p>
+</blockquote>
+<blockquote>
+<p>«Kommunene mangler i dag støttestrukturer som kan bidra til
+strategisk innføring av kunnskapsbaserte tiltak.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> R5 (manglende insentiver/eierskap for
+implementering), D4 (implementering/insentiver), hovedsetning (a – ikke
+tritt med forskning). Dette er den klareste norske
+primærkilde-erkjennelsen av implementeringsgapet, og korresponderer med
+casestudie-funnene i <a
+href="casestudier-forsinkelser.md">casestudier-forsinkelser.md</a>.
+<strong>[DOK]</strong></p>
+<h3
+id="kap.-9.2-beredskap-helsenorge.no-anbefalt-som-eneste-innbyggerkanal">Kap.
+9.2 – Beredskap: Helsenorge.no anbefalt som eneste innbyggerkanal</h3>
+<blockquote>
+<p>«Det mangler generiske organisasjonsmodeller som kan understøtte
+ledelse og koordinering av større helsekriser. Det er … behov for
+<strong>felles utvalg, planverk og avtalevirkemidler</strong> for
+håndtering av større helsekriser.»</p>
+</blockquote>
+<blockquote>
+<p>«Videre er det behov for <strong>samordning av informasjonskanaler
+til befolkningen</strong> … med mekanismer som sikrer enhetlig
+informasjon. <strong>Helsenorge.no bør være eneste skriftlige
+informasjonskanal til befolkningen.</strong>»</p>
+</blockquote>
+<p><strong>Styrker:</strong> D5 (tillit/innbyggerbehov), D6 (beredskap),
+kulepunkt 3 på slide 3 (kommersiell KI vs. offentlig kanal),
+hovedsetning (b + c). Norsk primærkilde som <strong>anbefaler</strong>
+(«bør») Helsenorge.no som eneste skriftlige innbyggerkanal – relevant
+for argumentet om at kommersiell KI konkurrerer med offentlig
+helseinformasjon. Merk: dette er en anbefaling/intensjon i et
+utredningskapittel, ikke et vedtatt krav. Gjengivelse må bruke «bør»,
+ikke «skal». <strong>[DOK]</strong></p>
+<h3 id="kap.-11.1-forskning-i-forvaltningen-kunnskap-handling">Kap. 11.1
+– Forskning i forvaltningen: kunnskap → handling</h3>
+<blockquote>
+<p>«[Utredningen] bør inkludere drøfting av kunnskapsbehov i departement
+og etater, samt <strong>mekanismer for å sikre at kunnskapen brukes og
+omsettes til beslutninger og handling</strong>.»</p>
+</blockquote>
+<blockquote>
+<p>«Prosjektet vurderer at det er <strong>potensiale for å utnytte
+forskningskompetansen og kunnskapsgrunnlaget … bedre enn i dag</strong>.
+Dette krever bl.a. tydeligere styring av rammene for forskningen.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> R5, R6 (manglende
+feedback-/målemekanismer), D4. Norsk primærkilde-erkjennelse av at
+kunnskap ikke systematisk omsettes til handling.
+<strong>[DOK]</strong></p>
+<h3
+id="kap.-11.4-nasjonalt-senter-for-e-helseforskning-fragmentert-felt">Kap.
+11.4 – Nasjonalt senter for e-helseforskning: fragmentert felt</h3>
+<blockquote>
+<p>«Likevel beskrives <strong>forskningsfeltet fremdeles som fragmentert
+og umodent</strong>, og kunnskapsbehovet som stort. Samlet sett vurderes
+e-helseforskningen som underfinansiert … tilfredsstiller ikke
+etterspørselen etter kunnskap som kan gi en samlet vurdering av
+implementering og effekt av nasjonale e-helseløsninger.» (Menon
+Economics 2021, gjengitt av Røttingen)</p>
+</blockquote>
+<p><strong>Styrker:</strong> R4 (fragmentert IT-landskap), R6, D3.
+<strong>[DOK]</strong></p>
+<h3 id="kap.-11.9-forum-for-faglig-normering-verifiserer-slide-11">Kap.
+11.9 – Forum for faglig normering (verifiserer slide 11)</h3>
+<blockquote>
+<p>«En mulig etablering av et <strong>forum for faglig
+normering</strong> i helsesektoren vil kunne skape en <strong>felles
+arena og koordineringsplattform</strong> for å drøfte behov og gjøre
+prioriteringer i utviklingen av regelverk, faglige normer og annet
+veiledende materiale.» (Modell: Petroleumstilsynets Regelverksforum)</p>
+</blockquote>
+<blockquote>
+<p>«Konklusjon: Prosjektet vurderer at etablering av et forum for faglig
+normering <strong>bør utredes videre</strong>.»</p>
+</blockquote>
+<p><strong>Styrker:</strong> Verifiserer presentasjonens eksisterende
+henvisning på slide 11 («Forum for faglig normering (Røttingen kap.
+11.9)») som et <strong>korrekt sidetall og korrekt gjengitt
+forslag</strong>. Adresserer R1 (koordinering) og R5.
+<strong>[DOK]</strong></p>
+<hr />
+<h2 id="forankringskart-røttingens-bidrag">Forankringskart – Røttingens
+bidrag</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element i presentasjonen</th>
+<th>Røttingen-kapittel</th>
+<th>Bidrag</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hovedsetning (a) ikke tritt med forskning</td>
+<td>7.2, 11.1</td>
+<td>Understøtter sterkt</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>Hovedsetning (b) ikke tritt med innbyggerbehov</td>
+<td>9.2</td>
+<td>Understøtter (anbefaler Helsenorge.no som eneste kanal)</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>Hovedsetning (c) ikke rustet for krise</td>
+<td>3.2, 3.4, 9.2</td>
+<td>Understøtter</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>Slide 3 kulepunkt 3 (kommersiell KI)</td>
+<td>9.2</td>
+<td>Understøtter (offentlig kanal-norm)</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>D3 struktur/styring</td>
+<td>2.3, 2.4, 11.4</td>
+<td>Understøtter</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>D4 implementering/insentiver</td>
+<td>7.2, 11.1</td>
+<td>Understøtter sterkt</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>D5 tillit/innbyggerbehov</td>
+<td>9.2</td>
+<td>Understøtter</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>D6 beredskap</td>
+<td>3.2, 3.4, 9.2</td>
+<td>Understøtter</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>R1 manglende helhetlig styringsmandat</td>
+<td>2.3, 2.4</td>
+<td>Understøtter – men løsning forkastes</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>R4 fragmentert IT-landskap</td>
+<td>11.4</td>
+<td>Understøtter</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>R5 manglende implementeringsinsentiver</td>
+<td>7.2, 11.1</td>
+<td>Understøtter sterkt</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>R6 manglende feedback-/målemekanismer</td>
+<td>11.1</td>
+<td>Understøtter</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>Slide 8/11 «ingen har sett verdikjeden helhetlig»</td>
+<td>2.3</td>
+<td>Understøtter premisset</td>
+<td>[DOK]</td>
+</tr>
+<tr>
+<td>Slide 11-tiltak «Forum for faglig normering»</td>
+<td>11.9</td>
+<td>Verifiserer henvisning</td>
+<td>[DOK]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="motsigelser-og-forbehold">Motsigelser og forbehold</h2>
+<ol type="1">
+<li><strong>Helkjedemodell forkastet (kap. 3.2).</strong> Røttingen
+vurderte og avviste separate helkjede-/verdikjedefunksjoner.
+R1-argumentet bør formuleres som <em>manglende helhetlig styring</em>,
+ikke som behov for én verdikjede-etat. [DOK]</li>
+<li><strong>Røttingen ser ikke verdikjeden forskning→innbyggerinfo som
+ett system.</strong> Rapportens perspektiv er organisering av etatene
+(Hdir/FHI/DiMP/DSA), ikke kunnskapskjeden som verdikjede. Dette
+bekrefter slide 8/11-premisset (ingen offentlig kilde vurderer
+verdikjeden helhetlig) – Røttingen er et <em>eksempel på</em>
+fragmentert behandling, ikke et moteksempel. [ANT]</li>
+<li><strong>R5/R6-formuleringene i kap. 11.1 er forslag om videre
+utredning</strong>, ikke ferdige funn. Erkjennelsen av problemet er
+[DOK]; at det er løst er det ikke. [DOK]</li>
+</ol>
+<hr />
+<h2 id="anbefaling">Anbefaling</h2>
+<p>Røttingen-funnene styrker presentasjonen mest på:</p>
+<ul>
+<li><strong>Slide 3 kulepunkt 3 / hovedsetning (b):</strong> kap. 9.2
+(«Helsenorge.no bør være eneste skriftlige informasjonskanal») gir norsk
+primærkilde der forankringen tidligere var middels. <strong>Beslutning
+2026-05-19:</strong> kulepunkt 3 beholdes uendret; Røttingen 9.2 holdes
+som talepunkt/i notat og settes <em>ikke</em> på sliden, fordi
+«bør»-anbefaling i beredskapskontekst (ikke vedtatt krav) ikke lar seg
+komprimere troverdig til kulepunkt-tekst uten overtolkning.</li>
+<li><strong>Slide 11:</strong> kap. 11.9-henvisningen er verifisert
+korrekt.</li>
+<li><strong>Slide 8/11 R1-poenget:</strong> kap. 2.3 understøtter, men
+formuleringen bør presiseres slik at den ikke kolliderer med Røttingens
+forkastede helkjedemodell (kap. 3.2).</li>
+</ul>
+<p>Konkrete tekstendringer i presentasjonen er <strong>ikke</strong>
+gjort som del av dette notatet – avventer beslutning (jf. pågående
+arbeid med balanse i slide 3).</p>
+<hr />
+<h2 id="endringslogg">Endringslogg</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Endring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-19</td>
+<td>Notat opprettet. Kapittelvis gjennomgang av Røttingen-rapporten mot
+utfordringsbildet (slide 3, D1–D6, R1–R6). Ingen endringer i
+presentasjonen.</td>
+</tr>
+<tr>
+<td>2026-05-19</td>
+<td>Korrigert: kap. 9.2 er en «bør»-anbefaling, ikke «skal»/vedtatt
+krav. Overtolkende parafraser rettet. Beslutning: kulepunkt 3 beholdes
+uendret; Røttingen 9.2 = talepunkt/notat, ikke slidetekst.</td>
+</tr>
+</tbody>
+</table>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

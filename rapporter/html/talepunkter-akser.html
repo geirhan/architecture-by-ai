@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talepunkter – slide 13: «Hvor langt kan eller må vi gå i endring?»</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Talepunkter – slide 13: «Hvor langt kan eller må vi gå i endring?»</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html" class="active">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><strong>Gjelder:</strong> Presentasjonen
+<code>Presentasjoner/utfordringsbildet-forankring.pptx</code>, slide 13
+(Dimensjoner i løsningsrommet, fire akser). <strong>Utarbeidet:</strong>
+2026-05-20 <strong>Formål:</strong> Strukturere muntlig formidling som
+binder aksene til rotårsaker (R1–R6) og kildegrunnlag uten å tynge
+sliden visuelt. Alle utsagn er forankret i kilder dokumentert ellers i
+prosjektet.</p>
+<hr />
+<h2 id="bro-fra-slide-12-til-slide-13">Bro fra slide 12 til slide
+13</h2>
+<blockquote>
+<p>«Konsekvensene er reelle og selvforsterkende. Men før vi diskuterer
+konkrete løsninger, må vi være enige om <em>hvilke akser</em> som krever
+bevegelse. Det er fire dimensjoner det er vanskelig å unngå å ta
+stilling til.»</p>
+</blockquote>
+<hr />
+<h2 id="akse-1-menneskedrevet-ki-drevet">Akse 1: Menneskedrevet ←→
+KI-drevet</h2>
+<p><strong>Spørsmål på sliden:</strong> Hvor mye av
+kunnskapsproduksjonen skal automatiseres?</p>
+<p><strong>Talepunkter:</strong></p>
+<ul>
+<li>Knytter til <strong>R2</strong> (verdikjeden er designet for
+pre-digital tid) og <strong>R3</strong> (kapasitet skalerer ikke med
+forskningsvolum).</li>
+<li>Posisjon i dag: nær venstre. Systematiske oversikter og
+retningslinjer er i hovedsak manuelt arbeid. Begrenset stab for
+systematiske oversikter ved FHI (Hdir årsrapport 2024: «økende gap
+mellom muligheter og forventninger … og hva vi har kapasitet til»).</li>
+<li>Reelle valg: KI som verktøy (mennesker beholder kontroll) vs. KI som
+motor (autonom prosess med menneskelig governance).</li>
+<li>Internasjonale eksempler: Cochranes erfaring med living reviews
+under COVID-19 viste at selv ressurssterke miljøer ikke klarte å holde
+tritt uten teknologisk støtte.</li>
+<li>Spenningen er ikke teknologisk – den er normativ. Hvor mye av faglig
+vurdering kan vi delegere uten å miste tillit?</li>
+</ul>
+<hr />
+<h2 id="akse-2-fragmentert-sammenhengende">Akse 2: Fragmentert ←→
+Sammenhengende</h2>
+<p><strong>Spørsmål på sliden:</strong> Ulike systemer og aktører, eller
+én samordnet kjede?</p>
+<p><strong>Talepunkter:</strong></p>
+<ul>
+<li>Knytter til <strong>R4</strong> (fragmentert IT-landskap, ulike
+kodeverk) og <strong>R1</strong> (manglende helhetlig
+styringsmandat).</li>
+<li>Posisjon i dag: nær venstre. ~20 aktører uten helhetlig
+styringsmandat. Fritekst uten metadata hindrer automatisering.
+Riksrevisjonen 2023–2024 dokumenterer manglende integrasjoner mellom
+kliniske IT-systemer.</li>
+<li>Røttingen-rapporten (2023) erkjenner uklar, overlappende og
+manglende ansvarsfordeling – men forkaster eksplisitt helkjedemodellen
+som løsning. Det betyr at bevegelse mot «sammenhengende» må skje via
+samordning og felles standarder, ikke nødvendigvis via én
+verdikjede-eier.</li>
+<li>E-helseforskningen beskrives av Røttingen som «fragmentert og
+umoden» (kap. 11.4) – manglende sammenheng går også på
+kunnskapssiden.</li>
+</ul>
+<hr />
+<h2 id="akse-3-frivillig-forpliktende">Akse 3: Frivillig ←→
+Forpliktende</h2>
+<p><strong>Spørsmål på sliden:</strong> Implementering på fagmiljøenes
+initiativ, eller styringskrav?</p>
+<p><strong>Talepunkter:</strong></p>
+<ul>
+<li>Knytter til <strong>R5</strong> (manglende insentiver og eierskap
+for implementering).</li>
+<li>Posisjon i dag: nær venstre. Ingen aktør eier implementeringsgapet.
+Refusjonsbeslutninger ligger i separat beslutningskjede.</li>
+<li>Riksrevisjonen rehabilitering 2024: «nesten ingenting har blitt
+bedre siden 2012» – tross nasjonale satsinger. Frivillig implementering
+har vist seg utilstrekkelig.</li>
+<li>Røttingen kap. 7.2: «kunnskap som utvikles ikke utnyttes godt nok i
+kommunene … krevende å spre og implementere kunnskapen». Norsk
+primærkilde-erkjennelse av at vi står for langt mot venstre.</li>
+<li>Bevegelse mot høyre handler ikke om bestemmelse fra toppen, men om
+insentivstrukturer, styringskrav og målbar etterlevelse.</li>
+</ul>
+<hr />
+<h2 id="akse-4-behovsstyrt-kontinuerlig-oppdatering">Akse 4: Behovsstyrt
+←→ Kontinuerlig oppdatering</h2>
+<p><strong>Spørsmål på sliden:</strong> Oppdatering når det utløses,
+eller kontinuerlig oppdatering basert på innstrømmende evidens?</p>
+<p><strong>Talepunkter:</strong></p>
+<ul>
+<li>Knytter til <strong>R3</strong> (kapasitet skalerer ikke) og
+<strong>R6</strong> (manglende feedback- og målemekanismer).</li>
+<li>Posisjon i dag: behovsstyrt. Retningslinjer oppdateres når noe
+utløser det – ny stor studie, høring, ressurser tilgjengelig – ikke som
+et løpende svar på innstrømmende evidens. Vi måler heller ikke
+systematisk om kunnskap når praksis.</li>
+<li>Internasjonalt er «living guidelines» i hovedsak ambisjon, ikke
+etablert standard. WHO/Europe (2021) erkjenner at standard
+kunnskapsformidling svikter i kriser – kontinuerlige mekanismer krever
+pre-etablerte strukturer.</li>
+<li>Aksen handler om <em>kadens</em>, ikke om verdivurdering: en
+behovsstyrt modell kan fungere godt for stabile fagområder, mens
+kontinuerlig oppdatering er nødvendig der evidensgrunnlaget endrer seg
+raskt. Spørsmålet er hvilken kadens hvilke deler av verdikjeden
+trenger.</li>
+</ul>
+<hr />
+<h2 id="avslutning-på-slide-13">Avslutning på slide 13</h2>
+<blockquote>
+<p>«Dette er ikke enten-eller. Hver beslutning posisjonerer oss et sted
+langs hver akse. Det vi trenger forankring på, er hvilke akser som må
+bevege seg – og hvor langt – før konkrete tiltak kan utformes.»</p>
+</blockquote>
+<hr />
+<h2 id="forventede-spørsmål-og-svar">Forventede spørsmål og svar</h2>
+<p><strong>«Er ikke dette bare omformulering av R1–R6?»</strong> Delvis.
+R-kodene beskriver <em>årsaker</em> (hvorfor verdikjeden ikke leverer).
+Aksene beskriver <em>valg</em> (hvilke spenninger vi må ta stilling til
+for å løse problemet). Sammenhengen er at hver akse svarer på én eller
+flere rotårsaker.</p>
+<p><strong>«Hvorfor presenterer dere ikke konkrete
+alternativer?»</strong> Vi har vurdert konkrete alternativer (delrapport
+4), men for å sikre bred forankring trenger vi først enighet om
+dimensjonene. Når aksene er forankret, kan alternativene utformes med
+dem som referanseramme – ikke som ferdige svar uten kontekst.</p>
+<p><strong>«Hvor langt langs aksene bør vi gå?»</strong> Det er
+gjenstand for utredning i fase 2. Slide 14 viser at neste steg er å
+utrede løsningsrom per dimensjon, særlig der bevegelse fra dagens
+posisjon er størst.</p>
+<hr />
+<h2 id="kobling-til-andre-slides">Kobling til andre slides</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Slide</th>
+<th>Sammenheng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slide 9 (tre kjerneegenskaper)</td>
+<td>Skalerbarhet, reaktivitet, sammenheng – aksene operasjonaliserer
+disse</td>
+</tr>
+<tr>
+<td>Slide 10 (R1–R6)</td>
+<td>Hver akse adresserer én eller flere rotårsaker</td>
+</tr>
+<tr>
+<td>Slide 11 (helhetlig analyse)</td>
+<td>Linjen om «teknologi + organisasjon» tilsvarer henholdsvis akse 1+4
+og akse 2+3</td>
+</tr>
+<tr>
+<td>Slide 14 (veien videre)</td>
+<td>«Forankre dimensjonene», «utrede løsningsrom per dimensjon»,
+«bevegelse langs aksene»</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="endringslogg">Endringslogg</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Endring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-20</td>
+<td>Notat opprettet. Talepunkter for slide 13s fire akser.</td>
+</tr>
+<tr>
+<td>2026-05-20</td>
+<td>Akse 4 omformulert fra «Statisk ↔︎ Lærende» til «Behovsstyrt ↔︎
+Kontinuerlig oppdatering». Termene «statisk»/«lærende» ble vurdert som
+verdiladede og ikke dekkende for det reelle designvalget, som handler om
+kadens i kunnskapsoppdatering.</td>
+</tr>
+</tbody>
+</table>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

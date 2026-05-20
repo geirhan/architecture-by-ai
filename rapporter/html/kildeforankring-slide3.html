@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kildeforankring – slide 3 og slide 8 (D5)</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Kildeforankring – slide 3 og slide 8 (D5)</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html" class="active">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><strong>Dokumenttype:</strong> Kildevurderingsnotat
+<strong>Gjelder:</strong> Presentasjonen
+<code>Presentasjoner/utfordringsbildet-forankring.pptx</code>.
+Opprinnelig slide 3 «Hovedproblemet» (revidert 2026-05-19; underpunkter
+deretter fjernet helt 2026-05-20). Utvidet 2026-05-20 til også å dekke
+slide 8 (D5 – tillit og innbyggerbehov), tallparet 99 %/54 %.
+<strong>Utarbeidet:</strong> 2026-05-19 <strong>Metode:</strong> Fire
+parallelle systematiske kildesøk i offentlige og autoritative kilder
+(regjeringen.no, riksrevisjonen.no, fhi.no, helsedirektoratet.no, OECD,
+WHO, NSF/NCSES, NLM, Cochrane, peer-reviewed litteratur). Alle utsagn
+merket <strong>[DOK]</strong> (direkte dokumentert i kilde) eller
+<strong>[ANT]</strong> (analytisk slutning).</p>
+<hr />
+<h2 id="ledersammendrag">Ledersammendrag</h2>
+<p>Slide 3 besto opprinnelig av én hovedsetning og tre understøttende
+kulepunkter. Kildesøket viste at <strong>hovedsetningen er rimelig godt
+forankret, men fragmentert</strong>, mens <strong>de tre kulepunktene
+hadde reelle forankringssvakheter</strong>. Etter gjennomgangen er slide
+3 revidert:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Opprinnelig</th>
+<th>Status etter revisjon</th>
+<th>Begrunnelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hovedsetning</td>
+<td>«…holder verken tritt … ikke rustet til å skalere i krise»</td>
+<td><strong>Beholdt uendret</strong></td>
+<td>Godt belagt i biter (Meld. St. 9, Riksrevisjonen, NOU
+2021:6/2022:5). Ingen offentlig kilde har vurdert verdikjeden helhetlig
+– fraværet er i seg selv et funn.</td>
+</tr>
+<tr>
+<td>Kulepunkt 1</td>
+<td>«Casestudier dokumenterer 7-15+ år … (antibiotika, diabetes 2,
+slag)»</td>
+<td><strong>Fjernet</strong></td>
+<td>Frontiers (2025) underkjenner ethvert fast tidstall som metodisk
+uholdbart. Intervallet «7-15+ år» lar seg ikke belegge fra offentlige
+kilder; primærkilder oppgir ~17 år, og casene var ikke entydig
+dokumentert.</td>
+</tr>
+<tr>
+<td>Kulepunkt 2</td>
+<td>«…vokser eksponentielt – over 3 millioner artikler årlig»</td>
+<td><strong>Revidert</strong> → «Globalt over 3 mill. artikler årlig
+(alle fagfelt); biomedisin alene over 1,5 mill. (PubMed)»</td>
+<td>«3 mill.» er korrekt for <em>alle fag</em> (Scopus), men over 2× for
+høyt for medisin alene. Avgrensning presisert; «eksponentielt» fjernet
+som upresist for siste tiår.</td>
+</tr>
+<tr>
+<td>Kulepunkt 3</td>
+<td>«Kommersielle KI-tjenester tar allerede over deler av rollen…»</td>
+<td><strong>Revidert</strong> → «…konkurrerer i økende grad med
+offentlig helseinformasjon, særlig blant unge»</td>
+<td>Bruk er dokumentert, men <em>fortrengning</em> er ikke.
+Helsenorge-besøk øker (110→134 mill. 2023–2025). Formuleringen myket opp
+til det kildene bærer.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Samlet alvorlighetsgrad for opprinnelig slide 3:</strong>
+Middels. Påstandene var ikke feil i ånd, men flere var enten upresist
+avgrenset (kulepunkt 2), overformulert (kulepunkt 3) eller ikke belagt
+fra offentlige kilder (kulepunkt 1).</p>
+<hr />
+<h2 id="hovedsetningen">1. Hovedsetningen</h2>
+<blockquote>
+<p>«Verdikjeden fra forskning til kvalitetssikret helseinformasjon for
+innbyggere holder verken tritt med forskningsproduksjonen eller
+innbyggernes informasjonsbehov, og er ikke rustet til å skalere i
+krisesituasjoner.»</p>
+</blockquote>
+<p><strong>Forankring: middels–god, men fragmentert.</strong> Ingen
+enkelt offentlig kilde vurderer verdikjeden som et helhetlig system;
+forankringen finnes spredt. Fraværet av en helhetlig vurdering er et
+selvstendig argument for problembeskrivelsen (ingen aktør eier helheten
+– jf. R1).</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Delpåstand</th>
+<th>Sterkeste kilde</th>
+<th>Type</th>
+<th>Forankring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(a) Ikke tritt med forskning</td>
+<td>Meld. St. 9 (2023-2024) fig. 6.2 «brudd i kunnskapsbroene»;
+Riksrevisjonen variasjon 2020; Riksrevisjonen rehabilitering 2024
+(«nesten ingenting bedre siden 2012»)</td>
+<td>[DOK]</td>
+<td>God</td>
+</tr>
+<tr>
+<td>(a) Kapasitet</td>
+<td>Helsedirektoratets årsrapport 2024: «økende gap mellom muligheter og
+forventninger … og hva vi har kapasitet til»</td>
+<td>[DOK]</td>
+<td>God (gjelder styringsinfo/analyser – presiseres)</td>
+</tr>
+<tr>
+<td>(b) Ikke tritt med innbyggernes behov</td>
+<td>Helsedirektoratets KI-dokument (Helsenorge); SSB 2025</td>
+<td>[DOK]</td>
+<td>Middels</td>
+</tr>
+<tr>
+<td>(c) Ikke rustet for krise</td>
+<td>NOU 2021:6 («ikke forberedt»); NOU 2022:5 (manglende digitale
+verktøy); NOU 2023:16</td>
+<td>[DOK]</td>
+<td>Sterk</td>
+</tr>
+<tr>
+<td>Helhetlig verdikjedevurdering</td>
+<td><em>Ingen</em></td>
+<td>[DOK – fravær]</td>
+<td>Mangler (eget funn)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Motsigende/nyanserende:</strong> NOU 2021:6 kap. 2.2 pkt. 12
+sier at myndighetene «samlet sett lykkes godt med kommunikasjonen ut til
+befolkningen». Meld. St. 9 presenterer implementeringsgapet som løsbart
+og under adressering, ikke som vedvarende systemsvikt.</p>
+<h3 id="sentrale-kilder-hovedsetning">Sentrale kilder
+(hovedsetning)</h3>
+<ul>
+<li>Meld. St. 9 (2023-2024) Nasjonal helse- og samhandlingsplan – <a
+href="https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/"
+class="uri">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/</a></li>
+<li>Helsedirektoratets årsrapport 2024 – <a
+href="https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024"
+class="uri">https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024</a></li>
+<li>NOU 2021:6 Myndighetenes håndtering av koronapandemien – <a
+href="https://www.regjeringen.no/no/dokumenter/nou-2021-6/id2844388/"
+class="uri">https://www.regjeringen.no/no/dokumenter/nou-2021-6/id2844388/</a></li>
+<li>NOU 2022:5 – <a
+href="https://www.regjeringen.no/no/dokumenter/nou-2022-5/id2910055/"
+class="uri">https://www.regjeringen.no/no/dokumenter/nou-2022-5/id2910055/</a></li>
+<li>NOU 2023:16 Evaluering av pandemihåndteringen – <a
+href="https://www.regjeringen.no/no/dokumenter/nou-2023-16/id2982388/"
+class="uri">https://www.regjeringen.no/no/dokumenter/nou-2023-16/id2982388/</a></li>
+<li>Riksrevisjonen: Variasjon i forbruk av helsetjenester (2019-2020) –
+<a
+href="https://www.riksrevisjonen.no/rapporter-mappe/no-2019-2020/undersokelse-av-arsaker-til-variasjon-i-forbruk-av-helsetjenester/"
+class="uri">https://www.riksrevisjonen.no/rapporter-mappe/no-2019-2020/undersokelse-av-arsaker-til-variasjon-i-forbruk-av-helsetjenester/</a></li>
+<li>Riksrevisjonen: Rehabilitering i helse- og omsorgstjenestene
+(2023-2024) – <a
+href="https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/rehabilitering-i-helse-og-omsorgstjenestene/"
+class="uri">https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/rehabilitering-i-helse-og-omsorgstjenestene/</a></li>
+<li>Riksrevisjonen: Utnyttelse av IT-systemer på sykehus (Dok. 3:6,
+2023-2024) – <a
+href="https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/utnyttelse-av-itsystemer-pa-sykehus/"
+class="uri">https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/utnyttelse-av-itsystemer-pa-sykehus/</a></li>
+<li>WHO/Europe: Knowledge Translation Mechanisms in Emergencies (2021) –
+<a
+href="https://www.who.int/europe/publications/i/item/WHO-EURO-2021-2719-42477-58997"
+class="uri">https://www.who.int/europe/publications/i/item/WHO-EURO-2021-2719-42477-58997</a></li>
+</ul>
+<hr />
+<h2 id="kulepunkt-1-fjernet-7-15-år-fra-forskning-til-praksisendring">2.
+Kulepunkt 1 – FJERNET: «7-15+ år fra forskning til praksisendring»</h2>
+<blockquote>
+<p>Opprinnelig: «Casestudier dokumenterer 7-15+ år fra forskning til
+bred praksisendring (antibiotika, diabetes type 2, slagbehandling).»</p>
+</blockquote>
+<p><strong>Vurdering: svak forankring i offentlige kilder. Fjernet fra
+slide 3.</strong></p>
+<ul>
+<li>Det generelle gapet (flerårig forsinkelse fra forskning til praksis)
+er bredt dokumentert: Lenfant (2003), McGlynn et al. (2003, 54,9 % av
+anbefalt behandling mottas), Riksrevisjonen rehabilitering 2024.
+<strong>[DOK]</strong></li>
+<li>Men det <em>eksakte intervallet «7-15+ år»</em> lar seg ikke belegge
+fra offentlige primærkilder. Disse oppgir <strong>~17 år</strong> (Balas
+&amp; Boren 2000; Morris, Wooding &amp; Grant 2011; norsk
+Helsebiblioteket bruker også «17 år»). <strong>[DOK]</strong></li>
+<li><strong>Frontiers in Health Services (2025)</strong> gjennomgår 135
+nyere publikasjoner og konkluderer at 25 år gamle data ikke
+representerer dagens implementeringslandskap, og at ethvert fast
+tidstall (17 år, 7 år, 15 år) brukt som universell sannhet er metodisk
+uholdbart. Implementeringshastighet varierer sterkt med
+intervensjonstype, kontekst og fagfelt. <strong>[DOK]</strong></li>
+<li>De tre casene: <strong>slag</strong> (tPA) støtter «15+ år» fra
+godkjenning til bred bruk; <strong>diabetes type 2</strong> gir bare
+1,6–7,2 år for ett delaspekt (behandlingsintensivering);
+<strong>antibiotika</strong> ble ikke bekreftet med konkret tidstall i
+noen offentlig kilde. <strong>[ANT]</strong></li>
+</ul>
+<p><strong>Konklusjon:</strong> Casene stammer fra prosjektets interne
+<a href="casestudier-forsinkelser.md">casestudier-forsinkelser.md</a>.
+De kan presenteres <em>senere</em> i utredningen som intern analyse med
+eksplisitt [ANT]-merking og forbehold (jf. Frontiers 2025), men egnet
+seg ikke som et tilsynelatende dokumentert faktum på en
+forankringsslide.</p>
+<h3 id="sentrale-kilder-kulepunkt-1">Sentrale kilder (kulepunkt 1)</h3>
+<ul>
+<li>Balas EA, Boren SA (2000). Managing Clinical Knowledge for Health
+Care Improvement. Yearbook of Medical Informatics – <a
+href="https://scholarlycommons.augusta.edu/items/1ccd6539-949d-4e0d-9617-5e038358251f"
+class="uri">https://scholarlycommons.augusta.edu/items/1ccd6539-949d-4e0d-9617-5e038358251f</a></li>
+<li>Morris ZS, Wooding S, Grant J (2011). The answer is 17 years… J R
+Soc Med 104:510-520 – <a
+href="https://pubmed.ncbi.nlm.nih.gov/22179294/"
+class="uri">https://pubmed.ncbi.nlm.nih.gov/22179294/</a></li>
+<li>Frontiers in Health Services (2025). Does the “17-year gap” tell the
+right story about implementation science? – <a
+href="https://www.frontiersin.org/journals/health-services/articles/10.3389/frhs.2025.1704368/full"
+class="uri">https://www.frontiersin.org/journals/health-services/articles/10.3389/frhs.2025.1704368/full</a></li>
+<li>McGlynn EA et al. (2003). NEJM 348(26):2635-2645 – <a
+href="https://www.nejm.org/doi/full/10.1056/NEJMsa022615"
+class="uri">https://www.nejm.org/doi/full/10.1056/NEJMsa022615</a></li>
+<li>Lenfant C (2003). Clinical Research to Clinical Practice — Lost in
+Translation? NEJM 349(9):868-74 – <a
+href="https://www.nejm.org/doi/abs/10.1056/NEJMsa035507"
+class="uri">https://www.nejm.org/doi/abs/10.1056/NEJMsa035507</a></li>
+<li>Helsebiblioteket: Implementering av kunnskapsbasert praksis – <a
+href="https://www.helsebiblioteket.no/innhold/omsorgsbiblioteket/artikler/implementering-av-kunnskapsbasert-praksis"
+class="uri">https://www.helsebiblioteket.no/innhold/omsorgsbiblioteket/artikler/implementering-av-kunnskapsbasert-praksis</a></li>
+<li>Riksrevisjonen, Dok. 3:9 (2020-2021): Kliniske behandlingsstudier –
+<a
+href="https://www.riksrevisjonen.no/rapporter-mappe/no-2020-2021/undersokelse-av-kliniske-behandlingsstudier-i-helseforetakene/"
+class="uri">https://www.riksrevisjonen.no/rapporter-mappe/no-2020-2021/undersokelse-av-kliniske-behandlingsstudier-i-helseforetakene/</a></li>
+</ul>
+<hr />
+<h2 id="kulepunkt-2-revidert-forskningsvolum">3. Kulepunkt 2 – REVIDERT:
+forskningsvolum</h2>
+<blockquote>
+<p>Opprinnelig: «Forskningsproduksjonen vokser eksponentielt – over 3
+millioner vitenskapelige artikler årlig.»</p>
+<p>Revidert: «Globalt publiseres over 3 millioner vitenskapelige
+artikler årlig (alle fagfelt); innen biomedisin alene over 1,5 millioner
+(PubMed).»</p>
+</blockquote>
+<p><strong>Vurdering: middels–god forankring, men opprinnelig
+formulering var tvetydig.</strong></p>
+<ul>
+<li>«Over 3 millioner»: <strong>korrekt for totalt globalt volum, alle
+fag</strong> – NSF/NCSES (Scopus): 3 225 981 artikler i 2022, 3 275 079
+i 2023. <strong>[DOK]</strong></li>
+<li>For <strong>medisin spesifikt</strong> er tallet vesentlig lavere:
+PubMed/MEDLINE indekserte ~1,3–1,7 mill./år (NLM, FY2021–2023). «3
+mill.» var dermed mer enn dobbelt av biomedisinsk volum – avgrensningen
+var avgjørende og manglet. <strong>[DOK]</strong></li>
+<li>«Eksponentielt»: historisk korrekt (Bornmann &amp; Mutz 2015: 8–9
+%/år), men nyere vekst er ~4–5 %/år (NSF/NCSES; Bornmann, Haunschild
+&amp; Mutz 2021: 4,1 %/år, doblingstid 17 år). «Eksponentielt» fjernet
+som upresist for siste tiår; revidert formulering bruker presise
+volumtall i stedet. <strong>[DOK]</strong></li>
+</ul>
+<p><strong>Helsespesifikk kontekst (kan brukes senere):</strong>
+Bastian, Glasziou &amp; Chalmers (2010): 75 RCT-er og 11 systematiske
+oversikter per dag (2007-data – bør oppdateres).
+<strong>[DOK]</strong></p>
+<h3 id="sentrale-kilder-kulepunkt-2">Sentrale kilder (kulepunkt 2)</h3>
+<ul>
+<li>NSF/NCSES Science &amp; Engineering Indicators 2025 (Scopus) – <a
+href="https://ncses.nsf.gov/pubs/nsb20257/publication-output-by-geography-and-scientific-field"
+class="uri">https://ncses.nsf.gov/pubs/nsb20257/publication-output-by-geography-and-scientific-field</a></li>
+<li>NLM MEDLINE/PubMed Production Statistics – <a
+href="https://www.nlm.nih.gov/bsd/medline_pubmed_production_stats.html"
+class="uri">https://www.nlm.nih.gov/bsd/medline_pubmed_production_stats.html</a></li>
+<li>Bornmann &amp; Mutz (2015), JASIST – <a
+href="https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/asi.23329"
+class="uri">https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/asi.23329</a></li>
+<li>Bornmann, Haunschild &amp; Mutz (2021), Humanit Soc Sci Commun 8:224
+– <a href="https://www.nature.com/articles/s41599-021-00903-w"
+class="uri">https://www.nature.com/articles/s41599-021-00903-w</a></li>
+<li>Bastian, Glasziou &amp; Chalmers (2010), PLOS Med 7(9):e1000326 – <a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2943439/"
+class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC2943439/</a></li>
+</ul>
+<hr />
+<h2 id="kulepunkt-3-revidert-kommersiell-ki">4. Kulepunkt 3 – REVIDERT:
+kommersiell KI</h2>
+<blockquote>
+<p>Opprinnelig: «Kommersielle KI-tjenester tar allerede over deler av
+rollen offentlig helseinformasjon hadde.»</p>
+<p>Revidert: «Kommersielle KI-tjenester konkurrerer i økende grad med
+offentlig helseinformasjon, særlig blant unge.»</p>
+</blockquote>
+<p><strong>Vurdering: bruk er dokumentert, fortrengning er ikke.
+Opprinnelig formulering var for sterk.</strong></p>
+<p>Påstanden deles analytisk i tre, med ulik kildedekning:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Delpåstand</th>
+<th>Dekning</th>
+<th>Kilder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(A) KI brukes til helseinformasjon</td>
+<td>Middels–god</td>
+<td>KFF 2024/2025-2026 (USA: 22–32 %); Pew 2026; JMIR 2025 (21 %)</td>
+</tr>
+<tr>
+<td>(B) Særlig unge</td>
+<td>God</td>
+<td>SSB 2025 (80 % av 16–24-åringer bruker gen. KI); SINTEF/UiO 2026 (52
+% av norske 16–20-åringer foretrekker ChatGPT fremfor ung.no for psykisk
+helse)</td>
+</tr>
+<tr>
+<td>(C) KI overtar / fortrenger offentlig helseinfo</td>
+<td><strong>Svak</strong></td>
+<td>Ingen kilde dokumenterer fortrengning. Helsenorge-besøk
+<em>øker</em> (110→131→134 mill., 2023–2025). Think-aloud-studie (PMC
+2025): KI supplerer, erstatter ikke.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tallforankring (for senere bruk – jf. punkt 4 i oppdraget,
+vurderes senere):</strong></p>
+<ul>
+<li>«54 % bruker generativ KI»: <strong>verifisert primærkilde</strong>
+– SSB statistikkbank tabell 14365, 2025-runden, 16–79 år, all KI-bruk
+(ikke helse-spesifikt). <strong>[DOK]</strong></li>
+<li>«99 % kjenner Helsenorge»: <strong>verifisert</strong> – Hdir
+innbyggerundersøkelse 2024 (Kantar). Gjelder <em>kjennskap</em>, ikke
+bruk. 2025-tallet er 96 %. <strong>[DOK]</strong></li>
+<li>Tallparet 99 %/54 % settes retorisk opp mot hverandre, men er ulike
+årstall, ulike populasjoner og ulike variabler (kjennskap vs. bruk). Bør
+tydeliggjøres der det brukes ellers i presentasjonen –
+<strong>utestående, vurderes senere</strong>.</li>
+<li>«78,4 % villige til ChatGPT-selvdiagnose» (sitert i Hdirs
+KI-dokument): metodisk svak – intensjon blant eksisterende
+ChatGPT-brukere i USA (n=607, 2023), ikke befolkningsprevalens. Bør ikke
+brukes som prevalenstall. <strong>[DOK]</strong></li>
+</ul>
+<h3 id="sentrale-kilder-kulepunkt-3">Sentrale kilder (kulepunkt 3)</h3>
+<ul>
+<li>SSB: Slik bruker nordmenn kunstig intelligens (2025) – <a
+href="https://www.ssb.no/teknologi-og-innovasjon/informasjons-og-kommunikasjonsteknologi-ikt/artikler/slik-bruker-nordmenn-kunstig-intelligens"
+class="uri">https://www.ssb.no/teknologi-og-innovasjon/informasjons-og-kommunikasjonsteknologi-ikt/artikler/slik-bruker-nordmenn-kunstig-intelligens</a></li>
+<li>SSB statistikkbank tabell 14365 – <a
+href="https://www.ssb.no/statbank/table/14365"
+class="uri">https://www.ssb.no/statbank/table/14365</a></li>
+<li>Hdir innbyggerundersøkelsen 2024 (Helsenorge-kjennskap) – <a
+href="https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester/funn-og-analyser/kjennskap-til-bruk-av-og-inntrykk-av-helsenorge"
+class="uri">https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester/funn-og-analyser/kjennskap-til-bruk-av-og-inntrykk-av-helsenorge</a></li>
+<li>Hdir: Offentlig KI-tjeneste for helserelaterte spørsmål – <a
+href="https://www.helsedirektoratet.no/digitalisering-og-e-helse/kunstig-intelligens/offentlig-ki-tjeneste-for-helserelaterte-sporsmal"
+class="uri">https://www.helsedirektoratet.no/digitalisering-og-e-helse/kunstig-intelligens/offentlig-ki-tjeneste-for-helserelaterte-sporsmal</a></li>
+<li>KFF Health Misinformation Tracking Poll: AI and Health Information
+(2024) – <a
+href="https://www.kff.org/health-information-trust/poll-most-who-use-artificial-intelligence-doubt-ai-chatbots-provide-accurate-health-information/"
+class="uri">https://www.kff.org/health-information-trust/poll-most-who-use-artificial-intelligence-doubt-ai-chatbots-provide-accurate-health-information/</a></li>
+<li>KFF Tracking Poll (2025-2026) – <a
+href="https://www.kff.org/public-opinion/kff-tracking-poll-on-health-information-and-trust-use-of-ai-for-health-information-and-advice/"
+class="uri">https://www.kff.org/public-opinion/kff-tracking-poll-on-health-information-and-trust-use-of-ai-for-health-information-and-advice/</a></li>
+<li>Pew Research Center (2026) – <a
+href="https://www.pewresearch.org/science/2026/04/07/users-of-social-media-and-ai-chatbots-for-health-information-are-more-likely-to-say-they-are-convenient-than-accurate/"
+class="uri">https://www.pewresearch.org/science/2026/04/07/users-of-social-media-and-ai-chatbots-for-health-information-are-more-likely-to-say-they-are-convenient-than-accurate/</a></li>
+<li>SINTEF/UiO via Forskning.no (2026) – <a
+href="https://www.forskning.no/barn-og-ungdom-helsetjenester-informasjonsteknologi/mental-helse-unge-far-bedre-svar-av-chatgpt-enn-av-fagfolk/2645803"
+class="uri">https://www.forskning.no/barn-og-ungdom-helsetjenester-informasjonsteknologi/mental-helse-unge-far-bedre-svar-av-chatgpt-enn-av-fagfolk/2645803</a></li>
+</ul>
+<hr />
+<h2 id="slide-8-d5-revidert-tallparet-99-54">5. Slide 8 (D5) – REVIDERT:
+tallparet 99 %/54 %</h2>
+<blockquote>
+<p>Opprinnelig (kulepunkt 1 i D5-blokken): «99 % kjenner Helsenorge – 54
+% bruker generativ KI.»</p>
+<p>Revidert: «51 % bruker Helsenorge for generell helseinformasjon (Hdir
+2024) – 54 % bruker generativ KI (SSB 2025); 80 % blant 16–24 år.»</p>
+<p>Samtidig revidert (kulepunkt 2 i D5-blokken): «Mange yngre bruker
+ChatGPT som kilde til helseinformasjon» → «Yngre foretrekker ChatGPT som
+kilde til helseinformasjon (52 % vs. ung.no, SINTEF/UiO 2026).»</p>
+</blockquote>
+<p><strong>Vurdering:</strong> Det opprinnelige tallparet var ikke
+direkte sammenlignbart. Det insinuerte at to tall fortalte én historie,
+men kombinerte ulike variabler, populasjoner, år og domener:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Detalj</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ulike variabler</td>
+<td>«Kjenner» (har hørt om) vs. «bruker» (faktisk atferd). Bare 51 % som
+<em>kjenner</em> Helsenorge har faktisk besøkt det for generell
+helseinformasjon.</td>
+</tr>
+<tr>
+<td>Ulike år</td>
+<td>99 % er 2024-data; 54 % er 2025-data. 2025-tallet for kjennskap er
+96 %.</td>
+</tr>
+<tr>
+<td>Ulike domener</td>
+<td>99 % gjelder helse-tjenesten Helsenorge; 54 % gjelder <strong>all
+KI-bruk uansett formål</strong> (ikke helse).</td>
+</tr>
+<tr>
+<td>Ulike populasjoner</td>
+<td>Hdir: voksne; SSB: 16–79 år.</td>
+</tr>
+<tr>
+<td>Retorisk uklart</td>
+<td>99 % kunne tolkes som å understøtte at det offentlige står sterkt –
+mens sliden vil hevde at det taper terreng.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Revisjonen</strong> sammenligner bruk-mot-bruk (51 % vs. 54
+%) for befolkningen samlet, og legger til de 80 % for 16–24 år (SSB
+2025) som viser hvor bratt kontrasten er for unge. Verifisert direkte
+mot kilden via WebFetch (2026-05-20): Hdir 2024-undersøkelsen oppgir
+ordrett «Ja, har besøkt Helsenorge for å finne <em>generell</em>
+informasjon om helse: 51 %». <strong>[DOK]</strong></p>
+<p>Kulepunkt 2 ble samtidig styrket fra kvalitativ påstand til konkret
+norsk evidens (SINTEF/UiO 2026: 123 unge 16–20 år, blindtest, 52 %
+foretrakk ChatGPT, 19 % ung.no, 29 % vurderte begge likt). Den eneste
+norske primærkilden på fortrengning blant unge.
+<strong>[DOK]</strong></p>
+<h3 id="sentrale-kilder-slide-8-d5">Sentrale kilder (slide 8 / D5)</h3>
+<ul>
+<li>Hdir innbyggerundersøkelsen 2024 (Helsenorge-bruk og kjennskap) – <a
+href="https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester/funn-og-analyser/kjennskap-til-bruk-av-og-inntrykk-av-helsenorge"
+class="uri">https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester/funn-og-analyser/kjennskap-til-bruk-av-og-inntrykk-av-helsenorge</a></li>
+<li>SSB: Slik bruker nordmenn kunstig intelligens (2025) – <a
+href="https://www.ssb.no/teknologi-og-innovasjon/informasjons-og-kommunikasjonsteknologi-ikt/artikler/slik-bruker-nordmenn-kunstig-intelligens"
+class="uri">https://www.ssb.no/teknologi-og-innovasjon/informasjons-og-kommunikasjonsteknologi-ikt/artikler/slik-bruker-nordmenn-kunstig-intelligens</a></li>
+<li>SSB statistikkbank tabell 14365 – <a
+href="https://www.ssb.no/statbank/table/14365"
+class="uri">https://www.ssb.no/statbank/table/14365</a></li>
+<li>SINTEF/UiO via Forskning.no (2026) – <a
+href="https://www.forskning.no/barn-og-ungdom-helsetjenester-informasjonsteknologi/mental-helse-unge-far-bedre-svar-av-chatgpt-enn-av-fagfolk/2645803"
+class="uri">https://www.forskning.no/barn-og-ungdom-helsetjenester-informasjonsteknologi/mental-helse-unge-far-bedre-svar-av-chatgpt-enn-av-fagfolk/2645803</a></li>
+</ul>
+<hr />
+<h2 id="kunnskapshull-og-videre-arbeid">Kunnskapshull og videre
+arbeid</h2>
+<ol type="1">
+<li><strong>Ingen helhetlig offentlig vurdering av verdikjeden.</strong>
+Utnyttet eksplisitt i presentasjonen som evidens for R1 (manglende
+styringsmandat): lagt inn som fjerde tema på slide 8 («Hvorfor
+utfordringene må forstås samlet») og som utdyping av R1/R5-linjen på
+slide 11 («Hva alternativene dekker – og ikke»). Bevisst ikke lagt på
+slide 3, for å holde det som <em>evidens for rotårsak</em> der
+argumentet bygges, ikke som ny påstand på problem-sliden.</li>
+<li><strong>Tallparet 99 %/54 %</strong> brukes ellers i presentasjonen
+(bl.a. slide 6) – konsistens i årstall/populasjon/variabel utestående,
+vurderes senere (jf. brukerbeslutning).</li>
+<li><strong>Norsk prevalens for KI-bruk til helse spesifikt</strong>
+finnes ikke per 2026-05; kun generell KI-bruk (SSB) + internasjonale
+helse-tall.</li>
+<li><strong>Bastian et al. (2010)-tallene</strong> (75 studier/dag) er
+fra 2007 og bør oppdateres ved senere bruk.</li>
+<li><strong>Casestudiene</strong> kan reintroduseres senere som intern
+[ANT]-analyse med Frontiers-forbehold, men ikke som dokumentert faktum
+på forankringsslide.</li>
+<li><strong>Røttingen-rapporten</strong> er gjennomgått separat i <a
+href="rottingen-utfordringsbildet.md">rottingen-utfordringsbildet.md</a>.
+Den er en norsk offentlig primærkilde som styrker kulepunkt 3 /
+hovedsetning (b) (kap. 9.2: «Helsenorge.no bør være eneste skriftlige
+informasjonskanal»), implementeringsgapet R5 (kap. 7.2, 11.1) og
+verifiserer slide 11s henvisning til Forum for faglig normering (kap.
+11.9). Forbehold: Røttingen forkaster helkjede-/verdikjedemodell (kap.
+3.2) – R1-budskapet må formuleres som <em>manglende helhetlig
+styring</em>, ikke krav om én verdikjede-eier.</li>
+</ol>
+<hr />
+<h2 id="endringslogg">Endringslogg</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Endring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-19</td>
+<td>Notat opprettet. Slide 3 revidert i
+<code>Presentasjoner/utfordringsbildet-forankring.pptx</code>: kulepunkt
+1 fjernet, kulepunkt 2 og 3 omformulert. Backup av original lagret.</td>
+</tr>
+<tr>
+<td>2026-05-19</td>
+<td>Fraværsfunnet (ingen helhetlig vurdering) lagt inn som evidens for
+R1 på slide 8 (fjerde tema) og slide 11 (utdyping av R1/R5-linjen).</td>
+</tr>
+<tr>
+<td>2026-05-20</td>
+<td>Slide 8 (D5) revidert: tallparet 99/54 erstattet med bruk-mot-bruk
+(51 % Helsenorge generell helseinfo vs. 54 % gen. KI; 80 % blant 16–24
+år). Kulepunkt 2 styrket med SINTEF/UiO-tall (52 % unge foretrekker
+ChatGPT). Verifisert direkte mot Hdir 2024-kilden. NB:
+presentasjonsstruktur er endret siden 2026-05-19 – slide som tidligere
+het «slide 6» i denne sammenheng heter nå slide 8.</td>
+</tr>
+</tbody>
+</table>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

@@ -331,6 +331,41 @@ i løpet av 3-5 år:
    med kommersielle alternativer, kan det undergrave
    tilliten til helsemyndighetene.
 
+### 4.4 Løsningsdimensjoner – aksene i løsningsrommet
+
+Forankring av en løsning forutsetter først enighet
+om dimensjonene i løsningsrommet. Rotårsakene R1–R6
+er gruppert i fire akser som beskriver de
+beslutningsdimensjonene enhver løsning må ta stilling
+til. Dimensjonene er utledet og dokumentert i
+[delrapport 2 kap. 9.7](utfordringer-og-flaskehalser.md)
+og brukes som hovedlins i forankrings­presentasjonen
+`utfordringsbildet-forankring.pptx`.
+
+| Akse | Spenning | Rotårsaker |
+|---|---|---|
+| Menneskedrevet ←→ KI-drevet | Hvor mye av kunnskapsproduksjonen skal automatiseres? | R2, R3 |
+| Fragmentert ←→ Sammenhengende | Ulike systemer og aktører, eller én samordnet kjede? | R4, R1 |
+| Frivillig ←→ Forpliktende | Implementering på fagmiljøenes initiativ, eller styringskrav? | R5 |
+| Behovsstyrt ←→ Kontinuerlig oppdatering | Oppdatering når det utløses, eller kontinuerlig oppdatering basert på innstrømmende evidens? | R3, R6 |
+
+Verdikjeden befinner seg i dag nær venstre side av
+alle fire aksene. Alternativene i delrapport 4
+representerer ulike bevegelser langs disse aksene:
+nullalternativet beveger seg ikke; alternativ 1
+beveger seg primært langs aksene 2 og 3 (organisasjon
+og styring); alternativ 2 og 3 beveger seg primært
+langs aksene 1 og 4 (KI og lærende kjede). Ingen av
+alternativene dekker alle aksene fullt ut – noe som
+forklarer hvorfor parallelle organisatoriske tiltak
+er nødvendige uansett valg av teknologisk
+alternativ.
+
+Aksene fungerer dermed som **sjekkliste for
+fullstendighet**: et alternativ som ikke beveger seg
+langs én av aksene, adresserer ikke den tilhørende
+rotårsaken.
+
 ---
 
 ## 5. Virkninger, varighet og fordelingsvirkninger

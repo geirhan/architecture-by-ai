@@ -1227,9 +1227,70 @@ primærdata:
   ustrukturert fritekst direkte, andre krever
   strukturerte data.
 
+### 9.7 Løsningsdimensjoner – aksene i løsningsrommet
+
+Mens rotårsakene R1–R6 beskriver *hvorfor*
+verdikjeden ikke leverer, beskriver
+løsningsdimensjonene *hvilke spenninger* enhver
+løsning må ta stilling til. Dimensjonene er
+utledet ved å gruppere rotårsakene etter typen
+beslutning de utløser, og uttrykt som akser
+fremfor bokser for å understreke at de er
+gradvise valgrom – ikke enten-eller.
+
+Fire akser dekker rotårsakene:
+
+| Akse | Spenning | Rotårsaker adressert |
+|---|---|---|
+| **Menneskedrevet ←→ KI-drevet** | Hvor mye av kunnskapsproduksjonen skal automatiseres? | R2 (pre-digital design), R3 (kapasitet skalerer ikke) |
+| **Fragmentert ←→ Sammenhengende** | Ulike systemer og aktører, eller én samordnet kjede? | R4 (fragmentert IT/kodeverk), R1 (styringsmandat) |
+| **Frivillig ←→ Forpliktende** | Implementering på fagmiljøenes initiativ, eller styringskrav? | R5 (manglende insentiver/eierskap) |
+| **Behovsstyrt ←→ Kontinuerlig oppdatering** | Oppdatering når det utløses, eller kontinuerlig oppdatering basert på innstrømmende evidens? | R3 (kapasitet), R6 (feedback/måling) |
+
+**Posisjon i dag:** for hver akse befinner
+verdikjeden seg nær venstre side. Det er
+dokumentert av kildene gjennomgått tidligere i
+denne rapporten samt i
+[rolledeling-sentral-helseforvaltning.md](rolledeling-sentral-helseforvaltning.md)
+og [rottingen-utfordringsbildet.md](rottingen-utfordringsbildet.md).
+
+**Funksjon:**
+1. *Bro mellom analyse og valg.* Aksene
+   operasjonaliserer rotårsakene som
+   beslutningsdimensjoner, slik at konkrete
+   tiltak (delrapport 4) kan plasseres i
+   forhold til hver akse.
+2. *Forankringsverktøy.* Aksene gjør det mulig
+   å forankre *retning* uten å forskuttere
+   konkrete løsninger. De er brukt som hovedlins
+   i forankrings­presentasjonen
+   `utfordringsbildet-forankring.pptx`
+   (slide 13).
+3. *Sjekkliste for alternativer.* Et alternativ
+   som ikke beveger seg langs én av aksene
+   adresserer ikke den tilhørende rotårsaken.
+   Aksene gir dermed en strukturert måte å
+   teste fullstendigheten av et tiltak.
+
+**Forhold til andre rammeverk i prosjektet:**
+- *Tre kjerneegenskaper* (delrapport 1) –
+  skalerbarhet, reaktivitet, sammenheng –
+  operasjonaliseres som aksene 1+3, 4 og 2.
+- *Teknologi/organisasjon-distinksjonen*
+  (kap. 9.5) – aksene 1 og 4 ligger primært på
+  teknologi-/prosess-siden, aksene 2 og 3 på
+  organisasjon-/styringssiden.
+
+**Avgrensning.** Aksene er en analytisk lins, ikke
+i seg selv et tiltak. Hvor langt langs hver akse
+verdikjeden bør bevege seg, og i hvilken
+rekkefølge, er gjenstand for utredning i
+delrapport 4 og 7. Aksene legger til rette for
+den utredningen; de gir ikke svar på den.
+
 ---
 
-Sist oppdatert: 2026-04-27
+Sist oppdatert: 2026-05-20
 
 ---
 

@@ -32,6 +32,11 @@ OVERRIDES = {
     "internasjonale-erfaringer.md": ("internasjonale-erfaringer.html", "Internasjonal erfaring"),
     "samlet-vurdering-kunnskapsforvaltning.md": ("samlet-vurdering.html", "Samlet vurdering"),
     "aktoeranalyse.md": ("aktoeranalyse.html", "Aktøranalyse"),
+    "casestudier-forsinkelser.md": ("casestudier-forsinkelser.html", "Casestudier"),
+    "rolledeling-sentral-helseforvaltning.md": ("rolledeling-sentral-helseforvaltning.html", "Rolledeling"),
+    "kildeforankring-slide3.md": ("kildeforankring-slide3.html", "Kildeforankring"),
+    "rottingen-utfordringsbildet.md": ("rottingen-utfordringsbildet.html", "Røttingen-rapporten"),
+    "talepunkter-akser.md": ("talepunkter-akser.html", "Talepunkter (akser)"),
 }
 
 # Faste navigasjonselementer som alltid vises først/sist
