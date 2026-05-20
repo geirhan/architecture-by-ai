@@ -1,7 +1,8 @@
-# Talepunkter – slide 13: «Hvor langt kan eller må vi gå i endring?»
+# Talepunkter – slide 13 og 14 (aksene)
 
 **Gjelder:** Presentasjonen `Presentasjoner/utfordringsbildet-forankring.pptx`,
-slide 13 (Dimensjoner i løsningsrommet, fire akser).
+slide 13 («Hvor langt kan eller må vi gå i endring?» – de fire aksene med
+spørsmål) og slide 14 («Aksene svarer ut rotårsakene» – matrise R1–R6 × akser).
 **Utarbeidet:** 2026-05-20
 **Formål:** Strukturere muntlig formidling som binder aksene til rotårsaker
 (R1–R6) og kildegrunnlag uten å tynge sliden visuelt. Alle utsagn er
@@ -111,6 +112,56 @@ forankret i kilder dokumentert ellers i prosjektet.
 
 ---
 
+## Slide 14 – «Aksene svarer ut rotårsakene»
+
+**Bro fra slide 13:**
+
+> «Hvorfor disse fire aksene, og ikke andre? Fordi de svarer ut de seks
+> rotårsakene vi identifiserte i utfordringsbildet. Slik henger det
+> sammen:»
+
+**Matrisen viser:**
+
+| Rotårsak | Adresseres av |
+|---|---|
+| R1 Styringsmandat | Fragmentert↔Sammenhengende (○ delvis) |
+| R2 Pre-digital design | Menneskedrevet↔KI-drevet |
+| R3 Kapasitet | Menneskedrevet↔KI-drevet + Behovsstyrt↔Kontinuerlig |
+| R4 IT-fragmentering | Fragmentert↔Sammenhengende |
+| R5 Impl.insentiver | Frivillig↔Forpliktende (○ delvis) |
+| R6 Feedback/måling | Behovsstyrt↔Kontinuerlig |
+
+**Talepunkter:**
+
+- Hver rotårsak har **minst én** akse som adresserer den. Det er ikke
+  tilfeldig – aksene er konstruert som operasjonalisering av
+  rotårsakene.
+- **R3 (kapasitet)** dekkes av *to* akser. Det er fordi
+  kapasitetsutfordringen har to dimensjoner: hva som produseres
+  (mer effektivt via KI) og hvor ofte (kontinuerlig oppdatering
+  fremfor episodisk). Begge må adresseres.
+- **R1 og R5 er merket med ○ (delvis).** Det betyr at aksene gir
+  retning, men ikke full løsning:
+    - R1 (styringsmandat) krever også politiske grep – lovfesting av
+      oppgavedeling mellom FHI, Hdir og NHN, departemental styring
+      av e-helseutvikling (jf. Røttingen kap. 11.9, Riksrevisjonen
+      2021).
+    - R5 (implementeringsinsentiver) krever også samordning med
+      refusjonskjeden – ikke kun bevegelse mot mer forpliktende
+      implementering generelt.
+- **Hva betyr matrisen for forankringen?** At enighet om bevegelse
+  langs aksene er nødvendig, men ikke tilstrekkelig: politiske
+  beslutninger må komme parallelt med tekniske/prosessuelle valg.
+
+**Sentral setning:**
+
+> «Aksene er ikke alternativer til rotårsaksrammeverket – de er svaret
+> på det. Men der R1 og R5 dukker opp som delvis adressert, vet vi at
+> teknologiske valg alene ikke holder. Det er der politiske grep må
+> løpe parallelt.»
+
+---
+
 ## Forventede spørsmål og svar
 
 **«Er ikke dette bare omformulering av R1–R6?»**
@@ -137,9 +188,9 @@ dagens posisjon er størst.
 | Slide | Sammenheng |
 |---|---|
 | Slide 9 (tre kjerneegenskaper) | Skalerbarhet, reaktivitet, sammenheng – aksene operasjonaliserer disse |
-| Slide 10 (R1–R6) | Hver akse adresserer én eller flere rotårsaker |
+| Slide 10 (R1–R6) | Hver akse adresserer én eller flere rotårsaker (vises eksplisitt på slide 14) |
 | Slide 11 (helhetlig analyse) | Linjen om «teknologi + organisasjon» tilsvarer henholdsvis akse 1+4 og akse 2+3 |
-| Slide 14 (veien videre) | «Forankre dimensjonene», «utrede løsningsrom per dimensjon», «bevegelse langs aksene» |
+| Slide 15 (veien videre) | «Forankre dimensjonene», «utrede løsningsrom per dimensjon», «bevegelse langs aksene» |
 
 ---
 
@@ -149,3 +200,4 @@ dagens posisjon er størst.
 |---|---|
 | 2026-05-20 | Notat opprettet. Talepunkter for slide 13s fire akser. |
 | 2026-05-20 | Akse 4 omformulert fra «Statisk ↔ Lærende» til «Behovsstyrt ↔ Kontinuerlig oppdatering». Termene «statisk»/«lærende» ble vurdert som verdiladede og ikke dekkende for det reelle designvalget, som handler om kadens i kunnskapsoppdatering. |
+| 2026-05-20 | Ny slide 14 «Aksene svarer ut rotårsakene» satt inn med matrise R1–R6 × 4 akser. Talepunkter for slide 14 lagt til. Tidligere slide 14/15 forskjøvet til 15/16. |

@@ -1247,6 +1247,41 @@ Fire akser dekker rotårsakene:
 | **Frivillig ←→ Forpliktende** | Implementering på fagmiljøenes initiativ, eller styringskrav? | R5 (manglende insentiver/eierskap) |
 | **Behovsstyrt ←→ Kontinuerlig oppdatering** | Oppdatering når det utløses, eller kontinuerlig oppdatering basert på innstrømmende evidens? | R3 (kapasitet), R6 (feedback/måling) |
 
+**Hvordan aksene svarer ut rotårsakene** (motsatt perspektiv av tabellen
+over – fra rotårsak til akse, med full/delvis-nyansering):
+
+<!-- markdownlint-disable MD013 -->
+
+| Rotårsak | Menneske↔KI | Fragm.↔Samm. | Frivillig↔Forplikt. | Behovsstyrt↔Kont. |
+| --- | :---: | :---: | :---: | :---: |
+| **R1** Manglende helhetlig styringsmandat | | ○ | | |
+| **R2** Verdikjeden designet for pre-digital tid | ● | | | |
+| **R3** Kapasitet skalerer ikke med forskningsvolum | ● | | | ● |
+| **R4** Fragmentert IT-landskap og ulike kodeverk | | ● | | |
+| **R5** Manglende insentiver/eierskap for impl. | | | ○ | |
+| **R6** Manglende feedback- og målemekanismer | | | | ● |
+
+<!-- markdownlint-enable MD013 -->
+
+**●** = aksen adresserer rotårsaken
+**○** = aksen adresserer rotårsaken *delvis* – krever også politiske tiltak
+utenfor selve aksen
+
+**Hva nyanseringen ○ betyr i praksis:**
+
+- **R1** (styringsmandat) får retning gjennom aksen *Fragmentert ↔
+  Sammenhengende*, men full oppløsning krever også lovfesting av
+  oppgavedeling mellom FHI, Hdir og NHN samt departemental styring
+  (jf. Røttingen kap. 11.9, Riksrevisjonen 2021).
+- **R5** (implementeringsinsentiver) får retning gjennom aksen
+  *Frivillig ↔ Forpliktende*, men full oppløsning krever også
+  samordning med refusjonskjeden – ikke kun mer forpliktende
+  implementering generelt.
+
+Dette underbygger konklusjonen i kap. 9.5: tekniske valg langs aksene
+må kombineres med organisatorisk-politiske tiltak for at R1 og R5
+skal adresseres fullt.
+
 **Posisjon i dag:** for hver akse befinner
 verdikjeden seg nær venstre side. Det er
 dokumentert av kildene gjennomgått tidligere i
