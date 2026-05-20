@@ -122,6 +122,29 @@
   rolledeling kap. 5.5.
 - **Sist oppdatert**: 2026-04-21
 
+### okosystem-verdikjede.html
+
+- **Beskrivelse**: Interaktiv økosystemvisualisering med
+  **målet i sentrum** – ikke verdikjeden. Sentrum:
+  "Gode, kunnskapsbaserte helsebeslutninger". Fire
+  konsentriske ringer organisert etter rolle i å oppnå
+  målet: (1) Beslutningstakere – innbyggere, pasienter,
+  fastleger, sykehus-/kommunalt helsepersonell,
+  politikere/ledere; (2) Offentlig verdikjede (norsk) –
+  FHI, Hdir, RHF, KS, helsenorge.no, FNSP, DMP,
+  Felleskat./RELIS, fagmed. foreninger, Tidsskriftet;
+  (3) Andre kunnskapsleverandører – internasjonal
+  forskning, Cochrane/WHO, UpToDate/BMJ, NHI.no, pasient-
+  organisasjoner, medier, sosiale medier, KI-tjenester,
+  utenlandske helsenettsider, venner og familie;
+  (4) Rammesettere og infrastruktur – Stortinget, HOD,
+  EU, EMA/WHO, Datatilsynet/Språkrådet/PFU, NHN,
+  Helsebiblioteket, EPJ-leverandører, Wolters Kluwer/BMJ,
+  Bonnier, OUS, legemiddelindustrien. Reflekterer at
+  verdikjeden er ett av flere bidrag til målet, ikke
+  økosystemets sentrum.
+- **Sist oppdatert**: 2026-05-13
+
 ### motivasjonsmodell-kunnskapsforvaltning.xml
 
 - **Beskrivelse**: ArchiMate motivasjonsmodell i Open
