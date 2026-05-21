@@ -92,9 +92,23 @@ endringer i arbeidsprosesser.
 - **Kompetanseflukt**: Fagpersoner som ønsker å arbeide
   med moderne verktøy kan søke seg bort fra offentlig
   sektor dersom arbeidsformene ikke moderniseres.
-- **Regulatorisk etterslep**: Dersom EHDS og EU AI Act
-  forutsetter visse digitale kapabiliteter, kan Norge
-  risikere å ikke oppfylle fremtidige krav.
+- **Regulatorisk etterslep**: EHDS (Forordning
+  2025/327) krever at EHR-systemer kan eksportere og
+  importere strukturert pasientinformasjon i felles
+  europeisk format innen 2029 (art. 14(1) og 15(1)), og
+  at helseforetak og kommuner gjør datasett tilgjengelig
+  for sekundærbruk (art. 51) fra samme tidspunkt. EU AI
+  Act (Forordning 2024/1689) stiller fra august 2026
+  krav om dokumentert datakvalitet (art. 10),
+  transparens (art. 13) og post-market overvåking
+  (art. 72) for høyrisiko-KI. Forordningene forutsetter
+  strukturert, maskinlesbar helseinformasjon og
+  systematiske feedback-mekanismer – kapabiliteter
+  dagens verdikjede ikke har på plass. *EHDS regulerer
+  primært deling av pasientdata, ikke direkte produksjon
+  av oversikter, retningslinjer eller innbyggerinfo;
+  etterslepet for disse leddene er indirekte. Se
+  kildeforankring i `regulatorisk-etterslep.md`.*
 
 ### 2.4 Kostnad
 

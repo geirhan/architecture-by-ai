@@ -153,6 +153,20 @@
   merket [DOK]/[ANT].
 - **Sist oppdatert**: 2026-05-19
 
+### [Regulatorisk etterslep – EHDS og EU AI Act](regulatorisk-etterslep.md)
+
+- **Beskrivelse**: Kildeforankring av påstanden
+  «regulatorisk etterslep» (delrapport 4 kap. 2.3,
+  delrapport 7 kap. 4.2, slide 12) mot konkrete
+  artikler i EHDS (Forordning 2025/327) og EU AI Act
+  (Forordning 2024/1689). Avgrensning: EHDS treffer
+  ikke kjerneleddene (oversikter, retningslinjer,
+  innbyggerinfo) direkte; sterkeste direkte kobling er
+  AI Act art. 10 vs. fritekst/fragmentering (R2/R4).
+  Frister: aug. 2026 / mars 2029 / mars 2031. Alle
+  utsagn merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-05-21
+
 ### [HTML-versjon](html/index.html)
 
 - **Beskrivelse**: Navigerbar HTML-versjon av hele

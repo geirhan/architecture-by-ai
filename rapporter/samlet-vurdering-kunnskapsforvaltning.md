@@ -323,9 +323,20 @@ i løpet av 3-5 år:
    bruker allerede ChatGPT, Gemini og lignende tjenester
    for helseinformasjon. Uten et kvalitetssikret
    offentlig alternativ vil denne trenden akselerere.
-3. **Regulatorisk etterslep.** EHDS og EU AI Act
-   forutsetter digital modenhet som dagens verdikjede
-   ikke har.
+3. **Regulatorisk etterslep.** EHDS (Forordning
+   2025/327) krever strukturert, delbar elektronisk
+   helseinformasjon i standardformat innen 2029
+   (art. 14 og 15) og tilgjengeliggjøring for
+   sekundærbruk (art. 51). EU AI Act (Forordning
+   2024/1689) krever dokumentert datakvalitet (art. 10),
+   transparens (art. 13) og systemovervåking (art. 72)
+   for høyrisiko-KI fra august 2026. Dagens verdikjede –
+   preget av fritekst og fragmenterte IT-systemer –
+   oppfyller ikke disse kravene i sin nåværende form.
+   EHDS treffer likevel ikke kjerneleddene (oversikter,
+   retningslinjer, innbyggerinfo) direkte; for disse er
+   etterslepet indirekte. Kildeforankring:
+   `regulatorisk-etterslep.md`.
 4. **Tillitserodering.** Dersom offentlig
    helseinformasjon oppleves som utdatert sammenlignet
    med kommersielle alternativer, kan det undergrave
