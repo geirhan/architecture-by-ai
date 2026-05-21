@@ -38,6 +38,7 @@ OVERRIDES = {
     "rottingen-utfordringsbildet.md": ("rottingen-utfordringsbildet.html", "Røttingen-rapporten"),
     "talepunkter-akser.md": ("talepunkter-akser.html", "Talepunkter (akser)"),
     "regulatorisk-etterslep.md": ("regulatorisk-etterslep.html", "Regulatorisk etterslep"),
+    "verdikjede-som-okosystem.md": ("verdikjede-som-okosystem.html", "Verdikjede som økosystem"),
 }
 
 # Faste navigasjonselementer som alltid vises først/sist
