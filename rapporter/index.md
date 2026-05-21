@@ -167,6 +167,23 @@
   utsagn merket [DOK]/[ANT].
 - **Sist oppdatert**: 2026-05-21
 
+### [Verdikjeden sett som et økosystem](verdikjede-som-okosystem.md)
+
+- **Beskrivelse**: Perspektivnotat som skifter linsen fra
+  lineær verdikjede til økosystem, med **målet** – gode
+  kunnskapsbaserte helsebeslutninger – i sentrum og fire
+  sfærer rundt (beslutningstakere, offentlig verdikjede,
+  andre kunnskapsleverandører, rammesettere/infrastruktur).
+  Etablerer økosystemteori (keystone/plattform/nisje,
+  generativitet, governance), forklarer hvorfor offentlig
+  verdikjede konkurrerer om innbyggerens oppmerksomhet, og
+  hvorfor styring blir orkestrering – ikke kontroll. Kobler
+  til D1–D6, R1–R6, kjerneegenskaper og de fire aksene. Gir
+  teoretisk fundament til `okosystem-verdikjede.html`. Alle
+  utsagn merket [DOK]/[ANT]; modellen er en analytisk lins,
+  ikke et nytt empirisk funn.
+- **Sist oppdatert**: 2026-05-21
+
 ### [HTML-versjon](html/index.html)
 
 - **Beskrivelse**: Navigerbar HTML-versjon av hele

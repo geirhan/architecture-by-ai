@@ -122,6 +122,23 @@
   rolledeling kap. 5.5.
 - **Sist oppdatert**: 2026-04-21
 
+### verdikjede-til-okosystem.html
+
+- **Beskrivelse**: Interaktiv «snakke-rundt»-visualisering
+  som morfer mellom to perspektiver på samme bilde:
+  (1) **Verdikjeden** – en lineær kjede (forskning →
+  oppsummering → retningslinjer → formidling →
+  innbyggeren til slutt); (2) **Økosystemet** – samme
+  noder animeres til konsentriske ringer rundt **målet**
+  i sentrum, og innbyggeren flyttes fra enden av kjeden
+  til kjernen, mens andre kunnskapskilder (KI, sosiale
+  medier, utenlandske nettsider, medier m.m.) toner inn.
+  Skifte med knapp eller piltaster; fortellertekst per
+  tilstand. Designet for å presentere perspektivskiftet
+  muntlig. Basert på notatet «Verdikjeden sett som et
+  økosystem». Søsterfigur til okosystem-verdikjede.html.
+- **Sist oppdatert**: 2026-05-21
+
 ### okosystem-verdikjede.html
 
 - **Beskrivelse**: Interaktiv økosystemvisualisering med

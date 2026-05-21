@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fra verdikjede til økosystem</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+  }
+  header {
+    background: #003366;
+    color: #fff;
+    padding: 1.5rem 1.5rem 1.3rem;
+    text-align: center;
+  }
+  header h1 { font-size: 1.5rem; margin-bottom: 0.35rem; }
+  header p { font-size: 0.92rem; opacity: 0.92; max-width: 820px; margin: 0 auto; }
+  .source-ref {
+    text-align: center;
+    padding: 9px 1.5rem;
+    background: #eef2f7;
+    color: #444;
+    font-size: 0.82rem;
+    border-bottom: 1px solid #d9e0ea;
+  }
+
+  /* Bryter mellom de to tilstandene */
+  .switch-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 16px;
+    background: #fafbfd;
+    border-bottom: 1px solid #e3e8ef;
+  }
+  .switch {
+    display: inline-flex;
+    border: 2px solid #003366;
+    border-radius: 999px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .switch button {
+    border: 0;
+    background: transparent;
+    color: #003366;
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 10px 26px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-family: inherit;
+  }
+  .switch button.active {
+    background: #003366;
+    color: #fff;
+  }
+  .switch button:focus-visible { outline: 3px solid #7fa6c8; outline-offset: 2px; }
+
+  .stage-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 8px 16px 0;
+  }
+  .canvas {
+    background: #fff;
+    border: 1px solid #e3e8ef;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+
+  /* Animasjon av noder mellom de to layoutene */
+  .node {
+    transition: transform 1.0s cubic-bezier(.65,.05,.36,1);
+    cursor: default;
+  }
+  .node rect {
+    transition: fill 0.6s, stroke 0.6s;
+  }
+  .node-label {
+    font-size: 12px;
+    fill: #1f2a3a;
+    text-anchor: middle;
+    pointer-events: none;
+    font-weight: 500;
+  }
+  .node-label.light { fill: #fff; }
+
+  /* Piler/forbindelser som fades inn/ut per tilstand */
+  .link {
+    stroke: #6c7a8a;
+    stroke-width: 2;
+    fill: none;
+    marker-end: url(#arrow);
+    transition: opacity 0.6s;
+  }
+  .ring {
+    fill: none;
+    stroke-dasharray: 5 5;
+    transition: opacity 0.7s;
+  }
+  .ring-label {
+    font-size: 11px;
+    fill: #5a6573;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-anchor: middle;
+    transition: opacity 0.7s;
+  }
+  .stage-label {
+    font-size: 13px;
+    fill: #1f2a3a;
+    text-anchor: middle;
+    transition: opacity 0.6s;
+  }
+
+  /* Fortellertekst-panel */
+  .narrative {
+    max-width: 1080px;
+    margin: 14px auto 0;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .narr-card {
+    background: #fff;
+    border: 1px solid #e3e8ef;
+    border-left: 5px solid #c7d0db;
+    border-radius: 8px;
+    padding: 14px 16px;
+    transition: border-left-color 0.3s, box-shadow 0.3s, opacity 0.3s;
+    opacity: 0.55;
+  }
+  .narr-card.on {
+    opacity: 1;
+    border-left-color: #003366;
+    box-shadow: 0 2px 10px rgba(0,51,102,0.10);
+  }
+  .narr-card h3 { color: #003366; font-size: 1.02rem; margin-bottom: 6px; }
+  .narr-card p { font-size: 0.9rem; color: #333; margin-bottom: 6px; }
+  .narr-card p:last-child { margin-bottom: 0; }
+  .narr-card .takeaway {
+    font-weight: 600;
+    color: #1f2a3a;
+  }
+
+  .controls {
+    text-align: center;
+    padding: 16px;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  .controls kbd {
+    background: #eef2f7;
+    border: 1px solid #c7d4e2;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: #003366;
+  }
+
+  footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8rem;
+    color: #555;
+    background: #eef2f7;
+    border-top: 1px solid #d9e0ea;
+    margin-top: 18px;
+  }
+  footer a { color: #003366; }
+
+  @media (max-width: 760px) {
+    .narrative { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fra verdikjede til økosystem</h1>
+  <p>Det samme bildet, sett på to måter. Klikk for å skifte perspektiv – og se hva som blir synlig når målet, ikke kjeden, settes i sentrum.</p>
+</header>
+<div class="source-ref">
+  Basert på <strong>notatet «Verdikjeden sett som et økosystem»</strong>, delrapport 1, 2 og 8 · Klikk knappene eller bruk piltastene
+</div>
+
+<div class="switch-bar">
+  <div class="switch" role="tablist" aria-label="Velg perspektiv">
+    <button id="btn-chain" class="active" role="tab" aria-selected="true">① Verdikjede</button>
+    <button id="btn-eco" role="tab" aria-selected="false">② Økosystem</button>
+  </div>
+</div>
+
+<div class="stage-wrap">
+  <div class="canvas">
+    <svg id="stage" viewBox="0 0 1000 640" role="img" aria-label="Figur som veksler mellom verdikjede og økosystem">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c7a8a"/>
+        </marker>
+        <radialGradient id="g-core" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#1a4d80"/>
+          <stop offset="100%" stop-color="#003366"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Konsentriske ringer (kun synlige i økosystem-tilstand) -->
+      <g id="rings">
+        <circle class="ring" cx="500" cy="320" r="290" stroke="#c9dbc9"/>
+        <circle class="ring" cx="500" cy="320" r="205" stroke="#e8c9d0"/>
+        <circle class="ring" cx="500" cy="320" r="120" stroke="#a7c2e0"/>
+        <text class="ring-label" x="500" y="48">Rammesettere og infrastruktur</text>
+        <text class="ring-label" x="500" y="133">Andre kunnskapskilder</text>
+        <text class="ring-label" x="500" y="218">Offentlig verdikjede</text>
+      </g>
+
+      <!-- Forbindelser (settes av JS, ulike per tilstand) -->
+      <g id="links"></g>
+
+      <!-- Sentrum / mål (sirkel i økosystem, usynlig i kjede) -->
+      <g id="core">
+        <circle id="core-circle" cx="500" cy="320" r="78" fill="url(#g-core)"/>
+        <text id="core-t1" x="500" y="306" text-anchor="middle" fill="#fff" style="font-size:12px;font-weight:700;letter-spacing:.3px">MÅLET</text>
+        <text id="core-t2" x="500" y="326" text-anchor="middle" fill="#fff" style="font-size:11px;font-weight:600">Gode kunnskaps-</text>
+        <text id="core-t3" x="500" y="342" text-anchor="middle" fill="#fff" style="font-size:11px;font-weight:600">baserte beslutninger</text>
+      </g>
+
+      <!-- Tilstandsetiketter -->
+      <text id="chain-caption" class="stage-label" x="500" y="600">Kunnskap flyter i ett spor – innbyggeren står til slutt</text>
+
+      <!-- Noder (posisjoneres av JS) -->
+      <g id="nodes"></g>
+    </svg>
+  </div>
+</div>
+
+<div class="narrative">
+  <div class="narr-card" id="narr-chain">
+    <h3>① Verdikjeden</h3>
+    <p>Slik beskriver vi vanligvis kunnskapsforvaltning: forskning → kunnskapsoppsummering → anvendelse, og til slutt innbyggeren. Ett spor, klare ledd, klart ansvar.</p>
+    <p class="takeaway">Modellen er presis for hvordan offentlig kunnskap <em>produseres</em> – men den antar at innbyggeren venter ved enden av kjeden.</p>
+  </div>
+  <div class="narr-card" id="narr-eco">
+    <h3>② Økosystemet</h3>
+    <p>Sett målet i sentrum, så endrer bildet seg: innbyggeren og klinikeren henter kunnskap fra <em>mange</em> kilder samtidig. Den offentlige verdikjeden er én av dem – ofte den tregeste – og konkurrerer med raske, men variable kanaler (sosiale medier, KI, utenlandske nettsider).</p>
+    <p class="takeaway">Konsekvens: styring blir <em>orkestrering</em>, ikke kontroll. Vi rår ikke over kildene innbyggeren faktisk bruker.</p>
+  </div>
+</div>
+
+<div class="controls">
+  Naviger med <kbd>←</kbd> / <kbd>→</kbd> eller <kbd>mellomrom</kbd> · eller klikk knappene over.
+</div>
+
+<footer>
+  Visualisering basert på <strong><a href="../rapporter/verdikjede-som-okosystem.md">notatet «Verdikjeden sett som et økosystem»</a></strong>
+  (2026-05-21), som igjen bygger på delrapport 1, 2 og 8.<br>
+  Søsterfigur: <a href="okosystem-verdikjede.html">det fulle økosystemkartet med alle aktører</a>.
+  Modellen er en analytisk lins, ikke et nytt empirisk funn.
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// To layouter for de samme nodene: KJEDE (lineær rad) og ØKOSYSTEM (ringer).
+// Nodene beholder identitet og animeres mellom posisjonene (transform).
+// ---------------------------------------------------------------------------
+const cx = 500, cy = 320;
+const NODE_W = 116, NODE_H = 40;
+
+function polar(angleDeg, radius) {
+  const a = (angleDeg - 90) * Math.PI / 180;
+  return { x: cx + radius * Math.cos(a), y: cy + radius * Math.sin(a) };
+}
+
+// Nodene. chain = posisjon i kjede-tilstand, eco = posisjon i økosystem-tilstand.
+// ring: 'vk' (offentlig verdikjede), 'andre', 'ramme' – styrer farge og eco-radius.
+// I kjede-tilstand vises bare verdikjede-leddene + innbygger; andre/ramme er skjult.
+const nodes = [
+  // --- Offentlig verdikjede (vises i begge tilstander) ---
+  { id:'forskning', label:'Forskning', ring:'vk',
+    chain:{x:150, y:300}, ecoA:0,   ecoR:205 },
+  { id:'oppsummering', label:'Kunnskaps-|oppsummering', ring:'vk',
+    chain:{x:340, y:300}, ecoA:51,  ecoR:205 },
+  { id:'retningslinje', label:'Retningslinjer|/ anvendelse', ring:'vk',
+    chain:{x:530, y:300}, ecoA:103, ecoR:205 },
+  { id:'helsenorge', label:'helsenorge.no|/ formidling', ring:'vk',
+    chain:{x:720, y:300}, ecoA:154, ecoR:205 },
+  { id:'fastlege', label:'Fastlege /|helsepersonell', ring:'vk',
+    chain:{x:720, y:380}, ecoA:206, ecoR:205, chainHide:true },
+
+  // --- Innbyggeren: i kjeden står den til SLUTT; i økosystemet er den i kjernen ---
+  { id:'innbygger', label:'Innbyggeren', ring:'core',
+    chain:{x:910, y:300}, ecoA:0, ecoR:0 },
+
+  // --- Andre kunnskapskilder (kun synlige i økosystem) ---
+  { id:'intl', label:'Internasjonal|forskning', ring:'andre',
+    chain:{x:500, y:300}, ecoA:25,  ecoR:290, ecoOnly:true },
+  { id:'oppslag', label:'UpToDate /|BMJ', ring:'andre',
+    chain:{x:500, y:300}, ecoA:77,  ecoR:290, ecoOnly:true },
+  { id:'ki', label:'KI-tjenester|(ChatGPT m.fl.)', ring:'andre',
+    chain:{x:500, y:300}, ecoA:128, ecoR:290, ecoOnly:true },
+  { id:'sosiale', label:'Sosiale medier', ring:'andre',
+    chain:{x:500, y:300}, ecoA:180, ecoR:290, ecoOnly:true },
+  { id:'medier', label:'Medier /|helsejourn.', ring:'andre',
+    chain:{x:500, y:300}, ecoA:231, ecoR:290, ecoOnly:true },
+  { id:'utland', label:'Utenlandske|nettsider', ring:'andre',
+    chain:{x:500, y:300}, ecoA:283, ecoR:290, ecoOnly:true },
+  { id:'naerhet', label:'Venner og|familie', ring:'andre',
+    chain:{x:500, y:300}, ecoA:334, ecoR:290, ecoOnly:true },
+];
+
+const COLORS = {
+  vk:    { fill:'#7b9bc9', text:'light' },
+  andre: { fill:'#d99aa6', text:'dark'  },
+  core:  { fill:'#3d6d99', text:'light' },
+};
+
+// Bygg node-elementene én gang
+const gNodes = document.getElementById('nodes');
+nodes.forEach(n => {
+  const c = COLORS[n.ring] || COLORS.vk;
+  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+  g.setAttribute('class','node');
+  g.setAttribute('id','node-'+n.id);
+  const lines = n.label.split('|');
+  g.innerHTML = `
+    <rect x="${-NODE_W/2}" y="${-NODE_H/2}" width="${NODE_W}" height="${NODE_H}" rx="7"
+          fill="${c.fill}" stroke="rgba(0,0,0,0.14)"/>
+    ${lines.map((ln,i,a)=>{
+      const off=(i-(a.length-1)/2)*13;
+      return `<text class="node-label ${c.text==='light'?'light':''}" x="0" y="${off+4}">${ln}</text>`;
+    }).join('')}
+  `;
+  gNodes.appendChild(g);
+  n.el = g;
+});
+
+// Forbindelser: i kjede-tilstand lineære piler ledd→ledd; i øko-tilstand piler kilde→mål
+const gLinks = document.getElementById('links');
+function clearLinks(){ gLinks.innerHTML=''; }
+function addLink(x1,y1,x2,y2,opacity){
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+  // litt buet for økosystem, rett for kjede
+  p.setAttribute('class','link');
+  p.setAttribute('d',`M ${x1} ${y1} L ${x2} ${y2}`);
+  p.style.opacity=opacity;
+  gLinks.appendChild(p);
+  return p;
+}
+
+const core = document.getElementById('core');
+const rings = document.getElementById('rings');
+const chainCaption = document.getElementById('chain-caption');
+const narrChain = document.getElementById('narr-chain');
+const narrEco = document.getElementById('narr-eco');
+const btnChain = document.getElementById('btn-chain');
+const btnEco = document.getElementById('btn-eco');
+
+function place(n, state){
+  let x,y,hidden=false;
+  if(state==='chain'){
+    if(n.ecoOnly || n.chainHide){ hidden=true; }
+    ({x,y} = n.chain);
+  } else {
+    if(n.ring==='core'){ x=cx; y=cy; }
+    else { ({x,y}=polar(n.ecoA, n.ecoR)); }
+  }
+  n.el.style.transform = `translate(${x}px, ${y}px)`;
+  n.el.style.opacity = hidden ? 0 : 1;
+  n.el.style.pointerEvents = hidden ? 'none' : 'auto';
+  n._pos = {x,y};
+}
+
+function render(state){
+  const eco = state==='eco';
+
+  // noder
+  nodes.forEach(n => place(n, state));
+
+  // kjerne + ringer
+  core.style.transition='opacity 0.6s';
+  core.style.opacity = eco ? 1 : 0;
+  rings.style.opacity = eco ? 1 : 0;
+
+  // captions / narrativ
+  chainCaption.style.opacity = eco ? 0 : 1;
+  narrChain.classList.toggle('on', !eco);
+  narrEco.classList.toggle('on', eco);
+
+  // knapper
+  btnChain.classList.toggle('active', !eco);
+  btnEco.classList.toggle('active', eco);
+  btnChain.setAttribute('aria-selected', String(!eco));
+  btnEco.setAttribute('aria-selected', String(eco));
+
+  // forbindelser tegnes etter at posisjoner er satt
+  clearLinks();
+  if(!eco){
+    // lineær kjede: forskning→oppsummering→retningslinje→helsenorge→innbygger
+    const seq=['forskning','oppsummering','retningslinje','helsenorge','innbygger'];
+    for(let i=0;i<seq.length-1;i++){
+      const a=byId(seq[i])._pos, b=byId(seq[i+1])._pos;
+      addLink(a.x+NODE_W/2, a.y, b.x-NODE_W/2, b.y, 0.9);
+    }
+  } else {
+    // økosystem: alle kilder peker mot målet (kjernen)
+    nodes.filter(n=>n.ring!=='core').forEach(n=>{
+      const p=n._pos;
+      const dx=cx-p.x, dy=cy-p.y, len=Math.hypot(dx,dy);
+      const sx=p.x+dx/len*(NODE_W/2-6), sy=p.y+dy/len*(NODE_H/2-2);
+      const ex=cx-dx/len*86, ey=cy-dy/len*86;
+      // offentlig verdikjede markeres med tydeligere pil, andre svakere
+      addLink(sx,sy,ex,ey, n.ring==='vk'?0.85:0.4);
+    });
+  }
+}
+function byId(id){ return nodes.find(n=>n.id===id); }
+
+let state='chain';
+function setState(s){ state=s; render(s); }
+
+btnChain.addEventListener('click', ()=>setState('chain'));
+btnEco.addEventListener('click', ()=>setState('eco'));
+document.addEventListener('keydown', e=>{
+  if(['ArrowRight',' ','Spacebar'].includes(e.key)){ e.preventDefault(); setState('eco'); }
+  else if(e.key==='ArrowLeft'){ e.preventDefault(); setState('chain'); }
+});
+
+// init
+render('chain');
+</script>
+</body>
+</html>
