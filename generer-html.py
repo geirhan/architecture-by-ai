@@ -37,6 +37,7 @@ OVERRIDES = {
     "kildeforankring-slide3.md": ("kildeforankring-slide3.html", "Kildeforankring"),
     "rottingen-utfordringsbildet.md": ("rottingen-utfordringsbildet.html", "Røttingen-rapporten"),
     "talepunkter-akser.md": ("talepunkter-akser.html", "Talepunkter (akser)"),
+    "regulatorisk-etterslep.md": ("regulatorisk-etterslep.html", "Regulatorisk etterslep"),
 }
 
 # Faste navigasjonselementer som alltid vises først/sist

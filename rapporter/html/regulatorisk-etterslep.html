@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kildeforankring: «Regulatorisk etterslep» i lys av EHDS og EU AI Act</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Kildeforankring: «Regulatorisk etterslep» i lys av EHDS og EU AI Act</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="regulatorisk-etterslep.html" class="active">Regulatorisk etterslep</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><strong>Utarbeidet:</strong> 2026-05-21 <strong>Gjelder:</strong>
+Påstanden «regulatorisk etterslep» som brukes i delrapport 4
+(<code>ny-verdikjede.md</code>, kap. 2.3), delrapport 7
+(<code>samlet-vurdering-kunnskapsforvaltning.md</code>, kap. 4.2) og på
+slide 12 («Konsekvenser av å videreføre dagens praksis») i
+presentasjonen
+<code>Presentasjoner/utfordringsbildet-forankring.pptx</code>.
+<strong>Formål:</strong> Forankre påstanden i konkrete bestemmelser fra
+Forordning (EU) 2025/327 (EHDS) og Forordning (EU) 2024/1689 (EU AI
+Act), og markere hvor påstanden er dokumentert ([DOK]) og hvor den er en
+analytisk slutning ([ANT]).</p>
+<blockquote>
+<p><strong>Sammenheng med delrapport 2:</strong> Delrapport 2
+(<code>utfordringer-og-flaskehalser.md</code>, kap. 2.2) inneholder en
+merknad om at EHDS og EU AI Act <em>ikke</em> er direkte regulatoriske
+krav til <em>dagens</em> verdikjede, men blir bindende rammer
+<strong>når</strong> verdikjeden moderniseres. Dette notatet utdyper og
+artikkelfester den avgrensningen.</p>
+</blockquote>
+<hr />
+<h2 id="metodisk-forbehold">Metodisk forbehold</h2>
+<p>EUR-Lex returnerte tomme sider ved direkte henting (trolig
+JavaScript-gjengivelse). Artikkeltekst for EHDS er i hovedsak hentet fra
+Europakommisjonens offisielle FAQ-dokument (DG SANTE, v1.1, sist
+oppdatert 26. mars 2026) – autoritativt, men ikke rettslig bindende i
+seg selv. Artikkeltekst for AI Act er hentet fra
+artificialintelligenceact.eu. Selve artikkelnumrene og fristene
+behandles som [DOK]; tolkninger som [ANT]. Se også kunnskapsgapene til
+slutt.</p>
+<hr />
+<h2 id="kort-konklusjon">Kort konklusjon</h2>
+<p>Påstanden «regulatorisk etterslep» er <strong>delvis presis</strong>
+og krever to nyanser:</p>
+<ol type="1">
+<li><strong>EHDS regulerer primært deling og tilgang til
+pasientdata</strong> – ikke direkte produksjon av systematiske
+oversikter, nasjonale faglige retningslinjer eller innbyggerinformasjon,
+som er kjerneleddene i kunnskapsforvaltnings-verdikjeden. Etterslepet
+for disse leddene er <strong>indirekte</strong>: svakere datagrunnlag
+gir svakere sekundærbruk, som over tid svekker kunnskapsgrunnlaget.
+[ANT]</li>
+<li><strong>Den sterkeste direkte koblingen er AI Act Art. 10</strong>
+(datakvalitet for trening av høyrisiko-KI) sett mot dagens
+fritekstbaserte og fragmenterte helsedata (R2/R4): vil vi bruke KI i
+kunnskapsproduksjonen, krever loven strukturerte data av en kvalitet
+verdikjeden i dag ikke leverer. [ANT for koblingen, DOK for kravet]</li>
+</ol>
+<p>Selve kravene, artiklene og fristene (august 2026 / mars 2029 / mars
+2031) er dokumenterbare. <strong>Koblingen til verdikjedens spesifikke
+svakheter</strong> (R2, R3, R4, R6) er en begrunnet analytisk slutning,
+ikke en eksplisitt forordningstekst.</p>
+<hr />
+<h2 id="del-1-ehds-forordning-eu-2025327">Del 1 – EHDS (Forordning (EU)
+2025/327)</h2>
+<p>EHDS har tre hoveddeler med ulike adressater (Art. 1, Recital 1)
+[DOK]:</p>
+<ul>
+<li><strong>Kap. II</strong> – primærbruk: pasientrettigheter og
+helsepersonells tilgang til elektronisk helseinformasjon.</li>
+<li><strong>Kap. III</strong> – EHR-systemer: krav til journalsystemer
+(interoperabilitet, logging).</li>
+<li><strong>Kap. IV</strong> – sekundærbruk: datainnehaveres plikt til å
+gjøre data tilgjengelig for forskning og policy via HealthData@EU.</li>
+</ul>
+<p><strong>Avgrensning:</strong> EHDS regulerer ikke direkte produksjon
+av systematiske oversikter, faglige retningslinjer,
+refusjonsbeslutninger eller innbyggerinformasjon. Disse er ikke
+primæradressater. [ANT]</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bestemmelse</th>
+<th>Hva den krever</th>
+<th>Frist</th>
+<th>Kobling</th>
+<th>Markering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Art. 14(1)</strong></td>
+<td>Seks prioritetskategorier (pasientsammendrag, e-resept,
+e-ekspedering; deretter bilder, prøvesvar, utskrivningsrapporter)
+tilgjengelig i strukturert form</td>
+<td>Fase 1: 26.3.2029; fase 2: 26.3.2031</td>
+<td>R2, R4</td>
+<td>DOK (krav) / ANT (kobling)</td>
+</tr>
+<tr>
+<td><strong>Art. 15(1)</strong></td>
+<td>EHR-systemer skal kunne eksportere/importere i felles format
+(EEHRxF); spesifikasjoner vedtas innen 26.3.2027</td>
+<td>2029/2031</td>
+<td>R2, R4</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 13(4)</strong></td>
+<td>Gjennomføringsakt om datakvalitet for primærbruk</td>
+<td>Akt innen 26.3.2027</td>
+<td>R2, R4</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 25–49</strong></td>
+<td>Krav til EHR-systemer (interoperabilitets- og loggkomponent,
+CE-merking, registrering)</td>
+<td>Systemer på markedet etter 26.3.2029</td>
+<td>R2, R4</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 51 m.fl.</strong></td>
+<td>Datainnehavere (helseforetak, kommuner, FHI, DMP) plikter å gjøre
+data tilgjengelig for sekundærbruk</td>
+<td>26.3.2029 (noen kategorier 2031)</td>
+<td>R3, R4</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 78</strong></td>
+<td>Datakvalitets- og nytteetikett for datasett til sekundærbruk</td>
+<td>(følger sekundærbruk)</td>
+<td>R4, R6</td>
+<td>DOK / ANT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sentrale presiseringer fra FAQ [DOK]:</strong></p>
+<ul>
+<li>EHDS pålegger <em>ikke</em> digitalisering av papirdokumenter –
+rettighetene gjelder data som <em>allerede</em> behandles elektronisk
+(FAQ sp. 6).</li>
+<li>EHR-systemer trenger <em>ikke</em> bruke EEHRxF internt, bare kunne
+importere/eksportere i det (FAQ sp. 23).</li>
+<li>Sekundærbruk omfatter eksplisitt «training of AI algorithms that
+could be used in healthcare» (Art. 53(1)(e), Recital 61).</li>
+</ul>
+<p><strong>Hva EHDS direkte vs. indirekte berører i
+verdikjeden:</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Verdikjedeledd</th>
+<th>Direkte EHDS-krav?</th>
+<th>Artikkel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primærforskning (produksjon)</td>
+<td>Nei – kun indirekte via sekundærbruk</td>
+<td>Art. 51, 53</td>
+</tr>
+<tr>
+<td>Systematiske oversikter (FHI)</td>
+<td>Nei – kun tilgang til data</td>
+<td>Art. 51, 53</td>
+</tr>
+<tr>
+<td>Nasjonale faglige retningslinjer (Hdir)</td>
+<td>Nei – kun bedre datagrunnlag over tid</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Implementering i klinisk praksis</td>
+<td><strong>Ja</strong> – krav til EHR-systemer</td>
+<td>Art. 25–49</td>
+</tr>
+<tr>
+<td>helsenorge.no (NHN)</td>
+<td>Delvis – pasienttilgang</td>
+<td>Art. 3, 4, 12</td>
+</tr>
+<tr>
+<td>Refusjonsbeslutninger (DMP)</td>
+<td><strong>Ja</strong> – som datainnehaver</td>
+<td>Art. 51, 60</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="del-2-eu-ai-act-forordning-eu-20241689">Del 2 – EU AI Act
+(Forordning (EU) 2024/1689)</h2>
+<p>AI Act regulerer KI-systemer, ikke all databruk. Relevant for
+verdikjeden der KI tas i bruk i (1) evidenssyntese, (2)
+retningslinjearbeid, (3) innbyggertjenester på helsenorge.no, eller (4)
+klinisk beslutningsstøtte. Verdikjeden bruker i dag KI i begrenset grad
+på disse måtene – AI Act er derfor mer relevant for fremtidige
+tilstander enn dagens praksis. Det er nettopp kjernen i
+«etterslep»-problematikken. [ANT]</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bestemmelse</th>
+<th>Hva den krever</th>
+<th>Frist</th>
+<th>Kobling</th>
+<th>Markering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Annex III + Art. 6</strong></td>
+<td>KI som vurderer rett til helsetjenester (5a) og akuttmedisinsk
+triage (5d) er høyrisiko. KI-støttet
+litteratursøk/evidenssyntese/retningslinjeproduksjon er
+<strong>ikke</strong> listet som høyrisiko</td>
+<td>–</td>
+<td>–</td>
+<td>DOK (klassifisering)</td>
+</tr>
+<tr>
+<td><strong>Art. 9</strong></td>
+<td>Kontinuerlig risikostyringssystem</td>
+<td>2.8.2026</td>
+<td>R3, R6</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 10</strong></td>
+<td>Datakvalitet for trening: relevant, representativt, mest mulig
+feilfritt og komplett</td>
+<td>2.8.2026</td>
+<td><strong>R2, R4</strong> (sterkeste kobling), R3</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 13</strong></td>
+<td>Transparens og dokumentert ytelse overfor brukere</td>
+<td>2.8.2026</td>
+<td>R6, R2</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 16</strong></td>
+<td>Leverandørplikter: kvalitetsstyring, dokumentasjon, logging,
+samsvarsvurdering, CE-merking</td>
+<td>2.8.2026</td>
+<td>R3, R4</td>
+<td>DOK / ANT</td>
+</tr>
+<tr>
+<td><strong>Art. 72</strong></td>
+<td>Post-market overvåking: aktiv, systematisk innsamling av ytelsesdata
+gjennom levetiden</td>
+<td>2.8.2026</td>
+<td><strong>R6</strong> (direkteste kravuttrykk for feedback), R3</td>
+<td>DOK / ANT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Viktig avgrensning [ANT]:</strong> En generisk KI-chatbot med
+helseinformasjon på helsenorge.no er antakelig <em>ikke</em> høyrisiko
+under Annex III – med mindre tjenesten gjør individuelle vurderinger av
+rett til helsetjenester (5a). Dette avhenger av konkret implementering
+(jf. kunnskapsgap 4).</p>
+<hr />
+<h2 id="del-3-hvor-er-gapet-størst">Del 3 – Hvor er gapet størst?</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Krav</th>
+<th>Frist</th>
+<th>Modenhetsgap (anslått)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Act høyrisiko-KI (Art. 9, 10, 13, 16, 72)</td>
+<td>2.8.2026</td>
+<td>Høyt – men kun der KI faktisk er tatt i bruk</td>
+</tr>
+<tr>
+<td>EHDS digitale helseautoriteter etablert</td>
+<td>26.3.2027</td>
+<td>Lavt (pågår)</td>
+</tr>
+<tr>
+<td>EHDS spesifikasjoner EEHRxF (Kommisjonen)</td>
+<td>26.3.2027</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>EHDS EHR-systemer i EEHRxF (fase 1)</td>
+<td>26.3.2029</td>
+<td>Middels–høyt</td>
+</tr>
+<tr>
+<td>EHDS datainnehavere tilgjengelig for HDAB</td>
+<td>26.3.2029</td>
+<td>Middels–høyt</td>
+</tr>
+<tr>
+<td>EHDS EEHRxF (fase 2) / genetiske data</td>
+<td>26.3.2031</td>
+<td>Høyt</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Størst gap:</strong> AI Act Art. 10 (datakvalitet for
+trening) vs. fritekst og fragmenterte kodeverk (R2, R4).</li>
+<li><strong>Nest størst:</strong> EHDS Art. 14(1)/15(1) (strukturert EHR
+i EEHRxF) vs. norske journalsystemers evne til å levere seks
+prioritetskategorier i standardformat innen 2029.</li>
+<li><strong>Viktigst for verdikjeden spesifikt:</strong> EHDS Art. 51
+(sekundærbruksplikt) for FHI som forskningsmiljø/dataholder og DMP som
+refusjonsorgan/dataholder.</li>
+</ul>
+<hr />
+<h2 id="del-4-mer-presise-formuleringer">Del 4 – Mer presise
+formuleringer</h2>
+<p><strong>Dagens formulering (slide 12 / delrapport 7):</strong> &gt;
+«EHDS og EU AI Act forutsetter digital modenhet som dagens &gt;
+verdikjede ikke har.»</p>
+<p><strong>Variant A – faglig rapport (anbefalt for delrapport 4 og
+7):</strong> &gt; «EHDS (Forordning 2025/327) krever at EHR-systemer kan
+eksportere og &gt; importere strukturert pasientinformasjon i et felles
+europeisk &gt; format (EEHRxF) innen 2029 (Art. 14(1) og 15(1)), og at
+helseforetak &gt; og kommuner gjør datasett tilgjengelig for
+sekundærbruk (Art. 51) &gt; fra samme tidspunkt. EU AI Act (Forordning
+2024/1689) stiller fra &gt; august 2026 krav om dokumentert datakvalitet
+(Art. 10), transparens &gt; (Art. 13) og post-market overvåking (Art.
+72) for høyrisiko-KI i &gt; helse. Begge forutsetter strukturert,
+maskinlesbar helseinformasjon &gt; og systematiske feedback-mekanismer –
+kapabiliteter verdikjeden i dag &gt; ikke har på plass.»</p>
+<p><strong>Variant B – presentasjon for ledelse (kortere, til slide
+12):</strong> &gt; «EHDS krever strukturert og delbar elektronisk
+helseinformasjon i &gt; standardformat innen 2029 (Art. 14 og 15). EU AI
+Act krever &gt; dokumentert datakvalitet og systemovervåking for KI i
+helse fra &gt; 2026 (Art. 9, 10 og 72). Dagens verdikjede – preget av
+fritekst og &gt; fragmenterte IT-systemer – oppfyller ikke disse kravene
+i sin &gt; nåværende form.»</p>
+<p><strong>Variant C – med avgrensning eksplisitt (akademisk):</strong>
+&gt; «EHDS (Art. 14–15 og 51) stiller krav om strukturert elektronisk
+&gt; helseinformasjon og tilgjengeliggjøring for sekundærbruk som
+gjelder &gt; helsetjenestens driftsdata og journalsystemer, men
+regulerer ikke &gt; direkte produksjon av systematiske oversikter,
+retningslinjer eller &gt; innbyggerinformasjon. EU AI Act (Art. 9–10,
+13, 72) treffer &gt; verdikjeden der KI tas i bruk i evidenssyntese,
+klinisk &gt; beslutningsstøtte eller innbyggertjenester. Den digitale
+modninga &gt; begge forordningene forutsetter – strukturerte data,
+standardiserte &gt; kodeverk, systematiske feedback-mekanismer – mangler
+i deler av &gt; verdikjeden i dag.»</p>
+<hr />
+<h2 id="kunnskapsgap-og-forbehold">Kunnskapsgap og forbehold</h2>
+<ol type="1">
+<li><strong>EUR-Lex ikke verifisert direkte</strong> – artikkelsitater
+bygger på Kommisjonens FAQ (DG SANTE v1.1, 26.3.2026), som er
+autoritativ, men ikke rettslig bindende.</li>
+<li><strong>Hdirs egen gapanalyse (11.4.2025) ikke lest i
+fulltekst</strong> – kun innholdsfortegnelsen var tilgjengelig. Den kan
+inneholde norskspesifikke vurderinger som bør innarbeides.</li>
+<li><strong>Ingen nasjonal kartlegging</strong> av hvilke konkrete
+journalsystemer og helseforetak som mangler hvilke kapabiliteter –
+påstanden om etterslep er ikke understøttet av nasjonal empiri på
+systemnivå.</li>
+<li><strong>helsenorge.no/NHN som høyrisiko-KI ikke avklart</strong> –
+avhenger av om kommende KI-funksjoner gjør individuelle vurderinger av
+helserettigheter (Annex III 5a).</li>
+<li><strong>EØS-innlemmelse av EHDS pågår</strong> – EHDS er
+EØS-relevant og skal innlemmes av EFTA-sekretariatet, men prosessen er
+ikke fullført (FAQ sp. 57). [DOK]</li>
+</ol>
+<hr />
+<h2 id="kilder">Kilder</h2>
+<ol type="1">
+<li><strong>Forordning (EU) 2025/327</strong> – Det europeiske
+helsedataområdet (EHDS).
+https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng</li>
+<li><strong>Forordning (EU) 2024/1689</strong> – EU AI Act.
+https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng</li>
+<li><strong>Europakommisjonen, DG SANTE (2026)</strong> – FAQ on the
+European Health Data Space, v1.1, 26. mars 2026.</li>
+<li><strong>EU Artificial Intelligence Act – artikkelbase</strong> –
+https://artificialintelligenceact.eu (Annex III, Art. 6, 9, 10, 13, 16,
+72).</li>
+<li><strong>Helsedirektoratet (2025)</strong> – EHDS konsekvensvurdering
+– gapanalyse pr. 11. april 2025 (kun innholdsfortegnelse lest).</li>
+<li><strong>Europakommisjonen</strong> – European Health Data Space
+Regulation – health.ec.europa.eu.</li>
+</ol>
+<hr />
+<h2 id="endringslogg">Endringslogg</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Endring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-21</td>
+<td>Notat opprettet. Verifisering av «regulatorisk etterslep» mot EHDS-
+og AI Act-artikler. Avgrensning: EHDS treffer ikke kjerneleddene
+(oversikter/retningslinjer/innbyggerinfo) direkte; sterkeste direkte
+kobling er AI Act Art. 10 vs. R2/R4.</td>
+</tr>
+</tbody>
+</table>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>
