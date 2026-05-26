@@ -19,7 +19,10 @@
 - **Beskrivelse**: Kartlegging av utfordringer og
   flaskehalser i verdikjeden. Nytt kap. 2 gir
   samlende utfordringsbilde med seks dimensjoner
-  (D1–D6) og tre kjerneegenskaper. Rangerer 9
+  (D1–D6, observasjoner) som i kap. 2.3 oppsummeres
+  MECE i fem kjerneegenskaper (skalerbarhet,
+  reaktivitet, sammenheng, styrbarhet,
+  tillit/legitimitet). Rangerer 9
   flaskehalser etter alvorlighet (kap. 8.1).
   Refusjonsordninger lagt til som ny flaskehals
   (høy). Implementeringsgapet oppjustert til «høy»

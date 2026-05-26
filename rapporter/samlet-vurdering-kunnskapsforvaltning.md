@@ -289,23 +289,36 @@ tilgjengelige metoden. Denne strukturen har tjent
 sektoren godt, men den skalerer ikke til dagens og
 fremtidens kunnskapsvolum.
 
-Verdikjeden mangler tre sentrale egenskaper:
+Verdikjeden mangler fem sentrale egenskaper. De er
+formulert som en gjensidig utelukkende og samlet
+uttømmende (MECE) oppsummering av de seks dimensjonene
+i utfordringsbildet (delrapport 2 kap. 2.3):
 
 - **Skalerbarhet**: Kapasiteten øker ikke i takt med
   forskningsvolumet.
 - **Reaktivitet**: Gjennomløpstiden gjør det umulig å
-  respondere raskt på ny evidens.
-- **Sammenheng**: Stegene i verdikjeden er ikke koblet
-  på en måte som sikrer konsistent og oppdatert
-  informasjon gjennom hele kjeden.
+  respondere raskt på ny evidens, særlig i kriser.
+- **Sammenheng**: Stegene og systemene i verdikjeden er
+  ikke koblet på en måte som sikrer konsistent og
+  oppdatert informasjon gjennom hele kjeden.
+- **Styrbarhet**: Ingen aktør kan styre kjeden som
+  helhet mot et felles mål; ansvar er fordelt uten
+  helhetlig mandat, og ingen eier implementeringsgapet.
+- **Tillit og legitimitet**: Systemet beholder ikke
+  innbyggeren som foretrukken kilde når alternative
+  kilder (generativ KI, sosiale medier) overtar. Dette
+  er en tverrgående egenskap – svikt her følger i stor
+  grad av svikt i de fire andre.
 
 Delrapport 2 kap. 9 gir en strukturert rotårsaksanalyse
 som identifiserer seks rotårsaker (R1–R6) bak de ni
 rangerte flaskehalsene, samt en relasjonstabell som
 viser hvordan flaskehalsene forsterker hverandre. De
-tre egenskapene over korresponderer direkte med
-rotårsakene: skalerbarhet ↔ R3, reaktivitet ↔ R2 og
-R4, sammenheng ↔ R1, R5 og R6. Rotårsaksrammeverket
+fire rene systemegenskapene over korresponderer direkte
+med rotårsakene: skalerbarhet ↔ R3, reaktivitet ↔ R3 og
+R6, sammenheng ↔ R4, styrbarhet ↔ R1 og R5.
+Tillit/legitimitet er en effekt av de øvrige og knyttes
+ikke til en enkelt rotårsak. Rotårsaksrammeverket
 brukes i kap. 5.4 for en differensiert vurdering av
 alternativene.
 

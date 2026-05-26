@@ -187,7 +187,7 @@ dagens posisjon er størst.
 
 | Slide | Sammenheng |
 |---|---|
-| Slide 9 (tre kjerneegenskaper) | Skalerbarhet, reaktivitet, sammenheng – aksene operasjonaliserer disse |
+| Slide 9 (kjerneegenskaper) | Skalerbarhet, reaktivitet, sammenheng, styrbarhet, tillit/legitimitet (MECE-oppsummering av D1–D6, jf. delrapport 2 kap. 2.3) – aksene operasjonaliserer de fire første |
 | Slide 10 (R1–R6) | Hver akse adresserer én eller flere rotårsaker (vises eksplisitt på slide 14) |
 | Slide 11 (helhetlig analyse) | Linjen om «teknologi + organisasjon» tilsvarer henholdsvis akse 1+4 og akse 2+3 |
 | Slide 15 (veien videre) | «Forankre dimensjonene», «utrede løsningsrom per dimensjon», «bevegelse langs aksene» |

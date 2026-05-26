@@ -363,10 +363,14 @@ prioritering.
 ## 5. Kobling til utredningens analyseapparat
 
 Økosystemlinsen erstatter ikke det eksisterende
-apparatet (D1–D6, R1–R6, tre kjerneegenskaper, fire
+apparatet (D1–D6, R1–R6, fem kjerneegenskaper, fire
 akser). Den **forklarer hvorfor flere av dem ser ut som
-de gjør**, og den legger til en systemdimensjon. Slik
-henger de sammen [ANT]:
+de gjør**, og den legger til en systemdimensjon. Den gir
+særlig begrunnelsen for hvorfor *tillit og legitimitet*
+(den femte kjerneegenskapen, jf. delrapport 2 kap. 2.3)
+er en egenskap systemet kan miste: i et økosystem
+*velger* innbyggeren kilde, og offentlig kanal beholder
+ikke tilliten automatisk. Slik henger de sammen [ANT]:
 
 ### 5.1 Dimensjoner og kjerneegenskaper
 

@@ -99,14 +99,18 @@
 
 - **Beskrivelse**: PowerPoint-presentasjon i
   Helsedirektoratets mal for forankring av
-  problemforståelsen. 13 lysbilder: forside, agenda,
-  hovedproblemet, seks dimensjoner (D1-D6) over tre
-  lysbilder, tre kjerneegenskaper, hvorfor samlet
-  forståelse, konsekvenser av å ikke handle, seks
-  rotårsaker (R1-R6), hva alternativene dekker, veien
-  videre og kilder. Basert på delrapport 2 kap. 2 og
-  9, delrapport 7 kap. 4 og rolledeling-rapporten.
-- **Sist oppdatert**: 2026-04-27
+  problemforståelsen. 18 lysbilder: forside, agenda,
+  verdikjeden, hovedproblemet, seks dimensjoner (D1-D6)
+  over tre lysbilder, fem kjerneegenskaper (slide 9:
+  skalerbarhet, reaktivitet, sammenheng, styrbarhet og
+  tillit/legitimitet som tverrgående bunnblokk),
+  hvorfor samlet forståelse, konsekvenser av å ikke
+  handle, seks rotårsaker (R1-R6), løsningsrommet, hvordan
+  aksene svarer ut rotårsakene, veien videre og kilder,
+  samt to avsluttende rammeskifte-lysbilder (verdikjede
+  vs. økosystem). Basert på delrapport 2 kap. 2 og 9,
+  delrapport 7 kap. 4 og rolledeling-rapporten.
+- **Sist oppdatert**: 2026-05-22
 
 ### utfordringer-relasjoner.html
 
