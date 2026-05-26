@@ -282,7 +282,12 @@ deler av rollen offentlig helseinformasjon hadde.</p>
 utfordringen</h3>
 <p>Utfordringsbildet har seks dimensjoner som virker samtidig og
 forsterker hverandre. Hver dimensjon utdypes i senere kapitler eller i
-andre delrapporter.</p>
+andre delrapporter. Dimensjonene er bevisst valgt som
+<em>observasjoner</em> og er derfor ikke gjensidig utelukkende – de
+overlapper og opererer på ulike nivåer (symptom, struktur, konsekvens).
+En gjensidig utelukkende og samlet uttømmende (MECE) oppsummering av dem
+gis i kap. 2.3, som grupperer D1-D6 etter hvilken systemegenskap de
+mangler.</p>
 <h4 id="d1-tid-og-gjennomløp">D1: Tid og gjennomløp</h4>
 <ul>
 <li>2-3 år fra forskning til retningslinje; 6-12 måneder videre til
@@ -354,20 +359,91 @@ maskinlesbart for grenseoverskridende bruk. Disse rammene behandles
 derfor i delrapport 3 (LLM og EU AI Act) og delrapport 5 (arkitektur og
 EHDS), ikke som en selvstendig dimensjon ved utfordringsbildet i
 dag.</p>
-<h3 id="tre-kjerneegenskaper-verdikjeden-mangler">2.3 Tre
+<h3 id="fem-kjerneegenskaper-verdikjeden-mangler">2.3 Fem
 kjerneegenskaper verdikjeden mangler</h3>
-<p>Samlet vurdering (delrapport 7 kap. 4.2) oppsummerer dimensjonene
-D1-D6 i tre kjerne- egenskaper som dagens verdikjede mangler:</p>
+<p>De seks dimensjonene i kap. 2.2 er bevisst <em>observasjoner</em> som
+virker samtidig – de er ikke ment som en gjensidig utelukkende
+inndeling, og flere av dem overlapper (lang tid er delvis et symptom på
+lav kapasitet; manglende eierskap for implementering er delvis en
+styringssvikt). For å oppsummere utfordringsbildet i kategorier som
+<em>er</em> gjensidig utelukkende og samlet uttømmende (MECE), grupperer
+vi dimensjonene etter <strong>hvilken systemegenskap de
+mangler</strong>. Egenskapene ligger på ett og samme logiske nivå – de
+beskriver hva systemet ikke evner – mens D1-D6 fungerer som evidens
+under hver egenskap.</p>
+<p>Samlet vurdering (delrapport 7 kap. 4.2) oppsummerte opprinnelig
+D1-D6 i tre egenskaper. MECE-gjennomgangen viser at de tre var gjensidig
+utelukkende, men ikke uttømmende: <em>styring</em> (D3s mandatdel, D4)
+og <em>tillit</em> (D5) falt utenfor. Vi utvider derfor til fem
+egenskaper:</p>
 <ul>
 <li><strong>Skalerbarhet</strong> – kapasiteten øker ikke i takt med
-forskningsvolumet (jf. D2).</li>
+forskningsvolumet. <em>Evidens:</em> D2 (volum/kapasitet).
+<em>Rotårsak:</em> R3.</li>
 <li><strong>Reaktivitet</strong> – gjennomløpstiden gjør det umulig å
-respondere raskt på ny evidens, og spesielt i krisesituasjoner (jf. D1,
-D6).</li>
-<li><strong>Sammenheng</strong> – stegene er ikke koblet på en måte som
-sikrer konsistent og oppdatert informasjon gjennom hele kjeden (jf. D3,
-D4, D5).</li>
+respondere raskt på ny evidens, og spesielt i krisesituasjoner.
+<em>Evidens:</em> D1 (tid), D6 (beredskap). <em>Rotårsaker:</em> R3,
+R6.</li>
+<li><strong>Sammenheng</strong> – stegene og systemene er ikke koblet på
+en måte som sikrer konsistent og oppdatert informasjon gjennom hele
+kjeden. <em>Evidens:</em> D3s tekniske del (fragmenterte IT-systemer,
+kodeverk, manglende metadata), D4s koordineringsdel (refusjon som
+separat kjede). <em>Rotårsak:</em> R4.</li>
+<li><strong>Styrbarhet</strong> – ingen aktør kan styre kjeden som
+helhet mot et felles mål; ansvar er fordelt uten helhetlig mandat, og
+ingen eier implementeringsgapet. <em>Evidens:</em> D3s styringsdel (~20
+aktører uten helhetlig styringsmandat), D4 (manglende eierskap,
+manglende etterlevelsesovervåking). <em>Rotårsaker:</em> R1, R5.</li>
+<li><strong>Tillit og legitimitet</strong> – systemet beholder ikke
+innbyggeren som foretrukken kilde; innbyggerinformasjonen er generisk,
+og alternative kilder (generativ KI, sosiale medier) overtar.
+<em>Evidens:</em> D5 (tillit/innbyggerbehov). <em>Tverrgående
+egenskap:</em> svikt her er i stor grad en <em>effekt</em> av de fire
+andre (treg, generisk, fragmentert og ustyrt informasjon taper i
+konkurransen), jf. <a
+href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>.</li>
 </ul>
+<p>De fire første egenskapene er rene systemegenskaper og dekker D1-D4
+og R1-R6 uten overlapp. Den femte, tillit og legitimitet, er tatt med
+fordi den er den egenskapen utfordringsbildet til syvende og sist
+handler om å bevare – men den er markert som <em>tverrgående</em> fordi
+den følger av de andre fire snarere enn å stå uavhengig av dem.</p>
+<table>
+<thead>
+<tr>
+<th>Egenskap</th>
+<th>Dimensjon(er)</th>
+<th>Rotårsak(er)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Skalerbarhet</td>
+<td>D2</td>
+<td>R3</td>
+</tr>
+<tr>
+<td>Reaktivitet</td>
+<td>D1, D6</td>
+<td>R3, R6</td>
+</tr>
+<tr>
+<td>Sammenheng</td>
+<td>D3 (teknisk), D4 (koordinering)</td>
+<td>R4</td>
+</tr>
+<tr>
+<td>Styrbarhet</td>
+<td>D3 (styring), D4 (eierskap)</td>
+<td>R1, R5</td>
+</tr>
+<tr>
+<td>Tillit og legitimitet</td>
+<td>D5</td>
+<td>(effekt av R1-R6)</td>
+</tr>
+</tbody>
+</table>
 <h3 id="hvorfor-utfordringene-må-forstås-samlet">2.4 Hvorfor
 utfordringene må forstås samlet</h3>
 <p>Tre forhold gjør at en sektor- eller kapittelvis tilnærming alene er
@@ -1646,9 +1722,13 @@ hovedlins i forankrings­presentasjonen
 <em>Sjekkliste for alternativer.</em> Et alternativ som ikke beveger seg
 langs én av aksene adresserer ikke den tilhørende rotårsaken. Aksene gir
 dermed en strukturert måte å teste fullstendigheten av et tiltak.</p>
-<p><strong>Forhold til andre rammeverk i prosjektet:</strong> - <em>Tre
-kjerneegenskaper</em> (delrapport 1) – skalerbarhet, reaktivitet,
-sammenheng – operasjonaliseres som aksene 1+3, 4 og 2. -
+<p><strong>Forhold til andre rammeverk i prosjektet:</strong> - <em>Fem
+kjerneegenskaper</em> (kap. 2.3) – skalerbarhet, reaktivitet,
+sammenheng, styrbarhet og tillit/legitimitet – operasjonaliseres langs
+aksene slik: skalerbarhet → akse 1+4, reaktivitet → akse 4, sammenheng →
+akse 2, styrbarhet → akse 2+3. Tillit/legitimitet er en tverrgående
+egenskap uten egen akse: den følger av hvor langt kjeden beveger seg
+langs de øvrige aksene, snarere enn å være et eget valgrom. -
 <em>Teknologi/organisasjon-distinksjonen</em> (kap. 9.5) – aksene 1 og 4
 ligger primært på teknologi-/prosess-siden, aksene 2 og 3 på
 organisasjon-/styringssiden.</p>
@@ -1658,7 +1738,15 @@ og i hvilken rekkefølge, er gjenstand for utredning i delrapport 4 og 7.
 Aksene legger til rette for den utredningen; de gir ikke svar på
 den.</p>
 <hr />
-<p>Sist oppdatert: 2026-05-20</p>
+<p>Sist oppdatert: 2026-05-22</p>
+<p><strong>Endring 2026-05-22:</strong> Kap. 2.3 omformulert til en
+MECE-oppsummering. De tidligere tre kjerneegenskapene (skalerbarhet,
+reaktivitet, sammenheng) er utvidet til fem (+ styrbarhet, +
+tillit/legitimitet) slik at de er gjensidig utelukkende og samlet
+uttømmende, og dekker D1–D6 og R1–R6 uten overlapp. D1–D6 i kap. 2.2 er
+presisert som <em>observasjoner</em> (ikke MECE), med egenskapene i 2.3
+som det MECE-laget. Egenskap→akse- koblingen i kap. 9.7 og i
+samlet-vurdering kap. 4.2 er oppdatert tilsvarende.</p>
 <hr />
 <h2 id="merknad-om-kilder">Merknad om kilder</h2>
 <p>Flere sentrale indikatorer i denne rapporten mangler etterprøvbar
