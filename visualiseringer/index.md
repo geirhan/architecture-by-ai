@@ -2,6 +2,28 @@
 
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+### konseptkart.html
+
+- **Beskrivelse**: Interaktivt konseptkart som gir
+  oversikt over begrepsapparatet i utredningen og
+  viser sammenhengen mellom konseptklassene:
+  utfordringsdimensjoner (D1–D6), fem
+  kjerneegenskaper (skalerbarhet, reaktivitet,
+  sammenheng, styrbarhet, tillit/legitimitet som
+  tverrgående), rotårsaker (R1–R6), løsningsakser
+  (A1–A4), alternativer (Alt 0–3), verdikjedesteg,
+  flaskehalser, casestudier, aktørkart, hypoteser
+  om rolledeling (H1–H3) og økosystemsfærer. Klikk
+  en node for å se kanonisk definisjon, hvor
+  konseptet brukes, og eventuell revisjons­historikk.
+  ⚑ markerer noder med dokumentert revisjon
+  (E4/E5 lagt til 2026-05-22, A4 omdøpt 2026-05-20).
+  Brukes som arbeidsverktøy for å holde
+  begrepsbruken konsistent på tvers av delrapporter.
+  Basert på systematisk gjennomgang av 15
+  markdown-filer i `rapporter/`.
+- **Sist oppdatert**: 2026-05-26
+
 ### verdikjede.pptx
 
 - **Beskrivelse**: PowerPoint-fil med ett enkelt, visuelt

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<title>Konseptkart – kunnskapsforvaltning</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --panel: #ffffff;
+    --ink: #1a2533;
+    --muted: #5a6573;
+    --border: #d8dde4;
+    --hdir: #003366;
+    --accent: #0066a3;
+    --ok: #2e7d32;
+    --warn: #c77700;
+    --alert: #c0392b;
+    --crosscut: #6a1b9a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  header {
+    background: var(--hdir);
+    color: white;
+    padding: 16px 24px;
+  }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  header p { margin: 4px 0 0; font-size: 13px; opacity: 0.85; }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 0;
+    height: calc(100vh - 64px);
+  }
+  .canvas {
+    overflow: auto;
+    padding: 20px;
+    background:
+      linear-gradient(var(--bg) 1px, transparent 1px) 0 0 / 20px 20px,
+      linear-gradient(90deg, var(--bg) 1px, transparent 1px) 0 0 / 20px 20px,
+      #ffffff;
+  }
+  svg { display: block; }
+  .side {
+    background: var(--panel);
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 20px;
+  }
+  .side h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .side h3 {
+    font-size: 15px;
+    margin: 16px 0 4px;
+    color: var(--hdir);
+  }
+  .side p { font-size: 13px; margin: 4px 0; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 12px;
+    color: var(--muted);
+    padding: 8px 24px;
+    background: white;
+    border-bottom: 1px solid var(--border);
+  }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .badge.ok { background: #e8f5e9; color: var(--ok); }
+  .badge.warn { background: #fff3e0; color: var(--warn); }
+  .badge.alert { background: #fdecea; color: var(--alert); }
+  .ref { font-family: ui-monospace, monospace; font-size: 12px; color: var(--muted); }
+  .empty { color: var(--muted); font-style: italic; font-size: 13px; }
+  .node-label { font-size: 11px; font-weight: 600; fill: white; pointer-events: none; }
+  .node-sub { font-size: 9px; fill: white; opacity: 0.85; pointer-events: none; }
+  .group-label {
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .edge {
+    stroke: #93a1b0;
+    stroke-width: 1.2;
+    fill: none;
+  }
+  .edge.maps { stroke: #4a90c8; stroke-width: 1.6; }
+  .edge.crosscut { stroke: var(--crosscut); stroke-dasharray: 4 3; }
+  .node { cursor: pointer; transition: filter 0.15s; }
+  .node:hover { filter: brightness(1.1); }
+  .node.dim .body { fill: #5a6573; }
+  .node.rot .body { fill: #c77700; }
+  .node.egen .body { fill: #2e7d32; }
+  .node.akse .body { fill: #4a90c8; }
+  .node.alt .body { fill: #7b1fa2; }
+  .node.flask .body { fill: #c0392b; }
+  .node.case .body { fill: #d35400; }
+  .node.steg .body { fill: #1a5276; }
+  .node.akt .body { fill: #34495e; }
+  .node.sfaere .body { fill: #00838f; }
+  .node.hyp .body { fill: #6d4c41; }
+  .node.crosscut .body { fill: var(--crosscut); }
+  .selected .body { stroke: var(--hdir); stroke-width: 3; }
+  .flag {
+    fill: var(--alert);
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .footer-note {
+    padding: 8px 24px;
+    background: #fffbeb;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Konseptkart – Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren</h1>
+  <p>Oversikt over begrepsapparatet på tvers av delrapporter, med markering av kjente historiske revisjoner. Klikk en node for detaljer.</p>
+</header>
+
+<div class="legend">
+  <span><i class="swatch" style="background:#5a6573"></i>Dimensjoner (D1–D6)</span>
+  <span><i class="swatch" style="background:#c77700"></i>Rotårsaker (R1–R6)</span>
+  <span><i class="swatch" style="background:#2e7d32"></i>Kjerneegenskaper</span>
+  <span><i class="swatch" style="background:#4a90c8"></i>Akser</span>
+  <span><i class="swatch" style="background:#7b1fa2"></i>Alternativer</span>
+  <span><i class="swatch" style="background:#c0392b"></i>Flaskehalser</span>
+  <span><i class="swatch" style="background:#d35400"></i>Casestudier</span>
+  <span><i class="swatch" style="background:#1a5276"></i>Verdikjedesteg</span>
+  <span><i class="swatch" style="background:#00838f"></i>Økosystemsfærer</span>
+  <span><i class="swatch" style="background:#6d4c41"></i>Hypoteser</span>
+  <span><i class="swatch" style="background:#6a1b9a"></i>Tverrgående</span>
+  <span style="margin-left:auto">⚑ = revidert / oppmerksomhet</span>
+</div>
+
+<div class="layout">
+  <div class="canvas">
+    <svg id="graph" width="1480" height="1700" viewBox="0 0 1480 1700"></svg>
+  </div>
+  <aside class="side">
+    <h2>Detaljer</h2>
+    <div id="detail">
+      <p class="empty">Velg en node for å se kanonisk definisjon, hvor konseptet brukes, og eventuelle historiske revisjoner.</p>
+    </div>
+    <h3 style="margin-top:32px">Oppsummering av konsistens</h3>
+    <p><span class="badge ok">OK</span> 9 av 11 konseptklasser er konsistent definert og brukt på tvers av rapportene.</p>
+    <p><span class="badge warn">REV</span> 2 historiske revisjoner er dokumentert i endringslogger (kjerneegenskaper 3→5, akse 4 omdøpt). Begge regnes som lukket.</p>
+    <p><span class="badge alert">!</span> Eksplorerings­agenten gjorde ikke linje-for-linje verifikasjon av samtlige formuleringer. Bruk kartet som arbeidsverktøy, ikke som endelig revisjonsrapport.</p>
+  </aside>
+</div>
+
+<div class="footer-note">
+  Basert på systematisk gjennomgang av 15 markdown-filer i <code>rapporter/</code> per 2026-05-26. Endringer i materialet etter denne datoen er ikke reflektert.
+</div>
+
+<script>
+// =========================================================================
+// Konseptdata – hentet fra Explore-agentens kartlegging og prosjektets index
+// =========================================================================
+const concepts = {
+  // --- DIMENSJONER ---
+  D1: { cls: "dim", label: "D1", sub: "Tid", title: "D1 Tid og gjennomløp",
+        def: "2–3 år forskning→retningslinje; 7–15+ år forskning→praksis.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.2",
+        also: ["delrapport 1", "casestudier-forsinkelser.md"], status: "ok" },
+  D2: { cls: "dim", label: "D2", sub: "Kapasitet", title: "D2 Kapasitet og volum",
+        def: "~3 mill artikler årlig; begrenset FHI-kapasitet for systematiske oversikter.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.2",
+        also: ["delrapport 7 kap. 4.1"], status: "ok" },
+  D3: { cls: "dim", label: "D3", sub: "Styring", title: "D3 Struktur og styring",
+        def: "~20 aktører uten helhetlig mandat.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.2",
+        also: ["rolledeling-sentral-helseforvaltning.md", "aktoeranalyse.md"], status: "ok" },
+  D4: { cls: "dim", label: "D4", sub: "Insentiver", title: "D4 Implementering og insentiver",
+        def: "Implementeringsgap; refusjon som separat kjede.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.2",
+        also: ["delrapport 7 kap. 4.2", "casestudier-forsinkelser.md"], status: "ok" },
+  D5: { cls: "dim", label: "D5", sub: "Tillit", title: "D5 Tillit og innbyggerbehov",
+        def: "54 % bruker generativ KI; manglende feedback fra innbyggere.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.2",
+        also: ["verdikjede-som-okosystem.md"], status: "ok" },
+  D6: { cls: "dim", label: "D6", sub: "Beredskap", title: "D6 Beredskap",
+        def: "Skalerer ikke til kriser.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.2",
+        also: ["delrapport 7 kap. 4.1"], status: "ok" },
+
+  // --- ROTÅRSAKER ---
+  R1: { cls: "rot", label: "R1", sub: "Mandat", title: "R1 Manglende helhetlig styringsmandat",
+        def: "Ingen aktør har mandat til å styre hele kjeden.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.2",
+        also: ["delrapport 7 kap. 4.2", "rolledeling H3", "talepunkter-akser.md"], status: "ok" },
+  R2: { cls: "rot", label: "R2", sub: "Pre-digital", title: "R2 Pre-digital design",
+        def: "Verdikjedens prosesser er utformet for papir-/dokumentlogikk.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.2",
+        also: ["delrapport 4 kap. 6.1", "regulatorisk-etterslep.md"], status: "ok" },
+  R3: { cls: "rot", label: "R3", sub: "Kapasitet", title: "R3 Kapasitet skalerer ikke",
+        def: "Manuell oppsummeringskapasitet vokser ikke med forskningsvolumet.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.2",
+        also: ["delrapport 7 kap. 4.2", "internasjonale-erfaringer.md"], status: "ok" },
+  R4: { cls: "rot", label: "R4", sub: "IT-fragm.", title: "R4 Fragmentert IT-landskap",
+        def: "Ulike systemer og kodeverk hindrer flyt.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.2",
+        also: ["delrapport 5", "regulatorisk-etterslep.md"], status: "ok" },
+  R5: { cls: "rot", label: "R5", sub: "Insentiver", title: "R5 Manglende insentiver for implementering",
+        def: "Ingen eier implementeringsgapet; refusjon i separat kjede.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.2",
+        also: ["casestudier-forsinkelser.md", "talepunkter-akser.md"], status: "ok" },
+  R6: { cls: "rot", label: "R6", sub: "Feedback", title: "R6 Manglende feedback/måling",
+        def: "Lite systematisk måling av om kunnskap når praksis.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.2",
+        also: ["delrapport 7"], status: "ok" },
+
+  // --- KJERNEEGENSKAPER ---
+  E1: { cls: "egen", label: "Skalerb.", sub: "egenskap", title: "Skalerbarhet",
+        def: "Kapasiteten øker ikke i takt med forskningsvolumet. Knytter til R3.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.3",
+        also: ["samlet-vurdering kap. 4.2", "talepunkter-akser.md", "slide 9"], status: "ok" },
+  E2: { cls: "egen", label: "Reaktiv.", sub: "egenskap", title: "Reaktivitet",
+        def: "Gjennomløpstiden gjør det umulig å respondere raskt på ny evidens. Knytter til R3, R6.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.3",
+        also: ["samlet-vurdering kap. 4.2", "slide 9"], status: "ok" },
+  E3: { cls: "egen", label: "Samm.", sub: "egenskap", title: "Sammenheng",
+        def: "Steg/systemer er ikke koblet for konsistent flyt. Knytter til R4.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.3",
+        also: ["samlet-vurdering kap. 4.2", "slide 9"], status: "ok" },
+  E4: { cls: "egen", label: "Styrb.", sub: "egenskap", title: "Styrbarhet",
+        def: "Ingen aktør kan styre kjeden mot et felles mål. Knytter til R1, R5.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.3",
+        also: ["samlet-vurdering kap. 4.2", "slide 9"],
+        flag: "Lagt til 22.05.2026 (tidligere 3 egenskaper)", status: "rev" },
+  E5: { cls: "crosscut", label: "Tillit", sub: "tverrgående", title: "Tillit og legitimitet (tverrgående)",
+        def: "Effekt av svikt i de fire over: foretrukken kilde tapes til raskere alternativer. Knytter til D5.",
+        canon: "utfordringer-og-flaskehalser.md kap. 2.3",
+        also: ["verdikjede-som-okosystem.md", "slide 9"],
+        flag: "Lagt til 22.05.2026 som femte egenskap (tverrgående)", status: "rev" },
+
+  // --- AKSER ---
+  A1: { cls: "akse", label: "A1", sub: "Menneske↔KI", title: "Akse 1: Menneskedrevet ↔ KI-drevet",
+        def: "Hvor mye av kunnskapsproduksjonen skal automatiseres? Svarer på R2, R3.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.7",
+        also: ["delrapport 7 kap. 4.4", "talepunkter-akser.md", "slide 13/14"], status: "ok" },
+  A2: { cls: "akse", label: "A2", sub: "Fragm↔Samm", title: "Akse 2: Fragmentert ↔ Sammenhengende",
+        def: "Mange systemer eller én samordnet kjede? Svarer på R4, R1.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.7",
+        also: ["talepunkter-akser.md", "rolledeling"], status: "ok" },
+  A3: { cls: "akse", label: "A3", sub: "Frivillig↔Forplikt.", title: "Akse 3: Frivillig ↔ Forpliktende",
+        def: "Implementering på fagmiljøers initiativ eller styringskrav? Svarer på R5.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.7",
+        also: ["talepunkter-akser.md"], status: "ok" },
+  A4: { cls: "akse", label: "A4", sub: "Behov↔Kontin.", title: "Akse 4: Behovsstyrt ↔ Kontinuerlig oppdatering",
+        def: "Episodisk eller kontinuerlig kunnskapsoppdatering? Svarer på R3, R6.",
+        canon: "utfordringer-og-flaskehalser.md kap. 9.7",
+        also: ["talepunkter-akser.md", "slide 13"],
+        flag: "Omdøpt 20.05.2026 fra «Statisk ↔ Lærende»", status: "rev" },
+
+  // --- ALTERNATIVER ---
+  Alt0: { cls: "alt", label: "Alt 0", sub: "Nullalt.", title: "Alternativ 0: Nullalternativet",
+          def: "Videreføring av dagens praksis. Referansepunkt for sammenligning.",
+          canon: "ny-verdikjede.md kap. 4", also: ["delrapport 7 kap. 4"], status: "ok" },
+  Alt1: { cls: "alt", label: "Alt 1", sub: "Org. moder.", title: "Alternativ 1: Organisatorisk modernisering",
+          def: "Klargjøring av roller og prosesser uten ny teknologi.",
+          canon: "ny-verdikjede.md kap. 4", also: [], status: "ok" },
+  Alt2: { cls: "alt", label: "Alt 2", sub: "Moderat KI", title: "Alternativ 2: Moderat KI-støtte",
+          def: "KI som assistent; menneskelig kontroll bevares.",
+          canon: "ny-verdikjede.md kap. 4", also: ["delrapport 3"], status: "ok" },
+  Alt3: { cls: "alt", label: "Alt 3", sub: "Ambisiøs KI", title: "Alternativ 3: Ambisiøs KI-pipeline",
+          def: "Autonom prosess med menneskelig governance.",
+          canon: "ny-verdikjede.md kap. 4",
+          also: ["delrapport 3", "risikomatrise-ki.html"], status: "ok" },
+
+  // --- FLASKEHALSER (Top 5 + samlende node) ---
+  F: { cls: "flask", label: "F1–F9", sub: "9 flaskeh.", title: "Ni flaskehalser (rangert)",
+       def: "F1 Foreldelse · F2 Kapasitet · F3 Retn.linje↔innb.info · F4 Impl.gap · F5 Refusjon · F6 Silo · F7 Metadata · F8 Personalisering · F9 Tilgjengelighet",
+       canon: "utfordringer-og-flaskehalser.md kap. 8.1", also: ["delrapport 7 kap. 3"], status: "ok" },
+
+  // --- CASESTUDIER ---
+  C: { cls: "case", label: "Cases", sub: "3 stk", title: "Tre casestudier",
+       def: "Antibiotika · Diabetes type 2 (SGLT2: 8 år til refusjon) · Slagbehandling.",
+       canon: "casestudier-forsinkelser.md",
+       also: ["delrapport 1 (revidert)", "delrapport 2 kap. 4", "talepunkter-akser.md"], status: "ok" },
+
+  // --- VERDIKJEDESTEG ---
+  S1: { cls: "steg", label: "Steg 1", sub: "Forskning", title: "Steg 1: Forskning/kunnskapsproduksjon",
+        def: "Primærforskning, kliniske studier.",
+        canon: "dagens-verdikjede.md", also: ["delrapport 2 kap. 2"], status: "ok" },
+  S2: { cls: "steg", label: "Steg 2", sub: "Oppsumm.", title: "Steg 2: Kunnskapsoppsummering",
+        def: "Systematiske oversikter, HTA.",
+        canon: "dagens-verdikjede.md", also: ["FHI"], status: "ok" },
+  S3: { cls: "steg", label: "Steg 3", sub: "4 strømmer", title: "Steg 3: Normering og formidling",
+        def: "Fire parallelle strømmer: normerende, klinisk, legemiddel/refusjon, innbyggerrettet.",
+        canon: "dagens-verdikjede.md", also: ["delrapport 2 kap. 2.3", "delrapport 7 kap. 3"], status: "ok" },
+
+  // --- AKTØRER (samlet) ---
+  AKT: { cls: "akt", label: "~20 aktører", sub: "kartlagt", title: "Aktørkart (~20 aktører)",
+         def: "FHI, Hdir, NHN, RHF×4, KS, Helsenorge, FNSP, DMP, Felleskat./RELIS, fagmed. foreninger, Tidsskriftet, m.fl.",
+         canon: "aktoeranalyse.md (delrapport 8)",
+         also: ["rolledeling-sentral-helseforvaltning.md", "okosystem-verdikjede.html"], status: "ok" },
+
+  // --- HYPOTESER ROLLEDELING ---
+  H1: { cls: "hyp", label: "H1", sub: "FHI–Hdir", title: "H1: FHI ↔ Helsedirektoratet",
+        def: "Grensesnittet er uklart, spesielt etter 2024. Vurdering: moderat–sterk støtte.",
+        canon: "rolledeling-sentral-helseforvaltning.md kap. 1.2/6.1", also: [], status: "ok" },
+  H2: { cls: "hyp", label: "H2", sub: "Hdir–NHN", title: "H2: Helsedirektoratet ↔ NHN",
+        def: "Mer utfordrende etter at Dir. for e-helse ble innlemmet. Vurdering: moderat støtte.",
+        canon: "rolledeling-sentral-helseforvaltning.md kap. 1.2/6.1", also: [], status: "ok" },
+  H3: { cls: "hyp", label: "H3", sub: "Mandat", title: "H3: Fravær av helhetlig styringsmandat",
+        def: "Forsterker H1 og H2. Vurdering: sterk støtte.",
+        canon: "rolledeling-sentral-helseforvaltning.md kap. 1.2/6.1",
+        also: ["R1", "Røttingen kap. 11.9"], status: "ok" },
+
+  // --- ØKOSYSTEMSFÆRER ---
+  SF1: { cls: "sfaere", label: "Sf. 1", sub: "Beslutn.", title: "Sfære 1: Beslutningstakere (innerst)",
+         def: "Innbyggere, pasienter, fagpersonell, ledere – rundt målet «gode kunnskapsbaserte helsebeslutninger».",
+         canon: "verdikjede-som-okosystem.md kap. 3.2",
+         also: ["okosystem-verdikjede.html"], status: "ok" },
+  SF2: { cls: "sfaere", label: "Sf. 2", sub: "Off. kjede", title: "Sfære 2: Offentlig verdikjede",
+         def: "FHI, Hdir, RHF, KS, helsenorge.no m.fl.",
+         canon: "verdikjede-som-okosystem.md kap. 3.2", also: ["AKT"], status: "ok" },
+  SF3: { cls: "sfaere", label: "Sf. 3", sub: "Andre kilder", title: "Sfære 3: Andre kunnskapsleverandører",
+         def: "UpToDate, Cochrane, KI-tjenester, sosiale medier, internasjonal forskning.",
+         canon: "verdikjede-som-okosystem.md kap. 3.2", also: ["D5"], status: "ok" },
+  SF4: { cls: "sfaere", label: "Sf. 4", sub: "Rammesett.", title: "Sfære 4: Rammesettere og infrastruktur (ytterst)",
+         def: "HOD, EU, NHN, EMA/WHO, Datatilsynet.",
+         canon: "verdikjede-som-okosystem.md kap. 3.2",
+         also: ["regulatorisk-etterslep.md"], status: "ok" }
+};
+
+// =========================================================================
+// Layout – manuelle koordinater, grovt gruppert
+// =========================================================================
+const positions = {
+  // Rad 1: Dimensjoner (observasjoner) – 6 i bredden
+  D1: [120, 100], D2: [260, 100], D3: [400, 100], D4: [540, 100], D5: [680, 100], D6: [820, 100],
+
+  // Rad 2: Kjerneegenskaper (MECE-oppsummering av D1–D6) – 4 + 1 tverrgående
+  E1: [200, 280], E2: [380, 280], E3: [560, 280], E4: [740, 280],
+  E5: [470, 410], // tverrgående under
+
+  // Rad 3: Rotårsaker – 6 i bredden
+  R1: [120, 560], R2: [260, 560], R3: [400, 560], R4: [540, 560], R5: [680, 560], R6: [820, 560],
+
+  // Rad 4: Akser (operasjonaliserer rotårsakene) – 4
+  A1: [200, 740], A2: [380, 740], A3: [560, 740], A4: [740, 740],
+
+  // Rad 5: Alternativer
+  Alt0: [200, 920], Alt1: [380, 920], Alt2: [560, 920], Alt3: [740, 920],
+
+  // Verdikjedesteg – øverst til høyre
+  S1: [1080, 100], S2: [1220, 100], S3: [1360, 100],
+
+  // Flaskehalser og casestudier
+  F: [1080, 280], C: [1280, 280],
+
+  // Aktører + hypoteser – midt-høyre
+  AKT: [1080, 460], H1: [1080, 620], H2: [1220, 620], H3: [1360, 620],
+
+  // Økosystemsfærer – nederst til høyre
+  SF1: [1080, 820], SF2: [1220, 820], SF3: [1080, 940], SF4: [1220, 940]
+};
+
+// =========================================================================
+// Kanter (relasjoner)
+// =========================================================================
+const edges = [
+  // D → E (MECE-oppsummering)
+  ["D2","E1","maps"], ["D1","E2","maps"], ["D6","E2","maps"],
+  ["D3","E3","maps"], ["D4","E3","maps"],
+  ["D3","E4","maps"], ["D4","E4","maps"], ["D5","E5","maps"],
+  // E → R (egenskaper knytter til rotårsaker)
+  ["E1","R3"], ["E2","R3"], ["E2","R6"], ["E3","R4"], ["E4","R1"], ["E4","R5"],
+  // E5 tverrgående
+  ["E5","E1","crosscut"], ["E5","E2","crosscut"], ["E5","E3","crosscut"], ["E5","E4","crosscut"],
+  // R → A (akser operasjonaliserer rotårsaker)
+  ["R2","A1","maps"], ["R3","A1","maps"], ["R4","A2","maps"], ["R1","A2","maps"],
+  ["R5","A3","maps"], ["R3","A4","maps"], ["R6","A4","maps"],
+  // A → Alt (alternativer plasserer seg langs aksene)
+  ["A1","Alt2"], ["A1","Alt3"], ["A2","Alt1"], ["A3","Alt1"], ["A4","Alt3"],
+  // Steg → Flaskehalser
+  ["S2","F"], ["S3","F"],
+  // Flask → R
+  ["F","R3"], ["F","R5"],
+  // Cases → D, R
+  ["C","D1"], ["C","D4"], ["C","R5"],
+  // Aktører → R, H
+  ["AKT","R1"], ["AKT","H1"], ["AKT","H2"], ["AKT","H3"],
+  // Hypoteser → R1
+  ["H3","R1","maps"],
+  // Økosystem → D5, R1
+  ["SF1","D5"], ["SF3","D5"], ["SF4","R1"], ["SF2","AKT"]
+];
+
+// =========================================================================
+// Rendering
+// =========================================================================
+const svg = document.getElementById("graph");
+const NS = "http://www.w3.org/2000/svg";
+
+// Gruppeoverskrifter
+const groups = [
+  [120, 60, "Utfordringsdimensjoner (observasjoner)"],
+  [120, 240, "Fem kjerneegenskaper (MECE-oppsummering)"],
+  [120, 520, "Rotårsaker"],
+  [120, 700, "Løsningsdimensjoner (akser)"],
+  [120, 880, "Alternativer for ny verdikjede"],
+  [1080, 60, "Verdikjedesteg"],
+  [1080, 240, "Flaskehalser og casestudier"],
+  [1080, 420, "Aktører og rolledelingshypoteser"],
+  [1080, 780, "Økosystemsfærer (lins)"]
+];
+for (const [x, y, txt] of groups) {
+  const t = document.createElementNS(NS, "text");
+  t.setAttribute("x", x); t.setAttribute("y", y);
+  t.setAttribute("class", "group-label");
+  t.textContent = txt;
+  svg.appendChild(t);
+}
+
+// Kanter først (under noder)
+const edgesG = document.createElementNS(NS, "g");
+svg.appendChild(edgesG);
+function nodeCenter(k) {
+  const [x, y] = positions[k];
+  return [x + 55, y + 28];
+}
+for (const [a, b, kind] of edges) {
+  if (!positions[a] || !positions[b]) continue;
+  const [x1, y1] = nodeCenter(a);
+  const [x2, y2] = nodeCenter(b);
+  const line = document.createElementNS(NS, "path");
+  // Litt kurve hvis langt unna
+  const dx = x2 - x1, dy = y2 - y1;
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const curve = Math.min(40, Math.abs(dy) * 0.2);
+  const d = `M${x1},${y1} Q${mx},${my - curve} ${x2},${y2}`;
+  line.setAttribute("d", d);
+  line.setAttribute("class", "edge" + (kind ? " " + kind : ""));
+  edgesG.appendChild(line);
+}
+
+// Noder
+for (const [k, c] of Object.entries(concepts)) {
+  if (!positions[k]) continue;
+  const [x, y] = positions[k];
+  const g = document.createElementNS(NS, "g");
+  g.setAttribute("class", "node " + c.cls);
+  g.setAttribute("transform", `translate(${x},${y})`);
+  g.dataset.key = k;
+  const w = 110, h = 56;
+  const rect = document.createElementNS(NS, "rect");
+  rect.setAttribute("class", "body");
+  rect.setAttribute("width", w);
+  rect.setAttribute("height", h);
+  rect.setAttribute("rx", 6);
+  g.appendChild(rect);
+  const lbl = document.createElementNS(NS, "text");
+  lbl.setAttribute("class", "node-label");
+  lbl.setAttribute("x", w / 2);
+  lbl.setAttribute("y", 22);
+  lbl.setAttribute("text-anchor", "middle");
+  lbl.textContent = c.label;
+  g.appendChild(lbl);
+  const sub = document.createElementNS(NS, "text");
+  sub.setAttribute("class", "node-sub");
+  sub.setAttribute("x", w / 2);
+  sub.setAttribute("y", 40);
+  sub.setAttribute("text-anchor", "middle");
+  sub.textContent = c.sub;
+  g.appendChild(sub);
+  if (c.status === "rev") {
+    const flag = document.createElementNS(NS, "text");
+    flag.setAttribute("class", "flag");
+    flag.setAttribute("x", w - 8);
+    flag.setAttribute("y", 14);
+    flag.setAttribute("text-anchor", "end");
+    flag.textContent = "⚑";
+    g.appendChild(flag);
+  }
+  g.addEventListener("click", () => showDetail(k));
+  svg.appendChild(g);
+}
+
+// Detaljpanel
+const detailEl = document.getElementById("detail");
+let selectedKey = null;
+function showDetail(k) {
+  const c = concepts[k];
+  if (!c) return;
+  document.querySelectorAll(".node.selected").forEach(n => n.classList.remove("selected"));
+  document.querySelectorAll(`.node[data-key="${k}"]`).forEach(n => n.classList.add("selected"));
+  selectedKey = k;
+  const badge = c.status === "ok"
+    ? '<span class="badge ok">KONSISTENT</span>'
+    : c.status === "rev"
+      ? '<span class="badge warn">REVIDERT</span>'
+      : '<span class="badge alert">SE OPP</span>';
+  const alsoList = c.also && c.also.length
+    ? `<p><strong>Også brukt i:</strong><br>${c.also.map(a => `<span class="ref">${a}</span>`).join("<br>")}</p>`
+    : "";
+  const flagLine = c.flag ? `<p><strong>Historikk:</strong> ${c.flag}</p>` : "";
+  detailEl.innerHTML = `
+    <h3>${c.title}</h3>
+    ${badge}
+    <p>${c.def}</p>
+    <p><strong>Kanonisk definert i:</strong><br><span class="ref">${c.canon}</span></p>
+    ${alsoList}
+    ${flagLine}
+  `;
+}
+</script>
+
+</body>
+</html>
