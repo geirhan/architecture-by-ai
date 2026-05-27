@@ -121,7 +121,7 @@
 
 - **Beskrivelse**: PowerPoint-presentasjon i
   Helsedirektoratets mal for forankring av
-  problemforståelsen. 18 lysbilder: forside, agenda,
+  problemforståelsen. 19 lysbilder: forside, agenda,
   verdikjeden, hovedproblemet, seks dimensjoner (D1-D6)
   over tre lysbilder, fem kjerneegenskaper (slide 9:
   skalerbarhet, reaktivitet, sammenheng, styrbarhet og
@@ -132,7 +132,12 @@
   samt to avsluttende rammeskifte-lysbilder (verdikjede
   vs. økosystem). Basert på delrapport 2 kap. 2 og 9,
   delrapport 7 kap. 4 og rolledeling-rapporten.
-- **Sist oppdatert**: 2026-05-22
+  Konsistens-oppdatert 2026-05-27: slide 5 og 11 endret
+  fra «tre kjerneegenskaper»/«Fem utfordringer» til
+  konsistent bruk av «Fem kjerneegenskaper». Slide 13
+  ryddet for udokumenterte tall (2–3 år, 6–12 mnd) i
+  tråd med endringene i delrapport 1, 4 og 7.
+- **Sist oppdatert**: 2026-05-27
 
 ### utfordringer-relasjoner.html
 

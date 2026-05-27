@@ -30,3 +30,30 @@ Backup av `utfordringsbildet-forankring.pptx` tatt
 2026-05-22 før `update_slide9.py` ble kjørt.
 Beholdt som rollback-mulighet siden pptx-filen
 ikke ligger i git.
+
+### update_pptx_konsistens.py
+
+Engangs-script som ryddet tre konsistens-feil i
+`Presentasjoner/utfordringsbildet-forankring.pptx`
+i tråd med endringene som ble gjort i delrapport 1, 4
+og 7 (commit ce7169b):
+
+1. Slide 5: "Fem utfordringer med verdikjeden" endret
+   til "Fem kjerneegenskaper verdikjeden mangler"
+   (speilet av slide 9-tittel).
+2. Slide 11 (agenda): "Tre kjerneegenskaper" endret til
+   "Fem kjerneegenskaper" (samme endring som ble gjort
+   i rapportene 22. mai).
+3. Slide 13 (D1+D2): udokumenterte tall "2-3 år fra
+   forskning til retningslinje" og "6-12 måneder videre
+   til oppdatert innbyggerinformasjon" fjernet, første
+   erstattet med case-spennvidde fra
+   casestudier-forsinkelser.md.
+
+Kjørt: 2026-05-27
+
+### utfordringsbildet-forankring.BACKUP4.pptx
+
+Backup av `utfordringsbildet-forankring.pptx` tatt
+2026-05-27 før `update_pptx_konsistens.py` ble kjørt.
+Beholdt som rollback-mulighet.
