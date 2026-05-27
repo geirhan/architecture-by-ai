@@ -2,20 +2,47 @@
 
 ## Utredning: Ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+## Statusnivåer
+
+Hver rapport er merket med en status som forteller
+hvor den hører hjemme i prosessens nåværende fase.
+Statusene revideres etter hvert som prosjektet
+modnes.
+
+- **Forankret** – kunnskapsgrunnlag som står seg.
+  Innholdet er forankret i dokumenterte kilder og
+  brukes som referanse i pågående arbeid. Kan brukes
+  utad uten ytterligere forbehold.
+- **Under forankring** – innhold som er aktivt
+  gjenstand for diskusjon og forankring i prosjektet
+  nå. Brukes som arbeidsverktøy og forberedelse til
+  beslutninger, ikke som ferdige konklusjoner.
+- **Utforskende** – materiale som foregriper
+  beslutninger som ikke er tatt. Skissert som
+  utforskning av løsningsrommet før aksene som ligger
+  til grunn er forankret. Brukes til internt arbeid;
+  ikke beslutningsgrunnlag i nåværende fase.
+
 ### [Delrapport 1 -- Dagens verdikjede](dagens-verdikjede.md)
+
+- **Status**: Forankret
 
 - **Beskrivelse**: Kartlegging av dagens verdikjede for
   kunnskapsforvaltning i helsesektoren. 3-stegs modell
   der steg 3 beskrives som fire parallelle strømmer
   (normerende, klinisk, legemiddel, innbyggerrettet).
-  Gjennomløpstidsestimater revidert basert på
-  casestudier: 2-3 år forskning-retningslinje,
-  7-15+ år forskning-praksisendring. Aktørkartet
-  er flyttet til delrapport 8.
-- **Sist oppdatert**: 2026-04-08
+  Gjennomløpstider forankret i casestudier:
+  7–15+ år forskning–bred praksisendring, og ca. 1 år
+  til 7+ år for normerende delprosess (case-basert
+  spennvidde). Aktørkartet er flyttet til delrapport 8.
+  Kap. 7 observasjoner forankret eksplisitt mot
+  delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper,
+  R1–R6).
+- **Sist oppdatert**: 2026-05-26
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
+- **Status**: Under forankring
 - **Beskrivelse**: Kartlegging av utfordringer og
   flaskehalser i verdikjeden. Nytt kap. 2 gir
   samlende utfordringsbilde med seks dimensjoner
@@ -38,6 +65,7 @@
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
+- **Status**: Utforskende
 - **Beskrivelse**: Balansert vurdering av
   LLM-teknologi, EU AI Act-implikasjoner og
   prinsipielle spørsmål.
@@ -45,19 +73,25 @@
 
 ### [Delrapport 4 -- Ny verdikjede](ny-verdikjede.md)
 
+- **Status**: Utforskende
 - **Beskrivelse**: Fire alternativer for ny verdikjede:
   nullalternativet, organisatorisk modernisering,
   moderat KI-støtte og ambisiøs KI-pipeline.
   Governance-modell, kvalitetssikringsprosess og
-  faseinndelt anbefaling. Bredde i alternativer
-  i tråd med utredningsinstruksen. Kap. 6.2 plasserer
-  hvert alternativ langs løsningsdimensjonene
-  (aksene) og viser at ingen alternativer dekker
-  alle aksene fullt ut.
-- **Sist oppdatert**: 2026-05-20
+  faseinndelt anbefaling. Bredde i alternativer i tråd
+  med utredningsinstruksen. Kap. 6.1 viser dekning av
+  rotårsaker R1–R6, kap. 6.2 plassering langs
+  løsningsdimensjonene (aksene); ingen alternativer
+  dekker alle aksene fullt ut. Sammenligningstabellen
+  er kvalitativ (gradsbetegnelser) – udokumenterte
+  tallanslag (%-tidsbesparelser, MNOK, måneder) er
+  fjernet og forutsetter mulighetsstudie og
+  kost–nytte-analyse.
+- **Sist oppdatert**: 2026-05-26
 
 ### [Delrapport 5 -- Arkitektur og komponenter](arkitektur-og-komponenter.md)
 
+- **Status**: Utforskende
 - **Beskrivelse**: ArchiMate-arkitektur med
   6 kjernekomponenter, EHDS-kobling, standarder,
   sikkerhet og personvern.
@@ -65,6 +99,7 @@
 
 ### [Delrapport 6 -- Internasjonale erfaringer](internasjonale-erfaringer.md)
 
+- **Status**: Utforskende
 - **Beskrivelse**: WHO SMART Guidelines, NICE,
   Cochrane KI-piloter, nordiske erfaringer og
   overførbarhet til Norge.
@@ -72,19 +107,26 @@
 
 ### [Delrapport 7 -- Samlet vurdering](samlet-vurdering-kunnskapsforvaltning.md)
 
+- **Status**: Utforskende
 - **Beskrivelse**: Samlet vurdering med
   ledersammendrag, virknings- og
   fordelingsvirkningsanalyse, risikomatrise
-  (10 risikoer), fremdriftsplan, kostnadsramme
-  (100-250 MNOK), juridiske endringsbehov,
+  (10 risikoer), fremdriftsplan (rekkefølge og
+  avhengigheter, ikke månedstall), kvalitativ
+  kostnadsramme, juridiske endringsbehov,
   evalueringsplan og samsvar med
-  utredningsinstruksen. Kap. 4.4 introduserer
-  løsningsdimensjonene (aksene) som lins før
-  virkningsvurderingen.
-- **Sist oppdatert**: 2026-05-20
+  utredningsinstruksen. Kap. 4.2 oppsummerer
+  utfordringsbildet i fem kjerneegenskaper, kap. 4.4
+  introduserer løsningsdimensjonene (aksene) som lins
+  før virkningsvurderingen. Udokumenterte tallanslag
+  fjernet (2,5–5 år, %-tidsbesparelser, MNOK,
+  månedstall) – disse forutsetter mulighetsstudie og
+  kost–nytte-analyse per fase.
+- **Sist oppdatert**: 2026-05-26
 
 ### [Delrapport 8 -- Aktøranalyse](aktoeranalyse.md)
 
+- **Status**: Forankret
 - **Beskrivelse**: Systematisk oversikt over ~20
   aktører organisert etter verdikjedens steg og
   strømmer. Inkluderer roller, ansvar, leveranser,
@@ -96,6 +138,7 @@
 
 ### [Rolledeling i sentral helseforvaltning](rolledeling-sentral-helseforvaltning.md)
 
+- **Status**: Under forankring
 - **Beskrivelse**: Undersøkelse av hypotesen om at
   utfordringer i kunnskapsforvaltningen skyldes
   rolledeling mellom FHI, Helsedirektoratet og
@@ -109,6 +152,7 @@
 
 ### [Casestudier: Dokumenterte forsinkelser](casestudier-forsinkelser.md)
 
+- **Status**: Forankret
 - **Beskrivelse**: Tre casestudier (antibiotika,
   diabetes type 2, slagbehandling) som dokumenterer
   faktiske forsinkelser i verdikjeden fra publisert
@@ -121,6 +165,7 @@
 
 ### [Kildeforankring – slide 3](kildeforankring-slide3.md)
 
+- **Status**: Forankret
 - **Beskrivelse**: Kildevurderingsnotat for slide 3 i
   presentasjonen `utfordringsbildet-forankring.pptx`.
   Fire parallelle systematiske kildesøk i offentlige og
@@ -133,6 +178,7 @@
 
 ### [Talepunkter – slide 13 (akser)](talepunkter-akser.md)
 
+- **Status**: Under forankring
 - **Beskrivelse**: Strukturerte talepunkter for
   forankrings­presentasjonens slide 13 («Hvor langt
   kan eller må vi gå i endring?»). Binder de fire
@@ -144,6 +190,7 @@
 
 ### [Røttingen-rapporten vurdert mot utfordringsbildet](rottingen-utfordringsbildet.md)
 
+- **Status**: Forankret
 - **Beskrivelse**: Kapittelvis gjennomgang av
   Røttingen-rapporten (Gjennomgang av organisering,
   roller og ansvar i den sentrale helseforvaltningen,
@@ -158,6 +205,7 @@
 
 ### [Regulatorisk etterslep – EHDS og EU AI Act](regulatorisk-etterslep.md)
 
+- **Status**: Forankret
 - **Beskrivelse**: Kildeforankring av påstanden
   «regulatorisk etterslep» (delrapport 4 kap. 2.3,
   delrapport 7 kap. 4.2, slide 12) mot konkrete
@@ -172,6 +220,7 @@
 
 ### [Verdikjeden sett som et økosystem](verdikjede-som-okosystem.md)
 
+- **Status**: Under forankring
 - **Beskrivelse**: Perspektivnotat som skifter linsen fra
   lineær verdikjede til økosystem, med **målet** – gode
   kunnskapsbaserte helsebeslutninger – i sentrum og fire

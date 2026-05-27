@@ -3,6 +3,13 @@
 Del av utredning om ny verdikjede for kunnskapsforvaltning
 i helsesektoren
 
+> **Status: Under forankring.** Perspektivnotatet
+> introduserer økosystem-linsen som supplement til den
+> lineære verdikjeden. Brukes som arbeidsverktøy i
+> forankringen av hvordan løsningsrommet skal forstås,
+> og er foreløpig en analytisk lins under utforming.
+> Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## Om dette notatet

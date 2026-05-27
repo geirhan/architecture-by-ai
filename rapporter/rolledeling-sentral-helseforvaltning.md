@@ -5,6 +5,13 @@ Betydning for verdikjeden for kunnskapsforvaltning
 Del av utredning om ny verdikjede for
 kunnskapsforvaltning i helsesektoren
 
+> **Status: Under forankring.** Hypotesene H1–H3 om
+> rolledeling mellom FHI, Helsedirektoratet og NHN er
+> kildeforankret, men implikasjonene for prosjektet
+> videre må fortsatt diskuteres med berørte aktører.
+> Brukes som arbeidsverktøy i forankring.
+> Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Innledning

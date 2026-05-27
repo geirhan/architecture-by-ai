@@ -1,5 +1,10 @@
 # Røttingen-rapporten vurdert mot utfordringsbildet
 
+> **Status: Forankret.** Kapittelvis gjennomgang av
+> norsk offentlig primærkilde, med eksplisitt
+> [DOK]/[ANT]-merking av utsagn. Brukes som referanse i
+> pågående arbeid. Se [statusnivåer](index.md#statusnivåer).
+
 **Dokumenttype:** Kildegjennomgangsnotat
 **Kilde:** *Gjennomgang av organisering, roller og ansvar i den sentrale
 helseforvaltningen.* Rapport 11. mars 2023 (Røttingen-rapporten).

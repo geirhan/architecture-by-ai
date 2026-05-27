@@ -4,6 +4,15 @@ jeg vet det finnes retningslinjer for flere Norske virksomheter om hvordan KI
 kan brukes i samband med forskning og kunskapsoppsummeringer. Dette gjeder for
 for eksempel FHI og VKM, og sikker mange andre. Vurder om dette er noe som passer
  i dette okumentet, eller om det bør lages en ny delrappor -->
+
+> **Status: Utforskende.** Internasjonal kartlegging er
+> grunnlagsmateriale for løsningsdiskusjonen. Den blir
+> først direkte relevant når prosjektet har valgt
+> retning langs aksene og skal vurdere konkrete
+> alternativer. Brukes som referansebibliotek, ikke som
+> beslutningsunderlag i nåværende fase.
+> Se [statusnivåer](index.md#statusnivåer).
+
 ## 1. Innledning
 
 Denne delrapporten kartlegger internasjonale

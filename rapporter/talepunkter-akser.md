@@ -1,5 +1,11 @@
 # Talepunkter – slide 13 og 14 (aksene)
 
+> **Status: Under forankring.** Talepunktene støtter den
+> pågående forankringen av løsningsdimensjonene (aksene)
+> i ledelsen og berørte aktører. Brukes som
+> arbeidsverktøy for muntlig formidling, ikke som
+> ferdig konklusjon. Se [statusnivåer](index.md#statusnivåer).
+
 **Gjelder:** Presentasjonen `Presentasjoner/utfordringsbildet-forankring.pptx`,
 slide 13 («Hvor langt kan eller må vi gå i endring?» – de fire aksene med
 spørsmål) og slide 14 («Aksene svarer ut rotårsakene» – matrise R1–R6 × akser).

@@ -2,6 +2,13 @@
 
 ## Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+> **Status: Utforskende.** Arkitekturen er skissert for
+> et alternativ som ikke er besluttet. Den forutsetter
+> en KI-tung retning som først kan velges når aksene er
+> forankret. Materialet er arbeidsdokument, ikke
+> beslutningsunderlag i nåværende fase.
+> Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Innledning

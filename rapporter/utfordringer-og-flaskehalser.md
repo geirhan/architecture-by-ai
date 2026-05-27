@@ -2,6 +2,13 @@
 
 ## Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+> **Status: Under forankring.** Utfordringsbildet,
+> rotårsaker (R1–R6), kjerneegenskaper og
+> løsningsdimensjoner (aksene) er aktivt gjenstand for
+> forankring i prosjektet. Brukes som arbeidsverktøy og
+> forberedelse til aksediskusjon, ikke som ferdige
+> konklusjoner. Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Innledning

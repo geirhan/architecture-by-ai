@@ -3,6 +3,11 @@
 Del av utredning om ny verdikjede for kunnskapsforvaltning
 i helsesektoren
 
+> **Status: Forankret.** Kartleggingen av ~20 aktører med
+> roller og ansvar er forankret i offentlige kilder og
+> brukes som referanse i pågående arbeid.
+> Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Innledning

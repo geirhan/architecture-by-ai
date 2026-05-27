@@ -3,6 +3,11 @@
 *Del av utredning om ny verdikjede for
 kunnskapsforvaltning i helsesektoren*
 
+> **Status: Forankret.** Kartleggingen av dagens
+> verdikjede er forankret i offentlige kilder og
+> case-dokumentasjon. Brukes som referanse i pågående
+> arbeid. Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Innledning
@@ -193,17 +198,17 @@ publiseres på helsenorge.no (se strøm 3d).
 
 Dette er den mest autoritative strømmen – den eneste
 der kunnskap gjennomgår formell normering for norsk
-kontekst. Den er også den langsomste, med en
-gjennomløpstid på 1–5 år fra kunnskapsoppsummering
-til oppdatert retningslinje. Casestudier
-(se casestudier-forsinkelser.md) dokumenterer
-imidlertid at den reelle tiden fra forskning til
-bred praksisendring er vesentlig lengre – typisk
-**7–15+ år** når implementering, refusjonsordninger
-og etterlevelse inkluderes. For den normerende
-strømmen isolert (forskning til retningslinje) er
-2–3 år typisk, men dette dekker kun midten av
-verdikjeden.
+kontekst. Den er også den langsomste. Casestudier
+(`casestudier-forsinkelser.md`) dokumenterer at den
+reelle tiden fra forskning til bred praksisendring er
+**7–15+ år** når implementering, refusjonsordninger og
+etterlevelse inkluderes. For den normerende delprosessen
+isolert (forskning til vedtatt retningslinje) varierer
+varigheten betydelig fra sak til sak – fra rundt 1 år
+(raske unntak som DAWN/DEFUSE-3) til 7+ år (EXTEND, per
+april 2026 fortsatt ikke vedtatt). Helsedirektoratet
+publiserer ikke aggregerte tall for typisk
+prosessvarighet.
 
 | Aktør | Rolle | Leveranse |
 | ------- | ------- | ----------- |
@@ -712,16 +717,26 @@ og løst.
 Dagens verdikjede for kunnskapsforvaltning i
 helsesektoren består av tre steg (forskning,
 kunnskapsoppsummering, kunnskapsomsetting/formidling),
-der det tredje steget er ikke en lineær prosess, men
-et **nettverk av fire parallelle strømmer** som
-opererer uavhengig av hverandre.
+der det tredje steget ikke er en lineær prosess, men
+et **nettverk av fire parallelle strømmer** som opererer
+uavhengig av hverandre.
 
 ### De viktigste observasjonene
 
+Observasjonene nedenfor analyseres videre i delrapport 2,
+som syntetiserer dem til seks utfordringsdimensjoner
+(D1–D6), fem kjerneegenskaper verdikjeden mangler
+(skalerbarhet, reaktivitet, sammenheng, styrbarhet,
+tillit/legitimitet) og seks rotårsaker (R1–R6). Henvisningene
+nedenfor peker fremover til disse kategoriene.
+
 #### 1. Betydelig tidsforskjell mellom strømmene
 
-Den normerende strømmen (retningslinjer) er
-dokumentert som tidskrevende sammenlignet med:
+*Forankring i delrapport 2: dimensjon D1 (tid og
+gjennomløp), kjerneegenskap «reaktivitet».*
+
+Den normerende strømmen (retningslinjer) er dokumentert
+som tidskrevende sammenlignet med:
 
 - Kliniske oppslagsverk som oppdateres løpende
 - Legemiddelstrømmen som kan reagere raskt på
@@ -730,29 +745,36 @@ dokumentert som tidskrevende sammenlignet med:
   variabelt raskt
 
 Casestudier av antibiotika, diabetes type 2 og
-slagbehandling (se casestudier-forsinkelser.md)
+slagbehandling (`casestudier-forsinkelser.md`)
 dokumenterer at den reelle gjennomløpstiden fra
-forskning til bred praksisendring er **7–15+ år**,
-vesentlig lengre enn de opprinnelige estimatene
-på 2,5–5 år. Internasjonalt er det mest siterte
-estimatet 17 år (Balas & Boren, 2000; Morris
-et al., 2011). De norske casene plasserer seg
-mellom den normerende strømmens isolerte
-gjennomløpstid (2–3 år) og det internasjonale
-17-årsestimatet.
+forskning til bred praksisendring er **7–15+ år**.
+Internasjonalt er det mest siterte estimatet 17 år
+(Balas & Boren, 2000; Morris et al., 2011). De norske
+casene plasserer seg under det internasjonale
+17-årsestimatet, men dokumenterer at gjennomløpstiden
+varierer sterkt fra sak til sak – fra rundt 1 år for
+raske unntak (DAWN/DEFUSE-3) til 8 år for SGLT2-hemmere
+(forskning til forhåndsgodkjent refusjon).
 
-#### 2. De parallelle strømmene er ikke periferalt – de er sentrale
+#### 2. De parallelle strømmene er ikke perifere – de er sentrale
+
+*Forankring: kontekst for delrapport 2 og 4 – at
+moderniseringstiltak må adressere flere strømmer, ikke
+bare den normerende.*
 
 Kliniske oppslagsverk, fagprosedyrer,
 legemiddelinformasjon og pasientorganisasjoner er i
 praksis sentrale kilder i kunnskapsforsyningen. Den
-normerende strømmen er den mest autoritative, men
-ikke nødvendigvis den mest brukte i daglig praksis.
+normerende strømmen er den mest autoritative, men ikke
+nødvendigvis den mest brukte i daglig praksis.
 
 #### 3. Konsistensutfordringer fra usynkroniserte strømmer
 
-Fire strømmer med ulik oppdateringshastighet gir
-risiko for motstridende informasjon:
+*Forankring: kjerneegenskap «sammenheng», rotårsak R4
+(IT-fragmentering).*
+
+Fire strømmer med ulik oppdateringshastighet gir risiko
+for motstridende informasjon:
 
 - Helsepersonell kan motta ulike anbefalinger fra
   nasjonale retningslinjer og kliniske oppslagsverk
@@ -767,72 +789,87 @@ konsistens på tvers av alle strømmer.
 
 #### 4. Fragmentert ansvar uten overordnet koordinering
 
+*Forankring: dimensjon D3 (struktur og styring),
+kjerneegenskap «styrbarhet», rotårsak R1 (manglende
+helhetlig styringsmandat).*
+
 Ansvaret er fordelt på nærmere 20 aktører –
-Helsedirektoratet, FHI, Helsebiblioteket, RHF-ene,
-KS, DMP, Felleskatalogen, RELIS, NHI.no, FNSP,
-fagprosedyreforfattere, pasientorganisasjoner,
-medier og andre – uten et overordnet system som
-sikrer konsistens.
+Helsedirektoratet, FHI, Helsebiblioteket, RHF-ene, KS,
+DMP, Felleskatalogen, RELIS, NHI.no, FNSP,
+fagprosedyreforfattere, pasientorganisasjoner, medier og
+andre – uten et overordnet system som sikrer konsistens.
 
 #### 5. Manuelle overganger og begrenset strukturering
 
+*Forankring: kjerneegenskap «skalerbarhet», rotårsak R2
+(pre-digital design) og R4 (fritekst uten metadata).*
+
 Alle strømmene preges av manuelle prosesser for
-oversettelse, tilpasning og reformatering av
-innhold. Innholdet er i stor grad fritekstbasert,
-noe som begrenser mulighetene for automatisert
-videreforedling og synkronisering.
+oversettelse, tilpasning og reformatering av innhold.
+Innholdet er i stor grad fritekstbasert, noe som
+begrenser mulighetene for automatisert videreforedling
+og synkronisering.
 
 #### 6. Robust kvalitetssikring per strøm, svak kvalitetssikring på tvers
 
-Hver strøm har sine egne
-kvalitetssikringsmekanismer (fagfellevurdering,
-GRADE, høring, redaksjon, regulatorisk godkjenning).
-Men det finnes ingen mekanisme som sikrer at
-endringer i en strøm propageres til og påvirker
-konsistensen i de øvrige strømmene.
+*Forankring: kjerneegenskap «sammenheng» – ikke et
+spørsmål om at hver enkelt strøm er dårlig
+kvalitetssikret, men at tverrgående konsistens mangler.*
+
+Hver strøm har sine egne kvalitetssikringsmekanismer
+(fagfellevurdering, GRADE, høring, redaksjon,
+regulatorisk godkjenning). Men det finnes ingen mekanisme
+som sikrer at endringer i en strøm propageres til og
+påvirker konsistensen i de øvrige strømmene.
 
 ---
 
 ## 8. Konklusjon
 
-Dagens verdikjede fungerer tilstrekkelig for hver
-enkelt strøm, men systemet som helhet mangler
-integrasjon. Resultatene er:
+Dagens verdikjede fungerer tilstrekkelig for hver enkelt
+strøm, men systemet som helhet mangler integrasjon.
+Konsekvensene er:
 
-- Ineffektiv ressursbruk (hver strøm gjør sitt eget
-  arbeid med oversettelse og tilpasning)
-- Risiko for motstridende informasjon (spesielt
-  mellom normativ retningslinje og klinisk praksis)
-- Innbyggere og helsepersonell må selv navigere
-  mellom ulike kilder for å få et fullstendig bilde
-- Mulige forbedringer blir ikke fulgt opp
-  systematisk på tvers av strømmer
-- Innbyggere henter i tillegg kunnskap fra kilder
-  helt utenfor verdikjeden – KI-chatboter,
-  internasjonale nettsider, venner/familie og
-  kommersielle aktører – som den offentlige
-  verdikjeden i praksis konkurrerer med om
+- Ineffektiv ressursbruk – hver strøm gjør sitt eget
+  arbeid med oversettelse og tilpasning
+- Risiko for motstridende informasjon, særlig mellom
+  retningslinje og klinisk praksis
+- Innbyggere og helsepersonell må selv navigere mellom
+  ulike kilder for å få et fullstendig bilde
+- Forbedringer blir ikke fulgt opp systematisk på tvers
+  av strømmer
+- Innbyggere henter i tillegg kunnskap fra kilder helt
+  utenfor verdikjeden – KI-chatboter, internasjonale
+  nettsider, venner/familie og kommersielle aktører – som
+  den offentlige verdikjeden konkurrerer med om
   oppmerksomhet og tillit
 
-Disse observasjonene danner grunnlag for
-**delrapport 2**, som vil analysere spesifikke
-utfordringer og flaskehalser, og identifisere
-mulighetsrom for forbedring.
+Observasjonene danner grunnlag for **delrapport 2**, som
+analyserer utfordringer og flaskehalser systematisk
+gjennom seks dimensjoner (D1–D6), fem kjerneegenskaper
+verdikjeden mangler og seks rotårsaker (R1–R6).
 
-**Merknad om kilder:** Kartleggingen i denne
-rapporten er basert på tilgjengelig dokumentasjon
-fra offentlige kilder. Gjennomløpstidsestimatene
-er revidert og underbygget med tre casestudier
-(antibiotika, diabetes type 2, slagbehandling)
-dokumentert i casestudier-forsinkelser.md, som
-viser at den reelle tiden fra forskning til bred
-praksisendring er 7–15+ år. Øvrige observasjoner
-om intern prosessvarighet bør fortsatt underbygges
-gjennom målrettede undersøkelser.
+**Merknad om kilder:** Kartleggingen er basert på
+tilgjengelig dokumentasjon fra offentlige kilder. Den
+dokumenterte gjennomløpstiden på 7–15+ år (forskning til
+bred praksisendring) er underbygget med tre casestudier
+(antibiotika, diabetes type 2, slagbehandling) i
+`casestudier-forsinkelser.md`. Helsedirektoratet
+publiserer ikke aggregerte tall for typisk varighet av
+retningslinjeprosessen isolert; rapporten unngår derfor
+gjennomsnittsanslag og refererer kun til de
+case-dokumenterte verdiene.
 
 ---
 
-Sist oppdatert: 2026-04-08
+Sist oppdatert: 2026-05-26
+
+## Endringslogg
+
+| Dato | Endring |
+|---|---|
+| 2026-04-08 | Versjon med gjennomløpstider 1–5 år (kap. 3a) og 2–3 år (typisk normerende strøm). Casestudie-funn (7–15+ år) lagt til som korreksjon. |
+| 2026-05-26 | Konsistensgjennomgang: udokumenterte gjennomsnittsanslag (1–5 år, 2–3 år, 2,5–5 år) fjernet og erstattet med case-baserte spennvidder fra `casestudier-forsinkelser.md`. Kap. 7 observasjoner forankret eksplisitt mot delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper, R1–R6). Konklusjon språklig strammet. |
 
 ---
 

@@ -2,6 +2,14 @@
 
 ## Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren
 
+> **Status: Utforskende.** Vurderingen av LLM-teknologi
+> er grunnlagsmateriale for KI-tunge alternativer
+> (alternativ 2 og 3 i delrapport 4). Den er først
+> relevant når prosjektet har valgt retning langs aksen
+> menneskedrevet ↔ KI-drevet. Materialet er
+> arbeidsdokument, ikke beslutningsunderlag i nåværende
+> fase. Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Innledning

@@ -1,5 +1,11 @@
 # Casestudier: Dokumenterte forsinkelser i verdikjeden
 
+> **Status: Forankret.** Alle gjennomløpstider i denne
+> rapporten er forankret i daterte, offentlig
+> tilgjengelige kilder (34 referanser). Brukes som
+> primær empirisk underbygging for tidsestimater i
+> delrapport 1 og 2. Se [statusnivåer](index.md#statusnivåer).
+
 ## 1. Innledning
 
 ### 1.1 Formål

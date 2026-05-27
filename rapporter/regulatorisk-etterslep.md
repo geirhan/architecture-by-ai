@@ -1,5 +1,10 @@
 # Kildeforankring: «Regulatorisk etterslep» i lys av EHDS og EU AI Act
 
+> **Status: Forankret.** Påstanden er kildeforankret
+> mot konkrete artikler i EHDS (Forordning 2025/327) og
+> EU AI Act (Forordning 2024/1689). Brukes som referanse
+> i pågående arbeid. Se [statusnivåer](index.md#statusnivåer).
+
 **Utarbeidet:** 2026-05-21
 **Gjelder:** Påstanden «regulatorisk etterslep» som brukes i
 delrapport 4 (`ny-verdikjede.md`, kap. 2.3), delrapport 7

@@ -1,5 +1,11 @@
 # Kildeforankring – slide 3 og slide 8 (D5)
 
+> **Status: Forankret.** Notatet dokumenterer
+> systematiske kildesøk for spesifikke påstander i
+> forankrings­presentasjonen. Alle utsagn er merket
+> [DOK]/[ANT] med kildelenker.
+> Se [statusnivåer](index.md#statusnivåer).
+
 **Dokumenttype:** Kildevurderingsnotat
 **Gjelder:** Presentasjonen `Presentasjoner/utfordringsbildet-forankring.pptx`.
 Opprinnelig slide 3 «Hovedproblemet» (revidert 2026-05-19; underpunkter

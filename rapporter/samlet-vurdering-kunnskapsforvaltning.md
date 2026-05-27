@@ -3,6 +3,15 @@
 Del av utredning om ny verdikjede for kunnskapsforvaltning
 i helsesektoren
 
+> **Status: Utforskende.** Rapporten skisserer en
+> helhetlig anbefaling med fremdriftsplan, risikomatrise
+> og juridiske endringsbehov. Prosjektet er i fasen der
+> aksene som ligger til grunn diskuteres og forankres;
+> beslutningsgrunnlaget for anbefalingen er derfor ikke
+> ferdig forankret. Materialet brukes til intern
+> utforskning, ikke som anbefaling utad i nåværende fase.
+> Se [statusnivåer](index.md#statusnivåer).
+
 ---
 
 ## 1. Ledersammendrag
@@ -27,13 +36,13 @@ stiller krav til digital modenhet.
 
 ### Hovedfunn
 
-**Dagens verdikjede er ikke bærekraftig.**
-Gjennomløpstiden fra ny forskning til oppdatert
-retningslinje er 2-3 år, men casestudier
-(casestudier-forsinkelser.md) dokumenterer at den
-reelle tiden fra forskning til bred praksisendring
-er **7-15+ år** (delrapport 1, revidert).
-De tre mest alvorlige flaskehalsene er foreldelse av
+**Dagens verdikjede er ikke bærekraftig.** Casestudier
+(`casestudier-forsinkelser.md`) dokumenterer at den
+reelle tiden fra forskning til bred praksisendring er
+**7–15+ år**, og at den normerende delprosessen
+(forskning til vedtatt retningslinje) varierer fra
+rundt 1 år til 7+ år avhengig av sak. De tre mest
+alvorlige flaskehalsene er foreldelse av
 kunnskapsgrunnlaget underveis i retningslinjeprosessen,
 kapasitetsbegrensning for systematiske oversikter, og
 manglende kobling mellom retningslinjer og
@@ -57,41 +66,44 @@ KI-systemer i helse fortsatt er umodne (delrapport 6).
 ### Anbefaling
 
 Utredningen anbefaler en **faseinndelt innføring av
-KI-støttet kunnskapsforvaltning** over tre faser i
-løpet av 0-48 måneder, med alternativ 2 (moderat
-KI-støtte) som startpunkt og gradvis utvidelse mot
-alternativ 3 (ambisiøs KI-pipeline). Organisatoriske
-tiltak fra alternativ 1 anbefales gjennomført
-parallelt.
+KI-støttet kunnskapsforvaltning** i tre faser –
+pilotering, utvidelse og transformasjon – med
+alternativ 2 (moderat KI-støtte) som startpunkt og
+gradvis utvidelse mot alternativ 3 (ambisiøs
+KI-pipeline). Organisatoriske tiltak fra alternativ 1
+anbefales gjennomført parallelt. Tidshorisont for hver
+fase fastsettes i mulighetsstudien.
 
-### Nøkkeltall
+### Nøkkelvirkninger (kvalitative)
+
+Rapporten følger prinsippet om at tallanslag uten
+dokumentert kildegrunnlag ikke gjengis. Konkrete
+tidsbesparelser, kostnader og månedstall forutsetter
+egne utredninger (kost–nytte-analyse, mulighetsstudie)
+og er derfor utelatt.
 
 <!-- markdownlint-disable MD013 -->
 
 | Indikator | Dagens situasjon | Med anbefalt tiltak |
 | --- | --- | --- |
-| Gjennomløpstid forskning-retningslinje | 2-3 år | 1-2 år (fase 1-2), uker-måneder (fase 3) |
-| Gjennomløpstid forskning-praksisendring | 7-15+ år (casestudier) | Vesentlig kortere med aktive implementeringstiltak |
-| Estimert tidsbesparelse | N/A | 40-60 % (fase 1-2), 70-90 % (fase 3) |
-| Investeringskostnad (fase 1-2) | N/A | 20-50 MNOK over 2-3 år |
-| Investeringskostnad (inkl. fase 3) | N/A | 100-250 MNOK over 4-6 år |
-| Kvalitetsrisiko | Lav (etablerte prosesser, men utdatert innhold) | Lav-moderat (fase 1-2), moderat-høy (fase 3) |
+| Gjennomløpstid forskning–praksisendring | 7–15+ år (casestudier) | Vesentlig kortere, særlig med aktive implementeringstiltak |
+| Gjennomløpstid forskning–retningslinje | Stor variasjon (ca. 1 år til 7+ år, casestudier) | Stor reduksjon for faseinnført KI-støtte |
+| Skalerbarhet (kapasitet vs. volum) | Kapasitet vokser ikke med forskningsvolum | Frikoblet fra bemanning fra fase 2 |
+| Reaktivitet | Periodisk, episodisk | Kontinuerlig i fase 3 (living guidelines) |
+| Investeringsnivå | – | Moderat (fase 1–2) til høy (fase 3) |
+| Kvalitetsrisiko | Lav (etablerte prosesser, men utdatert innhold) | Lav–moderat (fase 1–2), moderat–høy (fase 3) |
 
 <!-- markdownlint-enable MD013 -->
-
-*Merknad: Kostnadsestimatene har vesentlig usikkerhet
-og bør verifiseres gjennom detaljerte
-kost-nytte-analyser.*
 
 ### Konsekvens av å ikke handle
 
 Nullalternativet (videreføring uten endring) er ikke
-bærekraftig på mellomlang sikt (3-5 år). Konsekvensene
-inkluderer: økende gap mellom tilgjengelig kunnskap og
-formidlet informasjon, tap av innbyggernes tillit til
-offentlig helseinformasjon i konkurranse med kommersielle
-KI-tjenester, risiko for manglende EHDS-samsvar, og
-kompetanseflukt fra offentlig sektor.
+bærekraftig. Konsekvensene inkluderer: økende gap mellom
+tilgjengelig kunnskap og formidlet informasjon, tap av
+innbyggernes tillit til offentlig helseinformasjon i
+konkurranse med kommersielle KI-tjenester, risiko for
+manglende EHDS-samsvar, og kompetanseflukt fra offentlig
+sektor.
 
 ### Målgruppe
 
@@ -139,15 +151,14 @@ delrapportene og gir en helhetlig anbefaling.
 
 ### Delrapport 1: Dagens verdikjede
 
-Verdikjeden fra forskning til innbygger består av
-tre hovedsteg med fire parallelle strømmer i
-steg 3. Den normerende strømmens gjennomløpstid
-fra forskning til retningslinje er 2-3 år.
+Verdikjeden fra forskning til innbygger består av tre
+hovedsteg med fire parallelle strømmer i steg 3.
 Casestudier (antibiotika, diabetes type 2,
-slagbehandling) dokumenterer imidlertid at den
-reelle tiden fra forskning til bred praksisendring
-er 7-15+ år, vesentlig lengre enn de opprinnelige
-estimatene.
+slagbehandling) dokumenterer at den reelle tiden fra
+forskning til bred praksisendring er 7–15+ år, og at
+den normerende delprosessen varierer fra ca. 1 år til
+7+ år avhengig av sak. Helsedirektoratet publiserer
+ikke aggregerte tall for typisk prosessvarighet.
 
 Kartleggingen viser at verdikjeden preges av manuelle
 overganger, fragmentert ansvar og begrenset strukturering
@@ -185,7 +196,8 @@ formidlet kunnskap.
 ### Delrapport 3: Store språkmodeller - muligheter og risikoer
 
 LLM-teknologi har potensial til å akselerere
-kunnskapssyntese (50-80 % tidsbesparelse i screening),
+kunnskapssyntese (vesentlig tidsbesparelse i screening
+ifølge internasjonale piloter, jf. delrapport 6),
 støtte retningslinjeutvikling, forbedre
 innbyggerinformasjon gjennom klarspråk-oversettelse, og
 muliggjøre living guidelines. Samtidig medfører
@@ -205,20 +217,20 @@ tilsyn.
 
 ### Delrapport 4: Alternativer for ny verdikjede
 
-Fire alternativer vurderes, med ulik
-inngripningsgrad. Alternativ 0 (nullalternativet)
-viderefører dagens praksis og vurderes som ikke
-bærekraftig. Alternativ 1 (organisatorisk
-modernisering) styrker kapasiteten gjennom økt
-bemanning og prosessoptimalisering, med 15-30 %
-tidsbesparelse. Alternativ 2 (moderat KI-støtte)
-innfører KI som støtteverktøy med menneskelig
-kontroll, gir 40-60 % tidsbesparelse til en
-investeringskostnad på 20-50 MNOK. Alternativ 3
+Fire alternativer vurderes, med ulik inngripningsgrad.
+Alternativ 0 (nullalternativet) viderefører dagens
+praksis og vurderes som ikke bærekraftig. Alternativ 1
+(organisatorisk modernisering) styrker kapasiteten
+gjennom økt bemanning og prosessoptimalisering, med
+marginal til moderat effekt – løser ikke det
+underliggende skaleringsproblemet (R2 pre-digital
+design). Alternativ 2 (moderat KI-støtte) innfører KI
+som støtteverktøy med menneskelig kontroll og styrker
+særlig skalerbarhet og reaktivitet. Alternativ 3
 (ambisiøs KI-pipeline) innebærer living guidelines,
-personaliserte helseråd og EHDS-integrasjon, med
-70-90 % tidsbesparelse og investeringskostnad på
-100-250 MNOK.
+personaliserte helseråd og EHDS-integrasjon, og endrer
+alle fire systemegenskaper forutsatt at
+governance-leddet er på plass.
 
 Anbefalingen er en faseinndelt tilnærming der
 alternativ 2 implementeres først, med gradvis
@@ -258,9 +270,9 @@ WHO SMART Guidelines gir et modenhetssrammeverk for
 maskinlesbare retningslinjer. NICE ESF tilbyr et
 differensiert rammeverk for vurdering av
 KI-teknologier. Cochranes piloter demonstrerer
-50-70 % tidsbesparelse i screening. Nordiske land viser
-at Finland og Danmark har kommet lengst med sentral
-infrastruktur.
+vesentlig tidsbesparelse i screening. Nordiske land
+viser at Finland og Danmark har kommet lengst med
+sentral infrastruktur.
 
 ---
 
@@ -325,8 +337,7 @@ alternativene.
 ### 4.3 Implikasjoner av å videreføre status quo
 
 Dersom dagens verdikjede videreføres uten endring, vil
-følgende konsekvenser med høy sannsynlighet inntreffe
-i løpet av 3-5 år:
+følgende konsekvenser med høy sannsynlighet inntreffe:
 
 1. **Kunnskapsgapet øker.** Akselererende
    forskningsproduksjon betyr at en stadig større andel
@@ -416,51 +427,52 @@ vurderingen.
 
 #### Alternativ 1 (organisatorisk modernisering)
 
-- **Positive virkninger**: 15-30 % kortere
-  gjennomløpstid, bedre koordinering mellom
-  aktørene, styrket kapasitet for
+- **Positive virkninger**: Marginal til moderat
+  reduksjon i gjennomløpstid, bedre koordinering
+  mellom aktørene, styrket kapasitet for
   kunnskapsproduksjon.
 - **Negative virkninger**: Varig økning i
-  driftskostnader (lønnsutgifter), rekruttering
-  i et stramt arbeidsmarked for
-  spesialkompetanse, organisatorisk
-  endringsmotstand. Løser ikke det underliggende
-  skaleringsproblemet.
+  driftskostnader (lønnsutgifter), rekruttering i et
+  stramt arbeidsmarked for spesialkompetanse,
+  organisatorisk endringsmotstand. Løser ikke det
+  underliggende skaleringsproblemet (R2).
 - **Varighet**: Gevinstene er reelle men avtagende
   over tid etter hvert som forskningsvolumet
   fortsetter å vokse.
 
 #### Alternativ 2 (moderat KI-støtte)
 
-- **Positive virkninger**: 40-60 % kortere
+- **Positive virkninger**: Vesentlig reduksjon i
   gjennomløpstid, økt kapasitet uten tilsvarende
-  bemanningsøkning, bedre innbyggerinformasjon,
+  bemanningsøkning (styrket skalerbarhet og
+  reaktivitet), bedre innbyggerinformasjon,
   posisjonering for EHDS-samsvar.
-- **Negative virkninger**: Investeringskostnad
-  20-50 MNOK, behov for kompetanseomstilling,
-  risiko for automatiseringstillit, avhengighet
-  av teknologileverandører, overgangsperiode med
+- **Negative virkninger**: Moderat
+  investeringskostnad, behov for
+  kompetanseomstilling, risiko for
+  automatiseringstillit, avhengighet av
+  teknologileverandører, overgangsperiode med
   redusert produktivitet under implementering.
-- **Varighet**: Gevinstene er varige og
-  skalerbare. Omstillingskostnadene er
-  forbigående (12-24 mnd).
+- **Varighet**: Gevinstene er varige og skalerbare.
+  Omstillingskostnadene er forbigående.
 
 #### Alternativ 3 (ambisiøs KI-pipeline)
 
-- **Positive virkninger**: 70-90 % kortere
-  gjennomløpstid, living guidelines,
-  personaliserte helseråd, full
-  EHDS-integrasjon, flerspråklig formidling.
-- **Negative virkninger**: Høy
-  investeringskostnad 100-250 MNOK, vesentlig
-  organisatorisk transformasjon, moderat-høy
-  kvalitetsrisiko, regulatorisk usikkerhet, fare
-  for leverandørlåsing, redusert menneskelig
-  kontroll.
+- **Positive virkninger**: Stor reduksjon i
+  gjennomløpstid, living guidelines, personaliserte
+  helseråd, full EHDS-integrasjon, flerspråklig
+  formidling. Endrer alle fire systemegenskaper
+  forutsatt at governance-leddet etableres.
+- **Negative virkninger**: Høy investeringskostnad,
+  vesentlig organisatorisk transformasjon,
+  moderat–høy kvalitetsrisiko, regulatorisk
+  usikkerhet, fare for leverandørlåsing, redusert
+  menneskelig kontroll. Tilliten blir den kritiske
+  faktoren.
 - **Varighet**: Gevinstene er varige og
   transformative hvis vellykket. Risikoen for
-  feilslått implementering er størst i de
-  første 2-3 årene.
+  feilslått implementering er størst i de tidlige
+  fasene.
 
 ### 5.2 Fordelingsvirkninger
 
@@ -473,7 +485,7 @@ utvidelse mot alternativ 3).
 
 | Berørt gruppe | Kostnader | Gevinster |
 | --- | --- | --- |
-| **HOD** | Finansiering (100-250 MNOK), politisk risiko | Bedre måloppnåelse, EHDS-samsvar |
+| **HOD** | Finansiering (omfang fastsettes i mulighetsstudien), politisk risiko | Bedre måloppnåelse, EHDS-samsvar |
 | **Helsedirektoratet** | Organisasjonsutvikling, governance-ansvar | Raskere retningslinjearbeid, styrket fagmyndighetsrolle |
 | **FHI** | Omstilling, ny kompetanse, endrede roller for fagpersoner | Økt produksjonskapasitet, mer tid til faglig vurdering |
 | **NHN** | Ny KI-driftskapasitet, teknisk rekruttering | Styrket rolle som nasjonal tjenesteleverandør |
@@ -579,12 +591,16 @@ gjennomført parallelt. Tilnærmingen balanserer
 behovet for modernisering mot risikoen for feilslått
 implementering.
 
-### 6.2 Fase 1: Pilotering (0-18 måneder)
+Faseinndelingen angir rekkefølge og avhengigheter,
+ikke konkrete varigheter. Tidsfastsettelse og kostnad
+forutsetter mulighetsstudie og kost–nytte-analyse.
+
+### 6.2 Fase 1: Pilotering
 
 **Målsetning:** Bevise konseptet og bygge grunnlaget.
 
 - KI-assistert screening av forskningslitteratur ved
-  FHI (pilot på 2-3 fagområder)
+  FHI (pilot på utvalgte fagområder)
 - KI-assistert oversettelse av retningslinjer til
   klarspråk/innbyggerspråk (pilot)
 - Etablering av governance-rammeverk og kvalitetskrav
@@ -596,9 +612,9 @@ implementering.
 - Juridisk avklaring av forholdet mellom KI-generert
   helseinnhold og EU AI Act
 
-**Estimert kostnad:** 5-15 MNOK. **Risiko:** Lav.
+**Risiko:** Lav.
 
-### 6.3 Fase 2: Utvidelse (12-36 måneder)
+### 6.3 Fase 2: Utvidelse
 
 **Målsetning:** Skalere det som virker og utvide
 funksjonaliteten.
@@ -615,9 +631,9 @@ funksjonaliteten.
 - Videreutvikling av governance basert på erfaringer
   fra fase 1
 
-**Estimert kostnad:** 15-35 MNOK. **Risiko:** Moderat.
+**Risiko:** Moderat.
 
-### 6.4 Fase 3: Transformasjon (24-48 måneder)
+### 6.4 Fase 3: Transformasjon
 
 **Målsetning:** Transformere verdikjeden og koble til
 europeisk infrastruktur.
@@ -632,32 +648,24 @@ europeisk infrastruktur.
 - Flerspråklig, multimodal formidling av
   helseinformasjon
 
-**Estimert kostnad:** 80-200 MNOK.
-**Risiko:** Moderat-høy.
+**Risiko:** Moderat–høy. Fase 3 forutsetter vellykket
+gjennomføring av fase 1 og 2, samt at teknologien
+modnes ytterligere.
 
-*Merknad: Fase 3 representerer et langsiktig mål som
-forutsetter vellykket gjennomføring av fase 1 og 2,
-samt at teknologien modnes ytterligere.
-Kostnadsestimatet har høy usikkerhet.*
+### 6.5 Kostnadsramme
 
-### 6.5 Samlet kostnadsramme
+Investeringsnivå per fase, kvalitativt vurdert:
 
-<!-- markdownlint-disable MD013 -->
+| Fase | Investeringsnivå | Risiko |
+| --- | --- | --- |
+| Fase 1: Pilotering | Lavt | Lav |
+| Fase 2: Utvidelse | Moderat | Moderat |
+| Fase 3: Transformasjon | Høyt | Moderat–høy |
 
-| Fase | Periode | Estimert kostnad | Usikkerhet |
-| ------ | --------- | ----------------- | ------------ |
-| Fase 1: Pilotering | 0-18 mnd | 5-15 MNOK | Moderat |
-| Fase 2: Utvidelse | 12-36 mnd | 15-35 MNOK | Moderat-høy |
-| Fase 3: Transformasjon | 24-48 mnd | 80-200 MNOK | Høy |
-| **Totalt** | **0-48 mnd** | **100-250 MNOK** | **Høy** |
-
-<!-- markdownlint-enable MD013 -->
-
-Kostnadsestimatene inkluderer utvikling, anskaffelse,
-kompetanseheving og organisasjonsutvikling.
-Driftskostnader kommer i tillegg. Estimatene er grove
-og bør verifiseres gjennom detaljerte
-kost-nytte-analyser for hver fase.
+Konkrete kostnadsestimater forutsetter detaljert
+kost–nytte-analyse per fase, og inkluderer utvikling,
+anskaffelse, kompetanseheving og organisasjonsutvikling.
+Driftskostnader kommer i tillegg.
 
 ### 6.6 Organisatoriske forutsetninger
 
@@ -724,33 +732,37 @@ krever aktiv styring gjennom hele gjennomføringsperioden.
 
 ## 8. Fremdriftsplan
 
-### 8.1 Overordnet tidslinje
+### 8.1 Aktiviteter og avhengigheter
+
+Tabellen viser rekkefølge, ansvar og kritiske
+avhengigheter. Konkrete tidsanslag forutsetter
+gjennomføringsplan med ressurser, og er derfor utelatt.
 
 <!-- markdownlint-disable MD013 -->
 
-| Aktivitet | Fase | Tidsrom | Ansvarlig | Avhengigheter |
-| ------------- | ------ | --------- | ------------- | --------------- |
-| **Fase 1: Pilotering** | | **0-18 mnd** | | |
-| Oppdrag og finansiering fra HOD | 1 | Mnd 0-3 | HOD | Politisk beslutning |
-| Etablere governance-rammeverk | 1 | Mnd 1-6 | Helsedirektoratet | Oppdrag fra HOD |
-| KI-screening pilot ved FHI (2-3 fagområder) | 1 | Mnd 3-15 | FHI | Governance-rammeverk |
-| KI-klarspråk pilot | 1 | Mnd 6-15 | Helsedirektoratet/NHN | Governance-rammeverk |
-| Kompetanseheving nøkkelpersonell | 1 | Mnd 3-18 | Alle aktører | Budsjett |
-| Juridisk avklaring EU AI Act | 1 | Mnd 1-12 | Helsedirektoratet | - |
-| **Milepæl M1:** Pilotevaluering og beslutning om fase 2 | 1 | Mnd 18 | Helsedirektoratet | Pilotresultater |
-| **Fase 2: Utvidelse** | | **12-36 mnd** | | |
-| Skalere KI-screening til alle fagområder | 2 | Mnd 12-24 | FHI | M1 |
-| KI-støttede systematiske oversikter | 2 | Mnd 15-30 | FHI | M1 |
-| Automatisk evidensvarsling | 2 | Mnd 18-30 | FHI/NHN | Kunnskapsbase |
-| KI-chatbot pilot på helsenorge.no | 2 | Mnd 18-36 | NHN | Kunnskapsbase, governance |
-| Etablere kunnskapsbase med FHIR | 2 | Mnd 12-30 | NHN | Arkitektur |
-| **Milepæl M2:** Evaluering og beslutning om fase 3 | 2 | Mnd 36 | Helsedirektoratet | Fase 2-resultater |
-| **Fase 3: Transformasjon** | | **24-48 mnd** | | |
-| Living guidelines pilot | 3 | Mnd 24-42 | Helsedirektoratet/FHI | M2 |
-| EHDS-integrasjon | 3 | Mnd 30-48 | NHN | Kunnskapsbase, EHDS-tidsplan |
-| Personaliserte helseråd pilot | 3 | Mnd 36-48 | NHN/Helsedirektoratet | Regulatorisk avklaring |
-| Flerspråklig formidling | 3 | Mnd 30-42 | NHN | Kunnskapsformidlingsplattform |
-| **Milepæl M3:** Full operativ drift | 3 | Mnd 48 | Alle aktører | Alle faser |
+| Aktivitet | Fase | Ansvarlig | Avhengigheter |
+| --- | --- | --- | --- |
+| **Fase 1: Pilotering** | | | |
+| Oppdrag og finansiering fra HOD | 1 | HOD | Politisk beslutning |
+| Etablere governance-rammeverk | 1 | Helsedirektoratet | Oppdrag fra HOD |
+| KI-screening pilot ved FHI (utvalgte fagområder) | 1 | FHI | Governance-rammeverk |
+| KI-klarspråk pilot | 1 | Helsedirektoratet/NHN | Governance-rammeverk |
+| Kompetanseheving nøkkelpersonell | 1 | Alle aktører | Budsjett |
+| Juridisk avklaring EU AI Act | 1 | Helsedirektoratet | – |
+| **Milepæl M1:** Pilotevaluering og beslutning om fase 2 | 1 | Helsedirektoratet | Pilotresultater |
+| **Fase 2: Utvidelse** | | | |
+| Skalere KI-screening til alle fagområder | 2 | FHI | M1 |
+| KI-støttede systematiske oversikter | 2 | FHI | M1 |
+| Automatisk evidensvarsling | 2 | FHI/NHN | Kunnskapsbase |
+| KI-chatbot pilot på helsenorge.no | 2 | NHN | Kunnskapsbase, governance |
+| Etablere kunnskapsbase med FHIR | 2 | NHN | Arkitektur |
+| **Milepæl M2:** Evaluering og beslutning om fase 3 | 2 | Helsedirektoratet | Fase 2-resultater |
+| **Fase 3: Transformasjon** | | | |
+| Living guidelines pilot | 3 | Helsedirektoratet/FHI | M2 |
+| EHDS-integrasjon | 3 | NHN | Kunnskapsbase, EHDS-tidsplan |
+| Personaliserte helseråd pilot | 3 | NHN/Helsedirektoratet | Regulatorisk avklaring |
+| Flerspråklig formidling | 3 | NHN | Kunnskapsformidlingsplattform |
+| **Milepæl M3:** Full operativ drift | 3 | Alle aktører | Alle faser |
 
 <!-- markdownlint-enable MD013 -->
 
@@ -781,19 +793,19 @@ minimumskrav:
 ### Krav 1: Problemet og målet
 
 **Problemet:** Verdikjeden for kunnskapsforvaltning i
-helsesektoren har en gjennomløpstid på 2-3 år fra
-forskning til retningslinje, men casestudier
-dokumenterer 7-15+ år fra forskning til bred
-praksisendring (casestudier-forsinkelser.md).
-Verdikjeden skalerer ikke med økende
-forskningsvolum, og innbyggere søker i økende grad
-helseinformasjon fra ukvalifiserte kilder.
-(Delrapport 1 og 2, revidert med casestudier.)
+helsesektoren har dokumentert lang gjennomløpstid:
+casestudier viser 7–15+ år fra forskning til bred
+praksisendring, og at den normerende delprosessen
+varierer fra ca. 1 år til 7+ år avhengig av sak
+(`casestudier-forsinkelser.md`). Verdikjeden skalerer
+ikke med økende forskningsvolum, og innbyggere søker i
+økende grad helseinformasjon fra ukvalifiserte kilder.
+(Delrapport 1 og 2.)
 
-**Målet:** Redusere gjennomløpstiden vesentlig
-(40-90 %), øke kapasiteten for kunnskapsproduksjon,
-sikre at offentlig helseinformasjon er oppdatert og
-tilgjengelig, og posisjonere Norge for EHDS-samsvar.
+**Målet:** Redusere gjennomløpstiden vesentlig, øke
+kapasiteten for kunnskapsproduksjon, sikre at offentlig
+helseinformasjon er oppdatert og tilgjengelig, og
+posisjonere Norge for EHDS-samsvar.
 
 ### Krav 2: Relevante tiltak
 
@@ -856,9 +868,11 @@ er vurdert i kapittel 5.3.
 ### Krav 5: Anbefalt tiltak
 
 Faseinndelt innføring av KI-støttet
-kunnskapsforvaltning over tre faser (0-48 måneder),
-med alternativ 2 som startpunkt og organisatoriske
-tiltak fra alternativ 1 parallelt. Se kapittel 6.
+kunnskapsforvaltning i tre faser (pilotering,
+utvidelse, transformasjon), med alternativ 2 som
+startpunkt og organisatoriske tiltak fra alternativ 1
+parallelt. Tidshorisont fastsettes i mulighetsstudien.
+Se kapittel 6.
 
 ### Krav 6: Forutsetninger for vellykket gjennomføring
 
@@ -907,9 +921,9 @@ fase. Evalueringsplanen er strukturert slik:
 
 | Fase | Evalueringstidspunkt | Ansvarlig | Evalueringskriterier | Metode |
 | --- | --- | --- | --- | --- |
-| Fase 1 | Mnd 15-18 | Helsedirektoratet | Faktisk tidsbesparelse vs. estimert, kvalitet på KI-generert innhold (feilrate), brukeraksept hos fagpersoner, samsvar med EU AI Act | Kvantitativ måling, brukerundersøkelse, ekstern kvalitetsrevisjon |
-| Fase 2 | Mnd 30-36 | Helsedirektoratet | Skaleringsresultater, innbyggertilfredshet med chatbot, kostnadsutvikling vs. estimat, KI-systemenes ytelse over tid | Kvantitativ måling, innbyggerundersøkelse, kost-nytte-analyse |
-| Fase 3 | Mnd 42-48 | Helsedirektoratet | Funksjonalitet av living guidelines, EHDS-integrasjon, samlet måloppnåelse for utredningen | Ekstern evaluering, internasjonal benchmarking |
+| Fase 1 | Mot slutten av pilotering | Helsedirektoratet | Faktisk tidsbesparelse vs. forhåndssatt mål, kvalitet på KI-generert innhold (feilrate), brukeraksept hos fagpersoner, samsvar med EU AI Act | Kvantitativ måling, brukerundersøkelse, ekstern kvalitetsrevisjon |
+| Fase 2 | Mot slutten av utvidelse | Helsedirektoratet | Skaleringsresultater, innbyggertilfredshet med chatbot, kostnadsutvikling vs. forhåndssatt mål, KI-systemenes ytelse over tid | Kvantitativ måling, innbyggerundersøkelse, kost–nytte-analyse |
+| Fase 3 | Mot slutten av transformasjon | Helsedirektoratet | Funksjonalitet av living guidelines, EHDS-integrasjon, samlet måloppnåelse for utredningen | Ekstern evaluering, internasjonal benchmarking |
 
 <!-- markdownlint-enable MD013 -->
 
@@ -931,18 +945,18 @@ Denne utredningen har vesentlige begrensninger som
 leseren bør være oppmerksom på:
 
 **Teknologisk usikkerhet.** KI-teknologi er i rask
-utvikling. Estimater for ytelse, kostnad og
-tidsbesparelse er basert på dagens teknologinivå og
-tidlige erfaringer. Faktisk utvikling kan avvike
-både positivt og negativt.
+utvikling. Vurderinger av ytelse og effekt er basert
+på dagens teknologinivå og tidlige erfaringer. Faktisk
+utvikling kan avvike både positivt og negativt.
 
-**Kostnadsusikkerhet.** Kostnadsestimatene er grove
-(størrelsesorden) og har betydelig usikkerhet, særlig
-for fase 3. Detaljerte kost-nytte-analyser bør
-gjennomføres for hver fase.
+**Kostnad og tidshorisont er ikke fastsatt.** Rapporten
+gir kvalitative vurderinger (investeringsnivå, risiko,
+effekt), men ikke konkrete kronebeløp eller månedstall.
+Disse forutsetter detaljert kost–nytte-analyse og
+mulighetsstudie per fase.
 
-**Regulatorisk usikkerhet.** EU AI Act er nylig trådt
-i kraft, og tolkningen for helsedomenet er ikke fullt
+**Regulatorisk usikkerhet.** EU AI Act er nylig trådt i
+kraft, og tolkningen for helsedomenet er ikke fullt
 avklart. Forholdet mellom KI-generert helseinformasjon
 og medisinsk utstyr-forordningen (MDR) er et uavklart
 grenseområde.
@@ -953,10 +967,13 @@ pilotprosjekter, ikke fullskala implementeringer.
 Overførbarhet til norsk kontekst er vurdert, men kan
 ikke garanteres.
 
-**Scenariobaserte estimater.** Kvantitative indikatorer
-i utredningen er i hovedsak scenariobaserte estimater,
-ikke presise måleresultater. De bør behandles som
-retningsgivende.
+**Dokumentasjonsprinsipp.** Rapporten følger prinsippet
+om at tallanslag uten dokumentert kildegrunnlag ikke
+gjengis. Tidligere versjoner inneholdt scenariobaserte
+estimater (%-tidsbesparelser, MNOK-kostnader,
+måneds-tall) som ikke kunne forankres i offisielle
+eller peer-reviewed kilder; disse er fjernet og
+erstattet med kvalitative vurderinger.
 
 ### 10.2 Behov for videre arbeid
 
@@ -1012,11 +1029,21 @@ utviklingen fremfor å la den forme seg.
 
 ---
 
-Sist oppdatert: 2026-04-08
+Sist oppdatert: 2026-05-26
 
-*Merknader om usikkerhet: Denne rapporten syntetiserer
-funn fra seks foregående delrapporter. Estimatene er
-scenariobaserte og har vesentlig usikkerhet, særlig for
-kostnader og tidsbesparelse. Rapporten er ment som
-grunnlag for menneskelig beslutningstaking, ikke som en
-endelig beslutning.*
+*Rapporten syntetiserer funn fra seks foregående
+delrapporter. Den er ment som grunnlag for menneskelig
+beslutningstaking, ikke som en endelig beslutning.
+Tallanslag som ikke er forankret i dokumenterte kilder
+er utelatt; konkretisering av tid, kostnad og
+forventet effekt skjer i mulighetsstudie og
+kost–nytte-analyse per fase.*
+
+## Endringslogg
+
+| Dato | Endring |
+|---|---|
+| 2026-04-08 | Versjon med scenariobaserte estimater for gjennomløpstid (2–3 år / 7–15+ år), kostnad (5–250 MNOK over faser) og tidsbesparelse (15–90 %). |
+| 2026-05-20 | Kap. 4.4 «Løsningsdimensjoner – aksene» lagt til. Kap. 5.4 dekning av rotårsaker R1–R6 lagt til. |
+| 2026-05-22 | Kap. 4.2 omformulert fra tre til fem kjerneegenskaper (skalerbarhet, reaktivitet, sammenheng, styrbarhet, tillit/legitimitet); MECE-oppsummering av D1–D6 fra delrapport 2 kap. 2.3. |
+| 2026-05-26 | Konsistensgjennomgang: udokumenterte tallanslag fjernet (alle 2–3 år, 2,5–5 år, %-tidsbesparelser, MNOK-kostnader, måned-baserte fasevarigheter). Nøkkeltall- og kostnadstabeller omkalibrert til kvalitative gradsbetegnelser. Fremdriftsplan kap. 8.1 endret fra månedstall til rene avhengigheter. Tidsestimater forankret i `casestudier-forsinkelser.md` der dokumentert. |
