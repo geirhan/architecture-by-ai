@@ -93,15 +93,18 @@ D1-D6 etter hvilken systemegenskap de mangler.
 
 #### D1: Tid og gjennomløp
 
-- 2-3 år fra forskning til retningslinje;
-  6-12 måneder videre til oppdatert
-  innbyggerinformasjon.
-- 7-15+ år fra forskning til bred
-  praksisendring (casestudier).
-- 8 år fra publisert evidens til
-  forhåndsgodkjent refusjon (diabetes-casen).
+- Normerende delprosess (forskning til vedtatt
+  retningslinje) varierer fra rundt 1 år til 7+ år
+  avhengig av sak (case-spennvidde fra
+  `casestudier-forsinkelser.md`). Helsedirektoratet
+  publiserer ikke aggregerte tall for typisk
+  varighet.
+- 7-15+ år fra forskning til bred praksisendring
+  (casestudier).
+- 8 år fra publisert evidens til forhåndsgodkjent
+  refusjon (diabetes-casen).
 - *Detaljer*: kap. 3 (flaskehalser), kap. 4
-  (konsekvenser), casestudier-forsinkelser.md.
+  (konsekvenser), `casestudier-forsinkelser.md`.
 
 #### D2: Kapasitet og volum
 
@@ -338,8 +341,10 @@ Sentrale utfordringer i dette steget:
   det krevende å oppdatere oversikter når ny
   forskning publiseres.
 
-**Typisk tidsbruk**: 12-24 måneder per systematisk
-oversikt (jf. delrapport 1).
+**Typisk tidsbruk**: Tidskrevende manuell prosess;
+konkret varighet ikke aggregert dokumentert. Cochrane
+og FHI publiserer ikke gjennomsnittlig
+gjennomløpstid per oversikt.
 
 ### 3.2 Systematisk oversikt til retningslinje
 
@@ -355,33 +360,36 @@ ferdigstilles.
 
 Sentrale utfordringer:
 
-- **Foreldelse underveis**: Med en typisk
-  utviklingstid på 12-24 måneder kan ny forskning
-  ha endret evidensgrunnlaget vesentlig før
+- **Foreldelse underveis**: Når
+  retningslinjeprosessen tar flere år, kan ny
+  forskning ha endret evidensgrunnlaget vesentlig før
   retningslinjen publiseres. I noen tilfeller er
   kunnskapsoppsummeringen flere år gammel når
-  retningslinjen ferdigstilles.
-- **Kompleks konsensusprosess**:
-  Retningslinjeutvikling involverer tverrfaglige
-  arbeidsgrupper med representanter fra kliniske
-  fagmiljøer, brukerorganisasjoner og forvaltning.
-  Konsensusbygging er nødvendig, men tidkrevende.
+  retningslinjen ferdigstilles. Casestudier viser
+  spennvidde fra rundt 1 år (DAWN/DEFUSE-3) til
+  7+ år (EXTEND, ikke vedtatt per april 2026).
+- **Kompleks konsensusprosess**: Retningslinje­utvikling
+  involverer tverrfaglige arbeidsgrupper med
+  representanter fra kliniske fagmiljøer,
+  brukerorganisasjoner og forvaltning. Konsensusbygging
+  er nødvendig, men tidkrevende.
 - **Høringsrunder**: Offentlige høringer gir viktige
-  innspill og forankring, men legger typisk
-  3-6 måneder til prosessen. I tilfeller med mange
-  høringsinnspill kan bearbeidingen ta enda lengre
-  tid.
+  innspill og forankring, men legger til ytterligere
+  prosesstid. I tilfeller med mange høringsinnspill kan
+  bearbeidingen ta enda lengre tid.
 - **Begrenset kapasitet**: Helsedirektoratet har et
-  begrenset antall retningslinjeprosjekter som kan
-  pågå parallelt. Prioritering mellom fagområder er
-  nødvendig, noe som innebærer at enkelte områder
-  får lenger ventetid.
+  begrenset antall retningslinjeprosjekter som kan pågå
+  parallelt. Prioritering mellom fagområder er
+  nødvendig, noe som innebærer at enkelte områder får
+  lenger ventetid.
 - **Avhengighet mellom retningslinjer**: Noen
   retningslinjer avhenger av oppdatering av andre
   retningslinjer eller lovverk, noe som kan skape
   ytterligere forsinkelser.
 
-**Typisk tidsbruk**: 12-24 måneder (jf. delrapport 1).
+**Typisk tidsbruk**: Case-spennvidde fra ca. 1 år til
+7+ år (`casestudier-forsinkelser.md`); ingen aggregert
+gjennomsnittsmåling publisert.
 
 ### 3.3 Retningslinje til formidlet kunnskap
 
@@ -420,7 +428,10 @@ Sentrale utfordringer:
   Områder med lavere offentlig oppmerksomhet kan ha
   utdatert informasjon over lengre tid.
 
-**Typisk tidsbruk**: 6-12 måneder (jf. delrapport 1).
+**Typisk tidsbruk**: Manuelt og ad hoc; ingen
+aggregert måling publisert. I praksis går det
+betydelig tid før innbyggerinformasjon er oppdatert
+etter en ny retningslinje.
 
 ### 3.4 Formidlet kunnskap til endret praksis
 
@@ -521,9 +532,11 @@ Sentrale utfordringer:
   utvikler retningslinjer, uten systematisk
   koordinering av tidslinjene.
 
-**Typisk tilleggsforsinkelse**: 3-8 år fra
-retningslinjeinkludering til forhåndsgodkjent
-refusjon (basert på diabetes-casen).
+**Dokumentert tilleggsforsinkelse**: 5 år fra
+retningslinjeinkludering (2018) til forhåndsgodkjent
+refusjon (april 2023) i diabetes-casen (SGLT2).
+Aggregert spennvidde på tvers av legemidler er ikke
+dokumentert.
 
 ---
 
@@ -535,15 +548,12 @@ helseinformasjon som når innbyggere.
 
 ### 4.1 Utdaterte helseråd
 
-Gjennomløpstiden fra ny evidens til oppdatert
-innbyggerinformasjon var opprinnelig estimert til
-2-6,5 år (delrapport 1). Casestudier
-(casestudier-forsinkelser.md) dokumenterer at den
-reelle tiden fra forskning til bred praksisendring
-er **7-15+ år**, noe som innebærer at innbyggere i
-mange tilfeller mottar helseråd basert på forskning
-som er betydelig eldre enn hva den tilgjengelige
-kunnskapen tilsier. Dette
+Casestudier (`casestudier-forsinkelser.md`)
+dokumenterer at den reelle tiden fra forskning til
+bred praksisendring er **7–15+ år**, noe som
+innebærer at innbyggere i mange tilfeller mottar
+helseråd basert på forskning som er betydelig eldre
+enn hva den tilgjengelige kunnskapen tilsier. Dette
 kan gjelde alt fra ernæringsråd til anbefalinger om
 medisinbruk og livsstilsendringer.
 
@@ -1198,9 +1208,10 @@ tabell.
    retningslinjer (kap. 4.2). **[DOK]**.
 3. **Kjede C – Refusjonskjede**: Retningslinje
    publisert → individuell søknadsplikt (R5) →
-   flaskehals 5 → 3–8 års forsinkelse i faktisk
-   bruk (diabetes-casen). **[DOK]** i
-   casestudier-forsinkelser.md og kap. 3.5.
+   flaskehals 5 → 5 års dokumentert forsinkelse fra
+   retningslinje (2018) til forhåndsgodkjent refusjon
+   (april 2023) i diabetes-casen (SGLT2).
+   **[DOK]** i casestudier-forsinkelser.md og kap. 3.5.
 4. **Kjede D – Fritekst blokkerer
    automatisering**: R2 (pre-digital design) →
    flaskehals 7 (manglende strukturerte data)
@@ -1405,18 +1416,14 @@ den utredningen; de gir ikke svar på den.
 
 ---
 
-Sist oppdatert: 2026-05-22
+Sist oppdatert: 2026-05-27
 
-**Endring 2026-05-22:** Kap. 2.3 omformulert til en
-MECE-oppsummering. De tidligere tre kjerneegenskapene
-(skalerbarhet, reaktivitet, sammenheng) er utvidet til
-fem (+ styrbarhet, + tillit/legitimitet) slik at de er
-gjensidig utelukkende og samlet uttømmende, og dekker
-D1–D6 og R1–R6 uten overlapp. D1–D6 i kap. 2.2 er
-presisert som *observasjoner* (ikke MECE), med
-egenskapene i 2.3 som det MECE-laget. Egenskap→akse-
-koblingen i kap. 9.7 og i samlet-vurdering kap. 4.2 er
-oppdatert tilsvarende.
+## Endringslogg
+
+| Dato | Endring |
+|---|---|
+| 2026-05-22 | Kap. 2.3 omformulert til MECE-oppsummering. De tidligere tre kjerneegenskapene (skalerbarhet, reaktivitet, sammenheng) er utvidet til fem (+ styrbarhet, + tillit/legitimitet) slik at de er gjensidig utelukkende og samlet uttømmende, og dekker D1–D6 og R1–R6 uten overlapp. D1–D6 i kap. 2.2 er presisert som *observasjoner* (ikke MECE), med egenskapene i 2.3 som det MECE-laget. Egenskap→akse-koblingen i kap. 9.7 og i samlet-vurdering kap. 4.2 er oppdatert tilsvarende. |
+| 2026-05-27 | Konsistensgjennomgang: udokumenterte tidsanslag fjernet (2–3 år, 6–12 mnd, 12–24 mnd, 3–6 mnd, 3–8 år, 2–6,5 år) og erstattet med kvalitative formuleringer eller dokumenterte enkelttall fra `casestudier-forsinkelser.md` (1 år / 7+ år case-yttergrenser, 5 år refusjonsforsinkelse, 7–15+ år til praksisendring, 8 år SGLT2 til refusjon). I tråd med samme prinsipp som ble håndhevet i delrapport 1, 4 og 7. |
 
 ---
 

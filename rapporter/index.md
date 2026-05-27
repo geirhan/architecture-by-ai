@@ -49,19 +49,22 @@ modnes.
   (D1–D6, observasjoner) som i kap. 2.3 oppsummeres
   MECE i fem kjerneegenskaper (skalerbarhet,
   reaktivitet, sammenheng, styrbarhet,
-  tillit/legitimitet). Rangerer 9
-  flaskehalser etter alvorlighet (kap. 8.1).
-  Refusjonsordninger lagt til som ny flaskehals
-  (høy). Implementeringsgapet oppjustert til «høy»
-  basert på casestudier. Kap. 6.6 samler praktiske
-  konsekvenser av strukturelle svakheter. Kap. 9
-  gir rotårsaksanalyse med seks rotårsaker (R1–R6),
-  dekningsmatrise og relasjonstabell mellom
-  flaskehalsene. Kap. 9.7 introduserer fire
-  løsningsdimensjoner (akser) som operasjonaliserer
-  rotårsakene som beslutningsdimensjoner og fungerer
-  som bro til delrapport 4. Alle utsagn merket [DOK]/[ANT].
-- **Sist oppdatert**: 2026-05-20
+  tillit/legitimitet). Rangerer 9 flaskehalser etter
+  alvorlighet (kap. 8.1). Refusjonsordninger lagt til
+  som ny flaskehals (høy). Implementeringsgapet
+  oppjustert til «høy» basert på casestudier. Kap. 6.6
+  samler praktiske konsekvenser av strukturelle
+  svakheter. Kap. 9 gir rotårsaksanalyse med seks
+  rotårsaker (R1–R6), dekningsmatrise og
+  relasjonstabell mellom flaskehalsene. Kap. 9.7
+  introduserer fire løsningsdimensjoner (akser) som
+  operasjonaliserer rotårsakene som
+  beslutningsdimensjoner og fungerer som bro til
+  delrapport 4. Alle utsagn merket [DOK]/[ANT].
+  Udokumenterte tidsanslag (2–3 år, 6–12 mnd, 12–24
+  mnd m.fl.) er fjernet 2026-05-27 og erstattet med
+  case-baserte tall eller kvalitative formuleringer.
+- **Sist oppdatert**: 2026-05-27
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
