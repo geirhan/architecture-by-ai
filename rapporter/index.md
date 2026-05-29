@@ -239,6 +239,37 @@ modnes.
   ikke et nytt empirisk funn.
 - **Sist oppdatert**: 2026-05-21
 
+### [Innarbeiding av kommentarer fra Kim Kristoffer Dysthe (FHI)](innarbeiding-kim-kommentarer.md)
+
+- **Status**: Under arbeid
+- **Beskrivelse**: Arbeidsdokument som systematiserer
+  innarbeiding av 11 kommentarer fra Kim Kristoffer
+  Dysthe (FHI) i `utfordringsbildet-forankring.pptx`
+  (27.5.2026). Kommentarene grupperes i fire tematiske
+  bunter (R0/forskningskvalitet, gjennomløpstid/kilder,
+  FHIs faktiske rolle, tall og presisering) med
+  rekkefølge, avhengigheter, mottakende dokumenter og
+  fem avklaringsspørsmål til Kim. Følger
+  CLAUDE.md-prinsippene: ingen antakelser uten
+  avklaring, alle nye påstander merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-05-29
+
+### [Svar på kommentarer fra Kim Kristoffer Dysthe (FHI)](svar-kim-kommentarer.md)
+
+- **Status**: Utkast — til gjennomgang før det
+  sendes til Kim
+- **Beskrivelse**: Punkt-for-punkt-svar på de 11
+  kommentarene fra Kim, med samme nummerering
+  (K1–K11) som innarbeidingsplanen. For hver
+  kommentar: ordrett gjengivelse, vår forståelse,
+  vårt svar, avklaringsbehov og hvor svaret
+  innarbeides. Avsluttes med samlet
+  avklaringsliste til Kim (seks spørsmål) og
+  eksplisitt avgrensning av hva vi *ikke* gjør.
+  Ment som dialogdokument, ikke endring i Kims
+  pptx-fil.
+- **Sist oppdatert**: 2026-05-29
+
 ### [HTML-versjon](html/index.html)
 
 - **Beskrivelse**: Navigerbar HTML-versjon av hele
