@@ -870,10 +870,19 @@ dokumentert.
 
 - **[DOK]** Det er begrenset systematisk overvåking
   av i hvilken grad retningslinjer følges i klinisk
-  praksis (kap. 3.4). Produksjonskapasitet hos FHI
-  og Hdir samt oppdateringsgrad for retningslinjer
-  mangler etterprøvbar dokumentasjon (kap. 5 og
-  merknad om kilder).
+  praksis (kap. 3.4).
+- **[DOK]** Verken Helsedirektoratet, FHI eller
+  Riksrevisjonen publiserer aggregerte tall for
+  hvor lang tid retningslinjeprosessen typisk tar,
+  eller for produksjonskapasitet. Målrettede søk i
+  offentlige kilder (utført 2026-05-27) fant ingen
+  slik dokumentasjon. Konsekvensen for denne
+  utredningen er at gjennomløpstidsanslag må
+  forankres i casestudier
+  (`casestudier-forsinkelser.md`) heller enn i
+  systemets egen rapportering. Det er også et
+  empirisk funn i seg selv: selve fraværet av
+  målinger er evidens for R6.
 - **[ANT]** Uten måling vet man ikke om tiltak
   virker. Dette svekker evidensgrunnlaget for
   prioriteringer mellom fagområder og for
@@ -1144,18 +1153,26 @@ kjede.
 for å måle sin egen ytelse, eller for å fange
 opp innbyggernes og klinikernes behov.
 
-- **[DOK]** Produksjonskapasitet, oppdaterings-
-  grad for retningslinjer og gjennomløpstider
-  mangler etterprøvbar dokumentasjon (kap. 4,
-  merknad om kilder).
-- **[DOK]** Begrensede mekanismer for å fange
-  opp innbyggernes erfaringer med og behov for
+- **[DOK]** Verken Helsedirektoratet, FHI eller
+  Riksrevisjonen publiserer aggregerte tall for
+  hvor lang tid retningslinjeprosesser eller
+  systematiske oversikter typisk tar. Målrettede
+  søk i offentlige kilder (utført 2026-05-27) fant
+  ingen slik dokumentasjon; bare enkeltcase-tall
+  kan rekonstrueres fra retningslinjenes egne
+  publiseringsdatoer. Konsekvensen er at utsagn
+  om gjennomløpstid må forankres i casestudier
+  (jf. `casestudier-forsinkelser.md`), ikke i
+  systemets egen rapportering. Dette er i seg selv
+  empirisk evidens for R6.
+- **[DOK]** Begrensede mekanismer for å fange opp
+  innbyggernes erfaringer med og behov for
   helseinformasjon (kap. 7.4).
-- **[ANT]** Uten måling vet verken beslutnings-
-  takere eller fagmiljøer om tiltak virker.
-  Dette svekker grunnlaget for prioriteringer
-  mellom fagområder og for forbedring av selve
-  verdikjeden (kap. 6.6.5).
+- **[ANT]** Uten måling vet verken beslutningstakere
+  eller fagmiljøer om tiltak virker. Dette svekker
+  grunnlaget for prioriteringer mellom fagområder
+  og for forbedring av selve verdikjeden
+  (kap. 6.6.5).
 
 **Forklarer flaskehalsene**: 8 (manglende
 personalisering), 9 (tilgjengelighetsutfordringer),
@@ -1416,7 +1433,7 @@ den utredningen; de gir ikke svar på den.
 
 ---
 
-Sist oppdatert: 2026-05-27
+Sist oppdatert: 2026-05-29
 
 ## Endringslogg
 
@@ -1424,6 +1441,7 @@ Sist oppdatert: 2026-05-27
 |---|---|
 | 2026-05-22 | Kap. 2.3 omformulert til MECE-oppsummering. De tidligere tre kjerneegenskapene (skalerbarhet, reaktivitet, sammenheng) er utvidet til fem (+ styrbarhet, + tillit/legitimitet) slik at de er gjensidig utelukkende og samlet uttømmende, og dekker D1–D6 og R1–R6 uten overlapp. D1–D6 i kap. 2.2 er presisert som *observasjoner* (ikke MECE), med egenskapene i 2.3 som det MECE-laget. Egenskap→akse-koblingen i kap. 9.7 og i samlet-vurdering kap. 4.2 er oppdatert tilsvarende. |
 | 2026-05-27 | Konsistensgjennomgang: udokumenterte tidsanslag fjernet (2–3 år, 6–12 mnd, 12–24 mnd, 3–6 mnd, 3–8 år, 2–6,5 år) og erstattet med kvalitative formuleringer eller dokumenterte enkelttall fra `casestudier-forsinkelser.md` (1 år / 7+ år case-yttergrenser, 5 år refusjonsforsinkelse, 7–15+ år til praksisendring, 8 år SGLT2 til refusjon). I tråd med samme prinsipp som ble håndhevet i delrapport 1, 4 og 7. |
+| 2026-05-29 | R6 (kap. 9.2) og kap. 6.6.5 styrket: målrettede søk hos Hdir, FHI og Riksrevisjonen (utført 2026-05-27) bekreftet at ingen aggregerte tall for prosessvarighet eller produksjonskapasitet publiseres. Dette løftet fra parentetisk kildeforbehold til eksplisitt empirisk evidens for R6. |
 
 ---
 
