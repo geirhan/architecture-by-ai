@@ -117,8 +117,12 @@
   Basert på delrapport 7.
 - **Sist oppdatert**: 2026-03-15
 
-### utfordringsbildet-forankring.pptx
+### Presentasjoner/utfordringsbildet-forankring.pptx
 
+- **Plassering**: Ligger utenfor prosjektmappen, i
+  `Presentasjoner/`-mappen i OneDrive. Dette er
+  felles arbeidsversjon som forfattere og berørte
+  aktører kan åpne og kommentere i.
 - **Beskrivelse**: PowerPoint-presentasjon i
   Helsedirektoratets mal for forankring av
   problemforståelsen. 19 lysbilder: forside, agenda,
@@ -127,17 +131,30 @@
   skalerbarhet, reaktivitet, sammenheng, styrbarhet og
   tillit/legitimitet som tverrgående bunnblokk),
   hvorfor samlet forståelse, konsekvenser av å ikke
-  handle, seks rotårsaker (R1-R6), løsningsrommet, hvordan
-  aksene svarer ut rotårsakene, veien videre og kilder,
-  samt to avsluttende rammeskifte-lysbilder (verdikjede
-  vs. økosystem). Basert på delrapport 2 kap. 2 og 9,
-  delrapport 7 kap. 4 og rolledeling-rapporten.
-  Konsistens-oppdatert 2026-05-27: slide 5 og 11 endret
-  fra «tre kjerneegenskaper»/«Fem utfordringer» til
-  konsistent bruk av «Fem kjerneegenskaper». Slide 13
-  ryddet for udokumenterte tall (2–3 år, 6–12 mnd) i
-  tråd med endringene i delrapport 1, 4 og 7.
+  handle, seks rotårsaker (R1-R6), løsningsrommet,
+  hvordan aksene svarer ut rotårsakene, veien videre
+  og kilder, samt to avsluttende rammeskifte-lysbilder
+  (verdikjede vs. økosystem). Basert på delrapport 2
+  kap. 2 og 9, delrapport 7 kap. 4 og
+  rolledeling-rapporten. Konsistens-oppdatert
+  2026-05-27: slide 5 og 11 endret fra «tre
+  kjerneegenskaper»/«Fem utfordringer» til konsistent
+  bruk av «Fem kjerneegenskaper». Slide 13 ryddet for
+  udokumenterte tall (2–3 år, 6–12 mnd) i tråd med
+  endringene i delrapport 1, 4 og 7.
 - **Sist oppdatert**: 2026-05-27
+
+### utfordringsbildet-forankring-Claude.pptx
+
+- **Plassering**: I `visualiseringer/`-mappen, sjekket
+  inn i git.
+- **Beskrivelse**: Tidligere kortversjon av
+  forankrings­presentasjonen (13 lysbilder).
+  «Claude»-suffikset markerer at filen har vært
+  gjenstand for større Claude-redigeringer. Beholdt
+  i prosjektet som referansepunkt; den aktive
+  arbeidsversjonen er `Presentasjoner/`-filen over.
+- **Sist oppdatert**: 2026-05-29 (omdøpning)
 
 ### utfordringer-relasjoner.html
 
