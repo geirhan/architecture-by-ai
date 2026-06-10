@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       identifier="model-kunnskapsforvaltning-motivasjon">
+
+  <name xml:lang="nb">Motivasjonsmodell – Ny verdikjede for kunnskapsforvaltning</name>
+  <documentation xml:lang="nb">Motivasjonsmodell forankret i utredningen "Ny verdikjede for kunnskapsforvaltning i helsesektoren". Alle elementer er forankret i spesifikke delrapporter (dp1-dp8) og i rolledelings- og casestudier-rapportene. Modellen er bygget rundt: interessenter, drivere (D1-D6 + regulatoriske og markedsdrivere), vurderinger (rotårsaker R1-R6), mål (fem kjerneegenskaper + overordnet mål), utfall, krav (de fire aksene A1-A4), prinsipper og begrensninger. Sist oppdatert 2026-06-01.</documentation>
+
+  <!-- ============================================================
+       ELEMENTS
+       ============================================================ -->
+  <elements>
+
+    <!-- ===== STAKEHOLDERS (interessenter) ===== -->
+    <element identifier="stk-innbyggere" xsi:type="Stakeholder">
+      <name xml:lang="nb">Innbyggere og pasienter</name>
+      <documentation xml:lang="nb">Mottakere av helseinformasjon. 99 % kjenner Helsenorge, 54 % bruker generativ KI; mange yngre bruker ChatGPT som kilde til helseinformasjon (dp2 kap. 2.2 D5).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D5; verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/aktoeranalyse.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsenorge.no/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-helsepersonell" xsi:type="Stakeholder">
+      <name xml:lang="nb">Helsepersonell</name>
+      <documentation xml:lang="nb">Fastleger, sykehus- og kommunalt helsepersonell som anvender retningslinjer og kunnskapsoppsummeringer. DNV-rapport 2025: 80 % mener digitale verktøy har forbedret pasientbehandlingen, men bare 38 % rapporterer redusert arbeidsbelastning (dp2 kap. 3.4).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 3.4; dp8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/aktoeranalyse.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsebiblioteket.no/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-hod" xsi:type="Stakeholder">
+      <name xml:lang="nb">Helse- og omsorgsdepartementet</name>
+      <documentation xml:lang="nb">Politisk ansvarlig departement. Har «i stor grad delegert ansvaret for gjennomføring» til etatene (rolledeling kap. 5.2; Røttingen-rapporten).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">CLAUDE.md; rolledeling kap. 5.2</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/rolledeling-sentral-helseforvaltning.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/dep/hod/id421/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-hdir" xsi:type="Stakeholder">
+      <name xml:lang="nb">Helsedirektoratet</name>
+      <documentation xml:lang="nb">Helsefaglig myndighet med ansvar for nasjonale faglige retningslinjer og innbyggerinformasjon. Erkjenner «økende gap mellom muligheter og forventninger ... og hva vi har kapasitet til» (Hdir årsrapport 2024).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">CLAUDE.md; dp2 kap. 9.2 R3; dp8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/rolledeling-sentral-helseforvaltning.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-fhi" xsi:type="Stakeholder">
+      <name xml:lang="nb">Folkehelseinstituttet (FHI)</name>
+      <documentation xml:lang="nb">Produsent av systematiske oversikter. Begrenset stab av fagpersoner med kompetanse til å utføre systematiske oversikter (dp2 kap. 3.1).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 3.1; rolledeling kap. 3.4; dp8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/rolledeling-sentral-helseforvaltning.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.fhi.no/ku/kunnskaps-og-beslutningsstotte/helsedirektoratet/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-nhn" xsi:type="Stakeholder">
+      <name xml:lang="nb">Norsk helsenett (NHN)</name>
+      <documentation xml:lang="nb">Nasjonal tjenesteleverandør med ansvar for nasjonale komponenter og helsenorge.no.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">CLAUDE.md; dp8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/aktoeranalyse.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.nhn.no/ehds</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-rhf" xsi:type="Stakeholder">
+      <name xml:lang="nb">Regionale helseforetak (RHF) og kommuner</name>
+      <documentation xml:lang="nb">Helse Sør-Øst, Vest, Nord og Midt-Norge samt KS-organisert kommunal sektor. Skal anvende retningslinjer i klinisk praksis; variasjon mellom virksomheter dokumentert (dp2 kap. 3.4).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">CLAUDE.md; dp2 kap. 3.4; dp8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/aktoeranalyse.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/tema/helse-og-omsorg/sykehus/id10935/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="stk-eu" xsi:type="Stakeholder">
+      <name xml:lang="nb">EU-kommisjonen og EMA</name>
+      <documentation xml:lang="nb">Rammesetter gjennom EHDS (Forordning 2025/327) og EU AI Act (Forordning 2024/1689). Frister: aug. 2026 / mars 2029 / mars 2031 (regulatorisk-etterslep.md).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== DRIVERS (drivere som motiverer endring) ===== -->
+    <element identifier="drv-d1-tid" xsi:type="Driver">
+      <name xml:lang="nb">D1: Lang gjennomløpstid</name>
+      <documentation xml:lang="nb">Normerende delprosess varierer fra ca. 1 år til 7+ år; 7-15+ år fra forskning til bred praksisendring (casestudier); 8 år fra publisert evidens til forhåndsgodkjent refusjon (SGLT2).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">D1</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D1; casestudier-forsinkelser.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018394/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-d2-volum" xsi:type="Driver">
+      <name xml:lang="nb">D2: Eksponentielt forskningsvolum</name>
+      <documentation xml:lang="nb">Over 3 millioner vitenskapelige artikler publiseres årlig globalt; FHI og Hdir har begrenset stab og erkjenner kapasitetsgap.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">D2</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D2, kap. 3.1</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.fhi.no/publ/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-d3-struktur" xsi:type="Driver">
+      <name xml:lang="nb">D3: Fragmentert struktur og styring</name>
+      <documentation xml:lang="nb">Ansvar er fordelt på ~20 aktører uten helhetlig styringsmandat. Fragmenterte IT-systemer, ulike kodeverk, fritekstbasert innhold.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">D3</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D3, kap. 6; dp8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-d4-impl" xsi:type="Driver">
+      <name xml:lang="nb">D4: Implementeringsgap og insentiver</name>
+      <documentation xml:lang="nb">Ingen aktør eier implementeringsgapet mellom retningslinje og endret praksis. Refusjon er separat beslutningskjede.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">D4</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D4, kap. 3.4-3.5; Meld. St. 9 (2023-2024)</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018394/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-d5-tillit" xsi:type="Driver">
+      <name xml:lang="nb">D5: Tillit og innbyggerbehov</name>
+      <documentation xml:lang="nb">99 % kjenner Helsenorge, men 54 % bruker generativ KI; innbyggerinformasjon er generisk; alternative kilder overtar.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">D5</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D5, kap. 7; verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsenorge.no/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-d6-beredskap" xsi:type="Driver">
+      <name xml:lang="nb">D6: Manglende beredskap</name>
+      <documentation xml:lang="nb">Verdikjeden skalerer ikke til kriser (COVID-19 krevde improvisering).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">D6</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.2 D6, kap. 4.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/dokumenter/nou-2021-6/id2844388/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-ki-marked" xsi:type="Driver">
+      <name xml:lang="nb">Kommersielle KI-tjenester tar over</name>
+      <documentation xml:lang="nb">ChatGPT, Gemini m.fl. brukes allerede som helseinformasjonskilde. Uten offentlig alternativ akselererer trenden.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp7 kap. 4.3; verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="drv-regulering" xsi:type="Driver">
+      <name xml:lang="nb">Regulatorisk etterslep (EHDS, EU AI Act)</name>
+      <documentation xml:lang="nb">EHDS (Forordning 2025/327) krever strukturerte, delbare helsedata; EU AI Act (Forordning 2024/1689) krever datakvalitet, transparens og systemovervåking. Frister 2026/2029/2031.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">regulatorisk-etterslep.md; dp7 kap. 4.2</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== ASSESSMENTS (rotårsaker R1-R6) ===== -->
+    <element identifier="ass-r1-styring" xsi:type="Assessment">
+      <name xml:lang="nb">R1: Manglende helhetlig styringsmandat</name>
+      <documentation xml:lang="nb">Ingen aktør har overordnet ansvar for verdikjeden fra forskning til innbygger. Røttingens forslag om forum for faglig normering ikke gjennomført.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">R1</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R1; rolledeling kap. 5; Røttingen</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/rolledeling-sentral-helseforvaltning.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024</value></property>
+      </properties>
+    </element>
+
+    <element identifier="ass-r2-predigital" xsi:type="Assessment">
+      <name xml:lang="nb">R2: Verdikjeden designet for pre-digital tid</name>
+      <documentation xml:lang="nb">Prosessene, innholdet og overgangene er bygd rundt manuell behandling av fritekst.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">R2</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R2, kap. 6.5; dp7 kap. 4.2</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018394/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="ass-r3-kapasitet" xsi:type="Assessment">
+      <name xml:lang="nb">R3: Kapasitet skalerer ikke med volum</name>
+      <documentation xml:lang="nb">Manuell screening, kvalitetsvurdering og retningslinjeutvikling kan ikke vokse i takt med eksponentielt økende forskningsproduksjon.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">R3</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R3, kap. 3.1; Hdir årsrapport 2024</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsedirektoratet.no/rapporter/helsedirektoratets-arsrapport-2024</value></property>
+      </properties>
+    </element>
+
+    <element identifier="ass-r4-it" xsi:type="Assessment">
+      <name xml:lang="nb">R4: Fragmentert IT-landskap og kodeverk</name>
+      <documentation xml:lang="nb">Retningslinjeverktøy, Helsebibliotek, helsenorge.no og EPJ-er er separate innholdsforvaltningssystemer uten automatisert informasjonsflyt.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">R4</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R4, kap. 6.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025</value></property>
+      </properties>
+    </element>
+
+    <element identifier="ass-r5-insentiv" xsi:type="Assessment">
+      <name xml:lang="nb">R5: Manglende insentiver og eierskap for implementering</name>
+      <documentation xml:lang="nb">Ingen aktør er formelt ansvarlig for at en publisert retningslinje følges i klinisk praksis. Refusjon er separat beslutningskjede.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">R5</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R5; Meld. St. 9 (2023-2024)</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018394/</value></property>
+      </properties>
+    </element>
+
+    <element identifier="ass-r6-feedback" xsi:type="Assessment">
+      <name xml:lang="nb">R6: Manglende feedback- og målemekanismer</name>
+      <documentation xml:lang="nb">Systemet mangler instrumenter for å måle sin egen ytelse eller fange opp innbyggernes og klinikernes behov. Hverken Hdir, FHI eller Riksrevisjonen publiserer aggregerte tall for prosessvarighet (bekreftet 2026-05-27).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">R6</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R6, kap. 6.6.5, kap. 7.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== GOALS (mål - overordnet + fem kjerneegenskaper) ===== -->
+    <element identifier="goal-overordnet" xsi:type="Goal">
+      <name xml:lang="nb">Gode, kunnskapsbaserte helsebeslutninger</name>
+      <documentation xml:lang="nb">Det overordnede målet for økosystemet. Innbyggere, helsepersonell og beslutningstakere skal kunne fatte beslutninger basert på oppdatert, kvalitetssikret kunnskap.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">verdikjede-som-okosystem.md; okosystem-verdikjede.html</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="goal-skalerbarhet" xsi:type="Goal">
+      <name xml:lang="nb">Skalerbarhet</name>
+      <documentation xml:lang="nb">Kapasiteten skal kunne øke i takt med forskningsvolumet. Adresserer R3.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">E1</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.3; dp7 kap. 4.2</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="goal-reaktivitet" xsi:type="Goal">
+      <name xml:lang="nb">Reaktivitet</name>
+      <documentation xml:lang="nb">Gjennomløpstiden skal tillate rask respons på ny evidens, særlig i kriser. Adresserer R3 og R6.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">E2</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.3; dp7 kap. 4.2</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="goal-sammenheng" xsi:type="Goal">
+      <name xml:lang="nb">Sammenheng</name>
+      <documentation xml:lang="nb">Verdikjeden skal henge sammen langs to dimensjoner: (1) Teknisk sammenkobling – felles standarder, kodeverk, metadata og automatiserte koblinger mellom retningslinjeverktøy, Helsebibliotek, helsenorge.no og EPJ-er, slik at samme kunnskapselement ikke må vedlikeholdes manuelt flere steder (adresserer R4: fragmentert IT-landskap og ulike kodeverk). (2) Prosessmessig koordinering – tidslinjer og beslutninger på tvers av delkjedene (normerende, klinisk, legemiddel, innbyggerrettet) skal samordnes, slik at retningslinje, refusjonsbeslutning og innbyggerinformasjon ikke utvikles som separate, ukoblede kjeder (adresserer D4-koordineringsdelen: refusjon som separat beslutningskjede). Sammenheng er dermed både en intern kjedekonsistens og en økosystemegenskap (felles rammer og gjenbruk, jf. verdikjede-som-okosystem.md). Skal ikke forveksles med styrbarhet (som handler om styring av helheten) eller med skalerbarhet (volum/kapasitet).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">E3</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.3 (egenskap); dp2 kap. 9.7 (akse 2); dp7 kap. 4.2; verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025</value></property>
+      </properties>
+    </element>
+
+    <element identifier="goal-styrbarhet" xsi:type="Goal">
+      <name xml:lang="nb">Styrbarhet</name>
+      <documentation xml:lang="nb">Kjeden skal kunne styres som helhet mot et felles mål; ansvar skal være klart, og implementeringsgapet skal eies. Adresserer R1 og R5.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">E4</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.3; dp7 kap. 4.2</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/rolledeling-sentral-helseforvaltning.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="goal-tillit" xsi:type="Goal">
+      <name xml:lang="nb">Tillit og legitimitet</name>
+      <documentation xml:lang="nb">Tverrgående egenskap: offentlig kunnskapsforvaltning skal bevare og styrke innbyggernes tillit, slik at offentlig kilde forblir foretrukken. Følger av de fire andre kjerneegenskapene.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">E5</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 2.3; verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== OUTCOMES (forventede utfall) ===== -->
+    <element identifier="out-kortere-tid" xsi:type="Outcome">
+      <name xml:lang="nb">Kortere gjennomløpstid fra evidens til praksis</name>
+      <documentation xml:lang="nb">Forventet utfall av at skalerbarhet og reaktivitet realiseres. Tallfesting forutsetter mulighetsstudie (dp4 kap. 6, dp7 kap. 6.5).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp4 kap. 4-5; dp7 kap. 5</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">ANT</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/ny-verdikjede.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="out-ehds-samsvar" xsi:type="Outcome">
+      <name xml:lang="nb">EHDS- og EU AI Act-samsvar</name>
+      <documentation xml:lang="nb">Forventet utfall ved overgang til strukturerte, delbare data og dokumentert kvalitet/transparens.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp5; regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng</value></property>
+      </properties>
+    </element>
+
+    <element identifier="out-tillit-bevart" xsi:type="Outcome">
+      <name xml:lang="nb">Bevart tillit til offentlig helseinformasjon</name>
+      <documentation xml:lang="nb">Forventet utfall ved at offentlig kilde forblir relevant og oppdatert i konkurranse med kommersielle KI-tjenester.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp7 kap. 4.3; verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">ANT</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== REQUIREMENTS (aksene A1-A4) ===== -->
+    <element identifier="req-a1-ki" xsi:type="Requirement">
+      <name xml:lang="nb">A1: Bevegelse fra menneskedrevet mot KI-drevet</name>
+      <documentation xml:lang="nb">Løsningen må ta stilling til hvor mye av kunnskapsproduksjonen som automatiseres. Adresserer R2 og R3.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">A1</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.7; dp7 kap. 4.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/talepunkter-akser.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="req-a2-samm" xsi:type="Requirement">
+      <name xml:lang="nb">A2: Bevegelse fra fragmentert mot sammenhengende</name>
+      <documentation xml:lang="nb">Løsningen må ta stilling til om systemer og aktører skal koordineres til én samordnet kjede. Adresserer R4 og delvis R1.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">A2</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.7; dp7 kap. 4.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/talepunkter-akser.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="req-a3-forplikt" xsi:type="Requirement">
+      <name xml:lang="nb">A3: Bevegelse fra frivillig mot forpliktende</name>
+      <documentation xml:lang="nb">Løsningen må ta stilling til om implementering skjer på fagmiljøenes initiativ eller som styringskrav. Adresserer delvis R5.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">A3</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.7; dp7 kap. 4.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/talepunkter-akser.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="req-a4-kont" xsi:type="Requirement">
+      <name xml:lang="nb">A4: Bevegelse fra behovsstyrt mot kontinuerlig oppdatering</name>
+      <documentation xml:lang="nb">Løsningen må ta stilling til om oppdatering utløses ved behov eller skjer kontinuerlig basert på innstrømmende evidens. Adresserer R3 og R6.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-konsept"><value xml:lang="nb">A4</value></property>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.7; dp7 kap. 4.4</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/talepunkter-akser.md</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== PRINCIPLES (overordnede prinsipper) ===== -->
+    <element identifier="prn-evidens" xsi:type="Principle">
+      <name xml:lang="nb">Evidensbasert og kildeforankret</name>
+      <documentation xml:lang="nb">Alle anbefalinger skal være basert på dokumenterte kilder; usikkerhet skal markeres eksplisitt (CLAUDE.md, [DOK]/[ANT]-praksis).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">CLAUDE.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../CLAUDE.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="prn-menneske" xsi:type="Principle">
+      <name xml:lang="nb">Menneske i sløyfen</name>
+      <documentation xml:lang="nb">KI-støttet kunnskapsforvaltning skal kvalitetssikres av fagperson før publisering (dp4 kap. 7-8).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp4 kap. 7-8</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/ny-verdikjede.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="prn-aapenhet" xsi:type="Principle">
+      <name xml:lang="nb">Åpenhet og sporbarhet</name>
+      <documentation xml:lang="nb">Kilde, beslutningsgrunnlag og endringer skal kunne spores gjennom hele verdikjeden. EU AI Act art. 13 om transparens.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp5; regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</value></property>
+      </properties>
+    </element>
+
+    <element identifier="prn-standard" xsi:type="Principle">
+      <name xml:lang="nb">Standardiserte data og kodeverk</name>
+      <documentation xml:lang="nb">Innhold skal struktureres i henhold til nasjonale og internasjonale standarder (FHIR, SNOMED CT, ICPC-2/ICD-10). Forutsetning for EHDS-samsvar.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp5; CLAUDE.md (Hdir-ansvar)</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/arkitektur-og-komponenter.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://www.ehelse.no/standardisering</value></property>
+      </properties>
+    </element>
+
+    <element identifier="prn-personvern" xsi:type="Principle">
+      <name xml:lang="nb">Personvern og informasjonssikkerhet</name>
+      <documentation xml:lang="nb">Behandling av helseopplysninger skal følge GDPR, helseregisterloven og pasientjournalloven. Risikovurdering pr. virksomhet.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp5; CLAUDE.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/arkitektur-og-komponenter.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="prn-innbygger" xsi:type="Principle">
+      <name xml:lang="nb">Innbyggeren i sentrum</name>
+      <documentation xml:lang="nb">Informasjon skal tilpasses innbyggerens behov, helsekompetanse og språk; offentlig kilde skal kunne velges fremfor kommersielle alternativer.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">verdikjede-som-okosystem.md; dp2 kap. 7</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="prn-orkestrering" xsi:type="Principle">
+      <name xml:lang="nb">Orkestrering fremfor kontroll</name>
+      <documentation xml:lang="nb">Offentlig kunnskapsforvaltning er ett av flere bidrag i et økosystem; styring skjer gjennom orkestrering av aktører, ikke kontroll av kjeden.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">verdikjede-som-okosystem.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/verdikjede-som-okosystem.md</value></property>
+      </properties>
+    </element>
+
+    <!-- ===== CONSTRAINTS (begrensninger) ===== -->
+    <element identifier="con-ehds-frist" xsi:type="Constraint">
+      <name xml:lang="nb">EHDS-frister 2026/2029/2031</name>
+      <documentation xml:lang="nb">Forordning 2025/327: gradvis ikrafttredelse 2026, primærbruk 2029, sekundærbruk 2031.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng</value></property>
+      </properties>
+    </element>
+
+    <element identifier="con-aiact" xsi:type="Constraint">
+      <name xml:lang="nb">EU AI Act art. 10, 13, 72</name>
+      <documentation xml:lang="nb">Krav til datakvalitet (art. 10), transparens (art. 13) og systemovervåking (art. 72) for høyrisiko-KI. Gjelder fra august 2026.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/regulatorisk-etterslep.md</value></property>
+        <property propertyDefinitionRef="propdef-lenke-primaer"><value xml:lang="nb">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</value></property>
+      </properties>
+    </element>
+
+    <element identifier="con-budsjett" xsi:type="Constraint">
+      <name xml:lang="nb">Begrensede budsjetter og stram arbeidsmarked</name>
+      <documentation xml:lang="nb">Hdir og FHI har erkjent kapasitetsgap; rekruttering i et stramt arbeidsmarked for spesialkompetanse er en reell skranke for alternativ 1.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp4 kap. 3.5; dp7 kap. 5.1</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/ny-verdikjede.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="con-mandat" xsi:type="Constraint">
+      <name xml:lang="nb">Manglende lovgrunnlag for helhetlig styring</name>
+      <documentation xml:lang="nb">R1 og deler av R5 krever politiske/tverrsektorielle tiltak (lovendring, samordning av refusjon) som ikke kan løses arkitekturmessig alene.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.5; rolledeling kap. 5</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/rolledeling-sentral-helseforvaltning.md</value></property>
+      </properties>
+    </element>
+
+    <element identifier="con-predigital" xsi:type="Constraint">
+      <name xml:lang="nb">Pre-digital prosess- og innholdsarv</name>
+      <documentation xml:lang="nb">Eksisterende fritekst, fragmentert datafangst og manuelle overganger begrenser hvor raskt automatisering kan introduseres uten kompenserende tiltak.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propdef-kilde"><value xml:lang="nb">dp2 kap. 9.2 R2, kap. 6.5</value></property>
+        <property propertyDefinitionRef="propdef-status"><value xml:lang="nb">DOK</value></property>
+              <property propertyDefinitionRef="propdef-lenke-rapport"><value xml:lang="nb">../rapporter/utfordringer-og-flaskehalser.md</value></property>
+      </properties>
+    </element>
+
+  </elements>
+
+  <!-- ============================================================
+       RELATIONSHIPS
+       ============================================================ -->
+  <relationships>
+
+    <!-- Stakeholders har drivers (association via Influence/Association) -->
+    <relationship identifier="rel-001" source="stk-innbyggere" target="drv-d5-tillit" xsi:type="Association"/>
+    <relationship identifier="rel-002" source="stk-innbyggere" target="drv-ki-marked" xsi:type="Association"/>
+    <relationship identifier="rel-003" source="stk-helsepersonell" target="drv-d4-impl" xsi:type="Association"/>
+    <relationship identifier="rel-004" source="stk-hdir" target="drv-d1-tid" xsi:type="Association"/>
+    <relationship identifier="rel-005" source="stk-hdir" target="drv-d3-struktur" xsi:type="Association"/>
+    <relationship identifier="rel-006" source="stk-fhi" target="drv-d2-volum" xsi:type="Association"/>
+    <relationship identifier="rel-007" source="stk-nhn" target="drv-d3-struktur" xsi:type="Association"/>
+    <relationship identifier="rel-008" source="stk-rhf" target="drv-d4-impl" xsi:type="Association"/>
+    <relationship identifier="rel-009" source="stk-hod" target="drv-d3-struktur" xsi:type="Association"/>
+    <relationship identifier="rel-010" source="stk-hod" target="drv-d6-beredskap" xsi:type="Association"/>
+    <relationship identifier="rel-011" source="stk-eu" target="drv-regulering" xsi:type="Association"/>
+
+    <!-- Drivers fører til assessments (Influence) -->
+    <relationship identifier="rel-020" source="drv-d3-struktur" target="ass-r1-styring" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-021" source="drv-d3-struktur" target="ass-r4-it" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-022" source="drv-d2-volum" target="ass-r3-kapasitet" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-023" source="drv-d1-tid" target="ass-r2-predigital" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-024" source="drv-d1-tid" target="ass-r3-kapasitet" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-025" source="drv-d4-impl" target="ass-r5-insentiv" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-026" source="drv-d4-impl" target="ass-r1-styring" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-027" source="drv-d5-tillit" target="ass-r6-feedback" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-028" source="drv-d6-beredskap" target="ass-r3-kapasitet" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-029" source="drv-ki-marked" target="ass-r6-feedback" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-030" source="drv-regulering" target="ass-r2-predigital" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-031" source="drv-regulering" target="ass-r4-it" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+
+    <!-- Assessments motiverer goals (Influence negativ -> goal addresses) -->
+    <relationship identifier="rel-040" source="ass-r3-kapasitet" target="goal-skalerbarhet" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+    <relationship identifier="rel-041" source="ass-r3-kapasitet" target="goal-reaktivitet" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+    <relationship identifier="rel-042" source="ass-r6-feedback" target="goal-reaktivitet" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+    <relationship identifier="rel-043" source="ass-r4-it" target="goal-sammenheng" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+    <relationship identifier="rel-044" source="ass-r1-styring" target="goal-styrbarhet" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+    <relationship identifier="rel-045" source="ass-r5-insentiv" target="goal-styrbarhet" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+    <relationship identifier="rel-046" source="ass-r2-predigital" target="goal-skalerbarhet" xsi:type="Influence"><name xml:lang="nb">motiverer</name></relationship>
+
+    <!-- Goals aggregeres til overordnet mål -->
+    <relationship identifier="rel-050" source="goal-overordnet" target="goal-skalerbarhet" xsi:type="Aggregation"/>
+    <relationship identifier="rel-051" source="goal-overordnet" target="goal-reaktivitet" xsi:type="Aggregation"/>
+    <relationship identifier="rel-052" source="goal-overordnet" target="goal-sammenheng" xsi:type="Aggregation"/>
+    <relationship identifier="rel-053" source="goal-overordnet" target="goal-styrbarhet" xsi:type="Aggregation"/>
+    <relationship identifier="rel-054" source="goal-overordnet" target="goal-tillit" xsi:type="Aggregation"/>
+
+    <!-- Tillit påvirkes av de fire andre kjerneegenskapene (tverrgående) -->
+    <relationship identifier="rel-055" source="goal-skalerbarhet" target="goal-tillit" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-056" source="goal-reaktivitet" target="goal-tillit" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-057" source="goal-sammenheng" target="goal-tillit" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+    <relationship identifier="rel-058" source="goal-styrbarhet" target="goal-tillit" xsi:type="Influence"><name xml:lang="nb">+</name></relationship>
+
+    <!-- Goals realiseres gjennom outcomes -->
+    <relationship identifier="rel-060" source="out-kortere-tid" target="goal-reaktivitet" xsi:type="Realization"/>
+    <relationship identifier="rel-061" source="out-kortere-tid" target="goal-skalerbarhet" xsi:type="Realization"/>
+    <relationship identifier="rel-062" source="out-ehds-samsvar" target="goal-sammenheng" xsi:type="Realization"/>
+    <relationship identifier="rel-063" source="out-tillit-bevart" target="goal-tillit" xsi:type="Realization"/>
+
+    <!-- Requirements (akser) realiserer goals -->
+    <relationship identifier="rel-070" source="req-a1-ki" target="goal-skalerbarhet" xsi:type="Realization"/>
+    <relationship identifier="rel-071" source="req-a1-ki" target="goal-reaktivitet" xsi:type="Realization"/>
+    <relationship identifier="rel-072" source="req-a2-samm" target="goal-sammenheng" xsi:type="Realization"/>
+    <relationship identifier="rel-073" source="req-a2-samm" target="goal-styrbarhet" xsi:type="Realization"/>
+    <relationship identifier="rel-074" source="req-a3-forplikt" target="goal-styrbarhet" xsi:type="Realization"/>
+    <relationship identifier="rel-075" source="req-a4-kont" target="goal-reaktivitet" xsi:type="Realization"/>
+    <relationship identifier="rel-076" source="req-a4-kont" target="goal-skalerbarhet" xsi:type="Realization"/>
+
+    <!-- Principles styrer requirements (Influence) -->
+    <relationship identifier="rel-080" source="prn-evidens" target="req-a1-ki" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+    <relationship identifier="rel-081" source="prn-menneske" target="req-a1-ki" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+    <relationship identifier="rel-082" source="prn-aapenhet" target="req-a2-samm" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+    <relationship identifier="rel-083" source="prn-standard" target="req-a2-samm" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+    <relationship identifier="rel-084" source="prn-personvern" target="req-a1-ki" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+    <relationship identifier="rel-085" source="prn-innbygger" target="req-a4-kont" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+    <relationship identifier="rel-086" source="prn-orkestrering" target="req-a3-forplikt" xsi:type="Influence"><name xml:lang="nb">styrer</name></relationship>
+
+    <!-- Constraints begrenser requirements -->
+    <relationship identifier="rel-090" source="con-ehds-frist" target="req-a2-samm" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+    <relationship identifier="rel-091" source="con-aiact" target="req-a1-ki" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+    <relationship identifier="rel-092" source="con-budsjett" target="req-a1-ki" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+    <relationship identifier="rel-093" source="con-mandat" target="req-a3-forplikt" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+    <relationship identifier="rel-094" source="con-mandat" target="req-a2-samm" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+    <relationship identifier="rel-095" source="con-predigital" target="req-a1-ki" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+    <relationship identifier="rel-096" source="con-predigital" target="req-a4-kont" xsi:type="Influence"><name xml:lang="nb">begrenser</name></relationship>
+
+  </relationships>
+
+  <!-- ============================================================
+       PROPERTY DEFINITIONS (kildehenvisninger og DOK/ANT-status)
+       ============================================================ -->
+  <propertyDefinitions>
+    <propertyDefinition identifier="propdef-kilde" type="string">
+      <name xml:lang="nb">Kilde</name>
+    </propertyDefinition>
+    <propertyDefinition identifier="propdef-status" type="string">
+      <name xml:lang="nb">Forankringsstatus</name>
+    </propertyDefinition>
+    <propertyDefinition identifier="propdef-konsept" type="string">
+      <name xml:lang="nb">Konseptkode</name>
+    </propertyDefinition>
+    <propertyDefinition identifier="propdef-lenke-rapport" type="string">
+      <name xml:lang="nb">Lenke-rapport</name>
+    </propertyDefinition>
+    <propertyDefinition identifier="propdef-lenke-primaer" type="string">
+      <name xml:lang="nb">Lenke-primaerkilde</name>
+    </propertyDefinition>
+  </propertyDefinitions>
+
+  <!-- ============================================================
+       VIEWS
+       ============================================================ -->
+  <views>
+    <diagrams>
+
+      <!-- ========================================================
+           VIEW 1: HOVEDFORTELLING
+           Drivere → Rotårsaker (R1-R6) → Mål → Akser (A1-A4)
+           ======================================================== -->
+      <view identifier="view-1-hovedfortelling" xsi:type="Diagram" viewpoint="Motivation">
+        <name xml:lang="nb">1. Hovedfortelling – Drivere → R1–R6 → Mål → Akser</name>
+        <documentation xml:lang="nb">Hovedfortellingen: hvilke drivere (D1–D6 + marked + regulering) som motiverer hvilke rotårsaker (R1–R6), som igjen motiverer hvilke mål (kjerneegenskapene), og hvordan aksene A1–A4 realiserer målene. Stakeholders, prinsipper, constraints og utfall vises i egne views.</documentation>
+
+        <!-- Kolonne A: Drivere (x=40) -->
+        <node identifier="v1-drv-d1" elementRef="drv-d1-tid" xsi:type="Element" x="40" y="40" w="180" h="60"/>
+        <node identifier="v1-drv-d2" elementRef="drv-d2-volum" xsi:type="Element" x="40" y="130" w="180" h="60"/>
+        <node identifier="v1-drv-d3" elementRef="drv-d3-struktur" xsi:type="Element" x="40" y="220" w="180" h="60"/>
+        <node identifier="v1-drv-d4" elementRef="drv-d4-impl" xsi:type="Element" x="40" y="310" w="180" h="60"/>
+        <node identifier="v1-drv-d5" elementRef="drv-d5-tillit" xsi:type="Element" x="40" y="400" w="180" h="60"/>
+        <node identifier="v1-drv-d6" elementRef="drv-d6-beredskap" xsi:type="Element" x="40" y="490" w="180" h="60"/>
+        <node identifier="v1-drv-ki" elementRef="drv-ki-marked" xsi:type="Element" x="40" y="580" w="180" h="60"/>
+        <node identifier="v1-drv-reg" elementRef="drv-regulering" xsi:type="Element" x="40" y="670" w="180" h="60"/>
+
+        <!-- Kolonne B: Rotårsaker (R1-R6) (x=300) -->
+        <node identifier="v1-ass-r1" elementRef="ass-r1-styring" xsi:type="Element" x="300" y="40" w="210" h="60"/>
+        <node identifier="v1-ass-r2" elementRef="ass-r2-predigital" xsi:type="Element" x="300" y="160" w="210" h="60"/>
+        <node identifier="v1-ass-r3" elementRef="ass-r3-kapasitet" xsi:type="Element" x="300" y="280" w="210" h="60"/>
+        <node identifier="v1-ass-r4" elementRef="ass-r4-it" xsi:type="Element" x="300" y="400" w="210" h="60"/>
+        <node identifier="v1-ass-r5" elementRef="ass-r5-insentiv" xsi:type="Element" x="300" y="520" w="210" h="60"/>
+        <node identifier="v1-ass-r6" elementRef="ass-r6-feedback" xsi:type="Element" x="300" y="640" w="210" h="60"/>
+
+        <!-- Kolonne C: Mål – overordnet + fire systemegenskaper (x=600) -->
+        <node identifier="v1-goal-overordnet" elementRef="goal-overordnet" xsi:type="Element" x="600" y="40" w="240" h="70"/>
+        <node identifier="v1-goal-skal" elementRef="goal-skalerbarhet" xsi:type="Element" x="600" y="160" w="240" h="60"/>
+        <node identifier="v1-goal-rea" elementRef="goal-reaktivitet" xsi:type="Element" x="600" y="260" w="240" h="60"/>
+        <node identifier="v1-goal-samm" elementRef="goal-sammenheng" xsi:type="Element" x="600" y="360" w="240" h="60"/>
+        <node identifier="v1-goal-sty" elementRef="goal-styrbarhet" xsi:type="Element" x="600" y="460" w="240" h="60"/>
+        <!-- Tillit som tverrgående bunn (bred boks under) -->
+        <node identifier="v1-goal-til" elementRef="goal-tillit" xsi:type="Element" x="600" y="600" w="240" h="60"/>
+
+        <!-- Kolonne D: Akser (A1-A4) (x=920) -->
+        <node identifier="v1-req-a1" elementRef="req-a1-ki" xsi:type="Element" x="920" y="160" w="220" h="60"/>
+        <node identifier="v1-req-a2" elementRef="req-a2-samm" xsi:type="Element" x="920" y="260" w="220" h="60"/>
+        <node identifier="v1-req-a3" elementRef="req-a3-forplikt" xsi:type="Element" x="920" y="380" w="220" h="60"/>
+        <node identifier="v1-req-a4" elementRef="req-a4-kont" xsi:type="Element" x="920" y="480" w="220" h="60"/>
+
+        <!-- Connections: drivere → assessments -->
+        <connection identifier="v1-c020" relationshipRef="rel-020" source="v1-drv-d3" target="v1-ass-r1" xsi:type="Relationship"/>
+        <connection identifier="v1-c021" relationshipRef="rel-021" source="v1-drv-d3" target="v1-ass-r4" xsi:type="Relationship"/>
+        <connection identifier="v1-c022" relationshipRef="rel-022" source="v1-drv-d2" target="v1-ass-r3" xsi:type="Relationship"/>
+        <connection identifier="v1-c023" relationshipRef="rel-023" source="v1-drv-d1" target="v1-ass-r2" xsi:type="Relationship"/>
+        <connection identifier="v1-c024" relationshipRef="rel-024" source="v1-drv-d1" target="v1-ass-r3" xsi:type="Relationship"/>
+        <connection identifier="v1-c025" relationshipRef="rel-025" source="v1-drv-d4" target="v1-ass-r5" xsi:type="Relationship"/>
+        <connection identifier="v1-c026" relationshipRef="rel-026" source="v1-drv-d4" target="v1-ass-r1" xsi:type="Relationship"/>
+        <connection identifier="v1-c027" relationshipRef="rel-027" source="v1-drv-d5" target="v1-ass-r6" xsi:type="Relationship"/>
+        <connection identifier="v1-c028" relationshipRef="rel-028" source="v1-drv-d6" target="v1-ass-r3" xsi:type="Relationship"/>
+        <connection identifier="v1-c029" relationshipRef="rel-029" source="v1-drv-ki" target="v1-ass-r6" xsi:type="Relationship"/>
+        <connection identifier="v1-c030" relationshipRef="rel-030" source="v1-drv-reg" target="v1-ass-r2" xsi:type="Relationship"/>
+        <connection identifier="v1-c031" relationshipRef="rel-031" source="v1-drv-reg" target="v1-ass-r4" xsi:type="Relationship"/>
+
+        <!-- Connections: assessments → goals -->
+        <connection identifier="v1-c040" relationshipRef="rel-040" source="v1-ass-r3" target="v1-goal-skal" xsi:type="Relationship"/>
+        <connection identifier="v1-c041" relationshipRef="rel-041" source="v1-ass-r3" target="v1-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v1-c042" relationshipRef="rel-042" source="v1-ass-r6" target="v1-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v1-c043" relationshipRef="rel-043" source="v1-ass-r4" target="v1-goal-samm" xsi:type="Relationship"/>
+        <connection identifier="v1-c044" relationshipRef="rel-044" source="v1-ass-r1" target="v1-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v1-c045" relationshipRef="rel-045" source="v1-ass-r5" target="v1-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v1-c046" relationshipRef="rel-046" source="v1-ass-r2" target="v1-goal-skal" xsi:type="Relationship"/>
+
+        <!-- Connections: overordnet mål aggregerer kjerneegenskaper -->
+        <connection identifier="v1-c050" relationshipRef="rel-050" source="v1-goal-overordnet" target="v1-goal-skal" xsi:type="Relationship"/>
+        <connection identifier="v1-c051" relationshipRef="rel-051" source="v1-goal-overordnet" target="v1-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v1-c052" relationshipRef="rel-052" source="v1-goal-overordnet" target="v1-goal-samm" xsi:type="Relationship"/>
+        <connection identifier="v1-c053" relationshipRef="rel-053" source="v1-goal-overordnet" target="v1-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v1-c054" relationshipRef="rel-054" source="v1-goal-overordnet" target="v1-goal-til" xsi:type="Relationship"/>
+
+        <!-- Connections: kjerneegenskaper påvirker tillit (tverrgående) -->
+        <connection identifier="v1-c055" relationshipRef="rel-055" source="v1-goal-skal" target="v1-goal-til" xsi:type="Relationship"/>
+        <connection identifier="v1-c056" relationshipRef="rel-056" source="v1-goal-rea" target="v1-goal-til" xsi:type="Relationship"/>
+        <connection identifier="v1-c057" relationshipRef="rel-057" source="v1-goal-samm" target="v1-goal-til" xsi:type="Relationship"/>
+        <connection identifier="v1-c058" relationshipRef="rel-058" source="v1-goal-sty" target="v1-goal-til" xsi:type="Relationship"/>
+
+        <!-- Connections: akser realiserer goals -->
+        <connection identifier="v1-c070" relationshipRef="rel-070" source="v1-req-a1" target="v1-goal-skal" xsi:type="Relationship"/>
+        <connection identifier="v1-c071" relationshipRef="rel-071" source="v1-req-a1" target="v1-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v1-c072" relationshipRef="rel-072" source="v1-req-a2" target="v1-goal-samm" xsi:type="Relationship"/>
+        <connection identifier="v1-c073" relationshipRef="rel-073" source="v1-req-a2" target="v1-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v1-c074" relationshipRef="rel-074" source="v1-req-a3" target="v1-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v1-c075" relationshipRef="rel-075" source="v1-req-a4" target="v1-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v1-c076" relationshipRef="rel-076" source="v1-req-a4" target="v1-goal-skal" xsi:type="Relationship"/>
+
+      </view>
+
+      <!-- ========================================================
+           VIEW 2: INTERESSENTER OG DRIVERE
+           Hvilke aktører som er knyttet til hvilke drivere
+           ======================================================== -->
+      <view identifier="view-2-interessenter" xsi:type="Diagram" viewpoint="Stakeholder">
+        <name xml:lang="nb">2. Interessenter → Drivere</name>
+        <documentation xml:lang="nb">Viser hvilke interessenter som er bærere av eller berørt av de ulike driverne. Stakeholders til venstre, drivere til høyre. Sortert for å minimere krysninger.</documentation>
+
+        <!-- Stakeholders (x=40) – sortert slik at koblinger flyter naturlig -->
+        <node identifier="v2-stk-innbyggere" elementRef="stk-innbyggere" xsi:type="Element" x="40" y="40" w="200" h="60"/>
+        <node identifier="v2-stk-helsepersonell" elementRef="stk-helsepersonell" xsi:type="Element" x="40" y="130" w="200" h="60"/>
+        <node identifier="v2-stk-rhf" elementRef="stk-rhf" xsi:type="Element" x="40" y="220" w="200" h="60"/>
+        <node identifier="v2-stk-hod" elementRef="stk-hod" xsi:type="Element" x="40" y="310" w="200" h="60"/>
+        <node identifier="v2-stk-hdir" elementRef="stk-hdir" xsi:type="Element" x="40" y="400" w="200" h="60"/>
+        <node identifier="v2-stk-nhn" elementRef="stk-nhn" xsi:type="Element" x="40" y="490" w="200" h="60"/>
+        <node identifier="v2-stk-fhi" elementRef="stk-fhi" xsi:type="Element" x="40" y="580" w="200" h="60"/>
+        <node identifier="v2-stk-eu" elementRef="stk-eu" xsi:type="Element" x="40" y="670" w="200" h="60"/>
+
+        <!-- Drivere (x=380) – sortert for kort vei fra stakeholders -->
+        <node identifier="v2-drv-d5" elementRef="drv-d5-tillit" xsi:type="Element" x="380" y="40" w="210" h="60"/>
+        <node identifier="v2-drv-ki" elementRef="drv-ki-marked" xsi:type="Element" x="380" y="130" w="210" h="60"/>
+        <node identifier="v2-drv-d4" elementRef="drv-d4-impl" xsi:type="Element" x="380" y="220" w="210" h="60"/>
+        <node identifier="v2-drv-d6" elementRef="drv-d6-beredskap" xsi:type="Element" x="380" y="310" w="210" h="60"/>
+        <node identifier="v2-drv-d3" elementRef="drv-d3-struktur" xsi:type="Element" x="380" y="400" w="210" h="60"/>
+        <node identifier="v2-drv-d1" elementRef="drv-d1-tid" xsi:type="Element" x="380" y="490" w="210" h="60"/>
+        <node identifier="v2-drv-d2" elementRef="drv-d2-volum" xsi:type="Element" x="380" y="580" w="210" h="60"/>
+        <node identifier="v2-drv-reg" elementRef="drv-regulering" xsi:type="Element" x="380" y="670" w="210" h="60"/>
+
+        <!-- Connections: stakeholders → drivere -->
+        <connection identifier="v2-c001" relationshipRef="rel-001" source="v2-stk-innbyggere" target="v2-drv-d5" xsi:type="Relationship"/>
+        <connection identifier="v2-c002" relationshipRef="rel-002" source="v2-stk-innbyggere" target="v2-drv-ki" xsi:type="Relationship"/>
+        <connection identifier="v2-c003" relationshipRef="rel-003" source="v2-stk-helsepersonell" target="v2-drv-d4" xsi:type="Relationship"/>
+        <connection identifier="v2-c008" relationshipRef="rel-008" source="v2-stk-rhf" target="v2-drv-d4" xsi:type="Relationship"/>
+        <connection identifier="v2-c010" relationshipRef="rel-010" source="v2-stk-hod" target="v2-drv-d6" xsi:type="Relationship"/>
+        <connection identifier="v2-c009" relationshipRef="rel-009" source="v2-stk-hod" target="v2-drv-d3" xsi:type="Relationship"/>
+        <connection identifier="v2-c005" relationshipRef="rel-005" source="v2-stk-hdir" target="v2-drv-d3" xsi:type="Relationship"/>
+        <connection identifier="v2-c004" relationshipRef="rel-004" source="v2-stk-hdir" target="v2-drv-d1" xsi:type="Relationship"/>
+        <connection identifier="v2-c007" relationshipRef="rel-007" source="v2-stk-nhn" target="v2-drv-d3" xsi:type="Relationship"/>
+        <connection identifier="v2-c006" relationshipRef="rel-006" source="v2-stk-fhi" target="v2-drv-d2" xsi:type="Relationship"/>
+        <connection identifier="v2-c011" relationshipRef="rel-011" source="v2-stk-eu" target="v2-drv-reg" xsi:type="Relationship"/>
+
+      </view>
+
+      <!-- ========================================================
+           VIEW 3: PRINSIPPER, AKSER OG CONSTRAINTS
+           Prinsipper styrer aksene; constraints begrenser dem
+           ======================================================== -->
+      <view identifier="view-3-prinsipper-constraints" xsi:type="Diagram" viewpoint="Requirements Realization">
+        <name xml:lang="nb">3. Prinsipper og begrensninger rundt aksene</name>
+        <documentation xml:lang="nb">Aksene A1–A4 (krav til løsningen) i sentrum. Prinsipper til venstre styrer aksene; begrensninger til høyre begrenser dem.</documentation>
+
+        <!-- Prinsipper (x=40) -->
+        <node identifier="v3-prn-evidens" elementRef="prn-evidens" xsi:type="Element" x="40" y="40" w="220" h="60"/>
+        <node identifier="v3-prn-menneske" elementRef="prn-menneske" xsi:type="Element" x="40" y="130" w="220" h="60"/>
+        <node identifier="v3-prn-pers" elementRef="prn-personvern" xsi:type="Element" x="40" y="220" w="220" h="60"/>
+        <node identifier="v3-prn-aapenhet" elementRef="prn-aapenhet" xsi:type="Element" x="40" y="340" w="220" h="60"/>
+        <node identifier="v3-prn-standard" elementRef="prn-standard" xsi:type="Element" x="40" y="430" w="220" h="60"/>
+        <node identifier="v3-prn-ork" elementRef="prn-orkestrering" xsi:type="Element" x="40" y="550" w="220" h="60"/>
+        <node identifier="v3-prn-innb" elementRef="prn-innbygger" xsi:type="Element" x="40" y="670" w="220" h="60"/>
+
+        <!-- Akser (x=400) -->
+        <node identifier="v3-req-a1" elementRef="req-a1-ki" xsi:type="Element" x="400" y="100" w="240" h="80"/>
+        <node identifier="v3-req-a2" elementRef="req-a2-samm" xsi:type="Element" x="400" y="320" w="240" h="80"/>
+        <node identifier="v3-req-a3" elementRef="req-a3-forplikt" xsi:type="Element" x="400" y="530" w="240" h="80"/>
+        <node identifier="v3-req-a4" elementRef="req-a4-kont" xsi:type="Element" x="400" y="650" w="240" h="80"/>
+
+        <!-- Constraints (x=780) -->
+        <node identifier="v3-con-aiact" elementRef="con-aiact" xsi:type="Element" x="780" y="40" w="220" h="60"/>
+        <node identifier="v3-con-budsj" elementRef="con-budsjett" xsi:type="Element" x="780" y="130" w="220" h="60"/>
+        <node identifier="v3-con-pre" elementRef="con-predigital" xsi:type="Element" x="780" y="220" w="220" h="60"/>
+        <node identifier="v3-con-ehds" elementRef="con-ehds-frist" xsi:type="Element" x="780" y="340" w="220" h="60"/>
+        <node identifier="v3-con-mand" elementRef="con-mandat" xsi:type="Element" x="780" y="530" w="220" h="60"/>
+
+        <!-- Connections: prinsipper → akser -->
+        <connection identifier="v3-c080" relationshipRef="rel-080" source="v3-prn-evidens" target="v3-req-a1" xsi:type="Relationship"/>
+        <connection identifier="v3-c081" relationshipRef="rel-081" source="v3-prn-menneske" target="v3-req-a1" xsi:type="Relationship"/>
+        <connection identifier="v3-c084" relationshipRef="rel-084" source="v3-prn-pers" target="v3-req-a1" xsi:type="Relationship"/>
+        <connection identifier="v3-c082" relationshipRef="rel-082" source="v3-prn-aapenhet" target="v3-req-a2" xsi:type="Relationship"/>
+        <connection identifier="v3-c083" relationshipRef="rel-083" source="v3-prn-standard" target="v3-req-a2" xsi:type="Relationship"/>
+        <connection identifier="v3-c086" relationshipRef="rel-086" source="v3-prn-ork" target="v3-req-a3" xsi:type="Relationship"/>
+        <connection identifier="v3-c085" relationshipRef="rel-085" source="v3-prn-innb" target="v3-req-a4" xsi:type="Relationship"/>
+
+        <!-- Connections: constraints → akser -->
+        <connection identifier="v3-c091" relationshipRef="rel-091" source="v3-con-aiact" target="v3-req-a1" xsi:type="Relationship"/>
+        <connection identifier="v3-c092" relationshipRef="rel-092" source="v3-con-budsj" target="v3-req-a1" xsi:type="Relationship"/>
+        <connection identifier="v3-c095" relationshipRef="rel-095" source="v3-con-pre" target="v3-req-a1" xsi:type="Relationship"/>
+        <connection identifier="v3-c096" relationshipRef="rel-096" source="v3-con-pre" target="v3-req-a4" xsi:type="Relationship"/>
+        <connection identifier="v3-c090" relationshipRef="rel-090" source="v3-con-ehds" target="v3-req-a2" xsi:type="Relationship"/>
+        <connection identifier="v3-c094" relationshipRef="rel-094" source="v3-con-mand" target="v3-req-a2" xsi:type="Relationship"/>
+        <connection identifier="v3-c093" relationshipRef="rel-093" source="v3-con-mand" target="v3-req-a3" xsi:type="Relationship"/>
+
+      </view>
+
+      <!-- ========================================================
+           VIEW 4: AKSER → MÅL → UTFALL
+           Hvordan bevegelse langs aksene realiserer mål og utfall
+           ======================================================== -->
+      <view identifier="view-4-akser-mal-utfall" xsi:type="Diagram" viewpoint="Goal Realization">
+        <name xml:lang="nb">4. Akser → Mål → Utfall</name>
+        <documentation xml:lang="nb">Viser hvordan bevegelse langs aksene A1–A4 realiserer de fem kjerneegenskapene (aggregert under overordnet mål), og hvilke utfall som forventes.</documentation>
+
+        <!-- Akser (x=40) -->
+        <node identifier="v4-req-a1" elementRef="req-a1-ki" xsi:type="Element" x="40" y="40" w="240" h="70"/>
+        <node identifier="v4-req-a2" elementRef="req-a2-samm" xsi:type="Element" x="40" y="160" w="240" h="70"/>
+        <node identifier="v4-req-a3" elementRef="req-a3-forplikt" xsi:type="Element" x="40" y="280" w="240" h="70"/>
+        <node identifier="v4-req-a4" elementRef="req-a4-kont" xsi:type="Element" x="40" y="400" w="240" h="70"/>
+
+        <!-- Mål: overordnet + fem kjerneegenskaper (x=400) -->
+        <node identifier="v4-goal-overordnet" elementRef="goal-overordnet" xsi:type="Element" x="400" y="40" w="260" h="70"/>
+        <node identifier="v4-goal-skal" elementRef="goal-skalerbarhet" xsi:type="Element" x="400" y="140" w="260" h="60"/>
+        <node identifier="v4-goal-rea" elementRef="goal-reaktivitet" xsi:type="Element" x="400" y="230" w="260" h="60"/>
+        <node identifier="v4-goal-samm" elementRef="goal-sammenheng" xsi:type="Element" x="400" y="320" w="260" h="60"/>
+        <node identifier="v4-goal-sty" elementRef="goal-styrbarhet" xsi:type="Element" x="400" y="410" w="260" h="60"/>
+        <node identifier="v4-goal-til" elementRef="goal-tillit" xsi:type="Element" x="400" y="510" w="260" h="60"/>
+
+        <!-- Utfall (x=780) -->
+        <node identifier="v4-out-tid" elementRef="out-kortere-tid" xsi:type="Element" x="780" y="160" w="240" h="70"/>
+        <node identifier="v4-out-ehds" elementRef="out-ehds-samsvar" xsi:type="Element" x="780" y="300" w="240" h="70"/>
+        <node identifier="v4-out-tillit" elementRef="out-tillit-bevart" xsi:type="Element" x="780" y="490" w="240" h="70"/>
+
+        <!-- Connections: akser → mål -->
+        <connection identifier="v4-c070" relationshipRef="rel-070" source="v4-req-a1" target="v4-goal-skal" xsi:type="Relationship"/>
+        <connection identifier="v4-c071" relationshipRef="rel-071" source="v4-req-a1" target="v4-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v4-c072" relationshipRef="rel-072" source="v4-req-a2" target="v4-goal-samm" xsi:type="Relationship"/>
+        <connection identifier="v4-c073" relationshipRef="rel-073" source="v4-req-a2" target="v4-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v4-c074" relationshipRef="rel-074" source="v4-req-a3" target="v4-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v4-c075" relationshipRef="rel-075" source="v4-req-a4" target="v4-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v4-c076" relationshipRef="rel-076" source="v4-req-a4" target="v4-goal-skal" xsi:type="Relationship"/>
+
+        <!-- Connections: overordnet mål aggregerer kjerneegenskaper -->
+        <connection identifier="v4-c050" relationshipRef="rel-050" source="v4-goal-overordnet" target="v4-goal-skal" xsi:type="Relationship"/>
+        <connection identifier="v4-c051" relationshipRef="rel-051" source="v4-goal-overordnet" target="v4-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v4-c052" relationshipRef="rel-052" source="v4-goal-overordnet" target="v4-goal-samm" xsi:type="Relationship"/>
+        <connection identifier="v4-c053" relationshipRef="rel-053" source="v4-goal-overordnet" target="v4-goal-sty" xsi:type="Relationship"/>
+        <connection identifier="v4-c054" relationshipRef="rel-054" source="v4-goal-overordnet" target="v4-goal-til" xsi:type="Relationship"/>
+
+        <!-- Connections: utfall realiserer mål -->
+        <connection identifier="v4-c060" relationshipRef="rel-060" source="v4-out-tid" target="v4-goal-rea" xsi:type="Relationship"/>
+        <connection identifier="v4-c061" relationshipRef="rel-061" source="v4-out-tid" target="v4-goal-skal" xsi:type="Relationship"/>
+        <connection identifier="v4-c062" relationshipRef="rel-062" source="v4-out-ehds" target="v4-goal-samm" xsi:type="Relationship"/>
+        <connection identifier="v4-c063" relationshipRef="rel-063" source="v4-out-tillit" target="v4-goal-til" xsi:type="Relationship"/>
+
+      </view>
+
+    </diagrams>
+  </views>
+
+</model>

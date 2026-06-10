@@ -728,6 +728,54 @@ Tre risikoer vurderes som høye: tap av tillit,
 implementeringsforsinkelser og kompetansemangel. Disse
 krever aktiv styring gjennom hele gjennomføringsperioden.
 
+### 7.1 Scenariorisiko – strukturelle utviklingsbaner
+
+Risikoene 1–10 over er **operasjonelle og
+gjennomføringsorienterte**: de kan inntreffe innenfor det
+anbefalte tiltaket og styres med konkrete
+mitigeringstiltak. Delrapport 9 (Fremtidsscenarioer)
+identifiserer i tillegg en annen risikotype:
+**scenariorisiko** – risikoen for at hele systemet driver
+mot en uønsket strukturell tilstand, uavhengig av hvor godt
+det enkelte tiltaket gjennomføres [ANT, jf.
+`fremtidsscenarioer.md`].
+
+Disse risikoene skiller seg fra 1–10 ved at de gjelder
+*hvilket fremtidsbilde* sektoren havner i (scenariokorset
+S1–S4), ikke enkeltfeil i gjennomføringen. De er tatt med
+fordi den viktigste av dem – drift mot fragmentering –
+**krever ingen aktiv beslutning** for å inntreffe; den er
+driftsbanen ved passivitet.
+
+<!-- markdownlint-disable MD013 -->
+
+| Nr. | Scenariorisiko | Sannsynlighet | Konsekvens | Samlet risiko | Mitigering |
+| ----- | -------- | --------------- | ------------ | --------------- | ------------ |
+| 11 | Drift mot fragmentert flora (S4): kommuner/HF/RHF bygger hver sin KI-løsning uten felles rammer | Høy | Høy | **Kritisk** | Etablere felles standarder, metadataprofiler og gjenbrukbar offentlig kunnskap *tidlig*; orkestreringsstrategi (jf. S3); kartlegge pågående lokale initiativer; gjøre det enklere å bygge *på* enn *ved siden av* |
+| 12 | Plattformavhengighet (S2): én dominerende kommersiell/EPJ-integrert KI blir de facto standard | Middels | Høy | **Høy** | Konkurransedyktig offentlig tilbud på tilgjengelighet og aktualitet; krav om at lokal/EPJ-KI bygger på norske retningslinjer; EU AI Act art. 10/13-etterlevelse; leverandøruavhengig arkitektur |
+| 13 | Kollapsbane S1→S4: en sentral løsning som er for treg eller mangler mandat utløser de lokale initiativene den skulle erstatte | Middels | Høy | **Høy** | Sikre reaktivitet og tilgjengelighet i den sentrale løsningen; reelt styringsmandat (R1); bygge inn orkestrering fra start slik at en sentral motor (S1) kan utvikles mot et føderert økosystem (S3) |
+
+<!-- markdownlint-enable MD013 -->
+
+**Sammenheng med rotårsakene.** Scenariorisikoene
+forsterker de samme rotårsakene utredningen allerede har
+identifisert: S4-drift forsterker R1 (styringsmandat), R2
+(fragmentering) og R4 (IT-fragmentering); S2 forsterker R1
+i ekstrem grad (styringen flyttes til aktører utenfor norsk
+myndighet). Den felles mitigeringen – tidlige felles
+standarder og en eksplisitt orkestreringsstrategi – er
+nettopp det som skiller det ønskede scenarioet (S3 Føderert
+økosystem) fra det uønskede (S4 Fragmentert flora) [ANT,
+jf. `fremtidsscenarioer.md` kap. 5;
+`verdikjede-som-okosystem.md` kap. 4.2].
+
+**Konsekvens for anbefalingen.** Scenariorisikoene
+understreker at orkestrering (felles rammer som gjør lokal
+innovasjon til en styrke fremfor en trussel) bør være et
+**eksplisitt designkrav** i fase 1, ikke en oppgave som
+utsettes til transformasjonsfasen. Dette utdyper de
+organisatoriske forutsetningene i kap. 6.6.
+
 ---
 
 ## 8. Fremdriftsplan
@@ -1029,7 +1077,7 @@ utviklingen fremfor å la den forme seg.
 
 ---
 
-Sist oppdatert: 2026-05-26
+Sist oppdatert: 2026-06-04
 
 *Rapporten syntetiserer funn fra seks foregående
 delrapporter. Den er ment som grunnlag for menneskelig
@@ -1047,3 +1095,4 @@ kost–nytte-analyse per fase.*
 | 2026-05-20 | Kap. 4.4 «Løsningsdimensjoner – aksene» lagt til. Kap. 5.4 dekning av rotårsaker R1–R6 lagt til. |
 | 2026-05-22 | Kap. 4.2 omformulert fra tre til fem kjerneegenskaper (skalerbarhet, reaktivitet, sammenheng, styrbarhet, tillit/legitimitet); MECE-oppsummering av D1–D6 fra delrapport 2 kap. 2.3. |
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte tallanslag fjernet (alle 2–3 år, 2,5–5 år, %-tidsbesparelser, MNOK-kostnader, måned-baserte fasevarigheter). Nøkkeltall- og kostnadstabeller omkalibrert til kvalitative gradsbetegnelser. Fremdriftsplan kap. 8.1 endret fra månedstall til rene avhengigheter. Tidsestimater forankret i `casestudier-forsinkelser.md` der dokumentert. |
+| 2026-06-04 | Nytt kap. 7.1 «Scenariorisiko – strukturelle utviklingsbaner» med tre nye risikoer (11–13: drift mot S4, plattformavhengighet S2, kollapsbane S1→S4) basert på delrapport 9 (`fremtidsscenarioer.md`). Koblet til rotårsakene R1/R2/R4 og til orkestrering som designkrav (kap. 6.6). |

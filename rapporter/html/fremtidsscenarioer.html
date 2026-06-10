@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delrapport 9: Fremtidsscenarioer for kunnskapsforvaltning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Delrapport 9: Fremtidsscenarioer for kunnskapsforvaltning</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="fremtidsscenarioer.html" class="active">Fremtidsscenarioer</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="regulatorisk-etterslep.html">Regulatorisk etterslep</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="verdikjede-som-okosystem.html">Verdikjede som økosystem</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<h1 id="delrapport-9-fremtidsscenarioer-for-kunnskapsforvaltning-i-helsesektoren">Delrapport 9: Fremtidsscenarioer for kunnskapsforvaltning i helsesektoren</h1>
+<p>Del av utredning om ny verdikjede for kunnskapsforvaltning
+i helsesektoren</p>
+<blockquote>
+<p><strong>Status: Utforskende.</strong> Rapporten utforsker mulige
+fremtidsbilder for kunnskapsforvaltningen dersom KI tas i
+bruk i sektoren. Scenarioene er <em>ikke prediksjoner</em> og
+ikke beslutningsgrunnlag i nåværende fase. De er et
+verktøy for å teste robustheten i de fire alternativene
+(delrapport 4) og aksevalgene (delrapport 2 kap. 9.7) mot
+ulike utviklingsbaner. Se <a href="index.md#statusnivåer">statusnivåer</a>.</p>
+</blockquote>
+<hr />
+<h2 id="om-denne-delrapporten">Om denne delrapporten</h2>
+<p>De øvrige delrapportene beskriver <strong>dagens</strong> verdikjede
+(delrapport 1), <strong>utfordringene</strong> i den (delrapport 2) og
+<strong>alternativer</strong> for hvordan en sentral løsning kan
+utformes (delrapport 4). Det de i liten grad gjør, er å
+vurdere hva som skjer <strong>rundt</strong> en sentral løsning over
+tid. Denne delrapporten lukker det gapet.</p>
+<p>Bakgrunnen er en konkret observasjon: dersom det etableres
+én sentral KI-løsning for kunnskapsforvaltning, er det lite
+sannsynlig at den blir stående alene. Kommuner,
+helseforetak og regionale helseforetak har egne behov,
+egne budsjetter og økende tilgang til KI-verktøy. Det er
+realistisk at det vokser frem en rekke lokale løsninger som
+dekker behov <em>tett opp til</em> det en sentral løsning skal
+løse. Samtidig setter kommersielle KI-tjenester og
+EPJ-leverandører premisser som verken Helsedirektoratet
+eller en sentral løsning kontrollerer.</p>
+<p>Denne delrapporten bruker <strong>scenarioanalyse</strong> for å
+strukturere dette mulighetsrommet. Scenarioanalyse er ikke
+forsøk på å spå fremtiden, men en metode for å gjøre
+beslutninger <em>robuste</em> mot flere mulige utviklingsbaner
+[ANT, anvendelse av etablert metode; jf. Schoemaker 1995;
+DFØ-veileder i scenarioarbeid].</p>
+<p><strong>Merking av evidens.</strong> Som i de øvrige delrapportene
+merkes utsagn med <strong>[DOK]</strong> når de er dokumentert i en
+kilde og <strong>[ANT]</strong> når de er analytiske slutninger ført av
+denne utredningen. Scenarioene som <em>helhetlige bilder</em> er i
+sin natur [ANT] – de er konstruerte fremtidsfortellinger.
+De enkelte mekanismene og dagens tilstander de bygger på er
+forankret der de står.</p>
+<hr />
+<h2 id="kort-konklusjon">1. Kort konklusjon</h2>
+<p>Et scenariokors med to usikkerhetsakser – <strong>hvor
+produksjonen skjer</strong> (sentralisert ↔︎ desentralisert) og
+<strong>hvem som styrer takten</strong> (offentlig orkestrert ↔︎
+markeds-/leverandørstyrt) – gir fire rendyrkede
+fremtidsbilder:</p>
+<ul>
+<li><strong>S1 Nasjonal motor</strong> – sterk sentral løsning, det
+offentlige eier takten.</li>
+<li><strong>S2 Plattformavhengighet</strong> – én dominerende kommersiell
+eller EPJ-integrert KI blir de facto standard.</li>
+<li><strong>S3 Føderert økosystem</strong> – mange lokale løsninger bygger
+på felles offentlige rammer og standarder.</li>
+<li><strong>S4 Fragmentert flora</strong> – kommuner, helseforetak og
+leverandører bygger hver sin løsning uten felles rammer.</li>
+</ul>
+<p>Tre hovedinnsikter følger av analysen:</p>
+<ol type="1">
+<li><p><strong>Status quo er ikke et stabilt hjørne.</strong>
+Nullalternativet (delrapport 4 kap. 2) er ikke ett av de
+fire scenarioene, fordi fravær av en sentral satsing
+ikke gir status quo – det gir drift mot <strong>S4</strong> eller
+<strong>S2</strong> [ANT]. Spørsmålet er ikke <em>om</em> feltet fylles av
+KI, men <em>hvem som setter premissene</em>.</p></li>
+<li><p><strong>Den farligste banen krever ingen aktiv beslutning.</strong>
+<strong>S4 Fragmentert flora</strong> – som er det scenarioet denne
+delrapporten startet fra – er det som oppstår av seg
+selv dersom hver aktør optimaliserer lokalt uten felles
+rammer. Det forsterker de samme rotårsakene utredningen
+allerede har identifisert (R2 fragmentering, R4
+manglende struktur, R1 styringsmandat) [ANT, jf.
+delrapport 2 kap. 9].</p></li>
+<li><p><strong>Forskjellen på det beste og det verste scenarioet er
+orkestrering, ikke teknologi.</strong> <strong>S3</strong> og <strong>S4</strong> har
+<em>samme</em> teknologiske utgangspunkt (desentral KI-bruk).
+Det som skiller dem er om det finnes felles standarder,
+metadataprofiler og en orkestreringsstrategi – nettopp
+det økosystemnotatet identifiserer som styringens nye
+oppgave [DOK, <a href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>
+kap. 4.2].</p></li>
+</ol>
+<hr />
+<h2 id="metode-scenariokorset">2. Metode: scenariokorset</h2>
+<h3 id="hvorfor-scenarioer-ikke-prognoser">2.1 Hvorfor scenarioer, ikke prognoser</h3>
+<p>Utredningen kan ikke vite hvordan KI-landskapet i
+helsesektoren ser ut om fem til ti år. Den kan derimot
+identifisere de <strong>kritiske usikkerhetene</strong> som vil forme
+det, og beskrive konsistente fremtidsbilder for ulike
+kombinasjoner av dem. Hensikten er å teste om de fire
+alternativene i delrapport 4 og posisjonene langs aksene
+(delrapport 2 kap. 9.7) <strong>holder seg robuste</strong> uansett
+hvilken bane som inntreffer [ANT].</p>
+<p>Scenarioene er bevisst <strong>rendyrkede</strong>. Virkeligheten vil
+ligge mellom hjørnene og kan bevege seg fra ett hjørne til
+et annet over tid. Verdien ligger i kontrastene, ikke i at
+ett hjørne skal treffe presist.</p>
+<h3 id="de-to-usikkerhetsaksene">2.2 De to usikkerhetsaksene</h3>
+<p>To usikkerheter er valgt fordi de er <strong>både svært
+usikre og svært betydningsfulle</strong> for utfallet – kriteriet
+for akser i et scenariokors [ANT, metodevalg]:</p>
+<p><strong>Akse X – Produksjonsstruktur: Sentralisert ↔︎
+Desentralisert.</strong> Skjer KI-støttet kunnskapsproduksjon i
+hovedsak gjennom <em>én sentral løsning</em> (forvaltet nasjonalt),
+eller gjennom <em>mange lokale løsninger</em> bygget av kommuner,
+helseforetak og RHF? Dette er aksen utredningens
+opprinnelige spørsmål reiste, og den treffer R1
+(styringsmandat), R2 (fragmentering) og R4 (struktur).</p>
+<p><strong>Akse Y – Styringsregime: Offentlig orkestrert ↔︎
+Markeds-/leverandørstyrt.</strong> I hvilken grad setter det
+<em>offentlige</em> premissene (standarder, kvalitetskrav,
+oppdateringstakt), kontra at <em>kommersielle KI-tjenester og
+EPJ-leverandører</em> de facto bestemmer hvordan kunnskap
+formidles? Dette er aksen økosystemnotatet reiser som
+«orkestrering vs. kontroll» [DOK,
+<a href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>
+kap. 4.2], og den treffer R1 og kjerneegenskapen
+<em>tillit/legitimitet</em>.</p>
+<h3 id="korset">2.3 Korset</h3>
+<pre class="text"><code>                    OFFENTLIG ORKESTRERT
+                            │
+              S1            │            S3
+        Nasjonal motor      │      Føderert økosystem
+                            │
+   SENTRALISERT ────────────┼──────────── DESENTRALISERT
+                            │
+              S2            │            S4
+     Plattformavhengighet   │     Fragmentert flora
+                            │
+                  MARKEDS-/LEVERANDØRSTYRT</code></pre>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th><strong>Offentlig orkestrert</strong></th>
+<th><strong>Markeds-/leverandørstyrt</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sentralisert</strong></td>
+<td><strong>S1 Nasjonal motor</strong></td>
+<td><strong>S2 Plattformavhengighet</strong></td>
+</tr>
+<tr>
+<td><strong>Desentralisert</strong></td>
+<td><strong>S3 Føderert økosystem</strong></td>
+<td><strong>S4 Fragmentert flora</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Det opprinnelige bekymringsscenarioet – at kommuner og
+helseforetak bygger egne løsninger tett opp mot det
+sentrale mandatet – lever i sin <strong>rene form i S4</strong>, og i en
+<strong>styrt og konstruktiv form i S3</strong>. Forskjellen mellom dem
+er denne delrapportens viktigste budskap.</p>
+<hr />
+<h2 id="de-fire-scenarioene">3. De fire scenarioene</h2>
+<p>For hvert scenario beskrives: kort fortelling, drivere som
+må slå til, hvilke rotårsaker (R1–R6) det demper eller
+forsterker, virkning på de fem kjerneegenskapene, og
+typiske «tegn i tiden» som varsler at vi beveger oss mot
+det.</p>
+<h3 id="s1-nasjonal-motor-sentralisert-offentlig-orkestrert">3.1 S1 – Nasjonal motor (sentralisert + offentlig orkestrert)</h3>
+<p><strong>Fortelling.</strong> Det etableres én sentral, KI-støttet
+løsning for kunnskapsforvaltning, forvaltet nasjonalt
+(nær delrapport 4 alternativ 2/3). Den produserer og
+oppdaterer oversikter, retningslinjer og
+innbyggerinformasjon raskere enn i dag. Kommuner og
+helseforetak <em>konsumerer</em> fra den sentrale motoren fremfor
+å bygge egne. Helsedirektoratet eier strategi og takt; NHN
+drifter [ANT, jf. CLAUDE.md roller/ansvar].</p>
+<p><strong>Drivere som må slå til.</strong> Tilstrekkelig sentral
+finansiering og kompetanse; et styringsmandat som faktisk
+rekker (R1); at det sentrale tilbudet er raskt og
+tilgjengelig nok til at lokale aktører <em>ikke</em> føler behov
+for egne løsninger [ANT].</p>
+<p><strong>Rotårsaker:</strong> Demper R1, R2, R3, R4 sterkt (én eier, én
+struktur). Risiko: kan undervurdere R6 (tilbakekobling)
+hvis lokale erfaringer ikke fanges opp, og <em>avhenger</em> av at
+R1 faktisk løses – ellers kollapser scenarioet mot S4.</p>
+<p><strong>Kjerneegenskaper:</strong> Sterk på <em>skalerbarhet</em>, <em>sammenheng</em>
+og <em>styrbarhet</em>. Sårbarhet på <em>reaktivitet</em> mot
+hyperlokale behov og på <em>tillit</em> hvis sentralisering
+oppleves som fjern fra klinisk hverdag [ANT].</p>
+<p><strong>Tegn i tiden:</strong> Sentral KI-satsing med tydelig mandat og
+budsjett; lokale aktører avventer fremfor å bygge eget.</p>
+<h3 id="s2-plattformavhengighet-sentralisert-markedsstyrt">3.2 S2 – Plattformavhengighet (sentralisert + markedsstyrt)</h3>
+<p><strong>Fortelling.</strong> Kunnskapsformidlingen samles, men ikke i en
+offentlig løsning – den samles hos <strong>én dominerende
+kommersiell eller EPJ-integrert KI</strong>. Klinikere får
+beslutningsstøtte gjennom journalsystemet (DIPS, CGM
+m.fl.), og innbyggere bruker globale KI-tjenester (ChatGPT,
+Gemini, Copilot) som primærkilde. Disse blir de facto
+standard fordi de er tilgjengelige der arbeidet og søket
+faktisk skjer [DOK om kommersiell substitusjon, delrapport
+4 kap. 2.3; <a href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>
+kap. 3.3 «dominator»].</p>
+<p><strong>Drivere som må slå til.</strong> Fravær av et konkurransedyktig
+offentlig tilbud; EPJ-leverandørenes utviklingstakt
+overgår den offentlige; ingen krav om at lokal KI bygger på
+norske retningslinjer [ANT].</p>
+<p><strong>Rotårsaker:</strong> Tilsynelatende «sammenheng» (én plattform),
+men forsterker R1 i ekstrem grad: styringen ligger hos
+aktører utenfor norsk myndighet. Forsterker risiko mot
+<em>tillit/legitimitet</em> og mot etterlevelse av EU AI Act
+art. 10/13 dersom den dominerende løsningen ikke er
+kvalitetssikret mot norsk evidens [DOK, jf.
+<a href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>].</p>
+<p><strong>Kjerneegenskaper:</strong> Kan score høyt på <em>reaktivitet</em> og
+opplevd <em>skalerbarhet</em>, men <em>styrbarhet</em> og <em>tillit</em> til
+den offentlige rollen eroderer. Offentlig sektor blir
+innholdsleverandør til andres plattform – i beste fall.</p>
+<p><strong>Tegn i tiden:</strong> Klinikere og innbyggere oppgir
+kommersiell KI/EPJ-KI som førstevalg; offentlige kanaler
+omtales som oppslagsverk man «sjekker av og til».</p>
+<h3 id="s3-føderert-økosystem-desentralisert-offentlig-orkestrert">3.3 S3 – Føderert økosystem (desentralisert + offentlig orkestrert)</h3>
+<p><strong>Fortelling.</strong> Mange lokale løsninger eksisterer – men de
+bygger på <strong>felles offentlige rammer</strong>: nasjonale
+standarder, metadataprofiler, kodeverk og maskinlesbar,
+gjenbrukbar offentlig kunnskap (jf. CLAUDE.md:
+Helsedirektoratets ansvar for standarder/metadataprofiler;
+økosystemnotatets <em>generativitet</em>). Det offentlige
+<em>orkestrerer</em> fremfor å kontrollere: det gjør sitt tilbud
+så åpent og gjenbrukbart at andre <em>velger</em> å bygge på det
+[DOK, <a href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>
+kap. 4.2, 4.3].</p>
+<p><strong>Drivere som må slå til.</strong> Tidlig etablering av felles
+standarder og et gjenbrukbart sentralt «kunnskapslager»;
+insentiver eller krav (jf. aksen <em>Frivillig ↔︎
+Forpliktende</em>) som gjør det lettere å bygge <em>på</em> enn <em>ved
+siden av</em>; EHDS-prinsipper om strukturert, delbar
+informasjon anvendt på kunnskapsforvaltning [ANT, jf.
+<a href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>].</p>
+<p><strong>Rotårsaker:</strong> Demper R2 og R4 gjennom felles struktur,
+demper R6 fordi lokale løsninger kan tilbakeføre erfaring,
+og <em>omformer</em> R1: styring blir orkestrering. Den lokale
+innovasjonen blir en styrke, ikke en trussel.</p>
+<p><strong>Kjerneegenskaper:</strong> Balansert – <em>reaktivitet</em> (lokal
+tilpasning) <strong>og</strong> <em>sammenheng</em> (felles rammer) samtidig.
+Krever sterk <em>styrbarhet</em> på rammenivå, men ikke på
+innholdsnivå.</p>
+<p><strong>Tegn i tiden:</strong> Lokale løsninger oppgir å bruke nasjonale
+standarder/API-er; det offentlige publiserer kunnskap
+maskinlesbart; en orkestreringsfunksjon er etablert.</p>
+<h3 id="s4-fragmentert-flora-desentralisert-markedsstyrt">3.4 S4 – Fragmentert flora (desentralisert + markedsstyrt)</h3>
+<p><strong>Fortelling.</strong> Dette er <strong>utgangsscenarioet i ren form</strong>:
+kommuner, helseforetak og RHF bygger hver sin KI-løsning
+for behov tett opp mot det sentrale mandatet, uten felles
+standarder, og ofte på ulike kommersielle plattformer. Hver
+løsning er rasjonell lokalt, men summen er fragmentering:
+ulik kvalitetssikring, ulike svar på samme spørsmål,
+dobbeltarbeid og uklart ansvar når noe går galt [ANT, jf.
+delrapport 2 kap. 9 R2/R4; delrapport 8 observasjoner om
+fragmentert ansvar].</p>
+<p><strong>Drivere som må slå til.</strong> Fravær (eller forsinkelse) av
+en sentral løsning og av felles rammer; lokal
+handlekraft og budsjett; ingen mekanisme som gjør det
+enklere å samordne enn å gå alene. Merk: dette krever
+<strong>ingen aktiv beslutning</strong> – det er driftsbanen [ANT].</p>
+<p><strong>Rotårsaker:</strong> Forsterker R1 (ansvar pulvereres ytterligere),
+R2 (fragmentering institusjonaliseres), R4 (parallelle,
+inkompatible strukturer) og R3. Kan se ut til å demple
+<em>reaktivitet</em> lokalt, men på systemnivå svekkes alle de
+andre kjerneegenskapene.</p>
+<p><strong>Kjerneegenskaper:</strong> Lav <em>sammenheng</em>, lav <em>styrbarhet</em>,
+truet <em>tillit</em> (innbyggere og klinikere møter motstridende
+KI-svar). Lokal <em>reaktivitet</em> kan være høy, men uten
+kvalitetssikring er det en tvilsom gevinst.</p>
+<p><strong>Tegn i tiden:</strong> Flere parallelle KI-anskaffelser i
+kommuner/HF til overlappende formål; ingen felles
+metadataprofil; spørsmål om «hvem som svarte» når råd viser
+seg feil.</p>
+<hr />
+<h2 id="sammenligning-og-bevegelse-mellom-scenarioene">4. Sammenligning og bevegelse mellom scenarioene</h2>
+<h3 id="oppsummeringstabell">4.1 Oppsummeringstabell</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimensjon</th>
+<th>S1 Nasjonal motor</th>
+<th>S2 Plattformavhengighet</th>
+<th>S3 Føderert økosystem</th>
+<th>S4 Fragmentert flora</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Produksjon</td>
+<td>Sentral</td>
+<td>Sentral (privat)</td>
+<td>Desentral</td>
+<td>Desentral</td>
+</tr>
+<tr>
+<td>Styring</td>
+<td>Offentlig</td>
+<td>Marked/leverandør</td>
+<td>Offentlig (orkestrering)</td>
+<td>Ingen samlende</td>
+</tr>
+<tr>
+<td>R1 styringsmandat</td>
+<td>Demper (hvis løst)</td>
+<td>Forsterker sterkt</td>
+<td>Omformer til orkestrering</td>
+<td>Forsterker sterkt</td>
+</tr>
+<tr>
+<td>R2 fragmentering</td>
+<td>Demper</td>
+<td>Skjult bak én plattform</td>
+<td>Demper</td>
+<td>Forsterker sterkt</td>
+</tr>
+<tr>
+<td>R4 struktur</td>
+<td>Demper</td>
+<td>Avhenger av leverandør</td>
+<td>Demper (felles standarder)</td>
+<td>Forsterker</td>
+</tr>
+<tr>
+<td>R6 tilbakekobling</td>
+<td>Risiko hvis lokal erfaring tapes</td>
+<td>Eies av leverandør</td>
+<td>Demper (lokal læring tilbakeføres)</td>
+<td>Fraværende</td>
+</tr>
+<tr>
+<td>Reaktivitet</td>
+<td>Middels</td>
+<td>Høy</td>
+<td>Høy</td>
+<td>Høy lokalt, lav på system</td>
+</tr>
+<tr>
+<td>Sammenheng</td>
+<td>Høy</td>
+<td>Tilsynelatende</td>
+<td>Høy</td>
+<td>Lav</td>
+</tr>
+<tr>
+<td>Styrbarhet</td>
+<td>Høy</td>
+<td>Lav</td>
+<td>Høy på rammenivå</td>
+<td>Lav</td>
+</tr>
+<tr>
+<td>Tillit/legitimitet</td>
+<td>Sårbar hvis fjern</td>
+<td>Eroderer offentlig rolle</td>
+<td>Styrket</td>
+<td>Truet</td>
+</tr>
+</tbody>
+</table>
+<p>(Vurderingene er kvalitative og analytiske [ANT], i tråd
+med delrapport 4 kap. 1.3 om at tallanslag uten
+kildegrunnlag ikke gjengis.)</p>
+<h3 id="scenarioene-er-ikke-statiske">4.2 Scenarioene er ikke statiske</h3>
+<p>Systemet kan <strong>bevege seg mellom hjørner</strong> over tid [ANT]:</p>
+<ul>
+<li><strong>S4 → S3</strong> er den ønskede banen: en fragmentert flora
+kan <em>foredles</em> til et føderert økosystem dersom felles
+standarder og en orkestreringsstrategi innføres <em>etter</em>
+at lokale løsninger har vokst frem. Det er vanskeligere,
+men ikke umulig – det krever å samordne det som allerede
+er bygget.</li>
+<li><strong>S1 → S4</strong> er en kollapsbane: en sentral løsning som er
+for treg, for lite tilgjengelig eller mangler mandat,
+utløser nettopp de lokale initiativene den skulle
+erstatte. S1 er altså ikke selvbærende uten reaktivitet
+og mandat.</li>
+<li><strong>Drift mot S2/S4</strong> er standardbanen ved passivitet:
+uten aktiv offentlig posisjonering fyller markedet og
+lokale aktører rommet [ANT].</li>
+</ul>
+<h3 id="hvorfor-nullalternativet-ikke-er-et-hjørne">4.3 Hvorfor nullalternativet ikke er et hjørne</h3>
+<p>Nullalternativet (delrapport 4 kap. 2) er bevisst <em>ikke</em>
+plassert som et scenario. Grunnen er sentral: å videreføre
+dagens praksis gir ikke «dagens tilstand bevart». Når
+KI-tilbudet i omverdenen vokser, betyr passivitet at
+feltet fylles av S2 (kommersiell/EPJ-dominans) eller S4
+(lokal fragmentering) [ANT, jf. delrapport 4 kap. 2.3
+«kommersiell substitusjon»]. Scenariokorset gjør dermed
+synlig hva delrapport 4 allerede konkluderte kvalitativt:
+nullalternativet er ikke bærekraftig – men det viser i
+<em>tillegg</em> hvilke konkrete baner passivitet leder til.</p>
+<hr />
+<h2 id="kobling-til-utredningens-analyseapparat">5. Kobling til utredningens analyseapparat</h2>
+<p>Scenarioene erstatter ikke D1–D6, R1–R6, kjerneegenskapene
+eller aksene. De <strong>stresstester</strong> dem [ANT]:</p>
+<h3 id="scenarioene-langs-de-fire-aksene">5.1 Scenarioene langs de fire aksene</h3>
+<p>Hvert scenario er i praksis et bestemt sett posisjoner
+langs de fire løsningsaksene (delrapport 2 kap. 9.7):</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Akse</th>
+<th>S1</th>
+<th>S2</th>
+<th>S3</th>
+<th>S4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menneskedrevet ↔︎ KI-drevet</td>
+<td>KI-drevet, sentralt</td>
+<td>KI-drevet, eksternt</td>
+<td>KI-drevet, distribuert</td>
+<td>KI-drevet, ukoordinert</td>
+</tr>
+<tr>
+<td>Fragmentert ↔︎ Sammenhengende</td>
+<td>Sammenhengende</td>
+<td>Tilsynelatende</td>
+<td>Sammenhengende</td>
+<td>Fragmentert</td>
+</tr>
+<tr>
+<td>Frivillig ↔︎ Forpliktende</td>
+<td>Forpliktende sentralt</td>
+<td>Ingen offentlig forplikt.</td>
+<td>Forpliktende rammer, frivillig bygging</td>
+<td>Frivillig, usamordnet</td>
+</tr>
+<tr>
+<td>Behovsstyrt ↔︎ Kontinuerlig</td>
+<td>Kontinuerlig sentralt</td>
+<td>Kontinuerlig (eksternt)</td>
+<td>Kontinuerlig, distribuert</td>
+<td>Sprikende</td>
+</tr>
+</tbody>
+</table>
+<p>Dette viser at <strong>aksevalget faktisk avgjør hvilket
+scenario man ender i</strong> – særlig aksen <em>Fragmentert ↔︎
+Sammenhengende</em> og <em>Frivillig ↔︎ Forpliktende</em>, som til
+sammen skiller S3 fra S4 [ANT].</p>
+<h3 id="robusthetstest-av-alternativene-i-delrapport-4">5.2 Robusthetstest av alternativene i delrapport 4</h3>
+<ul>
+<li><strong>Alt 0 (nullalternativet)</strong> er ikke robust mot noen
+scenarioer – det leder til S2/S4 [ANT, jf. kap. 4.3].</li>
+<li><strong>Alt 1 (organisatorisk modernisering)</strong> kan dempe S4 ved
+å rydde i ansvar, men adresserer ikke takten som driver
+S2.</li>
+<li><strong>Alt 2/3 (KI-støtte/-pipeline)</strong> kan realisere S1, men
+<strong>bare S3</strong> dersom de eksplisitt bygger inn felles
+standarder og en orkestreringsstrategi. Uten det risikerer
+selv en ambisiøs sentral satsing å utløse S4 lokalt
+(kollapsbanen S1 → S4, kap. 4.2) [ANT].</li>
+</ul>
+<p>Hovedfunnet for delrapport 4: <strong>valget står ikke bare
+mellom alternativene, men om de utformes for å orkestrere
+et økosystem (S3) eller bare bygge en sentral motor (S1).</strong></p>
+<hr />
+<h2 id="konsekvenser-for-utredningen">6. Konsekvenser for utredningen</h2>
+<ol type="1">
+<li><p><strong>Orkestrering bør være et eksplisitt designkrav, ikke
+en ettertanke.</strong> Skillet S3/S4 avgjøres av om felles
+standarder, metadataprofiler og gjenbrukbar kunnskap er
+på plass <em>tidlig</em>. Dette bør innarbeides i delrapport 4s
+alternativer og i arkitekturen (delrapport 5) [ANT].</p></li>
+<li><p><strong>Risikomatrisen bør utvides med scenariorisiko.</strong>
+«Drift mot S4/S2 ved passivitet» og «S1-kollaps grunnet
+manglende reaktivitet/mandat» er systemrisikoer som bør
+inn i delrapport 7 kap. risiko [ANT].</p></li>
+<li><p><strong>Lokale initiativer bør kartlegges nå.</strong> Om kommuner/HF
+allerede bygger egne KI-løsninger, har vi <em>allerede</em>
+begynt bevegelsen mot S4. Et tidlig kunnskapsgrunnlag om
+pågående lokale anskaffelser er en forutsetning for å
+kunne foredle S4 → S3 [ANT, kunnskapsgap].</p></li>
+<li><p><strong>Suksesskriteriet bør måle systemet, ikke bare den
+sentrale løsningen.</strong> I tråd med økosystemnotatet
+kap. 6: mål om innbyggere/klinikere traff gode
+beslutninger – uavhengig av hvilket scenario kunnskapen
+nådde dem gjennom [DOK,
+<a href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>
+kap. 6].</p></li>
+</ol>
+<hr />
+<h2 id="forbehold-og-kunnskapsgap">7. Forbehold og kunnskapsgap</h2>
+<ul>
+<li><p><strong>Scenarioene er konstruksjoner, ikke prediksjoner</strong>
+[ANT]. De skal brukes til å teste robusthet, ikke til å
+anslå sannsynligheter. Ingen sannsynlighetsvekting er
+gjort, fordi grunnlaget for det mangler.</p></li>
+<li><p><strong>Omfanget av lokale KI-initiativer er ikke kartlagt.</strong>
+Premisset om at kommuner/HF vil bygge egne løsninger er
+en plausibel [ANT] slutning fra sektorens struktur og
+budsjettautonomi, ikke en dokumentert kartlegging. En
+slik kartlegging er et selvstendig kunnskapshull (jf.
+kap. 6 pkt. 3).</p></li>
+<li><p><strong>Aksene kunne vært valgt annerledes.</strong> Tempo/reaktivitet
+og innbyggertillit ble vurdert som alternative
+Y-akser. Valget av styringsregime er et analytisk valg
+[ANT] som bør kunne diskuteres; et alternativt kors ville
+belyst andre spenninger.</p></li>
+<li><p><strong>Forholdet til EHDS/EU AI Act er prinsipielt.</strong>
+Generativitets- og standardiseringsargumentene (S3)
+bygger på EHDS-<em>prinsipper</em>, med avgrensningen i
+<a href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>:
+EHDS treffer ikke kjerneleddene direkte. EU AI
+Act-implikasjonene i S2/S4 (art. 10/13/72) er reelle for
+høyrisiko-KI, men avhenger av hvordan løsningene
+klassifiseres [DOK/ANT].</p></li>
+</ul>
+<hr />
+<h2 id="kilder-og-forankring">8. Kilder og forankring</h2>
+<p>Denne delrapporten er en <strong>scenarioanalyse over
+eksisterende funn</strong> og introduserer ikke nye primærkilder.
+Forankringen ligger i prosjektets egne dokumenter og i
+etablert scenariometodikk:</p>
+<ul>
+<li>Delrapport 1 – Dagens verdikjede (3-stegsmodellen,
+innbyggerens kilder)</li>
+<li>Delrapport 2 – Utfordringer og flaskehalser (R1–R6
+kap. 9, kjerneegenskaper kap. 2.3, aksene kap. 9.7)</li>
+<li>Delrapport 4 – Alternativer for ny verdikjede
+(Alt 0–3, kommersiell substitusjon kap. 2.3)</li>
+<li>Delrapport 5 – Arkitektur og komponenter (standarder)</li>
+<li>Delrapport 7 – Samlet vurdering (risikomatrise,
+evalueringsplan)</li>
+<li>Delrapport 8 – Aktøranalyse (fragmentert ansvar,
+observasjoner)</li>
+<li><a href="verdikjede-som-okosystem.md">verdikjede-som-okosystem.md</a>
+– orkestrering vs. kontroll, generativitet, dominator-roller</li>
+<li><a href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>
+– avgrensning mot EHDS/AI Act</li>
+</ul>
+<p>Scenariometodikken (scenariokors med to kritiske
+usikkerheter) bygger på etablert litteratur om
+scenarioplanlegging (bl.a. Schoemaker 1995; Schwartz 1991)
+og DFØs veiledning i scenarioarbeid. Denne litteraturen er
+anvendt analytisk [ANT]; den er ikke en empirisk kilde om
+norsk helsesektor.</p>
+<hr />
+<p>Sist oppdatert: 2026-06-04</p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

@@ -82,6 +82,23 @@
   Basert på delrapport 4.
 - **Sist oppdatert**: 2026-03-15
 
+### fremtidsscenarioer.html
+
+- **Beskrivelse**: Interaktivt scenariokors (2×2) med fire
+  fremtidsbilder for KI i kunnskapsforvaltningen, plassert
+  langs to usikkerhetsakser: produksjonsstruktur
+  (sentralisert ↔ desentralisert) og styringsregime
+  (offentlig orkestrert ↔ markeds-/leverandørstyrt). Klikk
+  et hjørne for å se fortelling, drivere, rotårsaker
+  (R1–R6 med demper/forsterker/omformer-merking),
+  kjerneegenskaper og «tegn i tiden» for S1 Nasjonal motor,
+  S2 Plattformavhengighet, S3 Føderert økosystem og S4
+  Fragmentert flora. Egen modus «Vis bevegelse mellom
+  scenarioer» tegner banene S4→S3 (ønsket), S1→S4 (kollaps)
+  og drift mot S2/S4 ved passivitet. Selvstendig SVG/JS uten
+  eksterne avhengigheter. Basert på delrapport 9.
+- **Sist oppdatert**: 2026-06-04
+
 ### flaskehalser.html
 
 - **Beskrivelse**: Varmekart over 8 rangerte flaskehalser
@@ -113,9 +130,15 @@
 ### risikomatrise-ki.html
 
 - **Beskrivelse**: Interaktiv 5x5 risikomatrise med
-  10 risikoer. Klikkbare detaljer med mitigering.
-  Basert på delrapport 7.
-- **Sist oppdatert**: 2026-03-15
+  13 risikoer. Risiko 1–10 er operasjonelle
+  (gjennomføringsrisiko, delrapport 7); risiko 11–13 er
+  scenariorisiko – strukturelle utviklingsbaner fra
+  delrapport 9 (drift mot fragmentert flora S4,
+  plattformavhengighet S2, kollapsbane S1→S4), markert med
+  firkantet ramme og egen kategori-badge, og koblet til
+  rotårsakene R1/R2/R4. Klikkbare detaljer med mitigering.
+  Basert på delrapport 7 og 9.
+- **Sist oppdatert**: 2026-06-04
 
 ### Presentasjoner/utfordringsbildet-forankring.pptx
 
@@ -213,12 +236,32 @@
 ### motivasjonsmodell-kunnskapsforvaltning.xml
 
 - **Beskrivelse**: ArchiMate motivasjonsmodell i Open
-  Exchange Format for import i Archi. Alle elementer
-  er forankret i spesifikke delrapporter med
-  kildehenvisninger. Inneholder 6 interessenter,
-  6 drivere, 4 vurderinger, 7 maal, 3 resultater,
-  7 prinsipper, 6 krav og 5 begrensninger med
-  65 relasjoner. Revidert versjon etter grundig
-  gjennomgang av alle 8 delrapporter.
-  Basert paa delrapport 1-8.
-- **Sist oppdatert**: 2026-04-07
+  Exchange Format (XSD 3.0) for direkte import i
+  Archi via *File → Import → Open Exchange XML*.
+  47 elementer og 64 relasjoner fordelt på:
+  8 interessenter (innbyggere, helsepersonell,
+  HOD, Hdir, FHI, NHN, RHF/kommuner, EU/EMA),
+  8 drivere (D1–D6 + kommersielle KI-tjenester
+  + regulatorisk etterslep), 6 vurderinger
+  (rotårsakene R1–R6), 6 mål (overordnet mål +
+  fem kjerneegenskaper), 3 utfall, 4 krav
+  (aksene A1–A4), 7 prinsipper og 5 begrensninger.
+  Inkluderer fire fokuserte views for lesbarhet:
+  (1) Hovedfortelling: Drivere → R1–R6 → Mål →
+  Akser; (2) Interessenter → Drivere;
+  (3) Prinsipper og begrensninger rundt aksene;
+  (4) Akser → Mål → Utfall. Alle elementer
+  har egenskapsfeltene *Kilde* og
+  *Forankringsstatus* ([DOK]/[ANT]) som peker til
+  delrapport, kapittel og avsnitt. I tillegg har
+  alle 47 elementer feltet *Lenke-rapport*
+  (relativ sti til relevant delrapport i
+  `rapporter/`) og 26 av dem feltet
+  *Lenke-primaerkilde* (URL til primærkilden:
+  Meld. St. 9, Røttingen, EHDS-forordningen,
+  EU AI Act, Hdir-årsrapport m.fl.). Bygget på
+  dp1–dp8, rolledelings-rapporten, casestudier,
+  rotårsaksanalysen (dp2 kap. 9), aksene
+  (dp2 kap. 9.7), kjerneegenskapene
+  (dp2 kap. 2.3) og økosystemnotatet.
+- **Sist oppdatert**: 2026-06-01

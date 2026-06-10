@@ -139,6 +139,27 @@ modnes.
   roller og enabler-gap.
 - **Sist oppdatert**: 2026-03-23
 
+### [Delrapport 9 -- Fremtidsscenarioer](fremtidsscenarioer.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Scenarioanalyse av hva som skjer rundt
+  en sentral KI-løsning over tid. Bygger på et scenariokors
+  med to usikkerhetsakser: produksjonsstruktur
+  (sentralisert ↔ desentralisert) og styringsregime
+  (offentlig orkestrert ↔ markeds-/leverandørstyrt). Gir
+  fire rendyrkede scenarioer: S1 Nasjonal motor, S2
+  Plattformavhengighet, S3 Føderert økosystem og S4
+  Fragmentert flora. Hovedfunn: nullalternativet er ikke et
+  stabilt hjørne (drift mot S2/S4 ved passivitet); det
+  opprinnelige bekymringsscenarioet (kommuner/HF bygger egne
+  løsninger) lever i ren form som S4; forskjellen S3/S4 er
+  orkestrering, ikke teknologi. Stresstester delrapport 4s
+  alternativer og aksene (dp2 kap. 9.7). Kobler til R1–R6,
+  kjerneegenskapene og økosystemnotatet. Alle utsagn merket
+  [DOK]/[ANT]; scenarioene som helhet er [ANT]-konstruksjoner,
+  ikke prediksjoner.
+- **Sist oppdatert**: 2026-06-04
+
 ### [Rolledeling i sentral helseforvaltning](rolledeling-sentral-helseforvaltning.md)
 
 - **Status**: Under forankring
@@ -238,6 +259,28 @@ modnes.
   utsagn merket [DOK]/[ANT]; modellen er en analytisk lins,
   ikke et nytt empirisk funn.
 - **Sist oppdatert**: 2026-05-21
+
+### [Plan for forankring av problemforståelsen](forankringsplan-problemforstaelse.md)
+
+- **Status**: Under arbeid
+- **Beskrivelse**: Helhetlig arbeidsplan for å
+  forankre problemforståelsen i utredningen — både
+  intern modning av dokumenter fra «Under forankring»
+  til «Forankret» (dp2, rolledeling, akser,
+  økosystemlins) og ekstern forankring hos tre
+  målgrupper: sentral helseforvaltning (FHI, NHN,
+  Hdir), HOD/politisk nivå og de helsefaglige
+  divisjonene internt i Hdir. Avgrenset til
+  problemforståelsen (ikke løsningsalternativene).
+  Faseinndelt (Fase 0–4) med kritisk sti via den
+  pågående FHI-dialogen, forankringskriterier og
+  prosessrisikoer. FHIs R0-forslag (KI-ets effekt på
+  forskningsproduksjonen) er eksplisitt avgrenset ut av
+  scope — en hypotese prosjektet ikke kan avklare —
+  og parkert til eventuelt videre arbeid. Bygger på
+  `innarbeiding-kim-kommentarer.md`,
+  `svar-kim-kommentarer.md` og statussystemet.
+- **Sist oppdatert**: 2026-06-09
 
 ### [Innarbeiding av kommentarer fra Kim Kristoffer Dysthe (FHI)](innarbeiding-kim-kommentarer.md)
 
