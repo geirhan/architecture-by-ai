@@ -19,7 +19,7 @@
     text-align: center;
   }
   header h1 { font-size: 1.5rem; margin-bottom: 0.4rem; }
-  header p { font-size: 0.92rem; opacity: 0.92; }
+  header p { font-size: 0.92rem; opacity: 0.92; max-width: 880px; margin: 0 auto; }
   .source-ref {
     text-align: center;
     padding: 10px 1.5rem;
@@ -90,12 +90,24 @@
   .legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 18px;
+    gap: 10px 18px;
     justify-content: center;
     padding: 10px 16px;
     background: #fafbfd;
     border-bottom: 1px solid #e3e8ef;
     font-size: 0.82rem;
+  }
+  .legend-group { display: flex; flex-wrap: wrap; gap: 10px 18px; justify-content: center; }
+  .legend-sep { width: 100%; height: 0; }
+  .legend-heading {
+    width: 100%;
+    text-align: center;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #5a6573;
+    font-weight: 700;
+    margin-top: 2px;
   }
   .legend-item { display: flex; align-items: center; gap: 6px; }
   .legend-swatch {
@@ -111,12 +123,25 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
+  .group-label {
+    font-size: 11.5px;
+    fill: #2a3a4d;
+    font-weight: 700;
+    text-anchor: middle;
+    pointer-events: none;
+  }
+  .sector-line {
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    pointer-events: none;
+  }
   .node {
     cursor: pointer;
     transition: transform 0.15s, filter 0.15s;
   }
   .node:hover { filter: brightness(1.08); }
   .node.active rect, .node.active circle { stroke: #003366; stroke-width: 3px; }
+  .node.active path { stroke: #003366; stroke-width: 3px; }
   .node-label {
     font-size: 11px;
     fill: #1f2a3a;
@@ -125,23 +150,6 @@
     text-anchor: middle;
   }
   .node-label.light { fill: #fff; }
-  .chain-label {
-    font-size: 12px;
-    fill: #1f2a3a;
-    text-anchor: middle;
-    font-weight: 700;
-  }
-  .chain-sub {
-    font-size: 10px;
-    fill: #1f2a3a;
-    text-anchor: middle;
-  }
-  .arrow {
-    stroke: #6c7a8a;
-    stroke-width: 1.5;
-    fill: none;
-    marker-end: url(#arrow);
-  }
   footer {
     text-align: center;
     padding: 14px;
@@ -159,23 +167,32 @@
 <body>
 <header>
   <h1>Økosystemet for kunnskapsbaserte helsebeslutninger</h1>
-  <p>Målet i sentrum, ikke aktørene. Den offentlige verdikjeden er ett av flere bidrag til at innbyggere og helsepersonell tar gode helsebeslutninger.</p>
+  <p>Innbyggeren i sentrum, ikke kjeden. Alt det andre – fra fastlegen til forskningen og rammeverket – er til for at innbyggere og pasienter i Norge skal kunne ta gode, kunnskapsbaserte helsebeslutninger.</p>
 </header>
 <div class="source-ref">
   Basert på delrapport 1 (Dagens verdikjede) og delrapport 8 (Aktøranalyse, IGOE) · Klikk på elementene for detaljer
 </div>
 
 <div class="legend">
-  <div class="legend-item"><span class="legend-swatch" style="background:#003366"></span> Mål: gode helsebeslutninger</div>
-  <div class="legend-item"><span class="legend-swatch" style="background:#5a8fbf"></span> Beslutningstakere</div>
-  <div class="legend-item"><span class="legend-swatch" style="background:#7b9bc9"></span> Offentlig verdikjede (norsk)</div>
-  <div class="legend-item"><span class="legend-swatch" style="background:#c97b8a"></span> Andre kunnskapsleverandører</div>
-  <div class="legend-item"><span class="legend-swatch" style="background:#8ab68a"></span> Rammesettere og infrastruktur</div>
+  <div class="legend-heading">Hvem (farge)</div>
+  <div class="legend-group">
+    <div class="legend-item"><span class="legend-swatch" style="background:#003366"></span> Innbyggere og pasienter (målet)</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#5a8fbf"></span> Offentlig / kvalitetssikret</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#c97b8a"></span> Andre kilder (variabel kvalitet)</div>
+    <div class="legend-item"><span class="legend-swatch" style="background:#8ab68a"></span> Rammesettere og infrastruktur</div>
+  </div>
+  <div class="legend-sep"></div>
+  <div class="legend-heading">Rolle (ring – utenfra og inn)</div>
+  <div class="legend-group">
+    <div class="legend-item">Ring 1: kildene innbyggeren bruker</div>
+    <div class="legend-item">Ring 2: kunnskapsprodusenter og kvalitetssikring</div>
+    <div class="legend-item">Ring 3: rammesettere og infrastruktur</div>
+  </div>
 </div>
 
 <div class="layout">
   <div class="canvas-wrap">
-    <svg id="eco" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="Konsentrisk økosystemkart">
+    <svg id="eco" viewBox="-45 -45 1090 1090" width="1090" height="1090" role="img" aria-label="Konsentrisk økosystemkart med innbyggeren i sentrum">
       <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c7a8a"/>
@@ -186,38 +203,35 @@
         </radialGradient>
       </defs>
 
-      <!-- Konsentriske sfærer rundt målet -->
-      <circle cx="500" cy="500" r="485" fill="#eff6ef" stroke="#c9dbc9" stroke-dasharray="4 4"/>
-      <circle cx="500" cy="500" r="395" fill="#fdf1f3" stroke="#e8c9d0" stroke-dasharray="4 4"/>
-      <circle cx="500" cy="500" r="290" fill="#eef3f9" stroke="#a7c2e0" stroke-dasharray="4 4"/>
-      <circle cx="500" cy="500" r="185" fill="#f4f8fc" stroke="#c7d4e2" stroke-dasharray="4 4"/>
+      <!-- Konsentriske soner rundt innbyggeren -->
+      <circle cx="500" cy="500" r="515" fill="#eff6ef" stroke="#c9dbc9" stroke-dasharray="4 4"/>
+      <circle cx="500" cy="500" r="410" fill="#eef3f9" stroke="#a7c2e0" stroke-dasharray="4 4"/>
+      <circle cx="500" cy="500" r="315" fill="#fdf7f8" stroke="#e8c9d0" stroke-dasharray="4 4"/>
 
-      <!-- Sfære-etiketter - plassert i toppen av hver sone -->
-      <text class="ring-label" x="500" y="35" text-anchor="middle">Rammesettere og infrastruktur</text>
-      <text class="ring-label" x="500" y="125" text-anchor="middle">Andre kunnskapsleverandører</text>
-      <text class="ring-label" x="500" y="220" text-anchor="middle">Offentlig verdikjede (norsk)</text>
-      <text class="ring-label" x="500" y="320" text-anchor="middle">Beslutningstakere</text>
+      <!-- Gruppe-sektorer i beltet rundt innbyggeren (fylles av JS) -->
+      <g id="grupper"></g>
 
-      <!-- KJERNE: MÅLET (ikke verdikjeden) -->
-      <g id="core">
-        <circle cx="500" cy="500" r="105" fill="url(#g-core)"/>
-        <text x="500" y="478" text-anchor="middle" fill="#fff" style="font-size:13px; font-weight:700; letter-spacing:0.3px">MÅL</text>
-        <text x="500" y="500" text-anchor="middle" fill="#fff" style="font-size:12px; font-weight:600">Gode, kunnskaps-</text>
-        <text x="500" y="516" text-anchor="middle" fill="#fff" style="font-size:12px; font-weight:600">baserte helse-</text>
-        <text x="500" y="532" text-anchor="middle" fill="#fff" style="font-size:12px; font-weight:600">beslutninger</text>
-        <text x="500" y="555" text-anchor="middle" fill="#cfe0f0" style="font-size:9px; font-style:italic">– for hele befolkningen</text>
+      <!-- Sone-etiketter - plassert i toppen av hver sone -->
+      <text class="ring-label" x="500" y="12" text-anchor="middle">Ring 3 · Rammesettere og infrastruktur</text>
+      <text class="ring-label" x="500" y="122" text-anchor="middle">Ring 2 · Kunnskapsprodusenter og kvalitetsvurdering</text>
+      <text class="ring-label" x="500" y="216" text-anchor="middle">Ring 1 · Kildene innbyggeren bruker</text>
+
+      <!-- KJERNE: INNBYGGEREN (ikke målet abstrakt, men den målet handler om) -->
+      <g id="core" class="node" data-id="kjerne">
+        <circle cx="500" cy="500" r="92" fill="url(#g-core)"/>
+        <text x="500" y="478" text-anchor="middle" fill="#fff" style="font-size:13px; font-weight:700; letter-spacing:0.3px">INNBYGGERE</text>
+        <text x="500" y="496" text-anchor="middle" fill="#fff" style="font-size:13px; font-weight:700; letter-spacing:0.3px">OG PASIENTER</text>
+        <text x="500" y="518" text-anchor="middle" fill="#cfe0f0" style="font-size:9.5px; font-style:italic">– gode helse-</text>
+        <text x="500" y="531" text-anchor="middle" fill="#cfe0f0" style="font-size:9.5px; font-style:italic">beslutninger</text>
       </g>
 
-      <!-- BESLUTNINGSTAKERE (innerste ring) -->
-      <g id="beslutningstakere"></g>
+      <!-- RING 1: KILDENE INNBYGGEREN BRUKER (gruppert) -->
+      <g id="kilder"></g>
 
-      <!-- OFFENTLIG VERDIKJEDE (norsk) -->
-      <g id="verdikjeden"></g>
+      <!-- RING 2: KUNNSKAPSPRODUSENTER OG KVALITETSSIKRING -->
+      <g id="produsenter"></g>
 
-      <!-- ANDRE KUNNSKAPSLEVERANDØRER -->
-      <g id="andre"></g>
-
-      <!-- RAMMESETTERE OG INFRASTRUKTUR -->
+      <!-- RING 3: RAMMESETTERE OG INFRASTRUKTUR -->
       <g id="rammer-infra"></g>
     </svg>
   </div>
@@ -231,18 +245,24 @@
 </div>
 
 <footer>
-  Visualisering basert på <strong>delrapport 1 – Dagens verdikjede</strong> og <strong>delrapport 8 – Aktøranalyse</strong> (sist oppdatert 2026-04-08 / 2026-03-23).<br>
-  Målet – gode kunnskapsbaserte helsebeslutninger – står i sentrum. Den norske offentlige verdikjeden er <em>ett av flere</em> bidrag til dette målet, side om side med andre kunnskapsleverandører. Ingen aktør sitter i sentrum: alle bidrar med ulik verdi til de som skal ta beslutninger.
+  Visualisering basert på <strong>delrapport 1 – Dagens verdikjede</strong> og <strong>delrapport 8 – Aktøranalyse</strong> (sist oppdatert 2026-04-08 / 2026-03-23), samt notatet <strong>«Verdikjeden sett som et økosystem»</strong>.<br>
+  <strong>Innbyggeren står i sentrum</strong> – det er innbyggere og pasienter i Norge som til slutt får nytten av kunnskapen. Ring 1 viser kildene innbyggeren faktisk henter helsekunnskap fra, der den offentlige, kvalitetssikrede kanalen (blå) konkurrerer med raskere kilder av variabel kvalitet (oransje). Ring 2 er leddene som produserer og kvalitetssikrer kunnskapen, og ring 3 er rammene og infrastrukturen som styrer og muliggjør hele systemet.
 </footer>
 
 <script>
-// Data for alle noder i økosystemet. Plassering på sirkler rundt sentrum (500,500).
+// Data for alle noder i økosystemet. Plassering på sirkler rundt innbyggeren i sentrum (500,500).
 // Vinkler i grader (0 = oppe, klokkeretning), radius = pikselavstand fra sentrum.
 const cx = 500, cy = 500;
 
 function polar(angleDeg, radius) {
   const a = (angleDeg - 90) * Math.PI / 180;
   return { x: cx + radius * Math.cos(a), y: cy + radius * Math.sin(a) };
+}
+
+// Fordeler n noder jevnt rundt sirkelen, men hopper over et gap på toppen
+// (sentrert på 0°) så ring-overskriften får en node-fri korridor.
+function gapAngle(i, n, gap) {
+  return gap / 2 + (360 - gap) * i / (n - 1);
 }
 
 // Hjelpefunksjon for å lage en node (rect + tekst)
@@ -264,152 +284,234 @@ function makeNode(group, id, angle, radius, label, color, width, textColor) {
   group.appendChild(node);
 }
 
-// BESLUTNINGSTAKERE (innerste ring, r ~145) - de som faktisk tar beslutningene
-const beslutningstakere = [
-  { id: 'innbygger', a: 0, label: 'Innbyggere', color: '#3d6d99' },
-  { id: 'pasient', a: 60, label: 'Pasienter', color: '#3d6d99' },
-  { id: 'fastlege', a: 120, label: 'Fastleger', color: '#5a8fbf' },
-  { id: 'sykehus-personell', a: 180, label: 'Sykehus-|personell', color: '#5a8fbf' },
-  { id: 'komm-personell', a: 240, label: 'Kommunalt|helsepersonell', color: '#5a8fbf' },
-  { id: 'beslutningstakere-policy', a: 300, label: 'Politikere|og ledere', color: '#7fa6c8' }
-];
-const gB = document.getElementById('beslutningstakere');
-beslutningstakere.forEach(n => makeNode(gB, n.id, n.a, 145, n.label, n.color, 88));
+// Fargepalett: blå = offentlig/kvalitetssikret, oransje = andre kilder, grønn = rammesettere
+const BLUE_STRONG = '#3d6d99', BLUE = '#5a8fbf', BLUE_LT = '#7b9bc9';
+const ORANGE = '#c97b8a', ORANGE_LT = '#d99aa6';
+const GREEN = '#8ab68a', GREEN_LT = '#a9c9a9';
 
-// OFFENTLIG VERDIKJEDE (norsk) - r ~237
-const verdikjeden = [
-  { id: 'fhi', a: 0, label: 'FHI', color: '#7b9bc9' },
-  { id: 'hdir', a: 36, label: 'Helsedir.', color: '#7b9bc9' },
-  { id: 'rhf', a: 72, label: 'RHF-ene', color: '#9ebed6' },
-  { id: 'ks', a: 108, label: 'KS/|kommuner', color: '#9ebed6' },
-  { id: 'helsenorge', a: 144, label: 'helsenorge|.no', color: '#7b9bc9' },
-  { id: 'fnsp', a: 180, label: 'FNSP|(sykehus.no)', color: '#9ebed6' },
-  { id: 'dmp', a: 216, label: 'DMP', color: '#9ebed6' },
-  { id: 'felles-relis', a: 252, label: 'Felleskat.|/RELIS', color: '#9ebed6' },
-  { id: 'fagmed', a: 288, label: 'Fagmed.|foreninger', color: '#9ebed6' },
-  { id: 'tidsskriftet', a: 324, label: 'Tidsskriftet|/Sykepleien', color: '#9ebed6' }
-];
-const gV = document.getElementById('verdikjeden');
-verdikjeden.forEach(n => makeNode(gV, n.id, n.a, 237, n.label, n.color, 92));
+// Annulus-segment (kakestykke mellom to radier) – brukes til gruppe-sektorer
+function annulusSeg(a1, a2, rIn, rOut) {
+  const p1 = polar(a1, rOut), p2 = polar(a2, rOut), p3 = polar(a2, rIn), p4 = polar(a1, rIn);
+  const large = (a2 - a1) > 180 ? 1 : 0;
+  return `M ${p1.x} ${p1.y} A ${rOut} ${rOut} 0 ${large} 1 ${p2.x} ${p2.y} `
+       + `L ${p3.x} ${p3.y} A ${rIn} ${rIn} 0 ${large} 0 ${p4.x} ${p4.y} Z`;
+}
 
-// ANDRE KUNNSKAPSLEVERANDØRER - r ~342 - bidrar uten å være del av offentlig verdikjede
-const andre = [
-  { id: 'intl-forskning', a: 18, label: 'Internasjonale|forskningsmiljøer', color: '#c97b8a' },
-  { id: 'cochrane-who', a: 54, label: 'Cochrane|/ WHO', color: '#d99aa6' },
-  { id: 'kliniske-oppslag', a: 90, label: 'UpToDate|/ BMJ', color: '#d99aa6' },
-  { id: 'nhi', a: 126, label: 'NHI.no', color: '#d99aa6' },
-  { id: 'pasientorg', a: 162, label: 'Pasient-|organisasjoner', color: '#d99aa6' },
-  { id: 'medier', a: 198, label: 'Medier /|helsejournalistikk', color: '#d99aa6' },
-  { id: 'sosmedier', a: 234, label: 'Sosiale medier-|plattformer', color: '#c97b8a' },
-  { id: 'ki-tjenester', a: 270, label: 'KI-tjenester|(ChatGPT m.fl.)', color: '#c97b8a' },
-  { id: 'utenl-nett', a: 306, label: 'Utenlandske|helsenettsider', color: '#d99aa6' },
-  { id: 'venn-familie', a: 342, label: 'Venner og|familie', color: '#d99aa6' }
+// RING 1 — KILDENE INNBYGGEREN BRUKER - gruppert i sektorer rundt innbyggeren.
+// Helsepersonell ER en av kildene innbyggeren henter kunnskap fra (jf. avklaring).
+// kind: 'off' = offentlig/kvalitetssikret (blå), 'andre' = variabel kvalitet (oransje).
+const KILDE_R = 263;       // radius for kilde-nodene
+const BELTE_IN = 92, BELTE_OUT = 200;   // gruppe-belte rundt kjernen
+// Roterer hele kilde-laget (belte + noder) så en gruppegrense – ikke en node –
+// havner på toppen. Det gir en node-fri åpning til Ring 1-tittelen, og lar de to
+// offentlige (blå) gruppene ramme toppen, mens grupperingens proporsjoner bevares.
+const RING1_ROT = -45;
+const ring1Groups = [
+  { id: 'g-helsepersonell', name: 'Helse-|personell', center: 0, span: 90, kind: 'off', nodes: [
+      { id: 'fastlege', label: 'Fastlege' },
+      { id: 'sykehus-personell', label: 'Sykehus-|personell' },
+      { id: 'komm-personell', label: 'Kommunalt|helsepersonell' },
+  ]},
+  { id: 'g-off-nettsider', name: 'Offentlige|nettsider', center: 75, span: 60, kind: 'off', nodes: [
+      { id: 'helsenorge', label: 'helsenorge|.no' },
+      { id: 'fnsp', label: 'sykehus.no|(FNSP)' },
+  ]},
+  { id: 'g-oppslag-ki', name: 'Oppslagsverk|og KI', center: 150, span: 90, kind: 'andre', nodes: [
+      { id: 'nhi', label: 'NHI.no' },
+      { id: 'ki-tjenester', label: 'KI-tjenester' },
+      { id: 'utenl-nett', label: 'Utenlandske|nettsider' },
+  ]},
+  { id: 'g-medier', name: 'Medier', center: 225, span: 60, kind: 'andre', nodes: [
+      { id: 'medier', label: 'Medier /|helsejourn.' },
+      { id: 'sosmedier', label: 'Sosiale|medier' },
+  ]},
+  { id: 'g-naere', name: 'Nære og|likepersoner', center: 285, span: 60, kind: 'andre', nodes: [
+      { id: 'venn-familie', label: 'Venner og|familie' },
+      { id: 'pasientorg', label: 'Pasient-|org.' },
+  ]},
 ];
-const gAndre = document.getElementById('andre');
-andre.forEach(n => makeNode(gAndre, n.id, n.a, 342, n.label, n.color, 105));
+const gGrupper = document.getElementById('grupper');
+const gK = document.getElementById('kilder');
+ring1Groups.forEach(grp => {
+  const center = grp.center + RING1_ROT;
+  const a1 = center - grp.span / 2, a2 = center + grp.span / 2;
+  const segFill = grp.kind === 'off' ? '#e7eff7' : '#faedf0';
+  // svakt farget sektor i beltet rundt innbyggeren – klikkbar for gruppe-detaljer
+  const seg = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  seg.setAttribute('class', 'node');
+  seg.setAttribute('data-id', grp.id);
+  seg.setAttribute('d', annulusSeg(a1, a2, BELTE_IN, BELTE_OUT));
+  seg.setAttribute('fill', segFill);
+  seg.setAttribute('stroke', '#fff');
+  seg.setAttribute('stroke-width', '2.5');
+  gGrupper.appendChild(seg);
+  // hvit skillelinje mellom sektorene – kun inne i beltet rundt innbyggeren
+  [a1].forEach(a => {
+    const pIn = polar(a, BELTE_IN), pOut = polar(a, BELTE_OUT);
+    const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    ln.setAttribute('class', 'sector-line');
+    ln.setAttribute('x1', pIn.x); ln.setAttribute('y1', pIn.y);
+    ln.setAttribute('x2', pOut.x); ln.setAttribute('y2', pOut.y);
+    gGrupper.appendChild(ln);
+  });
+  // gruppe-etikett midt i beltet
+  const lp = polar(center, (BELTE_IN + BELTE_OUT) / 2);
+  const lines = grp.name.split('|');
+  const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  txt.setAttribute('class', 'group-label');
+  txt.innerHTML = lines.map((ln, i, arr) =>
+    `<tspan x="${lp.x}" y="${lp.y + (i - (arr.length - 1) / 2) * 13 + 4}">${ln}</tspan>`).join('');
+  gGrupper.appendChild(txt);
+  // kilde-nodene fordelt jevnt innenfor sektoren
+  // Tekstfarge bestemmes konsekvent av bakgrunnen: mørk blå (offentlig) = hvit,
+  // lys oransje (andre) = mørk tekst.
+  const fill = grp.kind === 'off' ? BLUE_STRONG : ORANGE_LT;
+  const tc = grp.kind === 'off' ? '#fff' : '#1f2a3a';
+  grp.nodes.forEach((n, i) => {
+    const ang = a1 + grp.span * (i + 0.5) / grp.nodes.length;
+    makeNode(gK, n.id, ang, KILDE_R, n.label, fill, 94, tc);
+  });
+});
 
-// RAMMESETTERE OG INFRASTRUKTUR - r ~440 - muliggjør og styrer hele økosystemet
+// RING 2 — KUNNSKAPSPRODUSENTER OG KVALITETSSIKRING (r ~345)
+// Leddene som produserer/sammenstiller kunnskapen kildene i ring 1 formidler.
+const produsenter = [
+  // offentlig verdikjede (blå)
+  { id: 'fhi', a: 0, label: 'FHI', color: BLUE_STRONG, text: 'light' },
+  { id: 'hdir', a: 33, label: 'Helsedir.', color: BLUE_STRONG, text: 'light' },
+  { id: 'rhf', a: 66, label: 'RHF-ene', color: BLUE_STRONG, text: 'light' },
+  { id: 'ks', a: 99, label: 'KS/|kommuner', color: BLUE_STRONG, text: 'light' },
+  { id: 'dmp', a: 132, label: 'DMP', color: BLUE_STRONG, text: 'light' },
+  { id: 'felles-relis', a: 165, label: 'Felleskat.|/RELIS', color: BLUE_STRONG, text: 'light' },
+  { id: 'fagmed', a: 198, label: 'Fagmed.|foreninger', color: BLUE_STRONG, text: 'light' },
+  { id: 'tidsskriftet', a: 231, label: 'Tidsskriftet|/Sykepleien', color: BLUE_STRONG, text: 'light' },
+  { id: 'uh-sektor', label: 'Universiteter|/høyskoler', color: BLUE_STRONG, text: 'light' },
+  // andre produsenter (oransje)
+  { id: 'intl-forskning', label: 'Internasjonal|forskning', color: ORANGE_LT, text: 'dark' },
+  { id: 'cochrane-who', label: 'Cochrane|/ WHO', color: ORANGE_LT, text: 'dark' },
+  { id: 'kliniske-oppslag', label: 'UpToDate|/ BMJ', color: ORANGE_LT, text: 'dark' },
+  { id: 'nel', label: 'NEL|(legehåndbok)', color: ORANGE_LT, text: 'dark' },
+];
+const gP = document.getElementById('produsenter');
+produsenter.forEach((n, i) => makeNode(gP, n.id, gapAngle(i, produsenter.length, 24), 362, n.label, n.color, 95, n.text === 'light' ? '#fff' : '#1f2a3a'));
+
+// RING 3 — RAMMESETTERE OG INFRASTRUKTUR (r ~445) - muliggjør og styrer hele økosystemet
 const rammerInfra = [
-  { id: 'stortinget', a: 0, label: 'Stortinget', color: '#8ab68a' },
-  { id: 'hod', a: 30, label: 'HOD', color: '#8ab68a' },
-  { id: 'eu', a: 60, label: 'EU-kommisjonen|(EHDS, AI Act)', color: '#a9c9a9' },
-  { id: 'ema-who-norm', a: 90, label: 'EMA / WHO|(internasj. normer)', color: '#a9c9a9' },
-  { id: 'datatilsyn-sprakr', a: 120, label: 'Datatilsynet /|Språkrådet / PFU', color: '#a9c9a9' },
-  { id: 'nhn', a: 150, label: 'NHN|(plattform)', color: '#a9c9a9' },
-  { id: 'helsebibl', a: 180, label: 'Helsebiblioteket|(tilgangsportal)', color: '#a9c9a9' },
-  { id: 'epj-lev', a: 210, label: 'EPJ-leverandører|(DIPS, CGM m.fl.)', color: '#a9c9a9' },
-  { id: 'wolters-bmj', a: 240, label: 'Wolters Kluwer|/ BMJ Group', color: '#a9c9a9' },
-  { id: 'bonnier', a: 270, label: 'Bonnier Healthcare|(eier NHI.no)', color: '#a9c9a9' },
-  { id: 'ous-fagpros', a: 300, label: 'OUS|(fagprosedyrer)', color: '#a9c9a9' },
-  { id: 'industri', a: 330, label: 'Legemiddel-|industrien', color: '#a9c9a9' }
+  { id: 'stortinget', a: 0, label: 'Stortinget', color: GREEN_LT, text: 'dark' },
+  { id: 'hod', a: 28, label: 'HOD', color: GREEN_LT, text: 'dark' },
+  { id: 'beslutningstakere-policy', a: 56, label: 'Politikere|og ledere', color: GREEN_LT, text: 'dark' },
+  { id: 'eu', a: 84, label: 'EU-kommisjonen|(EHDS, AI Act)', color: GREEN_LT, text: 'dark' },
+  { id: 'ema-who-norm', a: 112, label: 'EMA / WHO|(internasj. normer)', color: GREEN_LT, text: 'dark' },
+  { id: 'datatilsyn-sprakr', a: 140, label: 'Datatilsynet /|Språkrådet / PFU', color: GREEN_LT, text: 'dark' },
+  { id: 'nhn', a: 168, label: 'NHN|(plattform)', color: GREEN_LT, text: 'dark' },
+  { id: 'helsebibl', a: 196, label: 'Helsebiblioteket|(tilgangsportal)', color: GREEN_LT, text: 'dark' },
+  { id: 'epj-lev', a: 224, label: 'EPJ-leverandører|(DIPS, CGM m.fl.)', color: GREEN_LT, text: 'dark' },
+  { id: 'wolters-bmj', a: 252, label: 'Wolters Kluwer|/ BMJ Group', color: GREEN_LT, text: 'dark' },
+  { id: 'bonnier', a: 280, label: 'Bonnier Healthcare|(eier NHI.no)', color: GREEN_LT, text: 'dark' },
+  { id: 'ous-fagpros', a: 308, label: 'OUS|(fagprosedyrer)', color: GREEN_LT, text: 'dark' },
+  { id: 'industri', a: 336, label: 'Legemiddel-|industrien', color: GREEN_LT, text: 'dark' },
 ];
 const gRI = document.getElementById('rammer-infra');
-rammerInfra.forEach(n => makeNode(gRI, n.id, n.a, 440, n.label, n.color, 110));
+rammerInfra.forEach((n, i) => makeNode(gRI, n.id, gapAngle(i, rammerInfra.length, 24), 466, n.label, n.color, 112, n.text === 'light' ? '#fff' : '#1f2a3a'));
 
 // DETALJER for hvert element
 const details = {
-  // Beslutningstakere
-  'innbygger': { tag: 'Beslutningstaker', title: 'Innbyggere',
-    body: '<p>Tar daglige helsebeslutninger om kosthold, mosjon, søvn, vaksinasjon, når man skal oppsøke helsetjenester m.m. Henter kunnskap fra mange kilder samtidig – verdikjeden er bare én av dem.</p>' },
-  'pasient': { tag: 'Beslutningstaker', title: 'Pasienter',
-    body: '<p>Tar beslutninger om egen behandling: medikamentbruk, behandlingsvalg, livsstil. Pasientens preferanser er en av tre kunnskapskilder i kunnskapsbasert praksis.</p><p><em>Delrapport 1 kap. 1.2</em></p>' },
-  'fastlege': { tag: 'Beslutningstaker', title: 'Fastleger',
-    body: '<p>Tar kliniske beslutninger i primærhelsetjenesten. Mottar retningslinjer fra Hdir, oppslagsverk via Helsebiblioteket, refusjonsregler fra Helfo. Mangler ofte systematisk implementeringsstøtte.</p><p><em>Delrapport 8 kap. 5.3 obs. 4</em></p>' },
-  'sykehus-personell': { tag: 'Beslutningstaker', title: 'Sykehuspersonell',
-    body: '<p>Leger, sykepleiere og andre i spesialisthelsetjenesten. Har sterkere infrastruktur (EPJ, fagprosedyrer, kvalitetsavdelinger) enn primærhelsetjenesten.</p>' },
-  'komm-personell': { tag: 'Beslutningstaker', title: 'Kommunalt helsepersonell',
-    body: '<p>Helsesykepleiere, hjemmetjeneste, sykehjemspersonell. Asymmetri sammenlignet med spesialisthelsetjenesten – svakere enabler-støtte for kunnskapsbasert praksis.</p>' },
-  'beslutningstakere-policy': { tag: 'Beslutningstaker', title: 'Politikere og ledere',
-    body: '<p>Stortingsrepresentanter, ledere i HOD/Hdir/RHF/kommuner, oppdragsgivere som setter prioriteringer. Trenger kunnskapsgrunnlag for policy-beslutninger.</p>' },
+  // Kjerne
+  'kjerne': { tag: 'Sentrum – målet', title: 'Innbyggere og pasienter',
+    body: '<p>Innbyggere og pasienter i Norge står i sentrum, fordi det er de som til slutt skal ta – og få nytten av – gode, kunnskapsbaserte helsebeslutninger om kosthold, mosjon, vaksinasjon, medikamentbruk, behandlingsvalg og når man skal oppsøke helsetjenester.</p><p>Pasientens egne preferanser er én av tre kunnskapskilder i kunnskapsbasert praksis. Innbyggeren venter ikke ved enden av en kjede – hun henter kunnskap fra mange kilder samtidig (ring 1).</p><p><em>Delrapport 1 kap. 1.2; notatet «Verdikjeden sett som et økosystem» kap. 3.1</em></p>' },
 
-  // Offentlig verdikjede (norsk)
-  'fhi': { tag: 'Offentlig verdikjede', title: 'Folkehelseinstituttet',
-    body: '<p>Kunnskapssammenstiller (steg 2 i verdikjeden). Drifter Helsebiblioteket. Publiserer smittevern, vaksinasjon og helsestatistikk på fhi.no.</p><p><em>Delrapport 8 kap. 2.2, 2.15</em></p>' },
-  'hdir': { tag: 'Offentlig verdikjede', title: 'Helsedirektoratet',
-    body: '<p>Retningslinjeutvikler og normerende myndighet (strøm 3a). Utgiveransvar for helsenorge.no. Tolker rettslige rammer.</p><p><em>Delrapport 8 kap. 2.3</em></p>' },
-  'rhf': { tag: 'Offentlig verdikjede', title: 'Regionale helseforetak',
-    body: '<p>Helse Sør-Øst, Vest, Nord og Midt-Norge. Implementerer nasjonale retningslinjer i spesialisthelsetjenesten.</p><p><em>Delrapport 8 kap. 2.5</em></p>' },
-  'ks': { tag: 'Offentlig verdikjede', title: 'KS og kommunene',
-    body: '<p>KS tilrettelegger; kommunene implementerer i fastlegetjeneste, helsestasjon, hjemmetjeneste og sykehjem.</p><p><em>Delrapport 8 kap. 2.6</em></p>' },
-  'helsenorge': { tag: 'Offentlig verdikjede', title: 'helsenorge.no',
-    body: '<p>Norges digitale helseportal for innbyggere. NHN er produkteier med redaktøransvar; Helsedirektoratet har utgiveransvaret. 80+ innholdsleverandører.</p><p><em>Delrapport 8 kap. 2.14</em></p>' },
-  'fnsp': { tag: 'Offentlig verdikjede', title: 'Felles nettløsning for spesialisthelsetjenesten',
-    body: '<p>Eid av de fire RHF-ene. Forvalter ca. 1 700 behandlingstekster på 60+ sykehusnettsteder gjennom nasjonal medisinsk redaksjon.</p><p><em>Delrapport 8 kap. 2.16</em></p>' },
-  'dmp': { tag: 'Offentlig verdikjede', title: 'Direktoratet for medisinske produkter',
-    body: '<p>Tidligere Statens legemiddelverk. Markedsføringstillatelser, FEST-databasen, sikkerhetsvarsler.</p><p><em>Delrapport 8 kap. 2.11</em></p>' },
-  'felles-relis': { tag: 'Offentlig verdikjede', title: 'Felleskatalogen og RELIS',
-    body: '<p><strong>Felleskatalogen:</strong> Preparatomtaler (SPC), pakningsvedlegg og interaksjonssøk.<br><strong>RELIS:</strong> Fire regionale legemiddelinformasjonssentre med produsentuavhengig rådgivning.</p><p><em>Delrapport 8 kap. 2.12, 2.13</em></p>' },
-  'fagmed': { tag: 'Offentlig verdikjede', title: 'Fagmedisinske foreninger',
-    body: '<p>Legeforeningens fagmedisinske foreninger (én per spesialitet). Utvikler spesialitetsspesifikke anbefalinger og bidrar til Hdirs retningslinjearbeid.</p><p><em>Delrapport 8 kap. 2.10</em></p>' },
-  'tidsskriftet': { tag: 'Offentlig verdikjede', title: 'Tidsskriftet og Sykepleien Forskning',
-    body: '<p>Fagfellevurderte norske fagtidsskrifter. Sentrale arenaer for medisinsk fagdebatt i Norge.</p><p><em>Delrapport 8 kap. 2.9</em></p>' },
+  // Ring 1 — kildegrupper (sektorene i beltet)
+  'g-helsepersonell': { tag: 'Ring 1 – Kildegruppe (offentlig)', title: 'Helsepersonell',
+    body: '<p>Fastlege, sykehus- og kommunalt helsepersonell – de som møter innbyggeren ansikt til ansikt. For mange er dette den viktigste og mest tillitsfulle kunnskapskilden, og ofte inngangen til de øvrige delene av systemet.</p><p>I et personsentrert bilde er helsepersonellet <em>en av kildene innbyggeren bruker</em>, ikke en egen beslutningstaker-sfære. Klikk på de enkelte boksene for detaljer.</p>' },
+  'g-off-nettsider': { tag: 'Ring 1 – Kildegruppe (offentlig)', title: 'Offentlige nettsider',
+    body: '<p>helsenorge.no og sykehus.no (FNSP) – de offentlige, kvalitetssikrede digitale kanalene rettet direkte mot innbyggeren. Kvalitetssikret innhold med utgiver- og redaktøransvar, men avhengig av at innbyggeren faktisk velger dem framfor raskere alternativer.</p>' },
+  'g-oppslag-ki': { tag: 'Ring 1 – Kildegruppe (andre)', title: 'Oppslagsverk og KI',
+    body: '<p>NHI.no, KI-tjenester (ChatGPT m.fl.) og utenlandske helsenettsider – raskt tilgjengelige digitale kilder innbyggeren ofte går til først. Stor reell verdi i bruk, men variabel kvalitet, kommersielle mål og utenfor offentlig styring.</p>' },
+  'g-medier': { tag: 'Ring 1 – Kildegruppe (andre)', title: 'Medier',
+    body: '<p>Medier/helsejournalistikk og sosiale medier – stor rekkevidde, og formidler ofte forskningsfunn raskere enn de offentlige kanalene. Følger Vær Varsom-plakaten eller ingen redaksjonell kontroll, ikke helsemyndighetenes utgiveransvar.</p>' },
+  'g-naere': { tag: 'Ring 1 – Kildegruppe (andre)', title: 'Nære og likepersoner',
+    body: '<p>Venner og familie samt pasientorganisasjoner – erfaringsbasert kunnskap med liten formell autoritet, men stor praktisk innflytelse på pasientforventninger, hjelpsøkende adferd og konkrete beslutninger.</p>' },
 
-  // Andre kunnskapsleverandører
-  'intl-forskning': { tag: 'Andre kunnskapsleverandører', title: 'Internasjonale forskningsmiljøer',
-    body: '<p>Genererer det meste av ny kunnskap globalt. Norske aktører er primært mottakere. Forfølger egne mål (vitenskapelig fremgang), ikke norsk verdikjedes mål.</p><p><em>Delrapport 1 kap. 2 steg 1</em></p>' },
-  'cochrane-who': { tag: 'Andre kunnskapsleverandører', title: 'Cochrane Collaboration / WHO',
-    body: '<p>Cochrane leverer systematiske oversikter og GRADE-metodikk. WHO leverer normer (SMART Guidelines, ICD). Internasjonale aktører som bidrar med kunnskap til både Norge og resten av verden.</p><p><em>Delrapport 6</em></p>' },
-  'kliniske-oppslag': { tag: 'Andre kunnskapsleverandører', title: 'UpToDate og BMJ Best Practice',
-    body: '<p>Kommersielle internasjonale kunnskapstjenester. Tilgjengelige for norsk helsepersonell via nasjonale lisensavtaler. Bidrar med klinisk kunnskap raskere enn norske retningslinjer.</p><p><em>Delrapport 8 kap. 2.7</em></p>' },
-  'nhi': { tag: 'Andre kunnskapsleverandører', title: 'NHI.no',
+  // Ring 1 — kildene innbyggeren bruker
+  'fastlege': { tag: 'Ring 1 – Innbyggerens kilde (offentlig)', title: 'Fastlegen',
+    body: '<p>For mange innbyggere den viktigste og mest tillitsfulle kunnskapskilden. Tar kliniske beslutninger sammen med pasienten i primærhelsetjenesten, og henter selv kunnskap fra retningslinjer, oppslagsverk og refusjonsregler. Mangler ofte systematisk implementeringsstøtte.</p><p><em>Delrapport 8 kap. 5.3 obs. 4</em></p>' },
+  'sykehus-personell': { tag: 'Ring 1 – Innbyggerens kilde (offentlig)', title: 'Sykehuspersonell',
+    body: '<p>Leger, sykepleiere og andre i spesialisthelsetjenesten som møter pasienten direkte. Har sterkere infrastruktur (EPJ, fagprosedyrer, kvalitetsavdelinger) enn primærhelsetjenesten.</p><p><em>Delrapport 8 kap. 2; delrapport 1 kap. 1.2</em></p>' },
+  'komm-personell': { tag: 'Ring 1 – Innbyggerens kilde (offentlig)', title: 'Kommunalt helsepersonell',
+    body: '<p>Helsesykepleiere, hjemmetjeneste, sykehjemspersonell – nær innbyggeren i hverdagen. Asymmetri sammenlignet med spesialisthelsetjenesten: svakere enabler-støtte for kunnskapsbasert praksis.</p><p><em>Delrapport 8 kap. 5.3 obs. 4</em></p>' },
+  'helsenorge': { tag: 'Ring 1 – Innbyggerens kilde (offentlig)', title: 'helsenorge.no',
+    body: '<p>Norges digitale helseportal for innbyggere – den primære offentlige, kvalitetssikrede kanalen direkte mot innbyggeren. NHN er produkteier med redaktøransvar; Helsedirektoratet har utgiveransvaret. 80+ innholdsleverandører.</p><p><em>Delrapport 8 kap. 2.14</em></p>' },
+  'fnsp': { tag: 'Ring 1 – Innbyggerens kilde (offentlig)', title: 'sykehus.no (FNSP)',
+    body: '<p>Felles nettløsning for spesialisthelsetjenesten, eid av de fire RHF-ene. Forvalter ca. 1 700 behandlingstekster på 60+ sykehusnettsteder – innbyggerrettet informasjon om utredning og behandling.</p><p><em>Delrapport 8 kap. 2.16</em></p>' },
+  'nhi': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'NHI.no',
     body: '<p>Kommersielt helseoppslagsverk for innbyggere, eid av Bonnier Healthcare. ~100 mill. sidevisninger/år. En av Norges største innbyggerrettede kanaler, men utenfor offentlig styring.</p><p><em>Delrapport 8 kap. 2.17</em></p>' },
-  'pasientorg': { tag: 'Andre kunnskapsleverandører', title: 'Pasientorganisasjoner',
-    body: '<p>Kreftforeningen, LHL, Diabetesforbundet, FFO m.fl. Kombinerer medisinsk og erfaringsbasert kunnskap. Forfølger sine medlemmers mål – som ofte (men ikke alltid) sammenfaller med myndighetenes.</p><p><em>Delrapport 8 kap. 2.18</em></p>' },
-  'medier': { tag: 'Andre kunnskapsleverandører', title: 'Medier og helsejournalistikk',
+  'ki-tjenester': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'KI-tjenester (ChatGPT m.fl.)',
+    body: '<p>Innbyggere og helsepersonell bruker generelle KI-tjenester for helsespørsmål. Raske og lett tilgjengelige, men forfølger egne kommersielle mål og har variabel kvalitet.</p><p><em>Delrapport 3</em></p>' },
+  'sosmedier': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'Sosiale medier-plattformer',
+    body: '<p>Facebook, TikTok, Instagram, YouTube m.fl. Helseråd spres uten kvalitetssikring – men med stor rekkevidde. En reell kunnskapskanal for store deler av befolkningen.</p>' },
+  'medier': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'Medier og helsejournalistikk',
     body: '<p>Aviser, TV, podkaster, nettmedier. Formidler forskningsfunn direkte til innbyggere – ofte raskere enn den normerende strømmen. Følger Vær Varsom-plakaten, ikke Hdirs utgiveransvar.</p><p><em>Delrapport 8 kap. 2.19</em></p>' },
-  'sosmedier': { tag: 'Andre kunnskapsleverandører', title: 'Sosiale medier-plattformer',
-    body: '<p>Facebook, TikTok, Instagram, YouTube m.fl. Helseråd spres uten kvalitetssikring – men også med stor rekkevidde. Reell kunnskapskanal for store deler av befolkningen.</p>' },
-  'ki-tjenester': { tag: 'Andre kunnskapsleverandører', title: 'KI-tjenester (ChatGPT m.fl.)',
-    body: '<p>Innbyggere og helsepersonell bruker generelle KI-tjenester for helsespørsmål. Forfølger sine kommersielle mål, men leverer reell verdi i bruk.</p><p><em>Delrapport 3</em></p>' },
-  'utenl-nett': { tag: 'Andre kunnskapsleverandører', title: 'Utenlandske helsenettsider',
+  'utenl-nett': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'Utenlandske helsenettsider',
     body: '<p>Mayo Clinic, NHS.uk, WebMD m.fl. Innbyggere søker direkte på engelsk – ofte raskere og mer omfattende, men ikke tilpasset norsk helsetjeneste.</p><p><em>Delrapport 1 (innbyggerens kilder)</em></p>' },
-  'venn-familie': { tag: 'Andre kunnskapsleverandører', title: 'Venner og familie',
+  'venn-familie': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'Venner og familie',
     body: '<p>Erfaringsbasert kunnskap som spres muntlig. Formell autoritet er null, men praktisk innflytelse på pasientforventninger og hjelpsøkende adferd er stor.</p><p><em>Delrapport 1 (innbyggerens kilder)</em></p>' },
+  'pasientorg': { tag: 'Ring 1 – Innbyggerens kilde (andre)', title: 'Pasientorganisasjoner',
+    body: '<p>Kreftforeningen, LHL, Diabetesforbundet, FFO m.fl. Kombinerer medisinsk og erfaringsbasert kunnskap, og er en nær kilde for mange pasienter. Forfølger sine medlemmers mål – som ofte (men ikke alltid) sammenfaller med myndighetenes.</p><p><em>Delrapport 8 kap. 2.18</em></p>' },
 
-  // Rammesettere og infrastruktur
-  'stortinget': { tag: 'Rammesetter', title: 'Stortinget',
+  // Ring 2 — kunnskapsprodusenter og kvalitetssikring
+  'fhi': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Folkehelseinstituttet',
+    body: '<p>Kunnskapssammenstiller (steg 2 i verdikjeden). Drifter Helsebiblioteket. Publiserer smittevern, vaksinasjon og helsestatistikk på fhi.no.</p><p><em>Delrapport 8 kap. 2.2, 2.15</em></p>' },
+  'hdir': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Helsedirektoratet',
+    body: '<p>Retningslinjeutvikler og normerende myndighet (strøm 3a). Utgiveransvar for helsenorge.no. Tolker rettslige rammer.</p><p><em>Delrapport 8 kap. 2.3</em></p>' },
+  'rhf': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Regionale helseforetak',
+    body: '<p>Helse Sør-Øst, Vest, Nord og Midt-Norge. Implementerer nasjonale retningslinjer i spesialisthelsetjenesten.</p><p><em>Delrapport 8 kap. 2.5</em></p>' },
+  'ks': { tag: 'Ring 2 – Produsent (offentlig)', title: 'KS og kommunene',
+    body: '<p>KS tilrettelegger; kommunene implementerer i fastlegetjeneste, helsestasjon, hjemmetjeneste og sykehjem.</p><p><em>Delrapport 8 kap. 2.6</em></p>' },
+  'dmp': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Direktoratet for medisinske produkter',
+    body: '<p>Tidligere Statens legemiddelverk. Markedsføringstillatelser, FEST-databasen, sikkerhetsvarsler.</p><p><em>Delrapport 8 kap. 2.11</em></p>' },
+  'felles-relis': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Felleskatalogen og RELIS',
+    body: '<p><strong>Felleskatalogen:</strong> Preparatomtaler (SPC), pakningsvedlegg og interaksjonssøk.<br><strong>RELIS:</strong> Fire regionale legemiddelinformasjonssentre med produsentuavhengig rådgivning.</p><p><em>Delrapport 8 kap. 2.12, 2.13</em></p>' },
+  'fagmed': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Fagmedisinske foreninger',
+    body: '<p>Legeforeningens fagmedisinske foreninger (én per spesialitet). Utvikler spesialitetsspesifikke anbefalinger og bidrar til Hdirs retningslinjearbeid.</p><p><em>Delrapport 8 kap. 2.10</em></p>' },
+  'tidsskriftet': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Tidsskriftet og Sykepleien Forskning',
+    body: '<p>Fagfellevurderte norske fagtidsskrifter. Sentrale arenaer for medisinsk fagdebatt i Norge.</p><p><em>Delrapport 8 kap. 2.9</em></p>' },
+  'uh-sektor': { tag: 'Ring 2 – Produsent (offentlig)', title: 'Universiteter og høyskoler',
+    body: '<p>UiO, UiB, NTNU, UiT, OsloMet m.fl. Produserer norsk helseforskning (steg 1 i verdikjeden) og utdanner helsepersonellet. Leverer både ny kunnskap og kompetansen som gjør kunnskapen anvendbar i tjenesten. Forfølger egne akademiske mål, men er en offentlig forankret del av kunnskapsproduksjonen.</p><p><em>Delrapport 1 kap. 2 steg 1; delrapport 8</em></p>' },
+  'intl-forskning': { tag: 'Ring 2 – Produsent (andre)', title: 'Internasjonale forskningsmiljøer',
+    body: '<p>Genererer det meste av ny kunnskap globalt. Norske aktører er primært mottakere. Forfølger egne mål (vitenskapelig fremgang), ikke norsk verdikjedes mål.</p><p><em>Delrapport 1 kap. 2 steg 1</em></p>' },
+  'cochrane-who': { tag: 'Ring 2 – Produsent (andre)', title: 'Cochrane Collaboration / WHO',
+    body: '<p>Cochrane leverer systematiske oversikter og GRADE-metodikk. WHO leverer normer (SMART Guidelines, ICD). Internasjonale aktører som bidrar med kunnskap til både Norge og resten av verden.</p><p><em>Delrapport 6</em></p>' },
+  'kliniske-oppslag': { tag: 'Ring 2 – Produsent (andre)', title: 'UpToDate og BMJ Best Practice',
+    body: '<p>Kommersielle internasjonale kunnskapstjenester. Tilgjengelige for norsk helsepersonell via nasjonale lisensavtaler. Bidrar med klinisk kunnskap raskere enn norske retningslinjer.</p><p><em>Delrapport 8 kap. 2.7</em></p>' },
+  'nel': { tag: 'Ring 2 – Produsent (andre)', title: 'NEL – Norsk Elektronisk Legehåndbok',
+    body: '<p>Norskprodusert klinisk oppslagsverk for helsepersonell, utgitt av Norsk Helseinformatikk (samme miljø som NHI.no). Bredt brukt i primærhelsetjenesten – mange fastleger bruker NEL som førstevalg ved kliniske oppslag, ofte raskere tilgjengelig enn nasjonale retningslinjer. Kommersiell aktør med egne mål, utenfor offentlig styring.</p><p><em>Delrapport 8 (kliniske oppslagsverk); jf. NHI.no kap. 2.17</em></p>' },
+
+  // Ring 3 — rammesettere og infrastruktur
+  'stortinget': { tag: 'Ring 3 – Rammesetter', title: 'Stortinget',
     body: '<p>Vedtar lovverket: helsepersonelloven, helse- og omsorgstjenesteloven, pasient- og brukerrettighetsloven, språkloven, personopplysningsloven m.fl. Setter rammene for hele økosystemet.</p><p><em>Delrapport 8 kap. 5.3 obs. 3</em></p>' },
-  'hod': { tag: 'Rammesetter', title: 'Helse- og omsorgsdepartementet',
+  'hod': { tag: 'Ring 3 – Rammesetter', title: 'Helse- og omsorgsdepartementet',
     body: '<p>Politisk styringsnivå. Tildelingsbrev, oppdragsdokumenter, forskrifter og stortingsmeldinger. Setter rammene for de offentlige aktørene.</p><p><em>Delrapport 8 kap. 2.1</em></p>' },
-  'eu': { tag: 'Rammesetter', title: 'EU-kommisjonen',
+  'beslutningstakere-policy': { tag: 'Ring 3 – Beslutningstaker på systemnivå', title: 'Politikere og ledere',
+    body: '<p>Stortingsrepresentanter, ledere i HOD/Hdir/RHF/kommuner, oppdragsgivere som setter prioriteringer. Tar beslutninger på systemnivå og trenger selv et kunnskapsgrunnlag for policy.</p><p><em>Delrapport 8 kap. 2</em></p>' },
+  'eu': { tag: 'Ring 3 – Rammesetter', title: 'EU-kommisjonen',
     body: '<p>Fastsetter EU-regelverk bindende for Norge gjennom EØS. Mest aktuelt nå: EHDS-forordningen, AI Act, GDPR.</p><p><em>CLAUDE.md prosjektkontekst</em></p>' },
-  'ema-who-norm': { tag: 'Rammesetter', title: 'EMA og WHO',
+  'ema-who-norm': { tag: 'Ring 3 – Rammesetter', title: 'EMA og WHO',
     body: '<p><strong>EMA:</strong> EUs legemiddelmyndighet, fastsetter prosedyrer for godkjenning og SPC-standarder.<br><strong>WHO:</strong> Setter internasjonale normer (SMART Guidelines, smittevernveiledere, ICD-kodeverk) som Norge tilpasser seg.</p><p><em>Delrapport 6</em></p>' },
-  'datatilsyn-sprakr': { tag: 'Rammesetter', title: 'Datatilsynet, Språkrådet, PFU',
+  'datatilsyn-sprakr': { tag: 'Ring 3 – Rammesetter', title: 'Datatilsynet, Språkrådet, PFU',
     body: '<p><strong>Datatilsynet:</strong> Tilsyn med personopplysningsloven/GDPR.<br><strong>Språkrådet:</strong> Forvalter klarspråkkravet (språkloven §9).<br><strong>Pressens Faglige Utvalg:</strong> Vær Varsom-plakaten for medier.</p>' },
-  'nhn': { tag: 'Infrastruktur', title: 'Norsk helsenett',
+  'nhn': { tag: 'Ring 3 – Infrastruktur', title: 'Norsk helsenett',
     body: '<p>Nasjonal tjenesteleverandør. Drifter helsenorge.no, sykehusnettsteder og nasjonale komponenter. Etterlever rammer fra Hdir.</p><p><em>CLAUDE.md roller og ansvar</em></p>' },
-  'helsebibl': { tag: 'Infrastruktur', title: 'Helsebiblioteket',
+  'helsebibl': { tag: 'Ring 3 – Infrastruktur', title: 'Helsebiblioteket',
     body: '<p>Driftes av FHI. Tilgangsportal for kunnskapsdatabaser og oppslagsverk. Enabler i fire av seks IGOE-prosesser. Budsjettkutt 2023 fjernet tilgang til Cochrane Library og Embase.</p><p><em>Delrapport 8 kap. 5.3 obs. 5</em></p>' },
-  'epj-lev': { tag: 'Infrastruktur', title: 'EPJ-leverandører',
+  'epj-lev': { tag: 'Ring 3 – Infrastruktur', title: 'EPJ-leverandører',
     body: '<p>DIPS, CGM (CompuGroup Medical), Infodoc m.fl. Leverer elektroniske pasientjournaler. Asymmetri mellom spesialist- og primærhelsetjenesten.</p><p><em>Delrapport 8 kap. 5.3 obs. 4</em></p>' },
-  'wolters-bmj': { tag: 'Infrastruktur', title: 'Wolters Kluwer og BMJ Group',
+  'wolters-bmj': { tag: 'Ring 3 – Infrastruktur', title: 'Wolters Kluwer og BMJ Group',
     body: '<p>Kommersielle leverandører av UpToDate og BMJ Best Practice. Tilgjengelig gjennom nasjonale lisensavtaler via Helsebiblioteket.</p><p><em>Delrapport 8 kap. 2.7</em></p>' },
-  'bonnier': { tag: 'Infrastruktur', title: 'Bonnier Healthcare',
+  'bonnier': { tag: 'Ring 3 – Infrastruktur', title: 'Bonnier Healthcare',
     body: '<p>Eier NHI.no. Privat infrastruktur for innbyggerrettet helseinformasjon, utenfor offentlig styring.</p><p><em>Delrapport 8 kap. 2.17</em></p>' },
-  'ous-fagpros': { tag: 'Infrastruktur', title: 'Oslo universitetssykehus (fagprosedyrer)',
+  'ous-fagpros': { tag: 'Ring 3 – Infrastruktur', title: 'Oslo universitetssykehus (fagprosedyrer)',
     body: '<p>Koordinerer nasjonal fagprosedyreplattform (fagprosedyrer.no, nå under Helsebiblioteket). Leverer infrastruktur for klinisk kunnskapsdeling.</p><p><em>Delrapport 8 kap. 2.8</em></p>' },
-  'industri': { tag: 'Rammesetter', title: 'Legemiddelindustrien',
+  'industri': { tag: 'Ring 3 – Rammesetter', title: 'Legemiddelindustrien',
     body: '<p>Leverer søknader, studiedata, pakningsvedlegg og informasjonsmateriell. Påvirker både evidensgrunnlaget og direkte kommunikasjon. Egne kommersielle mål – ikke styrt av norsk politikk, men sterkt regulert.</p>' }
 };
 

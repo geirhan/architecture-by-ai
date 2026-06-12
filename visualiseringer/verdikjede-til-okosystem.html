@@ -188,7 +188,7 @@
 <body>
 <header>
   <h1>Fra verdikjede til økosystem</h1>
-  <p>Det samme bildet, sett på to måter. Klikk for å skifte perspektiv – og se hva som blir synlig når målet, ikke kjeden, settes i sentrum.</p>
+  <p>Det samme bildet, sett på to måter. Klikk for å skifte perspektiv – og se hva som blir synlig når innbyggeren, ikke kjeden, settes i sentrum.</p>
 </header>
 <div class="source-ref">
   Basert på <strong>notatet «Verdikjeden sett som et økosystem»</strong>, delrapport 1, 2 og 8 · Klikk knappene eller bruk piltastene
@@ -216,12 +216,11 @@
 
       <!-- Konsentriske ringer (kun synlige i økosystem-tilstand) -->
       <g id="rings">
-        <circle class="ring" cx="500" cy="320" r="290" stroke="#c9dbc9"/>
-        <circle class="ring" cx="500" cy="320" r="205" stroke="#e8c9d0"/>
-        <circle class="ring" cx="500" cy="320" r="120" stroke="#a7c2e0"/>
-        <text class="ring-label" x="500" y="48">Rammesettere og infrastruktur</text>
-        <text class="ring-label" x="500" y="133">Andre kunnskapskilder</text>
-        <text class="ring-label" x="500" y="218">Offentlig verdikjede</text>
+        <circle class="ring" cx="500" cy="320" r="290" stroke="#e8c9d0"/>
+        <circle class="ring" cx="500" cy="320" r="205" stroke="#a7c2e0"/>
+        <circle class="ring" cx="500" cy="320" r="118" stroke="#c7d4e2"/>
+        <text class="ring-label" x="500" y="40">Andre kunnskapskilder</text>
+        <text class="ring-label" x="500" y="88">Offentlig verdikjede</text>
       </g>
 
       <!-- Forbindelser (settes av JS, ulike per tilstand) -->
@@ -229,10 +228,10 @@
 
       <!-- Sentrum / mål (sirkel i økosystem, usynlig i kjede) -->
       <g id="core">
-        <circle id="core-circle" cx="500" cy="320" r="78" fill="url(#g-core)"/>
-        <text id="core-t1" x="500" y="306" text-anchor="middle" fill="#fff" style="font-size:12px;font-weight:700;letter-spacing:.3px">MÅLET</text>
-        <text id="core-t2" x="500" y="326" text-anchor="middle" fill="#fff" style="font-size:11px;font-weight:600">Gode kunnskaps-</text>
-        <text id="core-t3" x="500" y="342" text-anchor="middle" fill="#fff" style="font-size:11px;font-weight:600">baserte beslutninger</text>
+        <circle id="core-circle" cx="500" cy="320" r="82" fill="url(#g-core)"/>
+        <text id="core-t1" x="500" y="306" text-anchor="middle" fill="#fff" style="font-size:13px;font-weight:700;letter-spacing:.3px">INNBYGGEREN</text>
+        <text id="core-t2" x="500" y="326" text-anchor="middle" fill="#cfe0f0" style="font-size:10px;font-style:italic">– gode helse-</text>
+        <text id="core-t3" x="500" y="340" text-anchor="middle" fill="#cfe0f0" style="font-size:10px;font-style:italic">beslutninger</text>
       </g>
 
       <!-- Tilstandsetiketter -->
@@ -252,7 +251,7 @@
   </div>
   <div class="narr-card" id="narr-eco">
     <h3>② Økosystemet</h3>
-    <p>Sett målet i sentrum, så endrer bildet seg: innbyggeren og klinikeren henter kunnskap fra <em>mange</em> kilder samtidig. Den offentlige verdikjeden er én av dem – ofte den tregeste – og konkurrerer med raske, men variable kanaler (sosiale medier, KI, utenlandske nettsider).</p>
+    <p>Sett innbyggeren i sentrum, så endrer bildet seg: hun henter kunnskap fra <em>mange</em> kilder samtidig – fastlegen og helsenorge.no, men også raske, variable kanaler som sosiale medier, KI og utenlandske nettsider. Den offentlige verdikjeden er én kilde blant mange – ofte den tregeste.</p>
     <p class="takeaway">Konsekvens: styring blir <em>orkestrering</em>, ikke kontroll. Vi rår ikke over kildene innbyggeren faktisk bruker.</p>
   </div>
 </div>
@@ -371,7 +370,8 @@ function place(n, state){
     if(n.ecoOnly || n.chainHide){ hidden=true; }
     ({x,y} = n.chain);
   } else {
-    if(n.ring==='core'){ x=cx; y=cy; }
+    // innbygger-noden glir inn til sentrum og tones ut – kjernesirkelen ER nå innbyggeren
+    if(n.ring==='core'){ x=cx; y=cy; hidden=true; }
     else { ({x,y}=polar(n.ecoA, n.ecoR)); }
   }
   n.el.style.transform = `translate(${x}px, ${y}px)`;

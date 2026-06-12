@@ -140,6 +140,25 @@
   Basert på delrapport 7 og 9.
 - **Sist oppdatert**: 2026-06-04
 
+### igoe-aktormatrise.pptx
+
+- **Beskrivelse**: PowerPoint-presentasjon (6 lysbilder) i
+  Helsedirektoratets mal (`HdirMal.pptx`) som viser
+  aktørene i et IGOE-perspektiv. Matrisen setter de ~24
+  aktørene som rader og verdikjedens seks prosesser (P1–P6)
+  som kolonner, og markerer hver aktørs IGOE-rolle i hver
+  prosess (I=Input, G=Guide, O=Output, E=Enabler).
+  Lysbilder: (1) forside; (2) hva er IGOE; (3) lesehjelp
+  med prosessoversikt; (4) selve matrisen med fargekodede
+  roller; (5) fem hovedfunn; (6) kilde og forbehold.
+  Matrisen er en inversjon av delrapport 8 (aktoeranalyse.md)
+  kap. 5.2 (IGOE per prosess) til aktør-perspektiv, og
+  hovedfunnene er hentet fra kap. 5.3. Genereres av
+  `skripts/lag_igoe_matrise_pptx.py`. ASCII-filnavn er
+  bevisst valgt (æøå i filnavn gir NFC/NFD-trøbbel på
+  macOS). Basert på delrapport 8 (status: Forankret).
+- **Sist oppdatert**: 2026-06-10
+
 ### Presentasjoner/utfordringsbildet-forankring.pptx
 
 - **Plassering**: Ligger utenfor prosjektmappen, i
@@ -200,38 +219,49 @@
   (1) **Verdikjeden** – en lineær kjede (forskning →
   oppsummering → retningslinjer → formidling →
   innbyggeren til slutt); (2) **Økosystemet** – samme
-  noder animeres til konsentriske ringer rundt **målet**
-  i sentrum, og innbyggeren flyttes fra enden av kjeden
-  til kjernen, mens andre kunnskapskilder (KI, sosiale
-  medier, utenlandske nettsider, medier m.m.) toner inn.
-  Skifte med knapp eller piltaster; fortellertekst per
-  tilstand. Designet for å presentere perspektivskiftet
-  muntlig. Basert på notatet «Verdikjeden sett som et
-  økosystem». Søsterfigur til okosystem-verdikjede.html.
-- **Sist oppdatert**: 2026-05-21
+  noder animeres til konsentriske ringer, og
+  **innbyggeren** flyttes fra enden av kjeden inn til
+  kjernen og blir selve sentrum, mens andre
+  kunnskapskilder (KI, sosiale medier, utenlandske
+  nettsider, medier m.m.) toner inn rundt. Skifte med
+  knapp eller piltaster; fortellertekst per tilstand.
+  Designet for å presentere perspektivskiftet muntlig.
+  Basert på notatet «Verdikjeden sett som et økosystem».
+  Søsterfigur til okosystem-verdikjede.html.
+- **Sist oppdatert**: 2026-06-12 (innbyggeren satt i
+  sentrum; ring-etiketter rettet til offentlig/andre)
 
 ### okosystem-verdikjede.html
 
 - **Beskrivelse**: Interaktiv økosystemvisualisering med
-  **målet i sentrum** – ikke verdikjeden. Sentrum:
-  "Gode, kunnskapsbaserte helsebeslutninger". Fire
-  konsentriske ringer organisert etter rolle i å oppnå
-  målet: (1) Beslutningstakere – innbyggere, pasienter,
-  fastleger, sykehus-/kommunalt helsepersonell,
-  politikere/ledere; (2) Offentlig verdikjede (norsk) –
-  FHI, Hdir, RHF, KS, helsenorge.no, FNSP, DMP,
-  Felleskat./RELIS, fagmed. foreninger, Tidsskriftet;
-  (3) Andre kunnskapsleverandører – internasjonal
-  forskning, Cochrane/WHO, UpToDate/BMJ, NHI.no, pasient-
-  organisasjoner, medier, sosiale medier, KI-tjenester,
-  utenlandske helsenettsider, venner og familie;
-  (4) Rammesettere og infrastruktur – Stortinget, HOD,
+  **innbyggeren i sentrum** – ikke verdikjeden. Kjerne:
+  "Innbyggere og pasienter – gode helsebeslutninger".
+  Rundt innbyggeren ligger et belte som grupperer
+  kildene (Helsepersonell, Offentlige nettsider,
+  Oppslagsverk og KI, Medier, Nære og likepersoner), og
+  tre konsentriske ringer ordnet etter nærhet til
+  innbyggerens beslutning: (1) **Ring 1 – kildene
+  innbyggeren bruker**: fastlege/helsepersonell,
+  helsenorge.no, sykehus.no (blå/offentlig); NHI.no,
+  KI-tjenester, sosiale medier, medier, utenlandske
+  nettsider, venner/familie, pasientorg. (oransje/andre);
+  (2) **Ring 2 – kunnskapsprodusenter og
+  kvalitetsvurdering**: FHI, Hdir, RHF, KS, DMP,
+  Felleskat./RELIS, fagmed. foreninger, Tidsskriftet,
+  universiteter/høyskoler (blå); internasjonal forskning,
+  Cochrane/WHO, UpToDate/BMJ, NEL (oransje); (3) **Ring 3 – rammesettere
+  og infrastruktur**: Stortinget, HOD, politikere/ledere,
   EU, EMA/WHO, Datatilsynet/Språkrådet/PFU, NHN,
   Helsebiblioteket, EPJ-leverandører, Wolters Kluwer/BMJ,
-  Bonnier, OUS, legemiddelindustrien. Reflekterer at
-  verdikjeden er ett av flere bidrag til målet, ikke
-  økosystemets sentrum.
-- **Sist oppdatert**: 2026-05-13
+  Bonnier, OUS, legemiddelindustrien. Skillet
+  offentlig/andre bæres av farge (blå/oransje), ikke av
+  egne ringer; helsepersonell er plassert som én av
+  kildene innbyggeren bruker (ring 1). Reflekterer at
+  verdikjeden er ett av flere bidrag til at innbyggeren
+  treffer gode beslutninger, ikke økosystemets sentrum.
+- **Sist oppdatert**: 2026-06-12 (innbyggeren satt i
+  sentrum; sfærer erstattet av gruppebelte + tre ringer
+  med offentlig/andre som fargeskille; NEL lagt til)
 
 ### motivasjonsmodell-kunnskapsforvaltning.xml
 

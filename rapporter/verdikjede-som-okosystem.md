@@ -26,12 +26,14 @@ verdikjedemodellen skjuler.
 Notatet bygger på, og er ment å gi teoretisk fundament
 til, den eksisterende visualiseringen
 [`okosystem-verdikjede.html`](../visualiseringer/okosystem-verdikjede.html)
-(2026-05-13), som plasserer *målet* – gode
-kunnskapsbaserte helsebeslutninger – i sentrum og de
-ulike aktørene i fire sfærer rundt. Visualiseringen var
-første uttrykk for økosystemtankegangen; dette notatet
-forklarer hvorfor den tankegangen er riktig, hva den
-betyr for styring, og hva den betyr for de fire
+(opprinnelig 2026-05-13, revidert 2026-06-12), som
+plasserer *innbyggeren* – den gode kunnskapsbaserte
+helsebeslutninger til slutt handler om – i sentrum, med
+kildene innbyggeren bruker, kunnskapsprodusentene og
+rammesetterne ordnet i tre ringer rundt. Visualiseringen
+var første uttrykk for økosystemtankegangen; dette
+notatet forklarer hvorfor den tankegangen er riktig, hva
+den betyr for styring, og hva den betyr for de fire
 løsningsaksene i utredningen.
 
 **Merking av evidens.** Som i de øvrige delrapportene
@@ -56,9 +58,9 @@ helsepersonell henter kunnskap fra mange kilder
 samtidig, der den offentlige verdikjeden er *én* kilde
 blant mange – og ofte den tregeste [DOK, delrapport 2
 kap. 4.3, 5.4]. Et økosystemperspektiv fanger dette ved
-å sette *målet* i sentrum og behandle verdikjeden som
-ett bidrag blant flere konkurrerende og utfyllende
-bidrag.
+å sette *innbyggeren* – den målet handler om – i
+sentrum og behandle verdikjeden som ett bidrag blant
+flere konkurrerende og utfyllende bidrag.
 
 Skiftet har tre konsekvenser som er sentrale for
 utredningen:
@@ -207,14 +209,17 @@ verdikjedemodellen ikke fanger.
 
 ## 3. Kunnskapsforvaltning som økosystem
 
-### 3.1 Målet i sentrum, ikke verdikjeden
+### 3.1 Innbyggeren i sentrum, ikke verdikjeden
 
 Det avgjørende grepet – som den eksisterende
-visualiseringen allerede gjør – er å sette **målet** i
-sentrum: *gode, kunnskapsbaserte helsebeslutninger for
-hele befolkningen*. Verdikjeden er da ikke sentrum,
-men ett av flere bidrag til målet [DOK,
-`okosystem-verdikjede.html`].
+visualiseringen gjør – er å sette **innbyggeren** i
+sentrum. Det er innbyggere og pasienter i Norge som til
+slutt skal ta, og få nytten av, *gode, kunnskapsbaserte
+helsebeslutninger*. Innbyggeren er dermed ikke en aktør
+på linje med de andre, men målet personifisert – den
+alt det øvrige tjener. Verdikjeden er da ikke sentrum,
+men ett av flere bidrag til at innbyggeren treffer gode
+beslutninger [DOK, `okosystem-verdikjede.html`].
 
 Dette er mer enn en visuell omlegging. Det endrer hva
 som teller som suksess: ikke «leverte verdikjeden en
@@ -223,20 +228,34 @@ en god beslutning – og bidro vårt tilbud til det,
 sammenlignet med alternativene de faktisk brukte?»
 [ANT].
 
-### 3.2 Fire sfærer rundt målet
+### 3.2 Innbyggeren i kjernen, tre ringer rundt
 
-Visualiseringen organiserer aktørene i fire sfærer.
-Tabellen nedenfor knytter hver sfære til
+Visualiseringen plasserer innbyggeren i kjernen og
+ordner det øvrige i tre konsentriske ringer ut fra
+hvor nær innbyggerens beslutning aktøren står: kildene
+innbyggeren bruker direkte (ring 1), leddene som
+produserer og kvalitetsvurderer kunnskapen (ring 2), og
+rammesetterne og infrastrukturen som styrer og
+muliggjør systemet (ring 3). Skillet mellom *offentlig
+og kvalitetssikret* og *andre kilder* går nå på tvers av
+ringene og bæres av farge (blå/oransje), ikke av egne
+ringer. Et poeng følger av dette: **helsepersonellet er
+plassert som én av kildene innbyggeren bruker (ring 1)**
+– fastlegen er for mange den viktigste og mest
+tillitsfulle kunnskapskanalen – ikke som en egen
+beslutningstaker-sfære.
+
+Tabellen nedenfor knytter hvert lag til
 økosystemrollene i kap. 2.3 og til delrapportene
 [DOK for aktørplasseringer, delrapport 8; ANT for
 rolletilordning]:
 
-| Sfære | Hvem (utvalg) | Økosystemrolle | Forankring |
+| Lag | Hvem (utvalg) | Økosystemrolle | Forankring |
 |---|---|---|---|
-| **Beslutningstakere** (innerst) | Innbyggere, pasienter, fastleger, sykehus- og kommunalt helsepersonell, politikere/ledere | Sluttbrukere – de målet handler om | Delrapport 8 kap. 2; delrapport 1 kap. 1.2 |
-| **Offentlig verdikjede** | FHI, Hdir, RHF, KS, helsenorge.no, FNSP, DMP, Felleskatalogen/RELIS, fagmed. foreninger, Tidsskriftet | Keystone + nisje – muliggjør og spesialiserer, kvalitetssikret men treg | Delrapport 8 kap. 2.2–2.16 |
-| **Andre kunnskaps­leverandører** | Internasjonal forskning, Cochrane/WHO, UpToDate/BMJ, NHI.no, pasientorg., medier, sosiale medier, KI-tjenester, utenlandske nettsider, venner/familie | Nisje + (potensielt) dominator – raske, men variabel kvalitet og egne mål | Delrapport 8 kap. 2.7, 2.17–2.19; delrapport 2 kap. 4.3 |
-| **Rammesettere og infrastruktur** (ytterst) | Stortinget, HOD, EU, EMA/WHO, Datatilsynet/Språkrådet/PFU, NHN, Helsebiblioteket, EPJ-leverandører, Wolters Kluwer/BMJ, Bonnier, OUS, legemiddelindustrien | Plattform + regelsetter – styrer og muliggjør hele systemet | Delrapport 8 kap. 2.1, 5.3; CLAUDE.md roller/ansvar |
+| **Innbyggere og pasienter** (kjerne) | Innbyggere og pasienter i Norge | Sluttbruker og formål – den målet handler om | Delrapport 1 kap. 1.2 |
+| **Ring 1: Kildene innbyggeren bruker** | *Offentlig (blå):* fastlege og helsepersonell, helsenorge.no, sykehus.no. *Andre (oransje):* NHI.no, KI-tjenester, sosiale medier, medier, utenlandske nettsider, venner/familie, pasientorg. | Kanalene innbyggeren faktisk henter kunnskap fra; kvalitetssikret offentlig kanal konkurrerer med raske, variable kilder | Delrapport 8 kap. 2.14–2.19; delrapport 2 kap. 4.3; delrapport 1 (innbyggerens kilder) |
+| **Ring 2: Kunnskaps­produsenter og kvalitetsvurdering** | *Offentlig (blå):* FHI, Hdir, RHF, KS, DMP, Felleskatalogen/RELIS, fagmed. foreninger, Tidsskriftet, universiteter/høyskoler. *Andre (oransje):* internasjonal forskning, Cochrane/WHO, UpToDate/BMJ, NEL | Keystone + nisje – produserer og kvalitetsvurderer kunnskapen kildene formidler | Delrapport 8 kap. 2.2–2.16; delrapport 1 kap. 2 steg 1; delrapport 6 |
+| **Ring 3: Rammesettere og infrastruktur** (ytterst) | Stortinget, HOD, politikere/ledere, EU, EMA/WHO, Datatilsynet/Språkrådet/PFU, NHN, Helsebiblioteket, EPJ-leverandører, Wolters Kluwer/BMJ, Bonnier, OUS, legemiddelindustrien | Plattform + regelsetter – styrer og muliggjør hele systemet | Delrapport 8 kap. 2.1, 5.3; CLAUDE.md roller/ansvar |
 
 ### 3.3 Keystone- og plattformroller i det norske systemet
 
@@ -527,4 +546,7 @@ helsesektor.
 
 ---
 
-Sist oppdatert: 2026-05-21
+Sist oppdatert: 2026-06-12 (kap. 3 omarbeidet: innbyggeren
+satt i sentrum, sfærene erstattet av tre ringer – kilder,
+produsenter, rammesettere – med offentlig/andre som
+fargeskille; speiler revidert `okosystem-verdikjede.html`)
