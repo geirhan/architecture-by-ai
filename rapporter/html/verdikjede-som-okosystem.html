@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdikjeden for kunnskapsforvaltning sett som et økosystem</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Verdikjeden for kunnskapsforvaltning sett som et økosystem</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="fremtidsscenarioer.html">Fremtidsscenarioer</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="regulatorisk-etterslep.html">Regulatorisk etterslep</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="verdikjede-som-okosystem.html" class="active">Verdikjede som økosystem</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</p>
+<blockquote>
+<p><strong>Status: Under forankring.</strong> Perspektivnotatet
+introduserer økosystem-linsen som supplement til den lineære
+verdikjeden. Brukes som arbeidsverktøy i forankringen av hvordan
+løsningsrommet skal forstås, og er foreløpig en analytisk lins under
+utforming. Se <a href="index.md#statusnivåer">statusnivåer</a>.</p>
+</blockquote>
+<hr />
+<h2 id="om-dette-notatet">Om dette notatet</h2>
+<p>Dette notatet undersøker hva som skjer når vi slutter å se
+kunnskapsforvaltning som en <em>lineær verdikjede</em> og i stedet ser
+den som et <em>økosystem</em>. Notatet er ikke en ny kartlegging av
+aktører eller flaskehalser – det finnes allerede i delrapport 1, 2 og 8.
+Det er et <strong>perspektivnotat</strong>: det skifter linsen vi ser de
+samme funnene gjennom, og spør hva det skiftet avdekker som
+verdikjedemodellen skjuler.</p>
+<p>Notatet bygger på, og er ment å gi teoretisk fundament til, den
+eksisterende visualiseringen <a
+href="../visualiseringer/okosystem-verdikjede.html"><code>okosystem-verdikjede.html</code></a>
+(opprinnelig 2026-05-13, revidert 2026-06-12), som plasserer
+<em>innbyggeren</em> – den gode kunnskapsbaserte helsebeslutninger til
+slutt handler om – i sentrum, med kildene innbyggeren bruker,
+kunnskapsprodusentene og rammesetterne ordnet i tre ringer rundt.
+Visualiseringen var første uttrykk for økosystemtankegangen; dette
+notatet forklarer hvorfor den tankegangen er riktig, hva den betyr for
+styring, og hva den betyr for de fire løsningsaksene i utredningen.</p>
+<p><strong>Merking av evidens.</strong> Som i de øvrige delrapportene
+merkes utsagn med <strong>[DOK]</strong> når de er dokumentert i en
+kilde (delrapport eller ekstern kilde) og <strong>[ANT]</strong> når de
+er analytiske slutninger ført av denne utredningen. Selve
+økosystemrammeverket er en <em>analytisk modell</em> – en måte å
+organisere kjente funn på, ikke et nytt empirisk funn. Modellvalget som
+sådan er derfor [ANT]; de enkelte funnene modellen organiserer er
+forankret der de står.</p>
+<hr />
+<h2 id="kort-konklusjon">1. Kort konklusjon</h2>
+<p>Den lineære verdikjedemodellen (steg 1 → 2 → 3) er presis for å
+beskrive <strong>hvordan offentlig kunnskap produseres</strong>, men
+misvisende for å beskrive <strong>hvordan helsebeslutninger faktisk
+treffes</strong>. Innbyggere og helsepersonell henter kunnskap fra mange
+kilder samtidig, der den offentlige verdikjeden er <em>én</em> kilde
+blant mange – og ofte den tregeste [DOK, delrapport 2 kap. 4.3, 5.4]. Et
+økosystemperspektiv fanger dette ved å sette <em>innbyggeren</em> – den
+målet handler om – i sentrum og behandle verdikjeden som ett bidrag blant
+flere konkurrerende og utfyllende bidrag.</p>
+<p>Skiftet har tre konsekvenser som er sentrale for utredningen:</p>
+<ol type="1">
+<li><p><strong>Styring blir orkestrering, ikke kontroll.</strong>
+Helsedirektoratet kan styre den offentlige verdikjeden, men ikke
+økosystemet. De fleste kunnskapskildene innbyggere bruker ligger utenfor
+norsk myndighetsstyring [ANT, jf. delrapport 8 observasjoner]. Dette
+skjerper R1 (styringsmandat): selv et fullkomment styringsmandat over de
+offentlige aktørene gir ikke kontroll over økosystemet.</p></li>
+<li><p><strong>Verdikjeden konkurrerer om oppmerksomhet.</strong> Når
+innbyggeren velger kilde, taper ofte den kvalitetssikrede, men langsomme
+offentlige kanalen for raskere alternativer [DOK, delrapport 2 kap.
+4.3]. Kvalitet uten tilgjengelighet og aktualitet vinner ikke. Dette
+kobler direkte til D5 (tillit/innbyggerbehov) og kjerneegenskapen
+<em>reaktivitet</em>.</p></li>
+<li><p><strong>Økosystemet har egenskaper kjeden ikke har.</strong>
+Robusthet, generativitet (at andre kan bygge videre på det offentlige
+tilbudet) og tilbakekobling er økosystemegenskaper. Den lineære modellen
+gjør dem usynlige – blant annet den manglende tilbakekoblingsløkken som
+IGOE-analysen påpeker [DOK, delrapport 8 kap. 5.3 obs. 7].</p></li>
+</ol>
+<hr />
+<h2 id="to-modeller-for-det-samme">2. To modeller for det samme</h2>
+<h3 id="verdikjedemodellen-hva-den-er-god-til">2.1 Verdikjedemodellen –
+hva den er god til</h3>
+<p>Delrapport 1 modellerer kunnskapsforvaltning som tre steg: forskning
+(steg 1) → kunnskapsoppsummering (steg 2) → anvendelse i fire parallelle
+strømmer (steg 3: normerende, klinisk, legemiddel, innbyggerrettet)
+[DOK, delrapport 1]. IGOE-analysen i delrapport 8 viser at dette i
+hovedsak er en <em>transformasjonskjede</em>: output fra én prosess er
+input til neste, og forsinkelse i ett ledd forplanter seg nedover [DOK,
+delrapport 8 kap. 5.3 obs. 1].</p>
+<p>Verdikjedemodellen er sterk på fire ting:</p>
+<ul>
+<li>Den viser <strong>hvor verdien skapes og transformeres</strong> –
+fra enkeltstudie til kvalitetsvurdert oppsummering til normerende
+anbefaling.</li>
+<li>Den gjør <strong>flaskehalser synlige</strong> som punkter der
+flyten stopper opp (delrapport 2 kap. 3).</li>
+<li>Den knytter <strong>ansvar til ledd</strong> – hvem eier hvilket
+steg (delrapport 8 kap. 2).</li>
+<li>Den er <strong>intuitiv for styring</strong>: en kjede kan
+optimaliseres ledd for ledd.</li>
+</ul>
+<h3 id="verdikjedemodellens-blinde-flekker">2.2 Verdikjedemodellens
+blinde flekker</h3>
+<p>Nettopp fordi modellen er lineær og avgrenset til de offentlige
+leddene, skjuler den fem ting som er reelle i materialet:</p>
+<ol type="1">
+<li><p><strong>Innbyggeren og klinikeren bruker mange kilder
+parallelt.</strong> Visualiseringen <code>verdikjede-naa.html</code> og
+delrapport 2 kap. 4.3/5.4 dokumenterer at innbyggere mottar kunnskap fra
+sosiale medier, KI-tjenester, utenlandske nettsider, NHI.no, medier og
+venner/familie – samtidig med den offentlige kanalen [DOK]. I en
+kjedemodell er disse «utenfor kjeden»; i virkeligheten konkurrerer de om
+de samme beslutningene.</p></li>
+<li><p><strong>Kjeden er ett av flere innløp til samme mål.</strong> Den
+kliniske strømmen (3b) og legemiddelstrømmen (3c) «kortslutter» kjeden
+ved å hente kunnskap direkte fra steg 1 uten å gå via de formelle
+oppsummeringene [DOK, delrapport 8 kap. 5.3 obs. 2]. Det er ikke et
+avvik fra kjeden – det er et tegn på at vi egentlig har et nettverk med
+flere veier til målet.</p></li>
+<li><p><strong>Tilbakekobling mangler – men burde finnes.</strong>
+IGOE-analysen viser at kjeden er nesten rent lineær: erfaring fra
+implementering tilbakeføres ikke systematisk til retningslinjerevisjon
+[DOK, delrapport 8 kap. 5.3 obs. 7]. En kjedemodell <em>kan</em> ikke
+uttrykke denne mangelen godt, fordi den ikke har et begrep om løkker. Et
+økosystem har det.</p></li>
+<li><p><strong>Aktørene har egne mål.</strong> Internasjonale
+forskningsmiljøer, kommersielle oppslagsverk, pasientorganisasjoner,
+medier og KI-leverandører forfølger sine egne mål, ikke den norske
+verdikjedens [ANT, jf. delrapport 8 kap. 2.7, 2.17, 2.18, 2.19]. En
+kjedemodell antar implisitt felles formål; et økosystem forutsetter at
+deltakerne har ulike formål og likevel produserer en samlet
+effekt.</p></li>
+<li><p><strong>Felles rammer endres uten felles
+oppdateringsmekanisme.</strong> Helselovgivningen – og nye rammer som
+EHDS og EU AI Act – opptrer som <em>guide</em> i alle prosessene
+samtidig, men det finnes ingen mekanisme som sikrer at alle ledd
+oppdaterer praksis når rammene endres [DOK, delrapport 8 kap. 5.3 obs.
+3; jf. <a
+href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>].</p></li>
+</ol>
+<h3 id="hva-et-økosystem-er-kort-om-begrepet">2.3 Hva et økosystem er –
+kort om begrepet</h3>
+<p>I økologi er et økosystem et sett organismer som, gjennom konkurranse
+og samspill, opprettholder en samlet funksjon ingen enkelt organisme
+styrer. Begrepet er overført til digitale og organisatoriske systemer
+(Moore 1993; Iansiti &amp; Levien 2004) med fire trekk som er nyttige
+her [ANT, anvendelse av etablert teori]:</p>
+<ul>
+<li><p><strong>Felles formål uten felles eier.</strong> Deltakerne
+bidrar til en samlet verdi (her: gode helsebeslutninger) uten at noen
+kontrollerer alle.</p></li>
+<li><p><strong>Roller, ikke bare ledd.</strong> Økosystemteorien skiller
+mellom <em>keystone</em>-aktører (som muliggjør for andre),
+<em>plattform</em>-aktører (som leverer felles infrastruktur),
+<em>nisje</em>-aktører (som spesialiserer seg) og <em>dominatorer</em>
+(som tar verdi uten å gi tilbake). Dette er roller en aktør
+<em>spiller</em>, ikke bokser den sitter i.</p></li>
+<li><p><strong>Generativitet.</strong> Et sunt økosystem lar andre bygge
+videre på det uten å spørre om lov – f.eks. ved at offentlig kunnskap er
+strukturert og maskinlesbar slik at andre kan gjenbruke den.</p></li>
+<li><p><strong>Helse måles på systemnivå.</strong> Et økosystems helse
+vurderes på robusthet (tåler det at en aktør faller bort?),
+produktivitet og evne til å fornye seg – ikke på ett ledds
+ytelse.</p></li>
+</ul>
+<p>Disse fire trekkene gir et språk for nettopp det verdikjedemodellen
+ikke fanger.</p>
+<hr />
+<h2 id="kunnskapsforvaltning-som-økosystem">3. Kunnskapsforvaltning som
+økosystem</h2>
+<h3 id="innbyggeren-i-sentrum-ikke-verdikjeden">3.1 Innbyggeren i sentrum,
+ikke verdikjeden</h3>
+<p>Det avgjørende grepet – som den eksisterende visualiseringen gjør – er
+å sette <strong>innbyggeren</strong> i sentrum. Det er innbyggere og
+pasienter i Norge som til slutt skal ta, og få nytten av, <em>gode,
+kunnskapsbaserte helsebeslutninger</em>. Innbyggeren er dermed ikke en
+aktør på linje med de andre, men målet personifisert – den alt det
+øvrige tjener. Verdikjeden er da ikke sentrum, men ett av flere bidrag
+til at innbyggeren treffer gode beslutninger [DOK,
+<code>okosystem-verdikjede.html</code>].</p>
+<p>Dette er mer enn en visuell omlegging. Det endrer hva som teller som
+suksess: ikke «leverte verdikjeden en retningslinje?», men «traff
+innbyggeren og klinikeren en god beslutning – og bidro vårt tilbud til
+det, sammenlignet med alternativene de faktisk brukte?» [ANT].</p>
+<h3 id="innbyggeren-i-kjernen-tre-ringer-rundt">3.2 Innbyggeren i kjernen,
+tre ringer rundt</h3>
+<p>Visualiseringen plasserer innbyggeren i kjernen og ordner det øvrige i
+tre konsentriske ringer ut fra hvor nær innbyggerens beslutning aktøren
+står: kildene innbyggeren bruker direkte (ring 1), leddene som
+produserer og kvalitetsvurderer kunnskapen (ring 2), og rammesetterne og
+infrastrukturen som styrer og muliggjør systemet (ring 3). Skillet mellom
+<em>offentlig og kvalitetssikret</em> og <em>andre kilder</em> går nå på
+tvers av ringene og bæres av farge (blå/oransje), ikke av egne ringer. Et
+poeng følger av dette: <strong>helsepersonellet er plassert som én av
+kildene innbyggeren bruker (ring 1)</strong> – fastlegen er for mange den
+viktigste og mest tillitsfulle kunnskapskanalen – ikke som en egen
+beslutningstaker-sfære.</p>
+<p>Tabellen nedenfor knytter hvert lag til økosystemrollene i kap. 2.3 og
+til delrapportene [DOK for aktørplasseringer, delrapport 8; ANT for
+rolletilordning]:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Lag</th>
+<th>Hvem (utvalg)</th>
+<th>Økosystemrolle</th>
+<th>Forankring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Innbyggere og pasienter</strong> (kjerne)</td>
+<td>Innbyggere og pasienter i Norge</td>
+<td>Sluttbruker og formål – den målet handler om</td>
+<td>Delrapport 1 kap. 1.2</td>
+</tr>
+<tr>
+<td><strong>Ring 1: Kildene innbyggeren bruker</strong></td>
+<td><em>Offentlig (blå):</em> fastlege og helsepersonell, helsenorge.no,
+sykehus.no. <em>Andre (oransje):</em> NHI.no, KI-tjenester, sosiale
+medier, medier, utenlandske nettsider, venner/familie, pasientorg.</td>
+<td>Kanalene innbyggeren faktisk henter kunnskap fra; kvalitetssikret
+offentlig kanal konkurrerer med raske, variable kilder</td>
+<td>Delrapport 8 kap. 2.14–2.19; delrapport 2 kap. 4.3; delrapport 1
+(innbyggerens kilder)</td>
+</tr>
+<tr>
+<td><strong>Ring 2: Kunnskaps­produsenter og kvalitetsvurdering</strong></td>
+<td><em>Offentlig (blå):</em> FHI, Hdir, RHF, KS, DMP,
+Felleskatalogen/RELIS, fagmed. foreninger, Tidsskriftet,
+universiteter/høyskoler. <em>Andre (oransje):</em> internasjonal
+forskning, Cochrane/WHO, UpToDate/BMJ, NEL</td>
+<td>Keystone + nisje – produserer og kvalitetsvurderer kunnskapen kildene
+formidler</td>
+<td>Delrapport 8 kap. 2.2–2.16; delrapport 1 kap. 2 steg 1; delrapport 6</td>
+</tr>
+<tr>
+<td><strong>Ring 3: Rammesettere og infrastruktur</strong> (ytterst)</td>
+<td>Stortinget, HOD, politikere/ledere, EU, EMA/WHO,
+Datatilsynet/Språkrådet/PFU, NHN, Helsebiblioteket, EPJ-leverandører,
+Wolters Kluwer/BMJ, Bonnier, OUS, legemiddelindustrien</td>
+<td>Plattform + regelsetter – styrer og muliggjør hele systemet</td>
+<td>Delrapport 8 kap. 2.1, 5.3; CLAUDE.md roller/ansvar</td>
+</tr>
+</tbody>
+</table>
+<h3 id="keystone--og-plattformroller-i-det-norske-systemet">3.3
+Keystone- og plattformroller i det norske systemet</h3>
+<p>Tre observasjoner følger av å lese aktørkartet med økosystemroller
+[ANT, basert på delrapport 8]:</p>
+<ul>
+<li><p><strong>Helsebiblioteket er en keystone/plattform.</strong> Det
+er enabler i fire av seks IGOE-prosesser [DOK, delrapport 8 kap. 5.3
+obs. 5]. Budsjettkuttene i 2023, som fjernet tilgang til Cochrane
+Library og Embase, illustrerer keystone-sårbarhet: når én muliggjørende
+aktør svekkes, svekkes produksjonsevnen i store deler av økosystemet
+[DOK, samme sted]. I et økosystemperspektiv er dette ikke «et
+budsjettspørsmål i ett ledd», men en systemrisiko.</p></li>
+<li><p><strong>NHN er plattformaktør, ikke innholdsledd.</strong> NHN
+drifter helsenorge.no og nasjonale komponenter, men eier i liten grad
+innholdet [DOK, delrapport 8 kap. 2.14]. Plattformrollen er kritisk for
+generativitet: hva andre <em>kan</em> bygge avhenger av hva plattformen
+tilbyr.</p></li>
+<li><p><strong>Kommersielle og internasjonale aktører er
+nisje/dominator.</strong> UpToDate, BMJ, NHI.no og KI-tjenester leverer
+reell verdi, raskere enn den offentlige kjeden, men forfølger egne mål
+[DOK, delrapport 8 kap. 2.7, 2.17]. De er ikke fiender av økosystemet,
+men deres dominans øker når det offentlige tilbudet er tregt eller
+dårlig tilgjengelig [ANT].</p></li>
+</ul>
+<hr />
+<h2 id="hva-økosystemlinsen-avdekker">4. Hva økosystemlinsen
+avdekker</h2>
+<h3 id="konkurranse-om-beslutningen-innbyggerperspektivet">4.1
+Konkurranse om beslutningen (innbyggerperspektivet)</h3>
+<p>Den viktigste innsikten fra økosystemlinsen er at den offentlige
+verdikjeden <strong>konkurrerer om oppmerksomhet</strong>. Innbyggeren
+står ikke ved enden av en kjede og venter; han eller hun velger fritt
+mellom mange kilder [DOK, delrapport 2 kap. 4.3, 5.4].</p>
+<p>Konsekvensen: kvalitet alene vinner ikke. En kvalitetssikret
+retningslinje som er treg, lite tilgjengelig eller vanskelig å finne
+taper i praksis for en rask, lett tilgjengelig kilde av variabel
+kvalitet [ANT, jf. delrapport 2 kap. 4.3]. Dette er en direkte parallell
+til kjerneegenskapen <strong>reaktivitet</strong> (delrapport 1/2 kap.
+2.3) og til D5 (tillit/innbyggerbehov). Økosystemlinsen forklarer
+<em>hvorfor</em> reaktivitet er en kjerneegenskap og ikke bare en
+ønskelig egenskap: i et konkurranseutsatt informasjonsmiljø er treghet
+ensbetydende med å tape markedsandeler i befolkningens
+kunnskapsbruk.</p>
+<h3 id="orkestrering-ikke-kontroll-styringsperspektivet">4.2
+Orkestrering, ikke kontroll (styringsperspektivet)</h3>
+<p>I en kjede kan den ansvarlige myndigheten i prinsippet styre alle
+ledd. I et økosystem kan den ikke det. Helsedirektoratet har styring
+over de offentlige aktørene (i den grad styringsmandatet rekker, jf.
+R1), men de fleste kunnskapskildene innbyggere faktisk bruker ligger
+helt utenfor norsk myndighetsstyring – internasjonal forskning,
+kommersielle oppslagsverk, globale KI-tjenester, sosiale medier [ANT,
+basert på delrapport 8].</p>
+<p>Dette skjerper R1 på en ny måte. R1 i delrapport 2 handler om
+manglende <em>helhetlig styringsmandat over de offentlige aktørene</em>.
+Økosystemlinsen legger til en erkjennelse: selv et fullkomment slikt
+mandat ville ikke gi kontroll over økosystemet [ANT]. Styringens oppgave
+blir dermed <strong>orkestrering</strong> – å gjøre det offentlige
+tilbudet så raskt, tilgjengelig og gjenbrukbart at andre aktører
+<em>velger</em> å bygge på det og innbyggere <em>velger</em> å bruke det
+– snarere enn å forsøke å kontrollere kilder man ikke rår over.</p>
+<p>Dette står ikke i motsetning til Røttingen-rapportens og
+Riksrevisjonens påpekning av behov for tydeligere oppgavedeling og
+styring mellom FHI, Hdir og NHN [DOK, jf. <a
+href="rottingen-utfordringsbildet.md">rottingen-utfordringsbildet.md</a>,
+<a
+href="rolledeling-sentral-helseforvaltning.md">rolledeling-sentral-helseforvaltning.md</a>].
+Det utfyller den: man trenger <em>både</em> orden i eget hus <em>og</em>
+en orkestreringsstrategi mot resten av økosystemet.</p>
+<h3 id="generativitet-og-ehds">4.3 Generativitet og EHDS</h3>
+<p>Et sunt økosystem lar andre bygge videre på det uten friksjon. I dag
+er mye av den offentlige kunnskapen i fritekst og fragmenterte systemer
+[DOK, delrapport 2 kap. 6.4, 6.5; R2, R4], noe som gjør den vanskelig å
+gjenbruke maskinelt. Det reduserer generativiteten: en KI-tjeneste, en
+pasientorganisasjon eller et oppslagsverk kan ikke enkelt bygge på norsk
+offentlig kunnskap.</p>
+<p>EHDS og EEHRxF peker mot strukturert, delbar og maskinlesbar
+helseinformasjon [DOK, jf. <a
+href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>]. I
+økosystemtermer er dette et <strong>generativitetsgrep</strong>:
+strukturert offentlig kunnskap gjør det mulig for andre aktører å
+gjenbruke og videreutvikle den – og dermed spre kvalitetssikret innhold
+lenger ut i økosystemet enn de offentlige kanalene rekker alene [ANT].
+Avgrensningen fra regulatorisk-etterslep-notatet gjelder fortsatt: EHDS
+regulerer i hovedsak pasientdata-deling, ikke direkte oversikter,
+retningslinjer og innbyggerinformasjon. Generativitet er derfor en
+<em>anvendelse av EHDS-prinsippene på kunnskapsforvaltning</em> [ANT],
+ikke et direkte EHDS-krav.</p>
+<h3 id="robusthet-og-tilbakekobling">4.4 Robusthet og
+tilbakekobling</h3>
+<p>Den manglende tilbakekoblingsløkken [DOK, delrapport 8 kap. 5.3 obs.
+7] og fraværet av en feedback-loop mot innbyggere [DOK, delrapport 2
+kap. 7.4] er økosystemsvakheter R6 fanger som rotårsak. Et økosystem
+uten tilbakekobling kan ikke lære av egen ytelse. I kjedemodellen er
+dette en «manglende pil»; i økosystemmodellen er det en manglende
+systemegenskap – og dermed lettere å argumentere for som en
+prioritering.</p>
+<hr />
+<h2 id="kobling-til-utredningens-analyseapparat">5. Kobling til
+utredningens analyseapparat</h2>
+<p>Økosystemlinsen erstatter ikke det eksisterende apparatet (D1–D6,
+R1–R6, fem kjerneegenskaper, fire akser). Den <strong>forklarer hvorfor
+flere av dem ser ut som de gjør</strong>, og den legger til en
+systemdimensjon. Den gir særlig begrunnelsen for hvorfor <em>tillit og
+legitimitet</em> (den femte kjerneegenskapen, jf. delrapport 2 kap. 2.3)
+er en egenskap systemet kan miste: i et økosystem <em>velger</em>
+innbyggeren kilde, og offentlig kanal beholder ikke tilliten automatisk.
+Slik henger de sammen [ANT]:</p>
+<h3 id="dimensjoner-og-kjerneegenskaper">5.1 Dimensjoner og
+kjerneegenskaper</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Eksisterende element</th>
+<th>Hva økosystemlinsen tilfører</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5 (tillit/innbyggerbehov)</td>
+<td>Forklarer hvorfor: innbyggeren <em>velger</em> mellom kilder;
+offentlig kanal konkurrerer</td>
+</tr>
+<tr>
+<td>Kjerneegenskap <em>reaktivitet</em></td>
+<td>Treghet = tap av oppmerksomhet i et konkurranseutsatt miljø</td>
+</tr>
+<tr>
+<td>Kjerneegenskap <em>sammenheng</em></td>
+<td>Sammenheng er en økosystemegenskap (felles rammer, gjenbruk), ikke
+bare intern kjedekonsistens</td>
+</tr>
+<tr>
+<td>D3 (struktur/styring), R1</td>
+<td>Styring blir orkestrering; mandat over offentlige aktører ≠ kontroll
+over økosystemet</td>
+</tr>
+<tr>
+<td>IGOE obs. 7 / D-ingen direkte</td>
+<td>Manglende tilbakekobling er en manglende <em>systemegenskap</em>
+(R6)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="de-fire-løsningsaksene">5.2 De fire løsningsaksene</h3>
+<p>Økosystemlinsen gir hver akse en ekstra begrunnelse [ANT, aksene fra
+delrapport 2 kap. 9.7]:</p>
+<ul>
+<li><p><strong>Menneskedrevet ↔︎ KI-drevet.</strong> Bare ved å øke
+produksjonstakten kan offentlig kunnskap holde følge i et økosystem der
+andre kilder oppdateres raskt. Konkurranseargumentet styrker behovet for
+å vurdere bevegelse langs denne aksen.</p></li>
+<li><p><strong>Fragmentert ↔︎ Sammenhengende.</strong> Sammenheng er en
+forutsetning for <em>generativitet</em>: bare strukturert,
+sammenhengende kunnskap kan gjenbrukes av andre økosystemaktører. Aksen
+handler dermed ikke bare om intern orden, men om økosystemets evne til å
+bygge videre på det offentlige tilbudet.</p></li>
+<li><p><strong>Frivillig ↔︎ Forpliktende.</strong> I et økosystem med
+mange autonome aktører er ren frivillighet sårbar for at aktører
+forfølger egne mål. Aksen uttrykker spenningen mellom å la økosystemet
+selvorganisere og å sette forpliktende felles rammer.</p></li>
+<li><p><strong>Behovsstyrt ↔︎ Kontinuerlig oppdatering.</strong>
+Kontinuerlig oppdatering er det som gjør at offentlig kunnskap kan
+konkurrere på aktualitet mot raske alternativer, og det som muliggjør
+tilbakekobling (R6).</p></li>
+</ul>
+<p><strong>Avgrensning, som for aksene selv:</strong> økosystemlinsen
+sier noe om <em>hvorfor retning langs aksene er viktig</em>, ikke
+<em>hvor langt</em> man bør gå. Det avgjøres i delrapport 4 og 7.</p>
+<hr />
+<h2 id="konsekvenser-for-utredningen">6. Konsekvenser for
+utredningen</h2>
+<ol type="1">
+<li><p><strong>Suksesskriteriet bør formuleres på systemnivå.</strong>
+Måling bør spørre om innbyggere og klinikere traff gode beslutninger og
+hvilken rolle det offentlige tilbudet spilte – ikke bare om verdikjeden
+leverte sine produkter [ANT]. Dette har implikasjoner for
+evalueringsplanen i delrapport 7.</p></li>
+<li><p><strong>Generativitet bør være et eksplisitt mål.</strong>
+Strukturert, gjenbrukbar offentlig kunnskap (jf. aksen Fragmentert ↔︎
+Sammenhengende og EHDS-prinsippene) lar kvalitetssikret innhold spres
+lenger ut i økosystemet enn offentlige kanaler rekker alene
+[ANT].</p></li>
+<li><p><strong>Orkestreringsstrategi bør utfylle
+styringsmandat.</strong> Tiltak mot R1 bør ikke bare handle om mandat
+over de offentlige aktørene, men også om hvordan det offentlige påvirker
+aktører det ikke styrer [ANT].</p></li>
+<li><p><strong>Keystone-sårbarheter bør overvåkes som
+systemrisiko.</strong> Helsebiblioteket og NHN-plattformen er
+muliggjørere for store deler av økosystemet; svikt der er ikke et lokalt
+problem [ANT, jf. delrapport 8 kap. 5.3 obs. 5]. Dette bør reflekteres i
+risikomatrisen (delrapport 7).</p></li>
+</ol>
+<hr />
+<h2 id="forbehold-og-kunnskapsgap">7. Forbehold og kunnskapsgap</h2>
+<ul>
+<li><p><strong>Modellen er en lins, ikke et funn.</strong> Å se
+verdikjeden som et økosystem er et analytisk valg [ANT]. Det organiserer
+kjente funn på en ny måte, men introduserer ikke nye empiriske data. Det
+bør ikke presenteres som dokumentasjon i seg selv.</p></li>
+<li><p><strong>Andelstall for kildebruk er ufullstendige.</strong> Vi
+vet [DOK] at innbyggere bruker mange kilder parallelt, men presise
+andeler for hvor stor del av faktiske helsebeslutninger som påvirkes av
+offentlig vs. ikke-offentlig kunnskap mangler [ANT, kunnskapsgap]. Dette
+begrenser hvor sterkt konkurranseargumentet kan tallfestes.</p></li>
+<li><p><strong>Rolletilordningen (keystone/plattform/nisje) er
+analytisk.</strong> Tilordningen av økosystemroller til konkrete aktører
+er en slutning [ANT], ikke en selvbeskrivelse fra aktørene. Den bør
+valideres mot aktørenes egen forståelse av sin rolle.</p></li>
+<li><p><strong>Økosystem-«helse» er ikke målt.</strong> Notatet bruker
+begreper som robusthet og generativitet kvalitativt. Det finnes ikke
+etablerte indikatorer for disse i norsk kunnskapsforvaltning [ANT,
+kunnskapsgap]; å utvikle slike ville styrke evalueringsplanen.</p></li>
+<li><p><strong>Forholdet til EHDS er prinsipielt, ikke
+juridisk.</strong> Generativitetsargumentet i kap. 4.3 bygger på
+EHDS-<em>prinsipper</em>, med avgrensningen i <a
+href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a>: EHDS
+treffer ikke kjerneleddene i kunnskapsforvaltning direkte.</p></li>
+</ul>
+<hr />
+<h2 id="kilder-og-forankring">8. Kilder og forankring</h2>
+<p>Dette notatet er en <strong>modell over eksisterende funn</strong> og
+introduserer ikke nye primærkilder. Forankringen ligger i prosjektets
+egne dokumenter:</p>
+<ul>
+<li>Delrapport 1 – Dagens verdikjede (3-stegsmodellen, innbyggerens
+kilder)</li>
+<li>Delrapport 2 – Utfordringer og flaskehalser (D1–D6 kap. 2.2,
+kjerneegenskaper kap. 2.3, innbyggernes alternative kilder kap. 4.3/5.4,
+strukturelle svakheter kap. 6, R1–R6 og aksene kap. 9)</li>
+<li>Delrapport 8 – Aktøranalyse (aktørkart kap. 2, observasjoner kap. 4,
+IGOE-analyse kap. 5)</li>
+<li><a
+href="../visualiseringer/okosystem-verdikjede.html"><code>okosystem-verdikjede.html</code></a>
+– økosystemvisualiseringen som notatet gir fundament til</li>
+<li><a href="regulatorisk-etterslep.md">regulatorisk-etterslep.md</a> –
+avgrensning mot EHDS/AI Act</li>
+<li><a
+href="rottingen-utfordringsbildet.md">rottingen-utfordringsbildet.md</a>
+og <a
+href="rolledeling-sentral-helseforvaltning.md">rolledeling-sentral-helseforvaltning.md</a>
+– styrings- og rolledelingsgrunnlag</li>
+</ul>
+<p>Den teoretiske bakgrunnen for økosystembegrepet
+(keystone/plattform/nisje, generativitet, governance) bygger på etablert
+litteratur om forretnings- og digitale økosystemer (bl.a. Moore 1993;
+Iansiti &amp; Levien 2004; Adner 2017). Denne litteraturen er anvendt
+analytisk [ANT]; den er ikke en empirisk kilde om norsk helsesektor.</p>
+<hr />
+<p>Sist oppdatert: 2026-06-12 (kap. 3 omarbeidet: innbyggeren satt i
+sentrum, sfærene erstattet av tre ringer – kilder, produsenter,
+rammesettere – med offentlig/andre som fargeskille; speiler revidert
+<code>okosystem-verdikjede.html</code>)</p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

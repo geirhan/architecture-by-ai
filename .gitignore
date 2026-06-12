@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+
+# Lokale pptx-backuper (beholdes på disk, ikke i git)
+*.BACKUP*.pptx
+*.bak.pptx

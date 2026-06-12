@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdikjede-playground – Kunnskapsforvaltning i helsesektoren</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+header {
+    background: #16213e;
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #2a2a4a;
+    flex-shrink: 0;
+}
+header h1 { font-size: 1rem; font-weight: 600; color: #e0e0e0; }
+header .presets { display: flex; gap: 0.4rem; }
+header .presets button {
+    background: #2a2a4a;
+    color: #aab;
+    border: 1px solid #3a3a5a;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+header .presets button:hover { background: #3a3a5a; color: #fff; }
+header .presets button.active { background: #005599; color: #fff; border-color: #0077cc; }
+
+.main { display: flex; flex: 1; overflow: hidden; }
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    background: #16213e;
+    border-right: 1px solid #2a2a4a;
+    overflow-y: auto;
+    flex-shrink: 0;
+    padding: 0.8rem;
+}
+.sidebar h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #889;
+    margin: 1rem 0 0.5rem 0;
+}
+.sidebar h2:first-child { margin-top: 0; }
+
+.stream-section {
+    background: #1a1a2e;
+    border-radius: 6px;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid #555;
+}
+.stream-section.s3a { border-color: #003366; }
+.stream-section.s3b { border-color: #27ae60; }
+.stream-section.s3c { border-color: #e67e22; }
+.stream-section.s3d { border-color: #8e44ad; }
+
+.stream-section .stream-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.stream-section.s3a .stream-title { color: #5588bb; }
+.stream-section.s3b .stream-title { color: #27ae60; }
+.stream-section.s3c .stream-title { color: #e67e22; }
+.stream-section.s3d .stream-title { color: #8e44ad; }
+
+.actor-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0;
+    font-size: 0.78rem;
+}
+.actor-row label { flex: 1; cursor: pointer; }
+.actor-row input[type="checkbox"] { accent-color: #0077cc; cursor: pointer; }
+
+.slider-group {
+    margin: 0.4rem 0;
+}
+.slider-group label {
+    font-size: 0.72rem;
+    color: #889;
+    display: flex;
+    justify-content: space-between;
+}
+.slider-group input[type="range"] {
+    width: 100%;
+    accent-color: #0077cc;
+    margin-top: 0.2rem;
+}
+
+select {
+    background: #2a2a4a;
+    color: #e0e0e0;
+    border: 1px solid #3a3a5a;
+    padding: 0.3rem;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    width: 100%;
+}
+
+/* Preview */
+.preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.canvas-wrap {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Prompt output */
+.prompt-bar {
+    background: #16213e;
+    border-top: 1px solid #2a2a4a;
+    padding: 0.6rem 1rem;
+    flex-shrink: 0;
+    max-height: 180px;
+    overflow-y: auto;
+}
+.prompt-bar .prompt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+.prompt-bar .prompt-header span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #889;
+}
+.prompt-bar button {
+    background: #005599;
+    color: #fff;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+.prompt-bar button:hover { background: #0077cc; }
+.prompt-bar button.copied { background: #27ae60; }
+.prompt-text {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #ccd;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Verdikjede-playground – Kunnskapsforvaltning</h1>
+    <div class="presets">
+        <button onclick="applyPreset('current')">Dagens situasjon</button>
+        <button onclick="applyPreset('normFocus')">Normerende fokus</button>
+        <button onclick="applyPreset('fastTrack')">Rask formidling</button>
+        <button onclick="applyPreset('allStreams')">Alle strømmer</button>
+        <button onclick="applyPreset('innbygger')">Innbyggerperspektiv</button>
+    </div>
+</header>
+
+<div class="main">
+    <div class="sidebar" id="sidebar"></div>
+    <div class="preview">
+        <div class="canvas-wrap">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="prompt-bar">
+    <div class="prompt-header">
+        <span>Generert prompt</span>
+        <button id="copyBtn" onclick="copyPrompt()">Kopier</button>
+    </div>
+    <div class="prompt-text" id="promptOutput"></div>
+</div>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+const STREAMS = {
+    '3a': { name: 'Den normerende strømmen', color: '#003366', lightColor: '#5588bb' },
+    '3b': { name: 'Den kliniske kunnskapsstrømmen', color: '#27ae60', lightColor: '#27ae60' },
+    '3c': { name: 'Legemiddelstrømmen', color: '#e67e22', lightColor: '#e67e22' },
+    '3d': { name: 'Den innbyggerrettede strømmen', color: '#8e44ad', lightColor: '#8e44ad' }
+};
+
+const ACTORS = [
+    // 3a
+    { id: 'hdir', name: 'Helsedirektoratet', stream: '3a', type: 'producer', target: 'hp' },
+    { id: 'hdirno', name: 'helsedirektoratet.no', stream: '3a', type: 'channel', target: 'hp' },
+    { id: 'hbibl', name: 'Helsebiblioteket', stream: '3a', type: 'channel', target: 'hp' },
+    { id: 'rhf', name: 'RHF-ene / HF-ene', stream: '3a', type: 'implementer', target: 'hp' },
+    { id: 'ks', name: 'KS / kommunene', stream: '3a', type: 'implementer', target: 'hp' },
+    // 3b
+    { id: 'utd', name: 'UpToDate / BMJ', stream: '3b', type: 'oppslagsverk', target: 'hp' },
+    { id: 'fproc', name: 'Fagprosedyrer (OUS)', stream: '3b', type: 'producer', target: 'hp' },
+    { id: 'tidsskr', name: 'Tidsskriftet', stream: '3b', type: 'tidsskrift', target: 'hp' },
+    { id: 'fagmed', name: 'Fagmed. foreninger', stream: '3b', type: 'formidler', target: 'hp' },
+    // 3c
+    { id: 'dmp', name: 'DMP', stream: '3c', type: 'regulator', target: 'both' },
+    { id: 'fk', name: 'Felleskatalogen', stream: '3c', type: 'database', target: 'both' },
+    { id: 'relis', name: 'RELIS', stream: '3c', type: 'rådgiver', target: 'hp' },
+    // 3d
+    { id: 'hnorge', name: 'helsenorge.no', stream: '3d', type: 'portal', target: 'inn' },
+    { id: 'fhi_inn', name: 'FHI (innbygger)', stream: '3d', type: 'formidler', target: 'inn' },
+    { id: 'fnsp', name: 'FNSP', stream: '3d', type: 'portal', target: 'inn' },
+    { id: 'nhi', name: 'NHI.no', stream: '3d', type: 'kommersielt', target: 'inn' },
+    { id: 'pasorg', name: 'Pasientorganisasjoner', stream: '3d', type: 'formidler', target: 'inn' },
+    { id: 'medier', name: 'Medier', stream: '3d', type: 'formidler', target: 'inn' },
+];
+
+const DEFAULTS = {
+    actors: Object.fromEntries(ACTORS.map(a => [a.id, true])),
+    speed: { '3a': 1, '3b': 7, '3c': 8, '3d': 6 },  // 1=slow, 10=fast
+    quality: { '3a': 9, '3b': 7, '3c': 8, '3d': 4 },
+    coverage: { '3a': 4, '3b': 7, '3c': 3, '3d': 5 },
+    scenario: 'current',
+    focusTarget: 'both'  // 'hp', 'inn', 'both'
+};
+
+let state = JSON.parse(JSON.stringify(DEFAULTS));
+
+// ============================================================
+// PRESETS
+// ============================================================
+const PRESETS = {
+    current: { label: 'Dagens situasjon', state: JSON.parse(JSON.stringify(DEFAULTS)) },
+    normFocus: {
+        label: 'Normerende fokus',
+        state: {
+            ...JSON.parse(JSON.stringify(DEFAULTS)),
+            actors: Object.fromEntries(ACTORS.map(a => [a.id, a.stream === '3a'])),
+            focusTarget: 'hp'
+        }
+    },
+    fastTrack: {
+        label: 'Rask formidling',
+        state: {
+            ...JSON.parse(JSON.stringify(DEFAULTS)),
+            actors: Object.fromEntries(ACTORS.map(a => [a.id, ['3b','3c','3d'].includes(a.stream)])),
+            focusTarget: 'both'
+        }
+    },
+    allStreams: {
+        label: 'Alle strømmer',
+        state: {
+            ...JSON.parse(JSON.stringify(DEFAULTS)),
+            actors: Object.fromEntries(ACTORS.map(a => [a.id, true])),
+            focusTarget: 'both'
+        }
+    },
+    innbygger: {
+        label: 'Innbyggerperspektiv',
+        state: {
+            ...JSON.parse(JSON.stringify(DEFAULTS)),
+            actors: Object.fromEntries(ACTORS.map(a => [a.id, a.target === 'inn' || a.target === 'both' || a.stream === '3d'])),
+            focusTarget: 'inn'
+        }
+    }
+};
+
+function applyPreset(key) {
+    state = JSON.parse(JSON.stringify(PRESETS[key].state));
+    state.scenario = key;
+    buildSidebar();
+    updateAll();
+    document.querySelectorAll('.presets button').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.presets button[onclick="applyPreset('${key}')"]`)?.classList.add('active');
+}
+
+// ============================================================
+// SIDEBAR
+// ============================================================
+function buildSidebar() {
+    const sb = document.getElementById('sidebar');
+    let html = '';
+
+    // Focus target
+    html += '<h2>Målgruppe</h2>';
+    html += `<select onchange="state.focusTarget=this.value;updateAll()">
+        <option value="both" ${state.focusTarget==='both'?'selected':''}>Helsepersonell + Innbyggere</option>
+        <option value="hp" ${state.focusTarget==='hp'?'selected':''}>Kun helsepersonell</option>
+        <option value="inn" ${state.focusTarget==='inn'?'selected':''}>Kun innbyggere</option>
+    </select>`;
+
+    // Streams
+    for (const [sid, sinfo] of Object.entries(STREAMS)) {
+        html += `<h2>${sinfo.name}</h2>`;
+        html += `<div class="stream-section s${sid}">`;
+        html += `<div class="stream-title"><span style="color:${sinfo.lightColor}">●</span> Aktører</div>`;
+
+        ACTORS.filter(a => a.stream === sid).forEach(a => {
+            html += `<div class="actor-row">
+                <input type="checkbox" id="cb_${a.id}" ${state.actors[a.id]?'checked':''}
+                    onchange="state.actors['${a.id}']=this.checked;updateAll()">
+                <label for="cb_${a.id}">${a.name}</label>
+            </div>`;
+        });
+
+        html += `<div class="slider-group">
+            <label>Hastighet <span>${state.speed[sid]}/10</span></label>
+            <input type="range" min="1" max="10" value="${state.speed[sid]}"
+                oninput="state.speed['${sid}']=+this.value;this.previousElementSibling.querySelector('span').textContent=this.value+'/10';updateAll()">
+        </div>`;
+        html += `<div class="slider-group">
+            <label>Kvalitetssikring <span>${state.quality[sid]}/10</span></label>
+            <input type="range" min="1" max="10" value="${state.quality[sid]}"
+                oninput="state.quality['${sid}']=+this.value;this.previousElementSibling.querySelector('span').textContent=this.value+'/10';updateAll()">
+        </div>`;
+        html += `<div class="slider-group">
+            <label>Dekningsgrad <span>${state.coverage[sid]}/10</span></label>
+            <input type="range" min="1" max="10" value="${state.coverage[sid]}"
+                oninput="state.coverage['${sid}']=+this.value;this.previousElementSibling.querySelector('span').textContent=this.value+'/10';updateAll()">
+        </div>`;
+        html += '</div>';
+    }
+
+    sb.innerHTML = html;
+}
+
+// ============================================================
+// CANVAS RENDERING
+// ============================================================
+function renderCanvas() {
+    const canvas = document.getElementById('canvas');
+    const rect = canvas.parentElement.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    const W = rect.width, H = rect.height;
+
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(0, 0, W, H);
+
+    // Layout
+    const srcX = 70, srcY = H * 0.5;
+    const tgtHPx = W - 100, tgtHPy = H * 0.35;
+    const tgtINNx = W - 100, tgtINNy = H * 0.75;
+    const laneX = 160, laneW = W - 340;
+
+    // Active streams
+    const activeStreams = new Set();
+    ACTORS.forEach(a => { if (state.actors[a.id]) activeStreams.add(a.stream); });
+
+    const streamKeys = ['3a','3b','3c','3d'].filter(s => activeStreams.has(s));
+    const laneH = streamKeys.length > 0 ? (H - 40) / streamKeys.length : H / 4;
+
+    // Draw lanes
+    streamKeys.forEach((sid, i) => {
+        const y = 20 + i * laneH;
+        const s = STREAMS[sid];
+
+        ctx.fillStyle = s.color + '15';
+        ctx.beginPath();
+        ctx.roundRect(laneX, y, laneW, laneH - 10, 8);
+        ctx.fill();
+
+        ctx.fillStyle = s.color + '40';
+        ctx.fillRect(laneX, y, 4, laneH - 10);
+
+        ctx.fillStyle = s.lightColor + 'aa';
+        ctx.font = '600 11px system-ui';
+        ctx.fillText(s.name, laneX + 14, y + 16);
+
+        // Speed indicator
+        const speedW = (state.speed[sid] / 10) * 80;
+        ctx.fillStyle = s.color + '30';
+        ctx.fillRect(laneX + laneW - 100, y + laneH - 30, 80, 12);
+        ctx.fillStyle = s.color + '80';
+        ctx.fillRect(laneX + laneW - 100, y + laneH - 30, speedW, 12);
+        ctx.fillStyle = '#aab';
+        ctx.font = '500 9px system-ui';
+        ctx.fillText('Hastighet', laneX + laneW - 100, y + laneH - 34);
+
+        // Draw actors in this lane
+        const laneActors = ACTORS.filter(a => a.stream === sid && state.actors[a.id]);
+        const actorSpacing = laneW / (laneActors.length + 1);
+
+        laneActors.forEach((a, j) => {
+            const ax = laneX + actorSpacing * (j + 1);
+            const ay = y + laneH * 0.5;
+            const bw = 110, bh = 30;
+
+            // Box
+            ctx.fillStyle = '#1a1a2e';
+            ctx.strokeStyle = s.color;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.roundRect(ax - bw/2, ay - bh/2, bw, bh, 6);
+            ctx.fill();
+            ctx.stroke();
+
+            // Label
+            ctx.fillStyle = s.lightColor;
+            ctx.font = '600 10px system-ui';
+            ctx.textAlign = 'center';
+            ctx.fillText(a.name, ax, ay + 4);
+            ctx.textAlign = 'left';
+
+            // Arrows to targets
+            const showHP = state.focusTarget !== 'inn' && (a.target === 'hp' || a.target === 'both');
+            const showINN = state.focusTarget !== 'hp' && (a.target === 'inn' || a.target === 'both');
+
+            if (showHP) drawArrow(ctx, ax + bw/2, ay, tgtHPx - 70, tgtHPy, s.color + '40');
+            if (showINN) drawArrow(ctx, ax + bw/2, ay, tgtINNx - 70, tgtINNy, s.color + '40');
+        });
+    });
+
+    // Source node
+    drawRoundedBox(ctx, srcX - 55, srcY - 25, 110, 50, '#5d6d7e', '#3d4d5e', 'Steg 2:\nKunnskaps-\noppsumm.', '#fff');
+
+    // Trunk line
+    if (streamKeys.length > 0) {
+        const firstY = 20 + 0 * laneH + laneH * 0.5;
+        const lastY = 20 + (streamKeys.length - 1) * laneH + laneH * 0.5;
+        ctx.strokeStyle = '#5d6d7e40';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(laneX - 10, firstY);
+        ctx.lineTo(laneX - 10, lastY);
+        ctx.stroke();
+
+        // Branch lines
+        streamKeys.forEach((sid, i) => {
+            const y = 20 + i * laneH + laneH * 0.5;
+            ctx.strokeStyle = STREAMS[sid].color + '50';
+            ctx.beginPath();
+            ctx.moveTo(laneX - 10, y);
+            ctx.lineTo(laneX + 20, y);
+            ctx.stroke();
+
+            // Dot
+            ctx.fillStyle = '#5d6d7e80';
+            ctx.beginPath();
+            ctx.arc(laneX - 10, y, 3, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        // Source to trunk
+        ctx.strokeStyle = '#5d6d7e40';
+        ctx.beginPath();
+        ctx.moveTo(srcX + 55, srcY);
+        ctx.lineTo(laneX - 10, srcY);
+        ctx.stroke();
+    }
+
+    // Target nodes
+    if (state.focusTarget !== 'inn') {
+        drawRoundedBox(ctx, tgtHPx - 70, tgtHPy - 20, 140, 40, '#f1c40f', '#d4a800', 'Helsepersonell', '#333');
+    }
+    if (state.focusTarget !== 'hp') {
+        drawRoundedBox(ctx, tgtINNx - 70, tgtINNy - 20, 140, 40, '#f1c40f', '#d4a800', 'Innbyggere', '#333');
+    }
+}
+
+function drawRoundedBox(ctx, x, y, w, h, fill, stroke, text, textColor) {
+    ctx.fillStyle = fill;
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(x, y, w, h, 8);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = textColor;
+    ctx.font = '600 11px system-ui';
+    ctx.textAlign = 'center';
+    const lines = text.split('\n');
+    lines.forEach((line, i) => {
+        ctx.fillText(line, x + w/2, y + h/2 + (i - (lines.length-1)/2) * 14 + 4);
+    });
+    ctx.textAlign = 'left';
+}
+
+function drawArrow(ctx, x1, y1, x2, y2, color) {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    const midX = (x1 + x2) / 2;
+    ctx.bezierCurveTo(midX, y1, midX, y2, x2, y2);
+    ctx.stroke();
+}
+
+// ============================================================
+// PROMPT OUTPUT
+// ============================================================
+function updatePrompt() {
+    const parts = [];
+    const activeActors = ACTORS.filter(a => state.actors[a.id]);
+    const inactiveActors = ACTORS.filter(a => !state.actors[a.id]);
+    const activeStreams = [...new Set(activeActors.map(a => a.stream))];
+
+    // Context
+    parts.push('Oppdater delrapport 1 (dagens verdikjede for kunnskapsforvaltning i helsesektoren) med følgende endringer:\n');
+
+    // Focus
+    if (state.focusTarget === 'hp') {
+        parts.push('Fokuser analysen på strømmene som når helsepersonell.');
+    } else if (state.focusTarget === 'inn') {
+        parts.push('Fokuser analysen på strømmene som når innbyggere.');
+    }
+
+    // Disabled streams
+    const allStreamKeys = ['3a','3b','3c','3d'];
+    const disabledStreams = allStreamKeys.filter(s => !activeStreams.includes(s));
+    if (disabledStreams.length > 0) {
+        parts.push(`\nFjern strøm${disabledStreams.length > 1 ? 'mene' : 'men'} ${disabledStreams.map(s => STREAMS[s].name).join(', ')} fra analysen.`);
+    }
+
+    // Disabled actors in active streams
+    const disabledInActive = inactiveActors.filter(a => activeStreams.includes(a.stream));
+    if (disabledInActive.length > 0) {
+        parts.push(`\nFjern følgende aktører: ${disabledInActive.map(a => a.name).join(', ')}.`);
+    }
+
+    // Speed/quality/coverage changes
+    for (const sid of activeStreams) {
+        const changes = [];
+        if (state.speed[sid] !== DEFAULTS.speed[sid]) {
+            const dir = state.speed[sid] > DEFAULTS.speed[sid] ? 'raskere' : 'langsommere';
+            changes.push(`hastigheten er justert til ${dir} (${state.speed[sid]}/10)`);
+        }
+        if (state.quality[sid] !== DEFAULTS.quality[sid]) {
+            const dir = state.quality[sid] > DEFAULTS.quality[sid] ? 'høyere' : 'lavere';
+            changes.push(`kvalitetssikringen er satt til ${dir} (${state.quality[sid]}/10)`);
+        }
+        if (state.coverage[sid] !== DEFAULTS.coverage[sid]) {
+            const dir = state.coverage[sid] > DEFAULTS.coverage[sid] ? 'bredere' : 'smalere';
+            changes.push(`dekningsgraden er satt til ${dir} (${state.coverage[sid]}/10)`);
+        }
+        if (changes.length > 0) {
+            parts.push(`\nFor ${STREAMS[sid].name}: ${changes.join(', ')}.`);
+        }
+    }
+
+    // If nothing changed
+    if (parts.length === 1) {
+        parts.push('Ingen endringer fra dagens situasjon.');
+    }
+
+    document.getElementById('promptOutput').textContent = parts.join('');
+}
+
+function copyPrompt() {
+    const text = document.getElementById('promptOutput').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Kopiert!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Kopier'; btn.classList.remove('copied'); }, 1500);
+    });
+}
+
+// ============================================================
+// UPDATE ALL
+// ============================================================
+function updateAll() {
+    renderCanvas();
+    updatePrompt();
+}
+
+// ============================================================
+// INIT
+// ============================================================
+buildSidebar();
+applyPreset('current');
+window.addEventListener('resize', updateAll);
+</script>
+</body>
+</html>

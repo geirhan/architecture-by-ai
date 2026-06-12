@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delrapport 1: Dagens verdikjede for kunnskapsforvaltning i helsesektoren</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Delrapport 1: Dagens verdikjede for kunnskapsforvaltning i helsesektoren</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html" class="active">Dagens verdikjede</a></li>
+    <li><a href="fremtidsscenarioer.html">Fremtidsscenarioer</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="regulatorisk-etterslep.html">Regulatorisk etterslep</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="verdikjede-som-okosystem.html">Verdikjede som økosystem</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p><em>Del av utredning om ny verdikjede for kunnskapsforvaltning i
+helsesektoren</em></p>
+<blockquote>
+<p><strong>Status: Forankret.</strong> Kartleggingen av dagens
+verdikjede er forankret i offentlige kilder og case-dokumentasjon.
+Brukes som referanse i pågående arbeid. Se <a
+href="index.md#statusnivåer">statusnivåer</a>.</p>
+</blockquote>
+<hr />
+<h2 id="innledning">1. Innledning</h2>
+<h3 id="formål">1.1 Formål</h3>
+<p>Denne rapporten kartlegger dagens prosess fra forskning til formidlet
+kunnskap til innbyggere i den norske helsesektoren. Kartleggingen danner
+grunnlag for å identifisere utfordringer, flaskehalser og
+forbedringsmuligheter i verdikjeden.</p>
+<p>Verdikjeden for kunnskapsforvaltning er sentral for at helsesektoren
+skal kunne tilby oppdaterte, evidensbaserte tjenester og helseråd. En
+systematisk forståelse av hvordan kunnskap beveger seg fra
+forskningsmiljøer til innbyggere er en forutsetning for å vurdere om
+dagens prosesser er tilstrekkelig effektive og treffsikre.</p>
+<h3 id="faglig-forankring-kunnskapsbasert-praksis">1.2 Faglig
+forankring: Kunnskapsbasert praksis</h3>
+<p>Verdikjeden som kartlegges i denne rapporten kan forstås i lys av det
+etablerte norske rammeverket for <strong>kunnskapsbasert
+praksis</strong> (KBP), slik det er beskrevet på
+kunnskapsbasertpraksis.no <a
+href="Helsebiblioteket.%20*Kunnskapsbasert%20praksis%20–">25</a>.
+Rammeverket definerer kunnskapsbasert praksis som «å ta faglige
+avgjørelser basert på systematisk innhentet forskningsbasert kunnskap,
+erfaringsbasert kunnskap og pasientens ønsker og behov i en gitt
+situasjon».</p>
+<p>KBP-rammeverket beskriver seks trinn: (1) refleksjon over egen
+praksis, (2) spørsmålsformulering (PICO), (3) litteratursøk, (4) kritisk
+vurdering, (5) anvende kunnskap, og (6) evaluere praksis.</p>
+<p>Verdikjeden i denne rapporten fokuserer primært på
+<strong>infrastrukturen</strong> som understøtter trinnene 1-4 på
+nasjonalt nivå – hvordan forskningsbasert kunnskap sammenstilles,
+kvalitetssikres og gjøres tilgjengelig. Trinn 5 (anvende) og 6
+(evaluere) – der kunnskap faktisk omsettes til praksis – faller i stor
+grad utenfor den sentrale verdikjeden og overlates til den enkelte
+virksomhet og kliniker. Som casestudiene (casestudier-forsinkelser.md)
+dokumenterer, er det nettopp i disse siste trinnene at de største
+forsinkelsene oppstår.</p>
+<p>En sentral observasjon er at KBP-rammeverket opererer med <strong>tre
+kunnskapskilder</strong>: forskningsbasert kunnskap, erfaringsbasert
+kunnskap og pasientpreferanser. Verdikjeden som kartlegges her håndterer
+primært den forskningsbaserte kunnskapen. Erfaringsbasert kunnskap og
+pasientpreferanser ivaretas i begrenset grad gjennom høringsrunder og
+brukermedvirkning, men er ikke systematisk integrert i verdikjeden.</p>
+<h3 id="avgrensning">1.3 Avgrensning</h3>
+<p>Rapporten avgrenses til <strong>primærbruk – helseråd til
+innbyggere</strong>. Det vil si verdikjeden som ender med at innbyggere
+mottar kvalitetssikret helseinformasjon, typisk gjennom helsenorge.no
+eller andre offentlige kanaler. Rapporten dekker ikke sekundærbruk av
+helsedata, klinisk beslutningsstøtte i sanntid eller forskning som ikke
+ender i innbyggerrettet formidling.</p>
+<hr />
+<h2 id="dagens-verdikjede-oversikt">2. Dagens verdikjede – oversikt</h2>
+<p>Verdikjeden fra forskning til helsepersonell og innbyggere kan
+beskrives i tre hovedsteg, der de to første er lineære og det tredje er
+et nettverk av parallelle strømmer.</p>
+<h3 id="steg-1-internasjonal-forskning-publiserte-studier">Steg 1:
+Internasjonal forskning → publiserte studier</h3>
+<p>Grunnlaget for evidensbasert helseinformasjon er enkeltpublikasjoner
+fra internasjonale forskningsmiljøer. Disse publiseres i vitenskapelige
+tidsskrifter etter fagfellevurdering, primært på engelsk. Forskningen
+spenner fra kliniske studier og epidemiologiske undersøkelser til
+grunnforskning. Norske forskningsmiljøer bidrar også, men den store
+mengden ny kunnskap genereres internasjonalt.</p>
+<h3 id="steg-2-systematiske-oversikter-kunnskapsoppsummeringer">Steg 2:
+Systematiske oversikter → kunnskapsoppsummeringer</h3>
+<p>Folkehelseinstituttet (FHI) og internasjonale aktører som Cochrane
+Collaboration sammenstiller enkeltpublikasjoner til systematiske
+oversikter og kunnskapsoppsummeringer. Disse vurderer den samlede
+evidensen for en gitt problemstilling og gir en strukturert vurdering av
+kvaliteten på kunnskapsgrunnlaget ved bruk av GRADE-metodikken. FHI har
+en sentral rolle i norsk kontekst gjennom sitt område for
+kunnskapsoppsummering.</p>
+<h3
+id="steg-3-kunnskapsomsetting-og-formidling-fire-parallelle-strømmer">Steg
+3: Kunnskapsomsetting og formidling – fire parallelle strømmer</h3>
+<p>Kunnskapen fra steg 1 og 2 omsettes og formidles til helsepersonell
+og innbyggere gjennom <strong>fire parallelle hovedstrømmer</strong>.
+Disse opererer med ulike aktører, ulik hastighet og ulike mekanismer for
+kvalitetssikring:</p>
+<ol type="1">
+<li><strong>Den normerende strømmen</strong> – formelle nasjonale
+retningslinjer utviklet av Helsedirektoratet (langsomste prosess)</li>
+<li><strong>Den kliniske kunnskapsstrømmen</strong> – løpende oppdaterte
+kilder som kliniske oppslagsverk og fagprosedyrer (raskere enn
+normativ)</li>
+<li><strong>Legemiddelstrømmen</strong> – regulatorisk styrt informasjon
+gjennom DMP og Felleskatalogen (raskest ved sikkerhetssignaler)</li>
+<li><strong>Den innbyggerrettede strømmen</strong> – kvalitetssikret
+informasjon via helsenorge.no, pasientorganisasjoner og medier (variabel
+hastighet)</li>
+</ol>
+<p>Ingen enkelt strøm dekker hele kunnskapsbehovet alene – i praksis er
+det samspillet mellom dem som utgjør den reelle kunnskapsforsyningen i
+helsesektoren. <strong>En sentral observasjon: det finnes betydelige
+tidsforskjeller mellom strømmene</strong>, der noen kilder oppdateres
+vesentlig raskere enn andre. Dette betyr at helsepersonell og innbyggere
+som bruker ulike kilder kan basere seg på kunnskap av svært ulik
+alder.</p>
+<h4 id="a.-den-normerende-strømmen">3a. Den normerende strømmen</h4>
+<p>Helsedirektoratet utvikler tre typer normerende produkter basert på
+kunnskapsoppsummeringer: <strong>nasjonale faglige
+retningslinjer</strong>, <strong>veiledere</strong> og <strong>faglige
+råd</strong> <a href="Helsedirektoratet.%20*Nasjonale%20faglige">1</a>.
+Retningslinjene er normerende for helsetjenesten og gir anbefalinger for
+diagnostikk, behandling, forebygging og organisering.
+Utviklingsprosessen er beskrevet i Helsedirektoratets <em>Veileder for
+utvikling av kunnskapsbaserte retningslinjer</em> <a
+href="Helsedirektoratet.%20*Veileder%20for%20utvikling">19</a> og
+involverer tverrfaglige arbeidsgrupper med bidrag fra fagmedisinske
+foreninger og brukerrepresentanter, ekstern høring og systematisk
+vurdering av evidens opp mot norske forhold <a
+href="Helsedirektoratet.%20*Om%20Helsedirektoratets">2</a>.</p>
+<p><strong>Formidling til helsepersonell og sektor:</strong>
+Helsedirektoratets primære formidlingskanal er
+<strong>helsedirektoratet.no</strong>, der retningslinjer, veiledere og
+faglige råd publiseres i fulltekst <a
+href="Helsedirektoratet.%20*Nasjonale%20faglige">1</a>. Helsebiblioteket
+(drives av FHI) tilgjengeliggjør også retningslinjene sammen med andre
+kunnskapsressurser <a
+href="Helsebiblioteket%20/%20FHI.%20*Om%20Helsebiblioteket%20–">3</a>.</p>
+<p><strong>Implementering i helsetjenesten:</strong> Etter publisering
+skal retningslinjene implementeres i klinisk praksis:</p>
+<ul>
+<li><strong>Spesialisthelsetjenesten</strong>: RHF-ene/HF-ene
+operasjonaliserer retningslinjene til lokale fagprosedyrer og
+behandlingslinjer. Fagprosedyrer.no (koordinert av OUS, publisert via
+Helsebiblioteket) er den nasjonale plattformen for deling av
+kunnskapsbaserte fagprosedyrer <a
+href="Helsebiblioteket.%20*Fagprosedyrer%20på">4</a>.</li>
+<li><strong>Primærhelsetjenesten</strong>: Kommunene og fastlegene er
+ansvarlige for å følge retningslinjene. Helsebiblioteket har lansert en
+egen portal for kommunehelsetjenesten <a
+href="Helsebiblioteket%20/%20FHI.%20*Om%20Helsebiblioteket%20–">3</a>.
+Meld. St. 9 (2023–2024) konstaterer at kommunene «mangler strukturer som
+kan understøtte strategisk innføring av kunnskapsbaserte tiltak» [23],
+og det finnes ikke en tilsvarende systematisk
+operasjonaliseringsmekanisme som fagprosedyrer for
+primærhelsetjenesten.</li>
+</ul>
+<p><strong>Formidling til innbyggere:</strong> Retningslinjene danner
+grunnlag for innbyggerrettet informasjon som publiseres på helsenorge.no
+(se strøm 3d).</p>
+<p>Dette er den mest autoritative strømmen – den eneste der kunnskap
+gjennomgår formell normering for norsk kontekst. Den er også den
+langsomste. Casestudier (<code>casestudier-forsinkelser.md</code>)
+dokumenterer at den reelle tiden fra forskning til bred praksisendring
+er <strong>7–15+ år</strong> når implementering, refusjonsordninger og
+etterlevelse inkluderes. For den normerende delprosessen isolert
+(forskning til vedtatt retningslinje) varierer varigheten betydelig fra
+sak til sak – fra rundt 1 år (raske unntak som DAWN/DEFUSE-3) til 7+ år
+(EXTEND, per april 2026 fortsatt ikke vedtatt). Helsedirektoratet
+publiserer ikke aggregerte tall for typisk prosessvarighet.</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktør</th>
+<th>Rolle</th>
+<th>Leveranse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Helsedirektoratet</td>
+<td>Retningslinjeutvikler</td>
+<td>Nasjonale faglige retningslinjer, veiledere, faglige råd</td>
+</tr>
+<tr>
+<td>helsedirektoratet.no</td>
+<td>Primær formidlingskanal til sektor</td>
+<td>Fulltekst normerende produkter</td>
+</tr>
+<tr>
+<td>Helsebiblioteket / FHI</td>
+<td>Kunnskapsformidler</td>
+<td>Retningslinjesamlinger, databaser, kommunehelseportal</td>
+</tr>
+<tr>
+<td>RHF-ene / HF-ene</td>
+<td>Implementering i sykehus</td>
+<td>Fagprosedyrer, behandlingslinjer</td>
+</tr>
+<tr>
+<td>KS / kommunene</td>
+<td>Implementering i primærhelsetjenesten</td>
+<td>Lokal praksis</td>
+</tr>
+</tbody>
+</table>
+<h4 id="b.-den-kliniske-kunnskapsstrømmen">3b. Den kliniske
+kunnskapsstrømmen</h4>
+<p>Parallelt med den normerende strømmen når forskningsbasert kunnskap
+helsepersonell gjennom kanaler som oppdateres raskere enn nasjonale
+retningslinjer. For mange klinikere er dette den primære kunnskapskilden
+i daglig praksis. Kunnskapen i denne strømmen hentes primært direkte fra
+internasjonal forskning (publisert i vitenskapelige tidsskrifter,
+PubMed/MEDLINE), uten å gå via formelle kunnskapsoppsummeringer i steg
+2.</p>
+<ul>
+<li><strong>Kliniske oppslagsverk</strong> (UpToDate, BMJ Best Practice,
+Micromedex): Internasjonale, kommersielle kunnskapstjenester som
+sammenstiller forskning til klinisk anvendbare anbefalinger med løpende
+oppdatering. Tilgjengelige for norsk helsepersonell gjennom nasjonale
+lisensavtaler via Helsebiblioteket <a
+href="Helsebiblioteket%20/%20FHI.%20*Om%20Helsebiblioteket%20–">3</a>.
+BMJ Best Practice er tilgjengelig for alle med norsk IP-adresse, mens
+UpToDate krever registrering via arbeidsgiver <a
+href="FHI.%20*Gratis%20tilgang%20til%20kliniske">5</a>. Fra 2023 mistet
+norsk helsepersonell nasjonal tilgang til Cochrane Library, Embase og
+flere andre databaser som følge av budsjettkutt ved FHI <a
+href="Helsebiblioteket.%20*Kutt%20i%20Helsebibliotekets">6</a>.</li>
+<li><strong>Fagprosedyrer</strong> (Helsebiblioteket/fagprosedyrer):
+Fagprosedyrer.no omdirigerer nå til Helsebiblioteket <a
+href="Helsebiblioteket.%20*Fagprosedyrer%20på">4</a>. OUS koordinerer
+arbeidet med kunnskapsbaserte fagprosedyrer, som operasjonaliserer
+retningslinjer til konkrete handlingsanvisninger. Tjenesten var nedlagt
+i en periode, men er under gjenoppbygging <a
+href="Helsebiblioteket.%20*Fagprosedyrer%20på">4</a>. Fagprosedyrer kan
+inkorporere kunnskap som ennå ikke er dekket av nasjonale
+retningslinjer.</li>
+<li><strong>Tidsskrift for Den norske legeforening</strong>:
+Fagfellevurdert vitenskapelig tidsskrift utgitt av Legeforeningen. Alt
+innhold er fritt tilgjengelig (open access) på tidsskriftet.no <a
+href="Tidsskrift%20for%20Den%20norske%20legeforening.%20*Om">7</a>.
+Viktig arena for norsk medisinsk fagdebatt og kritisk gjennomgang av
+retningslinjer.</li>
+<li><strong>Sykepleien Forskning</strong>: Fagfellevurdert
+sykepleieforskning (nivå 1-tidsskrift), utgitt av Norsk
+Sykepleierforbund <a
+href="Sykepleien.%20*Forfatterinstruksjoner%20Sykepleien">8</a>.
+Relevant kunnskapskilde for sykepleiere i praksis og utdanning.</li>
+<li><strong>Fagmedisinske foreninger</strong>: Legeforeningens
+fagmedisinske foreninger (én per spesialitet) utvikler faglige
+anbefalinger innenfor sine spesialområder og bidrar til
+Helsedirektoratets retningslinjearbeid <a
+href="Den%20norske%20legeforening.%20*Fagmedisinske">9</a>.</li>
+</ul>
+<p>Denne strømmen oppdateres raskere enn den normerende strømmen, men
+nøyaktig tidsbruk er ikke systematisk dokumentert.</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktør</th>
+<th>Rolle</th>
+<th>Leveranse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UpToDate / BMJ Best Practice</td>
+<td>Klinisk oppslagsverk</td>
+<td>Evidensbaserte anbefalinger, kalkulatorer</td>
+</tr>
+<tr>
+<td>Helsebiblioteket (fagprosedyrer)</td>
+<td>Fagprosedyreplattform</td>
+<td>Handlingsanvisninger for klinisk praksis</td>
+</tr>
+<tr>
+<td>Tidsskriftet / Sykepleien</td>
+<td>Fagtidsskrifter (open access)</td>
+<td>Originalartikler, oversikter, fagdebatt</td>
+</tr>
+<tr>
+<td>Fagmedisinske foreninger</td>
+<td>Spesialitetsspesifikk formidling</td>
+<td>Faglige anbefalinger, kurs, konferanser</td>
+</tr>
+</tbody>
+</table>
+<h4 id="c.-legemiddelstrømmen">3c. Legemiddelstrømmen</h4>
+<p>Informasjon om legemidler følger en delvis egen verdikjede med egne
+regulatoriske prosesser. Kunnskapen har sin opprinnelse i klinisk
+forskning og regulatorisk vurdering (primært via EMA – European
+Medicines Agency), og når både helsepersonell og innbyggere gjennom
+dedikerte kanaler som ikke er avhengige av Helsedirektoratets
+retningslinjeprosess.</p>
+<ul>
+<li><strong>Direktoratet for medisinske produkter (DMP)</strong>: Norges
+sentrale forvaltningsmyndighet for legemidler og medisinsk utstyr
+(tidligere Statens legemiddelverk) <a
+href="Direktoratet%20for%20medisinske%20produkter.%20*Om">16</a>.
+Vurderer søknader om markedsføringstillatelse i samarbeid med EMA,
+overvåker bivirkninger og publiserer sikkerhetsinformasjon. Forvalter
+FEST-databasen (Forskrivnings- og ekspedisjonsstøtte) som inneholder
+interaksjonsdata fra de tidligere databasene DRUID og Apriori <a
+href="Felleskatalogen.%20*Interaksjonssøk%20–%20om">17</a>. Både
+helsepersonell og pasienter kan melde bivirkninger til DMP <a
+href="Direktoratet%20for%20medisinske%20produkter.%20*Om">16</a>.</li>
+<li><strong>Felleskatalogen</strong>: Felleskatalogen AS samler og
+tilgjengeliggjør godkjente preparatomtaler (SPC), pakningsvedlegg og
+bivirkningsinformasjon <a
+href="Felleskatalogen.%20*Interaksjonssøk%20–%20om">17</a>.
+Interaksjonssøket er basert på data fra DMPs FEST-database <a
+href="Felleskatalogen.%20*Interaksjonssøk%20–%20om">17</a>. Brukes
+daglig av helsepersonell for legemiddelrelaterte beslutninger. Tilbyr
+også pakningsvedlegg og pasientrettet legemiddelinformasjon direkte til
+innbyggere.</li>
+<li><strong>RELIS</strong> (Regionale legemiddelinformasjonssentre):
+Fire regionale sentre (Midt-Norge, Nord-Norge, Sør-Øst og Vest) gir
+produsentuavhengig, individuell rådgivning til helsepersonell om
+legemiddelbruk <a href="RELIS.%20*Produsentuavhengig">18</a>.
+Spesialisttjenester inkluderer Trygg Mammamedisin (gravide og ammende)
+og KUPP-kampanjer (kunnskapsbaserte oppdateringsvisitter til fastleger).
+Mottar også bivirkningsrapporter.</li>
+</ul>
+<p>Denne strømmen kan reagere relativt raskt ved nye sikkerhetssignaler
+sammenlignet med den normerende strømmen, og er den raskeste strømmen
+for legemiddelspesifikk kunnskap.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktør</th>
+<th>Rolle</th>
+<th>Kilde for innholdet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DMP</td>
+<td>Regulatorisk myndighet</td>
+<td>EMA, kliniske studier, bivirkningsrapporter</td>
+</tr>
+<tr>
+<td>Felleskatalogen</td>
+<td>Legemiddeldatabase</td>
+<td>DMPs FEST-database, godkjente SPC-er</td>
+</tr>
+<tr>
+<td>RELIS</td>
+<td>Uavhengig rådgiver</td>
+<td>Forskning, klinisk erfaring, produsentuavhengig</td>
+</tr>
+</tbody>
+</table>
+<h4 id="d.-den-innbyggerrettede-strømmen">3d. Den innbyggerrettede
+strømmen</h4>
+<p>Innbyggere mottar helseinformasjon fra et bredt spekter av aktører
+med ulike kilder, ulik kvalitetssikring og ulik grad av offentlig
+styring. Denne strømmen inkluderer både offentlige kanaler (som
+helsenorge.no) og kommersielle/frivillige aktører.</p>
+<h5 id="offentlige-kanaler">Offentlige kanaler</h5>
+<ul>
+<li><strong>helsenorge.no</strong>: Norges digitale helseportal for
+innbyggere, eid av NHN (statsforetak under HOD), med over 131 millioner
+besøk i 2024 <a href="Helsedirektoratet.">20</a>. Innholdsproduksjonen
+er <strong>desentralisert</strong> med tydelig ansvarsfordeling:
+Helsedirektoratet har utgiveransvaret og det etiske og rettslige
+ansvaret for informasjonsinnholdet, mens NHN er produkteier og har
+redaktøransvaret – inkludert ansvar for at lokale redaktører følger
+innholdsstrategien <a
+href="Helsenorge.%20*Innholdsstrategi%202021–2026*.">21</a> og
+kvalitetsretningslinjene <a
+href="Helsenorge.%20*Om%20helsenorge.no*.">10</a>. Alt innhold
+kvalitetssikres minimum hvert tredje år <a
+href="Norsk%20helsenett.%20*Du%20får%20kvalitetssikret">22</a>.
+Innholdet leveres og kvalitetssikres av offentlige helseaktører som
+sykehus, Helsedirektoratet, Helfo og FHI, og skal være forskningsbasert
+og i tråd med nasjonale råd og retningslinjer <a
+href="Helsenorge.%20*Om%20helsenorge.no*.">10</a>. All informasjon
+oppdateres jevnlig og minst hvert tredje år <a
+href="Helsenorge.%20*Om%20helsenorge.no*.">10</a>. Helsenorge.no tilbyr
+også digitale helsetjenester (timebestilling, resepter, prøvesvar,
+journal).</li>
+<li><strong>FHI (Folkehelseinstituttet)</strong>: Publiserer
+innbyggerrettet informasjon om smittevern, vaksinasjon, psykisk helse og
+helsestatistikk direkte på fhi.no <a
+href="Folkehelseinstituttet.">11</a>. Er også innholdsleverandør til
+helsenorge.no. Kommuniserer via podkast (Folkehelsepodden) og sosiale
+medier.</li>
+<li><strong>FNSP (Felles nettløsning for
+spesialisthelsetjenesten)</strong>: Nasjonalt samarbeid eid av de fire
+RHF-ene som sikrer enhetlig pasientinformasjon på over 60
+sykehusnettsteder <a href="FNSP.%20*Hva%20er%20FNSP?*">12</a>. Forvalter
+ca. 1 700 behandlingstekster godkjent av medisinske fagpersoner, med en
+nasjonal medisinsk og helsefaglig redaksjon bestående av klinikere og
+sykepleiere <a href="FNSP.%20*Hva%20er%20FNSP?*">12</a>. Driftes av NHN.
+Tett integrert med helsenorge.no: helsenorge.no dekker sykdom og
+diagnose, mens FNSP dekker informasjon om utredning og behandling ved
+sykehusbesøk <a href="FNSP.%20*Hva%20er%20FNSP?*">12</a>.</li>
+</ul>
+<h5 id="kommersielle-kunnskapsaktører">Kommersielle
+kunnskapsaktører</h5>
+<ul>
+<li><strong>NHI.no (Norsk Helseinformatikk)</strong>: Norges største
+helseoppslagsverk for allmennheten, eid av Bonnier Healthcare (del av
+svenske Bonnier Group) <a
+href="NHI.no%20/%20Wikipedia.%20*Norsk%20Helseinformatikk*.">13</a>.
+Grunnlagt i 1996 med utspring fra allmennpraktiserende leger, NTNU,
+St. Olavs Hospital og SINTEF. Har ca. 100 millioner sidevisninger per år
+<a href="NHO%20Trøndelag.%20*Månedens%20bedrift:%20Norsk">14</a>. NHI
+utviklet opprinnelig NEL (Norsk Elektronisk Legehåndbok), et
+oppslagsverk brukt av nesten alle norske allmennleger <a
+href="NHI.no%20/%20Wikipedia.%20*Norsk%20Helseinformatikk*.">13</a>.</li>
+<li><strong>Felleskatalogen</strong>: Tilbyr pakningsvedlegg og
+pasientrettet legemiddelinformasjon direkte til innbyggere gjennom
+felleskatalogen.no (se også strøm 3c).</li>
+</ul>
+<h5 id="pasientorganisasjoner">Pasientorganisasjoner</h5>
+<ul>
+<li>Organisasjoner som Kreftforeningen, LHL, Diabetesforbundet,
+Nasjonalforeningen for folkehelsen og FFO formidler kvalitetssikret
+helseinformasjon direkte til sine målgrupper <a
+href="NAFKAM.%20*Norske%20pasientorganisasjoner*.">15</a>. Disse
+kombinerer medisinsk kunnskap med erfaringsbasert kunnskap fra pasienter
+og pårørende. Flere er også innholdsleverandører til helsenorge.no <a
+href="Helsenorge.%20*Om%20helsenorge.no*.">10</a>.</li>
+</ul>
+<h5 id="uformelle-kanaler">Uformelle kanaler</h5>
+<ul>
+<li><strong>Medier og helsejournalistikk</strong>: Aviser, TV,
+nettmedier og podkaster formidler ny helseforskning til allmennheten,
+ofte med vesentlig kortere tidsforsinkelse enn den formelle verdikjeden.
+Kvaliteten varierer betydelig.</li>
+<li><strong>Sosiale medier og nettfora</strong>: Innbyggere deler
+erfaringer og helseinformasjon seg imellom. Kan ha stor innflytelse på
+helseadferd, men er den minst kontrollerte kanalen.</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktør</th>
+<th>Rolle</th>
+<th>Kilde for innholdet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>helsenorge.no</td>
+<td>Offentlig helseportal</td>
+<td>80+ innholdsleverandører, retningslinjer</td>
+</tr>
+<tr>
+<td>FHI</td>
+<td>Folkehelseinformasjon</td>
+<td>Egen forskning og overvåking</td>
+</tr>
+<tr>
+<td>FNSP</td>
+<td>Sykehusinformasjon</td>
+<td>Faglig godkjente behandlingstekster</td>
+</tr>
+<tr>
+<td>NHI.no</td>
+<td>Kommersielt helseoppslagsverk</td>
+<td>Egen redaksjon (oppr. NEL-miljøet)</td>
+</tr>
+<tr>
+<td>Felleskatalogen</td>
+<td>Legemiddelinformasjon</td>
+<td>DMP-godkjente preparatomtaler</td>
+</tr>
+<tr>
+<td>Pasientorganisasjoner</td>
+<td>Erfaringsbasert formidling</td>
+<td>Medisinsk kunnskap + pasienterfaring</td>
+</tr>
+<tr>
+<td>Medier</td>
+<td>Journalistisk formidling</td>
+<td>Forskningspublikasjoner, ekspertkilder</td>
+</tr>
+</tbody>
+</table>
+<h4
+id="innbyggerens-samlede-kunnskapsbilde-kilder-utenfor-verdikjeden">Innbyggerens
+samlede kunnskapsbilde – kilder utenfor verdikjeden</h4>
+<p>De fire strømmene beskrevet ovenfor utgjør den <em>styrte</em> delen
+av kunnskapsforsyningen til innbyggere. I praksis henter innbyggere også
+kunnskap fra en rekke kilder som ligger helt utenfor denne verdikjeden,
+og som ikke er underlagt noen form for offentlig styring eller
+kvalitetssikring:</p>
+<ul>
+<li><strong>KI-chatboter (ChatGPT, Gemini, Copilot m.fl.)</strong>: Et
+økende antall innbyggere bruker generative KI-tjenester for å stille
+helsespørsmål. Svarene genereres uten garantert faglig grunnlag og kan
+inneholde feil eller utdatert informasjon, men oppleves ofte som
+autoritative.</li>
+<li><strong>Internasjonale nettsider (WebMD, Mayo Clinic, Wikipedia
+m.fl.)</strong>: Engelskspråklige helseressurser med varierende
+kvalitetssikring, men som ikke er tilpasset norsk kontekst (annet
+legemiddelutvalg, annet helsesystem, andre
+behandlingsretningslinjer).</li>
+<li><strong>Familie, venner og personlig nettverk</strong>:
+Erfaringsbasert og subjektiv rådgivning som kan ha stor innflytelse på
+helseadferd, men som ikke er kvalitetssikret.</li>
+<li><strong>Kommersielle aktører</strong>: Helsekost, alternativ
+medisin, kosttilskuddprodusenter og andre kommersielle interesser som
+markedsfører produkter med helsepåstander. Ofte med interessekonflikt
+mellom salg og evidensbasert informasjon.</li>
+</ul>
+<p>Disse kildene konkurrerer med den offentlige verdikjeden om
+innbyggernes oppmerksomhet. Innbyggeren navigerer selv mellom alle
+tilgjengelige kilder – både innenfor og utenfor verdikjeden – ofte uten
+å kunne vurdere kvaliteten eller aktualiteten til informasjonen. Dette
+betyr at den offentlige verdikjeden ikke opererer i et vakuum, men i et
+informasjonslandskap der den må konkurrere med kilder som ofte er
+raskere, mer tilgjengelige og bedre tilpasset innbyggerens umiddelbare
+behov.</p>
+<h4 id="sammenligning-av-de-fire-strømmene">Sammenligning av de fire
+strømmene</h4>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr>
+<th>Egenskap</th>
+<th>Normerende</th>
+<th>Klinisk</th>
+<th>Legemiddel</th>
+<th>Innbyggerrettet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Oppdateringshastighet</strong></td>
+<td>Lang prosess</td>
+<td>Raskere</td>
+<td>Raskt ved varsler</td>
+<td>Variabel</td>
+</tr>
+<tr>
+<td><strong>Normativ kraft</strong></td>
+<td>Høy (formelt)</td>
+<td>Middels (faglig)</td>
+<td>Høy (regulatorisk)</td>
+<td>Lav (informerende)</td>
+</tr>
+<tr>
+<td><strong>Kvalitetssikring</strong></td>
+<td>GRADE, høring, redaksjon</td>
+<td>Redaksjonell, fagfelle</td>
+<td>Regulatorisk godkjenning</td>
+<td>Varierer sterkt</td>
+</tr>
+<tr>
+<td><strong>Dekningsgrad</strong></td>
+<td>Utvalgte tema</td>
+<td>Bred klinisk</td>
+<td>Legemiddelspesifikk</td>
+<td>Ujevn</td>
+</tr>
+<tr>
+<td><strong>Tilpasning til norsk</strong></td>
+<td>Høy</td>
+<td>Lav (internasjonal)</td>
+<td>Middels</td>
+<td>Varierer</td>
+</tr>
+<tr>
+<td><strong>Hovedmålgruppe</strong></td>
+<td>Helsepersonell → innbyggere</td>
+<td>Helsepersonell</td>
+<td>Helsepersonell → innbyggere</td>
+<td>Innbyggere</td>
+</tr>
+<tr>
+<td><strong>Eksempler på aktører</strong></td>
+<td>Helsedirektoratet, Helsebiblioteket (FHI)</td>
+<td>UpToDate, fagprosedyrer</td>
+<td>DMP, Felleskatalogen, RELIS</td>
+<td>helsenorge.no, NHI.no, medier</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="oppdateringshastighet-per-strøm">3. Oppdateringshastighet per
+strøm</h2>
+<p>De fire strømmene har vesentlig ulik oppdateringshastighet fra ny
+forskning til tilgjengelig kunnskap. Denne forskjellen er en av de mest
+kritiske observasjonene i kartleggingen, men <strong>de eksakte
+tidsestimatene mangler etterprøvbar dokumentasjon og må undersøkes
+nærmere</strong>.</p>
+<h3 id="den-normerende-strømmen-lang-og-regulert-prosess">Den normerende
+strømmen – lang og regulert prosess</h3>
+<p>Den normerende strømmen (nasjonale retningslinjer fra
+Helsedirektoratet) gjennomgår flere steg:</p>
+<ul>
+<li>Forskning publiseres</li>
+<li>Kunnskapsoppsummeringer samles (fra FHI og internasjonale
+kilder)</li>
+<li>Retningslinjeprosess gjennomføres (arbeidsgrupper, høring,
+revisjon)</li>
+<li>Innholdet formidles til sektor og innbyggere</li>
+<li>Implementering i praksis</li>
+</ul>
+<p>Prosessen er regulert, faglig grundig og inkluderer høringer, men
+dette gjør den tidskrevende sammenlignet med andre strømmer.
+<strong>Dokumentert:</strong> At prosessen er tidskrevende;
+<strong>Udokumentert:</strong> Nøyaktig hvor lang den gjennomsnittlig
+er.</p>
+<h3 id="de-parallelle-strømmene-variabel-hastighet">De parallelle
+strømmene – variabel hastighet</h3>
+<p>De tre parallelle strømmene oppdateres raskere enn den
+normerende:</p>
+<ul>
+<li><strong>Kliniske oppslagsverk</strong> (UpToDate, BMJ Best Practice)
+oppdateres løpende basert på ny forskning, uten formell
+reguleringsmekanisme</li>
+<li><strong>Fagprosedyrer</strong> operasjonaliserer retningslinjer til
+konkrete handlingsanvisninger, men kan også inkorporere nyere
+kunnskap</li>
+<li><strong>Legemiddelstrømmen</strong> kan reagere raskt på
+sikkerhetssignaler via DMP/EMA</li>
+<li><strong>Medier og pasientorganisasjoner</strong> formidler kunnskap
+variabelt raskt basert på sitt publiseringsløp</li>
+</ul>
+<p><strong>Konsekvensen:</strong> Helsepersonell og innbyggere som
+bruker ulike kilder kan basere seg på kunnskap av svært ulik alder.
+<strong>Dette potensielle problemet krever nærmere undersøkelse
+gjennom:</strong></p>
+<ul>
+<li>Intervjuer med nøkkelaktører om typisk gjennomløpstid</li>
+<li>Analyse av konkrete eksempler (f.eks. når en ny forskning først
+dukker opp i UpToDate vs. nasjonale retningslinjer)</li>
+<li>Gjennomgang av dokumentasjon fra Helsedirektoratet, FHI og andre
+aktører</li>
+</ul>
+<hr />
+<h2 id="aktørkart">4. Aktørkart</h2>
+<p>En detaljert aktøranalyse med roller, ansvar og relasjoner for alle
+~20 aktører i verdikjeden er beskrevet i <strong>delrapport 8
+(aktoeranalyse.md)</strong>. Aktørkartet er organisert etter
+verdikjedens steg og strømmer slik de er definert i denne rapporten.</p>
+<hr />
+<h2 id="informasjonsflyt-og-formater">5. Informasjonsflyt og
+formater</h2>
+<h3 id="formatoverganger-per-strøm">5.1 Formatoverganger per strøm</h3>
+<p>Kunnskapen gjennomgår ulike format- og språkskifter avhengig av
+hvilken strøm den følger:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 12%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Strøm</th>
+<th>Inngangsformat</th>
+<th>Utgangsformat</th>
+<th>Språk</th>
+<th>Målgruppe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forskning (steg 1)</td>
+<td>IMRaD-artikler</td>
+<td>Vitenskapelig artikkel</td>
+<td>Engelsk</td>
+<td>Forskere</td>
+</tr>
+<tr>
+<td>Oppsummering (steg 2)</td>
+<td>Enkeltartikler</td>
+<td>GRADE-tabeller, rapporter</td>
+<td>Engelsk/norsk</td>
+<td>Beslutningstakere</td>
+</tr>
+<tr>
+<td>3a. Normerende</td>
+<td>Kunnskapsoppsummeringer</td>
+<td>Retningslinjer → klarspråk</td>
+<td>Norsk</td>
+<td>Helsepersonell → innbyggere</td>
+</tr>
+<tr>
+<td>3b. Klinisk</td>
+<td>Forskningsartikler</td>
+<td>Oppslagsverk, fagprosedyrer</td>
+<td>Engelsk/norsk</td>
+<td>Helsepersonell</td>
+</tr>
+<tr>
+<td>3c. Legemiddel</td>
+<td>Regulatoriske data</td>
+<td>SPC, pakningsvedlegg</td>
+<td>Norsk</td>
+<td>Helsepersonell + innbyggere</td>
+</tr>
+<tr>
+<td>3d. Innbyggerrettet</td>
+<td>Diverse kilder</td>
+<td>Nettartikler, nyheter</td>
+<td>Norsk</td>
+<td>Innbyggere</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sentrale-overganger">5.2 Sentrale overganger</h3>
+<p>Verdikjeden innebærer tre kritiske overganger, som primært gjelder
+den normerende strømmen (3a):</p>
+<ol type="1">
+<li><strong>Språkskifte engelsk → norsk</strong>: Skjer primært i
+overgangen fra systematisk oversikt til retningslinjearbeid. Dette
+krever ikke bare oversettelse, men faglig tilpasning til norsk kontekst
+(helseorganisering, legemiddeltilgang, behandlingstilbud). I strøm 3b
+skjer dette skiftet delvis <em>ikke</em> – kliniske oppslagsverk brukes
+ofte på engelsk.</li>
+<li><strong>Fagspråk → klarspråk</strong>: Overgangen fra retningslinje
+til innbyggerinformasjon krever at komplekst medisinsk fagspråk gjøres
+tilgjengelig uten å miste presisjon. I strøm 3d (medier,
+pasientorganisasjoner) skjer denne overgangen på andre måter og med
+annen kvalitetssikring.</li>
+<li><strong>Strukturert evidens → normerende anbefaling</strong>:
+Overgangen fra kunnskapsoppsummering til retningslinje innebærer at
+vitenskapelig evidens veies mot verdier, ressursbruk og norsk kontekst.
+Denne overgangen er unik for den normerende strømmen – de øvrige
+strømmene formidler kunnskap uten formell normering.</li>
+</ol>
+<h3 id="konsistens-på-tvers-av-strømmer">5.3 Konsistens på tvers av
+strømmer</h3>
+<p>At fire parallelle strømmer formidler kunnskap med ulik hastighet og
+ulike aktører skaper utfordringer for konsistens:</p>
+<ul>
+<li>Helsepersonell kan motta ulike anbefalinger fra nasjonale
+retningslinjer og kliniske oppslagsverk, særlig i perioder der
+retningslinjene ikke er oppdatert.</li>
+<li>Innbyggere kan finne informasjon i medier som ennå ikke er
+reflektert på helsenorge.no.</li>
+<li>Legemiddelinformasjon fra DMP/Felleskatalogen kan avvike fra det som
+står i retningslinjene dersom nye sikkerhetssignaler har kommet etter
+retningslinjens publisering.</li>
+</ul>
+<p>Det finnes i dag ingen overordnet mekanisme som sikrer konsistens
+mellom de fire strømmene.</p>
+<h3 id="manglende-standardisering">5.4 Manglende standardisering</h3>
+<p>Dokumentasjonen indikerer at det i dag mangler gjennomgående
+standardiserte maskinlesbare formater for kunnskapsinnhold på tvers av
+strømmene. Retningslinjer publiseres i hovedsak som fritekst-dokumenter,
+og det er begrenset bruk av strukturerte metadata som muliggjør
+automatisert videreforedling og synkronisering mellom strømmene.</p>
+<hr />
+<h2 id="kvalitetssikringsmekanismer-per-strøm">6.
+Kvalitetssikringsmekanismer per strøm</h2>
+<p>Hver av de fire strømmene har sine egne kvalitetssikringsmekanismer,
+men disse er ikke samkjørte på tvers av strømmene.</p>
+<h3 id="fagfellevurdering-i-forskningen">Fagfellevurdering i
+forskningen</h3>
+<p>Publiserte studier gjennomgår fagfellevurdering (peer review) før
+publisering i vitenskapelige tidsskrifter. Dette er den første
+kvalitetssikringen i verdikjeden og representerer etablert internasjonal
+standard for kvalitetskontroll.</p>
+<h3 id="grade-metodikk-for-kunnskapsoppsummeringer">GRADE-metodikk for
+kunnskapsoppsummeringer</h3>
+<p>Systematiske oversikter og kunnskapsoppsummeringer bruker
+GRADE-metodikken (Grading of Recommendations Assessment, Development and
+Evaluation) for å vurdere tilliten til den samlede evidensen. GRADE
+klassifiserer evidenskvaliteten i fire nivåer: høy, moderat, lav og
+svært lav. FHI benytter denne metodikken systematisk i sine
+kunnskapsoppsummeringer.</p>
+<h3 id="retningslinjer-høring-og-faglig-redaksjon">Retningslinjer:
+Høring og faglig redaksjon</h3>
+<p>Helsedirektoratets retningslinjer gjennomgår offentlige høringsrunder
+der fagmiljøer, helseforetak, brukerorganisasjoner og andre
+interessenter kan gi innspill. Høringsrundene sikrer faglig bredde og
+forankring, men bidrar også til den samlede tidsbruken i verdikjeden.
+Innholdet gjennomgår faglig redaksjon før publisering.</p>
+<h3 id="kliniske-oppslagsverk-redaksjonell-og-fagfellekontroll">Kliniske
+oppslagsverk: Redaksjonell og fagfellekontroll</h3>
+<p>Kliniske oppslagsverk som UpToDate og BMJ Best Practice anvender
+redaksjonell kontroll og fagfellekontroll, men disse er interne
+prosesser uten samme formelle transparens som Helsedirektoratets
+høring.</p>
+<h3
+id="legemiddelinformasjon-regulatorisk-godkjenning">Legemiddelinformasjon:
+Regulatorisk godkjenning</h3>
+<p>Legemiddelinformasjon kvalitetssikres gjennom regulatorisk prosess
+via DMP (Direktoratet for medisinske produkter) og EMA (European
+Medicines Agency). Dette sikrer høy kvalitetssikring, men prosessen er
+åpen kun for regulatoriske endringer, ikke for faglig debatt.</p>
+<h3
+id="innbyggerinformasjon-variabel-kvalitetssikring">Innbyggerinformasjon:
+Variabel kvalitetssikring</h3>
+<p>Innbyggerrettet helseinformasjon på helsenorge.no gjennomgår faglig
+redaksjon og kvalitetssikres mot gjeldende retningslinjer, med revisjon
+minst hvert tredje år. Medier og sosiale medier har begrenset eller
+ingen systematisk kvalitetssikring.</p>
+<h3 id="overordnet-vurdering">Overordnet vurdering</h3>
+<p>Kvalitetssikringen i verdikjeden er robust <em>i hvert enkelt
+steg</em>, men det finnes <strong>begrenset systematisk kvalitetssikring
+av sammenheng på tvers av steg</strong>. Det er for eksempel ingen
+automatisert mekanisme som sikrer at innbyggerinformasjon oppdateres når
+underliggende retningslinjer endres, eller at motstridigheter mellom
+strømmene blir identifisert og løst.</p>
+<hr />
+<h2 id="oppsummering-dagens-tilstand">7. Oppsummering – dagens
+tilstand</h2>
+<p>Dagens verdikjede for kunnskapsforvaltning i helsesektoren består av
+tre steg (forskning, kunnskapsoppsummering,
+kunnskapsomsetting/formidling), der det tredje steget ikke er en lineær
+prosess, men et <strong>nettverk av fire parallelle strømmer</strong>
+som opererer uavhengig av hverandre.</p>
+<h3 id="de-viktigste-observasjonene">De viktigste observasjonene</h3>
+<p>Observasjonene nedenfor analyseres videre i delrapport 2, som
+syntetiserer dem til seks utfordringsdimensjoner (D1–D6), fem
+kjerneegenskaper verdikjeden mangler (skalerbarhet, reaktivitet,
+sammenheng, styrbarhet, tillit/legitimitet) og seks rotårsaker (R1–R6).
+Henvisningene nedenfor peker fremover til disse kategoriene.</p>
+<h4 id="betydelig-tidsforskjell-mellom-strømmene">1. Betydelig
+tidsforskjell mellom strømmene</h4>
+<p><em>Forankring i delrapport 2: dimensjon D1 (tid og gjennomløp),
+kjerneegenskap «reaktivitet».</em></p>
+<p>Den normerende strømmen (retningslinjer) er dokumentert som
+tidskrevende sammenlignet med:</p>
+<ul>
+<li>Kliniske oppslagsverk som oppdateres løpende</li>
+<li>Legemiddelstrømmen som kan reagere raskt på sikkerhetssignaler</li>
+<li>Medier og pasientorganisasjoner som publiserer variabelt raskt</li>
+</ul>
+<p>Casestudier av antibiotika, diabetes type 2 og slagbehandling
+(<code>casestudier-forsinkelser.md</code>) dokumenterer at den reelle
+gjennomløpstiden fra forskning til bred praksisendring er <strong>7–15+
+år</strong>. Internasjonalt er det mest siterte estimatet 17 år (Balas
+&amp; Boren, 2000; Morris et al., 2011). De norske casene plasserer seg
+under det internasjonale 17-årsestimatet, men dokumenterer at
+gjennomløpstiden varierer sterkt fra sak til sak – fra rundt 1 år for
+raske unntak (DAWN/DEFUSE-3) til 8 år for SGLT2-hemmere (forskning til
+forhåndsgodkjent refusjon).</p>
+<h4 id="de-parallelle-strømmene-er-ikke-perifere-de-er-sentrale">2. De
+parallelle strømmene er ikke perifere – de er sentrale</h4>
+<p><em>Forankring: kontekst for delrapport 2 og 4 – at
+moderniseringstiltak må adressere flere strømmer, ikke bare den
+normerende.</em></p>
+<p>Kliniske oppslagsverk, fagprosedyrer, legemiddelinformasjon og
+pasientorganisasjoner er i praksis sentrale kilder i
+kunnskapsforsyningen. Den normerende strømmen er den mest autoritative,
+men ikke nødvendigvis den mest brukte i daglig praksis.</p>
+<h4 id="konsistensutfordringer-fra-usynkroniserte-strømmer">3.
+Konsistensutfordringer fra usynkroniserte strømmer</h4>
+<p><em>Forankring: kjerneegenskap «sammenheng», rotårsak R4
+(IT-fragmentering).</em></p>
+<p>Fire strømmer med ulik oppdateringshastighet gir risiko for
+motstridende informasjon:</p>
+<ul>
+<li>Helsepersonell kan motta ulike anbefalinger fra nasjonale
+retningslinjer og kliniske oppslagsverk</li>
+<li>Innbyggere kan finne informasjon i medier som ennå ikke er
+reflektert på helsenorge.no</li>
+<li>Legemiddelinformasjon kan avvike dersom nye sikkerhetssignaler har
+kommet etter retningslinjens publisering</li>
+</ul>
+<p>Det finnes ingen overordnet mekanisme som sikrer konsistens på tvers
+av alle strømmer.</p>
+<h4 id="fragmentert-ansvar-uten-overordnet-koordinering">4. Fragmentert
+ansvar uten overordnet koordinering</h4>
+<p><em>Forankring: dimensjon D3 (struktur og styring), kjerneegenskap
+«styrbarhet», rotårsak R1 (manglende helhetlig styringsmandat).</em></p>
+<p>Ansvaret er fordelt på nærmere 20 aktører – Helsedirektoratet, FHI,
+Helsebiblioteket, RHF-ene, KS, DMP, Felleskatalogen, RELIS, NHI.no,
+FNSP, fagprosedyreforfattere, pasientorganisasjoner, medier og andre –
+uten et overordnet system som sikrer konsistens.</p>
+<h4 id="manuelle-overganger-og-begrenset-strukturering">5. Manuelle
+overganger og begrenset strukturering</h4>
+<p><em>Forankring: kjerneegenskap «skalerbarhet», rotårsak R2
+(pre-digital design) og R4 (fritekst uten metadata).</em></p>
+<p>Alle strømmene preges av manuelle prosesser for oversettelse,
+tilpasning og reformatering av innhold. Innholdet er i stor grad
+fritekstbasert, noe som begrenser mulighetene for automatisert
+videreforedling og synkronisering.</p>
+<h4
+id="robust-kvalitetssikring-per-strøm-svak-kvalitetssikring-på-tvers">6.
+Robust kvalitetssikring per strøm, svak kvalitetssikring på tvers</h4>
+<p><em>Forankring: kjerneegenskap «sammenheng» – ikke et spørsmål om at
+hver enkelt strøm er dårlig kvalitetssikret, men at tverrgående
+konsistens mangler.</em></p>
+<p>Hver strøm har sine egne kvalitetssikringsmekanismer
+(fagfellevurdering, GRADE, høring, redaksjon, regulatorisk godkjenning).
+Men det finnes ingen mekanisme som sikrer at endringer i en strøm
+propageres til og påvirker konsistensen i de øvrige strømmene.</p>
+<hr />
+<h2 id="konklusjon">8. Konklusjon</h2>
+<p>Dagens verdikjede fungerer tilstrekkelig for hver enkelt strøm, men
+systemet som helhet mangler integrasjon. Konsekvensene er:</p>
+<ul>
+<li>Ineffektiv ressursbruk – hver strøm gjør sitt eget arbeid med
+oversettelse og tilpasning</li>
+<li>Risiko for motstridende informasjon, særlig mellom retningslinje og
+klinisk praksis</li>
+<li>Innbyggere og helsepersonell må selv navigere mellom ulike kilder
+for å få et fullstendig bilde</li>
+<li>Forbedringer blir ikke fulgt opp systematisk på tvers av
+strømmer</li>
+<li>Innbyggere henter i tillegg kunnskap fra kilder helt utenfor
+verdikjeden – KI-chatboter, internasjonale nettsider, venner/familie og
+kommersielle aktører – som den offentlige verdikjeden konkurrerer med om
+oppmerksomhet og tillit</li>
+</ul>
+<p>Observasjonene danner grunnlag for <strong>delrapport 2</strong>, som
+analyserer utfordringer og flaskehalser systematisk gjennom seks
+dimensjoner (D1–D6), fem kjerneegenskaper verdikjeden mangler og seks
+rotårsaker (R1–R6).</p>
+<p><strong>Merknad om kilder:</strong> Kartleggingen er basert på
+tilgjengelig dokumentasjon fra offentlige kilder. Den dokumenterte
+gjennomløpstiden på 7–15+ år (forskning til bred praksisendring) er
+underbygget med tre casestudier (antibiotika, diabetes type 2,
+slagbehandling) i <code>casestudier-forsinkelser.md</code>.
+Helsedirektoratet publiserer ikke aggregerte tall for typisk varighet av
+retningslinjeprosessen isolert; rapporten unngår derfor
+gjennomsnittsanslag og refererer kun til de case-dokumenterte
+verdiene.</p>
+<hr />
+<p>Sist oppdatert: 2026-05-26</p>
+<h2 id="endringslogg">Endringslogg</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Endring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-04-08</td>
+<td>Versjon med gjennomløpstider 1–5 år (kap. 3a) og 2–3 år (typisk
+normerende strøm). Casestudie-funn (7–15+ år) lagt til som
+korreksjon.</td>
+</tr>
+<tr>
+<td>2026-05-26</td>
+<td>Konsistensgjennomgang: udokumenterte gjennomsnittsanslag (1–5 år,
+2–3 år, 2,5–5 år) fjernet og erstattet med case-baserte spennvidder fra
+<code>casestudier-forsinkelser.md</code>. Kap. 7 observasjoner forankret
+eksplisitt mot delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper,
+R1–R6). Konklusjon språklig strammet.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="referanser">Referanser</h2>
+<p>retningslinjer*. <a
+href="https://www.helsedirektoratet.no/retningslinjer"
+class="uri">https://www.helsedirektoratet.no/retningslinjer</a></p>
+<p>normerende produkter*. <a
+href="https://www.helsedirektoratet.no/om-oss/om-helsedirektoratets-normerende-produkter"
+class="uri">https://www.helsedirektoratet.no/om-oss/om-helsedirektoratets-normerende-produkter</a></p>
+<p>organisering og finansiering*. <a
+href="https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/organisering-og-finansiering"
+class="uri">https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/organisering-og-finansiering</a></p>
+<p>Helsebiblioteket – status*. <a
+href="https://www.helsebiblioteket.no/innhold/artikler/fpr/fagprosedyrer-pa-helsebiblioteket-status"
+class="uri">https://www.helsebiblioteket.no/innhold/artikler/fpr/fagprosedyrer-pa-helsebiblioteket-status</a></p>
+<p>oppslagsverk*. <a
+href="https://www.fhi.no/ku/helsebiblioteket/gratis-tilgang-til-kliniske-oppslagsverk/"
+class="uri">https://www.fhi.no/ku/helsebiblioteket/gratis-tilgang-til-kliniske-oppslagsverk/</a></p>
+<p>avtaler for 2023*. <a
+href="https://www.helsebiblioteket.no/innhold/artikler/nyheter/kutt-i-helsebibliotekets-avtaler-for-2023"
+class="uri">https://www.helsebiblioteket.no/innhold/artikler/nyheter/kutt-i-helsebibliotekets-avtaler-for-2023</a></p>
+<p>Tidsskriftet*. <a
+href="https://tidsskriftet.no/annet/om-tidsskriftet"
+class="uri">https://tidsskriftet.no/annet/om-tidsskriftet</a></p>
+<p>Forskning*. <a
+href="https://sykepleien.no/en/forfatterveiledningforskning"
+class="uri">https://sykepleien.no/en/forfatterveiledningforskning</a></p>
+<p>foreninger*. <a
+href="https://www.legeforeningen.no/foreningsledd/fagmed/"
+class="uri">https://www.legeforeningen.no/foreningsledd/fagmed/</a></p>
+<p><a href="https://www.helsenorge.no/om-helsenorge-no/"
+class="uri">https://www.helsenorge.no/om-helsenorge-no/</a></p>
+<p><a href="https://www.fhi.no" class="uri">https://www.fhi.no</a></p>
+<p><a href="https://www.fnsp.no/hva-er-fnsp/"
+class="uri">https://www.fnsp.no/hva-er-fnsp/</a></p>
+<p><a href="https://no.wikipedia.org/wiki/Norsk_Helseinformatikk"
+class="uri">https://no.wikipedia.org/wiki/Norsk_Helseinformatikk</a></p>
+<p>Helseinformatikk*. <a
+href="https://www.nho.no/regionforeninger/nho-trondelag/artikkelarkiv/manedens-bedrift-norsk-helseinformatikk/"
+class="uri">https://www.nho.no/regionforeninger/nho-trondelag/artikkelarkiv/manedens-bedrift-norsk-helseinformatikk/</a></p>
+<p><a href="https://nafkam.no/norske-pasientorganisasjonar"
+class="uri">https://nafkam.no/norske-pasientorganisasjonar</a></p>
+<p>DMP*. <a href="https://www.dmp.no/"
+class="uri">https://www.dmp.no/</a></p>
+<p>datagrunnlaget*. <a
+href="https://www.felleskatalogen.no/m/medisin/interaksjon"
+class="uri">https://www.felleskatalogen.no/m/medisin/interaksjon</a></p>
+<p>legemiddelinformasjon*. <a href="https://relis.no"
+class="uri">https://relis.no</a></p>
+<p>av kunnskapsbaserte retningslinjer*. <a
+href="https://www.helsedirektoratet.no/veiledere/utvikling-av-kunnskapsbaserte-retningslinjer"
+class="uri">https://www.helsedirektoratet.no/veiledere/utvikling-av-kunnskapsbaserte-retningslinjer</a></p>
+<p><em>Innbyggerundersøkelsen om digitalisering i helse- og
+omsorgstjenesten 2024</em>. <a
+href="https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester"
+class="uri">https://www.helsedirektoratet.no/rapporter/innbyggerundersokelsen-om-digitalisering-i-helse-og-omsorgstjenesten-2024-bruk-av-holdninger-til-og-tilfredshet-med-digitale-helsetjenester</a></p>
+<p><a
+href="https://www.helsenorge.no/49efff/globalassets/redaksjonelt/innholdsstrategi-helsenorge.pdf"
+class="uri">https://www.helsenorge.no/49efff/globalassets/redaksjonelt/innholdsstrategi-helsenorge.pdf</a></p>
+<p>helseinformasjon på Helsenorge*. <a
+href="https://www.nhn.no/nyheter/du-far-kvalitetssikret-helseinformasjon-pa-helsenorge"
+class="uri">https://www.nhn.no/nyheter/du-far-kvalitetssikret-helseinformasjon-pa-helsenorge</a></p>
+<p>[23]: Helse- og omsorgsdepartementet. <em>Meld. St. 9 (2023–2024),
+kapittel 6: En kunnskapsbasert og godt ledet tjeneste</em>. <a
+href="https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/?ch=6"
+class="uri">https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/?ch=6</a></p>
+<p>kunnskapsbasertpraksis.no*. <a
+href="https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no"
+class="uri">https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no</a></p>
+<p>implementeringsverktøy basert på RNAO-modellen*. <a
+href="https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no/5.anvende/5.1-kunnskap-til-handling"
+class="uri">https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no/5.anvende/5.1-kunnskap-til-handling</a></p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

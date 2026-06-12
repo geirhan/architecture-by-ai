@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternativsammenligning - KI-strategi for EHDS-implementering</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.7;
+}
+header {
+  background: #003366;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+header h1 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+header p { font-size: 0.95rem; opacity: 0.85; }
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+h2 {
+  color: #003366;
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 0.3rem;
+}
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+canvas { max-width: 100%; }
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 2rem;
+  font-size: 0.95rem;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+/* Tabell */
+.table-wrap { overflow-x: auto; margin: 1rem 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+th, td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+th {
+  background: #003366;
+  color: #fff;
+  font-weight: 600;
+}
+tr:nth-child(even) { background: #f4f7fa; }
+td:first-child { font-weight: 600; }
+/* Anbefaling */
+.recommendation {
+  background: #e8f0f8;
+  border-left: 4px solid #003366;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.recommendation h3 {
+  color: #003366;
+  margin-bottom: 0.5rem;
+}
+.phase-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+.phase-box {
+  padding: 0.8rem 1.4rem;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  min-width: 180px;
+}
+.phase-box.alt1 { background: #2196F3; }
+.phase-box.alt2 { background: #4CAF50; }
+.arrow-connector {
+  font-size: 2rem;
+  color: #003366;
+  padding: 0 0.5rem;
+}
+.source {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 0.8rem;
+}
+@media print {
+  header { background: #003366 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  th { background: #003366 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 1.2rem; }
+  .phase-arrow { flex-direction: column; }
+  .arrow-connector { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Alternativsammenligning: KI-strategi for EHDS-implementering</h1>
+  <p>Sammenligning av tre strategiske alternativer for bruk av KI i EHDS-arbeidet</p>
+</header>
+
+<div class="container">
+
+  <h2>Radardiagram</h2>
+  <div class="chart-wrapper">
+    <canvas id="radar" width="580" height="520"></canvas>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch" style="background:rgba(244,67,54,0.7)"></div> Alt 0: Nullalternativet</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:rgba(33,150,243,0.7)"></div> Alt 1: Moderat KI-st&oslash;tte</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:rgba(76,175,80,0.7)"></div> Alt 2: Ambisi&oslash;s KI-pipeline</div>
+  </div>
+
+  <h2>Detaljert sammenligning</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Dimensjon</th>
+          <th>Alt 0: Nullalternativet</th>
+          <th>Alt 1: Moderat KI-st&oslash;tte</th>
+          <th>Alt 2: Ambisi&oslash;s KI-pipeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Gjennoml&oslash;pstid</td><td>2,5 &ndash; 5 &aring;r</td><td>1 &ndash; 3 &aring;r</td><td>Uker &ndash; m&aring;neder</td></tr>
+        <tr><td>Investeringskostnad</td><td>Ingen</td><td>20 &ndash; 50 MNOK</td><td>100 &ndash; 250 MNOK</td></tr>
+        <tr><td>Kvalitetsrisiko</td><td>Lav</td><td>Lav &ndash; moderat</td><td>Moderat &ndash; h&oslash;y</td></tr>
+        <tr><td>Implementeringsrisiko</td><td>Ingen</td><td>Moderat</td><td>H&oslash;y</td></tr>
+        <tr><td>Samsvar EHDS</td><td>Svakt</td><td>Godt</td><td>Sv&aelig;rt godt</td></tr>
+        <tr><td>Skalerbarhet</td><td>Lav</td><td>Moderat</td><td>H&oslash;y</td></tr>
+        <tr><td>Innbyggernytte</td><td>Lav &ndash; moderat</td><td>Moderat &ndash; h&oslash;y</td><td>H&oslash;y</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Anbefalt tiln&aelig;rming: Faseinndelt implementering</h2>
+  <div class="recommendation">
+    <h3>Start med Alternativ 1, utvid gradvis til Alternativ 2</h3>
+    <p>
+      Analysen i delrapport 4 og 7 tilsier at en faseinndelt tiln&aelig;rming gir best balanse mellom risiko, kostnad og EHDS-samsvar.
+      Alternativ 1 gir rask gevinst med moderat risiko. N&aring;r organisasjonen har h&oslash;stet erfaringer og modenheten &oslash;ker,
+      kan kapabilitetene skaleres mot Alternativ 2 for &aring; oppn&aring; full automatisering og h&oslash;y skalerbarhet.
+    </p>
+  </div>
+  <div class="phase-arrow">
+    <div class="phase-box alt1">Fase 1<br>Alternativ 1<br><small>Moderat KI-st&oslash;tte</small></div>
+    <div class="arrow-connector">&rarr;</div>
+    <div class="phase-box alt2">Fase 2<br>Alternativ 2<br><small>Ambisi&oslash;s KI-pipeline</small></div>
+  </div>
+
+  <p class="source">Basert p&aring; delrapport 4 (Konsekvensanalyse av KI-st&oslash;ttet EHDS-implementering) og delrapport 7 (Samlet vurdering og anbefalinger).</p>
+</div>
+
+<script>
+(function() {
+  var canvas = document.getElementById('radar');
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var cx = W / 2, cy = H / 2 + 10;
+  var R = Math.min(W, H) / 2 - 70;
+
+  // Dimensjoner og normaliserte verdier (1-5 skala)
+  // Gjennomlopstid: 5=raskest, 1=tregest
+  // Investeringskostnad: 5=lavest kostnad, 1=hoyest
+  // Kvalitetsrisiko: 5=lavest risiko, 1=hoyest
+  // Implementeringsrisiko: 5=lavest risiko, 1=hoyest
+  // Samsvar EHDS: 5=best samsvar, 1=svakest
+  // Skalerbarhet: 5=hoyest, 1=lavest
+  // Innbyggernytte: 5=hoyest, 1=lavest
+  var labels = [
+    'Gjennoml\u00f8pstid',
+    'Investeringskostnad',
+    'Kvalitetsrisiko',
+    'Impl.risiko',
+    'Samsvar EHDS',
+    'Skalerbarhet',
+    'Innbyggernytte'
+  ];
+  var N = labels.length;
+
+  var alt0 = [1, 5, 5, 5, 1, 1, 2];
+  var alt1 = [3, 3, 4, 3, 4, 3, 4];
+  var alt2 = [5, 1, 2, 1, 5, 5, 5];
+
+  var colors = {
+    alt0: { fill: 'rgba(244,67,54,0.15)', stroke: 'rgba(244,67,54,0.8)', point: 'rgba(244,67,54,1)' },
+    alt1: { fill: 'rgba(33,150,243,0.15)', stroke: 'rgba(33,150,243,0.8)', point: 'rgba(33,150,243,1)' },
+    alt2: { fill: 'rgba(76,175,80,0.15)',  stroke: 'rgba(76,175,80,0.8)',  point: 'rgba(76,175,80,1)' }
+  };
+
+  function angleFor(i) {
+    return (Math.PI * 2 * i / N) - Math.PI / 2;
+  }
+
+  function pointAt(i, val) {
+    var a = angleFor(i);
+    var r = (val / 5) * R;
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+  }
+
+  // Tegn grid
+  ctx.strokeStyle = '#ccc';
+  ctx.lineWidth = 0.7;
+  for (var ring = 1; ring <= 5; ring++) {
+    ctx.beginPath();
+    for (var i = 0; i <= N; i++) {
+      var p = pointAt(i % N, ring);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  // Tegn akser
+  ctx.strokeStyle = '#999';
+  for (var i = 0; i < N; i++) {
+    var p = pointAt(i, 5);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+  }
+
+  // Ring-tall
+  ctx.fillStyle = '#999';
+  ctx.font = '11px system-ui';
+  ctx.textAlign = 'left';
+  for (var ring = 1; ring <= 5; ring++) {
+    var yy = cy - (ring / 5) * R;
+    ctx.fillText(ring, cx + 3, yy + 3);
+  }
+
+  // Labels
+  ctx.fillStyle = '#333';
+  ctx.font = '13px system-ui';
+  for (var i = 0; i < N; i++) {
+    var p = pointAt(i, 5.6);
+    var a = angleFor(i);
+    if (Math.abs(a) < 0.1 || Math.abs(a - Math.PI) < 0.1 || Math.abs(a + Math.PI) < 0.1) {
+      ctx.textAlign = 'center';
+    } else if (a > -Math.PI / 2 && a < Math.PI / 2) {
+      ctx.textAlign = 'left';
+    } else {
+      ctx.textAlign = 'right';
+    }
+    ctx.textBaseline = (a < 0 && Math.abs(a + Math.PI/2) < 0.3) ? 'bottom' : 'middle';
+    if (Math.abs(a + Math.PI/2) < 0.1) {
+      ctx.textBaseline = 'bottom';
+      ctx.textAlign = 'center';
+    }
+    if (Math.abs(a - Math.PI/2) < 0.1) {
+      ctx.textBaseline = 'top';
+      ctx.textAlign = 'center';
+    }
+    ctx.fillText(labels[i], p.x, p.y);
+  }
+
+  function drawPoly(data, color) {
+    ctx.beginPath();
+    for (var i = 0; i <= N; i++) {
+      var p = pointAt(i % N, data[i % N]);
+      if (i === 0) ctx.moveTo(p.x, p.y);
+      else ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = color.fill;
+    ctx.fill();
+    ctx.strokeStyle = color.stroke;
+    ctx.lineWidth = 2.2;
+    ctx.stroke();
+
+    // Punkter
+    for (var i = 0; i < N; i++) {
+      var p = pointAt(i, data[i]);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = color.point;
+      ctx.fill();
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  }
+
+  drawPoly(alt0, colors.alt0);
+  drawPoly(alt1, colors.alt1);
+  drawPoly(alt2, colors.alt2);
+
+  // Tooltip / info
+  ctx.fillStyle = '#666';
+  ctx.font = '11px system-ui';
+  ctx.textAlign = 'center';
+  ctx.fillText('H\u00f8yere verdi = mer fordelaktig (5 = best, 1 = svakest)', cx, H - 8);
+})();
+</script>
+</body>
+</html>
