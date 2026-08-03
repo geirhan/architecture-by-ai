@@ -13,6 +13,24 @@ i helsesektoren
 
 ---
 
+> **Politisk signal (Meld. St. 11 (2025–2026)
+> Helsepersonellplan 2040).** Planen er ikke en prediksjon,
+> men gir et eksplisitt politisk *signal* om retning i
+> scenariokorset: regjeringen varsler en offentlig
+> orkestrert linje med kjøp i markedet («*kjøp av
+> kvalitetssikrede KI-løsninger i markedet*», kap. 7.2) og
+> en «*nasjonal infrastruktur for kunnskapsformidling*»
+> (kap. 8.3) – en bevegelse mot S1 (Nasjonal motor) / S3
+> (Føderert økosystem). Formuleringen om at «*sykehusene bør
+> som hovedregel ikke utvikle egne løsninger der det finnes
+> gode, kvalitetssikrede og konkurransedyktige løsninger i
+> markedet*» (kap. 7.5) er et eksplisitt orkestreringsgrep
+> mot S4-driften (Fragmentert flora). Dette styrker funnet
+> om at nullalternativet ikke er et stabilt hjørne, og at
+> forskjellen S3/S4 er orkestrering – ikke teknologi. Se
+> [kildeforankringsnotatet](helsepersonellplan-2040.md).
+> [DOK for formuleringer / ANT for scenariokobling]
+
 ## Om denne delrapporten
 
 De øvrige delrapportene beskriver **dagens** verdikjede

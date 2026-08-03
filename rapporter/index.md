@@ -227,6 +227,30 @@ modnes.
   merket [DOK]/[ANT].
 - **Sist oppdatert**: 2026-05-19
 
+### [Helsepersonellplan 2040 (Meld. St. 11 (2025–2026))](helsepersonellplan-2040.md)
+
+- **Status**: Forankret
+- **Beskrivelse**: Kildeforankringsnotat som kobler Meld.
+  St. 11 (2025–2026) Helsepersonellplan 2040 (særlig kap. 7
+  Digitalisering og kunstig intelligens og kap. 8 Effektiv
+  ressursbruk) til utredningens begrepsapparat (R1–R6,
+  aksene, kjerneegenskaper, scenarioene) og de enkelte
+  delrapportene. Hovedfunn: kap. 7.2 (en trygg, offentlig
+  KI-basert tjeneste i den digitale førstelinjen, via
+  Helsenorge, kjøp i markedet, trinnvis utbygging) gir
+  politisk retning til den innbyggerrettede strømmen og
+  prosjektets formål; kap. 8.3 (Helsebiblioteket skal
+  utredes videreutviklet til nasjonal infrastruktur for
+  kunnskapsformidling; KI for produksjon/oppsummering/
+  formidling) gir retning til den nye verdikjeden. Ny
+  [DOK]-empiri: FHIs kunnskapssøk (mindretall bruker
+  evidensbaserte ressurser; tidsmangel fremste barriere) og
+  60-30-10-utfordringen. Statusforbehold: melding, ikke
+  vedtak; budsjettforbehold på KI-tiltaket; Helsebibliotek-
+  tiltaket er en utredningsbeslutning. Alle utsagn merket
+  [DOK]/[ANT] med sidetall.
+- **Sist oppdatert**: 2026-06-12
+
 ### [Regulatorisk etterslep – EHDS og EU AI Act](regulatorisk-etterslep.md)
 
 - **Status**: Forankret
@@ -316,6 +340,12 @@ modnes.
 ### [HTML-versjon](html/index.html)
 
 - **Beskrivelse**: Navigerbar HTML-versjon av hele
-  utredningen. 10 HTML-filer med identisk navigasjon,
-  ordliste og kildeliste.
-- **Sist oppdatert**: 2026-03-18
+  utredningen. 20 HTML-filer med identisk navigasjon,
+  ordliste og kildeliste. Regenereres automatisk med
+  `skripts/generer_html.py` (krever pandoc), som
+  konverterer delrapportene fra markdown og oppdaterer
+  navigasjonsbaren på spesialsidene (forside,
+  ledersammendrag, visualiseringer). Interne
+  arbeidsdokumenter (forankringsplan,
+  Kim-kommentarene) inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-08-03

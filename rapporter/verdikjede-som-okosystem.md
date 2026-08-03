@@ -12,6 +12,22 @@ i helsesektoren
 
 ---
 
+> **Politisk forankring av økosystemlinsen (Meld. St. 11
+> (2025–2026) Helsepersonellplan 2040).** Kap. 7.2 begrunner
+> ordrett premisset i dette notatet – at den offentlige
+> verdikjeden konkurrerer om innbyggerens oppmerksomhet med
+> andre kilder: innbyggerne søker helseinformasjon «*ofte
+> gjennom internasjonale KI-tjenester … Disse er ikke
+> nødvendigvis kvalitetssikret, de er ikke tilpasset norske
+> forhold og de kan være unøyaktige, misvisende eller i
+> verste fall medisinsk uforsvarlige*». Svaret regjeringen
+> varsler – en offentlig KI-tjeneste via Helsenorge som
+> «*det første digitale kontaktpunktet*» – er nettopp et
+> forsøk på å styrke en kilde i innbyggerens beslutningsrom,
+> ikke å kontrollere økosystemet. Se
+> [kildeforankringsnotatet](helsepersonellplan-2040.md).
+> [DOK for formuleringer / ANT for kobling]
+
 ## Om dette notatet
 
 Dette notatet undersøker hva som skjer når vi slutter

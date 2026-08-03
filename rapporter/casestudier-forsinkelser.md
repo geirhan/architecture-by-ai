@@ -6,6 +6,23 @@
 > primær empirisk underbygging for tidsestimater i
 > delrapport 1 og 2. Se [statusnivåer](index.md#statusnivåer).
 
+------------------------------------------------------------------------
+
+> **Tilleggsbelegg for implementeringsgapet (Meld. St. 11
+> (2025–2026) Helsepersonellplan 2040).** To [DOK]-kilder fra
+> meldingen understøtter at gjennomløp og etterlevelse
+> svikter også *etter* at en retningslinje finnes:
+> 60-30-10-utfordringen – «*60 prosent av pasientbehandlingen
+> er i tråd med faglige retningslinjer, mens 30 prosent har
+> usikker verdi og 10 prosent er skadelig*» (kap. 8.4, s. 94;
+> Braithwaite et al. 2020, BMJ) – og FHIs kunnskapssøk om at
+> «*kun et mindretall av helsepersonell bruker evidensbaserte
+> kunnskapsressurser regelmessig … tidsmangel … den fremste
+> barrieren*» (kap. 8.3, s. 93). Disse gjelder etterlevelse/
+> implementering generelt, ikke de tre konkrete casene, og
+> brukes som supplerende belegg. Se
+> [kildeforankringsnotatet](helsepersonellplan-2040.md).
+
 ## 1. Innledning
 
 ### 1.1 Formål

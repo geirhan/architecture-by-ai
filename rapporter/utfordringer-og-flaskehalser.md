@@ -11,6 +11,21 @@
 
 ---
 
+> **Ny offentlig empiri (Meld. St. 11 (2025–2026)
+> Helsepersonellplan 2040).** Meldingen tilfører to
+> [DOK]-kilder som underbygger utfordringsbildet og
+> rotårsakene: (1) Et kunnskapssøk fra Folkehelseinstituttet
+> viste at «*kun et mindretall av helsepersonell bruker
+> evidensbaserte kunnskapsressurser regelmessig i egen
+> praksis, og tidsmangel ble oppgitt som den fremste
+> barrieren*» (kap. 8.3, s. 93) – direkte belegg for svak
+> reaktivitet og implementeringsgap. (2)
+> 60-30-10-utfordringen: «*60 prosent av pasientbehandlingen
+> er i tråd med faglige retningslinjer, mens 30 prosent har
+> usikker verdi og 10 prosent er skadelig*» (kap. 8.4, s.
+> 94; Braithwaite et al. 2020). Se
+> [kildeforankringsnotatet](helsepersonellplan-2040.md).
+
 ## 1. Innledning
 
 ### 1.1 Formål

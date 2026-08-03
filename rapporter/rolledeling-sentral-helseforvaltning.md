@@ -14,6 +14,21 @@ kunnskapsforvaltning i helsesektoren
 
 ---
 
+> **Oppdragsfordeling i Meld. St. 11 (2025–2026)
+> Helsepersonellplan 2040.** Planen fordeler og bekrefter
+> konkrete oppdrag langs eksisterende linjer: Hdir skal
+> gjennomgå og revidere normerende produkter, lede arbeid
+> med henvisningspraksis og forvalte «Kloke valg»; FHI har
+> fått samlet ansvar for de lovbestemte nasjonale
+> helseregistrene (strategi 2025–2027) og driver
+> kunnskapsstøtte for kommunene; NHN gjennomfører (med Hdir)
+> nettlege-utprøvingen og forvalter Helsenorge som plattform.
+> Ingen aktør gis et samlet styringsmandat for verdikjeden –
+> i tråd med, og forsterkende for, kunnskapshullet under H3
+> om manglende helhetlig styringsmandat. Se
+> [kildeforankringsnotatet](helsepersonellplan-2040.md)
+> (Del 3). [DOK for oppdrag / ANT for tolkning]
+
 ## 1. Innledning
 
 ### 1.1 Formål

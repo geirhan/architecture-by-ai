@@ -13,6 +13,27 @@ i helsesektoren
 
 ---
 
+> **Politisk forankring (Meld. St. 11 (2025–2026)
+> Helsepersonellplan 2040).** Regjeringen har lagt fram en
+> plan som gir politisk retning til kjernen i flere av
+> alternativene her: kap. 7.2 varsler en «*trygg, offentlig
+> KI-basert tjeneste*» som del av en digital førstelinje,
+> via Helsenorge, utviklet «*i samarbeid med næringslivet og
+> ved kjøp av kvalitetssikrede KI-løsninger i markedet*» og
+> som «*bygges ut trinnvis*»; kap. 8.3 varsler at KI gir
+> muligheter for «*produksjon, oppsummering og mer målrettet
+> formidling av kunnskap, tilpasset norske forhold*», og at
+> Helsebiblioteket skal *utredes* videreutviklet til en
+> «*nasjonal infrastruktur for kunnskapsformidling*». Dette
+> understøtter særlig Alt 2 (KI-støtte) og Alt 3
+> (KI-pipeline) og en faseinndelt, leverandørstøttet
+> tilnærming. Forbehold: meldingen er lagt fram av
+> regjeringen (ikke vedtatt), KI-tjenesten har
+> budsjettforbehold, og Helsebibliotek-tiltaket er en
+> *utrednings*-, ikke etableringsbeslutning. Se
+> [kildeforankringsnotatet](helsepersonellplan-2040.md).
+> [DOK for formuleringer / ANT for kobling]
+
 ## 1. Innledning
 
 ### 1.1 Formål
