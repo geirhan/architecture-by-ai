@@ -210,6 +210,7 @@
     <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
     <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
     <li><a href="fremtidsscenarioer.html">Fremtidsscenarioer</a></li>
+    <li><a href="helsepersonellplan-2040.html">Helsepersonellplan 2040</a></li>
     <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
     <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
     <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
@@ -235,7 +236,7 @@ helsesektoren</h2>
 alternativ som ikke er besluttet. Den forutsetter en KI-tung retning som
 først kan velges når aksene er forankret. Materialet er arbeidsdokument,
 ikke beslutningsunderlag i nåværende fase. Se <a
-href="index.md#statusnivåer">statusnivåer</a>.</p>
+href="index.html#statusnivåer">statusnivåer</a>.</p>
 </blockquote>
 <hr />
 <h2 id="innledning">1. Innledning</h2>
@@ -277,6 +278,7 @@ vurdering av EHDS-koblingen gis i kapittel 6.</p>
 <p>Følgende prinsipper ligger til grunn for arkitekturen. De er
 forankret i Referansearkitektur for e-helse og tilpasset den spesifikke
 konteksten for KI-støttet kunnskapsforvaltning.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -333,6 +335,7 @@ teknologiplattform</td>
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="forretningslag-archimate-business-layer">3. Forretningslag
 (ArchiMate Business Layer)</h2>
@@ -375,6 +378,7 @@ mekanismer for eskalering til helsepersonell ved behov. Chatboten
 genererer aldri medisinske råd utover det som finnes i de godkjente
 kildene.</p>
 <h3 id="forretningsroller">3.2 Forretningsroller</h3>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -418,6 +422,7 @@ kanaler</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="forretningsobjekter">3.3 Forretningsobjekter</h3>
 <p>De sentrale informasjonsobjektene i verdikjeden er:</p>
 <ul>
@@ -447,6 +452,7 @@ realiserer forretningsprosessene.</p>
 Kunnskapssyntese-motor</h4>
 <p>KI-komponenten for automatisert litteraturgjennomgang og
 kunnskapssyntese.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -480,10 +486,12 @@ vitenskapelige databaser</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="komponent-2-retningslinjestøttesystem">Komponent 2:
 Retningslinjestøttesystem</h4>
 <p>Verktøy for KI-støttet utvikling og vedlikehold av nasjonale faglige
 retningslinjer.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -517,9 +525,11 @@ integrasjon med kunnskapssyntese-motoren</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="komponent-3-kunnskapsformidlingsplattform">Komponent 3:
 Kunnskapsformidlingsplattform</h4>
 <p>Plattform for publisering og distribusjon av verifisert kunnskap.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -552,10 +562,12 @@ støtte (norsk bokmål, nynorsk, samisk, engelsk), multiformat-publisering
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="komponent-4-innbygger-chatbot">Komponent 4:
 Innbygger-chatbot</h4>
 <p>Konversasjonsbasert grensesnitt for helseinformasjon til
 innbyggere.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -590,10 +602,12 @@ personalisering</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="komponent-5-kvalitetssikringsmodul">Komponent 5:
 Kvalitetssikringsmodul</h4>
 <p>Automatisert og semi-automatisert kvalitetskontroll av KI-generert
 innhold.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -626,9 +640,11 @@ regelbaserte sjekker for formatkonformitet</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="komponent-6-kunnskapsbase">Komponent 6: Kunnskapsbase</h4>
 <p>Strukturert lager for verifisert kunnskap som fungerer som den
 autoritative kilden for alle andre komponenter.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -661,9 +677,11 @@ Resources for strukturerte data</td>
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="integrasjoner">4.2 Integrasjoner</h3>
 <p>Komponentene integrerer med et bredt sett av interne og eksterne
 systemer:</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -716,6 +734,7 @@ Resources, CDS Hooks)</td>
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="teknologilag-archimate-technology-layer">5. Teknologilag
 (ArchiMate Technology Layer)</h2>
@@ -742,6 +761,7 @@ kryptering i hvile og under transport.</p>
 innenfor NHNs sikkerhetsarkitektur med definerte soner for
 internett-eksponerte tjenester, interne tjenester og data.</p>
 <h3 id="teknologistakk">5.2 Teknologistakk</h3>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -794,6 +814,7 @@ arkitektur</td>
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <h2 id="kobling-til-ehds">6. Kobling til EHDS</h2>
 <p>Arkitekturen er utformet med sikte på samsvar med EHDS-forordningen.
@@ -832,6 +853,7 @@ i kliniske beslutningsstøttesystemer</li>
 <h2 id="standarder-og-rammeverk">7. Standarder og rammeverk</h2>
 <p>Arkitekturen bygger på et bredt sett av standarder og rammeverk for å
 sikre interoperabilitet, kvalitet og regulatorisk samsvar.</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -883,6 +905,7 @@ Resources, CDS Hooks)</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Valg av standarder er gjort med tanke på samsvar med EHDS-krav og
 eksisterende norsk e-helsepraksis. WHO SMART Guidelines er særlig
 relevant fordi rammeverket gir en metodikk for å konvertere narrative
@@ -921,6 +944,7 @@ modeller</li>
 <h3 id="tilgangsstyring-og-roller">8.3 Tilgangsstyring og roller</h3>
 <p>Tilgangsstyring baseres på HelseID og rollebasert tilgangskontroll.
 Rollene følger forretningsrollene definert i kapittel 3.2:</p>
+<div class="table-wrapper">
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -955,6 +979,7 @@ Rollene følger forretningsrollene definert i kapittel 3.2:</p>
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="logging-sporbarhet-og-dataminimering">8.4 Logging, sporbarhet og
 dataminimering</h3>
 <p>Alle KI-operasjoner loggføres med full sporbarhet: hvilken modell som

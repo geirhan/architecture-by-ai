@@ -7,9 +7,37 @@ redigering), samt backuper tatt før slike operasjoner.
 
 Skriptene er dokumentasjon av hva som faktisk ble gjort,
 slik at en lignende endring kan reproduseres senere.
-De er ikke en del av en løpende byggepipeline.
+Unntaket er `generer_html.py`, som er et gjenbrukbart
+byggeskript som skal kjøres på nytt hver gang
+delrapportene endres.
 
 ## Filer
+
+### generer_html.py
+
+Gjenbrukbart byggeskript som regenererer hele
+HTML-versjonen av utredningen i `rapporter/html/`.
+Konverterer delrapportene fra markdown med pandoc,
+setter innholdet inn i `rapporter/html/template.html`,
+bygger identisk navigasjonsbar på alle sider, skriver
+om interne `.md`-lenker til `.html` og pakker tabeller
+i overflow-wrapper. Spesialsidene (forside,
+ledersammendrag, visualiseringer) regenereres ikke fra
+markdown, men får navigasjonsbaren oppdatert på plass.
+Nye delrapporter legges til i `SIDER`-listen i skriptet.
+
+Kjøres fra prosjektroten:
+`python3 skripts/generer_html.py` (krever pandoc).
+
+### lag_igoe_matrise_pptx.py
+
+Genererer `visualiseringer/igoe-aktormatrise.pptx`
+(6 lysbilder i Helsedirektoratets mal `HdirMal.pptx`)
+med aktørene som rader og verdikjedens seks prosesser
+(P1–P6) som kolonner, basert på delrapport 8
+(`aktoeranalyse.md`) kap. 5.2 og 5.3.
+
+Kjørt: 2026-06-10
 
 ### update_slide9.py
 

@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kildeforankring: Helsepersonellplan 2040 (Meld. St. 11 (2025–2026))</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Kildeforankring: Helsepersonellplan 2040 (Meld. St. 11 (2025–2026))</h1>
+  <p>Del av utredning om ny verdikjede for kunnskapsforvaltning i helsesektoren</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="fremtidsscenarioer.html">Fremtidsscenarioer</a></li>
+    <li><a href="helsepersonellplan-2040.html" class="active">Helsepersonellplan 2040</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="regulatorisk-etterslep.html">Regulatorisk etterslep</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="verdikjede-som-okosystem.html">Verdikjede som økosystem</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<blockquote>
+<p><strong>Status: Forankret.</strong> Notatet kobler konkrete
+formuleringer og tiltak i Meld. St. 11 (2025–2026)
+<em>Helsepersonellplan 2040</em> til utredningens begrepsapparat (R1–R6,
+aksene A1–A4, kjerneegenskapene, scenarioene) og til de enkelte
+delrapportene. Brukes som referanse i pågående arbeid. Se <a
+href="index.html#statusnivåer">statusnivåer</a>.</p>
+</blockquote>
+<p><strong>Utarbeidet:</strong> 2026-06-12 <strong>Gjelder:</strong>
+Hele utredningen, men særlig delrapport 4
+(<code>ny-verdikjede.md</code>), delrapport 9
+(<code>fremtidsscenarioer.md</code>), delrapport 2
+(<code>utfordringer-og-flaskehalser.md</code>), rolledelingsnotatet
+(<code>rolledeling-sentral-helseforvaltning.md</code>), casestudiene
+(<code>casestudier-forsinkelser.md</code>) og økosystemnotatet
+(<code>verdikjede-som-okosystem.md</code>). <strong>Formål:</strong>
+Forankre påstanden om at prosjektets grunnpremiss – behovet for en
+fornyet, KI-støttet verdikjede for kunnskapsforvaltning og en offentlig
+KI-tjeneste rettet mot innbyggerne – nå har fått eksplisitt politisk
+retning gjennom en stortingsmelding, og markere hvor dette er
+dokumentert ([DOK]) og hvor det er en analytisk slutning ([ANT]).</p>
+<hr />
+<h2 id="metodisk-forbehold">Metodisk forbehold</h2>
+<p>Meldingen er hentet som PDF fra regjeringen.no og konvertert til
+tekst med <code>pdftotext</code>. Sidetall viser til sidenummereringen i
+Meld. St. 11 (2025–2026) slik den står i PDF-en. Sitater er gjengitt
+ordrett og behandles som [DOK]; koblinger til utredningens begreper og
+delrapporter er analytiske slutninger og merkes [ANT].</p>
+<p><strong>Sentralt statusforbehold [DOK/ANT]:</strong> Dette er en
+<em>melding til Stortinget</em> lagt fram av regjeringen, ikke et
+stortingsvedtak eller bindende regelverk. Tilrådingen fra Helse- og
+omsorgsdepartementet er datert <strong>12. juni 2026</strong> og
+«<em>blir sendt Stortinget</em>» (s. 111) – meldingen er altså fremmet i
+statsråd, men ennå ikke stortingsbehandlet. En melding uttrykker
+regjeringens politiske retning og prioriteringer, men er ikke rettslig
+forpliktende. I utredningens dokumenter bør formuleringen være «lagt
+fram av regjeringen» / «regjeringen varsler», ikke «vedtatt». To
+gjennomgående finansieringsforbehold forsterker dette: tiltaket om en
+offentlig KI-tjeneste har et eksplisitt budsjettforbehold (Del 1), og
+planen legger generelt til grunn at «<em>omstillingen i hovedsak må
+gjennomføres innenfor gjeldende økonomiske rammer</em>» (kap. 10.3, s.
+110).</p>
+<hr />
+<h2 id="kort-konklusjon">Kort konklusjon</h2>
+<p>Helsepersonellplan 2040 treffer utredningen i kjernen og styrker
+premissene på fem måter:</p>
+<ol type="1">
+<li><strong>Den innbyggerrettede strømmen får politisk mandat.</strong>
+Kap. 7.2 varsler en «<em>trygg, offentlig KI-basert tjeneste</em>» som
+del av en digital førstelinje, tilgjengelig via Helsenorge. Dette er i
+praksis prosjektets eget formål. [DOK]</li>
+<li><strong>Den nye verdikjeden får retning.</strong> Kap. 8.3 varsler
+at Helsebiblioteket skal <em>utredes</em> videreutviklet til en
+«<em>offentlig infrastruktur for kunnskapsformidling</em>», og at KI gir
+muligheter for «<em>produksjon, oppsummering og mer målrettet formidling
+av kunnskap, tilpasset norske forhold</em>» – trinnene i KI-pipelinen i
+delrapport 4. [DOK]</li>
+<li><strong>Utfordringsbildet (R-rotårsakene) får ny offentlig
+empiri.</strong> FHIs kunnskapssøk (kun et mindretall av helsepersonell
+bruker evidensbaserte kunnskapsressurser regelmessig; tidsmangel som
+fremste barriere) og 60-30-10-utfordringen er siterbare primærkilder.
+[DOK]</li>
+<li><strong>Scenarioene får et politisk signal.</strong> Planen velger
+eksplisitt en offentlig orkestrert linje med kjøp i markedet, og advarer
+mot at sykehus utvikler egne løsninger – en bevegelse mot S1/S3 og et
+vern mot S4-drift. [ANT]</li>
+<li><strong>Rollebildet presiseres.</strong> Planen tildeler/bekrefter
+konkrete oppdrag til Hdir, FHI og NHN som justerer hypotesene H1–H3 i
+rolledelingsnotatet. Hdir får dessuten ansvar for en ny
+<em>personellmonitor</em> – en nasjonal kunnskapsinfrastruktur for
+styringsdata. [DOK for oppdrag, ANT for tolkning]</li>
+<li><strong>Spredning/implementering bekreftes som problem.</strong>
+Kap. 6 og 10.2.4 slår fast at utviklingsarbeid «<em>blir i for liten
+grad evaluert, dokumentert og spredt</em>», at «<em>endringstakten har
+vært for lav</em>», og at «<em>kunnskap må spres, tas i bruk i
+praksis</em>» – ekstern bekreftelse av implementerings- og
+spredningsgapet som er kjernen i utredningens problemforståelse.
+[DOK]</li>
+</ol>
+<p>Mandatene er reelle, men ikke rettslig bindende; det sentrale
+KI-tiltaket har budsjettforbehold, og planen forutsetter at omstillingen
+i hovedsak skjer innenfor gjeldende rammer.</p>
+<blockquote>
+<p><strong>Merknad om dekning.</strong> Notatet bygger på en fullstendig
+gjennomlesning av meldingen (kap. 1–10). Kap. 7 og 8 er mest direkte
+relevante (Del 1–2, 4); funn fra kap. 1, 3, 6 og 10 er samlet i Del
+6.</p>
+</blockquote>
+<hr />
+<h2
+id="del-1-kap.-7.2-offentlige-ki-helseråd-innbyggerrettet-strøm-og-økosystemlinsen">Del
+1 – Kap. 7.2 «Offentlige KI-helseråd» → innbyggerrettet strøm og
+økosystemlinsen</h2>
+<p><strong>Tiltak [DOK] (s. 84):</strong> Regjeringen vil «<em>etablere
+en trygg, offentlig KI-basert tjeneste som en del av den digitale
+førstelinjetjenesten. Gjennomføringen av tiltaket vil avhenge av
+budsjettmessig dekning i de årlige budsjettene. Tjenesten skal inngå som
+en sentral del av den digitale førstelinjen som tiltak for å møte
+mangelen på helsepersonell.</em>»</p>
+<p><strong>Sentrale formuleringer [DOK] (s. 83–84):</strong></p>
+<ul>
+<li>Innbyggerne søker helseinformasjon digitalt, «<em>ofte gjennom
+internasjonale KI-tjenester … Disse er ikke nødvendigvis
+kvalitetssikret, de er ikke tilpasset norske forhold og de kan være
+unøyaktige, misvisende eller i verste fall medisinsk
+uforsvarlige.</em>»</li>
+<li>En offentlig KI-tjeneste skal gi «<em>klare, forståelige og
+kvalitetssikrede råd</em>», fungere sammen med kjernejournal og
+reseptformidleren, og «<em>bidra til likeverdig tilgang til
+helseinformasjon og redusere risikoen for feilinformasjon</em>».</li>
+<li>«<em>Utviklingen av KI-tjenesten vil foregå i samarbeid med
+næringslivet og ved kjøp av kvalitetssikrede KI-løsninger i
+markedet.</em>»</li>
+<li>«<em>KI-tjenesten kan bygges ut trinnvis</em>» og «<em>vil være
+tilgjengelig gjennom Helsenorge, som det første digitale
+kontaktpunktet</em>».</li>
+</ul>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Kobling i utredningen</th>
+<th>Hvordan planen treffer</th>
+<th>Markering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Innbyggerrettet strøm (dp1 kap. 3, dp4)</td>
+<td>Tiltaket <em>er</em> en offentlig innbyggerrettet KI-tjeneste –
+kjernen i strømmen</td>
+<td>DOK (tiltak) / ANT (kobling)</td>
+</tr>
+<tr>
+<td>Økosystemlinsen (<code>verdikjede-som-okosystem.md</code>)</td>
+<td>Planen begrunner ordrett at offentlig verdikjede må konkurrere med
+ikke-kvalitetssikrede KI-kilder om innbyggerens oppmerksomhet</td>
+<td>DOK</td>
+</tr>
+<tr>
+<td>Alt 2/3 i dp4 (KI-støtte/KI-pipeline)</td>
+<td>«Kjøp i markedet» + «trinnvis utbygging» understøtter en
+faseinndelt, leverandørstøttet pipeline</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>Aksen «produksjonsstruktur» (dp2 kap. 9.7)</td>
+<td>Helsenorge som «første digitale kontaktpunkt» peker mot et sentralt
+orkestrert kontaktpunkt</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>Risiko (dp7)</td>
+<td>Budsjettforbeholdet er en konkret gjennomføringsrisiko som bør inn i
+risikomatrisen</td>
+<td>DOK (forbehold) / ANT (risikovurdering)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2
+id="del-2-kap.-8.3-kunnskaps--og-beslutningsstøtte-ny-verdikjede-og-normerendeklinisk-strøm">Del
+2 – Kap. 8.3 «Kunnskaps- og beslutningsstøtte» → ny verdikjede og
+normerende/klinisk strøm</h2>
+<p><strong>Sentrale formuleringer [DOK] (s. 93):</strong></p>
+<ul>
+<li>«<em>En nasjonal plattform for kunnskap og beslutningstøtte for
+helsepersonell i hele helse- og omsorgstjenesten kan bidra til at
+personellet raskere finner fram til pålitelig kunnskap.</em>»</li>
+<li>«<em>Kunstig intelligens gir nye muligheter for produksjon,
+oppsummering og mer målrettet formidling av kunnskap, tilpasset norske
+forhold. En videreutvikling av Helsebiblioteket til en nasjonal
+infrastruktur for kunnskapsformidling skal derfor utredes.</em>»</li>
+</ul>
+<p><strong>Tiltak [DOK] (s. 94):</strong> Regjeringen vil «<em>legge til
+rette for en trinnvis videreutvikling av Helsebiblioteket, inkludert
+Omsorgsbiblioteket, til en offentlig infrastruktur for
+kunnskapsformidling … der det utvikles løsninger som gir helsepersonell
+god beslutningsstøtte</em>», og «<em>videreutvikle
+kunnskapsstøttesystemet til Folkehelseinstituttet</em>» m.fl.</p>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Kobling i utredningen</th>
+<th>Hvordan planen treffer</th>
+<th>Markering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ny verdikjede (dp4), KI-pipeline</td>
+<td>«Produksjon, oppsummering, formidling» er trinnene i
+KI-pipelinen</td>
+<td>DOK (formulering) / ANT (kobling)</td>
+</tr>
+<tr>
+<td>Normerende + klinisk strøm (dp1/dp8)</td>
+<td>Plattform for beslutningsstøtte til helsepersonell treffer
+formidlingsleddet i begge strømmer</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>Aksen «produksjonsstruktur» (sentralisert)</td>
+<td>«Nasjonal plattform» / «nasjonal infrastruktur» peker mot et
+sentralt ledd</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>Aksen «KI-involvering»</td>
+<td>KI for produksjon/oppsummering/formidling er nettopp aksens høye
+ende</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>R2 (fragmentering), R4 (svak formidling/struktur)</td>
+<td>En nasjonal infrastruktur er et direkte mottiltak mot fragmentert
+kunnskapsformidling</td>
+<td>ANT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Forbehold [DOK]:</strong> Tiltaket er at dette «<em>skal …
+utredes</em>» og videreutvikles «<em>trinnvis</em>» – altså en
+utredningsbeslutning, ikke en etableringsbeslutning. Det styrker
+prosjektets <em>mandat til å utrede</em>, men foregriper ikke
+konklusjonen.</p>
+<hr />
+<h2 id="del-3-rollebildet-rolledelingsnotatet-h1h3">Del 3 – Rollebildet
+→ rolledelingsnotatet (H1–H3)</h2>
+<p>Planen tildeler og bekrefter konkrete oppdrag som justerer hypotesene
+i <code>rolledeling-sentral-helseforvaltning.md</code>:</p>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Aktør</th>
+<th>Oppdrag/rolle i planen [DOK]</th>
+<th>Side</th>
+<th>Kobling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Helsedirektoratet</td>
+<td>Gjennomgå og revidere normerende produkter; lede arbeid med god
+henvisningspraksis; forvalte «Kloke valg»-tilskudd; starte arbeid (2026)
+med digitale selvhjelps-/behandlingsverktøy; utvikle metoder for
+personellkonsekvenser i prioritering; <strong>ansvar for koordinering,
+drift og videreutvikling av personellmonitoren</strong>; forvalte
+omstillingstilskuddet; lede program for ansvars- og oppgavedeling</td>
+<td>67, 86, 92–94, 104–108</td>
+<td>H1, H3</td>
+</tr>
+<tr>
+<td>Folkehelseinstituttet</td>
+<td>Samlet ansvar for de lovbestemte nasjonale helseregistrene; strategi
+for helsedataområdet 2025–2027; kunnskapsstøttesystem og
+mini-metodevurdering for kommunene; evaluerer nettlege (m. Senter for
+e-helseforskning)</td>
+<td>85, 91, 93</td>
+<td>H1, H3</td>
+</tr>
+<tr>
+<td>Norsk helsenett SF</td>
+<td>Gjennomfører (m. Hdir) utprøving av nettlegeordning; digital
+samhandling og Helsenorge som plattform/kontaktpunkt</td>
+<td>84–85</td>
+<td>H2</td>
+</tr>
+<tr>
+<td>DFD</td>
+<td>Samordner digital omstilling i forvaltningen; to handlingsplaner
+(digital omstilling + økt KI-bruk i offentlig sektor)</td>
+<td>87–88</td>
+<td>(ny aktør)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tolkning [ANT]:</strong> Planen fordeler ansvar langs
+eksisterende linjer (Hdir = normerende/retning, FHI =
+kunnskapsoppsummering og registre, NHN = plattform/drift) uten å
+etablere ett samlet styringsmandat for verdikjeden. Dette er i tråd med
+– og forsterker – kunnskapshullet i rolledelingsnotatet om manglende
+helhetlig styringsmandat (H3).</p>
+<hr />
+<h2 id="del-4-ny-dok-empiri-til-utfordringsbildet-og-casestudiene">Del 4
+– Ny [DOK]-empiri til utfordringsbildet og casestudiene</h2>
+<p><strong>FHIs kunnskapssøk [DOK] (s. 93):</strong> «<em>Et
+kunnskapssøk gjennomført av Folkehelseinstituttet viste at kun et
+mindretall av helsepersonell bruker evidensbaserte kunnskapsressurser
+regelmessig i egen praksis, og tidsmangel ble oppgitt som den fremste
+barrieren.</em>» → Direkte belegg for reaktivitet og implementeringsgap
+(R-rotårsaker); bør inn i delrapport 2 og casestudiene.</p>
+<p><strong>60-30-10-utfordringen [DOK] (s. 94):</strong> «<em>… 60
+prosent av pasientbehandlingen er i tråd med faglige retningslinjer,
+mens 30 prosent har usikker verdi og 10 prosent er skadelig</em>»
+(Braithwaite et al. 2020, BMJ Medicine). → Sterk, siterbar kilde for
+implementeringsgapet i casestudiene og delrapport 2.</p>
+<p><strong>Spredning og implementering som erkjent svikt [DOK] (kap. 6,
+s. 72; kap. 10.2.4, s. 110):</strong> «<em>Utviklingsarbeid og
+pilotprosjekter blir i for liten grad evaluert, dokumentert og spredt,
+noe som hindrer at gode løsninger tas i bruk i større omfang.
+Endringstakten har vært for lav …</em>» og «<em>Kunnskap må spres, tas i
+bruk i praksis, i utdanning og av beslutningstakere … Tilgang til
+oppdatert kunnskap gjennom blant annet Helsebiblioteket, kan bidra til
+raskere implementering av ny kunnskap.</em>» → Dette er en ekstern,
+offentlig bekreftelse av selve kjernen i utredningens problemforståelse:
+gapet ligger ikke bare i <em>produksjon</em> av kunnskap, men i
+<em>spredning og implementering</em>. Treffer kjerneegenskapene
+skalerbarhet og reaktivitet og rotårsakene direkte.</p>
+<p><strong>Tallfestede gevinstanslag [DOK]</strong> (relevante fordi vi
+tidligere fjernet udokumenterte tallanslag fra dp1/2/4/7 – her finnes en
+offentlig primærkilde med tall, men knyttet til tidsbruk for
+helsepersonell, ikke til kunnskapsforvaltningens gjennomløpstider):</p>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Anslag</th>
+<th>Tall</th>
+<th>Side</th>
+<th>Kilde i meldingen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KI til journalskriving (psykisk helsevern)</td>
+<td>243–1 427 årsverk</td>
+<td>89</td>
+<td>Oslo Economics (2025)</td>
+</tr>
+<tr>
+<td>Digital samhandling, frigjort tid</td>
+<td>~300 årsverk (2030), ~2 000 årsverk (2040)</td>
+<td>90</td>
+<td>Hdirs nytte-/effektmål</td>
+</tr>
+<tr>
+<td>Automatisert datafangst til kvalitetsregistre</td>
+<td>68–260 årsverk</td>
+<td>91</td>
+<td>Oslo Economics (2025)</td>
+</tr>
+<tr>
+<td>Redusert overbehandling (1 % demping mot 2040)</td>
+<td>~1 700 årsverk</td>
+<td>95</td>
+<td>Meldingen / SKDE</td>
+</tr>
+<tr>
+<td>Veiledet internettbehandling (angst/depresjon)</td>
+<td>~halvert terapeuttid, &gt;50 % tilfriskning</td>
+<td>86</td>
+<td>FHI (2025), RCT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Forbehold [ANT]:</strong> Disse tallene gjelder <em>frigjort
+tid for helsepersonell</em>, ikke kunnskapsforvaltningens
+<em>gjennomløpstid</em> fra forskning til praksis. De bør siteres som
+dokumentasjon for KI-gevinstpotensial generelt, ikke som anslag for vår
+spesifikke verdikjede.</p>
+<hr />
+<h2 id="del-5-kobling-til-fremtidsscenarioene-dp9">Del 5 – Kobling til
+fremtidsscenarioene (dp9)</h2>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Scenarioakse / scenario</th>
+<th>Signal i planen</th>
+<th>Markering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Styringsregime (offentlig orkestrert ↔︎ marked)</td>
+<td>Offentlig tjeneste, men «<em>kjøp av kvalitetssikrede KI-løsninger i
+markedet</em>» – orkestrert offentlig styring av et
+leverandørmarked</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>Produksjonsstruktur (sentralisert ↔︎ desentralisert)</td>
+<td>«Nasjonal plattform», «nasjonal infrastruktur», Helsenorge som
+kontaktpunkt → sentraliserende</td>
+<td>ANT</td>
+</tr>
+<tr>
+<td>Vern mot S4 (Fragmentert flora)</td>
+<td>«<em>Sykehusene bør som hovedregel ikke utvikle egne løsninger der
+det finnes gode, kvalitetssikrede og konkurransedyktige løsninger i
+markedet</em>» (s. 88)</td>
+<td>DOK (formulering) / ANT (kobling)</td>
+</tr>
+<tr>
+<td>Samlet retning</td>
+<td>Planen peker mot S1 (Nasjonal motor) / S3 (Føderert økosystem), ikke
+S2/S4</td>
+<td>ANT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dette styrker dp9-funnet om at nullalternativet ikke er et stabilt
+hjørne, og at forskjellen S3/S4 er orkestrering – ikke teknologi. Planen
+er et eksplisitt orkestreringsgrep.</p>
+<hr />
+<h2 id="del-6-funn-fra-øvrige-kapitler-kap.-1-3-6-10">Del 6 – Funn fra
+øvrige kapitler (kap. 1, 3, 6, 10)</h2>
+<p>Etter en fullstendig gjennomlesning av meldingen er dette de øvrige
+funnene av betydning for utredningen, utover kap. 7–8.</p>
+<h3 id="rammen-bemanningsgap-og-ki-som-etterspørselsdemper">6.1 Rammen:
+bemanningsgap og KI som etterspørselsdemper</h3>
+<ul>
+<li><strong>Bemanningsgapet [DOK] (kap. 1.1, s. 11):</strong> SSB anslår
+at underskuddet for de modellerte helsepersonellgruppene øker fra
+«<em>om lag 9 900 årsverk i 2025 til 42 400 årsverk i 2040</em>». Dette
+er <em>hvorfor</em>-et bak hele planen.</li>
+<li><strong>To hovedspor [DOK] (kap. 3):</strong> øke tilbudet av
+arbeidskraft og <em>redusere etterspørselen</em>. KI, digitalisering,
+oppgavedeling og effektiv ressursbruk er plassert på etterspørselssiden,
+med et samlet effektpotensial anslått til «<em>17 300 årsverk</em>»
+(kap. 3, tabell 3.2, s. 29; ved årlig produktivitetsøkning 0,5–0,7
+%).</li>
+<li><strong>Kobling til utredningen [ANT]:</strong> Planen rammer altså
+inn KI i kunnskapsforvaltningen som et
+<em>bærekrafts-/personelltiltak</em>, ikke primært som et kvalitets-
+eller likeverdighetstiltak. Det gir et nytt, tungtveiende
+<em>hvorfor</em> for prosjektet som utredningen i dag i mindre grad
+vektlegger, og som bør speiles i ledersammendraget i dp7.</li>
+</ul>
+<h3
+id="personellmonitor-en-nasjonal-kunnskapsinfrastruktur-for-styringsdata">6.2
+Personellmonitor – en nasjonal kunnskapsinfrastruktur for
+styringsdata</h3>
+<ul>
+<li><strong>Tiltak [DOK] (kap. 10.2.1, s. 108):</strong> Regjeringen vil
+«<em>etablere en fast monitor for personellsituasjonen</em>» som skal
+«<em>samle, systematisere og tilgjengeliggjøre et oppdatert
+kunnskapsgrunnlag</em>». Helsedirektoratet får «<em>ansvar for
+koordinering drift og videreutvikling av monitoren</em>».</li>
+<li><strong>Kobling [ANT]:</strong> Dette er en <em>parallell</em>
+nasjonal kunnskapsinfrastruktur – på styrings-/personellsiden, ikke den
+kliniske kunnskapsforvaltningen. Den er likevel relevant som mønster
+(Hdir som nasjonal koordinator av en kunnskapsinfrastruktur, jf.
+Helsebibliotek-tiltaket i kap. 8.3) og treffer kjerneegenskapen
+<em>styrbarhet</em>. Bør nevnes i rolledelingsnotatet.</li>
+</ul>
+<h3 id="ansvars--og-oppgavedeling-og-normerende-produkter">6.3 Ansvars-
+og oppgavedeling og normerende produkter</h3>
+<ul>
+<li><strong>Kompetanse framfor profesjon [DOK] (kap. 6.1, s. 70; 10.1.3,
+s. 106):</strong> «<em>kompetansebaserte krav være hovedregelen framfor
+profesjonskrav</em>»; oppgaver «<em>løses på lavest effektive
+kompetansenivå</em>». Hdir skal utvikle en «<em>nasjonal veileder for
+analyse av arbeid … [som] tydeliggjør forventet praksis i sentrale
+pasientforløp</em>» (s. 72).</li>
+<li><strong>Kobling [ANT]:</strong> Endrer rammene for
+<em>innholdet</em> i normerende produkter (mindre profesjonsbinding) og
+knytter normering tett til arbeids-/oppgavedeling. Relevant for den
+normerende strømmen (dp1/dp8) og for kap. 8.1-tiltaket om revisjon av
+normerende produkter.</li>
+</ul>
+<h3 id="forskningsbasert-kunnskap-evaluering-og-implementering">6.4
+Forskningsbasert kunnskap, evaluering og implementering</h3>
+<ul>
+<li><strong>Implementeringsforskning [DOK] (kap. 10.2.4, s.
+110):</strong> «<em>Tiltakene bør følges av forskningsbaserte
+evalueringer … om hva som fremmer og hemmer god implementering.</em>»
+Sammen med kap. 6 (s. 72) om at utviklingsarbeid «<em>i for liten grad
+evalueres, dokumenteres og spres</em>» gir dette ekstern bekreftelse på
+spredningsgapet (jf. Del 4).</li>
+<li><strong>Kobling [ANT]:</strong> Understøtter dp4s vekt på
+governance, evaluerings- og kvalitetssikringsprosess, og dp7s
+evalueringsplan.</li>
+</ul>
+<h3 id="hva-planen-ikke-dekker-avgrensning">6.5 Hva planen <em>ikke</em>
+dekker (avgrensning)</h3>
+<ul>
+<li>Meldingen drøfter <strong>ikke</strong> EHDS eller EU AI Act, og
+dermed ikke samspillet mellom en offentlig KI-helsetjeneste og
+høyrisiko-klassifisering under AI Act (jf. <a
+href="regulatorisk-etterslep.html">regulatorisk-etterslep.md</a>).</li>
+<li>Den behandler <strong>ikke</strong> kunnskapsforvaltningens
+<em>gjennomløpstid</em> fra forskning til praksis som eget tema – fokus
+er personellbruk og tidsbruk <em>i</em> tjenesten.</li>
+<li>Lønn er eksplisitt holdt utenfor (kap. 1.1, s. 12).</li>
+</ul>
+<hr />
+<h2 id="hvor-påvirker-planen-hvilke-dokumenter-oppsummering">Hvor
+påvirker planen hvilke dokumenter? (oppsummering)</h2>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dokument</th>
+<th>Status før</th>
+<th>Anbefalt oppfølging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ny-verdikjede.md</code> (dp4)</td>
+<td>Utforskende</td>
+<td>Legg til avsnitt om politisk forankring (7.2 + 8.3); vurder
+oppgradering mot «under forankring»</td>
+</tr>
+<tr>
+<td><code>fremtidsscenarioer.md</code> (dp9)</td>
+<td>Utforskende</td>
+<td>Legg til at planen gir et politisk signal mot S1/S3 og vern mot
+S4</td>
+</tr>
+<tr>
+<td><code>utfordringer-og-flaskehalser.md</code> (dp2)</td>
+<td>Under forankring</td>
+<td>Innarbeid FHIs kunnskapssøk + 60-30-10 som [DOK] til
+R-rotårsakene</td>
+</tr>
+<tr>
+<td><code>casestudier-forsinkelser.md</code></td>
+<td>Forankret</td>
+<td>Legg til 60-30-10 og FHIs kunnskapssøk som tilleggsbelegg for
+implementeringsgap</td>
+</tr>
+<tr>
+<td><code>verdikjede-som-okosystem.md</code></td>
+<td>Under forankring</td>
+<td>7.2 begrunner ordrett konkurransen om innbyggerens
+oppmerksomhet</td>
+</tr>
+<tr>
+<td><code>rolledeling-sentral-helseforvaltning.md</code></td>
+<td>Under forankring</td>
+<td>Oppdater H1–H3 med planens oppdragsfordeling (Del 3)</td>
+</tr>
+<tr>
+<td><code>samlet-vurdering-kunnskapsforvaltning.md</code> (dp7)</td>
+<td>Utforskende</td>
+<td>Budsjettforbehold inn i risikobildet; politisk forankring i
+ledersammendrag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2 id="kunnskapsgap-og-forbehold">Kunnskapsgap og forbehold</h2>
+<ol type="1">
+<li><strong>Melding, ikke vedtak.</strong> Stortingets behandling og
+eventuelle merknader er ikke kjent. Status kan endres i behandlingen.
+[DOK]</li>
+<li><strong>Budsjettforbehold.</strong> Den offentlige KI-tjenesten
+avhenger av «<em>budsjettmessig dekning i de årlige budsjettene</em>» –
+ikke en finansieringsgaranti. [DOK]</li>
+<li><strong>Utredning, ikke etablering, for
+Helsebibliotek-tiltaket.</strong> Tiltaket er at videreutvikling
+«<em>skal utredes</em>»; konklusjonen er ikke gitt. [DOK]</li>
+<li><strong>Tallanslag gjelder helsepersonells tidsbruk</strong>, ikke
+verdikjedens gjennomløpstid – må ikke overføres ukritisk. [ANT]</li>
+<li><strong>Hele meldingen (kap. 1–10) er gjennomgått.</strong> Kap. 7–8
+er mest direkte relevante; kap. 1, 3, 6 og 10 er dekket i Del 6. Kap. 2
+(bemanningsframskrivinger), 4 (arbeidsliv), 5 (utdanning) og 9 (bygg) er
+vurdert som lite direkte relevante for kunnskapsforvaltningen og er ikke
+detaljert gjengitt.</li>
+<li><strong>Forholdet til EHDS/EU AI Act</strong> (jf.
+<code>regulatorisk-etterslep.md</code>) er ikke drøftet i meldingen –
+samspillet mellom nasjonal KI-tjeneste og AI Act-krav
+(høyrisiko-klassifisering ved individuelle helseråd) bør avklares
+separat.</li>
+</ol>
+<hr />
+<h2 id="kilder">Kilder</h2>
+<ol type="1">
+<li><strong>Meld. St. 11 (2025–2026)</strong> – <em>Helsepersonellplan
+2040</em>. Helse- og omsorgsdepartementet (tilråding 12. juni 2026).
+Hele meldingen er gjennomgått; mest sentralt er kap. 7 (Digitalisering
+og kunstig intelligens, s. 82–91), kap. 8 (Effektiv ressursbruk og
+prioritering, s. 92–95), samt kap. 1, 3, 6 og 10.
+https://www.regjeringen.no/contentassets/6d2ec1946c744942a24cb528ca666ae0/no/pdfs/stm202520260011000dddpdfs.pdf</li>
+<li><strong>Braithwaite et al. (2020)</strong> – <em>The three numbers
+you need to know about health care: the 60-30-10 challenge.</em> BMJ
+Medicine (sitert i meldingen kap. 8.4).</li>
+<li><strong>Oslo Economics (2025)</strong> – <em>Effekten av å fjerne
+tidstyver i sykehus</em> (sitert i meldingen kap. 7.5 og 7.7).</li>
+<li><strong>Folkehelseinstituttet (2025)</strong> – <em>Evaluering av
+veiledet internettbehandling ved Rask psykisk helsehjelp</em> (sitert i
+meldingen kap. 7.5).</li>
+<li><strong>Meld. St. 21 (2024–2025)</strong> – <em>Helse for alle.
+Rettferdig prioritering i vår felles helsetjeneste</em> (referert i kap.
+8.2).</li>
+<li><strong>NOU 2023: 4</strong> – <em>Tid for handling. Personellet i
+en bærekraftig helse- og omsorgstjeneste</em> (kunnskapsgrunnlag, kap.
+1.2).</li>
+<li><strong>Vår helse 2030</strong> – regjeringens mål- og visjonsramme
+(referert i kap. 7.6 og 10).</li>
+</ol>
+<hr />
+<h2 id="endringslogg">Endringslogg</h2>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Endring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-06-12</td>
+<td>Notat opprettet (basert på kap. 7 og 8). Kobler Meld. St. 11
+(2025–2026) Helsepersonellplan 2040 til R1–R6, aksene, scenarioene og
+delrapportene. Hovedfunn: kap. 7.2 (offentlig KI-tjeneste) og kap. 8.3
+(Helsebibliotek som nasjonal kunnskapsinfrastruktur) gir politisk
+retning til hhv. innbyggerstrømmen og den nye verdikjeden; ny
+[DOK]-empiri (FHIs kunnskapssøk, 60-30-10). Statusforbehold: melding,
+ikke vedtak; budsjettforbehold på KI-tiltaket.</td>
+</tr>
+<tr>
+<td>2026-06-12</td>
+<td>Utvidet etter fullstendig gjennomlesning av hele meldingen (kap.
+1–10). Lagt til Del 6 med funn fra kap. 1 (bemanningsgap 9 900→42 400
+årsverk; KI som etterspørselsdemper, 17 300 årsverk), kap. 6 (kompetanse
+framfor profesjon; normerende veileder; spredningsgap), kap. 10.2.1
+(personellmonitor, Hdir-ansvar) og kap. 10.2.4
+(implementeringsforskning). Presisert statusforbehold med tilrådingsdato
+12.6.2026 og rammeforbeholdet i kap. 10.3. Lagt til kilder (NOU 2023:4,
+Vår helse 2030).</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>
