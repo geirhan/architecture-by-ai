@@ -679,9 +679,7 @@ reduserer faktisk bruk.</li>
 <li><strong>Lang behandlingstid</strong>: Prosessen fra
 retningslinjeinkludering til forhåndsgodkjent refusjon kan ta flere år.
 Diabetes-casen viser at det tok nesten 8 år fra EMPA-REG-studien
-<ol start="2015" type="1">
-<li>til forhåndsgodkjent refusjon for SGLT2-hemmere (2023).</li>
-</ol></li>
+(2015) til forhåndsgodkjent refusjon for SGLT2-hemmere (2023).</li>
 <li><strong>Fragmentert beslutningskjede</strong>: Beslutninger om
 refusjon tas av et annet organ enn det som utvikler retningslinjer, uten
 systematisk koordinering av tidslinjene.</li>
@@ -1266,6 +1264,21 @@ gjør automatisert videreforedling og sporbarhet vanskelig (kap.
 </ul>
 <p><strong>Forklarer flaskehalsene</strong>: 1 (foreldelse i
 retningslinjeprosessen), 7 (manglende strukturerte data).</p>
+<p><strong>Presisering (2026-08-04)</strong>: R2 gjelder ikke fravær av
+struktur i alle ledd. Helsedirektoratets nasjonale faglige
+retningslinjer har allerede anbefalingsnivå-struktur med PICO som egen
+innholdstype, metadatafelt med kliniske koder (SNOMED CT, ICD-10,
+ICPC-2) og åpent API, og PICO/GRADE brukes metodisk i utviklingen
+(IS-1870). <strong>[DOK]</strong> Det presise gapet er at
+<em>evidenskjeden bak anbefalingen</em> (PICO → utfall →
+GRADE-vurdering) publiseres som prosa og PDF-evidensprofiler — ikke som
+terminologibundne, strukturerte data — og at struktureringen ikke er
+konsistent på tvers av produkttyper og verdikjedens øvrige ledd
+(FHI-oversikter, Helsebiblioteket, innbyggerinnhold).
+<strong>[ANT]</strong> Dette er normalpraksis internasjonalt, ikke et
+særnorsk etterslep. Se <a
+href="metadatastrukturer-evidenskjeden.md">metadatastrukturer-evidenskjeden.md</a>
+for kildegrunnlag og konkrete eksempler (diabetes-retningslinjen).</p>
 <h4 id="r3-kapasitet-skalerer-ikke-med-forskningsvolum">R3: Kapasitet
 skalerer ikke med forskningsvolum</h4>
 <p><strong>Beskrivelse</strong>: Manuell screening, kvalitetsvurdering
@@ -1802,7 +1815,7 @@ og i hvilken rekkefølge, er gjenstand for utredning i delrapport 4 og 7.
 Aksene legger til rette for den utredningen; de gir ikke svar på
 den.</p>
 <hr />
-<p>Sist oppdatert: 2026-05-29</p>
+<p>Sist oppdatert: 2026-08-04</p>
 <h2 id="endringslogg">Endringslogg</h2>
 <div class="table-wrapper">
 <table>
@@ -1844,6 +1857,17 @@ Riksrevisjonen (utført 2026-05-27) bekreftet at ingen aggregerte tall
 for prosessvarighet eller produksjonskapasitet publiseres. Dette løftet
 fra parentetisk kildeforbehold til eksplisitt empirisk evidens for
 R6.</td>
+</tr>
+<tr>
+<td>2026-08-04</td>
+<td>R2 (kap. 9.2) presisert: kildesøk (dokumentert i
+<code>metadatastrukturer-evidenskjeden.md</code>) viste at Hdirs
+retningslinjer allerede har PICO-innholdstype, SNOMED CT-metadata og
+åpent API — R2-gapet er presisert til å gjelde evidenskjeden bak
+anbefalingen (PICO → utfall → GRADE publiseres som prosa/PDF, ikke
+terminologibundne data) og manglende konsistens på tvers av ledd.
+Karakteristikken «fritekst» uten forbehold var for kategorisk for
+retningslinjeleddet.</td>
 </tr>
 </tbody>
 </table>

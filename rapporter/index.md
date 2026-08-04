@@ -64,7 +64,14 @@ modnes.
   Udokumenterte tidsanslag (2–3 år, 6–12 mnd, 12–24
   mnd m.fl.) er fjernet 2026-05-27 og erstattet med
   case-baserte tall eller kvalitative formuleringer.
-- **Sist oppdatert**: 2026-05-27
+  R2 (kap. 9.2) presisert 2026-08-04: gapet gjelder
+  evidenskjeden bak anbefalingen (PICO → utfall →
+  GRADE som prosa/PDF) og manglende konsistens på
+  tvers av ledd — ikke fravær av struktur i
+  Hdir-retningslinjene, som allerede har
+  PICO-innholdstype, SNOMED CT-metadata og åpent API
+  (jf. `metadatastrukturer-evidenskjeden.md`).
+- **Sist oppdatert**: 2026-08-04
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
@@ -336,6 +343,144 @@ modnes.
   Ment som dialogdokument, ikke endring i Kims
   pptx-fil.
 - **Sist oppdatert**: 2026-05-29
+
+### [Kunnskapsgrunnlag: Teknisk infrastruktur, standarder og datamodeller](teknisk-infrastruktur-standarder.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Bredt kunnskapsinnhentingsnotat om tekniske
+  byggeklosser for en modernisert kunnskapskjede, til støtte for R4
+  (fragmentert IT-landskap/kodeverk) og R2 (pre-digital kjede). Dekker
+  maskinlesbare retningslinjer (CPG-on-FHIR, CQL, WHO SMART Guidelines
+  L1–L4, Arden/CDS Hooks, EBMonFHIR), kunnskapsrepresentasjon og
+  terminologi (SNOMED CT, ICD-10/11, ICPC-2, ATC, ontologier/
+  kunnskapsgrafer), kobling til EHDS (konklusjon: svak/indirekte kobling
+  til kunnskapsprodukter — bekrefter og utdyper
+  `regulatorisk-etterslep.md`), nasjonale byggeklosser (Helsebiblioteket
+  jf. Meld. St. 11 kap. 8.3, Helsenorge, kjernejournal, Felles
+  språk/SNOMED CT, NHN-plattformtjenester, HelseID), RAG-/
+  LLM-arkitekturer over kvalitetssikret innhold (sentralt funn: DFDs
+  rapport "Fra ord til økosystem" sep. 2025 sier det er for tidlig å
+  avgjøre om RAG+LLM er modent nok for norsk helsetjeneste), og EU AI
+  Act/MDR-implikasjoner (høyrisikoklassifisering, MDCG 2019-11 Rule 11,
+  samspill AI Act/MDR). 11 kunnskapsgap identifisert. Alle utsagn merket
+  [DOK]/[ANT]. Basert på tre parallelle systematiske kunnskapsinnhentinger
+  2026-08-03; ikke ferdig kvalitetssikret på linje med forankrede
+  delrapporter.
+- **Sist oppdatert**: 2026-08-03
+
+### [Løsningsretninger for ny kunnskapsforvaltning — bred kartlegging](losningsretninger-bred-kartlegging.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Syntesenotat fra fem parallelle
+  kunnskapsinnhentinger (2026-08-03) som åpner
+  løsningsrommet før alternativer velges. Identifiserer
+  ti løsningsretninger i fire grupper (organisering av
+  kunnskapsproduksjonen, teknologi/metodikk,
+  styring/insentiver, innbyggerrettet tjeneste og
+  feedback) med dekningsmatrise mot rotårsakene R1–R6
+  og kobling til aksene. Tre tverrgående funn: ingen
+  enkeltretning dekker alle rotårsaker;
+  leverandørpåstander om KI-ytelse spriker systematisk
+  fra uavhengige evalueringer; bærekraftig finansiering
+  og mandat er vanligste internasjonale dødsårsak.
+  Peker på implikasjoner for revisjon av delrapport 4
+  og fem tverrgående kunnskapsgap. Bygger på fem
+  underlagsnotater (se under).
+- **Sist oppdatert**: 2026-08-03
+
+### [Kunnskapsinnhenting: Internasjonale organisasjons- og prosessmodeller](kunnskapsinnhenting-organisasjonsmodeller.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Underlagsnotat om internasjonale
+  organisasjonsmodeller for nasjonal kunnskapsforvaltning,
+  bredere enn delrapport 6: MAGIC/MAGICapp og living
+  guidelines (ALEC, BMJ Rapid Recommendations),
+  institutt- og føderasjonsmodeller (AWMF, Kennisinstituut,
+  SIGN, AHRQ/EPC, USPSTF, danske NKR→NKA og nytt
+  kvalitetsinstitut), internasjonal gjenbruk (ADAPTE,
+  GRADE-ADOLOPMENT) og tverrgående sammenligning
+  sentralisert↔føderert. Relevansmatrise mot R1–R6.
+  Nytt pkt. 1.1.1: registerdata, regnskapstall (2025)
+  og finansieringskilder for MAGIC-stiftelsen
+  (org.nr. 820911822) fra Brønnøysundregistrene og
+  stiftelsens årsrapport 2024 — inkl. dokumenterte
+  norske koblinger (Forskningsrådet/REMEDY, Helse
+  Sør-Øst/E3, Norsk revmatologisk forening);
+  kunnskapsgap 4 delvis lukket. Alle utsagn merket
+  [DOK]/[ANT] med kildelenker.
+- **Sist oppdatert**: 2026-08-03
+
+### [Kunnskapsinnhenting: KI-/LLM-verktøy for evidenssyntese](kunnskapsinnhenting-ki-verktoy-evidenssyntese.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Underlagsnotat om KI-verktøy for
+  systematiske oversikter (Elicit, Covidence, RobotReviewer
+  m.fl.), kunnskapsoppslagstjenester (OpenEvidence,
+  UpToDate Expert AI, Glass Health), living
+  evidence-plattformer (Epistemonikos/L·OVE) og
+  myndighetsposisjoner (WHO, NICE, FDA, EU AI Act).
+  Sentralt funn: systematisk sprik mellom leverandørtall og
+  uavhengige evalueringer; tittel/abstrakt-screening moden i
+  human-in-the-loop, fulltekst-screening og GRADE umodne.
+  GRADE-kunnskapshullet (§5.2) presisert 2026-08-04 med
+  strukturell forklaring (GRADE-data publiseres ikke
+  strukturert noe sted, jf.
+  `metadatastrukturer-evidenskjeden.md`).
+  Alle utsagn merket [DOK]/[ANT]; ni kunnskapsgap.
+- **Sist oppdatert**: 2026-08-04
+
+### [Kunnskapsinnhenting: Styrings- og organiseringsmodeller](kunnskapsinnhenting-styringsmodeller.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Underlagsnotat om styringsmodeller for en
+  nasjonal kunnskaps-/KI-tjeneste, rettet mot R1 og R5:
+  felleskomponent-/plattformmodeller (Digdir, Skate,
+  GaaP/Estland), offentlig-privat samarbeid (NHS AI Award,
+  innovasjonspartnerskap, Helseplattformen som
+  lock-in-case), orkestreringsordninger (DiGA, NHS
+  DTAC, NICE ESF), insentivmodeller (P4P/KBF/ISF-empiri,
+  dansk «comply or explain») og mandatpresedenser
+  (Samfunnssikkerhetsinstruksen, svensk kunskapsstyrning,
+  NICE). Alle utsagn merket [DOK]/[ANT]; syv kunnskapsgap.
+- **Sist oppdatert**: 2026-08-03
+
+### [Kunnskapsinnhenting: Innbyggerrettet formidling og feedback-sløyfer](kunnskapsinnhenting-innbyggerrettet-formidling.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Underlagsnotat om innbyggerrettet
+  KI-formidling og feedback (R6): Helsedirektoratets egen
+  skisserte KI-tjeneste (tre tjenestenivåer, RAG mot
+  Helsenorge/Helsebiblioteket/FHI), internasjonale case
+  (NHS 111/KI-triage, Singapore HealthHub AI, Estland,
+  Danmark), personalisering under EHDS/GDPR
+  (primær-/sekundærbruk), kvalitetssikring
+  (guardrails, red-teaming med multi-turn-testing) og
+  learning health systems. Sentralt funn: ingen dokumentert
+  internasjonal modell for sløyfen chatbot-bruk →
+  kunnskapsproduksjon. Alle utsagn merket [DOK]/[ANT];
+  seks kunnskapsgap.
+- **Sist oppdatert**: 2026-08-03
+
+### [Metadatastrukturer i evidenskjeden](metadatastrukturer-evidenskjeden.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Kunnskapsnotat om metadatastrukturene
+  som må til for automatiserbar kvalitetsvurdering: PICO
+  som koblingspunkt, dagens norske status (PICO brukes
+  metodisk per IS-1870 og finnes som innholdstype i
+  Helsedirektoratets publiseringsmodell/API, med konkrete
+  eksempler fra diabetes-retningslinjen — men
+  evidensprofiler ligger som PDF), øvrige strukturer i
+  kjeden (COS, RoB 2, GRADE/GRADEpro, EBMonFHIR,
+  CPG-on-FHIR, AGREE II, terminologier) og et
+  modenhetskart over faktisk bruksgrad. Hovedfunn:
+  strukturert metodikk men ustrukturert publisering i
+  kvalitetsvurderingsleddet — internasjonalt, ikke bare i
+  Norge; ingen er foran. Innebærer presisering av R2 og
+  styrket startpunkt for retning B2. Fem kunnskapsgap,
+  inkl. uverifisert innhold i API-ets PICO-objekter.
+  Alle utsagn merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-08-04
 
 ### [HTML-versjon](html/index.html)
 

@@ -295,3 +295,25 @@
   (dp2 kap. 9.7), kjerneegenskapene
   (dp2 kap. 2.3) og økosystemnotatet.
 - **Sist oppdatert**: 2026-06-01
+
+### losningsrommet.html
+
+- **Beskrivelse**: Grafisk fremstilling av
+  løsningsrommet fra den brede kartleggingen av
+  løsningsretninger. Viser de ti retningene i fire
+  fargekodede grupper (A organisering av
+  kunnskapsproduksjonen, B teknologi/metodikk,
+  C styring/insentiver, D innbyggerrettet
+  tjeneste/feedback) som kort med internasjonale
+  eksempler, dekningsmatrise retning × rotårsak
+  (R1–R6, ●/◐), og kombinasjonslogikken (minst én
+  retning fra hver gruppe; eksempel på nøkternt
+  startpunkt C1+A2+B4 med påbygging), inkl. tre
+  advarsler fra empirien (A/B uten C = «teknisk
+  suksess, institusjonell død»; C uten A/B løser
+  ikke kapasitet/format; KI uten uavhengig
+  validering). Status Utforskende. Basert på
+  `rapporter/losningsretninger-bred-kartlegging.md`
+  med fem underlagsnotater; dekningsmatrisen er
+  merket [ANT].
+- **Sist oppdatert**: 2026-08-03

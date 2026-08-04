@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Løsningsrommet — ti retninger for ny kunnskapsforvaltning</title>
+<style>
+  :root {
+    --gruppeA: #2563EB;
+    --gruppeB: #0D9488;
+    --gruppeC: #B45309;
+    --gruppeD: #7C3AED;
+    --ink: #333;
+    --ink2: #5a5a5a;
+    --header: #003366;
+    --line: #e2e2de;
+    --surface: #fcfcfb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--surface);
+    line-height: 1.7;
+  }
+  header {
+    background: var(--header);
+    color: #fff;
+    padding: 28px 20px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  header .wrap { padding: 0 20px; }
+  header h1 { font-size: 1.5rem; line-height: 1.3; }
+  header p { margin-top: 8px; font-size: 0.92rem; opacity: 0.92; max-width: 72ch; }
+  header a { color: #cfe0f5; }
+  main { padding: 28px 0 48px; }
+  h2 { font-size: 1.18rem; margin: 36px 0 6px; color: var(--header); }
+  .lead { color: var(--ink2); font-size: 0.93rem; max-width: 78ch; margin-bottom: 16px; }
+
+  /* Grupper og kort */
+  .gruppe { margin-top: 22px; border-left: 5px solid; border-radius: 4px;
+            background: #fff; border-top: 1px solid var(--line);
+            border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            padding: 14px 16px; }
+  .gruppe h3 { font-size: 1rem; display: flex; align-items: baseline; gap: 8px; }
+  .gruppe h3 .tag { font-size: 0.78rem; font-weight: 700; padding: 1px 8px;
+                    border-radius: 10px; color: #fff; }
+  .gruppe .rot { font-size: 0.8rem; color: var(--ink2); margin-bottom: 10px; }
+  .gA { border-left-color: var(--gruppeA); } .gA .tag { background: var(--gruppeA); }
+  .gB { border-left-color: var(--gruppeB); } .gB .tag { background: var(--gruppeB); }
+  .gC { border-left-color: var(--gruppeC); } .gC .tag { background: var(--gruppeC); }
+  .gD { border-left-color: var(--gruppeD); } .gD .tag { background: var(--gruppeD); }
+  .kort { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .retning { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px;
+             background: var(--surface); }
+  .retning b { font-size: 0.9rem; display: block; margin-bottom: 3px; }
+  .retning p { font-size: 0.83rem; color: var(--ink2); }
+  .retning .eks { font-size: 0.78rem; color: var(--ink2); margin-top: 6px; font-style: italic; }
+
+  /* Matrise */
+  .tabellramme { overflow-x: auto; margin-top: 14px; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; background: #fff;
+          font-size: 0.85rem; }
+  th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: center; }
+  th { background: #f0f2f5; color: var(--header); font-size: 0.8rem; }
+  td.navn { text-align: left; white-space: nowrap; font-weight: 600; font-size: 0.82rem; }
+  td.navn .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+                 margin-right: 6px; }
+  .full { font-weight: 700; }
+  .delv { color: var(--ink2); }
+  .legende { font-size: 0.8rem; color: var(--ink2); margin-top: 8px; }
+
+  /* Kombinasjonslogikk */
+  .kombi { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; margin-top: 14px; }
+  .kombi .boks { flex: 1 1 180px; border: 2px solid; border-radius: 8px; padding: 10px 12px;
+                 background: #fff; font-size: 0.83rem; }
+  .kombi .boks b { display: block; font-size: 0.88rem; margin-bottom: 2px; }
+  .kombi .pluss { align-self: center; font-size: 1.3rem; color: var(--ink2); font-weight: 700; }
+  .bA { border-color: var(--gruppeA); } .bB { border-color: var(--gruppeB); }
+  .bC { border-color: var(--gruppeC); } .bD { border-color: var(--gruppeD); }
+  .maal { flex: 1 1 200px; border: 2px solid var(--header); border-radius: 8px;
+          padding: 10px 12px; background: #eef2f7; font-size: 0.83rem; }
+  .advarsel { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+  .advarsel div { border: 1px solid var(--line); border-left: 4px solid #8a8a86;
+                  border-radius: 4px; padding: 10px 12px; font-size: 0.83rem;
+                  background: #fff; color: var(--ink2); }
+  .advarsel b { color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 16px 0 30px;
+           font-size: 0.8rem; color: var(--ink2); }
+  @media print {
+    header { background: #fff !important; color: var(--header); border-bottom: 3px solid var(--header); }
+    header a { color: var(--header); }
+    .retning, .gruppe, .kombi .boks { break-inside: avoid; }
+  }
+  @media (prefers-color-scheme: dark) {
+    /* Bevisst lys profil beholdes for konsistens med øvrige visualiseringer i prosjektet */
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Løsningsrommet: ti retninger for ny kunnskapsforvaltning</h1>
+    <p>Grafisk fremstilling av den brede kartleggingen av løsningsretninger.
+       Basert på <strong>rapporter/losningsretninger-bred-kartlegging.md</strong>
+       (med fem underlagsnotater) og begrepsapparatet i delrapport 2
+       (rotårsaker R1–R6, akser). Status: <strong>Utforskende</strong> —
+       foregriper ikke beslutninger. Sist oppdatert 2026-08-03.</p>
+  </div>
+</header>
+<main>
+<div class="wrap">
+
+  <h2>Fire grupper, ti retninger</h2>
+  <p class="lead">Retningene er byggeklosser som kan kombineres på tvers av
+     delrapport 4s alternativer — ikke gjensidig utelukkende valg.</p>
+
+  <div class="gruppe gA">
+    <h3><span class="tag">A</span> Organisering av kunnskapsproduksjonen</h3>
+    <div class="rot">Svarer mest på R3 (kapasitet) og R2 (pre-digital design)</div>
+    <div class="kort">
+      <div class="retning"><b>A1 · Living guidelines</b>
+        <p>Kontinuerlig oppdatering på anbefalingsnivå i strukturert format, med hurtigspor for praksisendrende funn.</p>
+        <div class="eks">MAGIC/MAGICapp, ALEC (Australia), BMJ Rapid Recommendations</div></div>
+      <div class="retning"><b>A2 · Internasjonal gjenbruk</b>
+        <p>Adopter–adapter–utvikle per anbefaling fremfor de novo-produksjon.</p>
+        <div class="eks">GRADE-ADOLOPMENT, ADAPTE</div></div>
+      <div class="retning"><b>A3 · Sentral metodestøtte</b>
+        <p>Permanent enhet leverer søk/GRADE/skrivestøtte; fagmiljøene eier innholdet. Variant: bestiller–utfører.</p>
+        <div class="eks">Kennisinstituut (NL), AHRQ/EPC (USA)</div></div>
+      <div class="retning"><b>A4 · Redusert produktbredde</b>
+        <p>Smalere, avgrensede anbefalinger for å holde tritt med kapasiteten.</p>
+        <div class="eks">Danmark: NKR → NKA</div></div>
+    </div>
+  </div>
+
+  <div class="gruppe gB">
+    <h3><span class="tag">B</span> Teknologi og metodikk</h3>
+    <div class="rot">Svarer mest på R2, R3 og R4 (fragmentert IT/kodeverk)</div>
+    <div class="kort">
+      <div class="retning"><b>B1 · KI-støttet evidenssyntese</b>
+        <p>LLM-screening og utkaststøtte med menneske i loopen. Krever uavhengig validering — leverandørtall spriker fra målte resultater.</p>
+        <div class="eks">Cochrane-piloter, RobotReviewer</div></div>
+      <div class="retning"><b>B2 · Maskinlesbar infrastruktur</b>
+        <p>Retningslinjer som beregnbart innhold; norsk terminologi som byggekloss.</p>
+        <div class="eks">CPG-on-FHIR, WHO SMART, SNOMED CT/Felles språk</div></div>
+      <div class="retning"><b>B3 · KI-lag på kuratert base</b>
+        <p>Generative svar kun fra kvalitetssikret kunnskapsbase, med sporbarhet.</p>
+        <div class="eks">UpToDate Expert AI-mønsteret</div></div>
+      <div class="retning"><b>B4 · Automatisert evidensovervåking</b>
+        <p>Kontinuerlig overvåking av ny forskning med varsling til retningslinjeeiere. Forutsetning for A1.</p>
+        <div class="eks">Epistemonikos / L·OVE</div></div>
+    </div>
+  </div>
+
+  <div class="gruppe gC">
+    <h3><span class="tag">C</span> Styring og insentiver</h3>
+    <div class="rot">Svarer på R1 (styringsmandat) og R5 (implementeringsinsentiver)</div>
+    <div class="kort">
+      <div class="retning"><b>C1 · Styringsgrep</b>
+        <p>Fra rådgivende samordningsråd via forskriftsfestet samordningsmandat (Samfunnssikkerhetsinstruks-modellen) til plattformstyring ved kjøp i markedet.</p>
+        <div class="eks">Skate, Sverige (kunskapsstyrning), GaaP/Estland; Helseplattformen som advarsel</div></div>
+      <div class="retning"><b>C2 · Insentivgrep</b>
+        <p>Godkjenning koblet til finansiering og/eller «comply or explain». Empirien advarer mot rene økonomiske insentiver (P4P, norsk ISF-forsøk).</p>
+        <div class="eks">DiGA (Tyskland), NHS DTAC, dansk journalplikt ved avvik</div></div>
+    </div>
+  </div>
+
+  <div class="gruppe gD">
+    <h3><span class="tag">D</span> Innbyggerrettet tjeneste og feedback</h3>
+    <div class="rot">Formålsbærende; svarer på R6 (feedback/måling)</div>
+    <div class="kort">
+      <div class="retning"><b>D1 · Offentlig KI-helsetjeneste</b>
+        <p>Trinnvis tjeneste med kildeforankring (RAG mot godkjent innhold), guardrails og multi-turn-testing. Helsedirektoratets egen skisserte retning.</p>
+        <div class="eks">Meld. St. 11 kap. 7.2; Singapore HealthHub AI, NHS</div></div>
+      <div class="retning"><b>D2 · Feedback-sløyfer</b>
+        <p>Bruksdata, registre og pasientrapportering tilbake til kunnskapsproduksjonen. Ingen ferdig internasjonal modell — må utvikles.</p>
+        <div class="eks">Learning health systems; norske kvalitetsregistre som startpunkt</div></div>
+    </div>
+  </div>
+
+  <h2>Dekningsmatrise mot rotårsakene</h2>
+  <p class="lead">● = adresserer direkte &nbsp; ◐ = delvis/indirekte.
+     Sammenstillingen er utrederens vurdering [ANT] basert på underlagsnotatene.</p>
+  <div class="tabellramme">
+  <table>
+    <thead>
+      <tr><th style="text-align:left">Retning</th>
+          <th>R1<br>mandat</th><th>R2<br>pre-digital</th><th>R3<br>kapasitet</th>
+          <th>R4<br>fragmentering</th><th>R5<br>insentiver</th><th>R6<br>feedback</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeA)"></span>A1 Living guidelines</td><td></td><td class="full">●</td><td class="full">●</td><td class="delv">◐</td><td></td><td class="delv">◐</td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeA)"></span>A2 Internasjonal gjenbruk</td><td></td><td></td><td class="full">●</td><td></td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeA)"></span>A3 Sentral metodestøtte</td><td class="delv">◐</td><td></td><td class="full">●</td><td></td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeA)"></span>A4 Redusert produktbredde</td><td></td><td></td><td class="full">●</td><td></td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeB)"></span>B1 KI-støttet evidenssyntese</td><td></td><td class="full">●</td><td class="full">●</td><td></td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeB)"></span>B2 Maskinlesbar infrastruktur</td><td></td><td class="full">●</td><td></td><td class="full">●</td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeB)"></span>B3 KI-lag på kuratert base</td><td></td><td class="full">●</td><td></td><td></td><td></td><td class="delv">◐</td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeB)"></span>B4 Evidensovervåking</td><td></td><td></td><td class="full">●</td><td></td><td></td><td class="full">●</td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeC)"></span>C1 Styringsgrep</td><td class="full">●</td><td></td><td></td><td class="delv">◐</td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeC)"></span>C2 Insentivgrep</td><td class="delv">◐</td><td></td><td></td><td></td><td class="full">●</td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeD)"></span>D1 Offentlig KI-tjeneste</td><td></td><td class="full">●</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td class="navn"><span class="dot" style="background:var(--gruppeD)"></span>D2 Feedback-sløyfer</td><td></td><td></td><td></td><td></td><td class="delv">◐</td><td class="full">●</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="legende">Fargeprikk = gruppe (A blå, B grønn, C oransje, D fiolett).
+     R1 og R5 krever i tillegg organisatorisk-politiske tiltak utenfor aksene
+     (jf. delrapport 2 kap. 9.7).</p>
+
+  <h2>Kombinasjonslogikken</h2>
+  <p class="lead">En helhetlig løsning henter minst én retning fra hver gruppe.
+     Eksempel på nøkternt startpunkt med påbygging:</p>
+  <div class="kombi">
+    <div class="boks bC"><b>C1 Samordningsmandat</b>Gir mandat og retning (R1)</div>
+    <div class="pluss">+</div>
+    <div class="boks bA"><b>A2 Internasjonal gjenbruk</b>Rask kapasitetseffekt (R3), lav kostnad</div>
+    <div class="pluss">+</div>
+    <div class="boks bB"><b>B4 Evidensovervåking</b>Fanger ny evidens i tide (R6)</div>
+    <div class="pluss">→</div>
+    <div class="maal"><b>Påbygging etter modenhet:</b>
+      A1 living guidelines, B2 maskinlesbart format, B3 KI-lag, D1 offentlig
+      KI-tjeneste, D2 feedback-sløyfer — betinget av juridiske avklaringer
+      (AI Act/MDR) og uavhengig validering.</div>
+  </div>
+
+  <div class="advarsel">
+    <div><b>A/B uten C:</b> «teknisk suksess, institusjonell død» — de best
+      dokumenterte internasjonale havariene (Australias taskforce, USAs
+      retningslinjedatabase) skyldtes finansiering og mandat, ikke teknologi.</div>
+    <div><b>C uten A/B:</b> styring alene løser verken kapasitets- eller
+      formatproblemet — kjeden forblir pre-digital med nytt mandat.</div>
+    <div><b>KI uten validering:</b> leverandørtall spriker systematisk fra
+      uavhengige evalueringer (Elicit 94 % hevdet vs. 39,5 % målt;
+      OpenEvidence 100 % eksamen vs. 34–41 % klinisk).</div>
+  </div>
+
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    Kilde: <em>rapporter/losningsretninger-bred-kartlegging.md</em> med fem
+    underlagsnotater (kunnskapsinnhenting 2026-08-03). Status Utforskende —
+    materialet foregriper ikke beslutninger og er ikke beslutningsgrunnlag.
+    Dekningsmatrisen er utrederens sammenstilling [ANT].
+  </div>
+</footer>
+</body>
+</html>

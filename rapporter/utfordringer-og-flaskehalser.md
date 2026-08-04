@@ -1093,6 +1093,26 @@ fritekst.
 retningslinjeprosessen), 7 (manglende
 strukturerte data).
 
+**Presisering (2026-08-04)**: R2 gjelder ikke
+fravær av struktur i alle ledd. Helsedirektoratets
+nasjonale faglige retningslinjer har allerede
+anbefalingsnivå-struktur med PICO som egen
+innholdstype, metadatafelt med kliniske koder
+(SNOMED CT, ICD-10, ICPC-2) og åpent API, og
+PICO/GRADE brukes metodisk i utviklingen (IS-1870).
+**[DOK]** Det presise gapet er at *evidenskjeden
+bak anbefalingen* (PICO → utfall →
+GRADE-vurdering) publiseres som prosa og
+PDF-evidensprofiler — ikke som terminologibundne,
+strukturerte data — og at struktureringen ikke er
+konsistent på tvers av produkttyper og verdikjedens
+øvrige ledd (FHI-oversikter, Helsebiblioteket,
+innbyggerinnhold). **[ANT]** Dette er normalpraksis
+internasjonalt, ikke et særnorsk etterslep. Se
+[metadatastrukturer-evidenskjeden.md](metadatastrukturer-evidenskjeden.md)
+for kildegrunnlag og konkrete eksempler
+(diabetes-retningslinjen).
+
 #### R3: Kapasitet skalerer ikke med forskningsvolum
 
 **Beskrivelse**: Manuell screening,
@@ -1448,7 +1468,7 @@ den utredningen; de gir ikke svar på den.
 
 ---
 
-Sist oppdatert: 2026-05-29
+Sist oppdatert: 2026-08-04
 
 ## Endringslogg
 
@@ -1457,6 +1477,7 @@ Sist oppdatert: 2026-05-29
 | 2026-05-22 | Kap. 2.3 omformulert til MECE-oppsummering. De tidligere tre kjerneegenskapene (skalerbarhet, reaktivitet, sammenheng) er utvidet til fem (+ styrbarhet, + tillit/legitimitet) slik at de er gjensidig utelukkende og samlet uttømmende, og dekker D1–D6 og R1–R6 uten overlapp. D1–D6 i kap. 2.2 er presisert som *observasjoner* (ikke MECE), med egenskapene i 2.3 som det MECE-laget. Egenskap→akse-koblingen i kap. 9.7 og i samlet-vurdering kap. 4.2 er oppdatert tilsvarende. |
 | 2026-05-27 | Konsistensgjennomgang: udokumenterte tidsanslag fjernet (2–3 år, 6–12 mnd, 12–24 mnd, 3–6 mnd, 3–8 år, 2–6,5 år) og erstattet med kvalitative formuleringer eller dokumenterte enkelttall fra `casestudier-forsinkelser.md` (1 år / 7+ år case-yttergrenser, 5 år refusjonsforsinkelse, 7–15+ år til praksisendring, 8 år SGLT2 til refusjon). I tråd med samme prinsipp som ble håndhevet i delrapport 1, 4 og 7. |
 | 2026-05-29 | R6 (kap. 9.2) og kap. 6.6.5 styrket: målrettede søk hos Hdir, FHI og Riksrevisjonen (utført 2026-05-27) bekreftet at ingen aggregerte tall for prosessvarighet eller produksjonskapasitet publiseres. Dette løftet fra parentetisk kildeforbehold til eksplisitt empirisk evidens for R6. |
+| 2026-08-04 | R2 (kap. 9.2) presisert: kildesøk (dokumentert i `metadatastrukturer-evidenskjeden.md`) viste at Hdirs retningslinjer allerede har PICO-innholdstype, SNOMED CT-metadata og åpent API — R2-gapet er presisert til å gjelde evidenskjeden bak anbefalingen (PICO → utfall → GRADE publiseres som prosa/PDF, ikke terminologibundne data) og manglende konsistens på tvers av ledd. Karakteristikken «fritekst» uten forbehold var for kategorisk for retningslinjeleddet. |
 
 ---
 
