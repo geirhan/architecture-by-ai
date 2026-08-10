@@ -115,7 +115,11 @@ modnes.
   kost–nytte-analyse. 2026-08-10: nytt kap. 6.3 om veivalget
   innlemme/erstatte/sameksistere med profesjonsforeningenes normering;
   rollemodellen i kap. 7.1 utvidet (se
-  `profesjonsforeninger-normering.md`).
+  `profesjonsforeninger-normering.md`). Samme dato: nytt kap. 6.4 om
+  formalisering av grensesnittene mellom strømmene som tverrgående
+  virkemiddel — prosessuell og teknisk formalisering, no
+  regret-vurdering per alternativ, kobling til R1/R4/R5 og
+  avhengighetskartleggingen i delrapport 1 kap. 3e.
 - **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
   profesjonsforening-perspektivet)
 

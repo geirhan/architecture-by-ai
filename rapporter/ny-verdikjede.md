@@ -225,7 +225,10 @@ foreligger i denne utredningen. Tiltakene inkluderer:
 Helsedirektoratet etablerer en systematisk prosess der
 oppdaterte retningslinjer utløser obligatorisk oppdatering
 av tilhørende innbyggerinformasjon på helsenorge.no,
-med definerte tidsfrister og ansvarlige.
+med definerte tidsfrister og ansvarlige. Tiltaket er,
+sammen med koordineringsforumet nedenfor, et eksempel
+på prosessuell formalisering av grensesnittene mellom
+strømmene (se kap. 6.4).
 
 #### Bedre koordinering mellom aktørene
 
@@ -337,7 +340,9 @@ Et KI-basert overvåkingssystem monitorerer publiserte
 studier og varsler relevant fagpersonell når ny evidens
 potensielt påvirker eksisterende retningslinjer. Dette
 muliggjør proaktiv oppdatering fremfor dagens reaktive
-tilnærming.
+tilnærming. Varslingen er samtidig et første steg mot
+teknisk formalisering av grensesnittene mellom
+strømmene (se kap. 6.4).
 
 #### KI-assistert oversettelse til klarspråk
 
@@ -828,6 +833,91 @@ endring som kreves for å oppnå sammenheng i
 normeringslandskapet [ANT, jf.
 `profesjonsforeninger-normering.md`].
 
+### 6.4 Tverrgående virkemiddel: formalisering av grensesnittene mellom strømmene
+
+**Utgangspunkt.** Delrapport 1 kap. 3e dokumenterer
+åtte avhengigheter mellom de fire strømmene i dagens
+verdikjede – innhold, bidrag og føringer som flyter
+mellom normering, klinisk kunnskap,
+legemiddelinformasjon og innbyggerinformasjon [DOK].
+Alle de åtte er uformelle: De forvaltes gjennom
+praksis og enkeltaktørers rutiner, ikke gjennom
+definerte grensesnitt eller forpliktende
+oppdateringskjeder [DOK, delrapport 1 kap. 3e].
+Delrapport 2 presiserer at konsistensutfordringen
+ikke skyldes manglende forbindelser, men manglende
+formalisering [DOK, delrapport 2 kap. 6.1 og
+rotårsakene R1 og R4].
+
+**Virkemidlet.** Å formalisere grensesnittene betyr
+å gjøre de kartlagte avhengighetene om til
+definerte, forpliktende koblinger [ANT]. Virkemidlet
+har to nivåer:
+
+- **Prosessuell formalisering**: Aktørene avtaler
+  forpliktende oppdateringskjeder. For eksempel:
+  Endret retningslinje utløser obligatorisk
+  oppdatering av tilhørende innbyggerinformasjon og
+  varsel til berørte fagprosedyrer. Nye
+  sikkerhetssignaler fra legemiddelstrømmen utløser
+  vurdering av berørte retningslinjer. I tillegg
+  avklares forrangsregler mellom statlige
+  retningslinjer og foreningsveiledere (jf.
+  kap. 6.3), og hvert grensesnitt får en definert
+  ansvarlig aktør [ANT].
+- **Teknisk formalisering**: Koblingene understøttes
+  av strukturerte, maskinlesbare formater og API-er
+  (programmeringsgrensesnitt som lar IT-systemer
+  utveksle data automatisk). Det gjør koblingene
+  sporbare og automatiserbare [ANT]. Nivået bygger
+  på rotårsak R4 og arkitekturen i delrapport 5.
+
+Prosessuell formalisering kan gjennomføres uten
+teknisk formalisering. Teknisk formalisering
+forutsetter derimot at ansvar og prosesser først er
+avklart – nivå (b) bygger på nivå (a) [ANT].
+
+**Forhold til alternativene.** Virkemidlet er i stor
+grad et «no regret»-tiltak, det vil si et tiltak som
+gir nytte uansett hvilket alternativ som velges
+[ANT]. Prosessuell formalisering er relevant og
+gjennomførbar under alle alternativer, også som
+forsterkning av nullalternativet. Teknisk
+formalisering forutsetter investeringene i
+alternativ 2 og 3 [ANT]:
+
+- **Alternativ 1**: Prosessuell formalisering.
+  Koordineringsforumet og den obligatoriske
+  koblingen retningslinje–innbyggerinformasjon
+  (kap. 3.2) er allerede uttrykk for dette.
+- **Alternativ 2**: Prosessuell formalisering pluss
+  delvis teknisk formalisering, blant annet gjennom
+  automatisk evidensvarsling og strukturerte
+  kunnskapskilder for RAG (kap. 4.2).
+- **Alternativ 3**: Full teknisk formalisering, der
+  living guidelines og feedback-loopen forutsetter
+  maskinlesbare koblinger gjennom hele kjeden
+  (kap. 5.2).
+
+Virkemidlet treffer flere rotårsaker samtidig [ANT]:
+R1, fordi definert ansvar per grensesnitt gir noen
+som faktisk forvalter avhengighetene; R4, fordi
+strukturerte formater reduserer IT-fragmenteringen;
+og R5, fordi forpliktende oppdateringskjeder gir
+eierskap til oppfølgingen. Langs aksene i kap. 6.2
+flytter virkemidlet verdikjeden mot *Sammenhengende*
+på aksen «Fragmentert ↔ Sammenhengende», uavhengig
+av alternativvalg [ANT].
+
+**Avgrensning.** Virkemidlet løser ikke
+kapasitetsproblemet (R3): Formaliserte grensesnitt
+sikrer at oppdateringer utløses, men ikke at det
+finnes kapasitet til å gjennomføre dem [ANT]. For
+grensesnittene som involverer foreningsveiledere
+krever formaliseringen dessuten at veivalget i
+kap. 6.3 (innlemme, erstatte eller sameksistere) er
+avklart [ANT].
+
 ---
 
 ## 7. Governance-modell for KI-støttet verdikjede
@@ -1050,7 +1140,10 @@ som startpunkt, med gradvis utvidelse mot elementer fra
 alternativ 3 etter hvert som teknologi, kompetanse og
 governance modnes. Rapporten anbefaler at organisatoriske
 tiltak fra alternativ 1 gjennomføres parallelt, da de
-styrker verdikjeden uavhengig av KI-innføring.
+styrker verdikjeden uavhengig av KI-innføring. På samme
+måte er prosessuell formalisering av grensesnittene
+mellom strømmene (kap. 6.4) et no regret-tiltak som kan
+startes uavhengig av alternativvalg [ANT].
 
 Denne tilnærmingen balanserer behovet for modernisering mot
 risikoen for feilslått implementering. Den gir tidlig
@@ -1195,5 +1288,6 @@ Sist oppdatert: 2026-08-10
 |---|---|
 | 2026-04-08 | Versjon med scenariobaserte tidsanslag (2,5–5 år, %-tidsbesparelser) og kostnadsestimater (MNOK). |
 | 2026-05-21 | Kap. 6.1 dekning av rotårsaker R1–R6 lagt til. Kap. 6.2 plassering langs løsningsdimensjoner (akser) lagt til. |
+| 2026-08-10 | Formalisering av grensesnittene mellom strømmene innarbeidet som tverrgående virkemiddel: nytt kap. 6.4 (utgangspunkt i delrapport 1 kap. 3e og delrapport 2 kap. 6.1/R1/R4; to nivåer – prosessuell og teknisk formalisering; forhold til alternativene og rotårsakene; avgrensning mot R3 og kap. 6.3). Én koblingssetning i alt. 1 (kap. 3.2) og alt. 2 (kap. 4.2), samt én setning om no regret-tiltak i kap. 9.1 [ANT]. Ingen renummerering; anbefalingens konklusjon og faser uendret. |
 | 2026-08-10 | Profesjonsforening-perspektivet innarbeidet (jf. `profesjonsforeninger-normering.md`): nytt kap. 6.3 om veivalget innlemme/erstatte/sameksistere, fagmedisinske foreninger lagt til i rollemodellen (kap. 7.1), setning om tosporsystemet i nullalternativet (kap. 2.1) og i observasjonene om R1/R5 (kap. 6.1.1). Anbefalingen i kap. 9.1 er uendret. |
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte tallanslag fjernet (gjennomløpstid i år/måneder, %-tidsbesparelser, MNOK-kostnader). Sammenligningstabellen i kap. 6 omkalibrert til kvalitative gradsbetegnelser. Kjerneegenskaper (skalerbarhet, reaktivitet, sammenheng, styrbarhet, tillit) introdusert i alternativbeskrivelsene der relevant. Innledning, oppsummering og kap. 9 språklig strammet. Innledende gjennomløpstid forankret i `casestudier-forsinkelser.md` (7–15+ år til praksisendring, 1 år til 7+ år for normerende delprosess avhengig av sak). |
