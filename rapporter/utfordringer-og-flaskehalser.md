@@ -770,6 +770,17 @@ fanges av et rent etatsperspektiv **[ANT]**.
 Kildegrunnlag:
 [profesjonsforeninger-normering.md](profesjonsforeninger-normering.md).
 
+Avhengighetene mellom de fire strømmene er nå
+kartlagt: Delrapport 1 kap. 3e dokumenterer åtte
+avhengigheter der innhold, bidrag og føringer
+flyter mellom strømmene **[DOK]**. Kartleggingen
+presiserer kjernen i utfordringen: Problemet er
+ikke at strømmene mangler forbindelser, men at
+forbindelsene er uformelle. De forvaltes gjennom
+praksis og enkeltaktørers rutiner, uten definerte
+grensesnitt eller forpliktende oppdateringskjeder
+**[ANT]**.
+
 ### 6.2 Manglende standardisert informasjonsflyt
 
 Som beskrevet i delrapport 1 mangler det
@@ -1102,6 +1113,11 @@ innbygger.
 - **[DOK]** Departementet har «i stor grad
   delegert ansvaret for gjennomføring» til
   etatene (rolledeling kap. 5.2).
+- **[ANT]** Fraværet av formaliserte grensesnitt
+  mellom de fire strømmene (delrapport 1 kap. 3e)
+  er en konkret manifestasjon av
+  styringsutfordringen: Avhengighetene finnes,
+  men ingen forvalter dem.
 
 **Forklarer flaskehalsene**: 3 (manglende
 kobling retningslinje–innbyggerinformasjon), 5
@@ -1190,6 +1206,10 @@ automatisert informasjonsflyt.
 - **[DOK]** Ingen automatisert kobling mellom
   oppdaterte retningslinjer og helsenorge.no
   (kap. 3.3 og 6.6.1).
+- **[ANT]** Heller ikke de åtte kartlagte
+  avhengighetene mellom strømmene (delrapport 1
+  kap. 3e) er understøttet av strukturerte
+  grensesnitt.
 
 **Forklarer flaskehalsene**: 3, 7.
 
@@ -1533,6 +1553,7 @@ Sist oppdatert: 2026-08-10
 | 2026-05-27 | Konsistensgjennomgang: udokumenterte tidsanslag fjernet (2–3 år, 6–12 mnd, 12–24 mnd, 3–6 mnd, 3–8 år, 2–6,5 år) og erstattet med kvalitative formuleringer eller dokumenterte enkelttall fra `casestudier-forsinkelser.md` (1 år / 7+ år case-yttergrenser, 5 år refusjonsforsinkelse, 7–15+ år til praksisendring, 8 år SGLT2 til refusjon). I tråd med samme prinsipp som ble håndhevet i delrapport 1, 4 og 7. |
 | 2026-05-29 | R6 (kap. 9.2) og kap. 6.6.5 styrket: målrettede søk hos Hdir, FHI og Riksrevisjonen (utført 2026-05-27) bekreftet at ingen aggregerte tall for prosessvarighet eller produksjonskapasitet publiseres. Dette løftet fra parentetisk kildeforbehold til eksplisitt empirisk evidens for R6. |
 | 2026-08-10 | Profesjonsaksen innarbeidet som tillegg (ingen ny flaskehals, ingen endret rangering): D3 (kap. 2.2) utvidet med profesjonsforeningene som normerende aktørgruppe utenfor statlig styringslinje; kap. 6.1 utvidet med profesjonsvise siloer og to parallelle normeringsspor uten forrangsregler; R1 (kap. 9.2) styrket med laget av ikke-statlige normerende aktører og det ikke-etablerte «forum for faglig normering»; R5 (kap. 9.2) supplert med foreningenes implementeringsarenaer; kap. 9.7 (R1-nyanseringen) supplert med én setning. Alle tillegg merket [DOK]/[ANT] med henvisning til `profesjonsforeninger-normering.md`. |
+| 2026-08-10 | Avhengighetskartleggingen fra delrapport 1 kap. 3e speilet: kap. 6.1 supplert med presisering av at de åtte kartlagte avhengighetene mellom strømmene er reelle men uformelle (forvaltet gjennom praksis, ikke definerte grensesnitt) [DOK/ANT]; R1 (kap. 9.2) supplert med én setning om fraværet av formaliserte grensesnitt som manifestasjon av styringsutfordringen [ANT]; R4 (kap. 9.2) supplert med én setning om at avhengighetene ikke er understøttet av strukturerte grensesnitt [ANT]. Ingen endring i nummerering, D/R-betegnelser eller rangering. |
 | 2026-08-04 | R2 (kap. 9.2) presisert: kildesøk (dokumentert i `metadatastrukturer-evidenskjeden.md`) viste at Hdirs retningslinjer allerede har PICO-innholdstype, SNOMED CT-metadata og åpent API — R2-gapet er presisert til å gjelde evidenskjeden bak anbefalingen (PICO → utfall → GRADE publiseres som prosa/PDF, ikke terminologibundne data) og manglende konsistens på tvers av ledd. Karakteristikken «fritekst» uten forbehold var for kategorisk for retningslinjeleddet. |
 
 ---

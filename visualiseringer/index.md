@@ -335,3 +335,27 @@
   Basert på `rapporter/kapabilitetskart-verdikjeden.md`;
   vurderingene er merket [ANT].
 - **Sist oppdatert**: 2026-08-05
+
+### stromavhengigheter.html
+
+- **Type**: Interaktivt avhengighetsdiagram
+  (innebygd SVG + ren JS)
+- **Beskrivelse**: Viser de åtte dokumenterte
+  avhengighetene mellom de fire strømmene i
+  verdikjedens steg 3 (3a normerende, 3b klinisk,
+  3c legemiddel, 3d innbyggerrettet), med steg 1–2
+  (forskning/kunnskapsoppsummeringer) som felles
+  kilde øverst. Alle piler er stiplet for å markere
+  hovedpoenget: avhengighetene er uformelle –
+  forvaltet gjennom praksis, ikke gjennom definerte
+  grensesnitt eller forpliktende oppdateringskjeder
+  [ANT]. «Kortslutningene» (3b og 3c henter direkte
+  fra steg 1, utenom steg 2) er tegnet som egne
+  oransje piler. Hover/klikk på en pil viser hva som
+  flyter og belegg; klikk på en strøm-node fremhever
+  dens inn- og utgående avhengigheter. Under
+  diagrammet gjengis avhengighetstabellen fra kap. 3e
+  og vurderingen om manglende forvaltning av
+  koblingene. Basert på delrapport 1
+  (`dagens-verdikjede.md`), kap. 2 og 3e.
+- **Sist oppdatert**: 2026-08-10

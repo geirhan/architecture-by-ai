@@ -81,7 +81,10 @@ modnes.
   PICO-innholdstype, SNOMED CT-metadata og åpent API
   (jf. `metadatastrukturer-evidenskjeden.md`). 2026-08-10:
   profesjonsaksen innarbeidet som merkede tillegg i D3, kap. 6.1, R1,
-  R5 og kap. 9.7 (se `profesjonsforeninger-normering.md`).
+  R5 og kap. 9.7 (se `profesjonsforeninger-normering.md`). Samme dato:
+  konsistensutfordringen presisert mot avhengighetskartleggingen i
+  delrapport 1 kap. 3e — forbindelsene mellom strømmene finnes, men
+  er uformelle (kap. 6.1, R1, R4).
 - **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
   profesjonsforening-perspektivet)
 

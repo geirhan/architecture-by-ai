@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avhengigheter mellom de fire strømmene i verdikjedens steg 3</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 0 0 40px 0;
+  }
+  header {
+    background: #003366;
+    color: #fff;
+    padding: 28px 24px 22px 24px;
+  }
+  header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+  header p { max-width: 950px; font-size: 0.95rem; color: #d5e2ef; }
+  header .basis {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #aac4dd;
+  }
+  header .basis strong { color: #fff; font-weight: 600; }
+  main { max-width: 1140px; margin: 0 auto; padding: 24px 16px; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 26px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dde3e9;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+  }
+  .legend .item { display: flex; align-items: center; gap: 8px; }
+  .legend svg { flex-shrink: 0; }
+  .legend .note { color: #5a3d00; background: #fdf3cf; border: 1px solid #e6cf8a; border-radius: 6px; padding: 4px 10px; font-size: 0.82rem; }
+
+  .diagram-wrap {
+    background: #fff;
+    border: 1px solid #dde3e9;
+    border-radius: 8px;
+    padding: 10px 6px 4px 6px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+  }
+  .diagram-inner { min-width: 880px; }
+  svg { display: block; width: 100%; height: auto; }
+
+  /* SVG-elementer */
+  .stegbox rect { fill: #eef2f7; stroke: #5a6b7c; stroke-width: 1.5; rx: 8; }
+  .stegbox text { fill: #24313f; }
+  .node { cursor: pointer; }
+  .node rect { stroke-width: 2; rx: 8; }
+  .node .nid { font-weight: 700; font-size: 15px; }
+  .node .nname { font-weight: 700; font-size: 14px; }
+  .node .nact { font-size: 11px; fill: #444; }
+  .node.n3a rect { fill: #fbe4e6; stroke: #a3242f; }
+  .node.n3b rect { fill: #dbe7f3; stroke: #1f4e79; }
+  .node.n3c rect { fill: #fdeeda; stroke: #b45309; }
+  .node.n3d rect { fill: #e2f2e4; stroke: #1e7a34; }
+  .node.n3a .nid, .node.n3a .nname { fill: #7c1a23; }
+  .node.n3b .nid, .node.n3b .nname { fill: #1f4e79; }
+  .node.n3c .nid, .node.n3c .nname { fill: #8a3e06; }
+  .node.n3d .nid, .node.n3d .nname { fill: #175c28; }
+
+  .dep { cursor: pointer; }
+  .dep path.vis {
+    fill: none;
+    stroke: #5a6b7c;
+    stroke-width: 2;
+    stroke-dasharray: 7 5;
+    marker-end: url(#ah);
+  }
+  .dep.kort path.vis { stroke: #c77700; stroke-dasharray: 4 4; marker-end: url(#ah-amber); }
+  .dep path.stub { marker-end: none; }
+  .dep path.hit { fill: none; stroke: transparent; stroke-width: 16; }
+  .dep text {
+    font-size: 12.5px;
+    fill: #333;
+    paint-order: stroke;
+    stroke: #fff;
+    stroke-width: 4px;
+    stroke-linejoin: round;
+    text-anchor: middle;
+  }
+  .dep.kort text { fill: #8a5200; }
+
+  /* fokus-tilstander */
+  svg.focus .dep { opacity: 0.10; }
+  svg.focus .dep.active { opacity: 1; }
+  svg.focus .node:not(.active) { opacity: 0.35; }
+  .dep.active path.vis { stroke: #003366; stroke-width: 3; marker-end: url(#ah-active); }
+  .dep.kort.active path.vis { stroke: #c77700; marker-end: url(#ah-amber); }
+  .dep.active path.stub { marker-end: none; }
+  .dep.active text { fill: #003366; font-weight: 700; }
+  .dep.kort.active text { fill: #8a5200; }
+
+  #detalj {
+    background: #fff;
+    border: 1px solid #dde3e9;
+    border-left: 5px solid #003366;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 26px;
+    min-height: 84px;
+    font-size: 0.92rem;
+  }
+  #detalj h3 { color: #003366; font-size: 1rem; margin-bottom: 6px; }
+  #detalj .belegg { margin-top: 6px; font-size: 0.85rem; color: #5a6b7c; }
+  #detalj .belegg strong { color: #333; }
+  #detalj .hint { color: #6c757d; font-style: italic; }
+
+  h2 { color: #003366; font-size: 1.25rem; margin: 26px 0 10px; }
+  .tablewrap { overflow-x: auto; background: #fff; border: 1px solid #dde3e9; border-radius: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.88rem; min-width: 700px; }
+  th, td { border-bottom: 1px solid #e3e8ee; padding: 9px 12px; text-align: left; vertical-align: top; }
+  th { background: #003366; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f7f9fb; }
+  td:first-child { white-space: nowrap; font-weight: 600; color: #003366; }
+
+  .vurdering {
+    background: #fdf3cf;
+    border: 1px solid #e6cf8a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-top: 18px;
+    font-size: 0.92rem;
+  }
+  .vurdering strong { color: #5a3d00; }
+  footer { max-width: 1140px; margin: 30px auto 0; padding: 0 16px; font-size: 0.82rem; color: #6c757d; }
+
+  @media print {
+    body { background: #fff; }
+    header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+    header p, header .basis { color: #333; }
+    .diagram-wrap, .tablewrap { border: 1px solid #999; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Avhengigheter mellom de fire strømmene i verdikjedens steg 3</h1>
+  <p>De fire parallelle strømmene i steg 3 – normerende (3a), klinisk (3b), legemiddel (3c) og
+  innbyggerrettet (3d) – løper samtidig, men er ikke uavhengige: Innhold, bidrag og føringer flyter
+  mellom dem. Diagrammet viser de åtte dokumenterte avhengighetene. Alle er tegnet med stiplet linje
+  fordi de er uformelle – de forvaltes gjennom praksis, ikke gjennom definerte grensesnitt.</p>
+  <p class="basis"><strong>Basert på delrapport 1 (dagens-verdikjede.md), kap. 3e</strong> (avhengighetstabellen) og kap. 2 (beskrivelsen av steg 3 og de fire strømmene).</p>
+</header>
+<main>
+
+  <div class="legend">
+    <div class="item">
+      <svg width="46" height="12" viewBox="0 0 46 12"><line x1="0" y1="6" x2="38" y2="6" stroke="#5a6b7c" stroke-width="2" stroke-dasharray="7 5"/><path d="M38,2 L46,6 L38,10 Z" fill="#5a6b7c"/></svg>
+      <span>Uformell avhengighet (retning = hvem som mottar)</span>
+    </div>
+    <div class="item">
+      <svg width="46" height="12" viewBox="0 0 46 12"><line x1="0" y1="6" x2="38" y2="6" stroke="#c77700" stroke-width="2" stroke-dasharray="4 4"/><path d="M38,2 L46,6 L38,10 Z" fill="#c77700"/></svg>
+      <span>«Kortslutning»: 3b og 3c henter innhold direkte fra steg 1, utenom steg 2</span>
+    </div>
+    <div class="note">Ingen av de åtte avhengighetene har formaliserte grensesnitt eller forpliktende
+    oppdateringskjeder [ANT, dp1 kap. 3e]. Derfor er <em>alle</em> piler stiplet.</div>
+  </div>
+
+  <div class="diagram-wrap"><div class="diagram-inner">
+  <svg id="dia" viewBox="0 0 1060 665" role="img" aria-label="Diagram over avhengigheter mellom de fire strømmene i steg 3">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#5a6b7c"/>
+      </marker>
+      <marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#c77700"/>
+      </marker>
+      <marker id="ah-active" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#003366"/>
+      </marker>
+    </defs>
+
+    <!-- Steg 1 og 2: felles kilde -->
+    <g class="stegbox" id="node-s12">
+      <rect x="380" y="14" width="300" height="50"/>
+      <text x="530" y="35" text-anchor="middle" font-size="13" font-weight="700">Steg 1: Internasjonal forskning</text>
+      <text x="530" y="52" text-anchor="middle" font-size="11.5">publiserte enkeltstudier</text>
+      <line x1="530" y1="64" x2="530" y2="96" stroke="#5a6b7c" stroke-width="2" marker-end="url(#ah)"/>
+      <rect x="380" y="100" width="300" height="50"/>
+      <text x="530" y="121" text-anchor="middle" font-size="13" font-weight="700">Steg 2: Kunnskapsoppsummeringer</text>
+      <text x="530" y="138" text-anchor="middle" font-size="11.5">systematiske oversikter (FHI, Cochrane)</text>
+    </g>
+
+    <!-- D1: felles kunnskapsgrunnlag fra steg 1-2 til alle -->
+    <g class="dep" data-dep="D1">
+      <path class="vis" d="M420,150 Q260,210 150,296"/>
+      <path class="vis" d="M495,150 Q450,220 405,296"/>
+      <path class="vis" d="M565,150 Q610,220 655,296"/>
+      <path class="vis" d="M640,150 Q800,210 910,296"/>
+      <path class="hit" d="M420,150 Q260,210 150,296"/>
+      <path class="hit" d="M495,150 Q450,220 405,296"/>
+      <path class="hit" d="M565,150 Q610,220 655,296"/>
+      <path class="hit" d="M640,150 Q800,210 910,296"/>
+      <text x="530" y="215">felles kunnskapsgrunnlag</text>
+    </g>
+
+    <!-- D1 kortslutninger: steg 1 direkte til 3b og 3c -->
+    <g class="dep kort" data-dep="D1">
+      <path class="vis" d="M380,44 C170,62 220,230 342,296"/>
+      <path class="vis" d="M680,44 C890,62 840,230 718,296"/>
+      <path class="hit" d="M380,44 C170,62 220,230 342,296"/>
+      <path class="hit" d="M680,44 C890,62 840,230 718,296"/>
+      <text x="212" y="150">kortslutning:</text>
+      <text x="212" y="166">direkte fra steg 1</text>
+      <text x="852" y="150">kortslutning:</text>
+      <text x="852" y="166">direkte fra steg 1</text>
+    </g>
+
+    <!-- D2: 3a -> 3b -->
+    <g class="dep" data-dep="D2">
+      <path class="vis" d="M150,415 Q270,478 392,418"/>
+      <path class="hit" d="M150,415 Q270,478 392,418"/>
+      <text x="270" y="437">operasjonaliseres til fagprosedyrer</text>
+    </g>
+
+    <!-- D3: 3b -> 3a -->
+    <g class="dep" data-dep="D3">
+      <path class="vis" d="M390,424 Q270,540 148,428"/>
+      <path class="hit" d="M390,424 Q270,540 148,428"/>
+      <text x="270" y="486">arbeidsgrupper og høringsinnspill</text>
+    </g>
+
+    <!-- D6: 3c -> 3d -->
+    <g class="dep" data-dep="D6">
+      <path class="vis" d="M670,415 Q790,478 912,418"/>
+      <path class="hit" d="M670,415 Q790,478 912,418"/>
+      <text x="790" y="437">preparatomtaler via Felleskatalogen</text>
+    </g>
+
+    <!-- D5: 3c -> 3a -->
+    <g class="dep" data-dep="D5">
+      <path class="vis" d="M650,424 Q400,610 162,432"/>
+      <path class="hit" d="M650,424 Q400,610 162,432"/>
+      <text x="490" y="513">SPC og sikkerhetssignaler</text>
+    </g>
+
+    <!-- D8: 3a/3b -> 3d -->
+    <g class="dep" data-dep="D8">
+      <path class="vis stub" d="M190,414 Q230,520 272,548"/>
+      <path class="vis stub" d="M355,416 Q310,510 274,547"/>
+      <path class="vis" d="M272,549 Q610,650 888,424"/>
+      <path class="hit" d="M190,414 Q230,520 272,548"/>
+      <path class="hit" d="M355,416 Q310,510 274,547"/>
+      <path class="hit" d="M272,549 Q610,650 888,424"/>
+      <text x="640" y="573">fagkunnskap til FNSP-tekster</text>
+    </g>
+
+    <!-- D4: 3a -> 3d -->
+    <g class="dep" data-dep="D4">
+      <path class="vis" d="M132,420 Q520,720 912,428"/>
+      <path class="hit" d="M132,420 Q520,720 912,428"/>
+      <text x="392" y="580">«skal være i tråd med»</text>
+    </g>
+
+    <!-- D7: 3d -> 3a -->
+    <g class="dep" data-dep="D7">
+      <path class="vis" d="M928,424 Q520,790 118,428"/>
+      <path class="hit" d="M928,424 Q520,790 118,428"/>
+      <text x="522" y="628">brukerrepresentanter og høringssvar</text>
+    </g>
+
+    <!-- Strøm-noder -->
+    <g class="node n3a" data-node="3a">
+      <rect x="40" y="300" width="200" height="112"/>
+      <text class="nid" x="52" y="322">3a</text>
+      <text class="nname" x="80" y="322">Normerende</text>
+      <text class="nact" x="52" y="344">Helsedirektoratet:</text>
+      <text class="nact" x="52" y="360">retningslinjer, veiledere,</text>
+      <text class="nact" x="52" y="376">faglige råd</text>
+      <text class="nact" x="52" y="398">Langsomste prosess</text>
+    </g>
+    <g class="node n3b" data-node="3b">
+      <rect x="300" y="300" width="200" height="112"/>
+      <text class="nid" x="312" y="322">3b</text>
+      <text class="nname" x="340" y="322">Klinisk</text>
+      <text class="nact" x="312" y="344">Oppslagsverk (UpToDate,</text>
+      <text class="nact" x="312" y="360">BMJ), fagprosedyrer,</text>
+      <text class="nact" x="312" y="376">fagmedisinske foreninger</text>
+      <text class="nact" x="312" y="398">Raskere enn normerende</text>
+    </g>
+    <g class="node n3c" data-node="3c">
+      <rect x="560" y="300" width="200" height="112"/>
+      <text class="nid" x="572" y="322">3c</text>
+      <text class="nname" x="600" y="322">Legemiddel</text>
+      <text class="nact" x="572" y="344">DMP, Felleskatalogen,</text>
+      <text class="nact" x="572" y="360">RELIS</text>
+      <text class="nact" x="572" y="398">Raskest ved varsler</text>
+    </g>
+    <g class="node n3d" data-node="3d">
+      <rect x="820" y="300" width="200" height="112"/>
+      <text class="nid" x="832" y="322">3d</text>
+      <text class="nname" x="860" y="322">Innbyggerrettet</text>
+      <text class="nact" x="832" y="344">helsenorge.no, FHI, FNSP,</text>
+      <text class="nact" x="832" y="360">pasientorganisasjoner,</text>
+      <text class="nact" x="832" y="376">NHI.no, medier</text>
+      <text class="nact" x="832" y="398">Variabel hastighet</text>
+    </g>
+  </svg>
+  </div></div>
+
+  <div id="detalj">
+    <p class="hint">Pek på eller klikk en pil for å se hva som flyter og hvor det er belagt i rapporten.
+    Klikk en strøm-boks for å fremheve dens inn- og utgående avhengigheter. Klikk på nytt for å nullstille.</p>
+  </div>
+
+  <h2>Avhengighetstabellen (dp1 kap. 3e)</h2>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Fra → Til</th><th>Hva flyter</th><th>Belegg</th></tr></thead>
+    <tbody>
+      <tr><td>Steg 1–2 → alle</td>
+        <td>Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2; 3b og 3c henter i tillegg innhold direkte fra steg 1 og «kortslutter» dermed kjeden</td>
+        <td>Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK]</td></tr>
+      <tr><td>3a → 3b</td>
+        <td>Retningslinjer operasjonaliseres til fagprosedyrer og behandlingslinjer; Helsebiblioteket tilgjengeliggjør retningslinjene for klinikken; lokale og foreningsutviklede retningslinjer «bør være i overensstemmelse med» de nasjonale (IS-1870 s. 12)</td>
+        <td>Kap. 3a og 3b [3] [4]; dp8 kap. 5.2, prosess 3; profesjonsforeninger-normering.md kap. 3 [DOK]</td></tr>
+      <tr><td>3b → 3a</td>
+        <td>Fagmedisinske foreninger bidrar i Helsedirektoratets arbeidsgrupper og høringer; foreningsveiledere dekker områder der nasjonale retningslinjer ikke utarbeides (IS-1870 s. 11)</td>
+        <td>Kap. 3a og 3b [2] [9]; dp8 kap. 5.2, prosess 2; profesjonsforeninger-normering.md kap. 3 [DOK]</td></tr>
+      <tr><td>3a → 3d</td>
+        <td>Retningslinjene er grunnlag for innbyggerinnholdet: innhold på helsenorge.no skal være «i tråd med nasjonale råd og retningslinjer», Helsedirektoratet har utgiveransvaret, og publisering av ny retningslinje er utløsende hendelse for oppdatering</td>
+        <td>Kap. 3a og 3d [10]; dp8 kap. 5.2, prosess 6 [DOK]</td></tr>
+      <tr><td>3c → 3a</td>
+        <td>Godkjent legemiddelinformasjon (SPC, sikkerhetssignaler) ligger til grunn for retningslinjenes legemiddelanbefalinger; nye sikkerhetssignaler etter publisering kan gjøre retningslinjen utdatert</td>
+        <td>Kap. 5.3 og 6 [DOK]</td></tr>
+      <tr><td>3c → 3d</td>
+        <td>DMP-godkjente preparatomtaler og pakningsvedlegg gjenbrukes som innbyggerrettet legemiddelinformasjon via Felleskatalogen</td>
+        <td>Kap. 3c og 3d [17]; dp8 kap. 3 [DOK]</td></tr>
+      <tr><td>3d → 3a</td>
+        <td>Brukerrepresentanter deltar i retningslinjearbeidet, og pasientorganisasjoner leverer høringssvar til myndighetene</td>
+        <td>Kap. 3a [2]; dp8 kap. 2.18, 3 og 5.2 (prosess 2) [DOK]</td></tr>
+      <tr><td>3a/3b → 3d</td>
+        <td>Sykehusenes fagkunnskap (RHF-ene) inngår i FNSPs faglig godkjente behandlingstekster</td>
+        <td>Kap. 3d [12]; dp8 kap. 3 og 5.2 (prosess 6) [DOK]</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="vurdering">
+    <p><strong>Vurdering (fra dp1 kap. 3e):</strong> Avhengighetene er reelle, men i hovedsak uformelle.
+    De forvaltes gjennom praksis og enkeltaktørenes rutiner – ikke gjennom definerte grensesnitt eller
+    forpliktende oppdateringskjeder [ANT, basert på funnene i dp1 kap. 5.3 og 6]. Når en retningslinje
+    endres, finnes det ingen mekanisme som varsler fagprosedyrene, oppslagsverkene eller
+    innbyggerinformasjonen som bygger på den. Konsistensutfordringene oppstår nettopp langs disse
+    avhengighetene: Der innhold flyter uten forvaltet kobling, kan mottakerleddet bli hengende etter.
+    Leddene henger dårlig sammen – ikke fordi forbindelser mangler, men fordi forbindelsene ikke
+    forvaltes.</p>
+    <p style="margin-top:8px;">I tillegg er Helsebiblioteket en felles muliggjører: Det opptrer som
+    enabler i fire av verdikjedens seks prosesser, og endringer i Helsebibliotekets tjenester påvirker
+    derfor flere strømmer samtidig (dp8 kap. 5.3, obs. 5) [DOK].</p>
+  </div>
+
+</main>
+<footer>
+  Visualisering basert på delrapport 1 (<code>rapporter/dagens-verdikjede.md</code>), kap. 2 og 3e.
+  Selvstendig HTML uten eksterne avhengigheter. Sist oppdatert 2026-08-10.
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var DEPS = {
+    D1: {
+      tittel: "Steg 1–2 → alle strømmer",
+      nodes: ["3a", "3b", "3c", "3d"],
+      hva: "Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2; 3b og 3c henter i tillegg innhold direkte fra steg 1 og «kortslutter» dermed kjeden (de oransje pilene).",
+      belegg: "Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK]"
+    },
+    D2: {
+      tittel: "3a Normerende → 3b Klinisk",
+      nodes: ["3a", "3b"],
+      hva: "Retningslinjer operasjonaliseres til fagprosedyrer og behandlingslinjer; Helsebiblioteket tilgjengeliggjør retningslinjene for klinikken; lokale og foreningsutviklede retningslinjer «bør være i overensstemmelse med» de nasjonale (IS-1870 s. 12).",
+      belegg: "Kap. 3a og 3b [3] [4]; dp8 kap. 5.2, prosess 3; profesjonsforeninger-normering.md kap. 3 [DOK]"
+    },
+    D3: {
+      tittel: "3b Klinisk → 3a Normerende",
+      nodes: ["3a", "3b"],
+      hva: "Fagmedisinske foreninger bidrar i Helsedirektoratets arbeidsgrupper og høringer; foreningsveiledere dekker områder der nasjonale retningslinjer ikke utarbeides (IS-1870 s. 11).",
+      belegg: "Kap. 3a og 3b [2] [9]; dp8 kap. 5.2, prosess 2; profesjonsforeninger-normering.md kap. 3 [DOK]"
+    },
+    D4: {
+      tittel: "3a Normerende → 3d Innbyggerrettet",
+      nodes: ["3a", "3d"],
+      hva: "Retningslinjene er grunnlag for innbyggerinnholdet: innhold på helsenorge.no skal være «i tråd med nasjonale råd og retningslinjer», Helsedirektoratet har utgiveransvaret, og publisering av ny retningslinje er utløsende hendelse for oppdatering.",
+      belegg: "Kap. 3a og 3d [10]; dp8 kap. 5.2, prosess 6 [DOK]"
+    },
+    D5: {
+      tittel: "3c Legemiddel → 3a Normerende",
+      nodes: ["3a", "3c"],
+      hva: "Godkjent legemiddelinformasjon (SPC, sikkerhetssignaler) ligger til grunn for retningslinjenes legemiddelanbefalinger; nye sikkerhetssignaler etter publisering kan gjøre retningslinjen utdatert.",
+      belegg: "Kap. 5.3 og 6 [DOK]"
+    },
+    D6: {
+      tittel: "3c Legemiddel → 3d Innbyggerrettet",
+      nodes: ["3c", "3d"],
+      hva: "DMP-godkjente preparatomtaler og pakningsvedlegg gjenbrukes som innbyggerrettet legemiddelinformasjon via Felleskatalogen.",
+      belegg: "Kap. 3c og 3d [17]; dp8 kap. 3 [DOK]"
+    },
+    D7: {
+      tittel: "3d Innbyggerrettet → 3a Normerende",
+      nodes: ["3a", "3d"],
+      hva: "Brukerrepresentanter deltar i retningslinjearbeidet, og pasientorganisasjoner leverer høringssvar til myndighetene.",
+      belegg: "Kap. 3a [2]; dp8 kap. 2.18, 3 og 5.2 (prosess 2) [DOK]"
+    },
+    D8: {
+      tittel: "3a Normerende / 3b Klinisk → 3d Innbyggerrettet",
+      nodes: ["3a", "3b", "3d"],
+      hva: "Sykehusenes fagkunnskap (RHF-ene) inngår i FNSPs faglig godkjente behandlingstekster.",
+      belegg: "Kap. 3d [12]; dp8 kap. 3 og 5.2 (prosess 6) [DOK]"
+    }
+  };
+
+  var NODENAVN = {
+    "3a": "3a Normerende",
+    "3b": "3b Klinisk",
+    "3c": "3c Legemiddel",
+    "3d": "3d Innbyggerrettet"
+  };
+
+  var svg = document.getElementById("dia");
+  var detalj = document.getElementById("detalj");
+  var depGroups = Array.prototype.slice.call(svg.querySelectorAll(".dep"));
+  var nodeGroups = Array.prototype.slice.call(svg.querySelectorAll(".node"));
+  var laast = null; // {type:"dep"|"node", id:...}
+
+  function nullstill() {
+    svg.classList.remove("focus");
+    depGroups.forEach(function (g) { g.classList.remove("active"); });
+    nodeGroups.forEach(function (g) { g.classList.remove("active"); });
+    detalj.innerHTML = '<p class="hint">Pek på eller klikk en pil for å se hva som flyter og hvor det er ' +
+      'belagt i rapporten. Klikk en strøm-boks for å fremheve dens inn- og utgående avhengigheter. ' +
+      'Klikk på nytt for å nullstille.</p>';
+  }
+
+  function visDep(id) {
+    var d = DEPS[id];
+    svg.classList.add("focus");
+    depGroups.forEach(function (g) {
+      g.classList.toggle("active", g.getAttribute("data-dep") === id);
+    });
+    nodeGroups.forEach(function (g) {
+      g.classList.toggle("active", d.nodes.indexOf(g.getAttribute("data-node")) !== -1);
+    });
+    detalj.innerHTML = "<h3>" + d.tittel + "</h3><p>" + d.hva + "</p>" +
+      '<p class="belegg"><strong>Belegg:</strong> ' + d.belegg + "</p>" +
+      '<p class="belegg">Uformell avhengighet – ikke forvaltet gjennom definert grensesnitt [ANT, dp1 kap. 3e].</p>';
+  }
+
+  function visNode(nid) {
+    svg.classList.add("focus");
+    var koblede = [];
+    depGroups.forEach(function (g) {
+      var d = DEPS[g.getAttribute("data-dep")];
+      var treff = d.nodes.indexOf(nid) !== -1;
+      g.classList.toggle("active", treff);
+    });
+    Object.keys(DEPS).forEach(function (id) {
+      if (DEPS[id].nodes.indexOf(nid) !== -1) { koblede.push(DEPS[id].tittel); }
+    });
+    nodeGroups.forEach(function (g) {
+      g.classList.toggle("active", g.getAttribute("data-node") === nid);
+    });
+    detalj.innerHTML = "<h3>" + NODENAVN[nid] + " – inn- og utgående avhengigheter</h3>" +
+      "<p>" + koblede.map(function (t) { return "&bull; " + t; }).join("<br>") + "</p>" +
+      '<p class="belegg">Alle avhengighetene er uformelle [ANT, dp1 kap. 3e]. Detaljer: klikk på den enkelte pilen.</p>';
+  }
+
+  depGroups.forEach(function (g) {
+    var id = g.getAttribute("data-dep");
+    g.addEventListener("mouseenter", function () { if (!laast) { visDep(id); } });
+    g.addEventListener("mouseleave", function () { if (!laast) { nullstill(); } });
+    g.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      if (laast && laast.type === "dep" && laast.id === id) { laast = null; nullstill(); return; }
+      laast = { type: "dep", id: id };
+      visDep(id);
+    });
+  });
+
+  nodeGroups.forEach(function (g) {
+    var nid = g.getAttribute("data-node");
+    g.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      if (laast && laast.type === "node" && laast.id === nid) { laast = null; nullstill(); return; }
+      laast = { type: "node", id: nid };
+      visNode(nid);
+    });
+  });
+
+  svg.addEventListener("click", function () { laast = null; nullstill(); });
+
+  nullstill();
+})();
+</script>
+</body>
+</html>
