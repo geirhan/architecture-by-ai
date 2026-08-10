@@ -41,8 +41,13 @@ modnes.
   formell *statlig* normering; foreningsveiledernes normerende praksis
   innarbeidet i kap. 3a/3b (se
   [profesjonsforeninger-normering.md](profesjonsforeninger-normering.md)).
+  Samme dato: tilgjengelighetsrevisjon av innledningen (konkret
+  hovedbudskap, utvidet formål, «hva fungerer godt»-liste i kap. 8)
+  og nytt kap. 3e som kartlegger åtte dokumenterte avhengigheter
+  mellom de fire strømmene — «parallelle» presisert til samtidige,
+  ikke uavhengige.
 - **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  profesjonsforening-perspektivet + avhengighetskartlegging)
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 

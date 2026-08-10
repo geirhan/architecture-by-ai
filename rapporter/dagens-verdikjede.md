@@ -23,8 +23,9 @@ og det er den rapporten beskriver.
 
 Hovedfunnet er at hvert ledd gjør jobben sin, men at
 leddene henger dårlig sammen. Kunnskapen når frem
-gjennom fire parallelle kanaler som arbeider hver for
-seg – ingen har ansvar for at rådene stemmer overens,
+gjennom fire parallelle kanaler som bygger på
+hverandre, men arbeider hver for seg – ingen har
+ansvar for at rådene stemmer overens,
 eller for å følge opp at de tas i bruk. Både staten og
 helseprofesjonenes foreninger gir dessuten faglige råd
 som styrer praksis, uten kjøreregler for hvilke som
@@ -154,6 +155,13 @@ kvalitetssikring:
    informasjon via helsenorge.no,
    pasientorganisasjoner og medier
    (variabel hastighet)
+
+«Parallelle» betyr her at strømmene løper samtidig,
+med ulike aktører og ulik hastighet – ikke at de er
+uavhengige av hverandre. Strømmene bygger i stor
+grad på hverandre: Innhold, bidrag og føringer
+flyter mellom dem. Kapittel 3e kartlegger disse
+avhengighetene.
 
 Ingen enkelt strøm dekker hele kunnskapsbehovet
 alene – i praksis er det samspillet mellom dem som
@@ -482,6 +490,50 @@ aktører.
 | Pasientorganisasjoner | Erfaringsbasert formidling | Medisinsk kunnskap + pasienterfaring |
 | Medier | Journalistisk formidling | Forskningspublikasjoner, ekspertkilder |
 
+#### 3e. Avhengigheter mellom strømmene
+
+Strømmene 3a–3d løper parallelt, men de er ikke
+uavhengige. Flere av strømmene kan ikke levere sitt
+produkt uten innhold fra en annen strøm, og bidrag
+og føringer går også motsatt vei. Tabellen viser
+avhengighetene som er dokumentert i denne rapporten,
+i aktøranalysen (delrapport 8, `aktoeranalyse.md`)
+og i notatet om profesjonsforeningenes normering
+(`profesjonsforeninger-normering.md`).
+
+| Fra → Til | Hva flyter | Belegg |
+| --------- | ---------- | ------ |
+| Steg 1–2 → alle | Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2; 3b og 3c henter i tillegg innhold direkte fra steg 1 og «kortslutter» dermed kjeden | Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK] |
+| 3a → 3b | Retningslinjer operasjonaliseres til fagprosedyrer og behandlingslinjer; Helsebiblioteket tilgjengeliggjør retningslinjene for klinikken; lokale og foreningsutviklede retningslinjer «bør være i overensstemmelse med» de nasjonale (IS-1870 s. 12) | Kap. 3a og 3b [3] [4]; dp8 kap. 5.2, prosess 3; `profesjonsforeninger-normering.md` kap. 3 [DOK] |
+| 3b → 3a | Fagmedisinske foreninger bidrar i Helsedirektoratets arbeidsgrupper og høringer; foreningsveiledere dekker områder der nasjonale retningslinjer ikke utarbeides (IS-1870 s. 11) | Kap. 3a og 3b [2] [9]; dp8 kap. 5.2, prosess 2; `profesjonsforeninger-normering.md` kap. 3 [DOK] |
+| 3a → 3d | Retningslinjene er grunnlag for innbyggerinnholdet: innhold på helsenorge.no skal være «i tråd med nasjonale råd og retningslinjer», Helsedirektoratet har utgiveransvaret, og publisering av ny retningslinje er utløsende hendelse for oppdatering | Kap. 3a og 3d [10]; dp8 kap. 5.2, prosess 6 [DOK] |
+| 3c → 3a | Godkjent legemiddelinformasjon (SPC, sikkerhetssignaler) ligger til grunn for retningslinjenes legemiddelanbefalinger; nye sikkerhetssignaler etter publisering kan gjøre retningslinjen utdatert | Kap. 5.3 og 6 [DOK] |
+| 3c → 3d | DMP-godkjente preparatomtaler og pakningsvedlegg gjenbrukes som innbyggerrettet legemiddelinformasjon via Felleskatalogen | Kap. 3c og 3d [17]; dp8 kap. 3 [DOK] |
+| 3d → 3a | Brukerrepresentanter deltar i retningslinjearbeidet, og pasientorganisasjoner leverer høringssvar til myndighetene | Kap. 3a [2]; dp8 kap. 2.18, 3 og 5.2 (prosess 2) [DOK] |
+| 3a/3b → 3d | Sykehusenes fagkunnskap (RHF-ene) inngår i FNSPs faglig godkjente behandlingstekster | Kap. 3d [12]; dp8 kap. 3 og 5.2 (prosess 6) [DOK] |
+
+I tillegg er Helsebiblioteket en felles muliggjører:
+Det opptrer som enabler i fire av verdikjedens seks
+prosesser, og endringer i Helsebibliotekets
+tjenester påvirker derfor flere strømmer samtidig
+(dp8 kap. 5.3, obs. 5) [DOK].
+
+**Vurdering:** Avhengighetene er reelle, men i
+hovedsak uformelle. De forvaltes gjennom praksis og
+enkeltaktørenes rutiner – ikke gjennom definerte
+grensesnitt eller forpliktende oppdateringskjeder
+[ANT, basert på funnene i kap. 5.3 og 6]. Når en
+retningslinje endres, finnes det ingen mekanisme som
+varsler fagprosedyrene, oppslagsverkene eller
+innbyggerinformasjonen som bygger på den (kap. 5.3
+og 6). Konsistensutfordringene i kap. 5.3 oppstår
+nettopp langs disse avhengighetene: Der innhold
+flyter uten forvaltet kobling, kan mottakerleddet
+bli hengende etter. Dette underbygger
+hovedbudskapet i kap. 1 – leddene henger dårlig
+sammen, ikke fordi forbindelser mangler, men fordi
+forbindelsene ikke forvaltes.
+
 #### Innbyggerens samlede kunnskapsbilde – kilder utenfor verdikjeden
 
 De fire strømmene beskrevet ovenfor utgjør den
@@ -670,6 +722,10 @@ for konsistens:
 
 Det finnes i dag ingen overordnet mekanisme som
 sikrer konsistens mellom de fire strømmene.
+Kapittel 3e kartlegger avhengighetene mellom
+strømmene – det er langs disse avhengighetene
+inkonsistensen oppstår når oppdateringer i én strøm
+ikke følges opp i strømmene som bygger på den.
 
 ### 5.4 Manglende standardisering
 
@@ -945,6 +1001,7 @@ Sist oppdatert: 2026-08-10
 | 2026-04-08 | Versjon med gjennomløpstider 1–5 år (kap. 3a) og 2–3 år (typisk normerende strøm). Casestudie-funn (7–15+ år) lagt til som korreksjon. |
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte gjennomsnittsanslag (1–5 år, 2–3 år, 2,5–5 år) fjernet og erstattet med case-baserte spennvidder fra `casestudier-forsinkelser.md`. Kap. 7 observasjoner forankret eksplisitt mot delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper, R1–R6). Konklusjon språklig strammet. |
 | 2026-08-10 | Presisering av normeringsbeskrivelsen basert på `profesjonsforeninger-normering.md`: kap. 3a («formell *statlig* normering» + foreningsveilederes normerende praksis), kap. 3b (fagmedisinske foreningers veiledere/metodebøker, NSA), kap. 6 (manglende system for forrang stat/forening), kap. 1 (setning om tosporet normering). |
+| 2026-08-10 | Avhengigheter mellom strømmene kartlagt og innarbeidet: nytt delkapittel 3e med avhengighetstabell (belegg fra denne rapporten, delrapport 8 og `profesjonsforeninger-normering.md`); presisering i steg 3-innledningen av at «parallelle» betyr samtidige, ikke uavhengige, strømmer; henvisning til 3e i kap. 5.3; hovedbudskapet i kap. 1 presisert («bygger på hverandre, men arbeider hver for seg»). |
 | 2026-08-10 | Tilgjengelighetsrevisjon av innledningen: hovedbudskapet omskrevet med konkret eksempel (diabetes) og uten fremoverreferanser; formålet (kap. 1.1) utvidet til også å omfatte hva som fungerer godt og bør bevares; PICO forklart (kap. 1.2); peker til Helsedirektoratets side om normerende produkter [27] (kap. 3a). Kap. 8 utvidet med liste over hva som fungerer godt og bør bevares — basert på eksisterende funn i kap. 3 og 6, ingen nye påstander. |
 
 ---
