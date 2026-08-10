@@ -286,6 +286,13 @@ generativ KI og yngre bruker ChatGPT som helsekilde
 Delrapport 1 dokumenterer at de fire strømmene er
 usynkroniserte, med konsistensutfordringer som følge
 (dp1 kap. 5.3, kap. 7 observasjon 1 og 3).
+Utfordringen omfatter også foreningssporet: rundt 13
+av 22 undersøkte fagmedisinske foreninger har egne
+normerende produkter utenfor den statlige kjeden
+[DOK, `profesjonsforeninger-normering.md` kap. 5b–5c],
+og det finnes ingen forrangsregler eller systematisk
+motstridskontroll mellom statlige retningslinjer og
+foreningsveiledere [ANT].
 
 **K11 Implementeringseierskap — Fraværende.** Ingen
 aktør eier implementeringsgapet; 7–15+ år til bred
@@ -333,7 +340,9 @@ kap. 6 dokumenterer robust kvalitetssikring *per
 strøm* (fagfellevurdering, GRADE, høring, redaksjon,
 regulatorisk godkjenning), men svak kvalitetssikring
 *på tvers* av strømmene (dp1 kap. 6, kap. 7
-observasjon 6).
+observasjon 6). Kvalitetssikring på tvers av statlige
+og foreningsdrevne kilder er ikke dokumentert noe sted
+[ANT, jf. `profesjonsforeninger-normering.md`].
 
 **K20 KI-forvaltning — Svak.** Dokumenterte sprik
 mellom leverandørpåstander og uavhengige evalueringer
@@ -411,6 +420,16 @@ dekomponering til nivå 3):
    ligger nå under «Styre og samordne»; dp2 behandler
    beredskap som egen dimensjon (D6). Alternativet er
    en egen nivå 1-kapabilitet for beredskap.
+4. **Skal kartet omfatte foreningsdrevet normering?**
+   Kartet er i dag utledet fra den statlige kjedens
+   prosesser, men en betydelig del av den kliniske
+   veiledningen produseres av profesjonsforeninger
+   utenfor denne kjeden
+   (`profesjonsforeninger-normering.md`). Bør
+   verdikjedens kapabiliteter omfatte dette sporet —
+   for eksempel innholdsavtaler, kildemerking og
+   motstridskontroll — eller skal det behandles som
+   ekstern avhengighet? [ANT]
 
 ## 5. Bruk videre
 

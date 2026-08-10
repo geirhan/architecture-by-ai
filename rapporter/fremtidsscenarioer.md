@@ -14,20 +14,23 @@ i helsesektoren
 ---
 
 > **Politisk signal (Meld. St. 11 (2025–2026)
-> Helsepersonellplan 2040).** Planen er ikke en prediksjon,
-> men gir et eksplisitt politisk *signal* om retning i
-> scenariokorset: regjeringen varsler en offentlig
-> orkestrert linje med kjøp i markedet («*kjøp av
-> kvalitetssikrede KI-løsninger i markedet*», kap. 7.2) og
-> en «*nasjonal infrastruktur for kunnskapsformidling*»
-> (kap. 8.3) – en bevegelse mot S1 (Nasjonal motor) / S3
-> (Føderert økosystem). Formuleringen om at «*sykehusene bør
-> som hovedregel ikke utvikle egne løsninger der det finnes
-> gode, kvalitetssikrede og konkurransedyktige løsninger i
-> markedet*» (kap. 7.5) er et eksplisitt orkestreringsgrep
-> mot S4-driften (Fragmentert flora). Dette styrker funnet
-> om at nullalternativet ikke er et stabilt hjørne, og at
-> forskjellen S3/S4 er orkestrering – ikke teknologi. Se
+> Helsepersonellplan 2040).** Planen er ikke en prediksjon.
+> Den gir et eksplisitt politisk *signal* om retning:
+> regjeringen varsler en offentlig orkestrert linje – det
+> vil si en linje der det offentlige styrer standarder og
+> retning uten nødvendigvis å eie hver enkelt løsning – med
+> kjøp i markedet («*kjøp av kvalitetssikrede KI-løsninger i
+> markedet*», kap. 7.2) og en «*nasjonal infrastruktur for
+> kunnskapsformidling*» (kap. 8.3). Signalet peker mot S1
+> (Nasjonal motor) eller S3 (Føderert økosystem) – se kap. 1
+> for en forklaring av scenarioene. Formuleringen om at
+> «*sykehusene bør som hovedregel ikke utvikle egne
+> løsninger der det finnes gode, kvalitetssikrede og
+> konkurransedyktige løsninger i markedet*» (kap. 7.5) er et
+> eksplisitt orkestreringsgrep mot S4-driften (Fragmentert
+> flora). Dette styrker funnet om at nullalternativet ikke
+> er et stabilt hjørne, og at forskjellen mellom S3 og S4 er
+> orkestrering, ikke teknologi. Se
 > [kildeforankringsnotatet](helsepersonellplan-2040.md).
 > [DOK for formuleringer / ANT for scenariokobling]
 
@@ -59,27 +62,31 @@ beslutninger *robuste* mot flere mulige utviklingsbaner
 DFØ-veileder i scenarioarbeid].
 
 **Merking av evidens.** Som i de øvrige delrapportene
-merkes utsagn med **[DOK]** når de er dokumentert i en
-kilde og **[ANT]** når de er analytiske slutninger ført av
-denne utredningen. Scenarioene som *helhetlige bilder* er i
-sin natur [ANT] – de er konstruerte fremtidsfortellinger.
-De enkelte mekanismene og dagens tilstander de bygger på er
-forankret der de står.
+merker vi utsagn med **[DOK]** når de er dokumentert i en
+kilde, og med **[ANT]** når de er analytiske slutninger vi
+selv har trukket. Scenarioene er som helhetlige bilder
+konstruerte fremtidsfortellinger [ANT]. De enkelte
+mekanismene og dagens tilstander de bygger på, er forankret
+der de står.
 
 ---
 
 ## 1. Kort konklusjon
 
-Et scenariokors med to usikkerhetsakser – **hvor
-produksjonen skjer** (sentralisert ↔ desentralisert) og
+Et scenariokors er en firefelts modell bygget på to
+usikkerhetsakser, brukt i scenarioanalyse for å beskrive
+ulike fremtidsbilder. Den ene aksen er **hvor produksjonen
+skjer** (sentralisert ↔ desentralisert), og den andre er
 **hvem som styrer takten** (offentlig orkestrert ↔
-markeds-/leverandørstyrt) – gir fire rendyrkede
-fremtidsbilder:
+markeds-/leverandørstyrt). Sammen gir de to aksene fire
+rendyrkede fremtidsbilder:
 
 - **S1 Nasjonal motor** – sterk sentral løsning, det
   offentlige eier takten.
 - **S2 Plattformavhengighet** – én dominerende kommersiell
-  eller EPJ-integrert KI blir de facto standard.
+  eller EPJ-integrert KI blir de facto standard (en
+  uformell standard som alle i praksis retter seg etter,
+  uten at noen har vedtatt den formelt).
 - **S3 Føderert økosystem** – mange lokale løsninger bygger
   på felles offentlige rammer og standarder.
 - **S4 Fragmentert flora** – kommuner, helseforetak og
@@ -95,10 +102,10 @@ Tre hovedinnsikter følger av analysen:
    KI, men *hvem som setter premissene*.
 
 2. **Den farligste banen krever ingen aktiv beslutning.**
-   **S4 Fragmentert flora** – som er det scenarioet denne
-   delrapporten startet fra – er det som oppstår av seg
-   selv dersom hver aktør optimaliserer lokalt uten felles
-   rammer. Det forsterker de samme rotårsakene utredningen
+   **S4 Fragmentert flora** er scenarioet denne
+   delrapporten startet fra. Det oppstår av seg selv
+   dersom hver aktør optimaliserer lokalt uten felles
+   rammer, og det forsterker de samme rotårsakene vi
    allerede har identifisert (R2 fragmentering, R4
    manglende struktur, R1 styringsmandat) [ANT, jf.
    delrapport 2 kap. 9].
@@ -118,14 +125,13 @@ Tre hovedinnsikter følger av analysen:
 
 ### 2.1 Hvorfor scenarioer, ikke prognoser
 
-Utredningen kan ikke vite hvordan KI-landskapet i
-helsesektoren ser ut om fem til ti år. Den kan derimot
-identifisere de **kritiske usikkerhetene** som vil forme
-det, og beskrive konsistente fremtidsbilder for ulike
-kombinasjoner av dem. Hensikten er å teste om de fire
-alternativene i delrapport 4 og posisjonene langs aksene
-(delrapport 2 kap. 9.7) **holder seg robuste** uansett
-hvilken bane som inntreffer [ANT].
+Vi kan ikke vite hvordan KI-landskapet i helsesektoren ser
+ut om fem til ti år. Men vi kan identifisere de **kritiske
+usikkerhetene** som vil forme det, og beskrive konsistente
+fremtidsbilder for ulike kombinasjoner av dem. Hensikten er
+å teste om de fire alternativene i delrapport 4 og
+posisjonene langs aksene (delrapport 2 kap. 9.7) **holder
+seg robuste** uansett hvilken bane som inntreffer [ANT].
 
 Scenarioene er bevisst **rendyrkede**. Virkeligheten vil
 ligge mellom hjørnene og kan bevege seg fra ett hjørne til
@@ -142,20 +148,24 @@ for akser i et scenariokors [ANT, metodevalg]:
 Desentralisert.** Skjer KI-støttet kunnskapsproduksjon i
 hovedsak gjennom *én sentral løsning* (forvaltet nasjonalt),
 eller gjennom *mange lokale løsninger* bygget av kommuner,
-helseforetak og RHF? Dette er aksen utredningens
-opprinnelige spørsmål reiste, og den treffer R1
-(styringsmandat), R2 (fragmentering) og R4 (struktur).
+helseforetak og RHF? Dette er aksen vårt opprinnelige spørsmål reiste, og den
+treffer R1 (styringsmandat), R2 (fragmentering) og R4
+(struktur). Desentralisering er ikke bare geografisk og
+organisatorisk (kommuner, helseforetak). Den er også
+profesjonsvis: Profesjonsforeningene er allerede
+etablerte, desentrale normeringsaktører [DOK,
+[profesjonsforeninger-normering.md](profesjonsforeninger-normering.md)].
 
 **Akse Y – Styringsregime: Offentlig orkestrert ↔
 Markeds-/leverandørstyrt.** I hvilken grad setter det
 *offentlige* premissene (standarder, kvalitetskrav,
 oppdateringstakt), kontra at *kommersielle KI-tjenester og
 EPJ-leverandører* de facto bestemmer hvordan kunnskap
-formidles? Dette er aksen økosystemnotatet reiser som
-«orkestrering vs. kontroll» [DOK,
+formidles? Dette er samme akse som økosystemnotatet omtaler
+som «orkestrering vs. kontroll» [DOK,
 [verdikjede-som-okosystem.md](verdikjede-som-okosystem.md)
-kap. 4.2], og den treffer R1 og kjerneegenskapen
-*tillit/legitimitet*.
+kap. 4.2]. Aksen påvirker R1 (styringsmandat) og
+kjerneegenskapen *tillit/legitimitet*.
 
 ### 2.3 Korset
 
@@ -178,21 +188,22 @@ kap. 4.2], og den treffer R1 og kjerneegenskapen
 | **Sentralisert** | **S1 Nasjonal motor** | **S2 Plattformavhengighet** |
 | **Desentralisert** | **S3 Føderert økosystem** | **S4 Fragmentert flora** |
 
-Det opprinnelige bekymringsscenarioet – at kommuner og
+Det opprinnelige bekymringsscenarioet er at kommuner og
 helseforetak bygger egne løsninger tett opp mot det
-sentrale mandatet – lever i sin **rene form i S4**, og i en
-**styrt og konstruktiv form i S3**. Forskjellen mellom dem
-er denne delrapportens viktigste budskap.
+sentrale mandatet. Dette scenarioet finnes i **ren form i
+S4**, og i en **styrt og konstruktiv form i S3**.
+Forskjellen mellom dem er denne delrapportens viktigste
+budskap.
 
 ---
 
 ## 3. De fire scenarioene
 
-For hvert scenario beskrives: kort fortelling, drivere som
-må slå til, hvilke rotårsaker (R1–R6) det demper eller
-forsterker, virkning på de fem kjerneegenskapene, og
-typiske «tegn i tiden» som varsler at vi beveger oss mot
-det.
+For hvert scenario beskriver vi: en kort fortelling,
+drivere som må slå til, hvilke rotårsaker (R1–R6)
+scenarioet demper eller forsterker, virkning på de fem
+kjerneegenskapene, og typiske «tegn i tiden» som varsler at
+vi beveger oss mot det.
 
 ### 3.1 S1 – Nasjonal motor (sentralisert + offentlig orkestrert)
 
@@ -201,9 +212,10 @@ løsning for kunnskapsforvaltning, forvaltet nasjonalt
 (nær delrapport 4 alternativ 2/3). Den produserer og
 oppdaterer oversikter, retningslinjer og
 innbyggerinformasjon raskere enn i dag. Kommuner og
-helseforetak *konsumerer* fra den sentrale motoren fremfor
-å bygge egne. Helsedirektoratet eier strategi og takt; NHN
-drifter [ANT, jf. CLAUDE.md roller/ansvar].
+helseforetak bruker den sentrale motoren i stedet for å
+bygge egne løsninger. Helsedirektoratet eier strategien og
+bestemmer tempoet. NHN drifter løsningen [ANT, jf.
+CLAUDE.md roller/ansvar].
 
 **Drivere som må slå til.** Tilstrekkelig sentral
 finansiering og kompetanse; et styringsmandat som faktisk
@@ -231,11 +243,12 @@ offentlig løsning – den samles hos **én dominerende
 kommersiell eller EPJ-integrert KI**. Klinikere får
 beslutningsstøtte gjennom journalsystemet (DIPS, CGM
 m.fl.), og innbyggere bruker globale KI-tjenester (ChatGPT,
-Gemini, Copilot) som primærkilde. Disse blir de facto
-standard fordi de er tilgjengelige der arbeidet og søket
-faktisk skjer [DOK om kommersiell substitusjon, delrapport
-4 kap. 2.3; [verdikjede-som-okosystem.md](verdikjede-som-okosystem.md)
-kap. 3.3 «dominator»].
+Gemini, Copilot) som primærkilde. Disse løsningene blir de
+facto standard fordi de er tilgjengelige der arbeidet og
+søket faktisk skjer [DOK om kommersiell substitusjon,
+delrapport 4 kap. 2.3;
+[verdikjede-som-okosystem.md](verdikjede-som-okosystem.md)
+kap. 3.3, der rollen omtales som «dominator»].
 
 **Drivere som må slå til.** Fravær av et konkurransedyktig
 offentlig tilbud; EPJ-leverandørenes utviklingstakt
@@ -266,11 +279,19 @@ bygger på **felles offentlige rammer**: nasjonale
 standarder, metadataprofiler, kodeverk og maskinlesbar,
 gjenbrukbar offentlig kunnskap (jf. CLAUDE.md:
 Helsedirektoratets ansvar for standarder/metadataprofiler;
-økosystemnotatets *generativitet*). Det offentlige
-*orkestrerer* fremfor å kontrollere: det gjør sitt tilbud
-så åpent og gjenbrukbart at andre *velger* å bygge på det
+økosystemnotatets *generativitet* – evnen et gjenbrukbart
+tilbud har til å utløse at andre bygger videre på det). Det
+offentlige *orkestrerer* fremfor å kontrollere. Det betyr
+at det offentlige gjør sitt tilbud så åpent og gjenbrukbart
+at andre *velger* å bygge på det
 [DOK, [verdikjede-som-okosystem.md](verdikjede-som-okosystem.md)
-kap. 4.2, 4.3].
+kap. 4.2, 4.3]. I et slikt scenario kan
+profesjonsforeningene være naturlige innholdsleverandører
+som orkestreres inn [ANT]. «Kloke valg»-modellen –
+statlig finansiering uten faglig overtakelse – viser en
+mulig form for slik orkestrering [DOK,
+[profesjonsforeninger-normering.md](profesjonsforeninger-normering.md)
+kap. 4].
 
 **Drivere som må slå til.** Tidlig etablering av felles
 standarder og et gjenbrukbart sentralt «kunnskapslager»;
@@ -300,11 +321,14 @@ maskinlesbart; en orkestreringsfunksjon er etablert.
 kommuner, helseforetak og RHF bygger hver sin KI-løsning
 for behov tett opp mot det sentrale mandatet, uten felles
 standarder, og ofte på ulike kommersielle plattformer. Hver
-løsning er rasjonell lokalt, men summen er fragmentering:
-ulik kvalitetssikring, ulike svar på samme spørsmål,
+løsning er rasjonell lokalt. Men summen blir fragmentering
+– ulik kvalitetssikring, ulike svar på samme spørsmål,
 dobbeltarbeid og uklart ansvar når noe går galt [ANT, jf.
 delrapport 2 kap. 9 R2/R4; delrapport 8 observasjoner om
-fragmentert ansvar].
+fragmentert ansvar]. Fragmenteringsdriften kan også
+omfatte foreningssporet: Hver profesjonsforening kan
+bygge og eksponere sitt eget innhold uten samordning
+[ANT].
 
 **Drivere som må slå til.** Fravær (eller forsinkelse) av
 en sentral løsning og av felles rammer; lokal
@@ -361,11 +385,13 @@ Systemet kan **bevege seg mellom hjørner** over tid [ANT]:
   at lokale løsninger har vokst frem. Det er vanskeligere,
   men ikke umulig – det krever å samordne det som allerede
   er bygget.
-- **S1 → S4** er en kollapsbane: en sentral løsning som er
-  for treg, for lite tilgjengelig eller mangler mandat,
-  utløser nettopp de lokale initiativene den skulle
-  erstatte. S1 er altså ikke selvbærende uten reaktivitet
-  og mandat.
+- **S1 → S4** er en kollapsbane, det vil si en utvikling
+  der systemet beveger seg fra det sterkeste til det
+  svakeste scenarioet: en sentral løsning som er for treg,
+  for lite tilgjengelig eller mangler mandat, utløser
+  nettopp de lokale initiativene den skulle erstatte. S1 er
+  altså avhengig av at løsningen er reaktiv og har et
+  tydelig mandat – ellers er den ikke selvbærende.
 - **Drift mot S2/S4** er standardbanen ved passivitet:
   uten aktiv offentlig posisjonering fyller markedet og
   lokale aktører rommet [ANT].
@@ -378,10 +404,10 @@ dagens praksis gir ikke «dagens tilstand bevart». Når
 KI-tilbudet i omverdenen vokser, betyr passivitet at
 feltet fylles av S2 (kommersiell/EPJ-dominans) eller S4
 (lokal fragmentering) [ANT, jf. delrapport 4 kap. 2.3
-«kommersiell substitusjon»]. Scenariokorset gjør dermed
-synlig hva delrapport 4 allerede konkluderte kvalitativt:
-nullalternativet er ikke bærekraftig – men det viser i
-*tillegg* hvilke konkrete baner passivitet leder til.
+«kommersiell substitusjon»]. Scenariokorset bekrefter det
+delrapport 4 allerede konkluderte kvalitativt:
+nullalternativet er ikke bærekraftig. I *tillegg* viser
+scenariokorset hvilke konkrete baner passivitet fører til.
 
 ---
 
@@ -392,8 +418,8 @@ eller aksene. De **stresstester** dem [ANT]:
 
 ### 5.1 Scenarioene langs de fire aksene
 
-Hvert scenario er i praksis et bestemt sett posisjoner
-langs de fire løsningsaksene (delrapport 2 kap. 9.7):
+Hvert scenario tilsvarer et bestemt sett posisjoner langs
+de fire løsningsaksene (delrapport 2 kap. 9.7):
 
 | Akse | S1 | S2 | S3 | S4 |
 |---|---|---|---|---|
@@ -420,16 +446,18 @@ sammen skiller S3 fra S4 [ANT].
   selv en ambisiøs sentral satsing å utløse S4 lokalt
   (kollapsbanen S1 → S4, kap. 4.2) [ANT].
 
-Hovedfunnet for delrapport 4: **valget står ikke bare
-mellom alternativene, men om de utformes for å orkestrere
-et økosystem (S3) eller bare bygge en sentral motor (S1).**
+Hovedfunnet for delrapport 4 er dette: **Valget står ikke
+bare mellom alternativene. Det avgjørende er om
+alternativene utformes for å orkestrere et økosystem (S3),
+eller om de bare bygger en sentral motor (S1).**
 
 ---
 
 ## 6. Konsekvenser for utredningen
 
-1. **Orkestrering bør være et eksplisitt designkrav, ikke
-   en ettertanke.** Skillet S3/S4 avgjøres av om felles
+1. **Orkestrering bør være et krav fra starten av
+   arkitekturarbeidet – ikke noe som legges til i
+   etterkant.** Skillet S3/S4 avgjøres av om felles
    standarder, metadataprofiler og gjenbrukbar kunnskap er
    på plass *tidlig*. Dette bør innarbeides i delrapport 4s
    alternativer og i arkitekturen (delrapport 5) [ANT].
@@ -512,9 +540,9 @@ etablert scenariometodikk:
 Scenariometodikken (scenariokors med to kritiske
 usikkerheter) bygger på etablert litteratur om
 scenarioplanlegging (bl.a. Schoemaker 1995; Schwartz 1991)
-og DFØs veiledning i scenarioarbeid. Denne litteraturen er
-anvendt analytisk [ANT]; den er ikke en empirisk kilde om
-norsk helsesektor.
+og DFØs veiledning i scenarioarbeid. Vi har brukt denne
+litteraturen analytisk, altså som metodegrunnlag [ANT].
+Den er ikke en empirisk kilde om norsk helsesektor.
 
 ---
 

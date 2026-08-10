@@ -16,9 +16,9 @@ i helsesektoren
 
 Denne rapporten gir en systematisk oversikt over aktørene
 i verdikjeden for kunnskapsforvaltning i helsesektoren.
-Aktøranalysen er skilt ut som egen delrapport for å gi en
-helhetlig fremstilling av roller, ansvar og relasjoner som
-går på tvers av verdikjedens steg og strømmer.
+Vi har skilt ut aktøranalysen som egen delrapport for å gi
+en helhetlig fremstilling av roller, ansvar og relasjoner
+som går på tvers av verdikjedens steg og strømmer.
 
 ### 1.2 Sammenheng med øvrige delrapporter
 
@@ -31,7 +31,7 @@ og strømmer slik de er definert i delrapport 1.
 
 ## 2. Aktørkart for verdikjeden
 
-Aktørene er organisert etter hvilken strøm de primært
+Vi organiserer aktørene etter hvilken strøm de primært
 tilhører. Flere aktører opererer på tvers av strømmene.
 
 ### Overordnet styring
@@ -137,8 +137,9 @@ tilhører. Flere aktører opererer på tvers av strømmene.
   (strøm 3b, også strøm 3a)
 - **Ansvar og mandat**: Fagprosedyrer.no omdirigerer til
   Helsebiblioteket [4]. OUS koordinerer arbeidet med
-  kunnskapsbaserte fagprosedyrer. Tjenesten er under
-  gjenoppbygging etter en periode med nedleggelse [4].
+  kunnskapsbaserte fagprosedyrer. Helsebiblioteket bygger nå
+  opp tjenesten igjen etter at den ble lagt ned en
+  periode [4].
 - **Viktigste leveranser**: Kunnskapsbaserte fagprosedyrer
   for diagnostikk, behandling og pleie.
 
@@ -148,9 +149,9 @@ tilhører. Flere aktører opererer på tvers av strømmene.
   (strøm 3b)
 - **Ansvar og mandat**: Tidsskrift for Den norske
   legeforening er fagfellevurdert og fritt tilgjengelig
-  (open access) [7]. Sykepleien Forskning er
-  nivå 1-tidsskrift utgitt av NSF [8]. Begge er sentrale
-  arenaer for norsk medisinsk fagdebatt.
+  (open access) [7]. NSF gir ut Sykepleien Forskning, som
+  er et nivå 1-tidsskrift [8]. Begge er sentrale arenaer
+  for norsk medisinsk fagdebatt.
 - **Viktigste leveranser**: Originalartikler,
   oversiktsartikler, fagdebatt, kritisk gjennomgang av
   retningslinjer.
@@ -158,13 +159,48 @@ tilhører. Flere aktører opererer på tvers av strømmene.
 #### 2.10 Fagmedisinske foreninger
 
 - **Rolle i verdikjeden**: Spesialitetsspesifikk faglig
-  formidling (strøm 3b)
+  formidling og egen normering (strøm 3b, delvis 3a)
 - **Ansvar og mandat**: Legeforeningens fagmedisinske
   foreninger (én per spesialitet) utvikler faglige
   anbefalinger og bidrar til Helsedirektoratets
-  retningslinjearbeid [9].
-- **Viktigste leveranser**: Spesialitetsspesifikke
-  anbefalinger, kurs og konferanser.
+  retningslinjearbeid [9]. Rollen er imidlertid
+  vesentlig større enn bidragsyterrollen: Rundt 13 av
+  22 undersøkte foreninger utgir egne normerende
+  produkter – veiledere, metodebøker og
+  kvalitetshåndbøker [19]. Eksempler er Norsk
+  gynekologisk forenings veileder i fødselshjelp
+  (siden 1997), pediatriveilederne (siden 1998) og
+  produkter innen akuttnevrologi, endokrinologi,
+  infeksjonsmedisin, øre-nese-hals og oftalmologi [19].
+  Praksisen er historisk fremvokst nedenfra, og
+  Legeforeningen formaliserte den selv i 2015: Den
+  enkelte fagmedisinske forening beslutter på
+  selvstendig grunnlag hvilke veiledere den lager [20].
+  Foreningsveilederne har også rettslig relevans:
+  Statens helsetilsyn har i tilsynspraksis lagt NGFs
+  fødselshjelpsveileder til grunn som norm for
+  forsvarlighet etter helsepersonelloven § 4 [21].
+  Onkologi er moteksempelet: Der overtok staten
+  faggruppenes handlingsprogrammer (oppdrag fra HOD i
+  2005, videreført i Nasjonal kreftstrategi 2006–2009),
+  slik at foreningene nå er bidragsytere inn i et
+  statlig eid produkt [19].
+- **Viktigste leveranser**: Egne veiledere, metodebøker
+  og kvalitetshåndbøker; spesialitetsspesifikke
+  anbefalinger; kurs og konferanser.
+
+**Normerende praksis i andre profesjonsforeninger:**
+Foreningsdrevet normering finnes også utenfor
+Legeforeningen, men er smalere og mer heterogen [19].
+Sterkest står Norges Optikerforbund med 26 kliniske
+retningslinjer (løpende revidert 2014–2026) og NFFs
+faggruppe for manuellterapi med egne retningslinjer for
+klinisk undersøkelse. NSFs faggrupper normerer primært
+rolle og kompetanse (funksjons- og
+kompetansebeskrivelser), og deltar i kliniske standarder
+som medutgivere sammen med legeforeninger – Norsk
+Standard for Anestesi (ANSF og NAF) og retningslinjene
+for intensivvirksomhet (NSFLIS og NAF, 2014) [19].
 
 ### Strøm 3c: Legemiddelstrømmen
 
@@ -175,10 +211,12 @@ tilhører. Flere aktører opererer på tvers av strømmene.
 - **Ansvar og mandat**: Norges sentrale
   forvaltningsmyndighet for legemidler og medisinsk
   utstyr (tidligere Statens legemiddelverk) [16]. Vurderer
-  søknader om markedsføringstillatelse i samarbeid med EMA,
-  overvåker bivirkninger og publiserer
-  sikkerhetsinformasjon. Forvalter FEST-databasen med
-  interaksjonsdata [17].
+  søknader om markedsføringstillatelse i samarbeid med EMA
+  (Det europeiske legemiddelbyrået), overvåker bivirkninger
+  og publiserer sikkerhetsinformasjon. Forvalter
+  FEST-databasen (nasjonal database med strukturert
+  legemiddelinformasjon som brukes i elektroniske
+  systemer) med interaksjonsdata [17].
 - **Viktigste leveranser**: Markedsføringstillatelser,
   sikkerhetsvarsler, FEST-database, veiledere.
 
@@ -189,8 +227,9 @@ tilhører. Flere aktører opererer på tvers av strømmene.
 - **Ansvar og mandat**: Felleskatalogen AS samler og
   tilgjengeliggjør godkjente preparatomtaler (SPC),
   pakningsvedlegg og bivirkningsinformasjon [17].
-  Interaksjonssøket er basert på DMPs FEST-database
-  (inkl. DRUID og Apriori).
+  Interaksjonssøket er basert på DMPs FEST-database,
+  inkludert DRUID og Apriori (databaser/algoritmer for
+  legemiddelinteraksjoner).
 - **Viktigste leveranser**: Preparatomtaler,
   pakningsvedlegg, interaksjonssøk, ATC-register.
 
@@ -202,7 +241,8 @@ tilhører. Flere aktører opererer på tvers av strømmene.
   Nord-Norge, Sør-Øst og Vest) gir produsentuavhengig,
   individuell rådgivning til helsepersonell om
   legemiddelbruk [18]. Spesialisttjenester inkluderer
-  Trygg Mammamedisin og KUPP-kampanjer.
+  Trygg Mammamedisin og KUPP-kampanjer
+  (informasjonskampanjer om riktig legemiddelbruk).
 - **Viktigste leveranser**: Individuell rådgivning,
   fagartikler, bivirkningsrapporter, undervisning og
   kampanjer.
@@ -216,11 +256,11 @@ tilhører. Flere aktører opererer på tvers av strømmene.
 - **Ansvar og mandat**: Helsedirektoratet har
   utgiveransvaret og det etiske/rettslige ansvaret. NHN
   er produkteier med redaktøransvaret, og koordinerer
-  lokale redaktører [10]. Innholdet leveres av offentlige
-  helseaktører (sykehus, Helsedirektoratet, Helfo,
-  FHI m.fl.) og skal være forskningsbasert og i tråd med
-  nasjonale råd og retningslinjer. Oppdateres minst hvert
-  tredje år [10].
+  lokale redaktører [10]. Offentlige helseaktører (sykehus,
+  Helsedirektoratet, Helfo, FHI m.fl.) leverer innholdet,
+  som skal være forskningsbasert og i tråd med nasjonale
+  råd og retningslinjer. Innholdet skal oppdateres minst
+  hvert tredje år [10].
 - **Viktigste leveranser**: Kvalitetssikret
   helseinformasjon i klarspråk, digitale helsetjenester,
   helserettigheter.
@@ -304,15 +344,29 @@ nedenfor oppsummerer de viktigste kryssreferansene:
 | RHF-ene | 3a | 3b, 3d | Implementering og formidling |
 | Felleskatalogen | 3c | 3d | Helsepersonell og innbyggere |
 | Pasientorg. | 3d | 3a | Erfaring + politisk påvirkning |
-| Fagmed. foreninger | 3b | 3a | Faglig og normerende |
+| Fagmed. foreninger | 3b | 3a | Faglig og normerende (egne veiledere) [19] |
+| Andre prof.foreninger | 3b | 3a | Optikerforbundet, NFF, NSF-faggrupper [19] |
 
 ---
 
 ## 4. Observasjoner
 
-1. **Fragmentert ansvar**: Ansvaret er fordelt på nærmere
-   20 aktører uten et overordnet system som sikrer
-   konsistens på tvers.
+1. **Fragmentert ansvar**: Nærmere 20 aktører deler
+   ansvaret, uten at noe overordnet system sikrer
+   konsistens på tvers. Fragmenteringen går ikke bare
+   langs etats- og forvaltningsnivåaksen:
+   Normeringslandskapet har to parallelle spor – et
+   statlig (Helsedirektoratets nasjonale retningslinjer)
+   og et foreningsdrevet (fagmedisinske foreninger og
+   andre profesjonsforbund, jf. kap. 2.10) [19]. Det
+   finnes ingen dokumenterte forrangsregler mellom
+   sporene og ikke noe etablert koordineringsforum –
+   Røttingen-rapportens forslag om et «forum for faglig
+   normering» var per 2023 kun anbefalt utredet
+   videre [19]. To pasienter med samme tilstand kan
+   dermed i prinsippet møte anbefalinger fra ulike
+   kilder uten et system som avklarer forrang
+   (analytisk vurdering i kildenotatet [19]).
 2. **Innholdsproduksjon som bifunksjon**: For RHF-er,
    kommuner, fagmedisinske foreninger og mange andre er
    kunnskapsforvaltning en bifunksjon, ikke en primær
@@ -321,10 +375,10 @@ nedenfor oppsummerer de viktigste kryssreferansene:
    har 80+ innholdsleverandører som opererer relativt
    uavhengig. Helsedirektoratet har utgiveransvar men
    ikke praktisk redaktørkontroll over alt innhold.
-4. **Flere aktører i samme rolle**: Det finnes overlapp
-   mellom aktørers leveranser (f.eks. FHI og
-   Helsedirektoratet innen innbyggerrettet informasjon),
-   uten tydelig arbeidsdeling.
+4. **Flere aktører i samme rolle**: Aktørenes leveranser
+   overlapper (f.eks. FHI og Helsedirektoratet innen
+   innbyggerrettet informasjon), uten tydelig
+   arbeidsdeling.
 
 ---
 
@@ -335,8 +389,9 @@ nedenfor oppsummerer de viktigste kryssreferansene:
 IGOE (Inputs, Guides, Outputs, Enablers) er et
 prosessanalytisk rammeverk som beskriver de grunnleggende
 komponentene i enhver prosess eller aktivitet. Rammeverket
-er en videreføring av IDEF0-metodikken, tilpasset
-tjenestebaserte virksomheter.
+bygger på IDEF0-metodikken (en etablert metode for
+prosessmodellering), tilpasset tjenestebaserte
+virksomheter.
 
 De fire komponentene defineres slik:
 
@@ -389,13 +444,16 @@ kvalitetsvurdert kunnskapsgrunnlag
 - **Guides** (styrer prosessen)
   - *Aktør(er):* HOD, Helsedirektoratet (bestiller);
     FHI (metodeeier)
-  - *Beskrivelse:* Utløsende hendelse: Bestilling fra
-    HOD/Hdir eller identifisert kunnskapsbehov. Metode:
-    GRADE-metodikk, Cochrane Handbook, systematisk
-    oversiktsmetodikk. Rammer: Helseforskningsloven,
-    forskningsetiske retningslinjer, FHIs mandat.
-    Avsluttende hendelse: Godkjent og publisert
-    kunnskapsoppsummering
+  - *Beskrivelse:*
+    - Utløsende hendelse: Bestilling fra HOD/Hdir eller
+      identifisert kunnskapsbehov
+    - Metode: GRADE-metodikk (system for å vurdere
+      kvaliteten på forskningsbasert kunnskap), Cochrane
+      Handbook og systematisk oversiktsmetodikk
+    - Rammer: Helseforskningsloven, forskningsetiske
+      retningslinjer og FHIs mandat
+    - Avsluttende hendelse: Godkjent og publisert
+      kunnskapsoppsummering
 - **Outputs** (resultat)
   - *Aktør(er):* FHI
   - *Beskrivelse:* Systematiske oversikter med
@@ -428,16 +486,16 @@ anbefalinger tilpasset norsk kontekst
 - **Guides** (styrer prosessen)
   - *Aktør(er):* HOD (tildelingsbrev);
     Stortinget (lovgivning)
-  - *Beskrivelse:* Utløsende hendelse: Tildelingsbrev
-    fra HOD eller identifisert behov for ny/revidert
-    retningslinje. Metode:
-    GRADE-fra-evidens-til-anbefaling-rammeverk,
-    Helsedirektoratets retningslinjemetodikk. Rammer:
-    Helselovgivning,
-    pasient- og brukerrettighetsloven,
-    forvaltningsloven (høringskrav), helsepolitiske
-    prioriteringer. Avsluttende hendelse: Publisert
-    retningslinje/veileder/faglig råd
+  - *Beskrivelse:*
+    - Utløsende hendelse: Tildelingsbrev fra HOD eller
+      identifisert behov for ny/revidert retningslinje
+    - Metode: GRADE-fra-evidens-til-anbefaling-rammeverk
+      og Helsedirektoratets retningslinjemetodikk
+    - Rammer: Helselovgivning, pasient- og
+      brukerrettighetsloven, forvaltningsloven
+      (høringskrav) og helsepolitiske prioriteringer
+    - Avsluttende hendelse: Publisert
+      retningslinje/veileder/faglig råd
 - **Outputs** (resultat)
   - *Aktør(er):* Helsedirektoratet
   - *Beskrivelse:* Nasjonale faglige retningslinjer;
@@ -465,14 +523,15 @@ operasjonalisert klinisk praksis
   - *Aktør(er):* HOD (oppdragsdokumenter);
     Stortinget (lovgivning);
     Helsedirektoratet (standarder, kodeverk)
-  - *Beskrivelse:* Utløsende hendelse: Publisering av
-    ny eller revidert retningslinje. Rammer:
-    Helseforetaksloven,
-    helse- og omsorgstjenesteloven, kommuneloven,
-    oppdragsdokumenter fra HOD, Helsedirektoratets
-    standarder og kodeverk, kvalitetsforskriften.
-    Avsluttende hendelse: Retningslinje innarbeidet i
-    lokal praksis
+  - *Beskrivelse:*
+    - Utløsende hendelse: Publisering av ny eller
+      revidert retningslinje
+    - Rammer: Helseforetaksloven,
+      helse- og omsorgstjenesteloven, kommuneloven,
+      oppdragsdokumenter fra HOD, Helsedirektoratets
+      standarder og kodeverk, og kvalitetsforskriften
+    - Avsluttende hendelse: Retningslinje innarbeidet i
+      lokal praksis
 - **Outputs** (resultat)
   - *Aktør(er):* RHF-ene/HF-ene (spesialist);
     KS/kommunene (primær)
@@ -511,15 +570,17 @@ anvendbare anbefalinger og prosedyrer
     retningslinjer); Tidsskriftet, Sykepleien
     (publiseringsstandarder); fagmedisinske foreninger
     (spesialitetsregler)
-  - *Beskrivelse:* Utløsende hendelse: Ny forskning
-    publisert, eller løpende oppdateringssyklus.
-    Metode: Redaksjonelle retningslinjer,
-    evidenshierarkier, kunnskapsbasert
-    praksis-metodikk, fagfellevurderingsstandarder,
-    Vancouver-konvensjonene. Rammer: Publiseringsetikk,
-    spesialitetsregler. Avsluttende hendelse: Oppdatert
-    oppslagsverk-artikkel, publisert fagprosedyre eller
-    tidsskriftartikkel
+  - *Beskrivelse:*
+    - Utløsende hendelse: Ny forskning publisert, eller
+      løpende oppdateringssyklus
+    - Metode: Redaksjonelle retningslinjer,
+      evidenshierarkier, kunnskapsbasert
+      praksis-metodikk, fagfellevurderingsstandarder og
+      Vancouver-konvensjonene
+    - Rammer: Publiseringsetikk og spesialitetsregler
+    - Avsluttende hendelse: Oppdatert
+      oppslagsverk-artikkel, publisert fagprosedyre eller
+      tidsskriftartikkel
 - **Outputs** (resultat)
   - *Aktør(er):* UpToDate, BMJ Best Practice
     (oppslagsverk); Helsebiblioteket/OUS
@@ -556,16 +617,20 @@ legemiddelinformasjon
   - *Aktør(er):* Stortinget (legemiddelloven);
     EMA (EU-regulering); DMP (SPC-standarder);
     RELIS (produsentuavhengighetsprinsippet)
-  - *Beskrivelse:* Utløsende hendelse: Ny søknad om
-    markedsføringstillatelse, nytt sikkerhetssignal,
-    eller klinisk henvendelse. Rammer: Legemiddelloven,
-    EU-regulering (EMA-prosedyrer),
-    ICH-retningslinjer, SPC-standarder,
-    produsentuavhengighetsprinsippet. Metode:
-    Evidensbasert legemiddelvurdering,
-    nytte-risiko-analyse. Avsluttende hendelse: Godkjent
-    markedsføringstillatelse, publisert sikkerhetsvarsel,
-    eller besvart henvendelse
+  - *Beskrivelse:*
+    - Utløsende hendelse: Ny søknad om
+      markedsføringstillatelse, nytt sikkerhetssignal,
+      eller klinisk henvendelse
+    - Metode: Evidensbasert legemiddelvurdering og
+      nytte-risiko-analyse
+    - Rammer: legemiddelloven, EU-regulering gjennom EMA
+      (Det europeiske legemiddelbyrået), ICH-retningslinjer
+      og SPC-standarder (standarder for godkjente
+      preparatomtaler), samt prinsippet om
+      produsentuavhengighet
+    - Avsluttende hendelse: Godkjent
+      markedsføringstillatelse, publisert sikkerhetsvarsel,
+      eller besvart henvendelse
 - **Outputs** (resultat)
   - *Aktør(er):* DMP (godkjenninger, FEST,
     sikkerhetsvarsler); Felleskatalogen (preparatomtaler,
@@ -609,17 +674,22 @@ tilgjengelig helseinformasjon for innbyggere
     Stortinget (språkloven, personvernregelverk,
     smittevernloven); Pressens Faglige Utvalg
     (Vær Varsom); pasientorganisasjoner (vedtekter)
-  - *Beskrivelse:* Utløsende hendelse: Ny retningslinje
-    publisert, nytt helseutbrudd, oppdateringssyklus
-    (helsenorge.no: minst hvert 3. år), nyhendelse.
-    Rammer: Helsedirektoratets utgiveransvar,
-    kvalitetsretningslinjer, klarspråkstandard
-    (språkloven paragraf 9), personvernregelverk,
-    smittevernloven, presseetiske retningslinjer
-    (Vær Varsom-plakaten), redaksjonell uavhengighet.
-    Metode: Redaksjonell kvalitetssikring, faglig
-    godkjenning, klarspråkmetodikk. Avsluttende
-    hendelse: Publisert innbyggerrettet innhold
+  - *Beskrivelse:*
+    - Utløsende hendelse: Ny retningslinje publisert,
+      nytt helseutbrudd, oppdateringssyklus
+      (helsenorge.no: minst hvert 3. år), eller nyhendelse
+    - Metode: Redaksjonell kvalitetssikring, faglig
+      godkjenning og klarspråkmetodikk
+    - Rammer:
+      - Helsedirektoratets utgiveransvar og
+        kvalitetsretningslinjer
+      - Klarspråkstandard (språkloven § 9)
+      - Personvernregelverk og smittevernloven
+      - Presseetiske retningslinjer
+        (Vær Varsom-plakaten)
+      - Redaksjonell uavhengighet
+    - Avsluttende hendelse: Publisert innbyggerrettet
+      innhold
 - **Outputs** (resultat)
   - *Aktør(er):* helsenorge.no/NHN (helseinformasjon);
     FHI (smittevernråd, vaksineinformasjon);
@@ -669,9 +739,9 @@ tilgjengelig helseinformasjon for innbyggere
    oppdatering**: Helselovgivningen opptrer som guide i
    alle seks prosessene. Endringer i lovverket – som
    innføringen av EHDS – vil påvirke guides på tvers av
-   alle prosesser. I dag finnes ingen systematisk
-   mekanisme som sikrer at alle prosessene oppdaterer
-   sin praksis når felles guides endres.
+   alle prosesser. I dag mangler verdikjeden en
+   systematisk mekanisme som sikrer at alle prosessene
+   oppdaterer praksisen sin når felles guides endres.
 
 4. **Enabler-asymmetri mellom spesialist- og
    primærhelsetjenesten**: I prosess 3 (implementering)
@@ -696,23 +766,24 @@ tilgjengelig helseinformasjon for innbyggere
 6. **Output-overlapp i prosess 6 uten
    guide-koordinering**: Prosess 6 (innbyggerrettet
    formidling) har mange parallelle aktører som
-   produserer overlappende outputs, men de styres av
-   ulike guides (Helsedirektoratets utgiveransvar vs.
+   produserer overlappende outputs, men ulike guides
+   styrer dem (Helsedirektoratets utgiveransvar vs.
    Vær Varsom-plakaten vs. organisasjonenes vedtekter).
-   Siden guidene er ulike, finnes det ingen innebygd
-   mekanisme for å sikre konsistens i outputene.
+   Siden guidene er ulike, mangler verdikjeden en
+   innebygd mekanisme for å sikre konsistens i
+   outputene.
 
 7. **Manglende tilbakekoblingsloop**: IGOE-analysen
    synliggjør at verdikjeden i hovedsak er lineær –
-   outputs flyter nedover i kjeden. Det finnes ingen
-   formell prosess der output fra prosess 3 (erfaring
-   fra implementering) systematisk tilbakeføres som input
-   til prosess 2 (retningslinjerevisjon). Tilbakekobling
+   outputs flyter nedover i kjeden. Verdikjeden mangler
+   en formell prosess for å tilbakeføre erfaring fra
+   implementering (prosess 3) systematisk som grunnlag
+   for retningslinjerevisjon (prosess 2). Tilbakekobling
    skjer ad hoc, ikke strukturert.
 
 ---
 
-Sist oppdatert: 2026-03-23
+Sist oppdatert: 2026-08-10
 
 ---
 
@@ -746,3 +817,22 @@ aktørbeskrivelsene opprinnelig var en del av den rapporten.
     <https://www.dmp.no>
 13. Felleskatalogen. <https://www.felleskatalogen.no>
 14. RELIS. <https://relis.no>
+
+Tilføyd ved utvidelsen om profesjonsforeninger
+(2026-08-10):
+
+19\. Internt kildenotat:
+*Profesjonsforeningers rolle i faglig veiledning
+og normering* (profesjonsforeninger-normering.md),
+med kildebelegg per påstand ([DOK]/[ANT]-merking).
+
+20\. Legeforeningen (2015). *Legeforeningen som aktør
+ved utarbeidelse av faglige veiledere og
+retningslinjer*, høringsutkast 9.4.2015.
+<https://www.legeforeningen.no/contentassets/54952d412ead47debd4f67fc79c1fbbe/utkast-legeforeningen-som-aktor-ved-utarbeidelse-av-faglige-veiledere-og-retningslinjer.pdf>
+
+21\. Statens helsetilsyn (2016). Avgjørelse i
+tilsynssak: barn døde under fødsel, vurdert mot
+Norsk gynekologisk forenings Veileder i
+fødselshjelp 2014, historisk arkiv.
+<https://www.helsetilsynet.no/historisk-arkiv/avgjoerelser-i-tilsynssaker-og-rapporter-etter-alvorlige-hendelser/2016/barn-dode-under-fodsel-komplikasjoner-keisersnitt-besluttet-for-sent-uforsvarlig-handtering-av-fodselslegen/>

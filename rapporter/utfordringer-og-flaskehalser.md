@@ -33,16 +33,15 @@
 Denne rapporten kartlegger og analyserer utfordringer
 og flaskehalser i dagens verdikjede for
 kunnskapsforvaltning i helsesektoren. Kartleggingen
-bygger på funn fra delrapport 1 (Dagens verdikjede)
-og har som mål å identifisere de mest kritiske
-hindringene for effektiv og rettidig
-kunnskapsformidling fra forskning til innbyggere.
+bygger på funn fra delrapport 1 (Dagens verdikjede).
+Målet er å identifisere de mest kritiske hindringene
+for at kunnskap når frem til innbyggerne raskt og
+effektivt.
 
-En systematisk forståelse av hvor og hvorfor
-forsinkelser oppstår er en forutsetning for å vurdere
-forbedringstiltak, herunder bruk av storspråkmodeller
-(LLM) og andre teknologiske virkemidler som
-analyseres i delrapport 3.
+Vi må forstå systematisk hvor og hvorfor forsinkelser
+oppstår, for å kunne vurdere forbedringstiltak –
+herunder bruk av storspråkmodeller (LLM) og andre
+teknologiske virkemidler som delrapport 3 analyserer.
 
 ### 1.2 Metodisk tilnærming
 
@@ -135,19 +134,32 @@ D1-D6 etter hvilken systemegenskap de mangler.
 
 #### D3: Struktur og styring
 
-- Ansvar for verdikjeden er fordelt på rundt 20
-  aktører uten helhetlig styringsmandat. Disse
-  inkluderer HOD, Helsedirektoratet, FHI, NHN,
-  Statens legemiddelverk/DMP, de fire RHF-ene
-  med tilhørende helseforetak, KS,
-  fastlegevirksomheter, kommunale helse- og
-  omsorgstjenester, brukerorganisasjoner og
+- Rundt 20 aktører deler ansvaret for verdikjeden,
+  uten at noen har et helhetlig styringsmandat.
+  Disse inkluderer HOD, Helsedirektoratet, FHI, NHN,
+  Statens legemiddelverk/DMP, de fire regionale
+  helseforetakene (RHF-ene) med tilhørende
+  helseforetak, KS, fastlegevirksomheter, kommunale
+  helse- og omsorgstjenester, brukerorganisasjoner og
   fagmiljøer i universitets- og høgskolesektoren.
   Full oversikt med roller, ansvar og leveranser
   finnes i delrapport 8 (aktoeranalyse.md).
+- I tillegg normerer en aktørgruppe utenfor den
+  statlige styringslinjen: profesjonsforeningene.
+  Rundt 13 av 22 undersøkte fagmedisinske
+  foreninger, samt blant andre optikerne og
+  manuellterapeutene, utgir egne veiledere
+  parallelt med statens nasjonale faglige
+  retningslinjer, uten dokumenterte
+  forrangsregler, felles metodekrav eller
+  koordineringsforum **[DOK]**. Dette
+  foreningssporet inngår i D3-fragmenteringen
+  **[ANT]**. Kildegrunnlag:
+  [profesjonsforeninger-normering.md](profesjonsforeninger-normering.md).
 - Fragmenterte IT-systemer og ulike kodeverk
   hindrer informasjonsflyt mellom retningslinjer,
-  Helsebiblioteket, helsenorge.no og EPJ-er.
+  Helsebiblioteket, helsenorge.no og pasientjournal-
+  systemene (EPJ – elektronisk pasientjournal).
 - Fritekst-basert innhold uten metadata hindrer
   automatisering, sporbarhet og gjenbruk.
 - *Detaljer*: kap. 6 (strukturelle utfordringer),
@@ -199,12 +211,12 @@ dimensjon ved utfordringsbildet i dag.
 
 ### 2.3 Fem kjerneegenskaper verdikjeden mangler
 
-De seks dimensjonene i kap. 2.2 er bevisst
-*observasjoner* som virker samtidig -- de er ikke
-ment som en gjensidig utelukkende inndeling, og
-flere av dem overlapper (lang tid er delvis et
-symptom på lav kapasitet; manglende eierskap for
-implementering er delvis en styringssvikt).
+De seks dimensjonene i kap. 2.2 er bevisst valgt
+som *observasjoner* som virker samtidig. De er
+ikke en gjensidig utelukkende inndeling, og flere
+overlapper. For eksempel er lang tid delvis et
+symptom på lav kapasitet, og manglende eierskap for
+implementering er delvis en styringssvikt.
 For å oppsummere utfordringsbildet i kategorier
 som *er* gjensidig utelukkende og samlet
 uttømmende (MECE), grupperer vi dimensjonene
@@ -237,8 +249,8 @@ utenfor. Vi utvider derfor til fem egenskaper:
   D4s koordineringsdel (refusjon som separat
   kjede). *Rotårsak:* R4.
 - **Styrbarhet** -- ingen aktør kan styre kjeden
-  som helhet mot et felles mål; ansvar er fordelt
-  uten helhetlig mandat, og ingen eier
+  som helhet mot et felles mål; aktørene deler
+  ansvaret uten et helhetlig mandat, og ingen eier
   implementeringsgapet.
   *Evidens:* D3s styringsdel (~20 aktører uten
   helhetlig styringsmandat), D4 (manglende
@@ -328,10 +340,10 @@ bearbeiding.**
 
 Den globale forskningsproduksjonen innen helse og
 medisin har økt eksponentielt de siste tiårene.
-Estimater fra internasjonale kilder indikerer at det
-publiseres over 3 millioner vitenskapelige artikler
-årlig på tvers av alle fagområder, med en betydelig
-andel innen medisin og helsefag. For FHI og andre
+Internasjonale kilder anslår at det publiseres over
+3 millioner vitenskapelige artikler årlig på tvers
+av alle fagområder. En betydelig andel av disse er
+innen medisin og helsefag. For FHI og andre
 kunnskapsprodusenter innebærer dette at mengden
 potensielt relevant forskning langt overstiger
 kapasiteten for manuell screening og
@@ -366,10 +378,10 @@ gjennomløpstid per oversikt.
 **Flaskehals: Kunnskapsgrunnlaget foreldes underveis
 i retningslinjeprosessen.**
 
-Overgangen fra ferdig kunnskapsoppsummering til
-publisert nasjonal faglig retningslinje er den mest
-tidkrevende enkeltovergangen i verdikjeden. Det er
-også her den største risikoen for at
+Det tar lengst tid å gå fra ferdig
+kunnskapsoppsummering til publisert nasjonal faglig
+retningslinje – dette er det mest tidkrevende steget
+i verdikjeden. Her er også risikoen størst for at
 kunnskapsgrunnlaget blir utdatert før retningslinjen
 ferdigstilles.
 
@@ -392,11 +404,10 @@ Sentrale utfordringer:
   innspill og forankring, men legger til ytterligere
   prosesstid. I tilfeller med mange høringsinnspill kan
   bearbeidingen ta enda lengre tid.
-- **Begrenset kapasitet**: Helsedirektoratet har et
-  begrenset antall retningslinjeprosjekter som kan pågå
-  parallelt. Prioritering mellom fagområder er
-  nødvendig, noe som innebærer at enkelte områder får
-  lenger ventetid.
+- **Begrenset kapasitet**: Helsedirektoratet kan bare
+  kjøre et begrenset antall retningslinjeprosjekter
+  samtidig. Direktoratet må derfor prioritere mellom
+  fagområder, og enkelte områder får lenger ventetid.
 - **Avhengighet mellom retningslinjer**: Noen
   retningslinjer avhenger av oppdatering av andre
   retningslinjer eller lovverk, noe som kan skape
@@ -470,8 +481,8 @@ identifiserer seks trinn fra refleksjon til
 evaluering. Verdikjedens sentrale infrastruktur
 understøtter primært trinn 1-4 (refleksjon,
 spørsmålsformulering, søk, kritisk vurdering),
-mens trinn 5 (anvende) og 6 (evaluere) overlates
-til den enkelte virksomhet. RNAO
+mens den enkelte virksomhet selv må ivareta
+trinn 5 (anvende) og 6 (evaluere). RNAO
 kunnskap-til-handling-modellen [8], som er oversatt
 og tilpasset til norske forhold, gir et strukturert
 rammeverk for disse siste trinnene, men er ikke
@@ -565,11 +576,11 @@ helseinformasjon som når innbyggere.
 
 Casestudier (`casestudier-forsinkelser.md`)
 dokumenterer at den reelle tiden fra forskning til
-bred praksisendring er **7–15+ år**, noe som
-innebærer at innbyggere i mange tilfeller mottar
-helseråd basert på forskning som er betydelig eldre
-enn hva den tilgjengelige kunnskapen tilsier. Dette
-kan gjelde alt fra ernæringsråd til anbefalinger om
+bred praksisendring er **7–15+ år**. Det innebærer
+at innbyggere i mange tilfeller mottar helseråd
+basert på forskning som er betydelig eldre enn hva
+den tilgjengelige kunnskapen tilsier. Dette kan
+gjelde alt fra ernæringsråd til anbefalinger om
 medisinbruk og livsstilsendringer.
 
 ### 4.2 Helsepersonell uten oppdatert kunnskapsgrunnlag
@@ -584,11 +595,11 @@ kunnskapsutvikling.
 
 Når offentlige kilder oppleves som utdaterte eller
 utilstrekkelige, søker innbyggere informasjon fra
-andre kilder. Søkedata og brukerundersøkelser
-indikerer at en betydelig andel av befolkningen
-bruker Google, sosiale medier og i økende grad
-generative AI-verktøy som ChatGPT for å finne
-helseinformasjon. Disse kildene har variabel kvalitet
+andre kilder. Søkedata og brukerundersøkelser viser
+at mange innbyggere bruker Google og sosiale medier
+for å finne helseinformasjon. I økende grad brukes
+også generative KI-verktøy som ChatGPT. Disse kildene
+har variabel kvalitet
 og mangler den systematiske kvalitetssikringen som
 kjennetegner den offisielle verdikjeden.
 
@@ -737,11 +748,27 @@ understreker at «praksisnær forskning,
 implementeringsforskning, kunnskapsutvikling og
 innovasjon er helt nødvendig» og at det kreves
 «endringer av atferd på individ-, organisatorisk-
-og systemnivå» [1]. Det finnes ikke et helhetlig
+og systemnivå» [1]. Ingen aktør har et helhetlig
 styringsmandat for verdikjeden fra forskning til
-innbygger, noe som kan føre til suboptimalisering
-innenfor det enkelte steg uten at helheten
-ivaretas.
+innbygger. Det kan føre til at hvert steg
+optimaliseres for seg selv, uten at noen ivaretar
+helheten.
+
+Siloene er ikke bare organisatoriske og
+geografiske, men også profesjonsvise.
+Normeringslandskapet har to parallelle spor:
+statens nasjonale faglige retningslinjer og
+profesjonsforeningenes egne veiledere **[DOK]**.
+Ingen funnet kilde dokumenterer et system for å
+avklare forrang eller fange opp motstrid mellom
+sporene **[DOK]**. Motstrid kan få rettslig
+betydning: I minst én tilsynssak (2016) la Statens
+helsetilsyn en foreningsveileder til grunn som
+forsvarlighetsnorm etter helsepersonelloven § 4
+**[DOK]**. Dette er en konsistensrisiko som ikke
+fanges av et rent etatsperspektiv **[ANT]**.
+Kildegrunnlag:
+[profesjonsforeninger-normering.md](profesjonsforeninger-normering.md).
 
 ### 6.2 Manglende standardisert informasjonsflyt
 
@@ -830,11 +857,10 @@ dokumentert.
   Helsebibliotekets kutt i 2023 fjernet tilgang til
   Cochrane Library og Embase -- sentrale kilder for
   helsepersonell (delrapport 8).
-- **[ANT]** Når ingen eier helheten, blir
+- **[ANT]** Når ingen eier helheten, gir
   forbedringstiltak i ett ledd ikke nødvendigvis
-  omsatt i raskere innbyggerinformasjon eller
-  praksisendring. Gevinsten «går tapt» i neste
-  overgang.
+  raskere innbyggerinformasjon eller praksisendring.
+  Gevinsten «går tapt» i neste overgang.
 
 #### 6.6.2 Konsekvenser av fragmenterte IT-systemer
 
@@ -1032,16 +1058,16 @@ drivere, og noen flaskehalser **forårsaker** eller
 den distribuerte kausallogikken i kap. 6 og 6.6 i
 denne rapporten, kap. 5.5 i rolledeling-rapporten,
 kap. 4 i samlet vurdering (delrapport 7) og
-IGOE-analysen i delrapport 8, og syntetiserer
-disse til **seks rotårsaker** og et knippe
-**kausalkjeder**.
+IGOE-analysen (rammeverk for å kartlegge Input,
+Guidance, Output og Enablers per aktør) i
+delrapport 8. Vi syntetiserer disse til
+**seks rotårsaker** og et knippe **kausalkjeder**.
 
-Metoden er en strukturert «hvorfor»-analyse: for
-hver flaskehals stilles spørsmålet «hvorfor
-eksisterer denne?» i opptil 3–4 nivåer, til
-analysen lander på et forhold som ikke kan
-forklares videre innenfor verdikjedens egne
-rammer.
+Metoden er en strukturert «hvorfor»-analyse: Vi
+stiller spørsmålet «hvorfor eksisterer denne?» for
+hver flaskehals, i opptil 3–4 nivåer, til vi når et
+forhold som ikke kan forklares videre innenfor
+verdikjedens egne rammer.
 
 Hvert utsagn er merket **[DOK]** der det er
 dokumentert i kildematerialet, eller **[ANT]** der
@@ -1063,6 +1089,16 @@ innbygger.
 - **[DOK]** Røttingens forslag om forum for
   faglig normering er ikke gjennomført
   (rolledeling kap. 5.2).
+- **[DOK]** Fragmenteringen omfatter også et lag
+  ikke-statlige normerende aktører:
+  Profesjonsforeningene utgir egne veiledere
+  parallelt med statens nasjonale faglige
+  retningslinjer. Røttingen-rapportens foreslåtte
+  «forum for faglig normering» – der
+  profesjonsorganisasjonene var tenkt som én av
+  deltakergruppene – er ikke etablert
+  ([profesjonsforeninger-normering.md](profesjonsforeninger-normering.md),
+  kap. 1 og 5b).
 - **[DOK]** Departementet har «i stor grad
   delegert ansvaret for gjennomføring» til
   etatene (rolledeling kap. 5.2).
@@ -1096,10 +1132,13 @@ strukturerte data).
 **Presisering (2026-08-04)**: R2 gjelder ikke
 fravær av struktur i alle ledd. Helsedirektoratets
 nasjonale faglige retningslinjer har allerede
-anbefalingsnivå-struktur med PICO som egen
-innholdstype, metadatafelt med kliniske koder
-(SNOMED CT, ICD-10, ICPC-2) og åpent API, og
-PICO/GRADE brukes metodisk i utviklingen (IS-1870).
+anbefalingsnivå-struktur med PICO (Population,
+Intervention, Comparison, Outcome – rammeverk for å
+formulere kliniske spørsmål) som egen innholdstype,
+metadatafelt med kliniske koder (SNOMED CT, ICD-10,
+ICPC-2) og åpent API. PICO og GRADE (metode for å
+gradere kvaliteten på evidens) brukes metodisk i
+utviklingen (IS-1870).
 **[DOK]** Det presise gapet er at *evidenskjeden
 bak anbefalingen* (PICO → utfall →
 GRADE-vurdering) publiseres som prosa og
@@ -1178,6 +1217,19 @@ kjede.
   blir aktive tiltak (audit/feedback,
   opplæring, praksisbesøk) ad hoc og avhengig
   av enkeltvirksomheters kapasitet.
+- **[DOK]** Profesjonsforeningene besitter
+  faktiske implementeringsarenaer – kurs,
+  spesialistutdanning og faglige nettverk.
+  Legeforeningen beskriver selv arbeidsdelingen
+  slik: De fagmedisinske foreningene har
+  «fagkompetanse og arenaer for implementering»,
+  mens myndighetene skal ha ressurser til
+  utforming og publisering
+  ([profesjonsforeninger-normering.md](profesjonsforeninger-normering.md),
+  kap. 3). **[ANT]** Dagens statlige kjede
+  bruker ikke disse arenaene systematisk;
+  ingen funnet kilde dokumenterer en slik
+  kobling.
 
 **Forklarer flaskehalsene**: 4
 (implementeringsgapet), 5 (refusjonsordninger).
@@ -1368,11 +1420,11 @@ primærdata:
 Mens rotårsakene R1–R6 beskriver *hvorfor*
 verdikjeden ikke leverer, beskriver
 løsningsdimensjonene *hvilke spenninger* enhver
-løsning må ta stilling til. Dimensjonene er
-utledet ved å gruppere rotårsakene etter typen
-beslutning de utløser, og uttrykt som akser
-fremfor bokser for å understreke at de er
-gradvise valgrom – ikke enten-eller.
+løsning må ta stilling til. Vi har utledet
+dimensjonene ved å gruppere rotårsakene etter
+hvilken type beslutning de utløser. Vi uttrykker
+dem som akser, ikke bokser, for å vise at de er
+gradvise valgrom – ikke et enten-eller.
 
 Fire akser dekker rotårsakene:
 
@@ -1408,7 +1460,10 @@ utenfor selve aksen
 - **R1** (styringsmandat) får retning gjennom aksen *Fragmentert ↔
   Sammenhengende*, men full oppløsning krever også lovfesting av
   oppgavedeling mellom FHI, Hdir og NHN samt departemental styring
-  (jf. Røttingen kap. 11.9, Riksrevisjonen 2021).
+  (jf. Røttingen kap. 11.9, Riksrevisjonen 2021). Full oppløsning krever
+  også en avklart kobling til profesjonsforeningenes parallelle
+  normeringsspor **[ANT]**
+  (jf. [profesjonsforeninger-normering.md](profesjonsforeninger-normering.md)).
 - **R5** (implementeringsinsentiver) får retning gjennom aksen
   *Frivillig ↔ Forpliktende*, men full oppløsning krever også
   samordning med refusjonskjeden – ikke kun mer forpliktende
@@ -1468,7 +1523,7 @@ den utredningen; de gir ikke svar på den.
 
 ---
 
-Sist oppdatert: 2026-08-04
+Sist oppdatert: 2026-08-10
 
 ## Endringslogg
 
@@ -1477,6 +1532,7 @@ Sist oppdatert: 2026-08-04
 | 2026-05-22 | Kap. 2.3 omformulert til MECE-oppsummering. De tidligere tre kjerneegenskapene (skalerbarhet, reaktivitet, sammenheng) er utvidet til fem (+ styrbarhet, + tillit/legitimitet) slik at de er gjensidig utelukkende og samlet uttømmende, og dekker D1–D6 og R1–R6 uten overlapp. D1–D6 i kap. 2.2 er presisert som *observasjoner* (ikke MECE), med egenskapene i 2.3 som det MECE-laget. Egenskap→akse-koblingen i kap. 9.7 og i samlet-vurdering kap. 4.2 er oppdatert tilsvarende. |
 | 2026-05-27 | Konsistensgjennomgang: udokumenterte tidsanslag fjernet (2–3 år, 6–12 mnd, 12–24 mnd, 3–6 mnd, 3–8 år, 2–6,5 år) og erstattet med kvalitative formuleringer eller dokumenterte enkelttall fra `casestudier-forsinkelser.md` (1 år / 7+ år case-yttergrenser, 5 år refusjonsforsinkelse, 7–15+ år til praksisendring, 8 år SGLT2 til refusjon). I tråd med samme prinsipp som ble håndhevet i delrapport 1, 4 og 7. |
 | 2026-05-29 | R6 (kap. 9.2) og kap. 6.6.5 styrket: målrettede søk hos Hdir, FHI og Riksrevisjonen (utført 2026-05-27) bekreftet at ingen aggregerte tall for prosessvarighet eller produksjonskapasitet publiseres. Dette løftet fra parentetisk kildeforbehold til eksplisitt empirisk evidens for R6. |
+| 2026-08-10 | Profesjonsaksen innarbeidet som tillegg (ingen ny flaskehals, ingen endret rangering): D3 (kap. 2.2) utvidet med profesjonsforeningene som normerende aktørgruppe utenfor statlig styringslinje; kap. 6.1 utvidet med profesjonsvise siloer og to parallelle normeringsspor uten forrangsregler; R1 (kap. 9.2) styrket med laget av ikke-statlige normerende aktører og det ikke-etablerte «forum for faglig normering»; R5 (kap. 9.2) supplert med foreningenes implementeringsarenaer; kap. 9.7 (R1-nyanseringen) supplert med én setning. Alle tillegg merket [DOK]/[ANT] med henvisning til `profesjonsforeninger-normering.md`. |
 | 2026-08-04 | R2 (kap. 9.2) presisert: kildesøk (dokumentert i `metadatastrukturer-evidenskjeden.md`) viste at Hdirs retningslinjer allerede har PICO-innholdstype, SNOMED CT-metadata og åpent API — R2-gapet er presisert til å gjelde evidenskjeden bak anbefalingen (PICO → utfall → GRADE publiseres som prosa/PDF, ikke terminologibundne data) og manglende konsistens på tvers av ledd. Karakteristikken «fritekst» uten forbehold var for kategorisk for retningslinjeleddet. |
 
 ---

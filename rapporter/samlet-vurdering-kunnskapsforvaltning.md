@@ -26,13 +26,23 @@ helseinformasjon til innbyggere, og involverer FHI,
 Helsedirektoratet, Norsk helsenett (NHN), de regionale
 helseforetakene og KS.
 
-Utredningen er motivert av tre samtidige utviklingstrekk:
-(1) forskningsproduksjonen øker eksponentielt og overgår
-kapasiteten for manuell bearbeiding,
-(2) innbyggere i økende grad søker helseinformasjon fra
-kommersielle KI-tjenester uten kvalitetssikring, og
-(3) nye regulatoriske rammer gjennom EU AI Act og EHDS
-stiller krav til digital modenhet.
+Utredningen er motivert av tre utviklingstrekk. For det
+første øker forskningsproduksjonen raskere enn vi klarer
+å bearbeide den manuelt. For det andre søker stadig flere
+innbyggere helseinformasjon fra kommersielle KI-tjenester
+uten kvalitetssikring. For det tredje stiller EU AI Act
+og EHDS (forordningen om det europeiske helsedataområdet)
+nye krav til digital modenhet.
+
+### Anbefaling
+
+Vi anbefaler en **faseinndelt innføring av KI-støttet
+kunnskapsforvaltning** i tre faser – pilotering, utvidelse
+og transformasjon. Alternativ 2 (moderat KI-støtte) er
+startpunktet, med gradvis utvidelse mot alternativ 3
+(ambisiøs KI-pipeline). Organisatoriske tiltak fra
+alternativ 1 gjennomføres parallelt. Tidshorisont for
+hver fase fastsettes i mulighetsstudien.
 
 ### Hovedfunn
 
@@ -42,11 +52,14 @@ reelle tiden fra forskning til bred praksisendring er
 **7–15+ år**, og at den normerende delprosessen
 (forskning til vedtatt retningslinje) varierer fra
 rundt 1 år til 7+ år avhengig av sak. De tre mest
-alvorlige flaskehalsene er foreldelse av
-kunnskapsgrunnlaget underveis i retningslinjeprosessen,
-kapasitetsbegrensning for systematiske oversikter, og
-manglende kobling mellom retningslinjer og
-innbyggerinformasjon (delrapport 2).
+alvorlige flaskehalsene er at kunnskapsgrunnlaget blir
+foreldet mens retningslinjeprosessen pågår, at
+kapasiteten for systematiske oversikter er for lav, og
+at retningslinjer ikke kobles til innbyggerinformasjon
+(delrapport 2). Normeringen skjer dessuten i to
+parallelle spor – statlig og foreningsdrevet – uten
+forrangsregler eller koordineringsforum [DOK/ANT,
+`profesjonsforeninger-normering.md`].
 
 **KI-teknologi kan adressere flaskehalsene.** Store
 språkmodeller (LLM) kan akselerere kunnskapssyntese,
@@ -63,24 +76,12 @@ nordiske land viser at KI som støtteverktøy med
 menneskelig kontroll gir resultater, mens autonome
 KI-systemer i helse fortsatt er umodne (delrapport 6).
 
-### Anbefaling
-
-Utredningen anbefaler en **faseinndelt innføring av
-KI-støttet kunnskapsforvaltning** i tre faser –
-pilotering, utvidelse og transformasjon – med
-alternativ 2 (moderat KI-støtte) som startpunkt og
-gradvis utvidelse mot alternativ 3 (ambisiøs
-KI-pipeline). Organisatoriske tiltak fra alternativ 1
-anbefales gjennomført parallelt. Tidshorisont for hver
-fase fastsettes i mulighetsstudien.
-
 ### Nøkkelvirkninger (kvalitative)
 
-Rapporten følger prinsippet om at tallanslag uten
-dokumentert kildegrunnlag ikke gjengis. Konkrete
-tidsbesparelser, kostnader og månedstall forutsetter
-egne utredninger (kost–nytte-analyse, mulighetsstudie)
-og er derfor utelatt.
+Vi gjengir ikke tallanslag som mangler dokumentert
+kildegrunnlag. Konkrete tidsbesparelser, kostnader og
+månedstall forutsetter derfor egne utredninger
+(kost–nytte-analyse, mulighetsstudie).
 
 <!-- markdownlint-disable MD013 -->
 
@@ -117,12 +118,12 @@ de regionale helseforetakene, KS og Norsk helsenett.
 
 ### 2.1 Utredningens oppdrag og formål
 
-Utredningen har som formål å vurdere hvordan verdikjeden
-for kunnskapsforvaltning i helsesektoren kan moderniseres
-for å sikre at innbyggere og helsepersonell får tilgang
-til oppdatert, kvalitetssikret helseinformasjon innenfor
-akseptable tidsrammer. Utredningen er strukturert etter
-utredningsinstruksens minimumskrav.
+Formålet med utredningen er å vurdere hvordan vi kan
+modernisere verdikjeden for kunnskapsforvaltning i
+helsesektoren, slik at innbyggere og helsepersonell får
+oppdatert og kvalitetssikret helseinformasjon raskt nok.
+Utredningen er strukturert etter utredningsinstruksens
+minimumskrav.
 
 ### 2.2 Oversikt over delrapporter
 
@@ -188,10 +189,10 @@ legemiddelbruk (ny flaskehals, dokumentert med
 Strukturelle utfordringer inkluderer siloorganisering
 mellom aktører, manglende standardisert
 informasjonsflyt, dobbeltarbeid og fragmenterte
-IT-systemer. Konsekvensene er utdaterte helseråd, at
-innbyggere søker alternative kilder med variabel
-kvalitet, og et økende gap mellom tilgjengelig og
-formidlet kunnskap.
+IT-systemer. Konsekvensene er at helserådene blir
+utdaterte, at innbyggere søker til alternative kilder
+med varierende kvalitet, og at gapet mellom tilgjengelig
+og formidlet kunnskap øker.
 
 ### Delrapport 3: Store språkmodeller - muligheter og risikoer
 
@@ -200,7 +201,9 @@ kunnskapssyntese (vesentlig tidsbesparelse i screening
 ifølge internasjonale piloter, jf. delrapport 6),
 støtte retningslinjeutvikling, forbedre
 innbyggerinformasjon gjennom klarspråk-oversettelse, og
-muliggjøre living guidelines. Samtidig medfører
+muliggjøre living guidelines (retningslinjer som
+oppdateres fortløpende etter hvert som ny kunnskap
+foreligger, i stedet for periodisk). Samtidig medfører
 teknologien risikoer: hallusinering (generering av
 plausible, men feilaktige utsagn), utfordringer med
 tillit og legitimitet, bias fra treningsdata,
@@ -301,10 +304,11 @@ tilgjengelige metoden. Denne strukturen har tjent
 sektoren godt, men den skalerer ikke til dagens og
 fremtidens kunnskapsvolum.
 
-Verdikjeden mangler fem sentrale egenskaper. De er
-formulert som en gjensidig utelukkende og samlet
-uttømmende (MECE) oppsummering av de seks dimensjonene
-i utfordringsbildet (delrapport 2 kap. 2.3):
+Verdikjeden mangler fem sentrale egenskaper. Egenskapene
+er formulert etter MECE-prinsippet (Mutually Exclusive,
+Collectively Exhaustive) – det vil si at kategoriene ikke
+overlapper, og at de til sammen dekker alle de seks
+dimensjonene i utfordringsbildet (delrapport 2 kap. 2.3):
 
 - **Skalerbarhet**: Kapasiteten øker ikke i takt med
   forskningsvolumet.
@@ -313,9 +317,9 @@ i utfordringsbildet (delrapport 2 kap. 2.3):
 - **Sammenheng**: Stegene og systemene i verdikjeden er
   ikke koblet på en måte som sikrer konsistent og
   oppdatert informasjon gjennom hele kjeden.
-- **Styrbarhet**: Ingen aktør kan styre kjeden som
-  helhet mot et felles mål; ansvar er fordelt uten
-  helhetlig mandat, og ingen eier implementeringsgapet.
+- **Styrbarhet**: Ingen aktør styrer kjeden som helhet
+  mot et felles mål. Ansvaret er fordelt uten et samlet
+  mandat, og ingen har eierskap til implementeringsgapet.
 - **Tillit og legitimitet**: Systemet beholder ikke
   innbyggeren som foretrukken kilde når alternative
   kilder (generativ KI, sosiale medier) overtar. Dette
@@ -333,6 +337,15 @@ Tillit/legitimitet er en effekt av de øvrige og knyttes
 ikke til en enkelt rotårsak. Rotårsaksrammeverket
 brukes i kap. 5.4 for en differensiert vurdering av
 alternativene.
+
+For sammenheng og styrbarhet forsterkes utfordringen av
+at normeringslandskapet har to parallelle spor – statlig
+og foreningsdrevet: rundt 13 av 22 undersøkte
+fagmedisinske foreninger har egne normerende produkter
+[DOK, `profesjonsforeninger-normering.md` kap. 5b].
+Sporene mangler forrangsregler og koordineringsforum,
+noe som forsterker både sammenhengs- og
+styrbarhetsutfordringen [ANT, samme notat].
 
 ### 4.3 Implikasjoner av å videreføre status quo
 
@@ -368,8 +381,8 @@ følgende konsekvenser med høy sannsynlighet inntreffe:
 
 ### 4.4 Løsningsdimensjoner – aksene i løsningsrommet
 
-Forankring av en løsning forutsetter først enighet
-om dimensjonene i løsningsrommet. Rotårsakene R1–R6
+Før vi kan forankre en løsning, må vi bli enige om
+dimensjonene i løsningsrommet. Rotårsakene R1–R6
 er gruppert i fire akser som beskriver de
 beslutningsdimensjonene enhver løsning må ta stilling
 til. Dimensjonene er utledet og dokumentert i
@@ -524,15 +537,16 @@ Flere viktige virkninger lar seg ikke prissette:
 
 ### 5.4 Dekning av rotårsaker
 
-Sammenligningen i dp4 kap. 6 måler alternativene på
-operasjonelle og kvalitative dimensjoner (tid,
-kostnad, kvalitet, risiko, EHDS-samsvar osv.).
-Tabellen nedenfor utvider sammenligningen med
-**dekning av rotårsakene R1–R6** (definert i
+I delrapport 4, kapittel 6, sammenligner vi
+alternativene på operasjonelle og kvalitative
+dimensjoner: tid, kostnad, kvalitet, risiko og
+EHDS-samsvar. Tabellen nedenfor utvider sammenligningen
+med **dekning av rotårsakene R1–R6** (definert i
 delrapport 2 kap. 9). Dette gir beslutningstakere
 et tydeligere bilde av hvilke rotårsaker som
 faktisk adresseres av hvert alternativ – og hvilke
-som krever tiltak **utenfor** dp4-alternativene.
+som krever tiltak **utenfor** alternativene i
+delrapport 4.
 
 <!-- markdownlint-disable MD013 -->
 
@@ -581,14 +595,14 @@ gjennomføringsplan) og i risikomatrisen.
 
 ### 6.1 Overordnet anbefaling
 
-Det anbefales en **faseinndelt innføring av KI-støttet
-kunnskapsforvaltning** der alternativ 2 (moderat
-KI-støtte) implementeres som startpunkt, med gradvis
-utvidelse mot elementer fra alternativ 3 etter hvert
-som teknologi, kompetanse og governance modnes.
-Organisatoriske tiltak fra alternativ 1 anbefales
-gjennomført parallelt. Tilnærmingen balanserer
-behovet for modernisering mot risikoen for feilslått
+Vi anbefaler en **faseinndelt innføring av KI-støttet
+kunnskapsforvaltning**. Alternativ 2 (moderat KI-støtte)
+er startpunktet, og innføringen utvides gradvis mot
+elementer fra alternativ 3 etter hvert som teknologi,
+kompetanse og styringsmodell (governance) modnes.
+Organisatoriske tiltak fra alternativ 1 gjennomføres
+parallelt. Tilnærmingen balanserer behovet for
+modernisering mot risikoen for feilslått
 implementering.
 
 Faseinndelingen angir rekkefølge og avhengigheter,
@@ -624,8 +638,10 @@ funksjonaliteten.
 - KI-støttede utkast til systematiske oversikter
 - Implementering av automatisk evidensvarsling for
   eksisterende retningslinjer
-- Pilotering av KI-chatbot på helsenorge.no med RAG mot
-  verifiserte kunnskapskilder
+- Pilotering av KI-chatbot på helsenorge.no med RAG
+  (retrieval-augmented generation – en teknikk der
+  KI-modellen henter svar fra verifiserte
+  kunnskapskilder i stedet for å generere dem fritt)
 - Etablering av kunnskapsbase med strukturerte metadata
   og FHIR-grensesnitt
 - Videreutvikling av governance basert på erfaringer
@@ -679,9 +695,9 @@ Vellykket gjennomføring forutsetter:
 3. **Kompetanseinvestering** i KI-forståelse og -bruk
    hos fagpersoner, samt rekruttering av teknisk
    kompetanse
-4. **Regulatorisk proaktivitet** der Helsedirektoratet
-   tar en ledende rolle i å operasjonalisere EU AI Act
-   for helsesektoren
+4. **Regulatorisk pådriverrolle** der Helsedirektoratet
+   går foran og setter EU AI Act i praktisk drift for
+   helsesektoren
 5. **Iterativ tilnærming** der hver fase evalueres
    før neste fase starter, med involvering av
    fagpersoner og innbyggere
@@ -693,10 +709,9 @@ Vellykket gjennomføring forutsetter:
 
 ## 7. Risikomatrise
 
-Tabellen nedenfor oppsummerer de ti viktigste risikoene
-for KI-støttet kunnskapsforvaltning, med vurdering av
-sannsynlighet, konsekvens og foreslåtte
-mitigeringstiltak.
+Tabellen under viser de viktigste risikoene for
+KI-støttet kunnskapsforvaltning, med sannsynlighet,
+konsekvens og forslag til tiltak (mitigering).
 
 <!-- markdownlint-disable MD013 -->
 
@@ -704,7 +719,7 @@ mitigeringstiltak.
 | ----- | -------- | --------------- | ------------ | --------------- | ------------ |
 | 1 | Hallusinering i KI-generert helseinnhold | Høy | Høy | **Kritisk** | RAG mot verifiserte kilder, automatisert faktasjekk, menneskelig validering før publisering, hallusinerings-deteksjon |
 | 2 | Tap av tillit til offentlig helseinformasjon | Middels | Høy | **Høy** | Transparent kommunikasjon om KI-bruk, tydelig faglig ansvar, gradvis innføring med evaluering |
-| 3 | Personvernbrudd | Lav | Høy | **Moderat** | DPIA før publisering, dataminimering, norsk jurisdiksjon for datalagring, databehandleravtaler |
+| 3 | Personvernbrudd | Lav | Høy | **Moderat** | DPIA (personvernkonsekvensvurdering) før publisering, dataminimering, norsk jurisdiksjon for datalagring, databehandleravtaler |
 | 4 | Implementeringsforsinkelser | Høy | Middels | **Høy** | Faseinndelt tilnærming, tydelige milepæler, risikobasert prioritering |
 | 5 | Teknologiavhengighet/leverandørlåsing | Middels | Middels | **Moderat** | Abstraksjonslag mot KI-modeller, åpne standarder, leverandøruavhengig arkitektur |
 | 6 | Regulatorisk usikkerhet (EU AI Act) | Middels | Middels | **Moderat** | Proaktiv dialog med tilsynsmyndigheter, juridisk kompetanse, følge europeisk rettsutvikling |
@@ -712,6 +727,7 @@ mitigeringstiltak.
 | 8 | Kompetansemangel | Høy | Middels | **Høy** | Langsiktig kompetansestrategi, rekruttering, samarbeid med universitetsmiljøer |
 | 9 | Budsjettoverskridelser | Middels | Middels | **Moderat** | Faseinndelt investering med evaluering, grove estimater som oppdateres per fase |
 | 10 | Innbyggere bruker ukvalifiserte KI-kilder | Høy | Høy | **Kritisk** | Proaktivt tilby kvalitetssikret KI-basert helseinformasjon, chatbot på helsenorge.no, synlighet i søkeresultater |
+| 14 | KI-tjenesten bygges på et kildegrunnlag uten foreningssporet: en tjeneste som kun eksponerer statlig innhold, mangler store deler av den kliniske veiledningen klinikere faktisk bruker (lav klinisk legitimitet og dekning); alternativt eksponeres foreningsinnhold uten lisens- og konsistensavklaring [ANT; faktagrunnlag: `profesjonsforeninger-normering.md`] | Middels | Høy | **Høy** | Innholdsavtaler med foreningene, kildemerking, konsistenskontroll, avklaring av forrang mellom sporene |
 
 <!-- markdownlint-enable MD013 -->
 
@@ -724,8 +740,10 @@ tilnærmingen: hallusinering gjennom robust
 kvalitetssikring, og konkurranserisikoen gjennom å tilby
 et kvalitetssikret offentlig alternativ.
 
-Tre risikoer vurderes som høye: tap av tillit,
-implementeringsforsinkelser og kompetansemangel. Disse
+Fire risikoer vurderes som høye: tap av tillit,
+implementeringsforsinkelser, kompetansemangel og et
+kildegrunnlag uten foreningssporet (nr. 14, lagt til
+sist; nr. 11–13 er scenariorisikoer i kap. 7.1). Disse
 krever aktiv styring gjennom hele gjennomføringsperioden.
 
 ### 7.1 Scenariorisiko – strukturelle utviklingsbaner
@@ -733,11 +751,11 @@ krever aktiv styring gjennom hele gjennomføringsperioden.
 Risikoene 1–10 over er **operasjonelle og
 gjennomføringsorienterte**: de kan inntreffe innenfor det
 anbefalte tiltaket og styres med konkrete
-mitigeringstiltak. Delrapport 9 (Fremtidsscenarioer)
-identifiserer i tillegg en annen risikotype:
-**scenariorisiko** – risikoen for at hele systemet driver
-mot en uønsket strukturell tilstand, uavhengig av hvor godt
-det enkelte tiltaket gjennomføres [ANT, jf.
+mitigeringstiltak (risikoreduserende tiltak). Delrapport 9
+(Fremtidsscenarioer) peker på en annen risikotype:
+**scenariorisiko**. Dette er risikoen for at hele
+systemet driver mot en uønsket tilstand, uavhengig av
+hvor godt det enkelte tiltaket gjennomføres [ANT, jf.
 `fremtidsscenarioer.md`].
 
 Disse risikoene skiller seg fra 1–10 ved at de gjelder
@@ -752,7 +770,7 @@ driftsbanen ved passivitet.
 | Nr. | Scenariorisiko | Sannsynlighet | Konsekvens | Samlet risiko | Mitigering |
 | ----- | -------- | --------------- | ------------ | --------------- | ------------ |
 | 11 | Drift mot fragmentert flora (S4): kommuner/HF/RHF bygger hver sin KI-løsning uten felles rammer | Høy | Høy | **Kritisk** | Etablere felles standarder, metadataprofiler og gjenbrukbar offentlig kunnskap *tidlig*; orkestreringsstrategi (jf. S3); kartlegge pågående lokale initiativer; gjøre det enklere å bygge *på* enn *ved siden av* |
-| 12 | Plattformavhengighet (S2): én dominerende kommersiell/EPJ-integrert KI blir de facto standard | Middels | Høy | **Høy** | Konkurransedyktig offentlig tilbud på tilgjengelighet og aktualitet; krav om at lokal/EPJ-KI bygger på norske retningslinjer; EU AI Act art. 10/13-etterlevelse; leverandøruavhengig arkitektur |
+| 12 | Plattformavhengighet (S2): én dominerende kommersiell/EPJ-integrert (elektronisk pasientjournal) KI blir en uformell standard («de facto standard») | Middels | Høy | **Høy** | Konkurransedyktig offentlig tilbud på tilgjengelighet og aktualitet; krav om at lokal/EPJ-KI bygger på norske retningslinjer; EU AI Act art. 10/13-etterlevelse; leverandøruavhengig arkitektur |
 | 13 | Kollapsbane S1→S4: en sentral løsning som er for treg eller mangler mandat utløser de lokale initiativene den skulle erstatte | Middels | Høy | **Høy** | Sikre reaktivitet og tilgjengelighet i den sentrale løsningen; reelt styringsmandat (R1); bygge inn orkestrering fra start slik at en sentral motor (S1) kan utvikles mot et føderert økosystem (S3) |
 
 <!-- markdownlint-enable MD013 -->
@@ -932,8 +950,8 @@ realistiske forventninger.
 
 #### Juridiske endringsbehov
 
-Følgende juridiske avklaringer og potensielle
-endringer er identifisert som forutsetninger:
+Vi har identifisert følgende juridiske avklaringer og
+mulige endringer som forutsetninger:
 
 - **Forskriftsendringer**: Vurdering av om
   forskrift om ledelse og kvalitetsforbedring
@@ -959,6 +977,13 @@ endringer er identifisert som forutsetninger:
   Obligatorisk DPIA for alle KI-komponenter som
   behandler helseopplysninger eller
   brukerinteraksjoner
+- **Foreningsutviklede veiledere**: Avklaring av
+  rettslig status og forrang for foreningsutviklede
+  veiledere i forsvarlighetsvurderinger etter
+  helsepersonelloven § 4. Tilsynspraksis bruker dem
+  allerede som norm (Helsetilsynet 2016), men uten
+  nedfelt generelt prinsipp [DOK,
+  `profesjonsforeninger-normering.md` kap. 3]
 
 #### Evalueringsplan
 
@@ -1015,13 +1040,13 @@ pilotprosjekter, ikke fullskala implementeringer.
 Overførbarhet til norsk kontekst er vurdert, men kan
 ikke garanteres.
 
-**Dokumentasjonsprinsipp.** Rapporten følger prinsippet
-om at tallanslag uten dokumentert kildegrunnlag ikke
-gjengis. Tidligere versjoner inneholdt scenariobaserte
-estimater (%-tidsbesparelser, MNOK-kostnader,
-måneds-tall) som ikke kunne forankres i offisielle
-eller peer-reviewed kilder; disse er fjernet og
-erstattet med kvalitative vurderinger.
+**Dokumentasjonsprinsipp.** Vi gjengir ikke tallanslag
+som mangler dokumentert kildegrunnlag. Tidligere
+versjoner inneholdt scenariobaserte estimater
+(%-tidsbesparelser, MNOK-kostnader, måneds-tall) som vi
+ikke kunne forankre i offisielle eller peer-reviewed
+kilder. Vi har derfor fjernet disse og erstattet dem
+med kvalitative vurderinger.
 
 ### 10.2 Behov for videre arbeid
 
@@ -1044,6 +1069,12 @@ arbeid:
    KI-generert helseinformasjon fra offentlige kilder
 7. **Nordisk samarbeidsforum** for erfaringsutveksling
    om KI i kunnskapsforvaltning
+8. **Veivalg for foreningssporet**: Avklare om en
+   fremtidig kunnskapsforvaltning skal innlemme,
+   erstatte eller sameksistere med
+   profesjonsforeningenes normerende produkter
+   (behandles i delrapport 4) [ANT,
+   `profesjonsforeninger-normering.md`]
 
 ### 10.3 Samlet vurdering
 
@@ -1060,8 +1091,7 @@ dagens og fremtidens helsesektor. Gjennomløpstiden er
 for lang, kapasiteten for lav, og sammenkoblingen
 mellom stegene for svak.
 
-KI-teknologi representerer en mulighet til å adressere
-disse utfordringene uten å undergrave
+KI-teknologi kan løse disse utfordringene uten å svekke
 kvalitetssikringen. Internasjonale erfaringer viser at
 KI som støtteverktøy med menneskelig kontroll gir
 resultater. Den anbefalte faseinndelte tilnærmingen gir
@@ -1077,7 +1107,7 @@ utviklingen fremfor å la den forme seg.
 
 ---
 
-Sist oppdatert: 2026-06-04
+Sist oppdatert: 2026-08-10
 
 *Rapporten syntetiserer funn fra seks foregående
 delrapporter. Den er ment som grunnlag for menneskelig
@@ -1096,3 +1126,4 @@ kost–nytte-analyse per fase.*
 | 2026-05-22 | Kap. 4.2 omformulert fra tre til fem kjerneegenskaper (skalerbarhet, reaktivitet, sammenheng, styrbarhet, tillit/legitimitet); MECE-oppsummering av D1–D6 fra delrapport 2 kap. 2.3. |
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte tallanslag fjernet (alle 2–3 år, 2,5–5 år, %-tidsbesparelser, MNOK-kostnader, måned-baserte fasevarigheter). Nøkkeltall- og kostnadstabeller omkalibrert til kvalitative gradsbetegnelser. Fremdriftsplan kap. 8.1 endret fra månedstall til rene avhengigheter. Tidsestimater forankret i `casestudier-forsinkelser.md` der dokumentert. |
 | 2026-06-04 | Nytt kap. 7.1 «Scenariorisiko – strukturelle utviklingsbaner» med tre nye risikoer (11–13: drift mot S4, plattformavhengighet S2, kollapsbane S1→S4) basert på delrapport 9 (`fremtidsscenarioer.md`). Koblet til rotårsakene R1/R2/R4 og til orkestrering som designkrav (kap. 6.6). |
+| 2026-08-10 | Profesjonsforening-perspektivet innarbeidet fra `profesjonsforeninger-normering.md`: tosporet normering i ledersammendrag og kap. 4.2, ny risiko 14 (kildegrunnlag uten foreningssporet), juridisk avklaringspunkt om foreningsveiledere og hpl. § 4 (kap. 9), veivalg innlemme/erstatte/sameksistere i kap. 10.2. |

@@ -12,21 +12,39 @@ kunnskapsforvaltning i helsesektoren*
 
 ## 1. Innledning
 
+**Hovedbudskap:** Når forskere publiserer et nytt funn
+– for eksempel om behandling av diabetes – skal
+kunnskapen gjennom flere ledd: forskningen må
+oppsummeres, vurderes for norske forhold, bli til
+oppdaterte råd for helsepersonell, og til slutt bli
+forståelig informasjon på helsenorge.no. Denne kjeden
+av ledd kaller vi verdikjeden for kunnskapsforvaltning,
+og det er den rapporten beskriver.
+
+Hovedfunnet er at hvert ledd gjør jobben sin, men at
+leddene henger dårlig sammen. Kunnskapen når frem
+gjennom fire parallelle kanaler som arbeider hver for
+seg – ingen har ansvar for at rådene stemmer overens,
+eller for å følge opp at de tas i bruk. Både staten og
+helseprofesjonenes foreninger gir dessuten faglige råd
+som styrer praksis, uten kjøreregler for hvilke som
+gjelder når de spriker. Kapittel 8 utdyper dette.
+
 ### 1.1 Formål
 
-Denne rapporten kartlegger dagens prosess fra
-forskning til formidlet kunnskap til innbyggere i den
-norske helsesektoren. Kartleggingen danner grunnlag
-for å identifisere utfordringer, flaskehalser og
-forbedringsmuligheter i verdikjeden.
+Rapporten kartlegger hvordan kunnskap beveger seg fra
+forskning til innbyggere i den norske helsesektoren.
+Kartleggingen skal vise både hva som fungerer godt og
+bør tas vare på, og hvor utfordringene og
+flaskehalsene ligger.
 
-Verdikjeden for kunnskapsforvaltning er sentral for
-at helsesektoren skal kunne tilby oppdaterte,
-evidensbaserte tjenester og helseråd. En systematisk
-forståelse av hvordan kunnskap beveger seg fra
-forskningsmiljøer til innbyggere er en forutsetning
-for å vurdere om dagens prosesser er tilstrekkelig
-effektive og treffsikre.
+Når kjeden fungerer, får pasienter behandling basert
+på oppdatert kunnskap, og innbyggere kan stole på
+helserådene fra det offentlige. Når den svikter, kan
+det ta år før ny kunnskap når frem – casestudiene i
+utredningen dokumenterer 7–15+ år fra publisert
+forskning til bred praksisendring
+(`casestudier-forsinkelser.md`).
 
 ### 1.2 Faglig forankring: Kunnskapsbasert praksis
 
@@ -42,21 +60,22 @@ behov i en gitt situasjon».
 
 KBP-rammeverket beskriver seks trinn:
 (1) refleksjon over egen praksis,
-(2) spørsmålsformulering (PICO),
+(2) spørsmålsformulering (PICO – en standardmetode
+for å stille presise kliniske spørsmål),
 (3) litteratursøk,
 (4) kritisk vurdering,
 (5) anvende kunnskap, og
 (6) evaluere praksis.
 
-Verdikjeden i denne rapporten fokuserer primært på
-**infrastrukturen** som understøtter trinnene 1-4
-på nasjonalt nivå – hvordan forskningsbasert
-kunnskap sammenstilles, kvalitetssikres og gjøres
-tilgjengelig. Trinn 5 (anvende) og 6 (evaluere)
-– der kunnskap faktisk omsettes til praksis –
-faller i stor grad utenfor den sentrale
-verdikjeden og overlates til den enkelte
-virksomhet og kliniker. Som casestudiene
+Rapporten ser primært på **infrastrukturen** som
+understøtter trinn 1–4 på nasjonalt nivå, altså hvordan
+Helsedirektoratet, FHI og andre aktører sammenstiller,
+kvalitetssikrer og tilgjengeliggjør forskningsbasert
+kunnskap. Trinn 5 (anvende) og 6 (evaluere) – der
+kunnskap faktisk omsettes til praksis – faller i stor
+grad utenfor den sentrale verdikjeden. Den enkelte
+virksomhet og kliniker må selv ivareta disse trinnene.
+Som casestudiene
 (casestudier-forsinkelser.md) dokumenterer, er det
 nettopp i disse siste trinnene at de største
 forsinkelsene oppstår.
@@ -116,9 +135,9 @@ sitt område for kunnskapsoppsummering.
 
 ### Steg 3: Kunnskapsomsetting og formidling – fire parallelle strømmer
 
-Kunnskapen fra steg 1 og 2 omsettes og formidles til
-helsepersonell og innbyggere gjennom **fire parallelle
-hovedstrømmer**. Disse opererer med ulike aktører,
+Helsepersonell og innbyggere mottar kunnskapen fra
+steg 1 og 2 gjennom **fire parallelle hovedstrømmer**.
+Disse opererer med ulike aktører,
 ulik hastighet og ulike mekanismer for
 kvalitetssikring:
 
@@ -151,14 +170,16 @@ svært ulik alder.
 Helsedirektoratet utvikler tre typer normerende
 produkter basert på kunnskapsoppsummeringer:
 **nasjonale faglige retningslinjer**, **veiledere** og
-**faglige råd** [1]. Retningslinjene er normerende for
+**faglige råd** [1]. Helsedirektoratet forklarer
+produkttypene og deres rettslige grunnlag på egen
+nettside [27]. Retningslinjene er normerende for
 helsetjenesten og gir anbefalinger for diagnostikk,
 behandling, forebygging og organisering.
-Utviklingsprosessen er beskrevet i Helsedirektoratets
-*Veileder for utvikling av kunnskapsbaserte
-retningslinjer* [19] og involverer tverrfaglige
+Helsedirektoratets *Veileder for utvikling av
+kunnskapsbaserte retningslinjer* [19] beskriver
+utviklingsprosessen. Den involverer tverrfaglige
 arbeidsgrupper med bidrag fra fagmedisinske
-foreninger og brukerrepresentanter, ekstern høring
+foreninger og brukerrepresentanter, ekstern høring,
 og systematisk vurdering av evidens opp mot norske
 forhold [2].
 
@@ -196,9 +217,22 @@ klinisk praksis:
 danner grunnlag for innbyggerrettet informasjon som
 publiseres på helsenorge.no (se strøm 3d).
 
-Dette er den mest autoritative strømmen – den eneste
-der kunnskap gjennomgår formell normering for norsk
-kontekst. Den er også den langsomste. Casestudier
+Dette er den mest autoritative strømmen. Det er den
+eneste der kunnskap gjennomgår formell *statlig*
+normering for norsk kontekst. En presisering er
+nødvendig: også profesjonsforeningenes veiledere
+fungerer i praksis normerende i mange spesialiteter.
+Rundt 13 av 22 undersøkte fagmedisinske foreninger
+utgir egne veiledere eller metodebøker [DOK, se
+`profesjonsforeninger-normering.md`]. Statens
+helsetilsyn har i minst én tilsynssak (2016) lagt en
+foreningsveileder direkte til grunn som
+forsvarlighetsnorm etter helsepersonelloven § 4
+[DOK, samme notat]. WHO/European Observatory (2019)
+klassifiserer Norge som en hybrid, der foreningene
+lager egen veiledning parallelt med statens
+retningslinjer [DOK, samme notat].
+Den er også den langsomste. Casestudier
 (`casestudier-forsinkelser.md`) dokumenterer at den
 reelle tiden fra forskning til bred praksisendring er
 **7–15+ år** når implementering, refusjonsordninger og
@@ -267,7 +301,16 @@ formelle kunnskapsoppsummeringer i steg 2.
   fagmedisinske foreninger (én per spesialitet)
   utvikler faglige anbefalinger innenfor sine
   spesialområder og bidrar til Helsedirektoratets
-  retningslinjearbeid [9].
+  retningslinjearbeid [9]. Rollen er ikke bare
+  formidling: rundt 13 av 22 undersøkte foreninger
+  utgir egne normerende veiledere eller metodebøker,
+  blant annet Veileder i fødselshjelp,
+  pediatriveilederne og Nasjonal veileder i
+  endokrinologi [DOK, se
+  `profesjonsforeninger-normering.md`]. Norsk
+  Standard for Anestesi, utgitt av anestesilegene og
+  anestesisykepleierne i fellesskap, omtaler seg
+  selv som «normgivende» [DOK, samme notat].
 
 Denne strømmen oppdateres raskere enn den normerende
 strømmen, men nøyaktig tidsbruk er ikke systematisk
@@ -278,7 +321,7 @@ dokumentert.
 | UpToDate / BMJ Best Practice | Klinisk oppslagsverk | Evidensbaserte anbefalinger, kalkulatorer |
 | Helsebiblioteket (fagprosedyrer) | Fagprosedyreplattform | Handlingsanvisninger for klinisk praksis |
 | Tidsskriftet / Sykepleien | Fagtidsskrifter (open access) | Originalartikler, oversikter, fagdebatt |
-| Fagmedisinske foreninger | Spesialitetsspesifikk formidling | Faglige anbefalinger, kurs, konferanser |
+| Fagmedisinske foreninger | Spesialitetsspesifikk veiledning og normering | Veiledere/metodebøker, faglige anbefalinger, kurs, konferanser |
 
 #### 3c. Legemiddelstrømmen
 
@@ -304,7 +347,8 @@ retningslinjeprosess.
   helsepersonell og pasienter kan melde
   bivirkninger til DMP [16].
 - **Felleskatalogen**: Felleskatalogen AS samler og
-  tilgjengeliggjør godkjente preparatomtaler (SPC),
+  tilgjengeliggjør godkjente preparatomtaler
+  (SPC – Summary of Product Characteristics),
   pakningsvedlegg og bivirkningsinformasjon [17].
   Interaksjonssøket er basert på data fra DMPs
   FEST-database [17]. Brukes daglig av
@@ -348,13 +392,13 @@ aktører.
 - **helsenorge.no**: Norges digitale helseportal for
   innbyggere, eid av NHN (statsforetak under HOD),
   med over 131 millioner besøk i 2024 [20].
-  Innholdsproduksjonen er **desentralisert** med
-  tydelig ansvarsfordeling: Helsedirektoratet har
-  utgiveransvaret og det etiske og rettslige
-  ansvaret for informasjonsinnholdet, mens NHN er
-  produkteier og har redaktøransvaret – inkludert
-  ansvar for at lokale redaktører følger
-  innholdsstrategien [21] og
+  Helsenorge.no har **desentralisert**
+  innholdsproduksjon med tydelig ansvarsfordeling:
+  Helsedirektoratet har utgiveransvaret – det etiske
+  og rettslige ansvaret for informasjonsinnholdet –
+  mens NHN er produkteier med redaktøransvaret.
+  Redaktøransvaret innebærer blant annet å sikre at
+  lokale redaktører følger innholdsstrategien [21] og
   kvalitetsretningslinjene [10]. Alt innhold
   kvalitetssikres minimum hvert tredje år [22].
   Innholdet leveres og kvalitetssikres av
@@ -593,19 +637,19 @@ primært gjelder den normerende strømmen (3a):
    behandlingstilbud). I strøm 3b skjer dette
    skiftet delvis *ikke* – kliniske oppslagsverk
    brukes ofte på engelsk.
-2. **Fagspråk → klarspråk**: Overgangen fra
-   retningslinje til innbyggerinformasjon krever at
-   komplekst medisinsk fagspråk gjøres tilgjengelig
-   uten å miste presisjon. I strøm 3d (medier,
-   pasientorganisasjoner) skjer denne overgangen på
-   andre måter og med annen kvalitetssikring.
+2. **Fagspråk → klarspråk**: Når en retningslinje blir
+   til innbyggerinformasjon, må komplekst medisinsk
+   fagspråk gjøres forståelig uten å miste presisjon.
+   I strøm 3d (medier, pasientorganisasjoner) skjer
+   denne overgangen på andre måter og med annen
+   kvalitetssikring.
 3. **Strukturert evidens → normerende anbefaling**:
-   Overgangen fra kunnskapsoppsummering til
-   retningslinje innebærer at vitenskapelig evidens
-   veies mot verdier, ressursbruk og norsk
-   kontekst. Denne overgangen er unik for den
-   normerende strømmen – de øvrige strømmene
-   formidler kunnskap uten formell normering.
+   Når en kunnskapsoppsummering blir til retningslinje,
+   veier Helsedirektoratet vitenskapelig evidens mot
+   verdier, ressursbruk og norsk kontekst. Denne
+   overgangen er unik for den normerende strømmen – de
+   øvrige strømmene formidler kunnskap uten formell
+   normering.
 
 ### 5.3 Konsistens på tvers av strømmer
 
@@ -629,9 +673,9 @@ sikrer konsistens mellom de fire strømmene.
 
 ### 5.4 Manglende standardisering
 
-Dokumentasjonen indikerer at det i dag mangler
-gjennomgående standardiserte maskinlesbare formater
-for kunnskapsinnhold på tvers av strømmene.
+Dokumentasjonen viser at det i dag mangler
+standardiserte, maskinlesbare formater for
+kunnskapsinnhold på tvers av strømmene.
 Retningslinjer publiseres i hovedsak som
 fritekst-dokumenter, og det er begrenset bruk av
 strukturerte metadata som muliggjør automatisert
@@ -701,14 +745,20 @@ eller ingen systematisk kvalitetssikring.
 
 ### Overordnet vurdering
 
-Kvalitetssikringen i verdikjeden er robust *i hvert
-enkelt steg*, men det finnes **begrenset systematisk
-kvalitetssikring av sammenheng på tvers av steg**.
-Det er for eksempel ingen automatisert mekanisme som
-sikrer at innbyggerinformasjon oppdateres når
-underliggende retningslinjer endres, eller at
-motstridigheter mellom strømmene blir identifisert
-og løst.
+Kvalitetssikringen er robust i hvert enkelt steg i
+verdikjeden, men det mangler **systematisk
+kvalitetssikring av sammenhengen mellom stegene**.
+Det finnes for eksempel ingen automatisk mekanisme
+som sikrer at innbyggerinformasjon oppdateres når
+retningslinjer endres, eller som fanger opp og løser
+motstridende informasjon mellom strømmene. Det finnes
+heller ikke et dokumentert system som avklarer forrang
+eller fanger opp motstrid mellom statlige
+retningslinjer og profesjonsforeningenes veiledere
+[DOK for fraværet, se
+`profesjonsforeninger-normering.md`]. Dette gir risiko
+for at helsepersonell møter ulike normer for samme
+tilstand [ANT, samme notat].
 
 ---
 
@@ -793,11 +843,11 @@ konsistens på tvers av alle strømmer.
 kjerneegenskap «styrbarhet», rotårsak R1 (manglende
 helhetlig styringsmandat).*
 
-Ansvaret er fordelt på nærmere 20 aktører –
-Helsedirektoratet, FHI, Helsebiblioteket, RHF-ene, KS,
-DMP, Felleskatalogen, RELIS, NHI.no, FNSP,
-fagprosedyreforfattere, pasientorganisasjoner, medier og
-andre – uten et overordnet system som sikrer konsistens.
+Nærmere 20 aktører deler ansvaret – Helsedirektoratet,
+FHI, Helsebiblioteket, RHF-ene, KS, DMP, Felleskatalogen,
+RELIS, NHI.no, FNSP, fagprosedyreforfattere,
+pasientorganisasjoner, medier og andre – uten et
+overordnet system som sikrer konsistens.
 
 #### 5. Manuelle overganger og begrenset strukturering
 
@@ -828,7 +878,31 @@ påvirker konsistensen i de øvrige strømmene.
 
 Dagens verdikjede fungerer tilstrekkelig for hver enkelt
 strøm, men systemet som helhet mangler integrasjon.
-Konsekvensene er:
+
+**Hva fungerer godt og bør bevares:**
+
+- Kvalitetssikringen er robust i hvert enkelt steg
+  (kap. 6) – hvert ledd har etablerte rutiner for
+  faglig kontroll av eget arbeid
+- Den normerende prosessen er grundig og bredt
+  forankret: tverrfaglige arbeidsgrupper,
+  brukerrepresentanter, ekstern høring og systematisk
+  evidensvurdering for norske forhold (kap. 3a)
+- Sentrale kunnskapskilder er fritt tilgjengelige for
+  alle – Helsedirektoratets retningslinjer,
+  Helsebibliotekets ressurser og Tidsskriftets
+  fagfellevurderte innhold (kap. 3a og 3b)
+- Helsenorge.no er en etablert, mye brukt kanal for
+  kvalitetssikret innbyggerinformasjon (kap. 3d)
+- Fagmiljøenes engasjement og eierskap er en betydelig
+  ressurs: profesjonsforeningenes veiledere holdes
+  oppdatert på dugnadsbasis av fagfolk med høy
+  legitimitet i klinikken (kap. 3b)
+
+En fremtidig løsning bør bygge videre på disse
+styrkene, ikke erstatte dem.
+
+**Konsekvensene av manglende integrasjon er:**
 
 - Ineffektiv ressursbruk – hver strøm gjør sitt eget
   arbeid med oversettelse og tilpasning
@@ -836,8 +910,8 @@ Konsekvensene er:
   retningslinje og klinisk praksis
 - Innbyggere og helsepersonell må selv navigere mellom
   ulike kilder for å få et fullstendig bilde
-- Forbedringer blir ikke fulgt opp systematisk på tvers
-  av strømmer
+- Verdikjeden følger ikke systematisk opp forbedringer
+  på tvers av strømmer
 - Innbyggere henter i tillegg kunnskap fra kilder helt
   utenfor verdikjeden – KI-chatboter, internasjonale
   nettsider, venner/familie og kommersielle aktører – som
@@ -862,7 +936,7 @@ case-dokumenterte verdiene.
 
 ---
 
-Sist oppdatert: 2026-05-26
+Sist oppdatert: 2026-08-10
 
 ## Endringslogg
 
@@ -870,6 +944,8 @@ Sist oppdatert: 2026-05-26
 |---|---|
 | 2026-04-08 | Versjon med gjennomløpstider 1–5 år (kap. 3a) og 2–3 år (typisk normerende strøm). Casestudie-funn (7–15+ år) lagt til som korreksjon. |
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte gjennomsnittsanslag (1–5 år, 2–3 år, 2,5–5 år) fjernet og erstattet med case-baserte spennvidder fra `casestudier-forsinkelser.md`. Kap. 7 observasjoner forankret eksplisitt mot delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper, R1–R6). Konklusjon språklig strammet. |
+| 2026-08-10 | Presisering av normeringsbeskrivelsen basert på `profesjonsforeninger-normering.md`: kap. 3a («formell *statlig* normering» + foreningsveilederes normerende praksis), kap. 3b (fagmedisinske foreningers veiledere/metodebøker, NSA), kap. 6 (manglende system for forrang stat/forening), kap. 1 (setning om tosporet normering). |
+| 2026-08-10 | Tilgjengelighetsrevisjon av innledningen: hovedbudskapet omskrevet med konkret eksempel (diabetes) og uten fremoverreferanser; formålet (kap. 1.1) utvidet til også å omfatte hva som fungerer godt og bør bevares; PICO forklart (kap. 1.2); peker til Helsedirektoratets side om normerende produkter [27] (kap. 3a). Kap. 8 utvidet med liste over hva som fungerer godt og bør bevares — basert på eksisterende funn i kap. 3 og 6, ingen nye påstander. |
 
 ---
 
@@ -878,6 +954,10 @@ Sist oppdatert: 2026-05-26
 [1]: Helsedirektoratet. *Nasjonale faglige
 retningslinjer*.
 <https://www.helsedirektoratet.no/retningslinjer>
+
+[27]: Helsedirektoratet. *Om Helsedirektoratets
+normerende produkter*.
+<https://www.helsedirektoratet.no/nasjonale-krav-og-anbefalinger/om-helsedirektoratets-normerende-produkter>
 
 [2]: Helsedirektoratet. *Om Helsedirektoratets
 normerende produkter*.

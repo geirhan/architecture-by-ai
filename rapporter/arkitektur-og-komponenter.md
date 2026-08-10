@@ -17,11 +17,11 @@
 
 Denne delrapporten beskriver den tekniske og organisatoriske
 arkitekturen for en KI-støttet verdikjede for kunnskapsforvaltning
-i helsesektoren. Arkitekturen bygger på funnene fra de foregående
-delrapportene: kartlegging av dagens verdikjede (delrapport 1),
-identifiserte utfordringer og flaskehalser (delrapport 2),
-vurdering av LLM-teknologiens muligheter og risikoer
-(delrapport 3) og internasjonale erfaringer (delrapport 6).
+i helsesektoren. Den bygger på funn fra fire tidligere
+delrapporter: kartlegging av dagens verdikjede (delrapport 1),
+utfordringer og flaskehalser (delrapport 2), muligheter og
+risikoer ved LLM-teknologi (delrapport 3) og internasjonale
+erfaringer (delrapport 6).
 
 Formålet er å gi et konkret bilde av hvilke komponenter som
 trengs, hvordan de henger sammen, og hvordan de kan realiseres
@@ -65,8 +65,8 @@ spesifikke konteksten for KI-støttet kunnskapsforvaltning.
 | --- | --- | --- |
 | **Åpenhet og transparens** | Alle KI-prosesser skal være sporbare og forklarbare | Kildehenvisninger og beslutningslogg i alle KI-genererte produkter |
 | **Modularitet og løs kobling** | Komponenter skal kunne utvikles, byttes ut og skaleres uavhengig | Standardiserte API-er mellom alle komponenter |
-| **Gjenbruk av nasjonale felleskomponenter** | Eksisterende nasjonal infrastruktur skal benyttes der det er mulig | Bruk av HelseID, Grunndata, helsenettet |
-| **Sikkerhet og personvern by design** | Sikkerhets- og personvernhensyn skal integreres fra start | DPIA, dataminimering, tilgangskontroll i alle lag |
+| **Gjenbruk av nasjonale felleskomponenter** | Eksisterende nasjonal infrastruktur skal brukes der det er mulig | Bruk av HelseID, Grunndata, helsenettet |
+| **Sikkerhet og personvern by design** | Løsningen skal ivareta sikkerhet og personvern fra første designfase | DPIA (personvernkonsekvensvurdering – en vurdering av personvernrisiko), dataminimering, tilgangskontroll i alle lag |
 | **Skalerbarhet** | Arkitekturen skal tåle varierende belastning og voksende datavolum | Skybasert infrastruktur med elastisk skalering |
 | **Leverandøruavhengighet** | Løsningen skal ikke være låst til én leverandør eller teknologiplattform | Åpne standarder, abstraksjonslag mot KI-modeller |
 | **Samsvar med Referansearkitektur for e-helse** | Arkitekturen skal følge nasjonale arkitekturkrav | Vurdering mot gjeldende referansearkitektur |
@@ -107,8 +107,8 @@ beslutningsmyndighet.
 Systematisk kontroll av KI-generert innhold. Inkluderer
 automatisert faktasjekk mot kildemateriale, deteksjon av
 hallusinering og inkonsistens, samt menneskelig
-fagfellevurdering. Denne prosessen er kritisk for å
-opprettholde tillit til kunnskapsproduksjonen.
+fagfellevurdering. Denne prosessen er avgjørende for at
+brukerne skal ha tillit til kunnskapen som produseres.
 
 #### 4. Kunnskapsformidling (automatisert med redaksjonelt tilsyn)
 
@@ -174,7 +174,7 @@ kunnskapssyntese.
 | Aspekt | Beskrivelse |
 | --- | --- |
 | **Funksjoner** | Systematisk søk i vitenskapelige databaser, screening av titler og sammendrag, dataekstraksjon fra fulltekst, generering av synteseutkast |
-| **Teknologi** | LLM med RAG (Retrieval-Augmented Generation) mot indekserte vitenskapelige databaser |
+| **Teknologi** | LLM med RAG (retrieval-augmented generation – søk i egne datakilder som grunnlag for svar) mot indekserte vitenskapelige databaser |
 | **Datakonsumenter** | FHI-forskere, retningslinjearbeidsgrupper |
 | **Integrasjoner** | PubMed, Cochrane Library, Embase, Epistemonikos |
 
@@ -210,7 +210,7 @@ innbyggere.
 | Aspekt | Beskrivelse |
 | --- | --- |
 | **Funksjoner** | Spørsmål-svar basert på verifiserte kilder, konteksttilpasning, tydelig kommunikasjon av begrensninger, eskalering til helsepersonell |
-| **Teknologi** | LLM med RAG mot verifiserte kunnskapskilder i kunnskapsbasen, guardrails for å hindre uautorisert medisinsk rådgivning |
+| **Teknologi** | LLM med RAG mot verifiserte kunnskapskilder i kunnskapsbasen, og tekniske sperrer («guardrails») som skal hindre at chatboten gir uautorisert medisinsk rådgivning |
 | **Datakonsumenter** | Innbyggere |
 | **Integrasjoner** | helsenorge.no, kunnskapsbase, eventuelt HelseID for personalisering |
 
@@ -234,9 +234,24 @@ den autoritative kilden for alle andre komponenter.
 | Aspekt | Beskrivelse |
 | --- | --- |
 | **Funksjoner** | Versjonering av kunnskapsobjekter, metadata-håndtering, søk og oppslag, API for maskinell tilgang |
-| **Teknologi** | Dokumentdatabase med vektorindeksering, HL7 FHIR Clinical Knowledge Resources for strukturerte data |
+| **Teknologi** | Dokumentdatabase med vektorindeksering (søk basert på semantisk likhet), og HL7 FHIR Clinical Knowledge Resources – en internasjonal standard for strukturerte kliniske kunnskapsdata |
 | **Datakonsumenter** | Alle kjernekomponenter, eksterne systemer |
 | **Integrasjoner** | FHIR-grensesnitt, EHDS-grensesnitt |
+
+Kildegrunnlaget for kunnskapsbasen er ikke bare statlig eid
+innhold. Betydelige deler av den kliniske veiledningen eies
+av profesjonsforeninger og ligger spredt på plattformer som
+metodebok.no, legeforeningen.no, endokrinologi.no og
+Helsebiblioteket — rundt 13 av 22 undersøkte fagmedisinske
+foreninger har egne normerende produkter [DOK,
+`profesjonsforeninger-normering.md` kap. 5b–5c]. Dette
+innholdet er ikke publisert som strukturerte data (ikke
+FHIR/maskinlesbart), og lisensgrunnlaget for gjenbruk i en
+statlig KI-tjeneste er uavklart [DOK, samme kilde].
+Arkitekturen må derfor håndtere innholdsavtaler og lisenser
+som egen forvaltningsoppgave, og kunnskapsbasens metadata må
+merke opphav — statlig eller foreningsdrevet — slik at
+kildens status følger innholdet ut til brukerne [ANT].
 
 ### 4.2 Integrasjoner
 
@@ -246,7 +261,7 @@ eksterne systemer:
 | Integrasjon | Type | Formål |
 | --- | --- | --- |
 | Nasjonale helseregistre | API | Tilgang til registerdata som kontekst for kunnskapssyntese |
-| HL7 FHIR | Standardisert grensesnitt | Strukturert utveksling av klinisk kunnskap (Clinical Knowledge Resources, CDS Hooks) |
+| HL7 FHIR | Standardisert grensesnitt | Strukturert utveksling av klinisk kunnskap (Clinical Knowledge Resources, CDS Hooks – et grensesnitt for å koble kunnskapsstøtte inn i journalsystemer) |
 | EHDS / MyHealth@EU | Grensekryssende grensesnitt | Deling av kunnskap med europeiske partnere |
 | helsenorge.no | Web-integrasjon | Publisering av innbyggerrettet informasjon og chatbot |
 | Helsepersonellportalen | Web-integrasjon | Tilgang for helsepersonell til faglige ressurser |
@@ -257,10 +272,10 @@ eksterne systemer:
 
 ## 5. Teknologilag (ArchiMate Technology Layer)
 
-### 5.1 Infrastruktur
+### 5.1 Infrastruktur: sikker og skalerbar drift i Norge
 
-Infrastrukturen skal sikre at løsningen kan driftes sikkert
-og stabilt innenfor norsk jurisdiksjon.
+Infrastrukturen skal gjøre det mulig å drifte løsningen
+sikkert og stabilt innenfor norsk jurisdiksjon.
 
 **Nasjonal skyinfrastruktur:** Komponentene driftes på
 infrastruktur levert gjennom NHN eller godkjent norsk
@@ -272,9 +287,9 @@ pasientjournalloven og personopplysningsloven.
 betydelig beregningskapasitet. Arkitekturen legger opp til
 en hybrid modell der:
 
-- Egne GPU-klynger kan benyttes for sensitive oppgaver
+- Man kan bruke egne GPU-klynger til sensitive oppgaver
   og egentrenede modeller
-- Kommersielle KI-API-er kan benyttes for oppgaver uten
+- Man kan bruke kommersielle KI-API-er til oppgaver uten
   sensitiv data, forutsatt databehandleravtale og godkjent
   jurisdiksjon
 
@@ -309,12 +324,13 @@ på tre områder:
 ### 6.1 Interoperabilitet og standarder
 
 EHDS stiller krav til bruk av europeiske standarder for
-helseinformasjon. Arkitekturen adresserer dette gjennom bruk
-av HL7 FHIR som primært grensesnitt for strukturerte data,
-og gjennom støtte for European Health Record Exchange Format
-(EHRxF). Kunnskapsbasen (komponent 6) er designet for å
-eksponere data i FHIR-format, noe som muliggjør deling med
-europeiske partnere.
+helseinformasjon. Arkitekturen møter dette kravet på to
+måter: den bruker HL7 FHIR som hovedgrensesnitt for
+strukturerte data, og den støtter European Health Record
+Exchange Format (EHRxF – et europeisk format for utveksling
+av pasientjournaldata). Kunnskapsbasen (komponent 6) er
+designet for å eksponere data i FHIR-format, noe som gjør
+det mulig å dele data med europeiske partnere.
 
 ### 6.2 MyHealth@EU og grensekryssende tjenester
 
@@ -329,10 +345,10 @@ oppholder seg i andre land.
 
 ### 6.3 Kunnskapsforvaltning som enabler for EHDS primærbruk
 
-EHDS' primærbruk handler om å styrke innbyggeres kontroll
-over egne helseopplysninger og forbedre
-helsetjenestelevering. KI-støttet kunnskapsforvaltning
-understøtter dette ved å:
+EHDS' primærbruk skal styrke innbyggeres kontroll over egne
+helseopplysninger og forbedre helsetjenestene.
+KI-støttet kunnskapsforvaltning kan bidra til dette på tre
+måter:
 
 - Sikre at helseinformasjon som deles på tvers av
   landegrenser er oppdatert og kvalitetssikret
@@ -343,7 +359,7 @@ understøtter dette ved å:
 
 ---
 
-## 7. Standarder og rammeverk
+## 7. Standarder og rammeverk for interoperabilitet
 
 Arkitekturen bygger på et bredt sett av standarder og
 rammeverk for å sikre interoperabilitet, kvalitet og
@@ -352,13 +368,13 @@ regulatorisk samsvar.
 | Standard / rammeverk | Anvendelse i arkitekturen |
 | --- | --- |
 | **HL7 FHIR** | Strukturert utveksling av klinisk kunnskap (Clinical Knowledge Resources, CDS Hooks) |
-| **IHE-profiler** | Rammeverk for integrasjon mellom helseapplikasjoner |
-| **SNOMED CT** | Klinisk terminologi for strukturering av kunnskapsobjekter |
-| **ICD-11** | Klassifikasjon av sykdommer og helsetilstander |
-| **ATC** | Klassifikasjon av legemidler |
-| **openEHR** | Kliniske arketyper for strukturert helsedata |
+| **IHE-profiler** (Integrating the Healthcare Enterprise) | Rammeverk for integrasjon mellom helseapplikasjoner |
+| **SNOMED CT** (internasjonal klinisk terminologi) | Klinisk terminologi for strukturering av kunnskapsobjekter |
+| **ICD-11** (WHOs klassifikasjonssystem for sykdommer) | Klassifikasjon av sykdommer og helsetilstander |
+| **ATC** (Anatomical Therapeutic Chemical – klassifikasjonssystem for legemidler) | Klassifikasjon av legemidler |
+| **openEHR** (åpen standard for strukturert helsedata) | Kliniske arketyper for strukturert helsedata |
 | **WHO SMART Guidelines** | Rammeverk for maskinlesbare retningslinjer (se delrapport 6) |
-| **ISO 13606** | Standard for kommunikasjon av helseinformasjon |
+| **ISO 13606** (internasjonal standard for elektroniske pasientjournaler) | Standard for kommunikasjon av helseinformasjon |
 | **EU AI Act** | Regulatorisk rammeverk for KI-systemer (se delrapport 3) |
 
 Valg av standarder er gjort med tanke på samsvar med
@@ -375,8 +391,8 @@ beslutningsstøttesystemer.
 
 ### 8.1 Trusselmodell
 
-KI-støttet kunnskapsforvaltning introduserer trusler som
-skiller seg fra tradisjonelle helse-IT-systemer:
+KI-støttet kunnskapsforvaltning skaper nye typer trusler
+sammenlignet med tradisjonelle helse-IT-systemer:
 
 - **Hallusinering:** KI-modeller kan generere plausible,
   men faktisk feilaktige utsagn. I helsekontekst kan dette
@@ -393,8 +409,8 @@ skiller seg fra tradisjonelle helse-IT-systemer:
 
 ### 8.2 Personvernkonsekvensvurdering (DPIA)
 
-Arkitekturen forutsetter gjennomføring av DPIA før
-implementering. Sentrale vurderingstemaer inkluderer:
+Før løsningen tas i bruk, må virksomheten gjennomføre en
+DPIA. Sentrale vurderingstemaer inkluderer:
 
 - Behandling av personopplysninger i innbygger-chatboten
 - Bruk av helserelaterte data for trening og finjustering
@@ -427,9 +443,9 @@ med prinsippet om dataminimering.
 
 ### 8.5 Nasjonal kontroll
 
-Arkitekturen sikrer nasjonal kontroll over helsedata gjennom
-krav om norsk jurisdiksjon for datalagring og
-databehandling. Ved bruk av kommersielle KI-API-er skal det
+Arkitekturen sikrer nasjonal kontroll over helsedata ved å
+kreve at data lagres og behandles innenfor norsk
+jurisdiksjon. Ved bruk av kommersielle KI-API-er skal det
 foreligge databehandleravtale, og sensitive data skal ikke
 sendes ut av landet uten tilstrekkelig rettslig grunnlag.
 
@@ -496,22 +512,24 @@ kontroll på alle trinn.
 Arkitekturen for KI-støttet kunnskapsforvaltning bygger
 på følgende grunnpilarer:
 
-**Gjenbruk av eksisterende infrastruktur.** Løsningen
-benytter NHNs nasjonale infrastruktur, HelseID for
+**Gjenbruk av eksisterende infrastruktur.** Løsningen bruker
+NHNs nasjonale infrastruktur, HelseID for
 identitetshåndtering og etablerte integrasjonsmønstre fra
 norsk e-helse. Dette reduserer implementeringsrisiko og
 utnytter investeringer som allerede er gjort.
 
 **Modulær tilnærming.** De seks kjernekomponentene er løst
-koblet gjennom standardiserte grensesnitt. Dette muliggjør
-faseinndelt implementering der man kan starte med de
-komponentene som gir størst verdi først
-(f.eks. kunnskapssyntese-motoren) og gradvis bygge ut.
+koblet gjennom standardiserte grensesnitt. Dette gjør det
+mulig å innføre løsningen i faser: man kan starte med
+komponentene som gir størst verdi (for eksempel
+kunnskapssyntese-motoren) og bygge ut gradvis.
 
 **Menneske-i-sløyfen.** Arkitekturen er konsekvent utformet
 med menneskelig kvalitetssikring som en integrert del av
 alle prosesser. KI-komponentene fungerer som verktøy for
-fageksperter – ikke som erstatning.
+fageksperter – ikke som erstatning. Kvalitetssikringen må
+også omfatte konsistens mellom statlige og foreningsdrevne
+kilder før innholdet eksponeres i én samlet tjeneste [ANT].
 
 **EHDS-samsvar.** Bruk av HL7 FHIR, åpne standarder og
 grensekryssende grensesnitt posisjonerer løsningen for

@@ -270,8 +270,15 @@ rolletilordning]:
 |---|---|---|---|
 | **Innbyggere og pasienter** (kjerne) | Innbyggere og pasienter i Norge | Sluttbruker og formål – den målet handler om | Delrapport 1 kap. 1.2 |
 | **Ring 1: Kildene innbyggeren bruker** | *Offentlig (blå):* fastlege og helsepersonell, helsenorge.no, sykehus.no. *Andre (oransje):* NHI.no, KI-tjenester, sosiale medier, medier, utenlandske nettsider, venner/familie, pasientorg. | Kanalene innbyggeren faktisk henter kunnskap fra; kvalitetssikret offentlig kanal konkurrerer med raske, variable kilder | Delrapport 8 kap. 2.14–2.19; delrapport 2 kap. 4.3; delrapport 1 (innbyggerens kilder) |
-| **Ring 2: Kunnskaps­produsenter og kvalitetsvurdering** | *Offentlig (blå):* FHI, Hdir, RHF, KS, DMP, Felleskatalogen/RELIS, fagmed. foreninger, Tidsskriftet, universiteter/høyskoler. *Andre (oransje):* internasjonal forskning, Cochrane/WHO, UpToDate/BMJ, NEL | Keystone + nisje – produserer og kvalitetsvurderer kunnskapen kildene formidler | Delrapport 8 kap. 2.2–2.16; delrapport 1 kap. 2 steg 1; delrapport 6 |
+| **Ring 2: Kunnskaps­produsenter og kvalitetsvurdering** | *Offentlig (blå):* FHI, Hdir, RHF, KS, DMP, Felleskatalogen/RELIS, Tidsskriftet, universiteter/høyskoler. *Andre (oransje):* fagmed. foreninger\*, internasjonal forskning, Cochrane/WHO, UpToDate/BMJ, NEL | Keystone + nisje – produserer og kvalitetsvurderer kunnskapen kildene formidler | Delrapport 8 kap. 2.2–2.16; delrapport 1 kap. 2 steg 1; delrapport 6 |
 | **Ring 3: Rammesettere og infrastruktur** (ytterst) | Stortinget, HOD, politikere/ledere, EU, EMA/WHO, Datatilsynet/Språkrådet/PFU, NHN, Helsebiblioteket, EPJ-leverandører, Wolters Kluwer/BMJ, Bonnier, OUS, legemiddelindustrien | Plattform + regelsetter – styrer og muliggjør hele systemet | Delrapport 8 kap. 2.1, 5.3; CLAUDE.md roller/ansvar |
+
+\* De fagmedisinske foreningene er private
+medlemsorganisasjoner (under Legeforeningen), ikke
+offentlige aktører, og står derfor i kategorien *andre*
+selv om de normerer klinisk praksis. Deres normerende
+rolle er dokumentert i `profesjonsforeninger-normering.md`
+[DOK].
 
 ### 3.3 Keystone- og plattformroller i det norske systemet
 
@@ -304,6 +311,12 @@ Tre observasjoner følger av å lese aktørkartet med
   økosystemet, men deres dominans øker når det
   offentlige tilbudet er tregt eller dårlig
   tilgjengelig [ANT].
+
+I tillegg utgjør foreningsdrevet normering et eget spor
+med egen faglig legitimitet: De fagmedisinske foreningene
+opptrer som nisjeaktører – i enkelte disipliner
+keystone-aktører – som staten må orkestrere, ikke
+instruere [ANT, jf. `profesjonsforeninger-normering.md`].
 
 ---
 

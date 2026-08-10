@@ -16,11 +16,11 @@ i helsesektoren
 > **Politisk forankring (Meld. St. 11 (2025–2026)
 > Helsepersonellplan 2040).** Regjeringen har lagt fram en
 > plan som gir politisk retning til kjernen i flere av
-> alternativene her: kap. 7.2 varsler en «*trygg, offentlig
+> alternativene her. Kap. 7.2 varsler en «*trygg, offentlig
 > KI-basert tjeneste*» som del av en digital førstelinje,
 > via Helsenorge, utviklet «*i samarbeid med næringslivet og
 > ved kjøp av kvalitetssikrede KI-løsninger i markedet*» og
-> som «*bygges ut trinnvis*»; kap. 8.3 varsler at KI gir
+> som «*bygges ut trinnvis*». Kap. 8.3 varsler at KI gir
 > muligheter for «*produksjon, oppsummering og mer målrettet
 > formidling av kunnskap, tilpasset norske forhold*», og at
 > Helsebiblioteket skal *utredes* videreutviklet til en
@@ -61,9 +61,9 @@ tilnærminger for å akselerere tilsvarende prosesser.
 
 ### 1.2 Strukturering etter utredningsinstruksen
 
-Rapporten er strukturert i tråd med utredningsinstruksens
-krav 2 (utrede relevante tiltak) og krav 5 (anbefalt
-tiltak). Hvert alternativ beskrives med konsekvenser,
+Rapporten følger utredningsinstruksens krav 2 (utrede
+relevante tiltak) og krav 5 (anbefalt tiltak). Hvert
+alternativ beskrives med konsekvenser,
 kostnader, risiko og gjennomførbarhet. Anbefalingen
 begrunnes i en samlet vurdering av disse dimensjonene.
 
@@ -90,9 +90,9 @@ seg uavhengig av kvantitative anslag.
 
 ### 2.1 Beskrivelse
 
-Nullalternativet innebærer at dagens verdikjede for
-kunnskapsforvaltning videreføres uten vesentlige endringer.
-FHI utarbeider systematiske oversikter manuelt,
+Nullalternativet innebærer at aktørene viderefører dagens
+verdikjede for kunnskapsforvaltning uten vesentlige
+endringer. FHI utarbeider systematiske oversikter manuelt,
 Helsedirektoratet utvikler retningslinjer gjennom etablerte
 prosesser, og innbyggerinformasjon på helsenorge.no
 oppdateres etter gjeldende rutiner.
@@ -100,14 +100,18 @@ oppdateres etter gjeldende rutiner.
 Mindre justeringer og effektiviseringer innenfor
 eksisterende rammer kan forekomme, men det gjøres ingen
 systematisk investering i KI-verktøy eller grunnleggende
-endringer i arbeidsprosesser.
+endringer i arbeidsprosesser. Nullalternativet
+viderefører også dagens uavklarte tosporsystem for
+normering – statlig og foreningsdrevet, uten
+forrangsregler [ANT, med DOK-belegg i
+`profesjonsforeninger-normering.md`; se kap. 6.3].
 
 ### 2.2 Konsekvenser
 
 - **Gjennomløpstid**: Uendret fra dagens nivå –
   case-dokumenterte 7–15+ år til bred praksisendring, og
   1 år til 7+ år for normerende delprosess avhengig av
-  sak (jf. `casestudier-forsinkelser.md`). Gitt økende
+  sak (se `casestudier-forsinkelser.md`). Gitt økende
   forskningsvolum er det sannsynlig at gapet mellom ny
   evidens og formidlet kunnskap øker over tid.
 - **Kapasitet**: FHIs kapasitet til å produsere
@@ -119,9 +123,10 @@ endringer i arbeidsprosesser.
   at retningslinjer og innbyggerinformasjon i perioder er
   basert på foreldet evidens.
 
-Konsekvensen på **systemegenskapene** (jf. delrapport 2
-kap. 2.3): nullalternativet endrer hverken skalerbarhet,
-reaktivitet, sammenheng eller styrbarhet. Tilliten til
+Konsekvensen for **systemegenskapene**, se delrapport 2
+kap. 2.3, er at nullalternativet hverken endrer
+skalerbarhet, reaktivitet, sammenheng eller styrbarhet.
+Tilliten til
 offentlig helseinformasjon vil sannsynligvis svekkes når
 raskere alternativer (generativ KI, internasjonale
 nettsider) overtar deler av innbyggernes
@@ -141,8 +146,9 @@ informasjonssøk.
 - **Kompetanseflukt**: Fagpersoner som ønsker å arbeide
   med moderne verktøy kan søke seg bort fra offentlig
   sektor dersom arbeidsformene ikke moderniseres.
-- **Regulatorisk etterslep**: EHDS (Forordning
-  2025/327) krever at EHR-systemer kan eksportere og
+- **Regulatorisk etterslep**: EHDS (forordningen om det
+  europeiske helsedataområdet, 2025/327) krever at
+  journalsystemer (EHR-systemer) kan eksportere og
   importere strukturert pasientinformasjon i felles
   europeisk format innen 2029 (art. 14(1) og 15(1)), og
   at helseforetak og kommuner gjør datasett tilgjengelig
@@ -171,8 +177,8 @@ Nullalternativet er **ikke bærekraftig på sikt**.
 Akselererende forskningsproduksjon og innbyggernes
 forventninger til oppdatert, tilgjengelig helseinformasjon
 gjør at gapet mellom hva som er mulig og hva som leveres
-vil bli stadig tydeligere. Videreføring uten endring
-innebærer en implisitt aksept av at offentlig
+vil bli stadig tydeligere. Å videreføre dagens praksis uten
+endring betyr i praksis å akseptere at offentlig
 helseinformasjon gradvis taper relevans sammenlignet med
 kommersielle alternativer.
 
@@ -216,18 +222,19 @@ foreligger i denne utredningen. Tiltakene inkluderer:
 
 #### Formalisert kobling mellom retningslinjer og innbyggerinformasjon
 
-Det etableres en systematisk prosess der oppdaterte
-retningslinjer utløser obligatorisk oppdatering av
-tilhørende innbyggerinformasjon på helsenorge.no,
+Helsedirektoratet etablerer en systematisk prosess der
+oppdaterte retningslinjer utløser obligatorisk oppdatering
+av tilhørende innbyggerinformasjon på helsenorge.no,
 med definerte tidsfrister og ansvarlige.
 
 #### Bedre koordinering mellom aktørene
 
-Det etableres et tverrsektorielt koordineringsforum
-med representanter fra Helsedirektoratet, FHI og
-NHN som møtes regelmessig for å sikre helhetlig
-styring av verdikjeden. Felles prioriteringsliste
-for hvilke fagområder som skal oppdateres.
+Helsedirektoratet, FHI og NHN etablerer et
+tverrsektorielt koordineringsforum med representanter
+fra alle tre virksomhetene. Forumet møtes regelmessig
+for å sikre helhetlig styring av verdikjeden, og fører
+en felles prioriteringsliste for hvilke fagområder som
+skal oppdateres.
 
 #### Strukturert innholdsproduksjon
 
@@ -311,7 +318,7 @@ FHI tar i bruk KI-verktøy for automatisert screening av
 titler, sammendrag og fulltekst i forbindelse med
 systematiske oversikter. KI-verktøyet rangerer artikler
 etter relevans, og fagpersoner validerer utvalget.
-Internasjonale piloter (jf. delrapport 6) indikerer at
+Internasjonale piloter (se delrapport 6) indikerer at
 screeningtiden kan reduseres vesentlig uten vesentlig tap
 av sensitivitet; konkret effekt for FHI må verifiseres
 gjennom egen pilot.
@@ -380,7 +387,7 @@ opp fagkapasitet. Konkret tidsbesparelse må verifiseres
 gjennom pilotering hos FHI og Helsedirektoratet.
 
 Alternativet styrker særlig **skalerbarhet** og
-**reaktivitet** (jf. delrapport 2 kap. 2.3) ved at
+**reaktivitet** (se delrapport 2 kap. 2.3) ved at
 kapasiteten ikke lenger er bundet lineært til antall
 fagpersoner.
 
@@ -447,11 +454,11 @@ videre med KI-automatisering.
 
 #### Automatisk generering av retningslinjeutkast
 
-Når ny evidens identifiseres som tilstrekkelig robust til å
-påvirke anbefalinger, genererer KI-systemet et utkast til
-oppdatert retningslinje med referanser, evidensgradering og
-begrunnelse. Utkastet legges frem for faglig validering i en
-strømlinjeformet prosess.
+Når KI-systemet identifiserer ny evidens som tilstrekkelig
+robust til å påvirke anbefalinger, genererer det et utkast
+til oppdatert retningslinje med referanser, evidensgradering
+og begrunnelse. Utkastet legges frem for faglig validering i
+en strømlinjeformet prosess.
 
 #### Personaliserte helseråd
 
@@ -524,8 +531,8 @@ effektivt, og at organisatorisk transformasjon
 gjennomføres – og bør verifiseres gjennom pilotering på
 utvalgte fagområder.
 
-Alternativet endrer alle fire **systemegenskaper** (jf.
-delrapport 2 kap. 2.3): skalerbarhet (kapasitet
+Alternativet endrer alle fire **systemegenskaper**, se
+delrapport 2 kap. 2.3: skalerbarhet (kapasitet
 løsrives fra fagpersonell), reaktivitet (kontinuerlig
 mot periodisk), sammenheng (strukturert flyt gjennom
 hele kjeden) og styrbarhet (forutsatt at
@@ -585,7 +592,7 @@ Tabellen sammenligner alternativene kvalitativt. Skala for
 gjennomløpstid og kostnad: **uendret**, **marginal**,
 **moderat**, **vesentlig**, **stor**. Konkrete tall
 (måneder, prosent, kroner) forutsetter egne utredninger
-som ikke inngår i dette arbeidet, jf. kap. 1.3.
+som ikke inngår i dette arbeidet, se kap. 1.3.
 
 <!-- markdownlint-disable MD013 -->
 
@@ -649,12 +656,18 @@ alternativ adresserer hver rotårsak. Skalaen er
 
 - **R1 og R5 dekkes ikke fullt ut av noen
   alternativer**. Styringsmandatet krever
-  politiske grep (lovfesting, etablering av forum
-  for faglig normering, tydeligere departemental
-  styring) som ligger utenfor mandatet til et
-  KI-teknologisk tiltak. Refusjonskjeden (del av
-  R5) krever samordning mellom Hdir og det
-  organet som fastsetter refusjon.
+  politiske grep – å lovfeste oppgavedeling,
+  etablere et forum for faglig normering og
+  styre tydeligere fra departementet – som
+  ligger utenfor mandatet til et KI-teknologisk
+  tiltak. Refusjonskjeden (del av R5) krever
+  samordning mellom Hdir og det organet som
+  fastsetter refusjon. Ingen av alternativene
+  adresserer per i dag heller forholdet til
+  profesjonsforeningenes normeringsspor, som er en
+  egen kilde til R1-fragmentering [ANT, med
+  DOK-belegg i `profesjonsforeninger-normering.md`;
+  se kap. 6.3].
 - **R2, R3, R4 og R6 dekkes progressivt bedre
   fra alt. 1 til alt. 3**. Dette er teknisk/
   prosessuelle rotårsaker der KI og strukturerte
@@ -741,7 +754,7 @@ til den andre enden av aksen).
   Frivillig→Forpliktende**. Det reflekterer at
   R5 (implementeringsinsentiver) ikke kan løses
   av et teknologisk alternativ alene – det
-  krever politiske grep parallelt, jf. 6.1.2.
+  krever politiske grep parallelt, se kap. 6.1.2.
 
 #### 6.2.2 Bruk i forankring og videre arbeid
 
@@ -761,6 +774,59 @@ verdikjeden bevege seg, hvilke politiske,
 teknologiske og organisatoriske forutsetninger
 dette krever, og hvilke tiltak (i og utenfor
 dp4) som gir den ønskede bevegelsen.
+
+### 6.3 Tverrgående veivalg: forholdet til profesjonsforeningenes normering
+
+Alternativene over beskriver den statlige verdikjeden.
+Men normeringen i Norge går i to spor: rundt 13 av 22
+undersøkte fagmedisinske foreninger eier og driver i dag
+egne normerende produkter (veiledere, metodebøker,
+standarder), parallelt med Helsedirektoratets nasjonale
+faglige retningslinjer [DOK, se
+`profesjonsforeninger-normering.md`]. Ingen av
+alternativene 0–3 tar stilling til dette forholdet. En
+fremtidig kunnskapsforvaltning må derfor avklare om den
+skal **innlemme**, **erstatte** eller **sameksistere
+med** foreningenes normerende produkter:
+
+- **Innlemme**: Staten overtar foreningsproduktene og
+  gir dem offisiell status. Kreftfeltet viser modellen:
+  fra 2005 videreutviklet Helsedirektoratet de
+  onkologiske faggruppenes handlingsprogrammer til
+  statlig eide nasjonale handlingsprogrammer [DOK, se
+  `profesjonsforeninger-normering.md` kap. 2].
+  Konsekvens: krever betydelig statlig kapasitet og
+  risikerer legitimitetstap i fagmiljøene som mister
+  eierskapet [ANT].
+- **Erstatte**: Staten dekker feltene med egne
+  retningslinjer og fortrenger foreningssporet.
+  Konsekvens: urealistisk uten forrangsregler – slike
+  finnes ikke i dag – og vil trolig møte motstand i
+  foreningene, som selv vektlegger en «rent faglig og
+  myndighetsuavhengig» rolle [ANT, med DOK-belegg for
+  fravær av forrangsregler og for foreningenes
+  posisjon i `profesjonsforeninger-normering.md`
+  kap. 2–3].
+- **Sameksistere med orkestrering**: Staten
+  koordinerer, finansierer og gir metodestøtte uten å
+  overta det faglige eierskapet. «Kloke
+  valg»-tilskuddet (Meld. St. 11 (2025–2026)) er et
+  dokumentert eksempel: Helsedirektoratet forvalter
+  tilskudd og understøtter, mens fagmiljøene fortsatt
+  utarbeider anbefalingene [DOK, se
+  `profesjonsforeninger-normering.md` kap. 4]. Den
+  nederlandske Kennisinstituut-modellen – sentral
+  metodestøtte med distribuert faglig eierskap – er en
+  beslektet variant. Konsekvens: lavest konfliktnivå,
+  men forutsetter at koordineringsmekanismer og
+  eventuelle forrangsregler etableres eksplisitt [ANT].
+
+Dette er et veivalg for beslutningstakerne. Rapporten
+konkluderer ikke, men peker på at et målbilde som ikke
+adresserer foreningssporet, undervurderer hvor stor
+endring som kreves for å oppnå sammenheng i
+normeringslandskapet [ANT, jf.
+`profesjonsforeninger-normering.md`].
 
 ---
 
@@ -802,13 +868,22 @@ ansvarsområder:
 - Sikrer at teknisk infrastruktur oppfyller
   Helsedirektoratets arkitekturkrav
 
-#### Fageksperter (RHF-er, fagmiljøer)
+#### Fageksperter (RHF-er, fagmiljøer, fagmedisinske foreninger)
 
 - Deltar i validering av KI-genererte
   retningslinjeutkast
 - Bidrar med klinisk ekspertise i kvalitetssikring
 - Melder tilbake om relevans og nytteverdi fra klinisk
   praksis
+
+Fagmiljøene omfatter også profesjonsforeningene, særlig
+de fagmedisinske foreningene under Legeforeningen. Disse
+er i dag reelle eiere av veiledningspraksisen i mange
+spesialiteter – rundt 13 av 22 undersøkte foreninger har
+egne normerende produkter [DOK, se
+`profesjonsforeninger-normering.md` kap. 5b]. Hvilken
+rolle foreningene skal ha i en ny verdikjede, avhenger
+av veivalget i kap. 6.3.
 
 #### Innbyggerpanel
 
@@ -857,8 +932,8 @@ tre nivåer:
 
 ### 7.3 Eskaleringsmekanisme
 
-Det etableres klare kriterier for når KI-generert innhold
-må stoppes eller trekkes tilbake:
+Governance-modellen fastsetter klare kriterier for når
+KI-generert innhold må stoppes eller trekkes tilbake:
 
 - **Automatisk stopp**: Dersom
   kvalitetskontrollsystemet identifiserer innhold som
@@ -969,13 +1044,13 @@ Minst årlig gjennomføres en systematisk revisjon:
 
 ### 9.1 Overordnet anbefaling
 
-Det anbefales en **faseinndelt tilnærming** der alternativ 2
-(moderat KI-støtte) implementeres som startpunkt, med
-gradvis utvidelse mot elementer fra alternativ 3 etter hvert
-som teknologi, kompetanse og governance modnes.
-Organisatoriske tiltak fra alternativ 1 anbefales
-gjennomført parallelt, da de styrker verdikjeden uavhengig
-av KI-innføring.
+Rapporten anbefaler en **faseinndelt tilnærming** der
+Helsedirektoratet innfører alternativ 2 (moderat KI-støtte)
+som startpunkt, med gradvis utvidelse mot elementer fra
+alternativ 3 etter hvert som teknologi, kompetanse og
+governance modnes. Rapporten anbefaler at organisatoriske
+tiltak fra alternativ 1 gjennomføres parallelt, da de
+styrker verdikjeden uavhengig av KI-innføring.
 
 Denne tilnærmingen balanserer behovet for modernisering mot
 risikoen for feilslått implementering. Den gir tidlig
@@ -985,21 +1060,22 @@ grunnlaget for mer ambisiøse endringer på sikt.
 **Merknad om implementering:** Casestudier
 (casestudier-forsinkelser.md) dokumenterer at den reelle
 gjennomløpstiden fra forskning til bred praksisendring er
-7–15+ år, og at passiv publisering av retningslinjer er
-utilstrekkelig for å oppnå praksisendring. Rammeverket
-for kunnskapsbasert praksis (kunnskapsbasertpraksis.no)
-beskriver seks trinn der de siste to – *anvende* og
-*evaluere* – er de svakeste leddene i dagens verdikjede.
-RNAO kunnskap-til-handling-modellen, som er oversatt til
-norske forhold, gir et strukturert rammeverk for å lukke
-dette gapet gjennom kombinasjon av virkemidler
-(audit/feedback, opplæringsmøter, praksisbesøk,
-registertilbakemelding). Alle alternativer som innebærer
-ny kunnskapsproduksjon må derfor inkludere slike aktive
-implementeringstiltak for å realisere gevinstene. Uten
-dem vil den nye verdikjeden akselerere midten av kjeden
-(forskning til retningslinje), men ikke forbedre siste
-ledd (retningslinje til praksis).
+7–15+ år. De viser også at passiv publisering av
+retningslinjer er utilstrekkelig for å oppnå
+praksisendring. Rammeverket for kunnskapsbasert praksis
+(kunnskapsbasertpraksis.no) beskriver seks trinn der de
+siste to – *anvende* og *evaluere* – er de svakeste leddene
+i dagens verdikjede. RNAO-modellen (Registered Nurses'
+Association of Ontario) for kunnskap til handling, som er
+oversatt til norske forhold, gir et strukturert rammeverk
+for å lukke dette gapet gjennom en kombinasjon av
+virkemidler (audit/feedback, opplæringsmøter, praksisbesøk,
+registertilbakemelding). Alle alternativer som innebærer ny
+kunnskapsproduksjon må derfor inkludere slike aktive
+implementeringstiltak for å realisere gevinstene. Uten dem
+vil den nye verdikjeden akselerere midten av kjeden
+(forskning til retningslinje), men ikke forbedre siste ledd
+(retningslinje til praksis).
 
 ### 9.2 Faseinndelt gjennomføringsplan
 
@@ -1094,10 +1170,11 @@ organisering av verdikjeden:
   forutsatt at governance er på plass. Anbefales som
   langsiktig mål.
 
-Anbefalingen er en faseinndelt tilnærming der alternativ 2
-implementeres først, med gradvis utvidelse mot alternativ 3
-etter hvert som teknologi, kompetanse og governance modnes.
-Organisatoriske tiltak fra alternativ 1 gjennomføres
+Anbefalingen er en faseinndelt tilnærming der
+Helsedirektoratet innfører alternativ 2 først, med gradvis
+utvidelse mot alternativ 3 etter hvert som teknologi,
+kompetanse og governance modnes. Organisatoriske tiltak fra
+alternativ 1 gjennomføres
 parallelt, da de styrker verdikjeden uavhengig av
 KI-innføring. Tidshorisont fastsettes i
 mulighetsstudien.
@@ -1110,7 +1187,7 @@ anbefaling).
 
 ---
 
-Sist oppdatert: 2026-05-26
+Sist oppdatert: 2026-08-10
 
 ## Endringslogg
 
@@ -1118,4 +1195,5 @@ Sist oppdatert: 2026-05-26
 |---|---|
 | 2026-04-08 | Versjon med scenariobaserte tidsanslag (2,5–5 år, %-tidsbesparelser) og kostnadsestimater (MNOK). |
 | 2026-05-21 | Kap. 6.1 dekning av rotårsaker R1–R6 lagt til. Kap. 6.2 plassering langs løsningsdimensjoner (akser) lagt til. |
+| 2026-08-10 | Profesjonsforening-perspektivet innarbeidet (jf. `profesjonsforeninger-normering.md`): nytt kap. 6.3 om veivalget innlemme/erstatte/sameksistere, fagmedisinske foreninger lagt til i rollemodellen (kap. 7.1), setning om tosporsystemet i nullalternativet (kap. 2.1) og i observasjonene om R1/R5 (kap. 6.1.1). Anbefalingen i kap. 9.1 er uendret. |
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte tallanslag fjernet (gjennomløpstid i år/måneder, %-tidsbesparelser, MNOK-kostnader). Sammenligningstabellen i kap. 6 omkalibrert til kvalitative gradsbetegnelser. Kjerneegenskaper (skalerbarhet, reaktivitet, sammenheng, styrbarhet, tillit) introdusert i alternativbeskrivelsene der relevant. Innledning, oppsummering og kap. 9 språklig strammet. Innledende gjennomløpstid forankret i `casestudier-forsinkelser.md` (7–15+ år til praksisendring, 1 år til 7+ år for normerende delprosess avhengig av sak). |

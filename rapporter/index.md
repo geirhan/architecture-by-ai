@@ -37,8 +37,12 @@ modnes.
   spennvidde). Aktørkartet er flyttet til delrapport 8.
   Kap. 7 observasjoner forankret eksplisitt mot
   delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper,
-  R1–R6).
-- **Sist oppdatert**: 2026-05-26
+  R1–R6). 2026-08-10: presisert at normerende strøm er eneste med
+  formell *statlig* normering; foreningsveiledernes normerende praksis
+  innarbeidet i kap. 3a/3b (se
+  [profesjonsforeninger-normering.md](profesjonsforeninger-normering.md)).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
@@ -70,8 +74,11 @@ modnes.
   tvers av ledd — ikke fravær av struktur i
   Hdir-retningslinjene, som allerede har
   PICO-innholdstype, SNOMED CT-metadata og åpent API
-  (jf. `metadatastrukturer-evidenskjeden.md`).
-- **Sist oppdatert**: 2026-08-04
+  (jf. `metadatastrukturer-evidenskjeden.md`). 2026-08-10:
+  profesjonsaksen innarbeidet som merkede tillegg i D3, kap. 6.1, R1,
+  R5 og kap. 9.7 (se `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
@@ -79,7 +86,8 @@ modnes.
 - **Beskrivelse**: Balansert vurdering av
   LLM-teknologi, EU AI Act-implikasjoner og
   prinsipielle spørsmål.
-- **Sist oppdatert**: 2026-03-15
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving, trinn 3 --
+  ingen endring i meningsinnhold; nytt hovedbudskap-avsnitt øverst)
 
 ### [Delrapport 4 -- Ny verdikjede](ny-verdikjede.md)
 
@@ -96,16 +104,23 @@ modnes.
   er kvalitativ (gradsbetegnelser) – udokumenterte
   tallanslag (%-tidsbesparelser, MNOK, måneder) er
   fjernet og forutsetter mulighetsstudie og
-  kost–nytte-analyse.
-- **Sist oppdatert**: 2026-05-26
+  kost–nytte-analyse. 2026-08-10: nytt kap. 6.3 om veivalget
+  innlemme/erstatte/sameksistere med profesjonsforeningenes normering;
+  rollemodellen i kap. 7.1 utvidet (se
+  `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Delrapport 5 -- Arkitektur og komponenter](arkitektur-og-komponenter.md)
 
 - **Status**: Utforskende
 - **Beskrivelse**: ArchiMate-arkitektur med
   6 kjernekomponenter, EHDS-kobling, standarder,
-  sikkerhet og personvern.
-- **Sist oppdatert**: 2026-03-15
+  sikkerhet og personvern. 2026-08-10: kunnskapsbase-komponenten
+  (kap. 4.1) utvidet med at kildegrunnlaget delvis eies av
+  profesjonsforeninger (lisens- og struktureringsbehov).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Delrapport 6 -- Internasjonale erfaringer](internasjonale-erfaringer.md)
 
@@ -113,7 +128,8 @@ modnes.
 - **Beskrivelse**: WHO SMART Guidelines, NICE,
   Cochrane KI-piloter, nordiske erfaringer og
   overførbarhet til Norge.
-- **Sist oppdatert**: 2026-03-15
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving, trinn 3 --
+  ingen endring i meningsinnhold; nytt hovedbudskap-avsnitt øverst)
 
 ### [Delrapport 7 -- Samlet vurdering](samlet-vurdering-kunnskapsforvaltning.md)
 
@@ -121,7 +137,7 @@ modnes.
 - **Beskrivelse**: Samlet vurdering med
   ledersammendrag, virknings- og
   fordelingsvirkningsanalyse, risikomatrise
-  (10 risikoer), fremdriftsplan (rekkefølge og
+  (14 risikoer), fremdriftsplan (rekkefølge og
   avhengigheter, ikke månedstall), kvalitativ
   kostnadsramme, juridiske endringsbehov,
   evalueringsplan og samsvar med
@@ -131,8 +147,13 @@ modnes.
   før virkningsvurderingen. Udokumenterte tallanslag
   fjernet (2,5–5 år, %-tidsbesparelser, MNOK,
   månedstall) – disse forutsetter mulighetsstudie og
-  kost–nytte-analyse per fase.
-- **Sist oppdatert**: 2026-05-26
+  kost–nytte-analyse per fase. 2026-08-10: tosporet normering
+  innarbeidet i kap. 4.2 og ledersammendraget, ny risiko 14
+  (kildegrunnlag uten foreningssporet, vurdert høy), juridisk
+  avklaringspunkt om foreningsveiledere (hpl. § 4) og veivalg i
+  kap. 10.2 (se `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Delrapport 8 -- Aktøranalyse](aktoeranalyse.md)
 
@@ -143,8 +164,13 @@ modnes.
   kryssreferanser mellom strømmer, IGOE-analyse
   (Inputs, Guides, Outputs, Enablers) per strøm, og
   observasjoner om fragmentert ansvar, overlappende
-  roller og enabler-gap.
-- **Sist oppdatert**: 2026-03-23
+  roller og enabler-gap. 2026-08-10: kap. 2.10 utvidet med
+  foreningenes dokumenterte normerende produktportefølje (~13 av 22
+  foreninger), samleavsnitt om foreninger utenfor Legeforeningen,
+  utvidet observasjon 1 og referanser [19]–[21] (se
+  `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Delrapport 9 -- Fremtidsscenarioer](fremtidsscenarioer.md)
 
@@ -164,8 +190,11 @@ modnes.
   alternativer og aksene (dp2 kap. 9.7). Kobler til R1–R6,
   kjerneegenskapene og økosystemnotatet. Alle utsagn merket
   [DOK]/[ANT]; scenarioene som helhet er [ANT]-konstruksjoner,
-  ikke prediksjoner.
-- **Sist oppdatert**: 2026-06-04
+  ikke prediksjoner. 2026-08-10: profesjonsvis
+  føderasjonsdimensjon presisert i akse X, S3 og S4 (se
+  `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
+  profesjonsforening-perspektivet)
 
 ### [Rolledeling i sentral helseforvaltning](rolledeling-sentral-helseforvaltning.md)
 
@@ -288,8 +317,10 @@ modnes.
   til D1–D6, R1–R6, kjerneegenskaper og de fire aksene. Gir
   teoretisk fundament til `okosystem-verdikjede.html`. Alle
   utsagn merket [DOK]/[ANT]; modellen er en analytisk lins,
-  ikke et nytt empirisk funn.
-- **Sist oppdatert**: 2026-05-21
+  ikke et nytt empirisk funn. 2026-08-10: fagmedisinske foreninger
+  flyttet fra offentlig til andre aktører i Ring 2-tabellen
+  (korreksjon), med fotnote (se `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10
 
 ### [Plan for forankring av problemforståelsen](forankringsplan-problemforstaelse.md)
 
@@ -385,8 +416,11 @@ modnes.
   og mandat er vanligste internasjonale dødsårsak.
   Peker på implikasjoner for revisjon av delrapport 4
   og fem tverrgående kunnskapsgap. Bygger på fem
-  underlagsnotater (se under).
-- **Sist oppdatert**: 2026-08-03
+  underlagsnotater (se under). 2026-08-10: A3 styrket med norsk
+  hybridforankring og C3 med «Kloke valg» som dokumentert eksempel på
+  finansiering uten faglig overtakelse (se
+  `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10
 
 ### [Kunnskapsinnhenting: Internasjonale organisasjons- og prosessmodeller](kunnskapsinnhenting-organisasjonsmodeller.md)
 
@@ -407,8 +441,11 @@ modnes.
   norske koblinger (Forskningsrådet/REMEDY, Helse
   Sør-Øst/E3, Norsk revmatologisk forening);
   kunnskapsgap 4 delvis lukket. Alle utsagn merket
-  [DOK]/[ANT] med kildelenker.
-- **Sist oppdatert**: 2026-08-03
+  [DOK]/[ANT] med kildelenker. 2026-08-10: NRF/MAGICapp-koblingen
+  nedgradert til uverifisert, og ny Norge-rad i typologitabellen
+  («hybrid: statlig normering med foreningsveiledere i parallell»,
+  Panteli m.fl. 2019) (se `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10
 
 ### [Kunnskapsinnhenting: KI-/LLM-verktøy for evidenssyntese](kunnskapsinnhenting-ki-verktoy-evidenssyntese.md)
 
@@ -501,8 +538,73 @@ modnes.
   kvalitetssikring på tvers, KI-forvaltning). Åpne
   drøftingspunkter for nivå 2/3 i kap. 4. Bindeledd
   mellom utfordringsbildet og innsnevring av
-  løsningsrommet.
-- **Sist oppdatert**: 2026-08-05
+  løsningsrommet. 2026-08-10: K10- og K19-vurderingene utvidet med
+  foreningssporet, og nytt drøftingspunkt 4 i kap. 4 (se
+  `profesjonsforeninger-normering.md`).
+- **Sist oppdatert**: 2026-08-10
+
+### [Klarspråksgjennomgang av delrapport 1–9](klarsprakgjennomgang-delrapporter.md)
+
+- **Status**: Under arbeid — internt arbeidsdokument
+- **Beskrivelse**: Klarspråksgjennomgang av alle ni
+  delrapporter mot prinsippene i prosjektskillen
+  `klarsprak-offentlig` (Språkloven § 9, Språkrådets
+  retningslinjer). Per delrapport: overordnet evaluering
+  og 12–15 konkrete forbedringsforslag med begrunnelse.
+  Samlet bilde: fire delrapporter «Godt» (1, 3, 5, 6),
+  fem «Middels» (2, 4, 7, 8, 9); ingen «Svakt». Fem
+  tverrgående mønstre: passiv med usynlig avsender,
+  uforklarte faguttrykk, substantivsyke, lange innskutte
+  setninger og ujevn «viktigste først»-etterlevelse.
+  Anbefaler å prioritere de beslutningsnære delrapportene
+  2, 4 og 7. Omskriving (trinn 3) ble gjennomført 2026-08-10
+  for alle ni delrapportene, med meningsinnhold,
+  [DOK]/[ANT]-merking, kildereferanser og kapittelnummerering
+  bevart. Inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-08-10
+
+### [Profesjonsforeningers rolle i faglig veiledning og normering](profesjonsforeninger-normering.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Kildeforankringsnotat om et perspektiv som mangler i
+  hovedutredningen: profesjonsforeninger (Legeforeningens fagmedisinske
+  foreninger, NAF/ANSF, NSF-faggrupper m.fl.) har i mange disipliner
+  tatt/fått ansvar for faglig veiledning og normering, parallelt med
+  statens nasjonale faglige retningslinjer. Reverifiserte funn: (1)
+  Røttingen-rapporten omtaler ikke foreningenes normerende praksis,
+  bortsett fra et foreslått, ikke vedtatt «forum for faglig normering»
+  (kap. 11.9) der profesjonsorganisasjoner nevnes som mulig deltaker;
+  (2) praksisen er historisk fremvokst nedenfra – Legeforeningen
+  formaliserte fagmedisinske foreningers rolle i en prosjektrapport
+  (høringsutkast 9.4.2015), mens kreftfeltet er unntaket der HOD i 2005
+  eksplisitt ga Helsedirektoratet i oppdrag å videreutvikle fagmiljøenes
+  Grønnboka/Blåboka-praksis til nasjonale handlingsprogrammer; (3)
+  IS-1870 og Legeforeningen selv beskriver arbeidsdelingen som
+  komplementær («ikke noe motsetningsforhold»), men rettslig status i
+  forsvarlighetsvurderinger (helsepersonelloven § 4) er ikke avklart i
+  kildene; (4) Meld. St. 11 (2025–2026) s. 93 dokumenterer et nytt
+  statlig tilskudd (2026) som Helsedirektoratet forvalter til
+  fagmiljødrevne «Kloke valg»-anbefalinger, uten at staten overtar det
+  faglige eierskapet. Utvidet 2026-08-10 med fire systematiske
+  kildesveip: (a) sveip over 22 fagmedisinske foreninger — rundt 13 har
+  verifiserte egne normerende produkter (kap. 5b), med onkologi som
+  moteksempel (staten overtok handlingsprogrammene 2006–2009); (b)
+  sveip over andre profesjonsforbund (kap. 5c) — sterkeste funn er
+  Optikerforbundets 26 kliniske retningslinjer og manuellterapeutenes
+  retningslinjer, mens NSF-faggruppene mest normerer rolle/kompetanse;
+  (c) statlig-historisk: spesialistgodkjenningen (delegert 1982, trukket
+  tilbake 1.10.2011 ved Ot.prp. nr. 83 (2008–2009)) som dokumentert
+  eksempel på bevisst statlig delegering/reversering, og en
+  Helsetilsyn-sak (2016) der NGFs fødselshjelpsveileder brukes direkte
+  som forsvarlighetsnorm etter helsepersonelloven § 4; (d)
+  forskningslitteratur (kap. 6): WHO/European Observatory (Panteli
+  m.fl. 2019) klassifiserer Norge eksplisitt som hybrid — statlig
+  normering med foreningsveiledere i parallell — som oppgraderer
+  hybridpåstanden fra [ANT] til [DOK]. Ni kunnskapsgap, inkl. uverifisert
+  MAGICapp-påstand i organisasjonsmodell-notatet som bør kryssjekkes.
+  Alle utsagn merket [DOK]/[ANT].
+- **Sist oppdatert**: 2026-08-10 (utvidet med systematiske sveip samme
+  dag)
 
 ### [HTML-versjon](html/index.html)
 

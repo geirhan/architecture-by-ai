@@ -95,8 +95,16 @@ amerikansk bestiller–utfører-modell (AHRQ/EPC) der staten
 bestiller oversikter fra akademiske miljøer på kontrakt.
 Negative kontraster er dokumentert: ren føderasjon uten sentral
 støtte (Tyskland/AWMF, ujevn kvalitet) og ukoordinert
-finansiering (Canada, industriavhengighet). *Akser:
-sammenhengende. Rotårsaker: R1 (delvis), R3.*
+finansiering (Canada, industriavhengighet).
+
+*Norsk forankring (tillegg 2026-08-10):* Dagens norske praksis
+er allerede delvis slik. Rundt 13 av 22 undersøkte fagmedisinske
+foreninger har egne normerende produkter, og Norge er
+internasjonalt klassifisert som hybridmodell — statlig normering
+med foreningsveiledere i parallell (Panteli m.fl. 2019) [DOK, se
+`profesjonsforeninger-normering.md`]. A3 ville dermed
+formalisere og metodestøtte en eksisterende struktur, ikke bygge
+en ny. *Akser: sammenhengende. Rotårsaker: R1 (delvis), R3.*
 
 #### A4. Redusert produktbredde per produkt
 
@@ -196,7 +204,15 @@ lovpålagt; effekt udokumentert. Advarsel fra empirien: rene
 viste ingen målbar sammenheng). NHS AI Award dokumenterte at
 påvist gevinst ikke ble implementert fordi budsjettstrukturen
 ikke koblet gevinst til fagmiljøet — en nesten eksakt
-R5-parallell. *Akser: forpliktende (gradvis). Rotårsak: R5.*
+R5-parallell.
+
+*Norsk eksempel (tillegg 2026-08-10):* «Kloke valg»-modellen
+viser virkemiddelet «finansiering uten faglig overtakelse» i
+praksis: staten gir tilskudd fra 2026, Helsedirektoratet
+forvalter ordningen, og fagmiljøene eier anbefalingene
+(Meld. St. 11, s. 93) [DOK, se
+`profesjonsforeninger-normering.md`]. *Akser: forpliktende
+(gradvis). Rotårsak: R5.*
 
 #### C4. Plattformstyring ved kjøp i markedet
 
@@ -316,4 +332,6 @@ på tvers:
 
 ---
 
-Sist oppdatert: 2026-08-03
+Sist oppdatert: 2026-08-10 (norsk forankring av A3 og
+Kloke valg-eksempel i C3, fra
+`profesjonsforeninger-normering.md`)

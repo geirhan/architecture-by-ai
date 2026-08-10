@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profesjonsforeningers rolle i faglig veiledning og normering</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Navigation */
+    nav {
+      background: #002244;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav li {
+      flex-shrink: 0;
+    }
+    nav a {
+      display: block;
+      color: #ccd9e6;
+      text-decoration: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom-color: #6699cc;
+    }
+    nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 { color: #003366; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    h2 {
+      color: #003366;
+      font-size: 1.35rem;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #e0e7ee;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 { color: #003366; font-size: 1.05rem; margin: 1.5rem 0 0.5rem; }
+    h4 { color: #003366; font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
+
+    p, li { margin-bottom: 0.5rem; }
+
+    a { color: #005599; }
+    a:hover { color: #003366; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid #dde3ea;
+    }
+    thead th {
+      background: #f0f3f7;
+      color: #003366;
+      font-weight: 600;
+    }
+    tbody tr:hover {
+      background: #f9fafb;
+    }
+
+    /* Table overflow wrapper (pandoc wraps tables) */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Blockquotes */
+    blockquote {
+      background: #f0f4f8;
+      border-left: 4px solid #003366;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+    blockquote p { margin-bottom: 0.3rem; }
+    blockquote p:last-child { margin-bottom: 0; }
+
+    /* Code */
+    code {
+      background: #f0f3f7;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #f0f3f7;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Horizontal rules */
+    hr {
+      border: none;
+      border-top: 2px solid #e0e7ee;
+      margin: 2rem 0;
+    }
+
+    /* Strong in lists (used for actor descriptions) */
+    li strong {
+      color: #003366;
+    }
+
+    /* Footer */
+    footer {
+      background: #f0f3f7;
+      color: #555;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #dde3ea;
+    }
+
+    /* Print */
+    @media print {
+      nav { display: none; }
+      header { background: #fff; color: #003366; border-bottom: 2px solid #003366; }
+      main { padding: 0; }
+      footer { background: #fff; border-top: 1px solid #333; }
+      a { color: #003366; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Profesjonsforeningers rolle i faglig veiledning og normering</h1>
+  <p>Formål og avgrensning</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Forside</a></li>
+    <li><a href="ledersammendrag.html">Ledersammendrag</a></li>
+    <li><a href="aktoeranalyse.html">Aktøranalyse</a></li>
+    <li><a href="arkitektur-og-komponenter.html">Arkitektur</a></li>
+    <li><a href="casestudier-forsinkelser.html">Casestudier</a></li>
+    <li><a href="dagens-verdikjede.html">Dagens verdikjede</a></li>
+    <li><a href="fremtidsscenarioer.html">Fremtidsscenarioer</a></li>
+    <li><a href="helsepersonellplan-2040.html">Helsepersonellplan 2040</a></li>
+    <li><a href="internasjonale-erfaringer.html">Internasjonal erfaring</a></li>
+    <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
+    <li><a href="llm-muligheter-og-risikoer.html">LLM muligheter</a></li>
+    <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="profesjonsforeninger-normering.html" class="active">Profesjonsforeninger</a></li>
+    <li><a href="regulatorisk-etterslep.html">Regulatorisk etterslep</a></li>
+    <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
+    <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
+    <li><a href="samlet-vurdering.html">Samlet vurdering</a></li>
+    <li><a href="talepunkter-akser.html">Talepunkter (akser)</a></li>
+    <li><a href="utfordringer-og-flaskehalser.html">Utfordringer</a></li>
+    <li><a href="verdikjede-som-okosystem.html">Verdikjede som økosystem</a></li>
+    <li><a href="visualiseringer.html">Visualiseringer</a></li>
+  </ul>
+</nav>
+
+<main>
+<p>Status: Utforskende Sist oppdatert: 2026-08-10</p>
+<h2 id="formål-og-avgrensning">Formål og avgrensning</h2>
+<p>Utredningens delrapporter (1, 2, 4 særlig) beskriver
+kunnskapsforvaltning i helsesektoren som en i hovedsak statlig
+verdikjede (Helsedirektoratet, FHI, Norsk helsenett m.fl.). Dette
+notatet dokumenterer et perspektiv som mangler i den kartleggingen:
+profesjonsforeninger (legenes fagmedisinske foreninger, Norsk
+psykologforening, Norsk Fysioterapeutforbund, NSFs faggrupper m.fl.) har
+i mange disipliner tatt eller fått ansvar for faglig veiledning og
+normering, parallelt med eller i stedet for statens nasjonale faglige
+retningslinjer. Formålet er å (1) verifisere konkrete kildepåstander om
+denne rollen, (2) dokumentere bredden på tvers av disipliner, og (3)
+koble funnene til utredningens begrepsapparat (D-dimensjonene,
+rotårsakene R1–R6, organisasjonsmodell-typologien og løsningsretning
+A3/målbildet). Notatet er <em>ikke</em> en vurdering av om dagens
+arbeidsdeling er hensiktsmessig — det er et kildeforankringsnotat som
+beskriver hva som finnes av dokumentasjon, og hvor kunnskapshullene
+ligger.</p>
+<p>Alle utsagn er merket [DOK] (direkte dokumentert i kilde, med sitat/
+sidetall/URL) eller [ANT] (analytisk tolkning/slutning).</p>
+<p><strong>Om metode og revisjon:</strong> Notatet ble først skrevet
+2026-08-10 basert på målrettet verifisering av kjente kildepåstander.
+Samme dag ble det utvidet etter fire parallelle, systematiske kildesøk:
+(1) sveip over Legeforeningens fagmedisinske foreninger, (2) sveip over
+andre profesjonsforbund, (3) statlige og historiske dokumenter, og (4)
+forskningslitteratur. Funnene fra sveipene er innarbeidet i kap. 5–6 og
+har oppgradert eller nyansert flere vurderinger, tydelig markert i
+teksten.</p>
+<h2 id="funn-per-tema">Funn per tema</h2>
+<h3
+id="røttingen-rapportens-taushet-om-profesjonsforeninger-som-normerende-aktør">1.
+Røttingen-rapportens taushet om profesjonsforeninger som normerende
+aktør</h3>
+<p><strong>Verifisert.</strong> Røttingen-rapporten
+(<code>Gjennomgang av organisering, roller og ansvar i den sentrale helseforvaltningen</code>,
+endelig rapport, sidetall iht. PDF-ens sidefot 65–72) omtaler ikke
+profesjonsforeninger som normerende aktør i sin gjennomgående drøfting
+av Hdirs og FHIs roller (kap. 1–10, ikke lest i fulltekst i dette
+notatet, men foreningene er fraværende i de kapitlene om
+normering/kunnskapsproduksjon som er gjennomgått for delrapport 1, 2 og
+«Røttingen-rapporten vurdert mot utfordringsbildet»). Det ene stedet
+foreningene nevnes eksplisitt, er i kap. 11.9 «Forum for faglig
+normering» (PDF-sidefot 70–71), som et forslag prosjektet mener bør
+<em>utredes videre</em> — ikke en beskrivelse av dagens praksis:</p>
+<blockquote>
+<p>«Partssamarbeidet vil kunne bestå av myndighetsetaten/Hdir,
+kunnskapsetaten/FHI, Htil, statsforvalterne, RHFene, kommunene og
+profesjonsorganisasjonene mm. Ved etablering av et slik forum bør det
+bli ledet av, og forankret i, myndighetsetaten.» (Røttingen-rapporten,
+kap. 11.9, PDF-sidefot 71) [DOK]</p>
+</blockquote>
+<p>Konklusjonen i samme kapittel er at forumet «bør utredes videre,
+enten som del av et gjennomføringsprosjekt eller på lenger sikt»
+(sidefot 71) [DOK] — altså ikke besluttet eller igangsatt per rapportens
+dato (11.3.2023, jf. <code>rottingen-utfordringsbildet.md</code>).</p>
+<p>Konteksten for forslaget er et ønske fra Statens helsetilsyn (Htil)
+om tettere kobling mellom tilsyn og normering (sidefot 70) [DOK], og en
+henvisning til Petroleumstilsynets trepartsmodell (Regelverksforum) som
+mulig mal [DOK]. Profesjonsorganisasjonene er nevnt som én av syv mulige
+deltakergrupper i et <em>foreslått</em>, ikke-etablert forum — ikke som
+en aktør rapporten beskriver at allerede normerer i dag.</p>
+<p><strong>Vurdering [ANT]:</strong> At en rapport med eksplisitt mandat
+til å kartlegge roller og ansvar i den sentrale helseforvaltningen ikke
+omtaler profesjonsforeningenes <em>faktiske</em> normerende praksis (jf.
+punkt 2–4 under) andre steder enn i et forslag om fremtidig forum, er i
+seg selv et funn. Det kan tolkes som at (a) foreningenes rolle falt
+utenfor rapportens mandat (som var avgrenset til statlig
+sentralforvaltning), (b) rollen ikke ble ansett som del av
+«organisering, roller og ansvar i den sentrale helseforvaltningen» fordi
+foreningene ikke er statlige aktører, eller (c) rollen ikke var
+syntetisert/kjent som et strukturelt fenomen på tidspunktet rapporten
+ble skrevet. Notatet kan ikke avgjøre hvilken tolkning som er riktig
+uten ytterligere kilder (jf. kunnskapsgap).</p>
+<h3
+id="fremvekst-av-praksisen-legeforeningens-formalisering-2015-og-kreftfeltets-unntak-2005">2.
+Fremvekst av praksisen: Legeforeningens formalisering (2015) og
+kreftfeltets unntak (2005)</h3>
+<p><strong>Verifisert.</strong> Praksisen med at fagforeninger
+utarbeider faglige veiledere er historisk fremvokst nedenfra, ikke et
+eksplisitt statlig valg i utgangspunktet – med unntak for kreftfeltet,
+der staten tok initiativ.</p>
+<p><strong>Legeforeningen, 2015 [DOK]:</strong> Legeforeningens
+sentralstyre oppnevnte i oktober 2014 et prosjekt for å vurdere
+foreningens fremtidige rolle i retningslinjearbeidet. Prosjektrapporten
+(«Legeforeningen som aktør ved utarbeidelse av faglige veiledere og
+retningslinjer», høringsutkast 9.4.2015) formaliserte at de
+fagmedisinske foreningene («legespesialist- foreningene» under
+Legeforeningen) selv beslutter hvilke veiledere de lager:</p>
+<blockquote>
+<p>«I dagens situasjon er det den enkelte fagmedisinske forening som på
+selvstendig grunnlag vurderer og beslutter hvilke deler av fagområdet
+som vil ha nytte av skriftlige veiledere og retningslinjer.
+Prosjektgruppen mener at dette prinsippet bør videreføres.» (s. 6)</p>
+</blockquote>
+<p>Rapporten viser at praksisen var etablert allerede før 2015 – «Mange
+fagmedisinske foreninger utformer i dag faglige retningslinjer og
+veiledere» (s. 6), og at Legeforeningens fond hadde gitt støtte til 13
+slike veiledere i 2012–2014 (s. 6) – men at 2015-rapporten var det
+tidspunktet foreningen <em>formaliserte og systematiserte</em> rollen
+med egne tilrådinger om organisering, metodikk (GRADE), finansiering og
+forhold til myndighetene. Prosjektgruppen la også vekt på at
+foreningenes rolle måtte holdes «rent faglig og myndighetsuavhengig» (s.
+6) [DOK].</p>
+<p><strong>Merk presisering:</strong> Dokumentet er datert som
+«høringsutkast 9.4.2015» – notatet kan ikke bekrefte at dette ble
+endelig vedtatt i uendret form av landsstyret, kun at forslaget forelå
+og ble sendt på bred høring i foreningen (s. 3). Dette er et
+kunnskapsgap (se nedenfor).</p>
+<p><strong>Kreftfeltet, 2005 [DOK] – unntaket som bekrefter
+regelen:</strong> I motsetning til de fleste andre fagfelt, var det på
+kreftområdet staten som tok initiativ til å formalisere en allerede
+eksisterende fagmiljøpraksis:</p>
+<blockquote>
+<p>«Helse- og omsorgsdepartementet ga i 2005 Helsedirektoratet i
+samarbeid med regionale helseforetak og Nasjonalt kunnskapssenter for
+helsetjenesten (Kunnskapssenteret) i oppdrag å utarbeide nasjonale
+handlingsprogrammer for bedre kreftomsorg i Norge […] Samarbeidet tok
+utgangspunkt i arbeidet som så langt var drevet av de onkologiske
+faggruppene.» (Juvet, Mørland, Natvig Norderhaug, Klemp, Røttingen,
+Svorken, Aarseth, Kaasa, «Metodevurderinger for retningslinjer –
+krefthandlingsplanene», Michael 2012;9: 183–195)</p>
+</blockquote>
+<p>Samme artikkel dokumenterer at fagmiljøene («de tverrfaglige
+onkologiske miljøene») i 25 år før 2005 hadde utviklet egne
+retningslinjer – «Grønnboka» for kolorektalkreft og «Blåboka» for
+brystkreft – uten offisiell status, og at Helsedirektoratet i 2005 fikk
+i oppdrag å «videreutvikle og oppdatere faggruppenes anbefalinger til
+nasjonale handlingsprogrammer» [DOK, direkte sitat, rå tekst hentet fra
+michaeljournal.no, verifisert 2026-08-10].</p>
+<p><strong>Vurdering [ANT]:</strong> Kreftfeltet er derfor et
+strukturelt unntak: der de fleste fagfelt har en uformalisert,
+nedenfra-drevet arbeidsdeling mellom forening og stat (jf.
+Legeforeningen 2015), er kreftfeltet det tydeligste eksempelet på at
+staten aktivt overtok/formaliserte en tidligere fagmiljødrevet praksis
+og ga den offisiell status som nasjonale retningslinjer. Dette kan
+tolkes som en mulig modell for hvordan andre fagfelts foreningsveiledere
+kunne håndteres, men notatet har ikke grunnlag for å si om dette var en
+bevisst, overførbar politikk eller en feltspesifikk løsning (jf.
+kunnskapsgap).</p>
+<p><strong>Historisk parallell fra forvaltningsmyndighet:
+spesialistgodkjenningen (1982–2011) [DOK].</strong> Det finnes ett
+entydig dokumentert eksempel på at staten <em>bevisst</em> la en
+myndighetsoppgave til Legeforeningen og senere <em>bevisst</em> trakk
+den tilbake — men det gjelder forvaltningsmyndighet (enkeltvedtak), ikke
+faglig normering: Da legeloven av 1980 gjorde spesialistgodkjenning til
+offentlig regulering, ble myndigheten til å behandle og avgjøre søknader
+om spesialistgodkjenning i 1982-forskriften «inntil videre» delegert til
+Legeforeningen [DOK, Ot.prp. nr. 83 (2008–2009), kap. 4.1]. Delegasjonen
+fortsatte under helsepersonelloven (jf. Tidsskriftet 2001), inntil
+Stortinget ved egen lovproposisjon — med den talende tittelen «Om lov om
+endringer i helsepersonelloven (opphevelse av adgangen til å delegere
+spesialistgodkjenningsmyndighet til private yrkesorganisasjoner)» —
+opphevet ordningen, og Helsedirektoratet overtok godkjenningsmyndigheten
+1.10.2011 [DOK, Ot.prp. nr. 83 (2008–2009); Tidsskriftet 2012].</p>
+<p><strong>Vurdering [ANT]:</strong> Spesialistgodkjenningscaset viser
+at staten er fullt i stand til å delegere til og reversere fra
+profesjonsforeninger som en eksplisitt, dokumentert beslutning når den
+vil. At tilsvarende eksplisitt beslutning ikke finnes for
+veileder-/normeringspraksisen, styrker tolkningen av denne som fremvokst
+og statlig <em>tolerert</em> snarere enn statlig <em>tildelt</em>. De to
+fenomenene (forvaltningsmyndighet og faglig normering) må imidlertid
+ikke sammenblandes i utredningen.</p>
+<p><strong>Helsedirektoratets egen selvbeskrivelse bekrefter tausheten
+[DOK].</strong> Direktoratets gjeldende side «Om Helsedirektoratets
+normerende produkter» (helsedirektoratet.no, lest 2026-08-10) forankrer
+normeringsrollen utelukkende i statlig hjemmelsgrunnlag
+(spesialisthelsetjenesteloven § 7-3, helse- og omsorgstjenesteloven §
+12-5, folkehelseloven § 24) og nevner ikke fagmedisinske foreningers
+veiledere i det hele tatt — verken som avgrensning, samarbeidsflate
+eller alternativ. Tilsvarende inneholder IS-1870 ingen forekomst av
+«fagmedisin» eller «profesjonsforening» (verifisert med fritekstsøk i
+fulltekst) — foreningene deltok i arbeidsgruppen bak veilederen, men
+omtales ikke som egen kategori av retningslinjeutgivere [DOK].</p>
+<h3 id="arbeidsdeling-statforening-og-rettslig-status">3. Arbeidsdeling
+stat/forening og rettslig status</h3>
+<p><strong>Verifisert (oppgradert 2026-08-10 etter direktelesning av
+IS-1870 i fulltekst).</strong> Helsedirektoratets veileder «Veileder for
+utvikling av kunnskapsbaserte retningslinjer» (IS-1870, 2012) beskriver
+selv arbeidsdelingen på områder der direktoratet ikke lager nasjonale
+retningslinjer:</p>
+<blockquote>
+<p>«På områder der det ikke utarbeides nasjonale faglige retningslinjer,
+ønsker Helsedirektoratet å stimulere fagmiljøer innen og/eller på tvers
+av tjenestesteder, helseregioner og kommuner til økt samarbeid om
+utarbeidelse av kunnskapsbaserte faglige retningslinjer. Slike
+retningslinjer skal godkjennes av ledelsen på hvert tjenestested før de
+tas i bruk.» (IS-1870, s. 11) [DOK – verifisert mot pdftotext-uttrekk av
+IS-1870]</p>
+</blockquote>
+<p>Om hierarkiet sier IS-1870 (s. 12) at retningslinjer utarbeidet i
+alle deler av helse- og omsorgstjenesten «skal være i overensstemmelse
+med norsk lovverk og bør være i overensstemmelse med nasjonale faglige
+retningslinjer og nasjonale veiledere utarbeidet av Helsedirektoratet»
+[DOK]. Merk at IS-1870 adresserer «fagmiljøer» i tjenesten — ikke
+profesjonsforeningene som kategori (jf. punkt 2, siste avsnitt).</p>
+<p>Legeforeningens prosjektgruppe trekker eksplisitt konklusjonen om at
+det ikke er noen motsetning mellom rollene:</p>
+<blockquote>
+<p>«Det er altså ikke noe motsetningsforhold mellom direktoratets rolle
+som utgiver av nasjonale veiledere/retningslinjer og Legeforeningens (de
+fagmedisinske foreningenes) rolle som utgivere av faglige
+veiledere/retningslinjer.» (s. 6) [DOK]</p>
+</blockquote>
+<p>og at arbeidsdelingen i praksis er komplementær: «De fagmedisinske
+foreningene har fagkompetanse og arenaer for implementering, mens
+myndighetene skal ha ressurser til og kompetanse på utforming og
+publisering av retningslinjer og veiledere» (s. 6) [DOK].</p>
+<p><strong>Rettslig status – dokumentert i tilsynspraksis, men ikke som
+generelt prinsipp [DOK/ANT] (revidert 2026-08-10):</strong>
+Forsvarlighetskravet i helsepersonelloven § 4 er en rettslig standard
+som forventer at helsepersonell opptrer i samsvar med «til enhver tid
+gjeldende faglige normer», og Helsedirektoratets rundskriv omtaler
+uttrykkelig at <em>nasjonale</em> (statlige) retningslinjer og veiledere
+forventes fulgt, med krav om begrunnelse ved vesentlig avvik [DOK].
+Ingen funnet kilde formulerer et tilsvarende <em>generelt prinsipp</em>
+for foreningsutviklede veiledere. Men i konkret tilsynspraksis er det nå
+dokumentert at Statens helsetilsyn aktivt legger foreningsveiledere til
+grunn som norm: I en tilsynssak fra 2016 (fødsel med fatal utgang)
+vurderte Helsetilsynet forsvarligheten direkte mot Norsk gynekologisk
+forenings veileder:</p>
+<blockquote>
+<p>«Det fremgår av Norsk gynekologisk forenings Veileder i fødselshjelp
+2014, kapittel 41, hvordan skulderdystoci skal håndteres. Det henvises
+til dette kapittel for beskrivelse av de enkelte håndgrep.» (Statens
+helsetilsyn, avgjørelse i tilsynssak 2016, historisk arkiv) [DOK]</p>
+</blockquote>
+<p>Tilsynet konkluderte med brudd på forsvarlighetskravet i
+helsepersonelloven § 4 med foreningsveilederen som referansepunkt for
+god praksis [DOK]. Dette samsvarer med IS-1870s generelle formulering
+(s. 12) om at «Retningslinjer, anerkjent fagkunnskap […] inngår som
+aksepterte grunnlag for vurdering av hva som er faglig forsvarlig» (med
+henvisning til Prop. 91 L (2010–2011) pkt. 20.5) [DOK].</p>
+<p><strong>Vurdering [ANT]:</strong> Rettsvirkningen er dermed
+dokumentert <em>i praksis</em> (minst én tilsynssak), men ikke nedfelt
+som generelt prinsipp i regelverk eller styringsdokumenter. Funnet
+bygger på én enkeltsak — en systematisk gjennomgang av tilsynspraksis og
+praksis fra Statens helsepersonellnemnd gjenstår (jf. kunnskapsgap
+1).</p>
+<h3 id="statlig-tilskudd-til-kloke-valg-meld.-st.-11-20252026">4.
+Statlig tilskudd til «Kloke valg» (Meld. St. 11 (2025–2026))</h3>
+<p><strong>Verifisert mot råtekst i PDF.</strong> Meld. St. 11
+(2025–2026) Helsepersonellplan 2040, kap. 8.3/8.4 (trykt sidetall 93,
+dvs. innenfor det oppgitte intervallet s. 91–94), omtaler «Kloke
+valg»-kampanjen – fagmiljødrevne anbefalinger om å unngå unødvendig
+diagnostikk og behandling (etter mal av det internasjonale «Choosing
+Wisely») – og et nytt statlig tilskudd til arbeidet:</p>
+<blockquote>
+<p>«Gjennom «Kloke valg»-kampanjen har fagmiljøene utarbeidet en rekke
+anbefalinger som tas i bruk av helsepersonell både i kommuner, sykehus
+og tannhelsetjenesten. Flere sykehus vil bli «Kloke valg»-sykehus. I
+2026 etablerte regjeringen et tilskudd for å understøtte fagmiljøenes
+arbeid med «Kloke valg». Helsedirektoratet forvalter tilskuddet og har
+fått i oppdrag å understøtte arbeidet.» (Meld. St. 11 (2025–2026), trykt
+s. 93) [DOK – verifisert mot pdftotext-uttrekk fra regjeringen.no,
+2026-08-10]</p>
+</blockquote>
+<p>Meldingen varsler videre at regjeringen vil at «alle sykehus skal bli
+«Kloke valg»-sykehus» (s. 93) [DOK], og kobler tiltaket til målet om å
+redusere uønsket variasjon, overdiagnostikk og overbehandling (kap.
+8.4).</p>
+<p><strong>Vurdering [ANT]:</strong> Dette er det klareste eksempelet i
+kildematerialet på at staten formelt går inn og
+finansierer/institusjonaliserer en fagmiljødrevet normeringsaktivitet
+uten å overta selve produksjonen av anbefalingene – Helsedirektoratet
+«forvalter tilskuddet» og «understøtter», men det er fortsatt
+fagmiljøene som «utarbeider» anbefalingene. Dette skiller seg fra
+kreftfeltets 2005-modell (punkt 2), der staten overtok det formelle
+ansvaret for selve retningslinjeinnholdet via nasjonale
+handlingsprogrammer. «Kloke valg»-modellen er dermed et tredje, hybrid
+mønster: statlig finansiering av en fortsatt foreningseid/-produsert
+anbefaling, uten at staten tar over det faglige eierskapet. Notatet har
+ikke funnet dokumentasjon på hvilke kriterier/vilkår som følger
+tilskuddsordningen, eller om det stilles krav til metodikk (GRADE e.l.)
+tilsvarende det Helsedirektoratets egne retningslinjer og IS-1870
+stiller (jf. kunnskapsgap).</p>
+<h3 id="bredde-på-tvers-av-disipliner">5. Bredde på tvers av
+disipliner</h3>
+<p>Målrettede søk bekrefter at praksisen med foreningsutviklede
+veiledere går langt utover legestanden og strekker seg over flere tiår,
+men med ulik grad av dokumentert normerende status per profesjon.</p>
+<p><strong>Norsk gynekologisk forening (NGF) [DOK]:</strong> «Veileder i
+fødselshjelp» er utgitt av NGF (en fagmedisinsk forening under
+Legeforeningen) siden 1997 (jf. omtale i Tidsskriftet 1997), med
+jevnlige revisjoner – siste større revisjon 2020, og veilederen ligger
+nå i metodebok.no (2024). Ifølge Helsebiblioteket/Tidsskriftet har
+veilederens nettsider hatt over 117 000 unike sidevisninger, og formålet
+er eksplisitt angitt som at «Norge praktiserer kunnskapsbasert
+fødselshjelp noenlunde likt uavhengig av hvor pasienten føder» [DOK,
+kilde: tidsskriftet.no/2021/02/aktuelt-i-
+foreningen/svaert-populaer-veileder-i-fodselshjelp;
+legeforeningen.no/foreningsledd/fagmed/norsk-gynekologisk-forening/
+veiledere/].</p>
+<p><strong>Norsk barnelegeforening (NBF) [DOK]:</strong> «Akuttveileder
+i pediatri» (1. utgave 1998, 2. utgave 2007, 3. utgave revidert
+2013–2015) og «Generell veileder i pediatri» er utarbeidet på
+dugnadsbasis av NBFs medlemmer og gjøres fritt tilgjengelig via
+Helsebiblioteket. Etter 2015 er oppdateringer kun gjort i nettversjonen
+[DOK, kilde: helsebiblioteket.no/pediatriveiledere;
+helsebiblioteket.no/innhold/
+retningslinjer/pediatri/akuttveileder-i-pediatri/forord].</p>
+<p><strong>Norsk anestesiologisk forening (NAF) [DOK]:</strong> «Norsk
+Standard for Anestesi» (NSA) er utviklet i fellesskap av NAF og
+Anestesisykepleierne NSF (ANSF) – altså på tvers av lege- og
+sykepleierprofesjonen – første gang i 1991, med revisjoner i 1994, 1998,
+2005, 2010, 2016 og 2022. NSA omtales eksplisitt som normerende:</p>
+<blockquote>
+<p>«NSA er utformet som normgivende retningslinjer for alle som utfører
+anestesiarbeid, uavhengig av geografiske og organisatoriske forhold […]
+Hensikten er å ivareta pasientsikkerheten gjennom å sikre
+tilfredsstillende anestesipraksis i Norge.» (nafweb.no, «Norsk Standard
+for anestesi») [DOK]</p>
+</blockquote>
+<p>Revisjonsgruppen presiserer at «NSA er en minstestandard» [DOK] – et
+begrep som ligger tett opp mot forsvarlighetsnormens funksjon i
+helsepersonelloven § 4, uten at notatet har funnet en kilde som
+eksplisitt kobler de to.</p>
+<p><strong>Norsk forening for allmennmedisin (NFA) [DOK,
+delvis]:</strong> Nasjonal faglig retningslinje for antibiotikabruk i
+primærhelsetjenesten er utviklet i samarbeid mellom NFA og
+Helsedirektoratet siden 2008, og omtales i Legeforeningens
+høringsdokumenter som en retningslinje allmennlegene har hatt eierskap
+til «siden starten i 2008» [DOK, kilde: legeforeningen.no –
+høringsdokument antibiotika i primærhelsetjenesten]. Dette er et
+eksempel på sambruk (forening/direktorat) snarere enn en rent
+foreningsprodusert veileder, og skiller seg dermed fra
+NGF/NBF-casene.</p>
+<p><strong>Norsk psykologforening [DOK, avgrenset]:</strong> Foreningen
+har egne yrkesetiske/fagetiske retningslinjer og «normalvedtekter for
+faglige foreninger» (interne fagseksjoner), samt en «prinsipperklæring
+om evidensbasert psykologisk praksis» [DOK, kilde:
+psykologforeningen.no/
+foreningen/organisasjonen/vedtekter-og-retningslinjer]. Notatet har
+<strong>ikke</strong> funnet dokumentasjon på at foreningen utgir
+kliniske behandlingsveiledere på linje med NGFs eller NBFs veiledere –
+kildene som er funnet, dreier seg om etikk, veiledningskrav og
+spesialistutdanning, ikke klinisk normering av samme type. Dette må
+tolkes som et hull i søket, ikke som dokumentasjon på fravær av slik
+aktivitet [ANT].</p>
+<p><strong>Norsk Fysioterapeutforbund (NFF) [DOK, avgrenset]:</strong>
+Foreningen har yrkesetiske retningslinjer og enkelte fagspesifikke
+kliniske retningslinjer (f.eks. for bekkenbunnsutredning og -behandling,
+publisert av NFF selv) [DOK, kilde: aktuelt.fysio.no/hubfs/
+Retningslinjer%20bekkenbunn-1.pdf]. Søket ga ikke treff på en samlet,
+foreningsdrevet normeringsstruktur tilsvarende Legeforeningens
+fagmedisinske foreninger – dette er ikke bekreftet fraværende, bare ikke
+dokumentert i dette søket [ANT].</p>
+<p><strong>NSF (Norsk Sykepleierforbund) [DOK, avgrenset]:</strong> NSF
+organiserer en rekke faggrupper (bl.a. akuttsykepleie,
+anestesisykepleie, pediatri, diabetes, geriatri m.fl.) som er
+«møteplasser» for medlemmer og gir tilgang til fagstoff [DOK, kilde:
+nsf.no/faggrupper]. NSF har egne yrkesetiske retningslinjer for
+sykepleiere. Den klareste dokumenterte normerende rollen for NSF i dette
+notatets søk er samarbeidet med NAF om Norsk Standard for Anestesi (se
+over) – et konkret eksempel på at en NSF-faggruppe (ANSF) er
+medforfatter av en normerende standard sammen med en legeforening.</p>
+<p><strong>Tannlegeforeningen (NTF) [DOK]:</strong> NTF har en egen side
+«Faglige råd og retningslinjer» og henviser samtidig til
+Helsedirektoratets veileder IS-1589 «God klinisk praksis i
+tannhelsetjenesten» som rammeverk [DOK, kilde:
+tannlegeforeningen.no/fag-og-politikk/faglige-rad-og-
+retningslinjer.html]. NTF har også en egen side for «Gjør kloke valg»-
+kampanjen [DOK, kilde:
+tannlegeforeningen.no/fag-og-politikk/faglige-rad-
+og-retningslinjer/gjor-kloke-valg-kampanjen.html], som direkte
+underbygger Meld. St. 11s omtale av at «Kloke valg» omfatter
+«tannhelsetjenesten» (punkt 4 over) – konsistent funn på tvers av to
+uavhengige kilder.</p>
+<p><strong>Legeforeningens «Sak 13 – Fagmedisinske foreninger i 2040»
+[DOK]:</strong> Saken ble behandlet av Faglandsrådet i 2025 under
+tittelen «Fagmedisinske foreninger i 2040 – hvordan sikre relevans i en
+ny tid?». Saksdokumentet skiller mellom intern relevans
+(medlemsfordeler) og ekstern relevans, og reiser eksplisitt spørsmål om
+foreningenes normerende samfunnsrolle:</p>
+<blockquote>
+<p>«[Ekstern relevans, dvs. hvordan foreningene] kan være viktige,
+synlige og sentrale aktører i samfunnet, for eksempel i dialog med
+helseforvaltning og helsepolitikere» […] «Hvordan sørge for
+representasjon og deltakelse på alle nivåer i samfunnet der viktige
+faglige beslutninger tas?» […] «Hvordan gi faglig funderte råd uavhengig
+av ‘linja’?» (Legeforeningen, Faglandsrådsmøtet 2025, Sak 13) [DOK]</p>
+</blockquote>
+<p><strong>Merknad om Sak 13 [ANT]:</strong> Sitatene over er hentet fra
+sakssiden på legeforeningen.no. Et oppfølgingssøk (2026-08-10) bekreftet
+at dette er en faglandsrådssak (rådgivende organ), behandlet 29.4.2025
+etter vedtak i fagstyret november 2024 [DOK], men fikk ikke tilgang til
+selve sakspapiret i fulltekst — vedtaksstatus og fullstendig innhold er
+derfor ikke verifisert (jf. kunnskapsgap).</p>
+<h3
+id="b.-systematisk-sveip-legeforeningens-fagmedisinske-foreninger-2026-08-10">5b.
+Systematisk sveip: Legeforeningens fagmedisinske foreninger
+(2026-08-10)</h3>
+<p>Et systematisk søk over 18 prioriterte fagmedisinske foreninger (i
+tillegg til de fire allerede dokumenterte) gir følgende omfangsbilde —
+kun funn med verifiserbar URL er tatt med [DOK]:</p>
+<div class="table-wrapper">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Forening</th>
+<th>Produkt</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Norsk endokrinologisk forening</td>
+<td>Nasjonal veileder i endokrinologi (endokrinologi.no)</td>
+<td>Nettbasert veileder, løpende oppdatert</td>
+</tr>
+<tr>
+<td>Norsk forening for infeksjonsmedisin</td>
+<td>Nasjonal Metodebok for Infeksjonsmedisin</td>
+<td>Metodebok</td>
+</tr>
+<tr>
+<td>Norsk forening for lungemedisin</td>
+<td>Veileder for kols; veileder for alvorlig astma</td>
+<td>Veiledere</td>
+</tr>
+<tr>
+<td>Norsk nevrologisk forening</td>
+<td>Veileder i akuttnevrologi (utgave XI, 2022)</td>
+<td>Veileder, nummererte utgaver</td>
+</tr>
+<tr>
+<td>Norsk forening for otorhinolaryngologi</td>
+<td>Veileder for øre-nese-halsfaget</td>
+<td>Kapittelvis veileder (via Helsebiblioteket)</td>
+</tr>
+<tr>
+<td>Norsk oftalmologisk forening</td>
+<td>Nasjonal kvalitetshåndbok for oftalmologi (2019)</td>
+<td>Kvalitetshåndbok</td>
+</tr>
+<tr>
+<td>Norsk forening for dermatologi og venerologi</td>
+<td>Behandlingsanbefalinger per tilstand</td>
+<td>Enkeltanbefalinger, ad hoc</td>
+</tr>
+<tr>
+<td>Norsk cardiologisk selskap</td>
+<td>Veileder for hjertesvikt i allmennpraksis (2024)</td>
+<td>Veileder</td>
+</tr>
+<tr>
+<td>Norsk revmatologisk forening</td>
+<td>Metodebok revmatologi (metodebok.no)</td>
+<td>Nettbasert metodebok</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Sammen med de fire tidligere dokumenterte (gynekologi, pediatri,
+anestesiologi, allmennmedisin) har dermed <strong>rundt 13 av ca. 22
+undersøkte foreninger verifiserte egne normerende produkter</strong>
+[DOK]. For psykiatri, geriatri, radiologi og akutt- og mottaksmedisin
+ble ingen klare egne produkter funnet i åpne kilder; for ortopedi,
+indremedisin og samfunnsmedisin er status uavklart (mulige produkter
+funnet, men eierskap/ferdigstillelse ikke bekreftet) [DOK for
+søkeresultatet, ANT for tolkningen at fravær av treff kan skyldes lav
+synlighet eller innhold bak innlogging].</p>
+<p><strong>Onkologi som moteksempel [DOK]:</strong> Kreftfeltet har
+beveget seg motsatt vei — de onkologiske faggruppenes egne
+handlingsprogrammer ble fra Nasjonal kreftstrategi (2006–2009)
+videreutviklet til og formelt overtatt som Helsedirektoratets eide
+handlingsprogrammer; foreningen er nå bidragsyter inn i et statlig eid
+produkt (jf. punkt 2, kreftfeltet).</p>
+<p><strong>Viktig avvik fra tidligere antakelse [DOK]:</strong> Sveipet
+kunne <em>ikke</em> verifisere påstanden i
+<code>kunnskapsinnhenting-organisasjonsmodeller.md</code> om at Norsk
+revmatologisk forening har adaptert en retningslinje i MAGICapp —
+foreningens produkt ser ut til å ligge på metodebok.no. Påstanden i
+organisasjonsmodell-notatet bør kryssjekkes og eventuelt korrigeres.</p>
+<h3 id="c.-systematisk-sveip-andre-profesjonsforbund-2026-08-10">5c.
+Systematisk sveip: andre profesjonsforbund (2026-08-10)</h3>
+<p>Sveipet over forbund utenfor Legeforeningen nyanserer bredden
+vesentlig — praksisen finnes, men er smalere og av annen karakter:</p>
+<ul>
+<li><strong>Norges Optikerforbund [DOK]</strong> er det sterkeste
+enkeltfunnet: 26 kliniske retningslinjer (rutineundersøkelse,
+kontaktlinser, glaukom, diabetes m.fl.), utviklet av eget fagutvalg med
+høring og styrevedtak, løpende revidert 2014–2026
+(optikerne.no/kliniske-retningslinjer).</li>
+<li><strong>Faggruppen for manuellterapi (NFF) [DOK]</strong> har egne
+retningslinjer for klinisk undersøkelse (generell og spesiell del), og
+faggruppen for kvinnehelse har retningslinjer for bekkenbunnsutredning
+(jf. punkt 5).</li>
+<li><strong>NSFs faggrupper</strong>: De fleste dokumenterte produktene
+er <strong>funksjons- og kompetansebeskrivelser</strong> (intensiv-,
+operasjons- og kreftsykepleiere), ikke kliniske retningslinjer i
+Helsedirektoratets forstand [DOK]. Der faggruppene deltar i egentlige
+kliniske standarder, skjer det som <em>medutgiver sammen med en
+legeforening</em>: Norsk Standard for Anestesi (ANSF + NAF) og
+Retningslinjer for intensivvirksomhet i Norge (NSFLIS + NAF, 2014)
+[DOK].</li>
+<li><strong>Norsk psykologforening [DOK, oppgradert]</strong>:
+«Prinsipperklæring om evidensbasert psykologisk praksis» (vedtatt av
+sentralstyret 2007, norsk tilpasning av APAs policy) er et eget
+normerende fagdokument — men på metanivå (hva som er god fagutøvelse),
+ikke en klinisk behandlingsveileder.</li>
+<li><strong>Kun yrkesetikk dokumentert</strong> for Den norske
+jordmorforening, Tannpleierforeningen, Radiografforbundet og (sammen med
+kompetansebeskrivelse) Ergoterapeutforbundet [DOK]. Ingen verifiserbare
+egne fagprodukter funnet for Farmaceutisk Forening (kun bidrag i
+Helsetilsynets retningslinjer) og Kiropraktorforeningen.</li>
+<li><strong>Tverrprofesjonelle oppslagsverk er ikke foreningseide
+[DOK]</strong>: Metodebok.no eies av Helse Bergen HF, Legevakthåndboken
+av NKLM/Gyldendal, og NEL av Bonnier Healthcare — et <em>tredje</em>
+normeringsspor (institusjonelt/kommersielt) ved siden av stat og
+forening.</li>
+</ul>
+<p><strong>Samlet vurdering av bredden [ANT] (revidert etter
+sveipene):</strong> (a) Blant legespesialitetene er foreningsdrevet
+normering <em>utbredt</em> — rundt 13 av 22 undersøkte foreninger har
+egne normerende produkter, med former fra løpende oppdaterte metodebøker
+til ad hoc-enkeltanbefalinger. (b) Utenfor legestanden er praksisen
+reell, men smalere: optikerne og manuellterapeutene har egne kliniske
+retningslinjer, mens sykepleierfaggruppene primært normerer <em>rolle og
+kompetanse</em> og deltar i kliniske standarder som medutgivere med
+legeforeninger. (c) Flere forbund har kun yrkesetikk. Brukerens
+formulering «mange disipliner» er dermed dokumentert for
+legespesialitetene og delvis utover disse — men med viktig heterogenitet
+i hva som normeres (klinisk praksis vs. rolle/ kompetanse) som
+utredningen bør skille mellom.</p>
+<h3 id="forskningslitteratur-og-internasjonal-plassering-2026-08-10">6.
+Forskningslitteratur og internasjonal plassering (2026-08-10)</h3>
+<p>Et eget litteratursøk viser at forskningen som <em>direkte</em>
+analyserer foreningsdrevet normering i Norge er tynn, men gir tre
+viktige funn:</p>
+<p><strong>Norge er internasjonalt klassifisert som hybrid
+[DOK]:</strong> WHO/European Observatory-publikasjonen <em>Improving
+Healthcare Quality in Europe</em> (Busse, Klazinga, Panteli m.fl.
+(red.), Health Policy Series nr. 53, 2019), kap. 9 om kliniske
+retningslinjer, plasserer Norge eksplisitt i kategorien sentrale byråer
+i samarbeid med profesjonsforeninger:</p>
+<blockquote>
+<p>«development of official national guidelines falls under the
+responsibility of the Directorate of Health, although professional
+associations produce their own guidance in parallel (central and
+decentralized development)» (Panteli m.fl. 2019, kap. 9,
+ncbi.nlm.nih.gov/books/NBK549283) [DOK]</p>
+</blockquote>
+<p>Dette gir ekstern, autoritativ støtte til hybridkarakteriseringen i
+det analytiske kapittelet under. Nordic Innovations programbeskrivelse
+«Ecosystem for Nordic Clinical Practice Guidelines» (2015–2017)
+underbygger ved å kontrastere Norge/Sverige (statlig) med Finland, der
+retningslinjearbeidet (Käypä hoito) drives av legeforeningen Duodecim
+[DOK, deskriptiv kilde].</p>
+<p><strong>Profesjonsinnflytelsen består selv under statlig regi
+[DOK]:</strong> Aase-Kvåle (2023, <em>Health Economics, Policy and
+Law</em> 18(3)) analyserer etableringen av prioriteringsveilederne
+(2008–2012) som et skifte fra medisinsk selvregulering mot sentralisert
+styring, men finner at prosessen «ikke representerte et radikalt brudd
+med etablerte tradisjoner for medisinsk profesjonell selvregulering».
+Feiring &amp; Walter (2017, <em>BMC Health Services Research</em>
+17:747) dokumenterer at representanter oppnevnt av fagmedisinske
+foreninger var systematisk inkludert i utviklingen av de nasjonale
+antibiotikaretningslinjene, og at initiativet kom fra fagmiljøet før
+Helsedirektoratet overtok. Ole Bergs helseforvaltningshistoriske verk
+(begrepet «medikrati») gir historisk bakgrunn [DOK for verkenes
+eksistens og hovedtese; historiske monografier, ikke empiriske studier
+av normering spesifikt].</p>
+<p><strong>Ingen studie sammenligner foreningsveiledere med statlige
+retningslinjer [DOK for søkeresultatet]:</strong> Kvalitetslitteraturen
+som finnes (Langeland m.fl. 2023 i Tidsskriftet: NEATS-vurdering av 60
+av Helsedirektoratets retningslinjer med lav skår på 9 av 12 domener;
+Vandvik 2018, leder i Tidsskriftet som etterlyser at Legeforeningen tar
+«mer aktiv del» i retningslinjearbeidet) vurderer statens retningslinjer
+— ingen identifisert studie vurderer foreningsveiledernes kvalitet,
+dekning eller oppdateringstakt, eller konsistensen mellom de to sporene.
+Dette er trolig det viktigste forskningshullet for utredningens formål
+[ANT].</p>
+<h2
+id="analytisk-kapittel-kobling-til-utredningens-begrepsapparat">Analytisk
+kapittel: kobling til utredningens begrepsapparat</h2>
+<p>Dette kapittelet er analytisk og markert [ANT] i sin helhet med
+mindre annet er angitt, siden det kobler de verifiserte funnene over til
+begreper utviklet i utredningens øvrige delrapporter.</p>
+<h3 id="fragmentering-og-styrbarhet-d-dimensjonene-r1r4r5">Fragmentering
+og styrbarhet (D-dimensjonene, R1/R4/R5)</h3>
+<p>Delrapport 2 (<code>utfordringer-og-flaskehalser.md</code>) beskriver
+blant annet rotårsak <strong>R1</strong> (fragmentert ansvar/styring
+uten helhetlig eierskap), <strong>R4</strong> (fragmentert
+IT-landskap/kodeverk/manglende standardisering) og <strong>R5</strong>
+(manglende mandat for helhetlig styring av verdikjeden). Funnene i dette
+notatet utvider bildet av R1 og R5 med en dimensjon utredningen hittil
+ikke har dekket eksplisitt: <strong>fragmenteringen er ikke bare mellom
+statlige aktører (Hdir/FHI/NHN), men mellom staten og et lag av
+selvstendige, ikke-statlige normerende aktører</strong> (fagmedisinske
+foreninger, NAF/ANSF, NGF, NBF m.fl.) som opererer dels parallelt med,
+dels i samarbeid med, og dels uavhengig av statens nasjonale faglige
+retningslinjer. Dette er en strukturell kilde til fragmentering (R1) som
+ikke fanges av en ren gjennomgang av statlige etater: to pasienter med
+samme tilstand kan i prinsippet møte anbefalinger fra ulike kilder (en
+statlig nasjonal retningslinje, en foreningsveileder, eller begge, uten
+et dokumentert system for å avklare forrang) [ANT].</p>
+<p>For <strong>R5</strong> (manglende helhetlig styringsmandat)
+illustrerer Røttingen-rapportens forslag om et «forum for faglig
+normering» (punkt 1) at problemet er erkjent på prosjektnivå, men at
+forslaget om et koordinerende organ – der profesjonsorganisasjonene
+skulle delta – per 2023 ikke var vedtatt, kun anbefalt utredet videre.
+Notatets funn styrker dermed R5: det finnes ikke et etablert, formelt
+forum eller mandat som koordinerer statlig og foreningsdrevet normering
+i dag [DOK for status per Røttingen-rapporten 2023, ANT for kobling til
+R5].</p>
+<p><strong>Kloke valg»-tilskuddet (punkt 4)</strong> representerer
+motsatt et konkret, om enn punktvis, eksempel på statlig orkestrering
+uten fullt eierskap – et mulig forbilde for hvordan R5 kan adresseres
+uten å frata foreningene det faglige eierskapet, men også et eksempel
+som per nå er begrenset til ett tema (overbehandling/overdiagnostikk) og
+ikke et generelt koordineringsmandat [ANT].</p>
+<h3
+id="organisasjonsmodell-typologien-norge-som-hybrid">Organisasjonsmodell-typologien:
+Norge som hybrid</h3>
+<p>Notatet <code>kunnskapsinnhenting-organisasjonsmodeller.md</code>
+(jf. <code>rapporter/index.md</code>) skisserer en sentralisert–føderert
+typologi for internasjonal kunnskapsforvaltning
+(institutt-/føderasjonsmodeller som AWMF, SIGN, AHRQ/EPC m.fl.). Funnene
+i dette notatet støtter en [ANT]-tolkning av at <strong>Norge i praksis
+er en hybridmodell</strong>: staten (Helsedirektoratet) har formelt
+normeringsansvar og publiserer nasjonale faglige retningslinjer, men
+store deler av den kliniske veiledningspraksisen i flere spesialiteter
+er reelt sett foreningsdrevet og -eid (NGF, NBF, NAF/ANSF og de øvrige
+foreningene i kap. 5b), med statlig deltakelse som er sambruk snarere
+enn styring (NFA/antibiotika) eller finansiering uten faglig eierskap
+(Kloke valg). Dette ligner mer på den tyske AWMF-modellen (fagselskaper
+med koordinerende paraplyorganisasjon) enn på en rendyrket sentralisert
+modell som NICE i England – men den konkrete AWMF/NICE-sammenligningen
+er notatets egen tolkning [ANT].</p>
+<p><strong>Presisering (oppgradert 2026-08-10):</strong>
+Hybridkarakteriseringen er nå <strong>eksternt dokumentert</strong>,
+ikke bare notatets egen syntese: WHO/European Observatory (Panteli m.fl.
+2019, se kap. 6) plasserer Norge eksplisitt i kategorien der offisielle
+nasjonale retningslinjer er direktoratets ansvar «although professional
+associations produce their own guidance in parallel (central and
+decentralized development)» [DOK]. Norge-raden som mangler i
+organisasjonsmodell-notatets sammenligningstabell, kan dermed fylles ut
+med kildebelegg.</p>
+<h3 id="løsningsretning-a3målbildet-i-delrapport-4">Løsningsretning
+A3/målbildet i delrapport 4</h3>
+<p>Delrapport 4 (<code>ny-verdikjede.md</code>) drøfter alternativer for
+ny verdikjede, inkludert organisatorisk modernisering (jf. rapportens
+omtale i <code>rapporter/index.md</code>). Dersom prosjektet arbeider
+videre med et løsningsalternativ som forutsetter <strong>konsolidert,
+helhetlig statlig styring</strong> av normeringsleddet (i tråd med et
+A3-liknende ambisjonsnivå), reiser funnene i dette notatet et
+prinsipielt spørsmål utredningen bør ta stilling til eksplisitt:
+<strong>skal en fremtidig, mer helhetlig kunnskapsforvaltning innlemme,
+erstatte, eller fortsatt sameksistere med profesjonsforeningenes
+normerende produkter?</strong> Ingen av kildene notatet har funnet,
+dokumenterer at dette spørsmålet er vurdert prinsipielt av staten (jf.
+kunnskapsgap under). Konsekvensen er at et fremtidig målbilde som ikke
+adresserer denne aktørgruppen, risikerer å undervurdere kompleksiteten i
+normeringslandskapet – og dermed undervurdere hvor stor endring som
+faktisk kreves for å oppnå ambisjonen om sammenheng (jf. delrapport 2s
+kjerneegenskap «sammenheng») [ANT].</p>
+<h2 id="kunnskapsgap">Kunnskapsgap</h2>
+<p>Revidert 2026-08-10 etter de systematiske sveipene — gap som er helt
+eller delvis lukket, er markert.</p>
+<ol type="1">
+<li><strong>Rettslig status av foreningsveiledere — delvis
+lukket:</strong> Én tilsynssak (Helsetilsynet 2016, jf. punkt 3)
+dokumenterer at foreningsveiledere brukes som forsvarlighetsnorm i
+praksis. Gjenstående: systematisk gjennomgang av Helsetilsynets
+avgjørelsesdatabase og praksis fra Statens helsepersonellnemnd/
+Helseklage, og eventuelt en egen juridisk vurdering av om dette er et
+generelt prinsipp.</li>
+<li><strong>Profesjoner uten verifisert klinisk veilederpraksis —
+presisert:</strong> Sveipet fant Psykologforeningens prinsipperklæring
+(2007, metanivå) og manuellterapeutenes/kvinnehelsegruppens
+retningslinjer i NFF, men ingen samlet klinisk veilederstruktur
+tilsvarende legeforeningenes. KEFF-funnet (retningslinje for
+underernæring på keff.no) er uavklart — det er usikkert om dokumentet er
+KEFFs eget eller Helsedirektoratets. NSFs øvrige ~30 faggrupper og NFFs
+øvrige 12 faggrupper er ikke uttømmende gjennomgått.</li>
+<li><strong>Fravær av prinsipiell statlig vurdering — styrket
+funn:</strong> Ingen av kildene (Røttingen-rapporten, Meld. St. 11,
+IS-1870, Helsedirektoratets side om normerende produkter) inneholder en
+eksplisitt, prinsipiell statlig vurdering av forholdet mellom statlig og
+foreningsdrevet normering. Sveipet bekreftet at Hdirs egen
+selvbeskrivelse av det normerende systemet ikke nevner foreningene
+(punkt 2). NOU 2023:4 ble ikke gjennomgått i fulltekst — dette bør
+gjøres før konklusjonen legges endelig til grunn.</li>
+<li><strong>2015-rapportens endelige status i Legeforeningen ikke
+bekreftet:</strong> Dokumentet er datert «høringsutkast 9.4.2015»;
+referat fra sentralstyremøtet 11.11.2015 er identifisert, men ikke lest.
+Tilsvarende er sakspapiret for Sak 13 (Faglandsrådet 2025) ikke lest i
+fulltekst.</li>
+<li><strong>Vilkår for «Kloke valg»-tilskuddet:</strong>
+Tildelingskriterier, størrelse og eventuelle metodekrav er fortsatt
+udokumentert.</li>
+<li><strong>Dekning av «mange disipliner» — i hovedsak lukket:</strong>
+Systematiske sveip er nå gjennomført (kap. 5b–5c) over 22 fagmedisinske
+foreninger og 15+ andre forbund/faggrupper. Gjenstående flekker:
+ortopedi, indremedisin og samfunnsmedisin (uavklart status), onkologiske
+faggrupper enkeltvis, NSFs/NFFs øvrige faggrupper, og KEFF (jf. gap 2).
+Merk også at fravær av treff kan skyldes innhold bak innlogging.</li>
+<li><strong>EUR-Lex/EU-dimensjonen ikke vurdert:</strong> Notatet har
+ikke undersøkt om EHDS eller annet EU-regelverk stiller krav som direkte
+eller indirekte berører profesjonsforeningers rolle som normerende aktør
+(f.eks. gjennom krav til opphav/kvalitetsmerking av kliniske
+beslutningsstøtteverktøy). Dette er utenfor dette notatets avgrensede
+søk, men kan være relevant for delrapport
+5/regulatorisk-etterslep.md.</li>
+<li><strong>Kvalitet og konsistens mellom sporene (nytt):</strong> Ingen
+identifisert studie sammenligner foreningsveiledernes kvalitet, dekning
+eller oppdateringstakt med Helsedirektoratets retningslinjer, eller
+kartlegger motstrid mellom de to sporene (jf. kap. 6). En slik
+kartlegging måtte i så fall gjøres som primærundersøkelse i
+prosjektet.</li>
+<li><strong>MAGICapp-påstanden i organisasjonsmodell-notatet
+(nytt):</strong> Sveipet kunne ikke verifisere at Norsk revmatologisk
+forening har en MAGICapp-adaptert retningslinje (jf. kap. 5b). Påstanden
+i <code>kunnskapsinnhenting-organisasjonsmodeller.md</code> pkt. om
+norske MAGIC-koblinger bør kryssjekkes og eventuelt korrigeres.</li>
+</ol>
+<h2 id="kildeliste">Kildeliste</h2>
+<ol type="1">
+<li>Helsedirektoratet, Røttingen m.fl. (2023). <em>Gjennomgang av
+organisering, roller og ansvar i den sentrale helseforvaltningen –
+endelig rapport</em>, 11.3.2023, kap. 11.9 «Forum for faglig normering»
+(PDF-sidefot 70–71). Lokal kopi:
+<code>kilder/Endelig-rapport_organisering-sentral-helseforvaltning.pdf</code>.</li>
+<li>Legeforeningen (2015). <em>Legeforeningen som aktør ved utarbeidelse
+av faglige veiledere og retningslinjer – rapport og tilråding fra
+Legeforeningens prosjekt</em>, høringsutkast 9.4.2015.
+https://www.legeforeningen.no/contentassets/54952d412ead47debd4f67fc79c1fbbe/utkast-legeforeningen-som-aktor-ved-utarbeidelse-av-faglige-veiledere-og-retningslinjer.pdf</li>
+<li>Juvet LK, Mørland B, Natvig Norderhaug I, Klemp M, Røttingen JA,
+Svorken B, Aarseth HP, Kaasa S (2012). «Metodevurderinger for
+retningslinjer – krefthandlingsplanene». <em>Michael</em> 2012;9:
+183–195.
+https://www.michaeljournal.no/article/2012/03/Metodevurderinger-for-retningslinjer-krefthandlingsplanene</li>
+<li>Helse- og omsorgsdepartementet (2026). <em>Meld. St. 11 (2025–2026)
+Helsepersonellplan 2040</em>, kap. 8.3, trykt s. 93.
+https://www.regjeringen.no/contentassets/6d2ec1946c744942a24cb528ca666ae0/no/pdfs/stm202520260011000dddpdfs.pdf</li>
+<li>Helsedirektoratet. <em>Helsepersonelloven med kommentarer</em>, § 4
+Forsvarlighet.
+https://www.helsedirektoratet.no/rundskriv/helsepersonelloven-med-kommentarer/krav-til-helsepersonells-yrkesutovelse/-4.forsvarlighet</li>
+<li>Norsk gynekologisk forening / Legeforeningen. «Veileder i
+fødselshjelp».
+https://www.legeforeningen.no/foreningsledd/fagmed/norsk-gynekologisk-forening/veiledere/veileder-i-fodselshjelp/
+; Tidsskrift for Den norske legeforening (2021). «Svært populær veileder
+i fødselshjelp».
+https://tidsskriftet.no/2021/02/aktuelt-i-foreningen/svaert-populaer-veileder-i-fodselshjelp</li>
+<li>Norsk barnelegeforening. «Pediatriveiledere fra Norsk
+barnelegeforening», Helsebiblioteket.
+https://www.helsebiblioteket.no/pediatriveiledere</li>
+<li>Norsk anestesiologisk forening / Anestesisykepleierne NSF. «Norsk
+Standard for anestesi».
+https://www.nafweb.no/index.php?option=comcontent&amp;task=view&amp;id=70&amp;Itemid=27</li>
+<li>Norsk forening for allmennmedisin / Legeforeningen. Høringsdokument,
+nasjonal faglig retningslinje for antibiotika i primærhelsetjenesten.
+https://www.legeforeningen.no/contentassets/76548c6982dc405c8f9fc49ff085ceb6/hoering-retningslinje-antibiotika-i-primarhelsetjensten.pdf</li>
+<li>Norsk psykologforening. «Vedtekter og retningslinjer».
+https://www.psykologforeningen.no/foreningen/organisasjonen/vedtekter-og-retningslinjer</li>
+<li>Norsk Fysioterapeutforbund. «Faglige retningslinjer for
+fysioterapeutisk utredning og behandling» (bekkenbunn).
+https://aktuelt.fysio.no/hubfs/Retningslinjer%20bekkenbunn-1.pdf</li>
+<li>Norsk Sykepleierforbund. «Faggrupper for Norsk Sykepleierforbund
+(NSF)». https://www.nsf.no/faggrupper</li>
+<li>Tannlegeforeningen. «Faglige råd og retningslinjer».
+https://www.tannlegeforeningen.no/fag-og-politikk/faglige-rad-og-retningslinjer.html
+; «Gjør kloke valg kampanjen».
+https://www.tannlegeforeningen.no/fag-og-politikk/faglige-rad-og-retningslinjer/gjor-kloke-valg-kampanjen.html</li>
+<li>Legeforeningen, Faglandsrådet (2025). «Sak 13 – Fagmedisinske
+foreninger i 2040 – hvordan sikre relevans i en ny tid?».
+https://www.legeforeningen.no/om-oss/organisasjonen/rad-og-utvalg/Faglandsradet/avholdte-radsmoter/faglandsradsmotet-2025/dokumenter-for-faglandsradsmotet-2025/saksliste-for-faglandsradsmotet-2025/sak-13-fagmedisinske-foreninger-i-2040-hvordan-sikre-relevans-i-en-ny-tid/</li>
+</ol>
+<h3 id="kilder-tilført-ved-de-systematiske-sveipene-2026-08-10">Kilder
+tilført ved de systematiske sveipene (2026-08-10)</h3>
+<ol start="15" type="1">
+<li>Helsedirektoratet (2012). <em>Veileder for utvikling av
+kunnskapsbaserte retningslinjer</em> (IS-1870), lest i fulltekst
+(pdftotext), særlig s. 11–13.
+https://www.helsedirektoratet.no/veiledere/utvikling-av-kunnskapsbaserte-retningslinjer</li>
+<li>Helsedirektoratet. «Om Helsedirektoratets normerende produkter».
+https://www.helsedirektoratet.no/nasjonale-krav-og-anbefalinger/om-helsedirektoratets-normerende-produkter</li>
+<li>Helse- og omsorgsdepartementet (2009). <em>Ot.prp. nr. 83
+(2008–2009) Om lov om endringer i helsepersonelloven (opphevelse av
+adgangen til å delegere spesialistgodkjenningsmyndighet til private
+yrkesorganisasjoner)</em>, kap. 4.1.
+https://www.regjeringen.no/no/dokumenter/otprp-nr-83-2008-2009-/id559452/</li>
+<li>Tidsskrift for Den norske legeforening (2001, 2012). Artikler om
+delegert spesialistgodkjenningsmyndighet og Helsedirektoratets
+overtakelse 1.10.2011 (Skoglund; «Utdanningssjefen»).
+https://tidsskriftet.no</li>
+<li>Statens helsetilsyn (2016). Avgjørelse i tilsynssak: «Barn døde
+under fødsel – komplikasjoner ved operativ forløsning – keisersnitt
+besluttet for sent – uforsvarlig håndtering av fødselslegen», historisk
+arkiv.
+https://www.helsetilsynet.no/historisk-arkiv/avgjoerelser-i-tilsynssaker-og-rapporter-etter-alvorlige-hendelser/2016/barn-dode-under-fodsel-komplikasjoner-keisersnitt-besluttet-for-sent-uforsvarlig-handtering-av-fodselslegen/</li>
+<li>Panteli D, Legido-Quigley H, Reichebner C, Ollenschläger G, Schäfer
+C, Busse R (2019). «Clinical Practice Guidelines as a quality strategy»,
+kap. 9 i Busse R, Klazinga N, Panteli D m.fl. (red.), <em>Improving
+Healthcare Quality in Europe</em>, Health Policy Series nr. 53, European
+Observatory on Health Systems and Policies/WHO.
+https://www.ncbi.nlm.nih.gov/books/NBK549283/</li>
+<li>Aase-Kvåle I (2023). «Successfully changing the mode of regulation
+in clinical priority setting …». <em>Health Economics, Policy and
+Law</em> 18(3):234–247. PubMed 36752679.</li>
+<li>Feiring E, Walter AB (2017). «Antimicrobial stewardship: a
+qualitative study of the development of national guidelines for
+antibiotic use in hospitals». <em>BMC Health Services Research</em>
+17:747. https://pmc.ncbi.nlm.nih.gov/articles/PMC5697115/</li>
+<li>Langeland EA, Pisani SER, Kalager M, Bretthauer M, Helsingen LM
+(2023). «Følger Helsedirektoratets retningslinjer internasjonale
+standarder for troverdighet?» <em>Tidsskrift for Den norske
+legeforening</em> 143(14).
+https://tidsskriftet.no/2023/10/folger-helsedirektoratets-retningslinjer-internasjonale-standarder-troverdighet</li>
+<li>Vandvik PO (2018). «Har vi troverdige retningslinjer for klinisk
+praksis i Norge?» <em>Tidsskrift for Den norske legeforening</em> 138,
+leder 19.2.2018.</li>
+<li>Nordic Innovation (2015–2017). «Ecosystem for Nordic Clinical
+Practice Guidelines» (programbeskrivelse).
+https://www.nordicinnovation.org/programs/ecosystem-nordic-clinical-practice-guidelines</li>
+<li>Norges Optikerforbund. «Kliniske retningslinjer» (26 retningslinjer,
+2014–2026). https://www.optikerne.no/kliniske-retningslinjer/</li>
+<li>Faggruppen for manuellterapi, NFF. «Retningslinjer for undersøkelse
+innen manuellterapi» (generell og spesiell del).
+https://www.manuellterapi.no/</li>
+<li>NSFLIS / Norsk anestesiologisk forening (2014). «Retningslinjer for
+intensivvirksomhet i Norge».
+https://www.legeforeningen.no/foreningsledd/fagmed/norsk-anestesiologisk-forening/dokumenter/retningslinjer-for-intensivvirksomhet-i-norge/</li>
+<li>Norsk psykologforening (2007). «Prinsipperklæring om evidensbasert
+psykologisk praksis».
+https://www.psykologforeningen.no/fag-og-politikk/psykologprofesjonen/prinsipperklaering-om-evidensbasert-psykologisk-praksis</li>
+<li>Fagmedisinske foreningers produktsider (sveip 2026-08-10, utvalg):
+endokrinologi.no; Nasjonal Metodebok for Infeksjonsmedisin (via
+antibiotika.no); Norsk forening for lungemedisin (kols/astma,
+legeforeningen.no); Norsk nevrologisk forening (akuttveileder,
+legeforeningen.no); Veileder for øre-nese-halsfaget
+(helsebiblioteket.no); Norsk oftalmologisk forening (kvalitetshåndbok,
+legeforeningen.no); Norsk forening for dermatologi og venerologi
+(behandlingsanbefalinger, legeforeningen.no); Norsk cardiologisk selskap
+(hjertesviktveileder, legeforeningen.no); metodebok.no/revmatologi;
+Helsedirektoratet om handlingsprogrammenes bakgrunn
+(helsedirektoratet.no/retningslinjer/
+palliasjon-i-kreftomsorgen-handlingsprogram).</li>
+</ol>
+<hr />
+<p><strong>Metodisk forbehold:</strong> WebFetch-sammendrag er i
+utgangspunktet behandlet som upålitelige uten verifisering mot råtekst
+(jf. advarsel om forkastet Tidsskriftet-artikkel i forrige runde). For
+punkt 2 (Legeforeningen 2015) og punkt 4 (Meld. St. 11) er sitatene
+verifisert direkte mot <code>pdftotext</code>-uttrekk fra kildefilene,
+ikke bare mot WebFetch-sammendrag. For del 1 (bredde på tvers av
+disipliner) og punkt 3 (IS-1870-sitatet) er sitatene hentet via
+WebSearch/WebFetch-sammendrag og øvrig sitering skjer via
+Legeforeningens 2015-rapport (som selv er verifisert mot råtekst) –
+disse er merket med lavere sikkerhet der det er relevant. Kildene i del
+1 er ikke alle lest i fulltekst mot rå PDF/HTML, kun via søkeresultater
+og WebFetch-sammendrag; dette er en svakhet notatet erkjenner
+eksplisitt.</p>
+
+</main>
+
+<footer>
+  Utredning gjennomført av Helsedirektoratet, 2026
+</footer>
+
+</body>
+</html>

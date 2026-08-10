@@ -13,6 +13,28 @@ for eksempel FHI og VKM, og sikker mange andre. Vurder om dette er noe som passe
 > beslutningsunderlag i nåværende fase.
 > Se [statusnivåer](index.md#statusnivåer).
 
+## Hovedbudskap
+
+Internasjonale erfaringer peker i samme retning: fra
+periodisk til kontinuerlig oppdatering av retningslinjer
+(levende retningslinjer), mot maskinlesbare retningslinjer
+med FHIR som sentral standard, og mot risikobasert
+regulering av KI i helse i tråd med EU AI Act. KI brukes
+gjennomgående som støtteverktøy for effektivisering og
+kvalitetssikring – ingen av initiativene lar KI erstatte
+faglig vurdering. Land med sentralisert helsedata-
+infrastruktur, som Finland og Danmark, har bedre
+forutsetninger for å ta i bruk KI enn land med mer
+fragmenterte systemer.
+
+Kapittel 8 anbefaler at Norge blant annet piloterer WHO
+SMART Guidelines, utvikler et nasjonalt rammeverk
+inspirert av NICE Evidence Standards Framework, piloterer
+KI-støttet kunnskapsproduksjon sammen med FHI og
+Helsedirektoratet, etablerer nordisk samarbeid, utforsker
+levende retningslinjer og investerer i sentral
+infrastruktur for helsedata.
+
 ## 1. Innledning
 
 Denne delrapporten kartlegger internasjonale
@@ -48,7 +70,9 @@ WHO har utviklet SMART Guidelines som en systematisk
 tilnærming til digitalisering av kliniske
 retningslinjer. SMART står for **Standards-based,
 Machine-readable, Adaptive, Requirements-based,
-Testable**. Rammeverket ble utviklet fordi
+Testable** (standardbasert, maskinlesbar,
+tilpasningsdyktig, kravbasert og testbar). Rammeverket
+ble utviklet fordi
 tradisjonelle retningslinjer i PDF- eller tekstformat
 har vist seg vanskelige å implementere konsistent i
 kliniske beslutningsstøttesystemer.
@@ -64,8 +88,10 @@ artefakter:
 2. **Semistrukturert innhold** – Beslutningslogikk
    og arbeidsflyter dokumenteres
 3. **Maskinlesbare representasjoner** –
-   Formalisering i standarder som FHIR og CQL
-   (Clinical Quality Language)
+   Formalisering i standarder som FHIR (Fast
+   Healthcare Interoperability Resources – en
+   internasjonal standard for utveksling av
+   helsedata) og CQL (Clinical Quality Language)
 4. **Eksekverbare spesifikasjoner** –
    Programvarenøytrale implementeringsguider
 5. **Dynamiske, tilpasningsdyktige systemer** –
@@ -111,15 +137,16 @@ tre grunner:
 ### Evidence Standards Framework for digitale helseteknologier
 
 National Institute for Health and Care Excellence
-(NICE) i Storbritannia har utviklet et Evidence
-Standards Framework (ESF) for å evaluere digitale
-helseteknologier. Rammeverket ble oppdatert i 2022
+(NICE) i Storbritannia har utviklet et rammeverk for
+evidenskrav, Evidence Standards Framework (ESF), for
+å vurdere digitale helseteknologier. Rammeverket ble
+oppdatert i 2022
 for å adressere KI-spesifikke problemstillinger,
 inkludert adaptive algoritmer.
 
-ESF klassifiserer digitale helseteknologier i
-funksjonskategorier med tilhørende krav til evidens.
-Teknologier med høyere risiko (for eksempel
+ESF deler digitale helseteknologier inn i
+funksjonskategorier, med ulike krav til evidens for
+hver kategori. Teknologier med høyere risiko (for eksempel
 KI-basert diagnostikk) krever strengere evidens enn
 informasjonsverktøy. Oppdateringen i 2022 ble
 gjennomført i samarbeid med blant annet Imperial
@@ -140,7 +167,7 @@ identifisere relevante studier i store
 dokumentmengder. Tilnærmingen er gradvis og forsiktig,
 med vekt på transparens og menneskelig overstyring.
 
-### Lessons learned
+### Erfaringer fra NICE
 
 Erfaringene fra NICE peker på flere viktige
 lærdommer:
@@ -162,11 +189,11 @@ lærdommer:
 
 ### Bruk av KI i systematiske oversikter
 
-Cochrane, som er den ledende internasjonale aktøren
-for produksjon av systematiske oversikter, har
-igangsatt flere pilotprosjekter for å undersøke
-hvordan KI kan effektivisere oversiktsprosessen.
-Systematiske oversikter er svært arbeidskrevende – en
+Cochrane er den ledende internasjonale aktøren for
+systematiske oversikter. Organisasjonen har satt i
+gang flere pilotprosjekter for å undersøke hvordan KI
+kan effektivisere oversiktsarbeidet. Systematiske
+oversikter er svært arbeidskrevende – en
 typisk oversikt tar 12-18 måneder å produsere.
 
 ### Automatisert screening og dataekstraksjon
@@ -189,10 +216,13 @@ De mest lovende anvendelsesområdene inkluderer:
 
 Resultatene er lovende, men det er viktige forbehold:
 
-- **Sensitivitet versus spesifisitet:** I screening
-  er det kritisk å ikke miste relevante studier.
-  KI-verktøy må kalibreres for høy sensitivitet,
-  noe som kan begrense tidsbesparelsen.
+- **Sensitivitet og spesifisitet:** I screening er
+  det avgjørende å ikke overse relevante studier.
+  Sensitivitet er andelen relevante studier verktøyet
+  fanger opp, mens spesifisitet er andelen irrelevante
+  studier verktøyet korrekt sorterer bort. KI-verktøy
+  må kalibreres for høy sensitivitet, noe som kan
+  begrense tidsbesparelsen.
 - **Faglig kontroll:** Cochrane understreker at
   KI-verktøyene støtter, men ikke erstatter, faglig
   vurdering. Alle KI-assisterte trinn gjennomgås av
@@ -230,9 +260,8 @@ sekundærbruk av helsedata. AI Danmark-initiativet har
 inkludert helse som et prioritert satsingsområde, med
 vekt på ansvarlig bruk av KI. Danmark har kommet
 relativt langt med sentral infrastruktur for
-helsedata (Sundhedsdatanettet), noe som gir et bedre
-grunnlag for KI-anvendelser enn i mer fragmenterte
-systemer.
+helsedata (Sundhedsdatanettet). Dette gir et bedre
+grunnlag for KI-bruk enn i mer fragmenterte systemer.
 
 *Usikkerhet: Detaljert informasjon om spesifikke
 KI-piloter innen kunnskapsforvaltning i dansk
@@ -289,11 +318,14 @@ representerer både en utfordring og et argument for
 
 ### Store språkmodeller i medisinsk kontekst
 
-Store språkmodeller (LLM-er) fra aktører som OpenAI
-og Google har vist oppsiktsvekkende ytelse på
-medisinske benchmarks. Googles Med-PaLM 2 oppnådde
-i 2023 resultater på nivå med ekspertnivå på den
-amerikanske medisinske lisensieringseksamen (USMLE).
+Store språkmodeller (LLM-er, dataprogrammer som
+genererer og tolker tekst) fra aktører som OpenAI og
+Google har vist svært god ytelse på medisinske
+tester (benchmarks – standardiserte tester som brukes
+for å sammenligne KI-systemers ytelse). Googles
+språkmodell Med-PaLM 2 oppnådde i 2023 resultater på
+ekspertnivå på den amerikanske legeeksamenen USMLE
+(United States Medical Licensing Examination).
 OpenAIs GPT-4 har vist tilsvarende resultater.
 
 **Viktig forbehold:** Ytelse på standardiserte tester
@@ -314,20 +346,22 @@ kunnskapsgrafer. Disse verktøyene er primært rettet
 mot forskere og kunnskapsprodusenter, men har
 potensielle anvendelser for retningslinjearbeid.
 
-### Living guidelines-bevegelsen
+### Levende retningslinjer: kontinuerlig oppdatering i stedet for periodisk revisjon
 
-Australia har vært en pioner innen
-«living guidelines» – retningslinjer som oppdateres
-kontinuerlig i stedet for periodisk. Australian
-Living Evidence Consortium har utviklet metoder og
-infrastruktur for dette. WHO har også tatt i bruk
-living guidelines for utvalgte emner. KI-støttet
-overvåking av ny evidens er en nøkkelkomponent som
-gjør kontinuerlig oppdatering praktisk gjennomførbar.
+Australia har vært en pioner innen levende
+retningslinjer (løpende oppdaterte retningslinjer, på
+engelsk «living guidelines») – retningslinjer som
+oppdateres fortløpende i stedet for på faste
+tidspunkt. Australian Living Evidence Consortium har
+utviklet metoder og infrastruktur for dette. WHO har
+også tatt i bruk levende retningslinjer for utvalgte
+emner. KI-støttet overvåking av ny evidens er en
+nøkkelkomponent som gjør kontinuerlig oppdatering
+praktisk gjennomførbar.
 
-Living guidelines-konseptet er svært relevant for
-norsk kunnskapsforvaltning, da det adresserer et
-kjent problem med at retningslinjer kan bli utdaterte
+Levende retningslinjer er svært relevant for norsk
+kunnskapsforvaltning, da konseptet adresserer et kjent
+problem med at retningslinjer kan bli utdaterte
 mellom revisjonssykluser.
 
 ---
@@ -370,14 +404,14 @@ mellom revisjonssykluser.
 | **Hva er ulikt?** | Ulik grad av sentralisering. Norge har et mer fragmentert helsedata-landskap. |
 | **Konkret adopsjon** | Etablere nordisk erfaringsutveksling om KI i kunnskapsforvaltning. Vurdere Findata-modellen for sekundærbruk av data. |
 
-### Living guidelines
+### Levende retningslinjer
 
 | Aspekt | Vurdering |
 | --- | --- |
 | **Relevans** | Svært høy. Adresserer et konkret problem i norsk retningslinjearbeid. |
 | **Hva kan Norge lære?** | Metoder for kontinuerlig evidensovervåking. Infrastruktur for oppdatering av retningslinjer. |
 | **Hva er ulikt?** | Australsk helsetjeneste har annen struktur, men metodene er overførbare. |
-| **Konkret adopsjon** | Pilotere living guidelines-tilnærmingen for utvalgte retningslinjer, med KI-støttet evidensovervåking. |
+| **Konkret adopsjon** | Pilotere modellen med levende retningslinjer for utvalgte retningslinjer, med KI-støttet evidensovervåking. |
 
 ---
 
@@ -386,7 +420,7 @@ mellom revisjonssykluser.
 ### Trender på tvers av land
 
 1. **Fra periodisk til kontinuerlig oppdatering:**
-   Flere land beveger seg mot living guidelines og
+   Flere land beveger seg mot levende retningslinjer og
    kontinuerlig evidensovervåking.
 2. **Maskinlesbarhet som mål:** WHO, NICE og flere
    nasjonale aktører arbeider mot maskinlesbare
@@ -398,10 +432,10 @@ mellom revisjonssykluser.
 4. **Differensiert regulering:** Det er en
    internasjonal trend mot risikobasert regulering
    av KI i helse, i tråd med EU AI Act.
-5. **Sentral infrastruktur som forutsetning:** Land
-   med mer sentralisert helsedata-infrastruktur
-   (Finland, Danmark) har bedre forutsetninger for
-   KI-anvendelser.
+5. **Sentral infrastruktur gir bedre forutsetninger:**
+   Land med mer sentralisert helsedata-infrastruktur,
+   som Finland og Danmark, har bedre forutsetninger
+   for å ta i bruk KI.
 
 ### Felles utfordringer
 
@@ -422,7 +456,7 @@ mellom revisjonssykluser.
 
 ### Beste praksis som bør vurderes i norsk sammenheng
 
-1. **Adopt WHO SMART Guidelines-tilnærmingen** for
+1. **Ta i bruk WHO SMART Guidelines-tilnærmingen** for
    strukturering av nasjonale retningslinjer, med
    prioriterte pilotområder.
 2. **Utvikle et nasjonalt rammeverk** for evaluering
@@ -435,12 +469,12 @@ mellom revisjonssykluser.
 4. **Etablere nordisk samarbeid** om KI i
    kunnskapsforvaltning for å dele erfaringer og
    redusere duplisert arbeid.
-5. **Utforske living guidelines-modellen** for
-   utvalgte retningslinjer der evidensgrunnlaget
+5. **Utforske modellen med levende retningslinjer**
+   for utvalgte retningslinjer der evidensgrunnlaget
    endres raskt.
-6. **Investere i sentral infrastruktur** for
-   helsedata som grunnlag for KI-anvendelser, med
-   lærdommer fra Finland og Danmark.
+6. **Invester i sentral infrastruktur** for
+   helsedata, med lærdom fra Finland og Danmark, som
+   grunnlag for KI-bruk.
 
 ---
 

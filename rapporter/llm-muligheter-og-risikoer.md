@@ -10,6 +10,15 @@
 > arbeidsdokument, ikke beslutningsunderlag i nåværende
 > fase. Se [statusnivåer](index.md#statusnivåer).
 
+**Hovedbudskap:** Store språkmodeller kan effektivisere
+kunnskapssyntese, retningslinjearbeid og
+innbyggerinformasjon, men medfører samtidig reelle
+risikoer knyttet til hallusinering, tillit, skjevhet,
+personvern og juridisk usikkerhet. Vellykket bruk
+forutsetter styring (governance), kvalitetssikring og
+menneskelig tilsyn i tråd med kravene i EU AI Act – og
+forberedelsene bør starte umiddelbart.
+
 ---
 
 ## 1. Innledning
@@ -29,16 +38,14 @@ er dagens verdikjede fra forskning til
 innbyggerrettet helseinformasjon preget av lange
 ledetider, ressurskrevende manuelle prosesser og
 utfordringer med å holde innholdet oppdatert.
-LLM-teknologi har potensial til å adressere flere av
-disse utfordringene – men introduserer samtidig nye
-typer risiko som er spesielt alvorlige i et
-helsedomene.
+LLM-teknologi kan adressere flere av disse
+utfordringene – men introduserer samtidig nye typer
+risiko som er spesielt alvorlige i et helsedomene.
 
-Formålet med denne delrapporten er å gi en balansert
-vurdering av muligheter og risikoer ved bruk av
-LLM-er i kunnskapsforvaltning i helsesektoren, med
-særlig vekt på de regulatoriske rammene som følger av
-EU AI Act og relevansen for EHDS-konteksten.
+Denne delrapporten vurderer muligheter og risikoer ved
+bruk av LLM-er i kunnskapsforvaltning i helsesektoren.
+Vi legger særlig vekt på kravene i EU AI Act og hva de
+betyr for EHDS.
 
 **Metodisk merknad:** Vurderingene i denne rapporten
 er basert på publisert forskning, offisielle
@@ -95,9 +102,9 @@ LLM-er har vist økende ytelse på medisinske
 kunnskapstester. GPT-4 bestod den amerikanske
 legeeksamenen (USMLE) med god margin, og nyere
 modeller scorer over 85 % på benchmarks som MedQA.
-Det er imidlertid viktig å understreke at gode
-resultater på standardiserte tester ikke automatisk
-betyr at modellene er pålitelige i klinisk praksis.
+Gode resultater på standardiserte tester betyr
+imidlertid ikke automatisk at modellene er pålitelige
+i klinisk praksis.
 Benchmarks tester gjenkjenning av fakta og
 resonnement under kontrollerte betingelser, mens
 klinisk og faglig arbeid krever helhetsvurdering,
@@ -110,10 +117,10 @@ kontekstforståelse og håndtering av usikkerhet.
 ### 3.1 Akselerert kunnskapssyntese
 
 Den mest umiddelbare muligheten ligger i å
-effektivisere prosessen med å sammenstille
-forskningsevidens. Dagens prosess for systematiske
-oversikter, som beskrevet i delrapport 1, er svært
-ressurskrevende.
+effektivisere kunnskapssyntese – å sammenstille
+forskningsfunn til samlet kunnskap. Dagens prosess
+for systematiske oversikter, som beskrevet i
+delrapport 1, er svært ressurskrevende.
 
 **Automatisert screening av forskningslitteratur:**
 LLM-er kan gjennomgå store mengder
@@ -121,8 +128,7 @@ forskningsartikler og identifisere hvilke som er
 relevante for en gitt problemstilling. I tradisjonell
 systematisk oversiktsarbeid bruker forskere betydelig
 tid på å screene titler og sammendrag. KI-assistert
-screening har potensial til å redusere denne tiden
-vesentlig.
+screening kan redusere tidsbruken vesentlig.
 
 **KI-assistert dataekstraksjon:** Etter at relevante
 studier er identifisert, må nøkkeldata ekstraheres –
@@ -165,10 +171,9 @@ forskning og oppdaterte retningslinjer.
 
 **Utkast til retningslinjetekst:** Gitt et
 oppsummert kunnskapsgrunnlag, kan LLM-er generere
-utkast til retningslinjeformuleringer. Det er viktig
-å understreke at dette er utkast som må gjennomgås og
-godkjennes av fageksperter og retningslinjepaneler –
-ikke ferdige produkter.
+utkast til retningslinjeformuleringer. Disse utkastene
+må gjennomgås og godkjennes av fageksperter og
+retningslinjepaneler – de er ikke ferdige produkter.
 
 **Konsistenssjekk:** Norske retningslinjer utvikles
 av ulike arbeidsgrupper over tid. LLM-er kan brukes
@@ -205,10 +210,11 @@ spørsmål om ansvar og kvalitetssikring
 
 ### 3.4 Kontinuerlig kunnskapsoppdatering
 
-LLM-er kan muliggjøre en overgang fra periodisk
-oppdaterte retningslinjer til
-«living guidelines» – retningslinjer som oppdateres
-kontinuerlig etter hvert som ny evidens publiseres:
+LLM-er kan gjøre det mulig å gå fra periodisk
+oppdaterte retningslinjer til «living guidelines» –
+retningslinjer som oppdateres fortløpende etter hvert
+som ny evidens publiseres, i stedet for på faste
+tidspunkter:
 
 - **Sanntidsovervåking** av nye publikasjoner innen
   definerte fagområder
@@ -280,9 +286,9 @@ at aksepten er høyere når KI presenteres som et
 støtteverktøy som fagpersonell kan overprøve, snarere
 enn et autonomt beslutningssystem.
 
-**Institusjonell legitimitet:** For Helsedirektoratet
-som fagmyndighet er det avgjørende at KI-bruk ikke
-undergraver myndighetens troverdighet. Dersom
+**Institusjonell legitimitet:** Helsedirektoratet må
+som fagmyndighet sikre at KI-bruk ikke undergraver
+myndighetens troverdighet. Dersom
 innbyggere opplever at helseråd «bare er generert av
 en maskin», kan det svekke tilliten til offentlig
 helseinformasjon generelt. Tydelig kommunikasjon om
@@ -323,11 +329,11 @@ personvernspørsmål:
   som skytjenester fra amerikanske selskaper.
   Overføring av helsedata til slike tjenester krever
   særskilt rettslig grunnlag og risikovurdering.
-- **Nasjonal kontroll:** Det er et prinsipielt
-  spørsmål om kritisk infrastruktur for
-  helseinformasjon bør avhenge av utenlandske
+- **Nasjonal kontroll:** Norge står overfor et
+  prinsipielt spørsmål: bør kritisk infrastruktur
+  for helseinformasjon avhenge av utenlandske
   leverandører og modeller som norske myndigheter
-  har begrenset innsyn i.
+  har begrenset innsyn i?
 - **Treningsdata:** Spørsmål om hvorvidt data som
   sendes til skytjenester kan bli brukt til videre
   modelltrening, krever avtalemessige og tekniske
@@ -343,18 +349,17 @@ skal brukes med kontekstuell informasjon.
 
 ### 4.5 Juridiske risikoer
 
-**Ansvar ved feil:** Dersom KI-generert
-helseinformasjon fører til skade, oppstår spørsmål
-om hvem som er ansvarlig. Helsedirektoratet som
-avsender av informasjonen vil sannsynligvis bære
-ansvaret uavhengig av om innholdet er generert av KI
-eller mennesker – men dette er foreløpig rettslig
-uavklart.
+**Ansvar ved feil:** Hvis KI-generert
+helseinformasjon fører til skade, oppstår
+spørsmålet: hvem er ansvarlig? Helsedirektoratet vil
+trolig bære ansvaret som avsender, uavhengig av om KI
+eller mennesker har laget innholdet. Dette spørsmålet
+er foreløpig ikke rettslig avklart.
 
 **Regulatorisk usikkerhet:** EU AI Act trådte i kraft
 i 2024, men flere sentrale bestemmelser har trinnvis
-ikrafttredelse frem til 2027. Det gjenstår å se
-hvordan reglene vil bli tolket og håndhevet i
+ikrafttredelse frem til 2027. Det er foreløpig uklart
+hvordan myndighetene vil tolke og håndheve reglene i
 praksis, spesielt i grensesnittet mellom
 helseinformasjon og medisinsk utstyr.
 
@@ -362,10 +367,10 @@ helseinformasjon og medisinsk utstyr.
 grensedragningsspørsmål er om et KI-system som gir
 helseråd til innbyggere klassifiseres som medisinsk
 utstyr etter MDR (Medical Device Regulation).
-Informasjonssystemer faller normalt utenfor, men jo
-mer personaliserte og handlingsrettede rådene er,
-desto nærmere kommer man grensen for medisinsk
-utstyr.
+Informasjonssystemer regnes normalt ikke som medisinsk
+utstyr. Men jo mer personaliserte og handlingsrettede
+rådene er, desto nærmere kommer systemet grensen til
+medisinsk utstyr.
 
 ---
 
@@ -425,8 +430,7 @@ kombinasjon med EHDS innebærer dette at norske
 helsemyndigheter må:
 
 - Kartlegge hvilke eksisterende og planlagte
-  KI-systemer som faller inn under
-  reguleringsregimet
+  KI-systemer reglene omfatter
 - Etablere prosesser for samsvarsvurdering og tilsyn
 - Sikre at KI-systemer som brukes i verdikjeden for
   kunnskapsforvaltning oppfyller kravene til
@@ -447,9 +451,9 @@ EU AI Act har trinnvis ikrafttredelse:
 - **August 2027:** Utvidede krav for
   høyrisiko-systemer som også er medisinsk utstyr
 
-Denne tidsplanen gir norske aktører en avgrenset
-periode til å forberede seg, men arbeidet bør starte
-tidlig gitt kompleksiteten i helsedomenet.
+Tidsplanen gir norske aktører en avgrenset periode til
+å forberede seg. Arbeidet bør likevel starte tidlig,
+fordi helsedomenet er komplekst.
 
 ---
 
@@ -470,10 +474,10 @@ uten kvalitetssikring og governance.
 
 **Hvor går grensen mellom KI-støtte og
 KI-autonomi?**
-Det er en vesentlig forskjell mellom KI som
-assisterer en fagperson (foreslår, sorterer,
-oppsummerer) og KI som produserer ferdige helseråd
-uten menneskelig gjennomgang. For
+KI som assisterer en fagperson (foreslår, sorterer,
+oppsummerer) skiller seg vesentlig fra KI som
+produserer ferdige helseråd uten menneskelig
+gjennomgang. For
 kunnskapsforvaltning i en myndighetsrolle bør
 prinsippet om menneskelig tilsyn stå sentralt, i
 tråd med EU AI Acts krav.
@@ -481,25 +485,25 @@ tråd med EU AI Acts krav.
 **Hvem har ansvar når KI bidrar til feilaktige
 helseråd?**
 Selv med menneskelig tilsyn kan feil slippe gjennom.
-Det er behov for tydelig ansvarsallokering, både
-juridisk og organisatorisk. Helsedirektoratets rolle
+Ansvaret må derfor plasseres tydelig, både juridisk
+og organisatorisk. Helsedirektoratets rolle
 som fagmyndighet tilsier at direktoratet vil bære
 ansvaret for innholdet uavhengig av
 produksjonsmetode.
 
 **Hvordan sikre demokratisk kontroll over KI i
 helse?**
-KI-systemer som påvirker offentlig helseinformasjon
-bør være underlagt demokratisk kontroll. Dette
-inkluderer innsyn i hvordan systemene fungerer,
+Folkevalgte organer bør ha demokratisk kontroll over
+KI-systemer som påvirker offentlig helseinformasjon.
+Dette inkluderer innsyn i hvordan systemene fungerer,
 mulighet for offentlig debatt om bruksområder, og
 politisk styring av rammer og grenser.
 
 **Bør Norge utvikle egne modeller eller bruke
 kommersielle?**
-Det er et strategisk valg mellom å bruke
+Norge står overfor et strategisk valg: bruke
 kommersielle modeller (raskere, mer kapable, men
-avhengig av utenlandske leverandører) og å investere
+avhengig av utenlandske leverandører) eller investere
 i egne eller nordiske modeller (større kontroll, men
 høyere kostnad og sannsynligvis lavere ytelse på kort
 sikt). En mellomvei kan være å bruke kommersielle

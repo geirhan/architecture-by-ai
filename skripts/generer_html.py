@@ -50,6 +50,8 @@ SIDER = [
     ("llm-muligheter-og-risikoer.html", "LLM muligheter",
      "llm-muligheter-og-risikoer.md"),
     ("ny-verdikjede.html", "Ny verdikjede", "ny-verdikjede.md"),
+    ("profesjonsforeninger-normering.html", "Profesjonsforeninger",
+     "profesjonsforeninger-normering.md"),
     ("regulatorisk-etterslep.html", "Regulatorisk etterslep",
      "regulatorisk-etterslep.md"),
     ("rolledeling-sentral-helseforvaltning.html", "Rolledeling",

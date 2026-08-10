@@ -79,10 +79,15 @@ Collaborative). [DOK]
 **To funn direkte relevante for utredningen:**
 
 1. **Norske offentlige koblinger finnes allerede** [DOK,
-   årsrapporten]: Forskningsrådet (REMEDY), Helse Sør-Øst
-   (E3/Lovisenberg), og Norsk revmatologisk forening har adaptert en
-   MAGIC/BMJ Rapid Recommendation nasjonalt. Koblingene går i dag via
-   forsknings- og sykehussiden, ikke via Helsedirektoratet/FHI.
+   årsrapporten]: Forskningsrådet (REMEDY) og Helse Sør-Øst
+   (E3/Lovisenberg). Årsrapporten oppgir også at Norsk revmatologisk
+   forening har adaptert en MAGIC/BMJ Rapid Recommendation nasjonalt,
+   men denne koblingen er [ANT — usikker, ikke verifisert 2026-08-10]:
+   et systematisk sveip kunne ikke finne en MAGICapp-adaptert
+   retningslinje hos foreningen — dens produkt ser ut til å ligge på
+   metodebok.no (se `profesjonsforeninger-normering.md`, kap. 5b).
+   De verifiserte koblingene går i dag via forsknings- og
+   sykehussiden, ikke via Helsedirektoratet/FHI.
    Dette besvarer kunnskapsgap 4 (seksjon 6) delvis.
 2. **Finansieringsprofilen bekrefter sårbarhetsmønsteret** fra den
    internasjonale kartleggingen (jf. ALEC, pkt. 1.2): driften hviler
@@ -229,12 +234,13 @@ Et CMAJ-perspektiv ("The centralized approach to guidelines development") argume
 | Ren føderasjon (fagforeninger koordinerer selv) | Tyskland (AWMF) | Faglig eierskap, bred forankring | Ujevn kvalitet (S1 vs S3), svakt sentralt mandat, ressurskonkurranse [ANT] |
 | Fragmentert/ukoordinert | Canada | — | Dokumentert som problematisk: industrifinansiering, ingen koordinering [DOK] |
 | Hybrid: fagforeningseid institutt med sentral metodestøtte | Nederland (Kennisinstituut) | Kombinerer faglig eierskap med sentral kapasitet | Instituttets mandat kommer fra fagforeningene, ikke staten — annen akkountabilitetslinje enn norsk statlig modell [ANT] |
+| Hybrid: statlig normering med foreningsveiledere i parallell | **Norge** — WHO/European Observatory (Panteli m.fl. 2019, kap. 9): «development of official national guidelines falls under the responsibility of the Directorate of Health, although professional associations produce their own guidance in parallel» [DOK]; se `profesjonsforeninger-normering.md` | Faglig eierskap og legitimitet i spesialitetene [ANT] | Ingen forrangsregler eller koordineringsforum mellom sporene [ANT] |
 | Statlig bestiller–akademisk utfører | USA (AHRQ/EPC) | Fleksibel skalering av utførerkapasitet | Sårbar for politisk/budsjettmessig svingning (jf. NGC-nedleggelsen) [DOK] |
 | Sentralisert statlig institutt (til sammenligning, dekket andre steder i utredningen) | England (NICE) | Stabil kapasitet, tydelig mandat | Høye faste kostnader, mindre lokal forankring [ANT, ikke dypere undersøkt her] |
 | Internasjonal gjenbruk/adaptasjon | ADAPTE, GRADE-ADOLOPMENT | Reduserer duplisering drastisk | Krever at kildeguideline finnes og er tillitsverdig; håndterer ikke rent nasjonale spørsmål [ANT] |
 | Digital delt infrastruktur på tvers av org.grenser | MAGIC/MAGICapp, ALEC | Adresserer R3 og R4 samtidig gjennom strukturert format | Avhengig av vedvarende finansiering (jf. ALEC-Taskforce-nedleggelsen) [DOK] |
 
-**Kilder:** [Guideline development in Europe, PubMed](https://pubmed.ncbi.nlm.nih.gov/11187086/), [The centralized approach to guidelines development, CMAJ](https://www.cmaj.ca/content/183/3/299)
+**Kilder:** [Guideline development in Europe, PubMed](https://pubmed.ncbi.nlm.nih.gov/11187086/), [The centralized approach to guidelines development, CMAJ](https://www.cmaj.ca/content/183/3/299), [Panteli m.fl. (2019), kap. 9 i Busse, Klazinga, Panteli m.fl. (red.), *Improving Healthcare Quality in Europe*, WHO/European Observatory, Health Policy Series nr. 53](https://www.ncbi.nlm.nih.gov/books/NBK549283/)
 
 ---
 
@@ -255,7 +261,7 @@ Kildegrunnlaget her er **generelt og ikke landsspesifikt koblet** til de institu
 1. **Kvantifisert effekt av living guidelines på faktisk oppdateringshastighet/kostnad sammenlignet med tradisjonell modell** — kvalitative prosessevalueringer finnes (ALEC/PLOS ONE) men ingen kost-nytte-sammenligning. Foreslår oppfølgende søk mot helseøkonomisk litteratur eller direkte kontakt med MAGIC/ALEC for tallgrunnlag.
 2. **AWMF sin faktiske kvalitets- og implementeringssvakhet er antatt, ikke dokumentert** i dette søket — bør verifiseres med en dedikert gjennomgang av tysk fagevaluering (f.eks. AWMF/DELBI-evalueringer) før det brukes som negativt eksempel i utredningen.
 3. **Status på det danske Sundhedsvæsenets Kvalitetsinstitut** er hentet fra 2024-kilder som beskriver en planlagt reform (åpning tidlig 2025) — bør oppdateres med 2025/2026-status. Dette er den kildekategorien med størst risiko for å være utdatert i dette notatet.
-4. **Norges konkrete forhold til MAGIC-stiftelsen** — *delvis lukket 2026-08-03, se pkt. 1.1.1*: norske offentlige koblinger finnes allerede via Forskningsrådet (REMEDY), Helse Sør-Øst (E3/Lovisenberg) og Norsk revmatologisk forening, men ingen dokumentert kobling via Helsedirektoratet/FHI/Nye metoder. Gjenstår: avklare om Helsedirektoratet/FHI har eller vurderer samarbeid, og kryssjekke finansieringspåstandene mot CORDIS/Forskningsrådets prosjektbank.
+4. **Norges konkrete forhold til MAGIC-stiftelsen** — *delvis lukket 2026-08-03, se pkt. 1.1.1*: norske offentlige koblinger finnes allerede via Forskningsrådet (REMEDY) og Helse Sør-Øst (E3/Lovisenberg), men ingen dokumentert kobling via Helsedirektoratet/FHI/Nye metoder. Koblingen til Norsk revmatologisk forening er [ANT — usikker, ikke verifisert 2026-08-10]: et systematisk sveip kunne ikke bekrefte den (se `profesjonsforeninger-normering.md`, kap. 5b). Gjenstår: avklare om Helsedirektoratet/FHI har eller vurderer samarbeid, og kryssjekke finansieringspåstandene mot CORDIS/Forskningsrådets prosjektbank.
 5. **Implementeringsinsentiver er kun overfladisk dekket** og ikke koblet til de spesifikke landmodellene (Nederland, Danmark, Tyskland) — bør følges opp med targeterte søk per land om ønskelig.
 6. **CDA-AMC (Canada) er identifisert som HTA-organ, ikke retningslinjeorgan** — det kanadiske "negative eksempelet" bygger på en enkelt CMAJ-kommentarartikkel og bør styrkes med flere kilder før det brukes tungt i utredningen.
 

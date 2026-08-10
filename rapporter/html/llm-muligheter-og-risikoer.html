@@ -215,6 +215,7 @@
     <li><a href="kildeforankring-slide3.html">Kildeforankring</a></li>
     <li><a href="llm-muligheter-og-risikoer.html" class="active">LLM muligheter</a></li>
     <li><a href="ny-verdikjede.html">Ny verdikjede</a></li>
+    <li><a href="profesjonsforeninger-normering.html">Profesjonsforeninger</a></li>
     <li><a href="regulatorisk-etterslep.html">Regulatorisk etterslep</a></li>
     <li><a href="rolledeling-sentral-helseforvaltning.html">Rolledeling</a></li>
     <li><a href="rottingen-utfordringsbildet.html">Røttingen-rapporten</a></li>
@@ -239,6 +240,12 @@ langs aksen menneskedrevet ↔︎ KI-drevet. Materialet er arbeidsdokument,
 ikke beslutningsunderlag i nåværende fase. Se <a
 href="index.html#statusnivåer">statusnivåer</a>.</p>
 </blockquote>
+<p><strong>Hovedbudskap:</strong> Store språkmodeller kan effektivisere
+kunnskapssyntese, retningslinjearbeid og innbyggerinformasjon, men
+medfører samtidig reelle risikoer knyttet til hallusinering, tillit,
+skjevhet, personvern og juridisk usikkerhet. Vellykket bruk forutsetter
+styring (governance), kvalitetssikring og menneskelig tilsyn i tråd med
+kravene i EU AI Act – og forberedelsene bør starte umiddelbart.</p>
 <hr />
 <h2 id="innledning">1. Innledning</h2>
 <p>Store språkmodeller (Large Language Models, LLM) og generativ kunstig
@@ -252,13 +259,11 @@ betydelige muligheter og vesentlige risikoer. Som beskrevet i delrapport
 1, er dagens verdikjede fra forskning til innbyggerrettet
 helseinformasjon preget av lange ledetider, ressurskrevende manuelle
 prosesser og utfordringer med å holde innholdet oppdatert. LLM-teknologi
-har potensial til å adressere flere av disse utfordringene – men
-introduserer samtidig nye typer risiko som er spesielt alvorlige i et
-helsedomene.</p>
-<p>Formålet med denne delrapporten er å gi en balansert vurdering av
-muligheter og risikoer ved bruk av LLM-er i kunnskapsforvaltning i
-helsesektoren, med særlig vekt på de regulatoriske rammene som følger av
-EU AI Act og relevansen for EHDS-konteksten.</p>
+kan adressere flere av disse utfordringene – men introduserer samtidig
+nye typer risiko som er spesielt alvorlige i et helsedomene.</p>
+<p>Denne delrapporten vurderer muligheter og risikoer ved bruk av LLM-er
+i kunnskapsforvaltning i helsesektoren. Vi legger særlig vekt på kravene
+i EU AI Act og hva de betyr for EHDS.</p>
 <p><strong>Metodisk merknad:</strong> Vurderingene i denne rapporten er
 basert på publisert forskning, offisielle dokumenter fra EU og
 erfaringer fra tidlige implementeringer internasjonalt. Feltet er i rask
@@ -300,26 +305,27 @@ ledende internasjonale modellene.</p>
 benchmarks</h3>
 <p>LLM-er har vist økende ytelse på medisinske kunnskapstester. GPT-4
 bestod den amerikanske legeeksamenen (USMLE) med god margin, og nyere
-modeller scorer over 85 % på benchmarks som MedQA. Det er imidlertid
-viktig å understreke at gode resultater på standardiserte tester ikke
-automatisk betyr at modellene er pålitelige i klinisk praksis.
-Benchmarks tester gjenkjenning av fakta og resonnement under
-kontrollerte betingelser, mens klinisk og faglig arbeid krever
-helhetsvurdering, kontekstforståelse og håndtering av usikkerhet.</p>
+modeller scorer over 85 % på benchmarks som MedQA. Gode resultater på
+standardiserte tester betyr imidlertid ikke automatisk at modellene er
+pålitelige i klinisk praksis. Benchmarks tester gjenkjenning av fakta og
+resonnement under kontrollerte betingelser, mens klinisk og faglig
+arbeid krever helhetsvurdering, kontekstforståelse og håndtering av
+usikkerhet.</p>
 <hr />
 <h2 id="muligheter-for-kunnskapsforvaltning">3. Muligheter for
 kunnskapsforvaltning</h2>
 <h3 id="akselerert-kunnskapssyntese">3.1 Akselerert
 kunnskapssyntese</h3>
-<p>Den mest umiddelbare muligheten ligger i å effektivisere prosessen
-med å sammenstille forskningsevidens. Dagens prosess for systematiske
-oversikter, som beskrevet i delrapport 1, er svært ressurskrevende.</p>
+<p>Den mest umiddelbare muligheten ligger i å effektivisere
+kunnskapssyntese – å sammenstille forskningsfunn til samlet kunnskap.
+Dagens prosess for systematiske oversikter, som beskrevet i delrapport
+1, er svært ressurskrevende.</p>
 <p><strong>Automatisert screening av forskningslitteratur:</strong>
 LLM-er kan gjennomgå store mengder forskningsartikler og identifisere
 hvilke som er relevante for en gitt problemstilling. I tradisjonell
 systematisk oversiktsarbeid bruker forskere betydelig tid på å screene
-titler og sammendrag. KI-assistert screening har potensial til å
-redusere denne tiden vesentlig.</p>
+titler og sammendrag. KI-assistert screening kan redusere tidsbruken
+vesentlig.</p>
 <p><strong>KI-assistert dataekstraksjon:</strong> Etter at relevante
 studier er identifisert, må nøkkeldata ekstraheres – studiedesign,
 deltakertall, utfallsmål, resultater. LLM-er kan automatisere deler av
@@ -386,9 +392,9 @@ utfordring i dagens verdikjede, der det kan gå lang tid mellom publisert
 forskning og oppdaterte retningslinjer.</p>
 <p><strong>Utkast til retningslinjetekst:</strong> Gitt et oppsummert
 kunnskapsgrunnlag, kan LLM-er generere utkast til
-retningslinjeformuleringer. Det er viktig å understreke at dette er
-utkast som må gjennomgås og godkjennes av fageksperter og
-retningslinjepaneler – ikke ferdige produkter.</p>
+retningslinjeformuleringer. Disse utkastene må gjennomgås og godkjennes
+av fageksperter og retningslinjepaneler – de er ikke ferdige
+produkter.</p>
 <p><strong>Konsistenssjekk:</strong> Norske retningslinjer utvikles av
 ulike arbeidsgrupper over tid. LLM-er kan brukes til å identifisere
 motstridende eller inkonsistente anbefalinger på tvers av
@@ -414,9 +420,10 @@ tilgjengelig helseinformasjon, men reiser samtidig vesentlige spørsmål
 om ansvar og kvalitetssikring (se kapittel 4).</p>
 <h3 id="kontinuerlig-kunnskapsoppdatering">3.4 Kontinuerlig
 kunnskapsoppdatering</h3>
-<p>LLM-er kan muliggjøre en overgang fra periodisk oppdaterte
+<p>LLM-er kan gjøre det mulig å gå fra periodisk oppdaterte
 retningslinjer til «living guidelines» – retningslinjer som oppdateres
-kontinuerlig etter hvert som ny evidens publiseres:</p>
+fortløpende etter hvert som ny evidens publiseres, i stedet for på faste
+tidspunkter:</p>
 <ul>
 <li><strong>Sanntidsovervåking</strong> av nye publikasjoner innen
 definerte fagområder</li>
@@ -466,13 +473,12 @@ bruke KI-støttede verktøy må ha tillit til systemenes pålitelighet.
 Tidlige erfaringer tyder på at aksepten er høyere når KI presenteres som
 et støtteverktøy som fagpersonell kan overprøve, snarere enn et autonomt
 beslutningssystem.</p>
-<p><strong>Institusjonell legitimitet:</strong> For Helsedirektoratet
-som fagmyndighet er det avgjørende at KI-bruk ikke undergraver
-myndighetens troverdighet. Dersom innbyggere opplever at helseråd «bare
-er generert av en maskin», kan det svekke tilliten til offentlig
-helseinformasjon generelt. Tydelig kommunikasjon om hvordan KI brukes –
-og om at fagpersoner alltid har det endelige ansvaret – er
-nødvendig.</p>
+<p><strong>Institusjonell legitimitet:</strong> Helsedirektoratet må som
+fagmyndighet sikre at KI-bruk ikke undergraver myndighetens
+troverdighet. Dersom innbyggere opplever at helseråd «bare er generert
+av en maskin», kan det svekke tilliten til offentlig helseinformasjon
+generelt. Tydelig kommunikasjon om hvordan KI brukes – og om at
+fagpersoner alltid har det endelige ansvaret – er nødvendig.</p>
 <h3 id="bias-og-rettferdighet">4.3 Bias og rettferdighet</h3>
 <p>LLM-er trenes på store tekstkorpus som reflekterer eksisterende
 skjevheter i medisinsk forskning og samfunnet for øvrig:</p>
@@ -500,10 +506,10 @@ flere personvernspørsmål:</p>
 skytjenester fra amerikanske selskaper. Overføring av helsedata til
 slike tjenester krever særskilt rettslig grunnlag og
 risikovurdering.</li>
-<li><strong>Nasjonal kontroll:</strong> Det er et prinsipielt spørsmål
-om kritisk infrastruktur for helseinformasjon bør avhenge av utenlandske
-leverandører og modeller som norske myndigheter har begrenset innsyn
-i.</li>
+<li><strong>Nasjonal kontroll:</strong> Norge står overfor et
+prinsipielt spørsmål: bør kritisk infrastruktur for helseinformasjon
+avhenge av utenlandske leverandører og modeller som norske myndigheter
+har begrenset innsyn i?</li>
 <li><strong>Treningsdata:</strong> Spørsmål om hvorvidt data som sendes
 til skytjenester kan bli brukt til videre modelltrening, krever
 avtalemessige og tekniske avklaringer.</li>
@@ -514,22 +520,22 @@ enn individuelle pasientdata. Dette reduserer personvernrisikoen for
 flere bruksområder, men fjerner den ikke helt, spesielt dersom modellene
 skal brukes med kontekstuell informasjon.</p>
 <h3 id="juridiske-risikoer">4.5 Juridiske risikoer</h3>
-<p><strong>Ansvar ved feil:</strong> Dersom KI-generert helseinformasjon
-fører til skade, oppstår spørsmål om hvem som er ansvarlig.
-Helsedirektoratet som avsender av informasjonen vil sannsynligvis bære
-ansvaret uavhengig av om innholdet er generert av KI eller mennesker –
-men dette er foreløpig rettslig uavklart.</p>
+<p><strong>Ansvar ved feil:</strong> Hvis KI-generert helseinformasjon
+fører til skade, oppstår spørsmålet: hvem er ansvarlig?
+Helsedirektoratet vil trolig bære ansvaret som avsender, uavhengig av om
+KI eller mennesker har laget innholdet. Dette spørsmålet er foreløpig
+ikke rettslig avklart.</p>
 <p><strong>Regulatorisk usikkerhet:</strong> EU AI Act trådte i kraft i
 2024, men flere sentrale bestemmelser har trinnvis ikrafttredelse frem
-til 2027. Det gjenstår å se hvordan reglene vil bli tolket og håndhevet
-i praksis, spesielt i grensesnittet mellom helseinformasjon og medisinsk
-utstyr.</p>
+til 2027. Det er foreløpig uklart hvordan myndighetene vil tolke og
+håndheve reglene i praksis, spesielt i grensesnittet mellom
+helseinformasjon og medisinsk utstyr.</p>
 <p><strong>Medisinsk utstyr eller ikke?</strong> Et sentralt
 grensedragningsspørsmål er om et KI-system som gir helseråd til
 innbyggere klassifiseres som medisinsk utstyr etter MDR (Medical Device
-Regulation). Informasjonssystemer faller normalt utenfor, men jo mer
-personaliserte og handlingsrettede rådene er, desto nærmere kommer man
-grensen for medisinsk utstyr.</p>
+Regulation). Informasjonssystemer regnes normalt ikke som medisinsk
+utstyr. Men jo mer personaliserte og handlingsrettede rådene er, desto
+nærmere kommer systemet grensen til medisinsk utstyr.</p>
 <hr />
 <h2 id="eu-ai-act-implikasjoner-for-helsesektoren">5. EU AI Act –
 implikasjoner for helsesektoren</h2>
@@ -578,8 +584,8 @@ implementering</h3>
 <p>Som EØS-land vil Norge implementere EU AI Act. I kombinasjon med EHDS
 innebærer dette at norske helsemyndigheter må:</p>
 <ul>
-<li>Kartlegge hvilke eksisterende og planlagte KI-systemer som faller
-inn under reguleringsregimet</li>
+<li>Kartlegge hvilke eksisterende og planlagte KI-systemer reglene
+omfatter</li>
 <li>Etablere prosesser for samsvarsvurdering og tilsyn</li>
 <li>Sikre at KI-systemer som brukes i verdikjeden for
 kunnskapsforvaltning oppfyller kravene til transparens, datakvalitet og
@@ -598,9 +604,9 @@ høyrisiko-systemer</li>
 <li><strong>August 2027:</strong> Utvidede krav for høyrisiko-systemer
 som også er medisinsk utstyr</li>
 </ul>
-<p>Denne tidsplanen gir norske aktører en avgrenset periode til å
-forberede seg, men arbeidet bør starte tidlig gitt kompleksiteten i
-helsedomenet.</p>
+<p>Tidsplanen gir norske aktører en avgrenset periode til å forberede
+seg. Arbeidet bør likevel starte tidlig, fordi helsedomenet er
+komplekst.</p>
 <hr />
 <h2 id="prinsipielle-spørsmål">6. Prinsipielle spørsmål</h2>
 <p>Innføring av LLM-er i kunnskapsforvaltning i helse reiser flere
@@ -611,27 +617,26 @@ tatt i bruk – det skjer allerede – men hvordan offentlige myndigheter
 skal forholde seg til teknologien. Alternativet til styrt innføring er
 ikke fravær av KI, men ukontrollert bruk av kommersielle KI-verktøy uten
 kvalitetssikring og governance.</p>
-<p><strong>Hvor går grensen mellom KI-støtte og KI-autonomi?</strong>
-Det er en vesentlig forskjell mellom KI som assisterer en fagperson
-(foreslår, sorterer, oppsummerer) og KI som produserer ferdige helseråd
-uten menneskelig gjennomgang. For kunnskapsforvaltning i en
-myndighetsrolle bør prinsippet om menneskelig tilsyn stå sentralt, i
-tråd med EU AI Acts krav.</p>
+<p><strong>Hvor går grensen mellom KI-støtte og KI-autonomi?</strong> KI
+som assisterer en fagperson (foreslår, sorterer, oppsummerer) skiller
+seg vesentlig fra KI som produserer ferdige helseråd uten menneskelig
+gjennomgang. For kunnskapsforvaltning i en myndighetsrolle bør
+prinsippet om menneskelig tilsyn stå sentralt, i tråd med EU AI Acts
+krav.</p>
 <p><strong>Hvem har ansvar når KI bidrar til feilaktige
 helseråd?</strong> Selv med menneskelig tilsyn kan feil slippe gjennom.
-Det er behov for tydelig ansvarsallokering, både juridisk og
-organisatorisk. Helsedirektoratets rolle som fagmyndighet tilsier at
-direktoratet vil bære ansvaret for innholdet uavhengig av
-produksjonsmetode.</p>
+Ansvaret må derfor plasseres tydelig, både juridisk og organisatorisk.
+Helsedirektoratets rolle som fagmyndighet tilsier at direktoratet vil
+bære ansvaret for innholdet uavhengig av produksjonsmetode.</p>
 <p><strong>Hvordan sikre demokratisk kontroll over KI i helse?</strong>
-KI-systemer som påvirker offentlig helseinformasjon bør være underlagt
-demokratisk kontroll. Dette inkluderer innsyn i hvordan systemene
-fungerer, mulighet for offentlig debatt om bruksområder, og politisk
-styring av rammer og grenser.</p>
+Folkevalgte organer bør ha demokratisk kontroll over KI-systemer som
+påvirker offentlig helseinformasjon. Dette inkluderer innsyn i hvordan
+systemene fungerer, mulighet for offentlig debatt om bruksområder, og
+politisk styring av rammer og grenser.</p>
 <p><strong>Bør Norge utvikle egne modeller eller bruke
-kommersielle?</strong> Det er et strategisk valg mellom å bruke
+kommersielle?</strong> Norge står overfor et strategisk valg: bruke
 kommersielle modeller (raskere, mer kapable, men avhengig av utenlandske
-leverandører) og å investere i egne eller nordiske modeller (større
+leverandører) eller investere i egne eller nordiske modeller (større
 kontroll, men høyere kostnad og sannsynligvis lavere ytelse på kort
 sikt). En mellomvei kan være å bruke kommersielle modeller med nasjonalt
 kontrollerte kunnskapsbaser gjennom RAG-arkitekturer.</p>
