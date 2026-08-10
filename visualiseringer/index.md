@@ -317,3 +317,21 @@
   med fem underlagsnotater; dekningsmatrisen er
   merket [ANT].
 - **Sist oppdatert**: 2026-08-03
+
+### kapabilitetskart.html
+
+- **Type**: Strukturert kapabilitetskart (ren HTML/CSS)
+- **Beskrivelse**: Grafisk fremstilling av
+  kapabilitetskartet: åtte nivå 1-kapabiliteter (seks
+  langs verdikjeden — overvåke, oppsummere, normere,
+  formidle, implementere, lære — pluss to tverrgående:
+  styre/samordne og forvalte informasjon/kvalitet)
+  med 20 nivå 2-kapabiliteter (K1–K20) som kort
+  fargekodet etter dagens evne (God/Delvis/Svak/
+  Fraværende/Uviss). Markerer forutsetningskjeder (⟵)
+  og de fire kapabilitetene ingen løsningsretning
+  bygger direkte (◇). Inkluderer de tre hoved-
+  mønstrene fra notatets kap. 3.4. Status Utforskende.
+  Basert på `rapporter/kapabilitetskart-verdikjeden.md`;
+  vurderingene er merket [ANT].
+- **Sist oppdatert**: 2026-08-05

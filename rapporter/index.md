@@ -482,6 +482,28 @@ modnes.
   Alle utsagn merket [DOK]/[ANT].
 - **Sist oppdatert**: 2026-08-04
 
+### [Kapabilitetskart for verdikjeden](kapabilitetskart-verdikjeden.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Løsningsnøytralt kapabilitetskart i
+  to nivåer: åtte nivå 1-kapabiliteter utledet fra
+  kildenes prosessbeskrivelse (delrapport 1s steg og
+  strømmer, delrapport 2s flaskehalsanalyse),
+  dekomponert i 20 nivå 2-kapabiliteter (K1–K20).
+  Kap. 2 definerer kartet; kap. 3 vurderer dagens evne
+  per kapabilitet (God/Delvis/Svak/Fraværende) med
+  kildeanvisning. Hovedfunn: kun terminologi-
+  forvaltning (K18) er god; fire kapabiliteter er
+  fraværende (EPJ-beslutningsstøtte, implementerings-
+  eierskap, feedback-sløyfe, helhetlig styring); fire
+  bygges ikke av noen løsningsretning (konsistens
+  mellom strømmer, bærekraftig finansiering,
+  kvalitetssikring på tvers, KI-forvaltning). Åpne
+  drøftingspunkter for nivå 2/3 i kap. 4. Bindeledd
+  mellom utfordringsbildet og innsnevring av
+  løsningsrommet.
+- **Sist oppdatert**: 2026-08-05
+
 ### [HTML-versjon](html/index.html)
 
 - **Beskrivelse**: Navigerbar HTML-versjon av hele

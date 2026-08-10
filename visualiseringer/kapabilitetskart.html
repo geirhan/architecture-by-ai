@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapabilitetskart for verdikjeden for kunnskapsforvaltning</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    line-height: 1.5;
+    padding: 0 0 40px 0;
+  }
+  header {
+    background: #003366;
+    color: #fff;
+    padding: 28px 24px 22px 24px;
+  }
+  header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+  header p { max-width: 900px; font-size: 0.95rem; color: #d5e2ef; }
+  header .basis {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #aac4dd;
+  }
+  header .basis strong { color: #fff; font-weight: 600; }
+  main { max-width: 1240px; margin: 0 auto; padding: 24px 16px; }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dde3e9;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 22px;
+    font-size: 0.85rem;
+  }
+  .legend .item { display: flex; align-items: center; gap: 7px; }
+  .swatch {
+    width: 16px; height: 16px;
+    border-radius: 4px;
+    border: 2px solid;
+    flex-shrink: 0;
+  }
+  .sw-god        { background: #d9efdc; border-color: #1e7a34; }
+  .sw-delvis     { background: #fdf3cf; border-color: #96700a; }
+  .sw-svak       { background: #fce3cd; border-color: #b45309; }
+  .sw-fravaerende{ background: #f8d3d6; border-color: #a3242f; }
+  .sw-uviss      { background: #e9ecef; border-color: #6c757d; border-style: dashed; }
+  .legend .mark { font-weight: 700; color: #003366; }
+
+  .chain-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5a6b7c;
+    font-weight: 700;
+    margin: 18px 2px 8px 2px;
+  }
+
+  .chain {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+  }
+  .n1 {
+    background: #fff;
+    border: 1px solid #cfd8e0;
+    border-top: 5px solid #003366;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .n1 h2 {
+    font-size: 0.92rem;
+    color: #003366;
+    line-height: 1.25;
+    min-height: 2.5em;
+  }
+  .n1 h2 .arrow { color: #8fa8c0; font-weight: 400; }
+  .n1.cross { border-top-color: #5a6b7c; }
+  .n1.cross h2 { color: #3d4c5c; min-height: 0; }
+
+  .cap {
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 8px 9px;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+  .cap .kid {
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-right: 4px;
+  }
+  .cap .name { font-weight: 600; }
+  .cap .meta {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.72rem;
+    color: #4a5560;
+  }
+  .cap.god         { background: #d9efdc; border-color: #1e7a34; }
+  .cap.god .kid    { color: #1e7a34; }
+  .cap.delvis      { background: #fdf3cf; border-color: #96700a; }
+  .cap.delvis .kid { color: #96700a; }
+  .cap.svak        { background: #fce3cd; border-color: #b45309; }
+  .cap.svak .kid   { color: #b45309; }
+  .cap.frav        { background: #f8d3d6; border-color: #a3242f; }
+  .cap.frav .kid   { color: #a3242f; }
+  .cap.uviss       { background: #e9ecef; border-color: #6c757d; border-style: dashed; }
+  .cap.uviss .kid  { color: #495057; }
+
+  .crossrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .crossrow .caps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .findings {
+    margin-top: 26px;
+    background: #fff;
+    border: 1px solid #dde3e9;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .findings h2 { font-size: 1.05rem; color: #003366; margin-bottom: 8px; }
+  .findings ol { padding-left: 20px; font-size: 0.9rem; }
+  .findings li { margin-bottom: 6px; }
+
+  footer {
+    max-width: 1240px;
+    margin: 18px auto 0 auto;
+    padding: 0 16px;
+    font-size: 0.8rem;
+    color: #5a6b7c;
+  }
+
+  @media (max-width: 1000px) {
+    .chain { grid-template-columns: repeat(3, 1fr); }
+    .crossrow { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .chain { grid-template-columns: 1fr; }
+    .crossrow .caps { grid-template-columns: 1fr; }
+    .n1 h2 { min-height: 0; }
+  }
+  @media print {
+    body { background: #fff; }
+    header { background: #003366 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kapabilitetskart for verdikjeden for kunnskapsforvaltning</h1>
+  <p>
+    Åtte nivå 1-kapabiliteter — seks langs verdikjeden og to
+    tverrgående — dekomponert i 20 nivå 2-kapabiliteter
+    (K1–K20). Fargen viser vurderingen av dagens evne.
+    Kapabilitetene er formulert løsningsnøytralt: de beskriver
+    hva kjeden må evne, ikke hvordan.
+  </p>
+  <p class="basis">
+    <strong>Basert på:</strong> rapporter/kapabilitetskart-verdikjeden.md
+    (som bygger på delrapport 1, delrapport 2 og
+    løsningsretninger-kartleggingen) &nbsp;·&nbsp;
+    <strong>Status:</strong> Utforskende — utrederens
+    sammenstilling [ANT] &nbsp;·&nbsp; 2026-08-05
+  </p>
+</header>
+
+<main>
+
+  <div class="legend">
+    <span style="font-weight:700; color:#003366;">Dagens evne:</span>
+    <span class="item"><span class="swatch sw-god"></span> God</span>
+    <span class="item"><span class="swatch sw-delvis"></span> Delvis</span>
+    <span class="item"><span class="swatch sw-svak"></span> Svak</span>
+    <span class="item"><span class="swatch sw-fravaerende"></span> Fraværende</span>
+    <span class="item"><span class="swatch sw-uviss"></span> Uviss</span>
+    <span class="item"><span class="mark">◇</span> bygges ikke av noen løsningsretning</span>
+    <span class="item"><span class="mark">⟵</span> forutsetter annen kapabilitet</span>
+  </div>
+
+  <div class="chain-label">Verdikjeden</div>
+  <div class="chain">
+
+    <section class="n1">
+      <h2>1. Overvåke og innhente evidens <span class="arrow">→</span></h2>
+      <div class="cap svak"><span class="kid">K1</span><span class="name">Kontinuerlig evidensovervåking</span></div>
+      <div class="cap svak"><span class="kid">K2</span><span class="name">Prioritering og triage av ny evidens</span></div>
+    </section>
+
+    <section class="n1">
+      <h2>2. Oppsummere kunnskap <span class="arrow">→</span></h2>
+      <div class="cap svak"><span class="kid">K3</span><span class="name">Skalerbar evidenssyntese</span></div>
+      <div class="cap svak"><span class="kid">K4</span><span class="name">Systematisk internasjonal gjenbruk</span></div>
+    </section>
+
+    <section class="n1">
+      <h2>3. Normere <span class="arrow">→</span></h2>
+      <div class="cap svak"><span class="kid">K5</span><span class="name">Kontinuerlig normering på anbefalingsnivå</span></div>
+      <div class="cap delvis"><span class="kid">K6</span><span class="name">Strukturert evidenskjede</span><span class="meta">PICO → utfall → GRADE som data</span></div>
+    </section>
+
+    <section class="n1">
+      <h2>4. Formidle og distribuere <span class="arrow">→</span></h2>
+      <div class="cap delvis"><span class="kid">K7</span><span class="name">Konsistent flerkanalspublisering</span></div>
+      <div class="cap frav"><span class="kid">K8</span><span class="name">Beslutningsstøtte i EPJ</span><span class="meta">⟵ forutsetter K6</span></div>
+      <div class="cap svak"><span class="kid">K9</span><span class="name">Målrettet, tilpasset formidling</span><span class="meta">⟵ forutsetter K6/K7</span></div>
+      <div class="cap svak"><span class="kid">K10</span><span class="name">Konsistens på tvers av formidlingsstrømmer ◇</span></div>
+    </section>
+
+    <section class="n1">
+      <h2>5. Implementere i praksis <span class="arrow">→</span></h2>
+      <div class="cap frav"><span class="kid">K11</span><span class="name">Implementeringseierskap og -støtte</span></div>
+      <div class="cap svak"><span class="kid">K12</span><span class="name">Samordning med refusjon og finansiering</span></div>
+    </section>
+
+    <section class="n1">
+      <h2>6. Lære og forbedre</h2>
+      <div class="cap delvis"><span class="kid">K13</span><span class="name">Etterlevelses- og effektmåling</span></div>
+      <div class="cap frav"><span class="kid">K14</span><span class="name">Feedback fra bruk til kunnskapsproduksjon</span><span class="meta">⟵ forutsetter K13</span></div>
+    </section>
+
+  </div>
+
+  <div class="chain-label">Tverrgående</div>
+  <div class="crossrow">
+
+    <section class="n1 cross">
+      <h2>7. Styre og samordne</h2>
+      <div class="caps">
+        <div class="cap frav"><span class="kid">K15</span><span class="name">Helhetlig styring av kjeden</span></div>
+        <div class="cap svak"><span class="kid">K16</span><span class="name">Krisemodus og skalering</span><span class="meta">⟵ forutsetter K15</span></div>
+        <div class="cap uviss"><span class="kid">K17</span><span class="name">Bærekraftig finansiering av drift ◇</span></div>
+      </div>
+    </section>
+
+    <section class="n1 cross">
+      <h2>8. Forvalte informasjon og kvalitet</h2>
+      <div class="caps">
+        <div class="cap god"><span class="kid">K18</span><span class="name">Terminologi- og metadataforvaltning</span></div>
+        <div class="cap svak"><span class="kid">K19</span><span class="name">Kvalitetssikring på tvers av strømmer ◇</span></div>
+        <div class="cap svak"><span class="kid">K20</span><span class="name">KI-forvaltning og validering ◇</span></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="findings">
+    <h2>Hovedmønstre (kap. 3.4 i notatet)</h2>
+    <ol>
+      <li><strong>Én kapabilitet er god, fire er fraværende.</strong>
+        Terminologiforvaltningen (K18) er det eneste dokumentert
+        sterke fundamentet. De fraværende (K8, K11, K14, K15)
+        ligger sent i kjeden eller over den: implementering og
+        styring er svakere enn produksjon.</li>
+      <li><strong>Forutsetningskjedene gir rekkefølgen.</strong>
+        Strukturert evidenskjede (K6) før beslutningsstøtte og
+        målrettet formidling; måling (K13) før feedback (K14);
+        styring (K15) før krisemodus og implementeringsgrep —
+        styring og struktur før automatisering og sløyfer.</li>
+      <li><strong>Fire kapabiliteter (◇) bygges ikke av noen av de
+        ti løsningsretningene</strong> — konsistens mellom strømmer
+        (K10), bærekraftig finansiering (K17), kvalitetssikring på
+        tvers (K19) og KI-forvaltning (K20) — og må planlegges
+        eksplisitt i ethvert alternativ.</li>
+    </ol>
+  </div>
+
+</main>
+
+<footer>
+  Visualiseringen gjengir kun innhold fra
+  rapporter/kapabilitetskart-verdikjeden.md. Vurderingene av
+  dagens evne er utrederens sammenstilling [ANT] med
+  kildeanvisning per kapabilitet i notatets kap. 3.2.
+</footer>
+
+</body>
+</html>
