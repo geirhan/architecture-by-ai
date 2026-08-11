@@ -4,3 +4,6 @@ __pycache__/
 # Lokale pptx-backuper (beholdes på disk, ikke i git)
 *.BACKUP*.pptx
 *.bak.pptx
+
+# Genererte PDF-er (lages med skripts/generer_pdf.py)
+rapporter/pdf/
