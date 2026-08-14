@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dagens verdikjede for kunnskapsforvaltning</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -614,18 +613,173 @@
 
         .legend-dot.in { background: #2196f3; }
         .legend-dot.out { background: #ff9800; }
+
+        /* === KOMPAKT OVERSIKT (øverst) === */
+
+        .compact-overview {
+            background: #fff;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .compact-overview h2 {
+            color: #003366;
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+        }
+
+        .compact-chain {
+            display: flex;
+            align-items: stretch;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .compact-step {
+            flex: 1;
+            min-width: 130px;
+            background: #f0f4f8;
+            border: 2px solid #003366;
+            border-radius: 6px;
+            padding: 0.7rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .compact-step .step-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #003366;
+        }
+
+        .compact-step .step-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 0.9rem;
+            margin: 0.2rem 0;
+        }
+
+        .compact-step .step-detail {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .compact-arrow {
+            display: flex;
+            align-items: center;
+            color: #003366;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .compact-streams {
+            flex: 2.2;
+            min-width: 240px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .compact-stream {
+            border-radius: 5px;
+            padding: 0.45rem 0.7rem;
+            font-size: 0.8rem;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.6rem;
+            align-items: baseline;
+        }
+
+        .compact-stream .cs-name { font-weight: 700; }
+        .compact-stream .cs-tempo {
+            font-size: 0.72rem;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .compact-stream.cs1 { background: #ffe5e5; border-left: 4px solid #d4544f; }
+        .compact-stream.cs2 { background: #e5f0ff; border-left: 4px solid #4a90e2; }
+        .compact-stream.cs3 { background: #fff5e5; border-left: 4px solid #f5a623; }
+        .compact-stream.cs4 { background: #e5ffe5; border-left: 4px solid #50c878; }
+
+        .compact-note {
+            font-size: 0.78rem;
+            color: #666;
+            margin-top: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .compact-chain { flex-direction: column; }
+            .compact-arrow { justify-content: center; transform: rotate(90deg); }
+            .compact-step, .compact-streams { min-width: 0; }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Dagens verdikjede for kunnskapsforvaltning</h1>
-        <p>Interaktiv kartlegging av tre steg, fire parallelle strømmer og 20+ aktører</p>
+        <p>Interaktiv kartlegging av tre steg, fire parallelle strømmer og ~20 aktører</p>
     </header>
 
     <div class="container">
         <div class="description">
-            <strong>Basert på:</strong> Delrapport 1 – Dagens verdikjede for kunnskapsforvaltning i helsesektoren (revidert 2026-03-18)
+            <strong>Basert på:</strong> Delrapport 1 – Dagens verdikjede for kunnskapsforvaltning i helsesektoren (sist oppdatert 2026-08-14)
             <br><strong>Formål:</strong> Visualisering av hvordan kunnskap beveger seg fra forskning til innbyggere gjennom et komplekst system av tre lineære steg og fire parallelle strømmer, med ulike aktører, tidsforskjeller og kvalitetssikringsmekanismer.
+        </div>
+
+        <!-- KOMPAKT OVERSIKT -->
+        <div class="compact-overview">
+            <h2>Verdikjeden i ett blikk</h2>
+            <div class="compact-chain">
+                <div class="compact-step">
+                    <div class="step-label">Steg 1</div>
+                    <div class="step-name">Forskning</div>
+                    <div class="step-detail">Internasjonale publikasjoner, fagfellevurdert</div>
+                </div>
+                <div class="compact-arrow">→</div>
+                <div class="compact-step">
+                    <div class="step-label">Steg 2</div>
+                    <div class="step-name">Kunnskaps&shy;oppsummering</div>
+                    <div class="step-detail">FHI, Cochrane – systematiske oversikter (GRADE)</div>
+                </div>
+                <div class="compact-arrow">→</div>
+                <div class="compact-streams">
+                    <div class="compact-stream cs1">
+                        <span class="cs-name">3a. Normerende</span>
+                        <span>Helsedirektoratet → retningslinjer</span>
+                        <span class="cs-tempo">langsomst (~1–7+ år)</span>
+                    </div>
+                    <div class="compact-stream cs2">
+                        <span class="cs-name">3b. Klinisk</span>
+                        <span>UpToDate, fagprosedyrer, tidsskrifter</span>
+                        <span class="cs-tempo">løpende</span>
+                    </div>
+                    <div class="compact-stream cs3">
+                        <span class="cs-name">3c. Legemiddel</span>
+                        <span>DMP, Felleskatalogen, RELIS</span>
+                        <span class="cs-tempo">raskest ved varsler</span>
+                    </div>
+                    <div class="compact-stream cs4">
+                        <span class="cs-name">3d. Innbyggerrettet</span>
+                        <span>helsenorge.no, FNSP, NHI.no, medier</span>
+                        <span class="cs-tempo">variabel</span>
+                    </div>
+                </div>
+                <div class="compact-arrow">→</div>
+                <div class="compact-step">
+                    <div class="step-label">Mottakere</div>
+                    <div class="step-name">Helsepersonell og innbyggere</div>
+                    <div class="step-detail">Innbyggere henter i tillegg kunnskap fra kilder utenfor kjeden (KI-chatboter, sosiale medier m.m.)</div>
+                </div>
+            </div>
+            <div class="compact-note">Steg 1–2 er lineære; steg 3 er fire parallelle strømmer som bygger på hverandre, men arbeider hver for seg – koblingene forvaltes ikke. Detaljer i fanene under.</div>
         </div>
 
         <!-- TAB BUTTONS -->
@@ -692,13 +846,13 @@
 
                 <div class="flow-stage">
                     <h3>Steg 3: Kunnskapsomsetting og formidling – Fire parallelle strømmer</h3>
-                    <p><strong>Kunnskapen fra steg 1 og 2 omsettes og formidles gjennom fire helt parallelle hovedstrømmer</strong> som opererer uavhengig med ulike aktører, ulik hastighet og ulik kvalitetssikring. Ingen enkelt strøm dekker hele kunnskapsbehovet – det er samspillet mellom dem som utgjør den reelle kunnskapsforsyningen.</p>
+                    <p><strong>Kunnskapen fra steg 1 og 2 omsettes og formidles gjennom fire parallelle hovedstrømmer</strong> med ulike aktører, ulik hastighet og ulik kvalitetssikring. «Parallelle» betyr at strømmene løper samtidig – ikke at de er uavhengige: Strømmene bygger i stor grad på hverandre, og innhold, bidrag og føringer flyter mellom dem (se avhengighetsoversikten nederst i fanen). Ingen enkelt strøm dekker hele kunnskapsbehovet – det er samspillet mellom dem som utgjør den reelle kunnskapsforsyningen.</p>
 
                     <div class="io-row">
                         <div class="io-box input">
                             <div class="io-label">Input (felles for alle strømmer)</div>
                             <div class="io-source">Kunnskapsoppsummeringer (Steg 2) og/eller forskning (Steg 1)</div>
-                            <div class="io-detail">Merk: Noen strømmer (3b, 3d) henter også direkte fra Steg 1 uten å gå via Steg 2</div>
+                            <div class="io-detail">Merk: «Kortslutninger» utenom Steg 2 finnes i alle tre fagstrømmene – 3b og 3c henter systematisk innhold direkte fra Steg 1, og 3a gjør det i noen grad når oppsummeringskapasiteten ikke dekker behovet [ANT]</div>
                         </div>
                     </div>
 
@@ -711,7 +865,7 @@
                     <div class="actors-in-stage">
                         <strong>3b. Den kliniske kunnskapsstrømmen (raskere)</strong>
                         <div class="actor-item">Input: Forskning (Steg 1) direkte + kunnskapsoppsummeringer (Steg 2)</div>
-                        <div class="actor-item">UpToDate, BMJ Best Practice, fagprosedyrer, fagtidsskrifter, fagmedisinske foreninger</div>
+                        <div class="actor-item">UpToDate (BMJ Best Practice utgikk 1.4.2026), fagprosedyrer, fagtidsskrifter, fagmedisinske foreninger</div>
                         <div class="actor-item" style="color: #1565c0; font-weight: 600;">Output: Kliniske anbefalinger, fagprosedyrer → til helsepersonell</div>
                     </div>
                     <div class="actors-in-stage">
@@ -786,8 +940,33 @@
                 </div>
             </div>
 
+            <h2 class="section-heading">Avhengigheter mellom strømmene (kap. 3e)</h2>
+            <p style="margin-bottom: 1rem; color: #555;">Strømmene løper samtidig, men de er ikke uavhengige – flere av dem kan ikke levere sitt produkt uten innhold fra en annen strøm. Avhengighetene er reelle, men i hovedsak <strong>uformelle</strong>: De forvaltes gjennom praksis og enkeltaktørenes rutiner, ikke gjennom definerte grensesnitt eller forpliktende oppdateringskjeder [ANT]. Se egen visualisering <em>stromavhengigheter.html</em> for det interaktive diagrammet.</p>
+            <div style="overflow-x: auto;">
+            <table class="actors-table">
+                <thead>
+                    <tr>
+                        <th>Fra → Til</th>
+                        <th>Hva flyter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Steg 1–2 → alle</td><td>Felles kunnskapsgrunnlag; «kortslutninger» utenom steg 2 i alle tre fagstrømmene</td></tr>
+                    <tr><td>Steg 1 → 3a</td><td>Direktebruk av forskning i normerende produkter når oppsummeringskapasiteten ikke dekker behovet [ANT]</td></tr>
+                    <tr><td>3a → 3b</td><td>Retningslinjer operasjonaliseres til fagprosedyrer; Helsebiblioteket tilgjengeliggjør retningslinjene; lokale/foreningsutviklede retningslinjer skal samsvare med de nasjonale</td></tr>
+                    <tr><td>3b → 3a</td><td>Fagmedisinske foreninger bidrar i arbeidsgrupper og høringer; foreningsveiledere dekker områder uten nasjonale retningslinjer</td></tr>
+                    <tr><td>3a → 3d</td><td>Retningslinjene er grunnlag for innbyggerinnholdet på helsenorge.no; ny retningslinje utløser oppdatering</td></tr>
+                    <tr><td>3c → 3a</td><td>Godkjent legemiddelinformasjon (SPC, sikkerhetssignaler) ligger til grunn for retningslinjenes legemiddelanbefalinger</td></tr>
+                    <tr><td>3c → 3d</td><td>DMP-godkjente preparatomtaler og pakningsvedlegg gjenbrukes som innbyggerrettet informasjon via Felleskatalogen</td></tr>
+                    <tr><td>3d → 3a</td><td>Brukerrepresentanter deltar i retningslinjearbeidet; pasientorganisasjoner leverer høringssvar</td></tr>
+                    <tr><td>3a/3b → 3d</td><td>Sykehusenes fagkunnskap inngår i FNSPs faglig godkjente behandlingstekster</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p style="margin: 1rem 0; color: #555; font-size: 0.9rem;">I tillegg er Helsebiblioteket en felles muliggjører: Det opptrer som enabler i fire av verdikjedens seks prosesser, og endringer i Helsebibliotekets tjenester påvirker derfor flere strømmer samtidig.</p>
+
             <div class="description" style="margin-top: 2rem;">
-                <strong>Kritisk observasjon:</strong> De fire strømmene opererer parallelt og uavhengig av hverandre, ikke sekvensielt. Dette betyr at kunnskap kan nå innbyggere og helsepersonell gjennom ulike kanaler samtidig, med potensielt motstridende informasjon.
+                <strong>Kritisk observasjon:</strong> De fire strømmene opererer parallelt, ikke sekvensielt – og koblingene mellom dem forvaltes ikke. Når en retningslinje endres, finnes ingen mekanisme som varsler fagprosedyrene, oppslagsverkene eller innbyggerinformasjonen som bygger på den. Leddene henger dårlig sammen, ikke fordi forbindelser mangler, men fordi forbindelsene ikke forvaltes.
             </div>
         </div>
 
@@ -816,12 +995,12 @@
 
                     <div class="property">
                         <div class="property-label">Oppdateringshastighet</div>
-                        <div class="property-value">Langsomst: 1–5 år</div>
+                        <div class="property-value">Langsomst: Retningslinjeprosessen varierer fra ~1 år til 7+ år; reell tid til bred praksisendring er 7–15+ år (casestudier)</div>
                     </div>
 
                     <div class="property">
                         <div class="property-label">Normativ kraft</div>
-                        <div class="property-value">Høy (formelt bindende)</div>
+                        <div class="property-value">Høy (formelt normerende – ikke rettslig bindende, men førende via forsvarlighetskravet)</div>
                     </div>
 
                     <div class="property">
@@ -861,7 +1040,7 @@
 
                     <div class="property">
                         <div class="property-label">Oppdateringshastighet</div>
-                        <div class="property-value">Raskere enn normativ (måneder)</div>
+                        <div class="property-value">Raskere enn normerende (løpende redaksjonell oppdatering; nøyaktig tidsbruk ikke systematisk dokumentert)</div>
                     </div>
 
                     <div class="property">
@@ -882,12 +1061,12 @@
                     <div class="property">
                         <div class="property-label">Aktører i strømmen</div>
                         <div class="actors-list">
-                            <li>UpToDate</li>
-                            <li>BMJ Best Practice</li>
-                            <li>Helsebiblioteket (fagprosedyrer)</li>
+                            <li>UpToDate (videreført i ny treårig nasjonal avtale fra 1.4.2026)</li>
+                            <li>BMJ Best Practice (utgikk av det nasjonale tilbudet 1.4.2026)</li>
+                            <li>Helsebiblioteket (fagprosedyrer; Cochrane/Embase-tilgangen fra 2023-kuttet er ikke gjenopprettet)</li>
                             <li>Tidsskriftet for Den norske legeforening</li>
                             <li>Sykepleien Forskning</li>
-                            <li>Fagmedisinske foreninger</li>
+                            <li>Fagmedisinske foreninger (ca. 13 av 22 undersøkte utgir egne veiledere/metodebøker)</li>
                         </div>
                     </div>
                 </div>
@@ -951,7 +1130,7 @@
 
                     <div class="property">
                         <div class="property-label">Oppdateringshastighet</div>
-                        <div class="property-value">Variabel – fra minst 3 år til daglig</div>
+                        <div class="property-value">Variabel – fra treårig revisjonssyklus (helsenorge.no) til daglig (medier)</div>
                     </div>
 
                     <div class="property">
@@ -986,7 +1165,7 @@
 
         <!-- TAB 3: AKTØRKART -->
         <div id="tab-2" class="tab-content">
-            <h2 class="section-heading">Aktørkart: 20+ aktører i verdikjeden</h2>
+            <h2 class="section-heading">Aktørkart: ~20 aktører i verdikjeden</h2>
 
             <table class="actors-table">
                 <thead>
@@ -1035,7 +1214,7 @@
                         <td>Oppdatert praksis i fastlegetjeneste, hjemmetjeneste, sykehjem</td>
                     </tr>
                     <tr>
-                        <td>UpToDate / BMJ Best Practice</td>
+                        <td>UpToDate (BMJ Best Practice utgikk 1.4.2026)</td>
                         <td><span class="stream-label s2">3b</span></td>
                         <td>Klinisk oppslagsverk</td>
                         <td>Evidensbaserte anbefalinger, kalkulatorer, løpende oppdatering</td>
@@ -1055,8 +1234,8 @@
                     <tr>
                         <td>Fagmedisinske foreninger</td>
                         <td><span class="stream-label s2">3b</span><span class="stream-label s1">3a</span></td>
-                        <td>Spesialitetsspesifikk faglig formidling og retningslinjearbeid</td>
-                        <td>Faglige anbefalinger, kurs, konferanser, høringssvar</td>
+                        <td>Spesialitetsspesifikk veiledning og normering, bidrag i retningslinjearbeid</td>
+                        <td>Veiledere/metodebøker, faglige anbefalinger, kurs, konferanser, høringssvar</td>
                     </tr>
                     <tr>
                         <td>Direktoratet for medisinske produkter (DMP)</td>
@@ -1110,7 +1289,7 @@
             </table>
 
             <div class="description">
-                <strong>Merknad:</strong> De 4 strømmene er parallelle, ikke sekvensielle. En aktør som helsenorge.no eller pasientorganisasjoner kan ta innhold direkte fra steg 2 (kunnskapsoppsummeringer) uten å vente på den normerende strømmen. Dette gir fleksibilitet men også risiko for inkonsistens.
+                <strong>Merknad:</strong> De 4 strømmene er parallelle, ikke sekvensielle – men de er heller ikke uavhengige: Innhold, bidrag og føringer flyter mellom dem (se avhengighetsoversikten i fane 1). En aktør som helsenorge.no eller pasientorganisasjoner kan ta innhold direkte fra steg 2 (kunnskapsoppsummeringer) uten å vente på den normerende strømmen. Dette gir fleksibilitet, men også risiko for inkonsistens. En detaljert aktøranalyse finnes i delrapport 8 (aktoeranalyse.md).
             </div>
         </div>
 
@@ -1122,8 +1301,8 @@
                 <h3 style="color: #003366; margin-bottom: 1.5rem;">En sentral observasjon: Betydelige tidsforskjeller fra ny forskning til praktisk anvendelse</h3>
 
                 <div class="timeline-item">
-                    <h4>Kliniske oppslagsverk (UpToDate, BMJ Best Practice)</h4>
-                    <p>Disse oppdateres løpende basert på ny forskning, uten formell reguleringsmekanisme. En ny publikasjon fra PubMed kan potensielt være inkludert innen uker til få måneder.</p>
+                    <h4>Kliniske oppslagsverk (UpToDate m.fl.)</h4>
+                    <p>Disse oppdateres løpende basert på ny forskning, uten formell reguleringsmekanisme. En ny publikasjon fra PubMed kan potensielt være inkludert innen uker til få måneder. (BMJ Best Practice utgikk av det nasjonale tilbudet 1.4.2026.)</p>
                     <div class="time-estimate">
                         <strong>Estimert gjennomløpstid:</strong> Dager til måneder<br>
                         <strong>Kilde:</strong> Intern redaksjonell prosess, ikke dokumentert
@@ -1158,12 +1337,12 @@
                 </div>
 
                 <div class="timeline-item">
-                    <h4>Nasjonale retningslinjer (normativ strøm)</h4>
-                    <p><strong>LANGSOMST:</strong> Prosessen går fra forskning → kunnskapsoppsummering → arbeidsgruppe → høring → revisjon → implementering. Dokumentert som tidskrevende, men nøyaktige gjennomsnittlige tider mangler.</p>
+                    <h4>Nasjonale retningslinjer (normerende strøm)</h4>
+                    <p><strong>LANGSOMST:</strong> Prosessen går fra forskning → kunnskapsoppsummering → arbeidsgruppe → høring → revisjon → implementering. Casestudier (antibiotika, diabetes type 2, slagbehandling) dokumenterer at den reelle tiden fra forskning til bred praksisendring er <strong>7–15+ år</strong> når implementering, refusjonsordninger og etterlevelse inkluderes.</p>
                     <div class="time-estimate">
-                        <strong>Estimert gjennomløpstid:</strong> 1–5 år fra kunnskapsoppsummering til implementert praksis<br>
-                        <strong>Kilde:</strong> Helsedirektoratet-dokumentasjon (kvalitativ)<br>
-                        <strong>⚠️ Merknad:</strong> NØYAKTIGE TIDER ER IKKE DOKUMENTERT. Denne estimaten mangler etterprøvbar dokumentasjon.
+                        <strong>Dokumentert gjennomløpstid:</strong> Retningslinjeprosessen isolert varierer fra ~1 år (raske unntak som DAWN/DEFUSE-3) til 7+ år (EXTEND); til bred praksisendring 7–15+ år<br>
+                        <strong>Kilde:</strong> casestudier-forsinkelser.md<br>
+                        <strong>⚠️ Merknad:</strong> Helsedirektoratet publiserer ikke aggregerte tall for typisk prosessvarighet; rapporten bruker kun case-dokumenterte spennvidder.
                     </div>
                 </div>
 
@@ -1171,14 +1350,14 @@
                     <h4>Innbyggerrettet informasjon (helsenorge.no)</h4>
                     <p>helsenorge.no baseres ideelt sett på nasjonale retningslinjer, men kan også hente innhold direkte fra andre kilder. Oppdateringskrav: minst hvert tredje år. I praksis varierer dette.</p>
                     <div class="time-estimate">
-                        <strong>Estimert gjennomløpstid:</strong> Variabel – fra normativ strøm (1–5 år) til daglig (hvis direkte fra FHI/medier)<br>
-                        <strong>Kilde:</strong> helsenorge.no retningslinjer
+                        <strong>Estimert gjennomløpstid:</strong> Variabel – følger den normerende strømmens takt når innholdet bygger på retningslinjer, med revisjonskrav minst hvert tredje år<br>
+                        <strong>Kilde:</strong> helsenorge.no kvalitetsretningslinjer
                     </div>
                 </div>
             </div>
 
             <div class="description" style="margin-top: 2rem;">
-                <strong>⚠️ Kritisk merknad:</strong> De eksakte tidsestimatene for normativ strøm mangler etterprøvbar dokumentasjon og må undersøkes nærmere gjennom intervjuer med Helsedirektoratet, FHI og andre aktører.
+                <strong>⚠️ Kritisk merknad:</strong> Gjennomsnittstall for den normerende strømmen finnes ikke – Helsedirektoratet publiserer ikke aggregerte prosessvarigheter. Spennviddene over bygger på tre casestudier (casestudier-forsinkelser.md) og varierer sterkt fra sak til sak.
             </div>
         </div>
 
@@ -1231,7 +1410,7 @@
 
                 <div class="qa-card">
                     <h4>Innbyggerrettet strøm (3d)</h4>
-                    <div class="qa-method"><strong>helsenorge.no:</strong> Faglig redaksjon, kvalitetssikring mot retningslinjer, revis minst hvert tredje år</div>
+                    <div class="qa-method"><strong>helsenorge.no:</strong> Faglig redaksjon, kvalitetssikring mot retningslinjer, revisjon minst hvert tredje år</div>
                     <div class="qa-method"><strong>NHI.no:</strong> Egen redaksjonell kontroll (ikke transparent)</div>
                     <div class="qa-method"><strong>Pasientorganisasjoner:</strong> Variabel intern kvalitetssikring</div>
                     <div class="qa-method"><strong>Medier:</strong> Ingen systematisk faglig kvalitetssikring</div>
@@ -1242,7 +1421,7 @@
             </div>
 
             <div class="description" style="margin-top: 2rem;">
-                <strong>Overordnet vurdering:</strong> Hver strøm har robust kvalitetssikring <em>i sitt eget domene</em>, men det mangler overordnet kvalitetssikring <strong>på tvers av strømmene</strong>. Det finnes ingen mekanisme som sikrer at endringer i en strøm blir koordinert med de øvrige.
+                <strong>Overordnet vurdering:</strong> Hver strøm har robust kvalitetssikring <em>i sitt eget domene</em>, men det mangler overordnet kvalitetssikring <strong>på tvers av strømmene</strong>. Det finnes ingen mekanisme som sikrer at endringer i en strøm blir koordinert med de øvrige – og heller ikke et dokumentert system som avklarer forrang eller fanger opp motstrid mellom statlige retningslinjer og profesjonsforeningenes veiledere.
             </div>
         </div>
 
@@ -1253,9 +1432,9 @@
             <div class="challenge-grid">
                 <div class="challenge-card">
                     <h4>1. Tidsforskjeller fører til motstridende informasjon</h4>
-                    <p>Når en ny forskning publiseres, kan den være tilgjengelig gjennom kliniske oppslagsverk (UpToDate) innen uker, mens nasjonale retningslinjer tar 1–5 år å oppdatere. I mellomtiden kan helsepersonell motta ulike anbefalinger fra ulike kilder.</p>
+                    <p>Når ny forskning publiseres, kan den være tilgjengelig gjennom kliniske oppslagsverk (UpToDate) innen uker, mens retningslinjeprosessen i dokumenterte case varierer fra ~1 år til 7+ år. I mellomtiden kan helsepersonell motta ulike anbefalinger fra ulike kilder.</p>
                     <div class="example">
-                        <strong>Eksempel:</strong> En ny behandlingsmetode publiseres. UpToDate oppdateres innen 3 måneder. Nasjonale retningslinjer blir ikke oppdatert på 2 år. En fastlege som bruker UpToDate kan anbefale noe som stikk i strid med gjeldende retningslinje.
+                        <strong>Eksempel:</strong> En ny behandlingsmetode publiseres. UpToDate oppdateres innen få måneder, mens den nasjonale retningslinjen først revideres flere år senere. En fastlege som bruker UpToDate kan anbefale noe som strider mot gjeldende retningslinje.
                     </div>
                 </div>
 
@@ -1277,7 +1456,7 @@
 
                 <div class="challenge-card">
                     <h4>4. Fragmentert ansvar uten overordnet koordinering</h4>
-                    <p>Ansvaret er fordelt på 20+ aktører uten ett overordnet system som sikrer konsistens. Hvis en retningslinje oppdateres, finnes det ingen automatisk mekanisme for å oppdatere relaterte innputt i fagprosedyrer, helsenorge.no, FNSP osv.</p>
+                    <p>Ansvaret er fordelt på ~20 aktører uten ett overordnet system som sikrer konsistens. Avhengighetene mellom strømmene (fane 1) er reelle, men forvaltes gjennom praksis – ikke gjennom definerte grensesnitt eller forpliktende oppdateringskjeder. Hvis en retningslinje oppdateres, finnes det ingen mekanisme som varsler fagprosedyrer, helsenorge.no, FNSP osv.</p>
                     <div class="example">
                         <strong>Eksempel:</strong> Helsedirektoratet publiserer en ny retningslinje for diabetes-behandling. Hvem er ansvarlig for å oppdatere helsenorge.no, FNSP, fagprosedyrene i alle RHF-ene, og instruere KS? Det finnes ingen tydelig prosess.
                     </div>
@@ -1301,7 +1480,7 @@
             </div>
 
             <div class="description" style="margin-top: 2rem;">
-                <strong>Overordnet funn:</strong> Det finnes ingen mekanisme som sikrer konsistens mellom de fire strømmene. Hver strøm opererer uavhengig, noe som gir risiko for motstridende informasjon til helsepersonell og innbyggere.
+                <strong>Overordnet funn:</strong> Det finnes ingen mekanisme som sikrer konsistens mellom de fire strømmene. Strømmene bygger på hverandre, men arbeider hver for seg – koblingene forvaltes ikke, noe som gir risiko for motstridende informasjon til helsepersonell og innbyggere.
             </div>
         </div>
 
@@ -1311,65 +1490,65 @@
 
             <div class="key-findings">
                 <div class="finding">
-                    <h4>1. Parallelle strømmer, ikke sekvensielle</h4>
-                    <p>Dagens verdikjede er ikke en lineær prosess. Det er et nettverk av fire parallelle strømmer som opererer uavhengig av hverandre. Ingen av dem er "hovedveien" – alle fire er sentrale. Dette gir fleksibilitet men også risiko for fragmen tasjon.</p>
+                    <h4>1. Betydelig tidsforskjell mellom strømmene</h4>
+                    <p>Den normerende strømmen er dokumentert tidskrevende sammenlignet med oppslagsverk, legemiddelstrøm og medier. Casestudier dokumenterer 7–15+ år fra forskning til bred praksisendring – med sterk variasjon fra sak til sak (~1 år til 7+ år for retningslinjeprosessen isolert). <em>(Delrapport 2: dimensjon D1, kjerneegenskap «reaktivitet».)</em></p>
                 </div>
 
                 <div class="finding">
-                    <h4>2. Tidsforskjeller er betydelig</h4>
-                    <p>Tidsforskjellene mellom strømmene er en av de mest kritiske observasjonene. Medier og kliniske oppslagsverk kan oppdateres innen dager til måneder, mens nasjonale retningslinjer tar 1–5 år. Dette betyr at helsepersonell og innbyggere baserer seg på informasjon av svært ulik alder.</p>
+                    <h4>2. De parallelle strømmene er ikke perifere – de er sentrale</h4>
+                    <p>Kliniske oppslagsverk, fagprosedyrer, legemiddelinformasjon og pasientorganisasjoner er i praksis sentrale kilder i kunnskapsforsyningen. Den normerende strømmen er den mest autoritative, men ikke nødvendigvis den mest brukte i daglig praksis. Moderniseringstiltak må derfor adressere flere strømmer, ikke bare den normerende.</p>
                 </div>
 
                 <div class="finding">
-                    <h4>3. 20+ aktører uten overordnet koordinering</h4>
-                    <p>Ansvaret er spredt over 20+ aktører (Helsedirektoratet, FHI, RHF-ene, kommuner, kommersielle kilder, medier) uten ett overordnet system for koordinering. Dette gir risiko for duplikering, motstridigheter og ineffektiv ressursbruk.</p>
+                    <h4>3. Konsistensutfordringer fra usynkroniserte strømmer</h4>
+                    <p>Fire strømmer med ulik oppdateringshastighet gir risiko for motstridende informasjon til både helsepersonell og innbyggere. Det finnes ingen overordnet mekanisme som sikrer konsistens på tvers – inkonsistensen oppstår langs avhengighetene mellom strømmene (fane 1). <em>(Delrapport 2: kjerneegenskap «sammenheng», rotårsak R4.)</em></p>
                 </div>
 
                 <div class="finding">
-                    <h4>4. Robust kvalitetssikring per strøm, svak på tvers</h4>
-                    <p>Hver strøm har sin egen kvalitetssikring (fagfellevurdering, GRADE, høring, redaksjon, regulatorisk godkjenning). Men det finnes ingen mekanisme som sikrer at endringer i en strøm påvirker konsistensen i de øvrige.</p>
+                    <h4>4. Fragmentert ansvar uten overordnet koordinering</h4>
+                    <p>Nærmere 20 aktører deler ansvaret – Helsedirektoratet, FHI, Helsebiblioteket, RHF-ene, KS, DMP, Felleskatalogen, RELIS, NHI.no, FNSP, pasientorganisasjoner, medier og andre – uten et overordnet system som sikrer konsistens. <em>(Delrapport 2: dimensjon D3, kjerneegenskap «styrbarhet», rotårsak R1.)</em></p>
                 </div>
 
                 <div class="finding">
-                    <h4>5. Manuelle prosesser hemmer standardisering</h4>
-                    <p>Alt innhold reformateres og tilpasses manuelt når det beveger seg fra en strøm til en annen. Det finnes begrenset bruk av strukturerte maskinlesbare formater, noe som hemmer automatisert oppdatering og synkronisering.</p>
+                    <h4>5. Manuelle overganger og begrenset strukturering</h4>
+                    <p>Alle strømmene preges av manuelle prosesser for oversettelse, tilpasning og reformatering. Innholdet er i stor grad fritekstbasert, noe som begrenser automatisert videreforedling og synkronisering. <em>(Delrapport 2: kjerneegenskap «skalerbarhet», rotårsakene R2 og R4.)</em></p>
                 </div>
 
                 <div class="finding">
-                    <h4>6. Desentralisert innholdsproduksjon (helsenorge.no)</h4>
-                    <p>helsenorge.no har 80+ innholdsleverandører som opererer relativt uavhengig. Dette gir fleksibilitet men risiko for manglende koordinering. Helsedirektoratet har utgiveransvar men ikke praktisk redaktørkontroll over alt innhold.</p>
+                    <h4>6. Robust kvalitetssikring per strøm, svak kvalitetssikring på tvers</h4>
+                    <p>Hver strøm har sine egne kvalitetssikringsmekanismer (fagfellevurdering, GRADE, høring, redaksjon, regulatorisk godkjenning). Men ingen mekanisme sikrer at endringer i én strøm propageres til de øvrige – og det mangler et system som avklarer forrang mellom statlige retningslinjer og profesjonsforeningenes veiledere. <em>(Delrapport 2: kjerneegenskap «sammenheng».)</em></p>
                 </div>
+            </div>
 
+            <h2 class="section-heading">Hva fungerer godt og bør bevares (kap. 8)</h2>
+            <div class="key-findings">
                 <div class="finding">
-                    <h4>7. Innholdsproduksjon er bifunksjon for mange aktører</h4>
-                    <p>For RHF-er, kommuner, fagmedisinske foreninger og mange andre er kunnskapsforvaltning en bifunksjon, ikke en primær rolle. Dette kan påvirke prioritering og kontinuitet.</p>
+                    <h4>Robust kvalitetssikring i hvert enkelt steg</h4>
+                    <p>Hvert ledd har etablerte rutiner for faglig kontroll av eget arbeid, og den normerende prosessen er grundig og bredt forankret (arbeidsgrupper, brukerrepresentanter, høring, evidensvurdering for norske forhold).</p>
                 </div>
-
                 <div class="finding">
-                    <h4>8. Dokumentert om prosesser, udokumentert om gjennomløpstider</h4>
-                    <p>Dokumentasjonen viser tydelig <em>hva</em> som skjer i verdikjeden, men <em>når</em> det skjer er i stor grad udokumentert. Nøyaktige gjennomløpstider for normativ strøm mangler etterprøvbar dokumentasjon.</p>
+                    <h4>Fritt tilgjengelige kunnskapskilder og etablerte kanaler</h4>
+                    <p>Helsedirektoratets retningslinjer, Helsebibliotekets ressurser og Tidsskriftets fagfellevurderte innhold er fritt tilgjengelige; helsenorge.no er en etablert og mye brukt kanal for kvalitetssikret innbyggerinformasjon.</p>
                 </div>
-
                 <div class="finding">
-                    <h4>9. Systemet fungerer, men mangler integrasjon</h4>
-                    <p>Dagens verdikjede <em>fungerer</em> for hver enkelt strøm. Men som et samlet system mangler den integrasjon. Resultatene er ineffektiv ressursbruk, risiko for motstridende informasjon, og at innbyggere/helsepersonell selv må navigere mellom kilder.</p>
+                    <h4>Fagmiljøenes engasjement og eierskap</h4>
+                    <p>Profesjonsforeningenes veiledere holdes oppdatert på dugnadsbasis av fagfolk med høy legitimitet i klinikken – en betydelig ressurs.</p>
                 </div>
-
                 <div class="finding">
-                    <h4>10. Muligheter for forbedring er klare</h4>
-                    <p>Kartleggingen viser tydelig hvor problemene ligger og gir grunnlag for å utforme løsninger som sikrer bedre integrasjon, raskere oppdateringer, og mer konsistent informasjon til helsepersonell og innbyggere.</p>
+                    <h4>Legemiddelstrømmen viser at integrert kunnskapsflyt er oppnåelig</h4>
+                    <p>FEST-basert forskrivnings- og interaksjonsstøtte direkte i EPJ, Felleskatalogens publisering av samme godkjente kilde (SPC) til både helsepersonell og innbyggere, den systematiske bivirkningssløyfen (melding → sikkerhetssignal → oppdatert SPC) og RELIS' aktive implementeringsstøtte gjennom KUPP-visitter er dokumentert fungerende mekanismer i norsk kontekst.</p>
                 </div>
             </div>
 
             <div class="description" style="margin-top: 2rem;">
-                <strong>Neste steg:</strong> Delrapport 2 analyserer spesifikke utfordringer og flaskehalser i mer detalj. Delrapporter 4–7 presenterer alternative løsninger og en konkret innføringsplan.
+                <strong>Konklusjon:</strong> Dagens verdikjede fungerer tilstrekkelig for hver enkelt strøm, men systemet som helhet mangler integrasjon. En fremtidig løsning bør bygge videre på styrkene over, ikke erstatte dem. Observasjonene analyseres videre i delrapport 2 (dimensjoner D1–D6, fem kjerneegenskaper og rotårsaker R1–R6); delrapportene 4–7 presenterer løsningsalternativer og innføringsplan.
             </div>
         </div>
     </div>
 
     <div class="metadata">
-        <strong>Visualisering:</strong> Oppdatert 2026-03-23<br>
-        <strong>Basert på:</strong> Delrapport 1 (revidert 2026-03-18)<br>
+        <strong>Visualisering:</strong> Oppdatert 2026-08-14<br>
+        <strong>Basert på:</strong> Delrapport 1 (sist oppdatert 2026-08-14)<br>
         <strong>Tjenestebeskrivelse:</strong> Interaktiv HTML med faner<br>
         <strong>Utredning:</strong> Ny verdikjede for kunnskapsforvaltning i helsesektoren
     </div>

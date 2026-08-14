@@ -58,21 +58,35 @@
 ### verdikjede-naa.html
 
 - **Beskrivelse**: Interaktiv 7-fane visualisering av
-  dagens verdikjede: (1) Hele verdikjeden fra forskning
-  til innbyggere med 3 steg, nå med tydelige
-  input/output-bokser per steg som viser hvem som gir
-  input og hva som er output; (2) Fire parallelle
-  strømmer i detalj med input/output per strøm;
-  (3) Aktørkart med 18+ aktører, roller og leveranser;
-  (4) Tidsforskjeller mellom strømmene;
-  (5) Kvalitetssikringsmekanismer per strøm;
-  (6) Konsistensutfordringer; (7) Samlet oppsummering.
-  Sluttresultatet viser nå at innbyggere mottar kunnskap
-  fra mange kilder utover verdikjeden (sosiale medier,
-  KI-chatboter, internasjonale nettsider,
-  venner/familie m.m.).
-  Basert på delrapport 1 (revidert 2026-03-18).
-- **Sist oppdatert**: 2026-03-23
+  dagens verdikjede. Øverst, før fanene, ligger en
+  kompakt «verdikjeden i ett blikk»-figur (steg 1 →
+  steg 2 → de fire fargekodede strømmene med tempo →
+  mottakere, inkl. kilder utenfor kjeden). Fanene:
+  (1) Hele verdikjeden fra forskning
+  til innbyggere med 3 steg, input/output-bokser per
+  steg, og fra 2026-08-14 også avhengighetsoversikten
+  fra kap. 3e (ni avhengigheter, uformell forvaltning,
+  peker til stromavhengigheter.html); (2) Fire
+  parallelle strømmer i detalj med input/output per
+  strøm; (3) Aktørkart med roller og leveranser;
+  (4) Tidsforskjeller mellom strømmene (case-baserte
+  spennvidder fra casestudier-forsinkelser.md, ingen
+  udokumenterte gjennomsnitt); (5) Kvalitetssikrings-
+  mekanismer per strøm; (6) Konsistensutfordringer;
+  (7) Oppsummering som speiler kap. 7 (seks
+  observasjoner med D/R-forankring) og kap. 8
+  (bevaringslisten, inkl. legemiddelstrømmens
+  fungerende mekanismer). Faktaoppdatert 2026-08-14:
+  UpToDate videreført fra 1.4.2026, BMJ Best Practice
+  utgikk samme dato, Cochrane/Embase ikke gjenopprettet;
+  «parallelle ≠ uavhengige»-presiseringen innarbeidet;
+  ubrukt Chart.js-CDN fjernet (filen er nå helt
+  selvstendig). Sluttresultatet viser at innbyggere
+  mottar kunnskap fra mange kilder utover verdikjeden
+  (sosiale medier, KI-chatboter, internasjonale
+  nettsider, venner/familie m.m.).
+  Basert på delrapport 1 (sist oppdatert 2026-08-14).
+- **Sist oppdatert**: 2026-08-14
 
 ### verdikjede-ny.html
 
