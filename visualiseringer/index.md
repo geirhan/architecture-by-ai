@@ -351,7 +351,10 @@
   grensesnitt eller forpliktende oppdateringskjeder
   [ANT]. «Kortslutningene» (3b og 3c henter direkte
   fra steg 1, utenom steg 2) er tegnet som egne
-  oransje piler. Hover/klikk på en pil viser hva som
+  oransje piler; 2026-08-11 er også kortslutningen
+  steg 1 → 3a lagt til som tynnere oransje pil
+  (direktebruk ved kapasitetsmangel, [ANT — opplyst
+  i prosjektet, ikke kildebelagt]). Hover/klikk på en pil viser hva som
   flyter og belegg; klikk på en strøm-node fremhever
   dens inn- og utgående avhengigheter. Under
   diagrammet gjengis avhengighetstabellen fra kap. 3e

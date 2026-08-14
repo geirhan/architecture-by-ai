@@ -368,6 +368,16 @@ Sentrale utfordringer i dette steget:
   det krevende å oppdatere oversikter når ny
   forskning publiseres.
 
+En praktisk konsekvens av kapasitetsgapet er, ifølge
+prosjektets egen vurdering, at normerende produkter i
+noen grad utvikles med direktebruk av forskning uten
+kunnskapsoppsummering som mellomledd (jf. delrapport 1
+kap. 3a og 3e). Dette er både en tilpasning som holder
+retningslinjearbeidet i gang, og en kvalitetsrisiko,
+fordi det omgår den systematiske GRADE-vurderingen av
+evidensen [ANT — opplyst i prosjektet 2026-08-11, ikke
+kildebelagt].
+
 **Typisk tidsbruk**: Tidskrevende manuell prosess;
 konkret varighet ikke aggregert dokumentert. Cochrane
 og FHI publiserer ikke gjennomsnittlig
@@ -1184,6 +1194,13 @@ kan ikke vokse i takt med en eksponentielt
   økende gap mellom muligheter og
   forventninger … og hva vi har kapasitet til»
   (rolledeling kap. 3.4, [5]).
+- **[ANT]** En praktisk konsekvens: Normerende
+  produkter utvikles i noen grad med direktebruk
+  av forskning uten oppsummering som mellomledd –
+  en tilpasning som samtidig omgår
+  GRADE-vurderingsleddet (kap. 3.1) [ANT —
+  opplyst i prosjektet 2026-08-11, ikke
+  kildebelagt].
 
 **Forklarer flaskehalsene**: 1, 2
 (kapasitetsbegrensning for systematiske
@@ -1554,6 +1571,7 @@ Sist oppdatert: 2026-08-10
 | 2026-05-29 | R6 (kap. 9.2) og kap. 6.6.5 styrket: målrettede søk hos Hdir, FHI og Riksrevisjonen (utført 2026-05-27) bekreftet at ingen aggregerte tall for prosessvarighet eller produksjonskapasitet publiseres. Dette løftet fra parentetisk kildeforbehold til eksplisitt empirisk evidens for R6. |
 | 2026-08-10 | Profesjonsaksen innarbeidet som tillegg (ingen ny flaskehals, ingen endret rangering): D3 (kap. 2.2) utvidet med profesjonsforeningene som normerende aktørgruppe utenfor statlig styringslinje; kap. 6.1 utvidet med profesjonsvise siloer og to parallelle normeringsspor uten forrangsregler; R1 (kap. 9.2) styrket med laget av ikke-statlige normerende aktører og det ikke-etablerte «forum for faglig normering»; R5 (kap. 9.2) supplert med foreningenes implementeringsarenaer; kap. 9.7 (R1-nyanseringen) supplert med én setning. Alle tillegg merket [DOK]/[ANT] med henvisning til `profesjonsforeninger-normering.md`. |
 | 2026-08-10 | Avhengighetskartleggingen fra delrapport 1 kap. 3e speilet: kap. 6.1 supplert med presisering av at de åtte kartlagte avhengighetene mellom strømmene er reelle men uformelle (forvaltet gjennom praksis, ikke definerte grensesnitt) [DOK/ANT]; R1 (kap. 9.2) supplert med én setning om fraværet av formaliserte grensesnitt som manifestasjon av styringsutfordringen [ANT]; R4 (kap. 9.2) supplert med én setning om at avhengighetene ikke er understøttet av strukturerte grensesnitt [ANT]. Ingen endring i nummerering, D/R-betegnelser eller rangering. |
+| 2026-08-11 | Praktisk konsekvens av kapasitetsgapet innarbeidet i kap. 3.1 og R3 (kap. 9.2): normerende produkter utvikles i noen grad med direktebruk av forskning uten kunnskapsoppsummering som mellomledd – både en tilpasning og en kvalitetsrisiko (omgår GRADE-vurderingsleddet) [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt]. Ingen endring i flaskehalsenes alvorlighetsgrad eller rangering. |
 | 2026-08-04 | R2 (kap. 9.2) presisert: kildesøk (dokumentert i `metadatastrukturer-evidenskjeden.md`) viste at Hdirs retningslinjer allerede har PICO-innholdstype, SNOMED CT-metadata og åpent API — R2-gapet er presisert til å gjelde evidenskjeden bak anbefalingen (PICO → utfall → GRADE publiseres som prosa/PDF, ikke terminologibundne data) og manglende konsistens på tvers av ledd. Karakteristikken «fritekst» uten forbehold var for kategorisk for retningslinjeleddet. |
 
 ---

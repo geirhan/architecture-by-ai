@@ -191,6 +191,20 @@ foreninger og brukerrepresentanter, ekstern høring,
 og systematisk vurdering av evidens opp mot norske
 forhold [2].
 
+En nyansering av dette bildet er nødvendig: Ifølge
+prosjektets egen vurdering bygger retningslinjearbeidet
+i praksis i noen grad også direkte på enkeltstudier og
+internasjonal forskning, uten en norsk
+kunnskapsoppsummering som mellomledd. Årsaken er at
+FHIs kapasitet til å utarbeide kunnskapsoppsummeringer
+og Helsedirektoratets finansiering av slike
+oppsummeringer ikke dekker behovet [ANT — opplyst i
+prosjektet 2026-08-11, ikke kildebelagt]. Hovedmodellen
+– at normerende produkter bygger på
+kunnskapsoppsummeringer – består, men omfanget av slik
+direktebruk bør kildebelegges, for eksempel mot
+metodekapitlene i konkrete retningslinjer.
+
 **Formidling til helsepersonell og sektor:**
 Helsedirektoratets primære formidlingskanal er
 **helsedirektoratet.no**, der retningslinjer,
@@ -503,7 +517,8 @@ og i notatet om profesjonsforeningenes normering
 
 | Fra → Til | Hva flyter | Belegg |
 | --------- | ---------- | ------ |
-| Steg 1–2 → alle | Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2; 3b og 3c henter i tillegg innhold direkte fra steg 1 og «kortslutter» dermed kjeden | Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK] |
+| Steg 1–2 → alle | Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2. «Kortslutninger» utenom steg 2 finnes i alle tre fagstrømmene: 3b og 3c henter systematisk innhold direkte fra steg 1, mens 3a i noen grad gjør det samme (se raden under) | Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK] |
+| Steg 1 → 3a | Direktebruk av forskning i normerende produkter: Når kapasiteten hos FHI og finansieringen fra Helsedirektoratet ikke dekker behovet for kunnskapsoppsummeringer, bygger retningslinjearbeidet i noen grad direkte på enkeltstudier og internasjonal forskning uten oppsummering som mellomledd | Kap. 3a [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt] |
 | 3a → 3b | Retningslinjer operasjonaliseres til fagprosedyrer og behandlingslinjer; Helsebiblioteket tilgjengeliggjør retningslinjene for klinikken; lokale og foreningsutviklede retningslinjer «bør være i overensstemmelse med» de nasjonale (IS-1870 s. 12) | Kap. 3a og 3b [3] [4]; dp8 kap. 5.2, prosess 3; `profesjonsforeninger-normering.md` kap. 3 [DOK] |
 | 3b → 3a | Fagmedisinske foreninger bidrar i Helsedirektoratets arbeidsgrupper og høringer; foreningsveiledere dekker områder der nasjonale retningslinjer ikke utarbeides (IS-1870 s. 11) | Kap. 3a og 3b [2] [9]; dp8 kap. 5.2, prosess 2; `profesjonsforeninger-normering.md` kap. 3 [DOK] |
 | 3a → 3d | Retningslinjene er grunnlag for innbyggerinnholdet: innhold på helsenorge.no skal være «i tråd med nasjonale råd og retningslinjer», Helsedirektoratet har utgiveransvaret, og publisering av ny retningslinje er utløsende hendelse for oppdatering | Kap. 3a og 3d [10]; dp8 kap. 5.2, prosess 6 [DOK] |
@@ -992,7 +1007,7 @@ case-dokumenterte verdiene.
 
 ---
 
-Sist oppdatert: 2026-08-10
+Sist oppdatert: 2026-08-11
 
 ## Endringslogg
 
@@ -1002,6 +1017,7 @@ Sist oppdatert: 2026-08-10
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte gjennomsnittsanslag (1–5 år, 2–3 år, 2,5–5 år) fjernet og erstattet med case-baserte spennvidder fra `casestudier-forsinkelser.md`. Kap. 7 observasjoner forankret eksplisitt mot delrapport 2s begrepsapparat (D1–D6, kjerneegenskaper, R1–R6). Konklusjon språklig strammet. |
 | 2026-08-10 | Presisering av normeringsbeskrivelsen basert på `profesjonsforeninger-normering.md`: kap. 3a («formell *statlig* normering» + foreningsveilederes normerende praksis), kap. 3b (fagmedisinske foreningers veiledere/metodebøker, NSA), kap. 6 (manglende system for forrang stat/forening), kap. 1 (setning om tosporet normering). |
 | 2026-08-10 | Avhengigheter mellom strømmene kartlagt og innarbeidet: nytt delkapittel 3e med avhengighetstabell (belegg fra denne rapporten, delrapport 8 og `profesjonsforeninger-normering.md`); presisering i steg 3-innledningen av at «parallelle» betyr samtidige, ikke uavhengige, strømmer; henvisning til 3e i kap. 5.3; hovedbudskapet i kap. 1 presisert («bygger på hverandre, men arbeider hver for seg»). |
+| 2026-08-11 | Nyansering av kap. 3a og 3e: retningslinjearbeidet bygger i noen grad direkte på enkeltstudier/internasjonal forskning uten norsk kunnskapsoppsummering som mellomledd, fordi FHIs oppsummeringskapasitet og Helsedirektoratets finansiering ikke dekker behovet [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt]. Ny rad Steg 1 → 3a i avhengighetstabellen; kortslutningsomtalen utvidet til å omfatte alle tre fagstrømmene (3a i noen grad, 3b og 3c mer systematisk). Hovedmodellen består; punktet bør kildebelegges mot metodekapitler i konkrete retningslinjer. |
 | 2026-08-10 | Tilgjengelighetsrevisjon av innledningen: hovedbudskapet omskrevet med konkret eksempel (diabetes) og uten fremoverreferanser; formålet (kap. 1.1) utvidet til også å omfatte hva som fungerer godt og bør bevares; PICO forklart (kap. 1.2); peker til Helsedirektoratets side om normerende produkter [27] (kap. 3a). Kap. 8 utvidet med liste over hva som fungerer godt og bør bevares — basert på eksisterende funn i kap. 3 og 6, ingen nye påstander. |
 
 ---

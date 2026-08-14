@@ -45,9 +45,11 @@ modnes.
   hovedbudskap, utvidet formål, «hva fungerer godt»-liste i kap. 8)
   og nytt kap. 3e som kartlegger åtte dokumenterte avhengigheter
   mellom de fire strømmene — «parallelle» presisert til samtidige,
-  ikke uavhengige.
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet + avhengighetskartlegging)
+  ikke uavhengige. 2026-08-11: kortslutning steg 1 → 3a tilføyd
+  (direktebruk av forskning i normerende produkter ved
+  kapasitetsmangel hos FHI/finansiering fra Hdir) [ANT — opplyst
+  i prosjektet, ikke kildebelagt].
+- **Sist oppdatert**: 2026-08-11
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
@@ -84,9 +86,11 @@ modnes.
   R5 og kap. 9.7 (se `profesjonsforeninger-normering.md`). Samme dato:
   konsistensutfordringen presisert mot avhengighetskartleggingen i
   delrapport 1 kap. 3e — forbindelsene mellom strømmene finnes, men
-  er uformelle (kap. 6.1, R1, R4).
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  er uformelle (kap. 6.1, R1, R4). 2026-08-11: praktisk konsekvens
+  av kapasitetsgapet tilføyd i kap. 3.1 og R3 (direktebruk av
+  forskning i normerende produkter — tilpasning og kvalitetsrisiko)
+  [ANT — opplyst i prosjektet, ikke kildebelagt].
+- **Sist oppdatert**: 2026-08-11
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
@@ -617,6 +621,26 @@ modnes.
   Alle utsagn merket [DOK]/[ANT].
 - **Sist oppdatert**: 2026-08-10 (utvidet med systematiske sveip samme
   dag)
+
+### [Antakelsesregister for utredningen](antakelsesregister.md)
+
+- **Status**: Under arbeid — internt arbeidsdokument
+- **Beskrivelse**: Samler alle 240 reelle [ANT]-markerte
+  antakelser fra 23 substansdokumenter (fire parallelle
+  uttrekk 2026-08-11, pluss to tilføyd samme dag),
+  hyperlenket med ankere direkte inn i kildedokumentene,
+  klassifisert etter type (tolkning,
+  konsekvensvurdering, konstruksjon, usikker faktapåstand,
+  metodisk valg) og beslutningskritikalitet. Identifiserer
+  seks beslutningskritiske antakelsesclustre — viktigst:
+  drift-tesen (passivitet → S4/S2), som bærer
+  nullalternativvurderingen og hviler på to udokumenterte
+  premisser; veivalget om foreningssporet; og de juridiske
+  AI Act/MDR-tolkningene. Prioritert verifiseringsliste med
+  12 punkter der usikre faktapåstander kan oppgraderes til
+  [DOK]. Grunnlag for forankringsarbeidet. Inngår ikke i
+  HTML-versjonen.
+- **Sist oppdatert**: 2026-08-11
 
 ### [HTML-versjon](html/index.html)
 

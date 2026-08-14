@@ -81,6 +81,7 @@
     marker-end: url(#ah);
   }
   .dep.kort path.vis { stroke: #c77700; stroke-dasharray: 4 4; marker-end: url(#ah-amber); }
+  .dep.kort.svak path.vis { stroke-width: 1.2; stroke-dasharray: 2 5; }
   .dep path.stub { marker-end: none; }
   .dep path.hit { fill: none; stroke: transparent; stroke-width: 16; }
   .dep text {
@@ -151,8 +152,9 @@
   <h1>Avhengigheter mellom de fire strømmene i verdikjedens steg 3</h1>
   <p>De fire parallelle strømmene i steg 3 – normerende (3a), klinisk (3b), legemiddel (3c) og
   innbyggerrettet (3d) – løper samtidig, men er ikke uavhengige: Innhold, bidrag og føringer flyter
-  mellom dem. Diagrammet viser de åtte dokumenterte avhengighetene. Alle er tegnet med stiplet linje
-  fordi de er uformelle – de forvaltes gjennom praksis, ikke gjennom definerte grensesnitt.</p>
+  mellom dem. Diagrammet viser de åtte dokumenterte avhengighetene, samt én delvis kortslutning
+  (steg 1 → 3a) som er opplyst i prosjektet, men ikke kildebelagt [ANT]. Alle er tegnet med stiplet
+  linje fordi de er uformelle – de forvaltes gjennom praksis, ikke gjennom definerte grensesnitt.</p>
   <p class="basis"><strong>Basert på delrapport 1 (dagens-verdikjede.md), kap. 3e</strong> (avhengighetstabellen) og kap. 2 (beskrivelsen av steg 3 og de fire strømmene).</p>
 </header>
 <main>
@@ -166,7 +168,11 @@
       <svg width="46" height="12" viewBox="0 0 46 12"><line x1="0" y1="6" x2="38" y2="6" stroke="#c77700" stroke-width="2" stroke-dasharray="4 4"/><path d="M38,2 L46,6 L38,10 Z" fill="#c77700"/></svg>
       <span>«Kortslutning»: 3b og 3c henter innhold direkte fra steg 1, utenom steg 2</span>
     </div>
-    <div class="note">Ingen av de åtte avhengighetene har formaliserte grensesnitt eller forpliktende
+    <div class="item">
+      <svg width="46" height="12" viewBox="0 0 46 12"><line x1="0" y1="6" x2="38" y2="6" stroke="#c77700" stroke-width="1.2" stroke-dasharray="2 5"/><path d="M38,2 L46,6 L38,10 Z" fill="#c77700"/></svg>
+      <span>Delvis kortslutning: 3a bruker i noen grad forskning direkte ved kapasitetsmangel [ANT — opplyst i prosjektet, ikke kildebelagt]</span>
+    </div>
+    <div class="note">Ingen av avhengighetene har formaliserte grensesnitt eller forpliktende
     oppdateringskjeder [ANT, dp1 kap. 3e]. Derfor er <em>alle</em> piler stiplet.</div>
   </div>
 
@@ -218,6 +224,14 @@
       <text x="212" y="166">direkte fra steg 1</text>
       <text x="852" y="150">kortslutning:</text>
       <text x="852" y="166">direkte fra steg 1</text>
+    </g>
+
+    <!-- D9 delvis kortslutning: steg 1 direkte til 3a [ANT] -->
+    <g class="dep kort svak" data-dep="D9">
+      <path class="vis" d="M380,30 C110,30 60,220 110,296"/>
+      <path class="hit" d="M380,30 C110,30 60,220 110,296"/>
+      <text x="100" y="222">direktebruk ved</text>
+      <text x="100" y="238">kapasitetsmangel [ANT]</text>
     </g>
 
     <!-- D2: 3a -> 3b -->
@@ -323,8 +337,11 @@
     <thead><tr><th>Fra → Til</th><th>Hva flyter</th><th>Belegg</th></tr></thead>
     <tbody>
       <tr><td>Steg 1–2 → alle</td>
-        <td>Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2; 3b og 3c henter i tillegg innhold direkte fra steg 1 og «kortslutter» dermed kjeden</td>
+        <td>Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2. «Kortslutninger» utenom steg 2 finnes i alle tre fagstrømmene: 3b og 3c henter systematisk innhold direkte fra steg 1, mens 3a i noen grad gjør det samme (se raden under)</td>
         <td>Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK]</td></tr>
+      <tr><td>Steg 1 → 3a</td>
+        <td>Direktebruk av forskning i normerende produkter: Når kapasiteten hos FHI og finansieringen fra Helsedirektoratet ikke dekker behovet for kunnskapsoppsummeringer, bygger retningslinjearbeidet i noen grad direkte på enkeltstudier og internasjonal forskning uten oppsummering som mellomledd</td>
+        <td>Kap. 3a [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt]</td></tr>
       <tr><td>3a → 3b</td>
         <td>Retningslinjer operasjonaliseres til fagprosedyrer og behandlingslinjer; Helsebiblioteket tilgjengeliggjør retningslinjene for klinikken; lokale og foreningsutviklede retningslinjer «bør være i overensstemmelse med» de nasjonale (IS-1870 s. 12)</td>
         <td>Kap. 3a og 3b [3] [4]; dp8 kap. 5.2, prosess 3; profesjonsforeninger-normering.md kap. 3 [DOK]</td></tr>
@@ -367,7 +384,7 @@
 </main>
 <footer>
   Visualisering basert på delrapport 1 (<code>rapporter/dagens-verdikjede.md</code>), kap. 2 og 3e.
-  Selvstendig HTML uten eksterne avhengigheter. Sist oppdatert 2026-08-10.
+  Selvstendig HTML uten eksterne avhengigheter. Sist oppdatert 2026-08-11.
 </footer>
 
 <script>
@@ -378,8 +395,14 @@
     D1: {
       tittel: "Steg 1–2 → alle strømmer",
       nodes: ["3a", "3b", "3c", "3d"],
-      hva: "Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2; 3b og 3c henter i tillegg innhold direkte fra steg 1 og «kortslutter» dermed kjeden (de oransje pilene).",
+      hva: "Felles kunnskapsgrunnlag: 3a bygger på kunnskapsoppsummeringer fra steg 2. «Kortslutninger» utenom steg 2 finnes i alle tre fagstrømmene (de oransje pilene): 3b og 3c henter systematisk innhold direkte fra steg 1, mens 3a i noen grad gjør det samme (den tynne pilen, [ANT]).",
       belegg: "Kap. 2 (3a, 3b, 3c); dp8 kap. 5.3, obs. 1–2 [DOK]"
+    },
+    D9: {
+      tittel: "Steg 1 → 3a Normerende (delvis kortslutning)",
+      nodes: ["3a"],
+      hva: "Direktebruk av forskning i normerende produkter: Når kapasiteten hos FHI og finansieringen fra Helsedirektoratet ikke dekker behovet for kunnskapsoppsummeringer, bygger retningslinjearbeidet i noen grad direkte på enkeltstudier og internasjonal forskning uten oppsummering som mellomledd. Opplysningen er opplyst i prosjektet, ikke kildebelagt.",
+      belegg: "dp1 kap. 3a og 3e [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt]"
     },
     D2: {
       tittel: "3a Normerende → 3b Klinisk",
