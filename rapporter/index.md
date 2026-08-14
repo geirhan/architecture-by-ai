@@ -549,15 +549,24 @@ modnes.
   forvaltning (K18) er god; fire kapabiliteter er
   fraværende (EPJ-beslutningsstøtte, implementerings-
   eierskap, feedback-sløyfe, helhetlig styring); fire
-  bygges ikke av noen løsningsretning (konsistens
-  mellom strømmer, bærekraftig finansiering,
-  kvalitetssikring på tvers, KI-forvaltning). Åpne
+  bygges ikke av noen løsningsretning (faglig
+  synkronisering av strømmene, bærekraftig
+  finansiering, kvalitetssikring på tvers,
+  KI-forvaltning). Åpne
   drøftingspunkter for nivå 2/3 i kap. 4. Bindeledd
   mellom utfordringsbildet og innsnevring av
   løsningsrommet. 2026-08-10: K10- og K19-vurderingene utvidet med
   foreningssporet, og nytt drøftingspunkt 4 i kap. 4 (se
-  `profesjonsforeninger-normering.md`).
-- **Sist oppdatert**: 2026-08-10
+  `profesjonsforeninger-normering.md`). 2026-08-14: alle
+  kildehenvisninger (forankringslinjer, rotårsaks- og
+  retningskoder, kildeanvisninger i kap. 3.2) gjort om
+  til ankerlenker inn i kildedokumentene. K10 omdøpt
+  fra «Konsistens på tvers av formidlingsstrømmer» til
+  «Faglig synkronisering av strømmene» med presisert
+  definisjon (kanal/strøm-skillet, redaksjonelt
+  eierskap) og eksplisitt avgrensning mot K7 og K19;
+  speilet i `visualiseringer/kapabilitetskart.html`.
+- **Sist oppdatert**: 2026-08-14
 
 ### [Klarspråksgjennomgang av delrapport 1–9](klarsprakgjennomgang-delrapporter.md)
 
@@ -618,9 +627,23 @@ modnes.
   normering med foreningsveiledere i parallell — som oppgraderer
   hybridpåstanden fra [ANT] til [DOK]. Ni kunnskapsgap, inkl. uverifisert
   MAGICapp-påstand i organisasjonsmodell-notatet som bør kryssjekkes.
-  Alle utsagn merket [DOK]/[ANT].
-- **Sist oppdatert**: 2026-08-10 (utvidet med systematiske sveip samme
-  dag)
+  Alle utsagn merket [DOK]/[ANT]. 2026-08-14: nytt kap. 3.1 om den
+  rettslige forankringen av Helsedirektoratets normerende produkter —
+  lovfestet utgivermandat (sphl. § 7-3 / hol. § 12-5, verifisert mot
+  Lovdata), ikke rettslig bindende med unntak av obligatoriske
+  e-helsestandarder i FOR-2015-07-01-853 (hjemlet i pasientjournalloven
+  §§ 7, 8, 12 og 13; adressering, ebXML/applikasjonskvittering og 18
+  meldingsstandarder), skal/bør/kan-graderingen, og analytisk poeng om
+  at det bindende laget kun gjelder teknisk samhandling. Det analytiske
+  poenget er samme dag verifisert med internettsøk: støttet for Hdirs
+  portefølje (ingen forskrift funnet som binder Hdir-retningslinjer),
+  nyansert (Referansekatalogen omfatter også rapporteringsstandarder
+  til NPR/SYSVAK/MFR og kodeverk), og avkreftet i sin brede form
+  (tuberkulosekontrollforskriften § 3-3 og vaksinasjonsprogram-
+  forskriften § 3 gir FHIs faglige anbefalinger bindende virkning ved
+  forskriftshenvisning). Nytt kunnskapsgap 10 om gjenstående
+  Lovdata-søk. Kilder 31–37 tilført.
+- **Sist oppdatert**: 2026-08-14
 
 ### [Antakelsesregister for utredningen](antakelsesregister.md)
 
