@@ -51,8 +51,14 @@ Kartet har to nivåer:
 - **Nivå 2** er dekomponeringen av hver nivå
   1-kapabilitet i konkrete, avgrensede evner (K1–K21).
 
-Kapabilitetene er formulert løsningsnøytralt («evnen
-til å …»), slik at kartet kan brukes til tre ting:
+Kapabilitetene er formulert løsnings- og
+aktørnøytralt («evnen til å …»): Kartet beskriver
+*hva* kjeden må kunne, ikke *hvem* som skal utøve
+det. Hvem-spørsmål — rollefordeling mellom aktører,
+inkludert forholdet mellom statlig og foreningsdrevet
+normering — hører hjemme i rollemodellen og
+veivalgene i delrapport 4, ikke i kartet. Dermed kan
+kartet brukes til tre ting:
 
 1. **Gap-vurdering:** hvor står dagens verdikjede per
    kapabilitet? (kap. 3)
@@ -802,16 +808,41 @@ dekomponering til nivå 3):
    K5 … legges om og skaleres?), slik dp2 behandler
    den som dimensjon D6. Endelig beslutning er ikke
    tatt.
-4. **Skal kartet omfatte foreningsdrevet normering?**
-   Kartet er i dag utledet fra den statlige kjedens
-   prosesser, men en betydelig del av den kliniske
-   veiledningen produseres av profesjonsforeninger
-   utenfor denne kjeden
-   ([profesjonsforeninger-normering](profesjonsforeninger-normering.md)).
-   Bør verdikjedens kapabiliteter omfatte dette sporet —
-   for eksempel innholdsavtaler, kildemerking og
-   motstridskontroll — eller skal det behandles som
-   ekstern avhengighet? [ANT]
+4. **Skal kartet omfatte foreningsdrevet normering?
+   — Lukket 2026-08-14.** Spørsmålet var opprinnelig
+   om verdikjedens kapabiliteter burde omfatte
+   foreningssporet
+   ([profesjonsforeninger-normering](profesjonsforeninger-normering.md))
+   eller behandle det som ekstern avhengighet.
+   Drøftingen viste at spørsmålet var feilstilt: det
+   er et *hvem*-spørsmål (rollefordeling), ikke et
+   *hva*-spørsmål (evner) — og kartet er aktørnøytralt
+   (jf. kap. 1). Oppløsningen [ANT]:
+
+   - Evnene foreningene utøver, er allerede dekket av
+     kartet uansett utøver: foreningsveiledere er
+     utøvelse av K5, foreningenes
+     implementeringsarenaer av K11, den
+     dugnadsbaserte oppdateringen av K1/K5. Dette er
+     samme behandling som legemiddelstrømmens aktører
+     fikk i dekningsanalysen i punkt 1: utøvelsen er
+     *belegg i vurderingene*, ikke egne kapabiliteter.
+   - De eneste evnene som finnes *fordi* det er to
+     spor — motstridskontroll, forrangsregler,
+     kildemerking, innholdsavtaler — er fanget i K10
+     (faglig synkronisering) og K19
+     (kvalitetssikring på tvers); innholdsavtaler og
+     kildemerking er nivå 3-kandidater under disse.
+   - Selve hvem-spørsmålet — om foreningsdrevet
+     normering skal innlemmes, erstattes eller
+     sameksistere med den statlige — er henvist til
+     veivalget i delrapport 4 kap. 6.3 og
+     rollemodellen i kap. 7.1, der det allerede står
+     åpent.
+
+   Ingen endringer i kapabilitetsstrukturen.
+   Aktørnøytraliteten er samtidig gjort eksplisitt i
+   metodebeskrivelsen i kap. 1.
 
 ## 5. Bruk videre
 

@@ -601,7 +601,14 @@ modnes.
   kunnskapsressurser» tatt inn i kartet 2026-08-14
   under «Forvalte informasjon og kvalitet» (vurdering:
   Delvis, rotårsak R1, bygges ikke av noen retning);
-  speilet i visualiseringen.
+  speilet i visualiseringen. Drøftingspunkt 4
+  (foreningssporet) lukket 2026-08-14: spørsmålet var
+  et hvem-spørsmål, ikke et hva-spørsmål — kartet er
+  aktørnøytralt (nå eksplisitt i kap. 1), foreningenes
+  utøvelse er belegg i vurderingene (som
+  legemiddelstrømmens aktører), tosporsevnene er
+  fanget i K10/K19, og rollefordelingen er henvist
+  til dp4 kap. 6.3/7.1. Ingen strukturendringer.
 - **Sist oppdatert**: 2026-08-14
 
 ### [Klarspråksgjennomgang av delrapport 1–9](klarsprakgjennomgang-delrapporter.md)
