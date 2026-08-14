@@ -53,7 +53,10 @@ modnes.
   mekanismer (FEST, Felleskatalogen, bivirkningssløyfen,
   RELIS/KUPP) som fungerende eksempel på integrert kunnskapsflyt
   (basert på kap. 3c; foranlediget av dekningsanalysen i
-  kapabilitetskartet).
+  kapabilitetskartet). Samme dato: faktaoppdatering av
+  oppslagsverkene i kap. 3b (UpToDate videreført i ny
+  treårsavtale fra 1.4.2026, BMJ Best Practice utgikk;
+  Cochrane/Embase ikke gjenopprettet), refs [28]–[29].
 - **Sist oppdatert**: 2026-08-14
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
@@ -547,7 +550,8 @@ modnes.
   to nivåer: åtte nivå 1-kapabiliteter utledet fra
   kildenes prosessbeskrivelse (delrapport 1s steg og
   strømmer, delrapport 2s flaskehalsanalyse),
-  dekomponert i 20 nivå 2-kapabiliteter (K1–K20).
+  dekomponert i 21 nivå 2-kapabiliteter (K1–K21;
+  K21 tilgangsforvaltning tilføyd 2026-08-14).
   Kap. 2 definerer kartet; kap. 3 vurderer dagens evne
   per kapabilitet (God/Delvis/Svak/Fraværende) med
   kildeanvisning. Hovedfunn: kun terminologi-
@@ -587,10 +591,17 @@ modnes.
   2026-08-14 (oppfølging): politisk kontekst for
   K21-kandidaten verifisert og dokumentert (kuttene
   2023, protestene, RNB-kravet — kobling til K17/R1;
-  status 2026 uverifisert); mønsteret dokumentert som
+  status 2026 verifisert samme dag: UpToDate videreført
+  fra 1.4.2026, BMJ Best Practice ute, Cochrane/Embase
+  ikke gjenopprettet — sårbarheten er en pågående
+  tilstand); mønsteret dokumentert som
   nytt mønster 4 i kap. 3.4 med nyanseringer i
   K7/K8/K11/K14-vurderingene og speiling i dp1 kap. 8.
-  K21-beslutningen står åpen.
+  K21 «Forvaltning av tilgang til eksterne
+  kunnskapsressurser» tatt inn i kartet 2026-08-14
+  under «Forvalte informasjon og kvalitet» (vurdering:
+  Delvis, rotårsak R1, bygges ikke av noen retning);
+  speilet i visualiseringen.
 - **Sist oppdatert**: 2026-08-14
 
 ### [Klarspråksgjennomgang av delrapport 1–9](klarsprakgjennomgang-delrapporter.md)

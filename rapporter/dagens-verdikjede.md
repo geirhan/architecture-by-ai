@@ -292,13 +292,16 @@ formelle kunnskapsoppsummeringer i steg 2.
   forskning til klinisk anvendbare anbefalinger med
   løpende oppdatering. Tilgjengelige for norsk
   helsepersonell gjennom nasjonale lisensavtaler
-  via Helsebiblioteket [3]. BMJ Best Practice er
-  tilgjengelig for alle med norsk IP-adresse, mens
-  UpToDate krever registrering via arbeidsgiver
-  [5]. Fra 2023 mistet norsk helsepersonell
-  nasjonal tilgang til Cochrane Library, Embase og
-  flere andre databaser som følge av budsjettkutt
-  ved FHI [6].
+  via Helsebiblioteket [3]. Porteføljen er i
+  endring: UpToDate er videreført i en ny treårig
+  nasjonal avtale fra 1. april 2026 etter
+  anbudskonkurranse, mens BMJ Best Practice gikk
+  ut av tilbudet samme dato [28]. Fra 2023 mistet
+  norsk helsepersonell nasjonal tilgang til
+  Cochrane Library, Embase og flere andre
+  databaser som følge av budsjettkutt ved FHI [6];
+  per 2026 er disse ikke gjenopprettet, og flere
+  av de gjenværende avtalene fornyes årlig [29].
 - **Fagprosedyrer** (Helsebiblioteket/fagprosedyrer):
   Fagprosedyrer.no omdirigerer nå til
   Helsebiblioteket [4]. OUS koordinerer arbeidet
@@ -340,7 +343,7 @@ dokumentert.
 
 | Aktør | Rolle | Leveranse |
 | ------- | ------- | ----------- |
-| UpToDate / BMJ Best Practice | Klinisk oppslagsverk | Evidensbaserte anbefalinger, kalkulatorer |
+| UpToDate (BMJ Best Practice utgikk 1.4.2026) | Klinisk oppslagsverk | Evidensbaserte anbefalinger, kalkulatorer |
 | Helsebiblioteket (fagprosedyrer) | Fagprosedyreplattform | Handlingsanvisninger for klinisk praksis |
 | Tidsskriftet / Sykepleien | Fagtidsskrifter (open access) | Originalartikler, oversikter, fagdebatt |
 | Fagmedisinske foreninger | Spesialitetsspesifikk veiledning og normering | Veiledere/metodebøker, faglige anbefalinger, kurs, konferanser |
@@ -1029,6 +1032,7 @@ Sist oppdatert: 2026-08-14
 | 2026-08-10 | Avhengigheter mellom strømmene kartlagt og innarbeidet: nytt delkapittel 3e med avhengighetstabell (belegg fra denne rapporten, delrapport 8 og `profesjonsforeninger-normering.md`); presisering i steg 3-innledningen av at «parallelle» betyr samtidige, ikke uavhengige, strømmer; henvisning til 3e i kap. 5.3; hovedbudskapet i kap. 1 presisert («bygger på hverandre, men arbeider hver for seg»). |
 | 2026-08-11 | Nyansering av kap. 3a og 3e: retningslinjearbeidet bygger i noen grad direkte på enkeltstudier/internasjonal forskning uten norsk kunnskapsoppsummering som mellomledd, fordi FHIs oppsummeringskapasitet og Helsedirektoratets finansiering ikke dekker behovet [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt]. Ny rad Steg 1 → 3a i avhengighetstabellen; kortslutningsomtalen utvidet til å omfatte alle tre fagstrømmene (3a i noen grad, 3b og 3c mer systematisk). Hovedmodellen består; punktet bør kildebelegges mot metodekapitler i konkrete retningslinjer. |
 | 2026-08-14 | Nytt punkt i «fungerer godt og bør bevares»-listen (kap. 8): legemiddelstrømmens regulatoriske mekanismer (FEST-basert beslutningsstøtte i EPJ, Felleskatalogens énkilde-publisering, bivirkningssløyfen, RELIS/KUPP) som dokumentert fungerende eksempel på integrert kunnskapsflyt. Basert på eksisterende funn i kap. 3c, ingen nye påstander; foranlediget av dekningsanalysen i `kapabilitetskart-verdikjeden.md` kap. 4 punkt 1. |
+| 2026-08-14 | Faktaoppdatering av oppslagsverkene i kap. 3b etter verifisering mot Helsebibliotekets sider: UpToDate videreført i ny treårig nasjonal avtale fra 1.4.2026 (anbud), BMJ Best Practice utgikk samme dato; Cochrane/Embase-tilgangen fra 2023-kuttet er ikke gjenopprettet, flere gjenværende avtaler fornyes årlig. Nye referanser [28] og [29]; aktørtabellen i 3b justert. |
 | 2026-08-10 | Tilgjengelighetsrevisjon av innledningen: hovedbudskapet omskrevet med konkret eksempel (diabetes) og uten fremoverreferanser; formålet (kap. 1.1) utvidet til også å omfatte hva som fungerer godt og bør bevares; PICO forklart (kap. 1.2); peker til Helsedirektoratets side om normerende produkter [27] (kap. 3a). Kap. 8 utvidet med liste over hva som fungerer godt og bør bevares — basert på eksisterende funn i kap. 3 og 6, ingen nye påstander. |
 
 ---
@@ -1042,6 +1046,14 @@ retningslinjer*.
 [27]: Helsedirektoratet. *Om Helsedirektoratets
 normerende produkter*.
 <https://www.helsedirektoratet.no/nasjonale-krav-og-anbefalinger/om-helsedirektoratets-normerende-produkter>
+
+[28]: Helsebiblioteket. *Endringer i Helsebibliotekets
+tilbud fra 1. april: UpToDate videreføres* (2026).
+<https://www.helsebiblioteket.no/innhold/artikler/nyheter/endringer-i-helsebibliotekets-tilbud-fra-1.april-uptodate-viderefores>
+
+[29]: Helsebiblioteket. *Oversikt over avtaler og
+tilgang på Helsebiblioteket.no* (lest 2026-08-14).
+<https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/oversikt-over-avtaler-og-tilgang-pa-helsebiblioteket.no>
 
 [2]: Helsedirektoratet. *Om Helsedirektoratets
 normerende produkter*.

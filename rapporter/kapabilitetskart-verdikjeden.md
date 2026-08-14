@@ -49,7 +49,7 @@ Kartet har to nivåer:
   informasjons- og kvalitetsforvaltning:
   [dp1 kap. 5](dagens-verdikjede.md#5-informasjonsflyt-og-formater)–[6](dagens-verdikjede.md#6-kvalitetssikringsmekanismer-per-strøm)).
 - **Nivå 2** er dekomponeringen av hver nivå
-  1-kapabilitet i konkrete, avgrensede evner (K1–K20).
+  1-kapabilitet i konkrete, avgrensede evner (K1–K21).
 
 Kapabilitetene er formulert løsningsnøytralt («evnen
 til å …»), slik at kartet kan brukes til tre ting:
@@ -333,6 +333,20 @@ og [9.2](utfordringer-og-flaskehalser.md#92-seks-rotårsaker)
   [B3](losningsretninger-bred-kartlegging.md#b3-generativt-ki-lag-oppå-kuratert-kunnskapsbase),
   [B4](losningsretninger-bred-kartlegging.md#b4-automatisert-evidensovervåking-living-evidence),
   [D1](losningsretninger-bred-kartlegging.md#d1-trinnvis-offentlig-ki-helsetjeneste-med-kildeforankring).*
+- **K21. Forvaltning av tilgang til eksterne
+  kunnskapsressurser** — evnen til å sikre
+  helsetjenesten stabil og likeverdig tilgang til
+  eksterne kunnskapskilder (kliniske oppslagsverk,
+  databaser, tidsskrifter) gjennom lisensiering,
+  anskaffelser og kildevalg. I dag utøvd av
+  Helsebiblioteket gjennom nasjonale avtaler
+  ([dp1 kap. 3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen)).
+  Tilføyd 2026-08-14 etter dekningsanalysen i kap. 4
+  punkt 1. *Egenskap: Reaktivitet, Tillit (likeverdig
+  tilgang uavhengig av arbeidssted). Rotårsak:
+  [R1](utfordringer-og-flaskehalser.md#r1-manglende-helhetlig-styringsmandat)
+  (finansiering og styring). Bygges ikke av noen
+  løsningsretning direkte.*
 
 ## 3. Vurdering av dagens evne
 
@@ -517,6 +531,18 @@ uavklart
 ([syntesenotatet kap. 1](losningsretninger-bred-kartlegging.md#1-ledersammendrag)
 og [5](losningsretninger-bred-kartlegging.md#5-viktigste-kunnskapsgap-på-tvers)).
 
+**K21 Tilgangsforvaltning — Delvis.**
+Forvaltningsapparatet er etablert og fungerer
+(Helsebibliotekets nasjonale avtaler og
+anbudsprosesser), men finansieringen er dokumentert
+ustabil og porteføljen krympende: tilgangen til
+Cochrane Library og Embase fra 2023-kuttet er ikke
+gjenopprettet, BMJ Best Practice utgikk 1.4.2026
+etter anbud, og flere gjenværende avtaler fornyes
+årlig
+([dp1 kap. 3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen);
+politisk kontekst og kilder i kap. 4 punkt 1).
+
 ### 3.3 Samlet oversikt
 
 | Kapabilitet | Nivå 1 | Dagens evne | Rotårsak |
@@ -541,6 +567,7 @@ og [5](losningsretninger-bred-kartlegging.md#5-viktigste-kunnskapsgap-på-tvers)
 | K18 Terminologiforvaltning | Forvalte | God | R4 |
 | K19 Kvalitetssikring på tvers | Forvalte | Svak | R4 |
 | K20 KI-forvaltning | Forvalte | Svak | — |
+| K21 Tilgangsforvaltning | Forvalte | Delvis | R1 |
 
 ### 3.4 Mønstre i vurderingen
 
@@ -558,10 +585,11 @@ og [5](losningsretninger-bred-kartlegging.md#5-viktigste-kunnskapsgap-på-tvers)
    (krisemodus) og reell fremdrift på K11/K12. Dette
    gir en naturlig sekvens: styring og struktur før
    automatisering og sløyfer.
-3. **Fire kapabiliteter bygges ikke av noen
+3. **Fem kapabiliteter bygges ikke av noen
    løsningsretning direkte:** K10 (faglig
    synkronisering av strømmene), K17 (bærekraftig
-   finansiering), K19
+   finansiering), K21 (tilgangsforvaltning, tilføyd
+   2026-08-14), K19
    (kvalitetssikring på tvers) og K20
    (KI-forvaltning). K17 og K20 er forutsetninger som
    internasjonalt feller ellers vellykkede initiativer;
@@ -649,10 +677,11 @@ dekomponering til nivå 3):
    i norsk kontekst, og hører hjemme i «fungerer godt
    og bør bevares»-listen
    ([dp1 kap. 8](dagens-verdikjede.md#8-konklusjon)).
-   Vurderingene i kap. 3.2 bør i så fall nyanseres med
-   at de i dag primært beskriver den normerende og
-   innbyggerrettede strømmen. Begge oppfølgingene
-   avventer beslutning.
+   Vurderingene i kap. 3.2 er nyansert i tråd med
+   funn (b) (se mønster 4 i kap. 3.4), og K21 ble
+   besluttet tatt inn i kartet 2026-08-14 etter at
+   2026-statusen for Helsebiblioteket-tilgangen var
+   verifisert (se nedenfor).
 
    *Politisk kontekst for hullet i (a) — verifisert
    2026-08-14:* Tilgangsforvaltningen er ikke bare et
@@ -678,11 +707,29 @@ dekomponering til nivå 3):
    redusert siden 2020. Krav om gjenoppretting via
    revidert nasjonalbudsjett 2023 med varig
    videreføring ble fremmet
-   ([Forskerforbundet](https://www.forskerforbundet.no/var-politikk/uttalelser/2023/innspill-til-revidert-nasjonalbudsjett-2023/));
-   om og i hvilken grad tilgangen faktisk er
-   gjenopprettet og finansieringen gjort forutsigbar
-   per 2026, er ikke verifisert [ANT — bør sjekkes før
-   K21 eventuelt tas inn]. Dette kobler K21-kandidaten
+   ([Forskerforbundet](https://www.forskerforbundet.no/var-politikk/uttalelser/2023/innspill-til-revidert-nasjonalbudsjett-2023/)).
+   *Status per 2026 (verifisert 2026-08-14 mot
+   Helsebibliotekets egne sider) [DOK]:* Porteføljen er
+   fortsatt redusert og i endring. UpToDate er
+   videreført i en ny treårig nasjonal avtale fra
+   1. april 2026 etter anbudskonkurranse, men **BMJ
+   Best Practice gikk samtidig ut** av tilbudet
+   (tapte anbudet), og de oversatte BMJ-pasientbrosjyrene
+   er slettet
+   ([Helsebiblioteket, endringer fra 1. april](https://www.helsebiblioteket.no/innhold/artikler/nyheter/endringer-i-helsebibliotekets-tilbud-fra-1.april-uptodate-viderefores)).
+   Cochrane Library-avtalen står som «avviklet» —
+   2023-kuttet er ikke gjenopprettet — og Embase,
+   PsycINFO og AMED er ikke i porteføljen; CINAHL/
+   Medline, Micromedex, Legevakthåndboken og McMaster
+   PLUS er tilgjengelige, flere med årlig fornyelse
+   ([Helsebibliotekets avtaleoversikt](https://www.helsebiblioteket.no/innhold/artikler/om-helsebiblioteket/oversikt-over-avtaler-og-tilgang-pa-helsebiblioteket.no)).
+   Sårbarheten er altså ikke et tilbakelagt
+   2023-fenomen, men en pågående tilstand: avtaler
+   fornyes årlig, innhold skiftes ut ved anbud, og
+   tapt innhold blir ikke gjenopprettet. På dette
+   grunnlaget ble K21 tatt inn i kartet 2026-08-14
+   (definisjon i kap. 2.8, vurdering i kap. 3.2).
+   Dette kobler K21
    direkte til K17 (bærekraftig finansiering) og
    [R1](utfordringer-og-flaskehalser.md#r1-manglende-helhetlig-styringsmandat):
    en nasjonal fellesressurs uten robust
