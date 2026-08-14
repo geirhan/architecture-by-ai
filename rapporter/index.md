@@ -48,8 +48,13 @@ modnes.
   ikke uavhengige. 2026-08-11: kortslutning steg 1 → 3a tilføyd
   (direktebruk av forskning i normerende produkter ved
   kapasitetsmangel hos FHI/finansiering fra Hdir) [ANT — opplyst
-  i prosjektet, ikke kildebelagt].
-- **Sist oppdatert**: 2026-08-11
+  i prosjektet, ikke kildebelagt]. 2026-08-14: nytt punkt i
+  bevaringslisten i kap. 8 — legemiddelstrømmens regulatoriske
+  mekanismer (FEST, Felleskatalogen, bivirkningssløyfen,
+  RELIS/KUPP) som fungerende eksempel på integrert kunnskapsflyt
+  (basert på kap. 3c; foranlediget av dekningsanalysen i
+  kapabilitetskartet).
+- **Sist oppdatert**: 2026-08-14
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
@@ -566,6 +571,26 @@ modnes.
   definisjon (kanal/strøm-skillet, redaksjonelt
   eierskap) og eksplisitt avgrensning mot K7 og K19;
   speilet i `visualiseringer/kapabilitetskart.html`.
+  Drøftingspunkt 3 (beredskap som egen nivå 1?) utvidet
+  med kildebelagt vurdering: premisset om at beredskap
+  bør ligge tettest mulig på regulære prosesser er
+  kodifisert i likhets-/ansvarsprinsippet og
+  helseberedskapsloven § 1-1; kildene støtter å beholde
+  K16 under «Styre og samordne» (beslutning ikke tatt).
+  Drøftingspunkt 1 (klinisk strøm/legemiddelstrøm)
+  utvidet med dekningsanalyse: aktivitetene i 3b/3c
+  mappet mot K1–K20 — ikke grunnlag for egne
+  strømkapabiliteter, men ett reelt hull (forvaltning
+  av tilgang til eksterne kunnskapsressurser,
+  K21-kandidat) og et mønster (legemiddelstrømmen er
+  fungerende motstykke til K7/K8/K11/K13/K14).
+  2026-08-14 (oppfølging): politisk kontekst for
+  K21-kandidaten verifisert og dokumentert (kuttene
+  2023, protestene, RNB-kravet — kobling til K17/R1;
+  status 2026 uverifisert); mønsteret dokumentert som
+  nytt mønster 4 i kap. 3.4 med nyanseringer i
+  K7/K8/K11/K14-vurderingene og speiling i dp1 kap. 8.
+  K21-beslutningen står åpen.
 - **Sist oppdatert**: 2026-08-14
 
 ### [Klarspråksgjennomgang av delrapport 1–9](klarsprakgjennomgang-delrapporter.md)

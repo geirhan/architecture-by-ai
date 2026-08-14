@@ -399,11 +399,22 @@ strukturert innholdsmodell finnes hos Hdir, men
 kanalene er fragmenterte og innholdet dupliseres
 ([dp2 kap. 2.2 D3](utfordringer-og-flaskehalser.md#d3-struktur-og-styring),
 [kap. 6](utfordringer-og-flaskehalser.md#6-strukturelle-utfordringer)).
+I legemiddelstrømmen finnes et fungerende motstykke:
+Felleskatalogen publiserer samme godkjente kilde (SPC)
+til både helsepersonell og innbyggere
+([dp1 kap. 3c](dagens-verdikjede.md#3c-legemiddelstrømmen);
+se mønster 4 i kap. 3.4).
 
 **K8 Beslutningsstøtteintegrasjon — Fraværende.**
 Ingen dokumentert norsk bruk av
 CPG-on-FHIR/CQL/CDS Hooks
 ([teknisk-infrastruktur-notatet kap. 1](teknisk-infrastruktur-standarder.md#1-maskinlesbare-retningslinjer)).
+Vurderingen gjelder retningslinjeinnhold; i
+legemiddelstrømmen finnes et fungerende motstykke i
+FEST-basert forskrivnings- og interaksjonsstøtte
+direkte i EPJ
+([dp1 kap. 3c](dagens-verdikjede.md#3c-legemiddelstrømmen);
+se mønster 4 i kap. 3.4).
 
 **K9 Målrettet formidling — Svak.**
 Innbyggerinformasjonen er generisk; 54 % bruker
@@ -431,6 +442,11 @@ aktør eier implementeringsgapet; 7–15+ år til bred
 praksisendring
 ([dp2 kap. 2.2 D4](utfordringer-og-flaskehalser.md#d4-implementering-og-insentiver),
 [kap. 3.4](utfordringer-og-flaskehalser.md#34-formidlet-kunnskap-til-endret-praksis)).
+I legemiddeldomenet finnes dokumentert aktiv
+implementeringsstøtte i RELIS' KUPP-visitter til
+fastleger
+([dp1 kap. 3c](dagens-verdikjede.md#3c-legemiddelstrømmen);
+se mønster 4 i kap. 3.4).
 
 **K12 Samordning m/refusjon — Svak.** Refusjon er en
 separat kjede; 8 år fra evidens til forhåndsgodkjent
@@ -452,6 +468,12 @@ internasjonal modell for chatbot-sløyfen — må
 utvikles, ikke kopieres
 ([dp2 kap. 2.2 D5](utfordringer-og-flaskehalser.md#d5-tillit-og-innbyggerbehov);
 [syntesenotatet D2](losningsretninger-bred-kartlegging.md#d2-feedback-sløyfer-fra-bruk-til-kunnskapsproduksjon)).
+Vurderingen gjelder kunnskapsinnholdet generelt; i
+legemiddelstrømmen finnes en etablert, systematisk
+sløyfe: bivirkningsmeldinger fra helsepersonell og
+pasienter → sikkerhetssignal hos DMP → oppdatert SPC
+([dp1 kap. 3c](dagens-verdikjede.md#3c-legemiddelstrømmen);
+se mønster 4 i kap. 3.4).
 
 **K15 Helhetlig styring — Fraværende.** Ansvar fordelt
 på ~20 aktører uten helhetlig mandat
@@ -545,6 +567,33 @@ og [5](losningsretninger-bred-kartlegging.md#5-viktigste-kunnskapsgap-på-tvers)
    internasjonalt feller ellers vellykkede initiativer;
    K10 og K19 er hull som ble synlige først da nivå 1
    ble forankret i delrapport 1s strømbeskrivelse.
+4. **Legemiddelstrømmen er et fungerende motstykke —
+   og en læringskilde.** Flere av kapabilitetene som
+   er vurdert Fraværende eller Svak, finnes i
+   fungerende form i legemiddelstrømmens regulatoriske
+   kjede
+   ([dp1 kap. 3c](dagens-verdikjede.md#3c-legemiddelstrømmen)):
+   strukturert beslutningsstøtte i EPJ (FEST → K8),
+   énkilde-flerkanalspublisering (Felleskatalogen →
+   K7), aktiv implementeringsstøtte (RELIS' KUPP →
+   K11) og en systematisk feedbacksløyfe
+   (bivirkningsmeldinger → K14, med målekomponent
+   relevant for K13). Vurderingene i kap. 3.2
+   beskriver dermed primært den normerende og den
+   innbyggerrettede strømmen — nyansene er lagt inn
+   per kapabilitet over. Fellestrekkene ved de
+   fungerende mekanismene er verdt å merke seg [ANT]:
+   obligatorisk strukturert datagrunnlag (SPC/FEST),
+   regulatorisk forankring og én autoritativ kilde —
+   nettopp egenskapene løsningsretningene
+   [B2](losningsretninger-bred-kartlegging.md#b2-maskinlesbar-kunnskapsinfrastruktur)
+   og
+   [C1](losningsretninger-bred-kartlegging.md#c1-forskriftsfestet-samordningsmandat)
+   søker å bygge for retningslinjeinnholdet.
+   Legemiddelstrømmen demonstrerer at kapabilitetene
+   er oppnåelige i norsk kontekst, og hører hjemme i
+   «fungerer godt og bør bevares»-listen
+   ([dp1 kap. 8](dagens-verdikjede.md#8-konklusjon)).
 
 ## 4. Åpne punkter for videre drøfting
 
@@ -560,6 +609,85 @@ dekomponering til nivå 3):
    og [legemiddelstrømmen](dagens-verdikjede.md#3c-legemiddelstrømmen)
    bare dekkes indirekte (via K7 og K10). Bør disse ha
    egne nivå 2-kapabiliteter?
+
+   *Dekningsanalyse 2026-08-14 [ANT — utrederens
+   mapping av aktivitetene i dp1 kap. 3b/3c mot
+   K1–K20]:* Hver aktivitet i de to strømmene er
+   vurdert mot spørsmålet: dekkes evnen av en
+   eksisterende kapabilitet (eventuelt utøvd av en
+   annen aktør), er den utenfor kartets omfang, eller
+   er den et reelt hull?
+
+   | Aktivitet (kilde i dp1) | Vurdering |
+   | --- | --- |
+   | Oppslagsverkenes innholdsproduksjon ([3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen)) | Utføres av internasjonale, kommersielle aktører — utenfor den norske kjeden (som steg 1). Den norske evnen er *tilgang*, se hullet nedenfor |
+   | Nasjonale lisensavtaler for oppslagsverk via Helsebiblioteket ([3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen)) | **Reelt hull** — ingen av K1–K20 dekker forvaltning av tilgang til eksterne kunnskapsressurser (lisensiering, innkjøp, kildevalg). Kritikaliteten er dokumentert: tapet av Cochrane Library/Embase i 2023 etter budsjettkutt, og Helsebiblioteket som muliggjører i fire av seks prosesser ([kap. 3e](dagens-verdikjede.md#3e-avhengigheter-mellom-strømmene)) |
+   | Fagprosedyrer: operasjonalisering av retningslinjer til handlingsanvisninger ([3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen)) | Delvis dekket av K11 (implementeringsstøtte); kandidat til nivå 3 under K11, ikke egen nivå 2 |
+   | Fagtidsskriftenes publisering og fagdebatt ([3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen)) | Steg 1-aktivitet med egen kvalitetssikring ([dp1 kap. 6](dagens-verdikjede.md#6-kvalitetssikringsmekanismer-per-strøm)) — utenfor kartet |
+   | Foreningenes veiledere ([3b](dagens-verdikjede.md#3b-den-kliniske-kunnskapsstrømmen)) | Behandles i drøftingspunkt 4 (K10/K19) |
+   | Regulatorisk godkjenning, MT-vurdering ([3c](dagens-verdikjede.md#3c-legemiddelstrømmen)) | Egen regulatorisk kjede — utenfor kartet (som steg 1). Koblingen 3c → 3a (sikkerhetssignal gjør retningslinje utdatert) dekkes av K10 i presisert form (varsling langs avhengighetene) |
+   | FEST-basert forskrivnings- og interaksjonsstøtte i EPJ ([3c](dagens-verdikjede.md#3c-legemiddelstrømmen)) | Dekkes av K8 — men er et *fungerende* eksempel som K8-vurderingen («Fraværende») ikke fanger |
+   | Felleskatalogen: én godkjent kilde (SPC) publisert til helsepersonell og innbyggere ([3c](dagens-verdikjede.md#3c-legemiddelstrømmen)) | Dekkes av K7 — fungerende eksempel i legemiddelstrømmen |
+   | Bivirkningsmeldinger fra helsepersonell og pasienter → sikkerhetssignal → SPC-endring ([3c](dagens-verdikjede.md#3c-legemiddelstrømmen)) | Dekkes av K13/K14 — en etablert, systematisk feedbacksløyfe som K14-vurderingen («Fraværende») ikke fanger |
+   | RELIS: produsentuavhengig rådgivning, KUPP-visitter, Trygg Mammamedisin ([3c](dagens-verdikjede.md#3c-legemiddelstrømmen)) | Dekkes av K11 (KUPP er aktiv implementeringsstøtte) og K9 (målrettet rådgivning) — fungerende eksempler vurderingene ikke fanger |
+
+   *Konklusjon [ANT]:* Analysen gir ikke grunnlag for
+   egne nivå 2-kapabiliteter *per strøm* — strømmene
+   utøver i hovedsak de samme evnene som kartet
+   allerede beskriver. To funn krever likevel
+   oppfølging: **(a)** Ett reelt hull: *forvaltning av
+   tilgang til eksterne kunnskapsressurser*
+   (lisensiering, innkjøp og kildevalg — i dag
+   Helsebibliotekets rolle) er en kandidat til ny
+   nivå 2-kapabilitet, naturlig plassert under
+   «Forvalte informasjon og kvalitet» (K21).
+   **(b)** Et mønster: legemiddelstrømmen er et
+   *fungerende motstykke* til flere kapabiliteter som
+   er vurdert Fraværende/Svak i den normerende
+   strømmen (K7, K8, K11, K13/K14) — den regulatoriske
+   kjeden demonstrerer at kapabilitetene er oppnåelige
+   i norsk kontekst, og hører hjemme i «fungerer godt
+   og bør bevares»-listen
+   ([dp1 kap. 8](dagens-verdikjede.md#8-konklusjon)).
+   Vurderingene i kap. 3.2 bør i så fall nyanseres med
+   at de i dag primært beskriver den normerende og
+   innbyggerrettede strømmen. Begge oppfølgingene
+   avventer beslutning.
+
+   *Politisk kontekst for hullet i (a) — verifisert
+   2026-08-14:* Tilgangsforvaltningen er ikke bare et
+   kapabilitetshull, men et politisk betent
+   finansieringsspørsmål [DOK]. Kuttene fra 1. januar
+   2023 — nasjonal tilgang til Cochrane Library,
+   Ovid-basene (Embase, Medline, PsycINFO, AMED) og
+   New England Journal of Medicine ble sagt opp, med
+   en besparelse på 5–6 mill. kr som del av FHIs
+   nedbemanning (~300 årsverk, 100 mill. kr) — utløste
+   bred offentlig protest fra blant andre
+   Legeforeningen, Psykologforeningen,
+   Bibliotekarforbundet og Universitets- og
+   høgskolerådet, med krav om reversering
+   ([Helsebiblioteket](https://www.helsebiblioteket.no/innhold/artikler/nyheter/kutt-i-helsebibliotekets-avtaler-for-2023),
+   [Dagens Medisin](https://www.dagensmedisin.no/folkehelseinstituttet-helse-og-omsorgsdepartementet-helsebiblioteket/legeforeningen-bekymret-for-kutt-i-helsebiblioteket/205654),
+   [UHR](https://www.uhr.no/nyheter/meninger-fra-uhr/kutt-i-helsebibliotekets-tilbud.5613.aspx)).
+   Fordelingsargumentet sto sentralt: kuttene rammer
+   primær- og kommunehelsetjenesten, små og mellomstore
+   sykehus og private institusjoner uten egne
+   abonnementer hardest — mens universitetssykehusene
+   kan kjøpe seg fri. Tilbudet var da allerede gradvis
+   redusert siden 2020. Krav om gjenoppretting via
+   revidert nasjonalbudsjett 2023 med varig
+   videreføring ble fremmet
+   ([Forskerforbundet](https://www.forskerforbundet.no/var-politikk/uttalelser/2023/innspill-til-revidert-nasjonalbudsjett-2023/));
+   om og i hvilken grad tilgangen faktisk er
+   gjenopprettet og finansieringen gjort forutsigbar
+   per 2026, er ikke verifisert [ANT — bør sjekkes før
+   K21 eventuelt tas inn]. Dette kobler K21-kandidaten
+   direkte til K17 (bærekraftig finansiering) og
+   [R1](utfordringer-og-flaskehalser.md#r1-manglende-helhetlig-styringsmandat):
+   en nasjonal fellesressurs uten robust
+   finansieringsmodell og med dokumenterte
+   likhetsvirkninger ved bortfall.
 2. **Granularitet.** Enkelte nivå 2-kapabiliteter
    (særlig K6, K9, K15) er store nok til at en
    dekomponering til nivå 3 kan være nødvendig for
@@ -570,6 +698,63 @@ dekomponering til nivå 3):
    ([D6](utfordringer-og-flaskehalser.md#d6-beredskap)).
    Alternativet er en egen nivå 1-kapabilitet for
    beredskap.
+
+   *Vurdering 2026-08-14 (kildesjekk av premisset om at
+   beredskap bør ligge tettest mulig opp til regulære
+   rutiner og prosesser):* Premisset er ikke bare i
+   tråd med, men kodifisert i, beredskapsrammeverket i
+   både statsforvaltningen og helsesektoren [DOK]:
+
+   - Samfunnssikkerhetsarbeidet bygger på fire
+     prinsipper etablert i
+     [St.meld. nr. 17 (2001–2002)](https://www.regjeringen.no/contentassets/ee63e1dd1a16409fa0bb737bfda9279a/no/pdfa/stm200120020017000dddpdfa.pdf)
+     og Meld. St. 29 (2011–2012), operasjonalisert i
+     [samfunnssikkerhetsinstruksen](https://lovdata.no/dokument/INS/forskrift/2017-09-01-1349):
+     **likhetsprinsippet** (kriseorganisasjonen skal
+     være mest mulig lik den daglige),
+     **ansvarsprinsippet** (den som har ansvaret i det
+     daglige, har det også i krise), nærhets- og
+     samvirkeprinsippet [DOK].
+   - I helsesektoren er premisset lovfestet:
+     [helseberedskapsloven](https://lovdata.no/lov/2000-06-23-56)
+     § 1-1 krever at virksomhetene skal «kunne
+     fortsette og om nødvendig legge om og utvide
+     driften» basert på *den daglige tjenesten*,
+     oppdaterte planverk og regelmessige øvelser;
+     § 2-1 lovfester ansvarsprinsippet.
+     [Nasjonal helseberedskapsplan](https://www.regjeringen.no/globalassets/departementene/hod/fellesdok/planer/helseberedskapsplan_010118.pdf)
+     og
+     [Meld. St. 5 (2023–2024) «En motstandsdyktig helseberedskap»](https://www.regjeringen.no/no/dokumenter/meld.-st.-5-20232024/id3015776/)
+     viderefører prinsippene [DOK].
+   - To nyanser fra evalueringene:
+     [Totalberedskapskommisjonen (NOU 2023:17)](https://www.regjeringen.no/no/dokumenter/nou-2023-17/id2982767/)
+     støtter prinsippene, men dokumenterer at
+     sammensatte kriser utfordrer praktiseringen, og
+     peker eksplisitt på uklarheter rundt
+     Helsedirektoratets rolle opp mot ansvars- og
+     likhetsprinsippet (formell styringslinje kontra
+     delegerte kriseoppgaver) — som speiler
+     K15-funnet: likhetsprinsippet forutsetter en
+     tydelig ordinær styringslinje å være lik [DOK].
+     Koronakommisjonen (NOU 2022:5) m.fl. fant at
+     svikten typisk ligger i tverrsektorielt samvirke
+     og i at omstillings- og skaleringsevnen ikke var
+     forberedt — prinsippene forutsetter at det
+     ordinære systemet faktisk *har* innebygd evne til
+     å legge om og utvide [DOK].
+
+   *Implikasjon [ANT]:* Kildene støtter å beholde
+   dagens plassering — K16 som veksleevne under «Styre
+   og samordne», med K15 som forutsetning — fremfor en
+   egen nivå 1-kapabilitet, som strukturelt ville
+   signalisere et eget spor ved siden av de regulære
+   prosessene, i spenning med likhetsprinsippet.
+   Nyansen fra evalueringene tilsier eventuelt at
+   beredskap i tillegg synliggjøres som *tverrgående
+   egenskap* ved de øvrige kapabilitetene (kan K1, K3,
+   K5 … legges om og skaleres?), slik dp2 behandler
+   den som dimensjon D6. Endelig beslutning er ikke
+   tatt.
 4. **Skal kartet omfatte foreningsdrevet normering?**
    Kartet er i dag utledet fra den statlige kjedens
    prosesser, men en betydelig del av den kliniske

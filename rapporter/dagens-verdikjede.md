@@ -969,6 +969,16 @@ strøm, men systemet som helhet mangler integrasjon.
   ressurs: profesjonsforeningenes veiledere holdes
   oppdatert på dugnadsbasis av fagfolk med høy
   legitimitet i klinikken (kap. 3b)
+- Legemiddelstrømmens regulatoriske mekanismer viser
+  at integrert kunnskapsflyt er oppnåelig i norsk
+  kontekst: FEST-basert forskrivnings- og
+  interaksjonsstøtte direkte i EPJ, Felleskatalogens
+  publisering av samme godkjente kilde (SPC) til både
+  helsepersonell og innbyggere, den systematiske
+  bivirkningssløyfen (meldinger fra helsepersonell og
+  pasienter → sikkerhetssignal → oppdatert SPC) og
+  RELIS' aktive implementeringsstøtte gjennom
+  KUPP-visitter (kap. 3c)
 
 En fremtidig løsning bør bygge videre på disse
 styrkene, ikke erstatte dem.
@@ -1007,7 +1017,7 @@ case-dokumenterte verdiene.
 
 ---
 
-Sist oppdatert: 2026-08-11
+Sist oppdatert: 2026-08-14
 
 ## Endringslogg
 
@@ -1018,6 +1028,7 @@ Sist oppdatert: 2026-08-11
 | 2026-08-10 | Presisering av normeringsbeskrivelsen basert på `profesjonsforeninger-normering.md`: kap. 3a («formell *statlig* normering» + foreningsveilederes normerende praksis), kap. 3b (fagmedisinske foreningers veiledere/metodebøker, NSA), kap. 6 (manglende system for forrang stat/forening), kap. 1 (setning om tosporet normering). |
 | 2026-08-10 | Avhengigheter mellom strømmene kartlagt og innarbeidet: nytt delkapittel 3e med avhengighetstabell (belegg fra denne rapporten, delrapport 8 og `profesjonsforeninger-normering.md`); presisering i steg 3-innledningen av at «parallelle» betyr samtidige, ikke uavhengige, strømmer; henvisning til 3e i kap. 5.3; hovedbudskapet i kap. 1 presisert («bygger på hverandre, men arbeider hver for seg»). |
 | 2026-08-11 | Nyansering av kap. 3a og 3e: retningslinjearbeidet bygger i noen grad direkte på enkeltstudier/internasjonal forskning uten norsk kunnskapsoppsummering som mellomledd, fordi FHIs oppsummeringskapasitet og Helsedirektoratets finansiering ikke dekker behovet [ANT — opplyst i prosjektet 2026-08-11, ikke kildebelagt]. Ny rad Steg 1 → 3a i avhengighetstabellen; kortslutningsomtalen utvidet til å omfatte alle tre fagstrømmene (3a i noen grad, 3b og 3c mer systematisk). Hovedmodellen består; punktet bør kildebelegges mot metodekapitler i konkrete retningslinjer. |
+| 2026-08-14 | Nytt punkt i «fungerer godt og bør bevares»-listen (kap. 8): legemiddelstrømmens regulatoriske mekanismer (FEST-basert beslutningsstøtte i EPJ, Felleskatalogens énkilde-publisering, bivirkningssløyfen, RELIS/KUPP) som dokumentert fungerende eksempel på integrert kunnskapsflyt. Basert på eksisterende funn i kap. 3c, ingen nye påstander; foranlediget av dekningsanalysen i `kapabilitetskart-verdikjeden.md` kap. 4 punkt 1. |
 | 2026-08-10 | Tilgjengelighetsrevisjon av innledningen: hovedbudskapet omskrevet med konkret eksempel (diabetes) og uten fremoverreferanser; formålet (kap. 1.1) utvidet til også å omfatte hva som fungerer godt og bør bevares; PICO forklart (kap. 1.2); peker til Helsedirektoratets side om normerende produkter [27] (kap. 3a). Kap. 8 utvidet med liste over hva som fungerer godt og bør bevares — basert på eksisterende funn i kap. 3 og 6, ingen nye påstander. |
 
 ---
