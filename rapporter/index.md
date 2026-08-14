@@ -609,6 +609,14 @@ modnes.
   legemiddelstrømmens aktører), tosporsevnene er
   fanget i K10/K19, og rollefordelingen er henvist
   til dp4 kap. 6.3/7.1. Ingen strukturendringer.
+  Drøftingspunkt 2 (granularitet) lukket samme dag:
+  K6, K9 og K15 dekomponert til nivå 3 (K6.1–K6.4,
+  K9.1–K9.4, K15.1–K15.4) med del-evne-vurderinger og
+  tre eksplisitte kriterier for når nivå 3 er
+  berettiget; forutsetninger presisert (K8 → K6.3–K6.4,
+  K16 → K15.1); nøkterne nivå 3-kandidatlinjer under
+  K10/K11/K19. Alle fire drøftingspunktene i kap. 4 er
+  dermed behandlet.
 - **Sist oppdatert**: 2026-08-14
 
 ### [Klarspråksgjennomgang av delrapport 1–9](klarsprakgjennomgang-delrapporter.md)

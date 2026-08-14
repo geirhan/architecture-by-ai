@@ -50,6 +50,12 @@ Kartet har to nivåer:
   [dp1 kap. 5](dagens-verdikjede.md#5-informasjonsflyt-og-formater)–[6](dagens-verdikjede.md#6-kvalitetssikringsmekanismer-per-strøm)).
 - **Nivå 2** er dekomponeringen av hver nivå
   1-kapabilitet i konkrete, avgrensede evner (K1–K21).
+- **Nivå 3** er selektiv dekomponering av enkelte
+  nivå 2-kapabiliteter (K6, K9, K15) i del-evner, der
+  alternativvurderingen krever finere oppløsning.
+  Kriteriene for når nivå 3 brukes, står i kap. 4
+  punkt 2; øvrige kapabiliteter har kun noterte
+  nivå 3-kandidater.
 
 Kapabilitetene er formulert løsnings- og
 aktørnøytralt («evnen til å …»): Kartet beskriver
@@ -159,6 +165,18 @@ kapabilitet.
   [R4](utfordringer-og-flaskehalser.md#r4-fragmentert-it-landskap-og-ulike-kodeverk).
   Bygges av:
   [B2](losningsretninger-bred-kartlegging.md#b2-maskinlesbar-kunnskapsinfrastruktur).*
+  Nivå 3 (forankring:
+  [metadatastrukturer-notatet kap. 2](metadatastrukturer-evidenskjeden.md#2-pico-i-dagens-norske-retningslinjer--status)–[5](metadatastrukturer-evidenskjeden.md#5-samlet-mønster)):
+  - *K6.1 Strukturert representasjon av kliniske
+    spørsmål* — PICO som data, ikke prosa.
+  - *K6.2 Strukturert evidens- og
+    GRADE-representasjon* — utfall, effektestimater
+    og tillit til dokumentasjonen som data.
+  - *K6.3 Terminologibinding* — PICO-elementer kodet
+    mot SNOMED CT og øvrige kodeverk.
+  - *K6.4 Maskinlesbar publisering av anbefalinger* —
+    beregnbart format med versjonering på
+    anbefalingsnivå.
 
 ### 2.4 Formidle og distribuere
 
@@ -184,7 +202,7 @@ og [kap. 5](dagens-verdikjede.md#5-informasjonsflyt-og-formater),
   [R4](utfordringer-og-flaskehalser.md#r4-fragmentert-it-landskap-og-ulike-kodeverk).
   Bygges av:
   [B2](losningsretninger-bred-kartlegging.md#b2-maskinlesbar-kunnskapsinfrastruktur).
-  Forutsetter: K6.*
+  Forutsetter: K6 (særlig K6.3–K6.4).*
 - **K9. Målrettet, tilpasset formidling** — evnen til
   å tilpasse kvalitetssikret informasjon til
   mottakerens situasjon, språk og forutsetninger.
@@ -194,6 +212,17 @@ og [kap. 5](dagens-verdikjede.md#5-informasjonsflyt-og-formater),
   [D1](losningsretninger-bred-kartlegging.md#d1-trinnvis-offentlig-ki-helsetjeneste-med-kildeforankring),
   [B3](losningsretninger-bred-kartlegging.md#b3-generativt-ki-lag-oppå-kuratert-kunnskapsbase).
   Forutsetter: kuratert base (K6/K7) for sporbarhet.*
+  Nivå 3 (forankring:
+  [dp2 kap. 7](utfordringer-og-flaskehalser.md#7-utfordringer-spesifikke-for-innbyggerrettet-informasjon)):
+  - *K9.1 Målgruppetilpasning* — klarspråk og
+    tilpasning til helsekompetansenivå (dp2 7.1).
+  - *K9.2 Situasjonstilpasning* — personalisering mot
+    brukerens konkrete situasjon (dp2 7.2).
+  - *K9.3 Tilgjengelighet* — universell utforming og
+    språkversjoner (dp2 7.3).
+  - *K9.4 Dialogbasert formidling med
+    kildeforankring* — interaktiv formidling fra
+    kuratert base (retning D1/B3).
 - **K10. Faglig synkronisering av strømmene** — evnen
   til å oppdage, håndtere og rette faglig motstrid
   mellom uavhengig redigerte kunnskapskilder, slik at
@@ -219,6 +248,9 @@ og [kap. 5](dagens-verdikjede.md#5-informasjonsflyt-og-formater),
   (delvis),
   [C1](losningsretninger-bred-kartlegging.md#c1-forskriftsfestet-samordningsmandat)
   (delvis) — ingen retning adresserer dette direkte.*
+  Nivå 3-kandidater (ikke utarbeidet): oppdage
+  motstrid, avgjøre forrang, propagere oppdateringer
+  langs avhengighetene.
 
 ### 2.5 Implementere i praksis
 
@@ -233,6 +265,10 @@ og [kap. 5](dagens-verdikjede.md#5-informasjonsflyt-og-formater),
   Bygges av:
   [C2](losningsretninger-bred-kartlegging.md#c2-godkjenningsordning-som-kobler-kvalitet-til-finansiering),
   [C3](losningsretninger-bred-kartlegging.md#c3-forpliktelsesmekanismer-uten-lovpålegg).*
+  Nivå 3-kandidat (ikke utarbeidet):
+  operasjonalisering av retningslinjer til
+  fagprosedyrer og behandlingslinjer (jf.
+  dekningsanalysen i kap. 4 punkt 1).
 - **K12. Samordning med tilgrensende
   beslutningskjeder** — evnen til å koordinere
   anbefalinger med refusjons- og
@@ -281,6 +317,21 @@ og [9.2](utfordringer-og-flaskehalser.md#92-seks-rotårsaker)
   Bygges av:
   [C1](losningsretninger-bred-kartlegging.md#c1-forskriftsfestet-samordningsmandat),
   [C4](losningsretninger-bred-kartlegging.md#c4-plattformstyring-ved-kjøp-i-markedet).*
+  Nivå 3 (forankring:
+  [dp2 kap. 6](utfordringer-og-flaskehalser.md#6-strukturelle-utfordringer)
+  og [9.2 R1](utfordringer-og-flaskehalser.md#r1-manglende-helhetlig-styringsmandat)):
+  - *K15.1 Mandat og beslutningsmyndighet* — formelt
+    grunnlag for å beslutte på tvers, med
+    eskaleringsvei ved uenighet.
+  - *K15.2 Tverrgående prioritering* — avgjøre hvilke
+    kunnskapsbehov som tas først, på tvers av
+    aktørene.
+  - *K15.3 Portefølje- og produksjonskoordinering* —
+    hvem lager hva; unngå dobbeltarbeid (dp2 6.3).
+  - *K15.4 Grensesnittforvaltning* — formaliserte,
+    forvaltede grensesnitt mellom strømmene (jf.
+    virkemiddelet i delrapport 4 kap. 6.4 og
+    [dp1 kap. 3e](dagens-verdikjede.md#3e-avhengigheter-mellom-strømmene)).
 - **K16. Krisemodus og skalering** — evnen til å
   veksle til hurtigspor med høyere volum og kortere
   frister i kriser. *Egenskap: Reaktivitet,
@@ -291,7 +342,7 @@ og [9.2](utfordringer-og-flaskehalser.md#92-seks-rotårsaker)
   [A1](losningsretninger-bred-kartlegging.md#a1-living-guidelines-med-strukturert-publisering)
   (hurtigspor),
   [B4](losningsretninger-bred-kartlegging.md#b4-automatisert-evidensovervåking-living-evidence).
-  Forutsetter: K15.*
+  Forutsetter: K15 (særlig K15.1).*
 - **K17. Bærekraftig finansiering av kontinuerlig
   drift** — evnen til å finansiere løpende forvaltning
   (ikke bare prosjekter) over tid. *Egenskap:
@@ -331,6 +382,9 @@ og [9.2](utfordringer-og-flaskehalser.md#92-seks-rotårsaker)
   *Egenskap: Sammenheng, Tillit. Rotårsak:
   [R4](utfordringer-og-flaskehalser.md#r4-fragmentert-it-landskap-og-ulike-kodeverk).
   Bygges ikke av noen løsningsretning direkte.*
+  Nivå 3-kandidater (ikke utarbeidet):
+  innholdsavtaler og kildemerking på tvers av
+  normeringssporene (jf. kap. 4 punkt 4).
 - **K20. KI-forvaltning og validering** — evnen til å
   ta i bruk KI-verktøy med uavhengig validering,
   human-in-the-loop og etterlevelse av AI Act/MDR.
@@ -413,6 +467,12 @@ etablert, men kjeden publiseres som prosa/PDF uten
 terminologibinding — et gap som gjelder hele feltet
 internasjonalt
 ([metadatastrukturer-notatet kap. 4](metadatastrukturer-evidenskjeden.md#4-bruksgrad-i-dagens-verdikjede--modenhetskart)–[6](metadatastrukturer-evidenskjeden.md#6-implikasjoner-for-utredningen)).
+Samlenivået skjuler et internt sprik — per del-evne:
+K6.1 **Delvis** (PICO som innholdstype med åpent
+API), K6.2 **Svak** (metodikken etablert, publiseres
+som prosa), K6.3 **Fraværende** (ingen
+terminologibinding), K6.4 **Fraværende** (CPG-on-FHIR
+ubrukt i Norge; jf. K8).
 
 **K7 Flerkanalspublisering — Delvis.** Åpent API og
 strukturert innholdsmodell finnes hos Hdir, men
@@ -441,6 +501,15 @@ Innbyggerinformasjonen er generisk; 54 % bruker
 generativ KI og yngre bruker ChatGPT som helsekilde
 ([dp2 kap. 2.2 D5](utfordringer-og-flaskehalser.md#d5-tillit-og-innbyggerbehov),
 [kap. 5.4](utfordringer-og-flaskehalser.md#54-innbyggernes-informasjonskilder--dokumenterte-tall)).
+Per del-evne [ANT]: K9.1 **Delvis** (klarspråkpraksis
+etablert, men møter kompleksitetsgrensen —
+[dp2 7.1](utfordringer-og-flaskehalser.md#71-klarspråk-møter-kompleksitet)),
+K9.2 **Fraværende** (ingen personalisering —
+[dp2 7.2](utfordringer-og-flaskehalser.md#72-manglende-personalisering)),
+K9.3 **Svak**
+([dp2 7.3](utfordringer-og-flaskehalser.md#73-tilgjengelighet)),
+K9.4 **Fraværende** (ingen offentlig dialogbasert
+tjeneste med kildeforankring).
 
 **K10 Faglig synkronisering av strømmene — Svak.**
 Delrapport 1 dokumenterer at de fire strømmene er
@@ -499,6 +568,16 @@ se mønster 4 i kap. 3.4).
 på ~20 aktører uten helhetlig mandat
 ([dp2 kap. 2.2 D3](utfordringer-og-flaskehalser.md#d3-struktur-og-styring),
 [kap. 9.2 R1](utfordringer-og-flaskehalser.md#r1-manglende-helhetlig-styringsmandat)).
+Per del-evne [ANT]: K15.1 **Fraværende** (ingen
+aktør har mandat med eskaleringsvei), K15.2
+**Fraværende** (ingen dokumentert tverrgående
+prioriteringsmekanisme), K15.3 **Svak**
+(koordinering skjer bilateralt og ad hoc;
+dobbeltarbeid dokumentert —
+[dp2 6.3](utfordringer-og-flaskehalser.md#63-dobbeltarbeid)),
+K15.4 **Fraværende** (avhengighetene forvaltes ikke
+gjennom definerte grensesnitt —
+[dp1 kap. 3e](dagens-verdikjede.md#3e-avhengigheter-mellom-strømmene)).
 
 **K16 Krisemodus — Svak.** COVID-19 krevde
 improvisering
@@ -741,10 +820,21 @@ dekomponering til nivå 3):
    en nasjonal fellesressurs uten robust
    finansieringsmodell og med dokumenterte
    likhetsvirkninger ved bortfall.
-2. **Granularitet.** Enkelte nivå 2-kapabiliteter
-   (særlig K6, K9, K15) er store nok til at en
-   dekomponering til nivå 3 kan være nødvendig for
-   alternativvurderingen.
+2. **Granularitet — lukket 2026-08-14.** K6, K9 og
+   K15 er dekomponert til nivå 3 (kap. 2.3, 2.4 og
+   2.7, med del-evne-vurderinger i kap. 3.2), etter
+   tre kriterier for når nivå 3 er berettiget [ANT]:
+   (1) alternativene skiller seg på del-evner (dp4
+   skal beskrive alternativer som ambisjonsnivåer per
+   kapabilitet), (2) forutsetningskjeder peker på en
+   del-evne, ikke hele kapabiliteten (K8 forutsetter
+   spesifikt K6.3–K6.4; K16 primært K15.1), eller
+   (3) dagens-evne-vurderingen spriker internt (K6
+   rommer alt fra Delvis til Fraværende). Øvrige
+   kapabiliteter dekomponeres ikke; noterte nivå
+   3-kandidater står som én linje under K10, K11 og
+   K19 og utarbeides bare hvis alternativvurderingen
+   viser behov.
 3. **Beredskap som egen nivå 1?** K16 (krisemodus)
    ligger nå under «Styre og samordne»; dp2 behandler
    beredskap som egen dimensjon
