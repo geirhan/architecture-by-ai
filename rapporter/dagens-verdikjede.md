@@ -102,6 +102,30 @@ helsedata, klinisk beslutningsstøtte i sanntid eller
 forskning som ikke ender i innbyggerrettet
 formidling.
 
+### 1.4 Dette legger vi til grunn
+
+Kartleggingen bygger på tre premisser som leseren bør
+kjenne:
+
+- **Verdikjedelinsen**: vi beskriver kunnskaps-
+  forvaltningen som en kjede fra forskning til innbygger.
+  Linsen er presis for produksjonsleddene, men fanger ikke
+  kilder utenfor kjeden; se
+  [økosystemnotatet](verdikjede-som-okosystem.md) for det
+  supplerende perspektivet.
+- **Tempopremisset**: gjennomløpstid brukes som
+  hovedmål på kjedens ytelse — kortere tid regnes som et
+  gode.
+- **KI-formålet**: kildene skal ifølge oppdraget kunne
+  brukes til utvikling og testing av KI-systemer for
+  målrettede helseråd; dette påvirker hva som kartlegges
+  som relevant (struktur, metadata, maskinlesbarhet).
+
+Premissene er definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang av dem finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. Dagens verdikjede – oversikt

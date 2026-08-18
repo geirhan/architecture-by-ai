@@ -146,6 +146,97 @@ Utredningen består av syv delrapporter:
 Denne samlerapporten syntetiserer funn fra alle
 delrapportene og gir en helhetlig anbefaling.
 
+### 2.3 Dette legger utredningen til grunn
+
+Enhver utredning hviler på forutsetninger som former hva
+som blir synlig som problem og løsning. De viktigste er
+samlet her, slik at leseren kan vurdere konklusjonene i
+lys av dem. Vi skiller mellom to typer:
+
+- **Valg** er analytiske rammer og avgrensninger vi har
+  tatt bevisst. De skal ikke leses som funn, men som
+  linser — konklusjonene gjelder innenfor dem.
+- **Veddemål** er antakelser om fremtiden eller om
+  forhold vi ikke har kunnet dokumentere. De kan vise
+  seg å ikke holde, og for det mest kritiske angir vi
+  hva som da bør skje.
+
+En kritisk gjennomgang av disse og flere forutsetninger
+finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md);
+enkeltantakelser på påstandsnivå er samlet i
+[antakelsesregisteret](antakelsesregister.md).
+
+**Verdikjedelinsen** *(valg)*. Vi analyserer
+kunnskapsforvaltningen som en kjede fra forskning til
+innbygger. Linsen er presis for produksjonsleddene, men
+fanger ikke at innbyggere og helsepersonell henter
+kunnskap fra mange kilder utenfor kjeden;
+[økosystemnotatet](verdikjede-som-okosystem.md) gir det
+supplerende perspektivet. Flaskehalsrangeringen og
+rotårsaksanalysen er formet av denne linsen.
+
+**Tempopremisset** *(valg, med et veddemålselement)*. Vi
+legger til grunn at kortere tid fra forskning til praksis
+er et gode. Premisset er ikke ubegrenset: akselerasjon
+øker risikoen for feil, og deler av dagens tidsbruk er
+faglig forhandling og forankring som har egenverdi.
+Utredningen har ikke differensiert tempomålet per
+sakstype; det bør gjøres i senere faser.
+
+**KI-formålet** *(politisk gitt valg)*. Oppdraget
+forutsetter at kunnskapskildene skal kunne brukes til
+utvikling og testing av KI-systemer for målrettede
+helseråd
+([oppdragsteksten](../kilder/oppdragstekst.md)). Dette
+formålet er ikke selv utredet her, men det styrer
+prioriteringen: strukturerte metadata og maskinlesbarhet
+veier tyngre enn de ville gjort uten KI-målet.
+
+**Orkestreringspremisset** *(valg)*. Alle fire
+alternativene har staten som produsent og orkestrator,
+med FHI, Helsedirektoratet og NHN i kjernen. Modeller
+der profesjonsdrevet normering med statlig metodestøtte
+er hovedmodellen, er kartlagt
+([delrapport 4 kap. 6.3](ny-verdikjede.md)) men ikke
+stilt opp som eget alternativ. Veivalget om
+foreningssporet står åpent (kap. 10.2).
+
+**Drift-tesen** *(veddemål)*. Vi legger til grunn at
+passivitet ikke gir status quo, men drift mot
+fragmentering eller plattformavhengighet
+([delrapport 9](fremtidsscenarioer.md)). Tesen bærer
+vurderingen av nullalternativet, men hviler på premisser
+som ikke er kartlagt empirisk — særlig at kommuner og
+helseforetak faktisk vil bygge egne løsninger. [ANT]
+
+**Modningspremisset** *(veddemål)*. Anbefalingens
+retning fra alternativ 2 mot alternativ 3 forutsetter at
+KI-teknologien modnes tilstrekkelig for norsk
+helsetjeneste. Uavhengige evalueringer spriker i dag fra
+leverandørpåstandene
+([løsningskartleggingen](losningsretninger-bred-kartlegging.md)).
+Hver fase-overgang skal derfor behandles som en
+selvstendig beslutning basert på dokumentert modenhet,
+ikke som en automatisk fortsettelse. [ANT]
+
+**Mandat- og finansieringspremisset** *(veddemål — det
+mest kritiske)*. Anbefalingen forutsetter at HOD gir
+tydelig oppdrag, styringsmandat og varig finansiering
+(kap. 6.6). Dette er beslutninger utenfor utredningens
+kontroll, og internasjonal erfaring viser at bortfall av
+mandat og finansiering er den vanligste årsaken til at
+slike satsinger dør — ikke teknologien. Utredningen sier
+samtidig selv at sentral kapasitetsbygging *uten* mandat
+øker risikoen for kollapsbanen i kap. 7.1. Derfor gjelder
+følgende beredskapslinje: **uteblir mandat eller varig
+finansiering, bør sentral kapasitetsbygging ikke
+igangsettes.** Innsatsen begrenses da til tiltak som står
+seg uansett — organisatoriske grep fra alternativ 1 som
+ikke krever nytt mandat, og arbeid med standarder og
+maskinlesbar publisering som andre aktører kan bygge på —
+til forutsetningene er på plass. [ANT]
+
 ---
 
 ## 3. Sammendrag av funn fra delrapporter
@@ -1015,7 +1106,10 @@ Evalueringen skal inkludere:
 ### 10.1 Usikkerhet og begrensninger
 
 Denne utredningen har vesentlige begrensninger som
-leseren bør være oppmerksom på:
+leseren bør være oppmerksom på. De bærende
+forutsetningene — valgene og veddemålene konklusjonene
+hviler på — er samlet i kap. 2.3; punktene nedenfor
+utdyper de viktigste usikkerhetene:
 
 **Teknologisk usikkerhet.** KI-teknologi er i rask
 utvikling. Vurderinger av ytelse og effekt er basert
@@ -1127,3 +1221,4 @@ kost–nytte-analyse per fase.*
 | 2026-05-26 | Konsistensgjennomgang: udokumenterte tallanslag fjernet (alle 2–3 år, 2,5–5 år, %-tidsbesparelser, MNOK-kostnader, måned-baserte fasevarigheter). Nøkkeltall- og kostnadstabeller omkalibrert til kvalitative gradsbetegnelser. Fremdriftsplan kap. 8.1 endret fra månedstall til rene avhengigheter. Tidsestimater forankret i `casestudier-forsinkelser.md` der dokumentert. |
 | 2026-06-04 | Nytt kap. 7.1 «Scenariorisiko – strukturelle utviklingsbaner» med tre nye risikoer (11–13: drift mot S4, plattformavhengighet S2, kollapsbane S1→S4) basert på delrapport 9 (`fremtidsscenarioer.md`). Koblet til rotårsakene R1/R2/R4 og til orkestrering som designkrav (kap. 6.6). |
 | 2026-08-10 | Profesjonsforening-perspektivet innarbeidet fra `profesjonsforeninger-normering.md`: tosporet normering i ledersammendrag og kap. 4.2, ny risiko 14 (kildegrunnlag uten foreningssporet), juridisk avklaringspunkt om foreningsveiledere og hpl. § 4 (kap. 9), veivalg innlemme/erstatte/sameksistere i kap. 10.2. |
+| 2026-08-17 | Nytt kap. 2.3 «Dette legger utredningen til grunn»: syv navngitte bærende premisser (verdikjedelinsen, tempopremisset, KI-formålet, orkestreringspremisset, drift-tesen, modningspremisset, mandat- og finansieringspremisset) med skille valg/veddemål og eksplisitt beredskapslinje hvis mandat/finansiering uteblir. Basert på `forutsetningsanalyse-rammeniva.md`. Kap. 10.1 henviser til kap. 2.3. |

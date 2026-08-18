@@ -57,7 +57,10 @@ modnes.
   oppslagsverkene i kap. 3b (UpToDate videreført i ny
   treårsavtale fra 1.4.2026, BMJ Best Practice utgikk;
   Cochrane/Embase ikke gjenopprettet), refs [28]–[29].
-- **Sist oppdatert**: 2026-08-14
+  2026-08-18: nytt kap. 1.4 «Dette legger vi til grunn»
+  (verdikjedelinsen, tempopremisset, KI-formålet; lenket til
+  samlet vurdering kap. 2.3).
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 2 -- Utfordringer og flaskehalser](utfordringer-og-flaskehalser.md)
 
@@ -97,17 +100,20 @@ modnes.
   er uformelle (kap. 6.1, R1, R4). 2026-08-11: praktisk konsekvens
   av kapasitetsgapet tilføyd i kap. 3.1 og R3 (direktebruk av
   forskning i normerende produkter — tilpasning og kvalitetsrisiko)
-  [ANT — opplyst i prosjektet, ikke kildebelagt].
-- **Sist oppdatert**: 2026-08-11
+  [ANT — opplyst i prosjektet, ikke kildebelagt]. 2026-08-18:
+  nytt kap. 1.3 «Dette legger vi til grunn» (verdikjedelinsen,
+  tempopremisset, KI-formålet) og premissreferanse
+  (tempopremisset) i flaskehalsrangeringen kap. 8.1.
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 3 -- Store språkmodeller -- muligheter og risikoer](llm-muligheter-og-risikoer.md)
 
 - **Status**: Utforskende
 - **Beskrivelse**: Balansert vurdering av
   LLM-teknologi, EU AI Act-implikasjoner og
-  prinsipielle spørsmål.
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving, trinn 3 --
-  ingen endring i meningsinnhold; nytt hovedbudskap-avsnitt øverst)
+  prinsipielle spørsmål. 2026-08-18: ny seksjon «Dette legger
+  vi til grunn» i innledningen (KI-formålet, modningspremisset).
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 4 -- Ny verdikjede](ny-verdikjede.md)
 
@@ -132,8 +138,13 @@ modnes.
   virkemiddel — prosessuell og teknisk formalisering, no
   regret-vurdering per alternativ, kobling til R1/R4/R5 og
   avhengighetskartleggingen i delrapport 1 kap. 3e.
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  2026-08-18: nytt kap. 1.4 «Dette legger vi til grunn»
+  (orkestreringspremisset, drift-tesen, modningspremisset,
+  mandat- og finansieringspremisset) og premissreferanser i
+  nullalternativvurderingen (kap. 2.5) og anbefalingen
+  (kap. 9.1), med henvisning til beredskapslinjen i samlet
+  vurdering kap. 2.3.
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 5 -- Arkitektur og komponenter](arkitektur-og-komponenter.md)
 
@@ -143,17 +154,19 @@ modnes.
   sikkerhet og personvern. 2026-08-10: kunnskapsbase-komponenten
   (kap. 4.1) utvidet med at kildegrunnlaget delvis eies av
   profesjonsforeninger (lisens- og struktureringsbehov).
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  2026-08-18: nytt kap. 1.4 «Dette legger vi til grunn»
+  (KI-formålet, orkestreringspremisset, modningspremisset).
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 6 -- Internasjonale erfaringer](internasjonale-erfaringer.md)
 
 - **Status**: Utforskende
 - **Beskrivelse**: WHO SMART Guidelines, NICE,
   Cochrane KI-piloter, nordiske erfaringer og
-  overførbarhet til Norge.
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving, trinn 3 --
-  ingen endring i meningsinnhold; nytt hovedbudskap-avsnitt øverst)
+  overførbarhet til Norge. 2026-08-18: ny seksjon «Dette
+  legger vi til grunn» i innledningen (overførbarhet som
+  antakelse, modningspremisset).
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 7 -- Samlet vurdering](samlet-vurdering-kunnskapsforvaltning.md)
 
@@ -176,8 +189,11 @@ modnes.
   (kildegrunnlag uten foreningssporet, vurdert høy), juridisk
   avklaringspunkt om foreningsveiledere (hpl. § 4) og veivalg i
   kap. 10.2 (se `profesjonsforeninger-normering.md`).
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  2026-08-17: nytt kap. 2.3 «Dette legger utredningen til
+  grunn» med syv navngitte bærende premisser (skille
+  valg/veddemål) og beredskapslinje hvis mandat/finansiering
+  uteblir; basert på `forutsetningsanalyse-rammeniva.md`.
+- **Sist oppdatert**: 2026-08-17 (premisskapittel 2.3)
 
 ### [Delrapport 8 -- Aktøranalyse](aktoeranalyse.md)
 
@@ -192,9 +208,10 @@ modnes.
   foreningenes dokumenterte normerende produktportefølje (~13 av 22
   foreninger), samleavsnitt om foreninger utenfor Legeforeningen,
   utvidet observasjon 1 og referanser [19]–[21] (se
-  `profesjonsforeninger-normering.md`).
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  `profesjonsforeninger-normering.md`). 2026-08-18: nytt
+  kap. 1.3 «Dette legger vi til grunn» (verdikjedelinsen som
+  avgrensning av aktørutvalget).
+- **Sist oppdatert**: 2026-08-18
 
 ### [Delrapport 9 -- Fremtidsscenarioer](fremtidsscenarioer.md)
 
@@ -216,9 +233,10 @@ modnes.
   [DOK]/[ANT]; scenarioene som helhet er [ANT]-konstruksjoner,
   ikke prediksjoner. 2026-08-10: profesjonsvis
   føderasjonsdimensjon presisert i akse X, S3 og S4 (se
-  `profesjonsforeninger-normering.md`).
-- **Sist oppdatert**: 2026-08-10 (klarspråksomskriving +
-  profesjonsforening-perspektivet)
+  `profesjonsforeninger-normering.md`). 2026-08-18:
+  premissdeklarasjon (drift-tesen, orkestreringspremisset)
+  tilføyd i «Om denne delrapporten».
+- **Sist oppdatert**: 2026-08-18
 
 ### [Rolledeling i sentral helseforvaltning](rolledeling-sentral-helseforvaltning.md)
 
@@ -715,6 +733,67 @@ modnes.
   [DOK]. Grunnlag for forankringsarbeidet. Inngår ikke i
   HTML-versjonen.
 - **Sist oppdatert**: 2026-08-11
+
+### [Forutsetningsanalyse på rammenivå](forutsetningsanalyse-rammeniva.md)
+
+- **Status**: Utforskende — til drøfting i prosjektet
+- **Beskrivelse**: Systemtenkningsanalyse av de fundamentale,
+  ofte ustilte forutsetningene bak utredningens tre lag:
+  problemforståelsen (P1–P15), kapabilitetskartet (K1–K12) og
+  løsningsalternativene (L1–L14). Søsterdokument til
+  antakelsesregisteret: registeret dekker påstandsnivået
+  ([ANT]-merkede utsagn), dette notatet rammenivået (valg av
+  analyseenhet, suksessmål, vurderingsmetode og
+  løsningsstruktur). Basert på tre parallelle kritiske
+  gjennomlesninger 2026-08-17. Hovedfunn: (1) anbefalingen
+  forutsetter styringsmandat og varig finansiering som eget
+  materiale sier ingen alternativer leverer, uten
+  beredskapslinje; (2) etterspørsels-/absorpsjonssiden er
+  blindsone i alle tre lag; (3) «raskere = bedre» og det
+  epistemiske premisset er aldri begrunnet; (4) KI-formålet i
+  oppdraget styrer diagnosen bakover uten å være markert som
+  premiss. Tre tverrgående skjevhetsfamilier og prioritert
+  seks-punkts oppfølgingsliste; fire av punktene fanges ikke
+  av antakelsesregisteret. Inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-08-17
+
+### [Innhentingsplan for verifisering av forutsetninger](innhentingsplan-forutsetninger.md)
+
+- **Status**: Under arbeid — internt arbeidsdokument
+- **Beskrivelse**: Operasjonaliserer de prioriterte
+  verifiseringene fra forutsetningsanalysen og
+  antakelsesregisteret i åtte punkter med spørsmål,
+  mottaker, utkast til henvendelser, arbeidsdeling
+  (bruker/Claude), konsekvens av ulike svar og statusfelt
+  per punkt (Ikke startet → Sendt → Svar mottatt →
+  Innarbeidet). Viktigst: KI-initiativ i kommuner/HF
+  (drift-tesen), kommersiell tilgang til offentlige
+  kilder, etterspørsels-/bruksdata (NHN +
+  befolkningsundersøkelse), forrangsregler stat/forening,
+  utsending av FHI-svardokumentet, API-verifisering av
+  PICO (parkert på tilgang), bestilling av juridisk
+  AI Act/MDR-utredning og en restliste av mindre
+  verifiseringer. Inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-08-18
+
+### [Samsvarssjekk mot oppdragsteksten](samsvar-oppdragstekst.md)
+
+- **Status**: Utforskende — til drøfting med prosjekteier
+- **Beskrivelse**: Systematisk sjekk av hele utredningen
+  mot oppdragstekstens tre elementer
+  (`kilder/oppdragstekst.md`, uformell utgave):
+  (1) behov/problemer med KI-linsen, (2) ansvarsfordeling
+  for produksjon og kvalitet, (3) rammer for KI-klare
+  data. Hovedfunn: sterk deskriptiv dekning, svak dekning
+  av oppdragets spissede og normative deler — KI-formålet
+  mangler i problemanalysens formålskapitler, begrepet
+  «KI-klare data» finnes ikke i noen rapport, og
+  «bør»-spørsmålet om ansvar er sirkulert mellom fire
+  dokumenter uten konklusjon. Sju avvik (A1–A7) med
+  alvorlighetsgrad og sju anbefalinger. Basert på tre
+  parallelle kartlegginger på tvers av alle rapporter.
+  Inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-08-14
 
 ### [HTML-versjon](html/index.html)
 

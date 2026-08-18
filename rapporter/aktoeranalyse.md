@@ -27,6 +27,22 @@ kartlagt i delrapport 1 (dagens-verdikjede.md). Aktørkartet
 i kapittel 2 nedenfor er organisert etter verdikjedens steg
 og strømmer slik de er definert i delrapport 1.
 
+### 1.3 Dette legger vi til grunn
+
+Analysen bygger på ett strukturerende premiss:
+
+- **Verdikjedelinsen**: aktørene er organisert etter
+  kjedens steg og strømmer. Aktører som påvirker
+  kunnskapsbruken uten å inngå i kjeden (kommersielle
+  KI-tjenester, internasjonale kunnskapsleverandører,
+  medier) er dermed ikke systematisk kartlagt; se
+  [økosystemnotatet](verdikjede-som-okosystem.md).
+
+Premisset er definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. Aktørkart for verdikjeden

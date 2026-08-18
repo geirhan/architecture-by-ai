@@ -56,6 +56,25 @@ presenteres bør forstås som scenariobaserte anslag
 snarere enn etablerte fakta. Usikkerhet er markert
 der det er relevant.
 
+### Dette legger vi til grunn
+
+Vurderingen bygger på to premisser:
+
+- **KI-formålet**: oppdraget forutsetter at
+  kunnskapskildene skal kunne brukes til utvikling og
+  testing av KI-systemer for målrettede helseråd —
+  spørsmålet her er *hvordan* og *med hvilken risiko*,
+  ikke *om*.
+- **Modningspremisset**: mulighetsvurderingene bygger på
+  at teknologien fortsetter å modnes. Uavhengige
+  evalueringer spriker i dag fra leverandørpåstandene, og
+  modning må dokumenteres per bruksområde, ikke antas.
+
+Premissene er definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang av dem finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. Hva er store språkmodeller?

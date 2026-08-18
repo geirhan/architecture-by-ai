@@ -84,6 +84,32 @@ For sammenligning av alternativer mot rotårsaker og
 løsningsakser, se kap. 6.1 og 6.2 – disse koblingene står
 seg uavhengig av kvantitative anslag.
 
+### 1.4 Dette legger vi til grunn
+
+Alternativvurderingen bygger på fire premisser:
+
+- **Orkestreringspremisset**: alle fire alternativene har
+  staten som produsent og orkestrator; modeller med
+  profesjonsdrevet normering som hovedmodell er kartlagt,
+  men ikke stilt opp som eget alternativ (jf. kap. 6.3).
+- **Drift-tesen**: vurderingen av nullalternativet bygger
+  på at passivitet gir drift mot fragmentering eller
+  plattformavhengighet
+  ([delrapport 9](fremtidsscenarioer.md)) — et veddemål
+  som ikke er empirisk kartlagt. [ANT]
+- **Modningspremisset**: retningen fra alternativ 2 mot
+  alternativ 3 forutsetter at KI-teknologien modnes
+  tilstrekkelig; hver faseovergang er en selvstendig
+  beslutning.
+- **Mandat- og finansieringspremisset**: anbefalingen
+  forutsetter tydelig oppdrag, mandat og varig
+  finansiering fra HOD. Beredskapslinjen hvis dette
+  uteblir står i
+  [samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn).
+
+En kritisk gjennomgang av premissene finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. Alternativ 0: Nullalternativet – videreføring av dagens praksis
@@ -180,7 +206,9 @@ gjør at gapet mellom hva som er mulig og hva som leveres
 vil bli stadig tydeligere. Å videreføre dagens praksis uten
 endring betyr i praksis å akseptere at offentlig
 helseinformasjon gradvis taper relevans sammenlignet med
-kommersielle alternativer.
+kommersielle alternativer. Vurderingen hviler på
+[drift-tesen](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn)
+[ANT].
 
 ---
 
@@ -1138,7 +1166,10 @@ Rapporten anbefaler en **faseinndelt tilnærming** der
 Helsedirektoratet innfører alternativ 2 (moderat KI-støtte)
 som startpunkt, med gradvis utvidelse mot elementer fra
 alternativ 3 etter hvert som teknologi, kompetanse og
-governance modnes. Rapporten anbefaler at organisatoriske
+governance modnes. Anbefalingen hviler på
+[modningspremisset og mandat- og finansieringspremisset](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn)
+— uteblir mandat eller varig finansiering, gjelder
+beredskapslinjen der. Rapporten anbefaler at organisatoriske
 tiltak fra alternativ 1 gjennomføres parallelt, da de
 styrker verdikjeden uavhengig av KI-innføring. På samme
 måte er prosessuell formalisering av grensesnittene

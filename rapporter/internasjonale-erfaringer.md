@@ -60,6 +60,24 @@ under rask utvikling, og status kan ha endret seg
 siden kildene ble publisert. Usikkerhet er eksplisitt
 markert der det er relevant.
 
+### Dette legger vi til grunn
+
+Gjennomgangen bygger på to premisser:
+
+- **Overførbarhet**: relevansvurderingene forutsetter at
+  internasjonale erfaringer lar seg overføre til norsk
+  kontekst. Dette er en antakelse per modell — skala,
+  styringstradisjon og det norske tosporssystemet for
+  normering kan begrense overførbarheten.
+- **Modningspremisset**: flere av erfaringene er fra
+  piloter, ikke fullskala drift; de dokumenterer
+  mulighet, ikke modenhet.
+
+Premissene er definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang av dem finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. WHO SMART Guidelines

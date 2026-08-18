@@ -53,6 +53,28 @@ helseinformasjon som deles på tvers av landegrenser er
 basert på oppdatert, verifisert kunnskap. Nærmere vurdering
 av EHDS-koblingen gis i kapittel 6.
 
+### 1.4 Dette legger vi til grunn
+
+Arkitekturskissen bygger på tre premisser:
+
+- **KI-formålet**: komponentene er utformet for at
+  kunnskapskildene skal kunne brukes til utvikling og
+  testing av KI-systemer for målrettede helseråd — derav
+  vekten på strukturerte data og maskinlesbarhet.
+- **Orkestreringspremisset**: arkitekturen forutsetter
+  statlig eierskap og drift (Helsedirektoratet/FHI/NHN);
+  kunnskapsbasens kildegrunnlag eies delvis av andre
+  (jf. kap. 4.1).
+- **Modningspremisset**: flere komponenter forutsetter
+  teknologi som ennå ikke er dokumentert moden for norsk
+  helsetjeneste; arkitekturen er en skisse, ikke et
+  byggegrunnlag.
+
+Premissene er definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang av dem finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. Arkitekturprinsipper

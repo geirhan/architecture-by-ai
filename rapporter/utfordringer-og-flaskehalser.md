@@ -68,6 +68,29 @@ rapporten er estimater basert på tilgjengelig
 informasjon og scenarioanalyse. Der tallgrunnlaget er
 usikkert, er dette eksplisitt markert.
 
+### 1.3 Dette legger vi til grunn
+
+Utfordringsanalysen bygger på tre premisser som former
+hva som telles som problem:
+
+- **Verdikjedelinsen**: utfordringene identifiseres som
+  flyt- og koblingsproblemer i kjeden; se
+  [økosystemnotatet](verdikjede-som-okosystem.md) for
+  utfordringer denne linsen ikke fanger.
+- **Tempopremisset**: lang gjennomløpstid behandles som
+  hovedproblemet, og kortere tid som et gode. Verdien av
+  tid brukt på faglig forankring og konsensus er ikke
+  vektet mot dette.
+- **KI-formålet**: at kildene skal kunne brukes til
+  utvikling og testing av KI-systemer for målrettede
+  helseråd gjør fritekst og manglende metadata til en mer
+  alvorlig utfordring enn de ellers ville vært.
+
+Premissene er definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang av dem finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 2. Utfordringsbildet -- samlet oversikt
@@ -1035,7 +1058,9 @@ casestudier (casestudier-forsinkelser.md), rangeres
 de viktigste flaskehalsene etter samlet
 alvorlighet. Implementeringsgapet og
 refusjonsordninger er oppjustert til «høy» basert
-på casedokumentasjonen:
+på casedokumentasjonen. Rangeringen er formet av
+[tempopremisset](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn)
+— tidsdefinerte flaskehalser veier tyngst:
 
 | Rang | Flaskehals | Alvorlighet | Begrunnelse |
 | --- | --- | --- | --- |

@@ -69,6 +69,18 @@ konstruerte fremtidsfortellinger [ANT]. De enkelte
 mekanismene og dagens tilstander de bygger på, er forankret
 der de står.
 
+**Dette legger vi til grunn.** Scenarioanalysen bærer to
+av utredningens premisser og bør leses i lys av dem:
+**drift-tesen** — at passivitet gir bevegelse mot S2/S4 —
+er en analytisk slutning, ikke en dokumentert kartlegging
+[ANT], og **orkestreringspremisset** — at offentlig
+orkestrering er ønskelig og mulig — er det normative
+utgangspunktet for å foretrekke S1/S3. Premissene er
+definert i
+[samlet vurdering kap. 2.3](samlet-vurdering-kunnskapsforvaltning.md#23-dette-legger-utredningen-til-grunn);
+en kritisk gjennomgang finnes i
+[forutsetningsanalysen](forutsetningsanalyse-rammeniva.md).
+
 ---
 
 ## 1. Kort konklusjon
