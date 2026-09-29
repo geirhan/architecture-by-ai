@@ -13,6 +13,7 @@ Krav: pandoc og weasyprint på PATH.
 Bruk:
     python3 skripts/generer_pdf.py            # alt
     python3 skripts/generer_pdf.py --samlet   # kun samle-PDF-en
+    python3 skripts/generer_pdf.py --fil navn.md   # kun én rapport
 """
 
 import re
@@ -59,6 +60,7 @@ ENKELTRAPPORTER = [
     "casestudier-forsinkelser.md",
     "helsepersonellplan-2040.md",
     "kildeforankring-slide3.md",
+    "kunnskapsinnhenting-innbyggerinnhold-hdir.md",
     "profesjonsforeninger-normering.md",
     "regulatorisk-etterslep.md",
     "rolledeling-sentral-helseforvaltning.md",
@@ -218,11 +220,11 @@ def md_til_html(sti, id_prefix):
          "--id-prefix", id_prefix, str(sti)],
         capture_output=True, text=True, check=True)
     html = resultat.stdout
-    # Interne .md-lenker gir ikke mening i PDF: gjør dem om
-    # til ren tekst. (Pandoc kan bryte attributter over flere
-    # linjer, derfor \s-toleranse.)
+    # Interne lenker til prosjektfiler (.md, .csv) gir ikke
+    # mening i PDF: gjør dem om til ren tekst. (Pandoc kan
+    # bryte attributter over flere linjer, derfor \s-toleranse.)
     html = re.sub(
-        r'<a\s[^>]*href="[^"]*\.md[^"]*"[^>]*>(.*?)</a>',
+        r'<a\s[^>]*href="[^"]*\.(?:md|csv)[^"]*"[^>]*>(.*?)</a>',
         r"\1", html, flags=re.DOTALL)
     return html
 
@@ -330,6 +332,11 @@ def main():
     sjekk_verktoy()
     UT.mkdir(exist_ok=True)
     dato_str = date.today().strftime("%d.%m.%Y")
+    if "--fil" in sys.argv:
+        generer_enkelt(sys.argv[sys.argv.index("--fil") + 1],
+                       dato_str)
+        print("Ferdig.")
+        return
     generer_samlet(dato_str)
     if "--samlet" not in sys.argv:
         for navn in ENKELTRAPPORTER:

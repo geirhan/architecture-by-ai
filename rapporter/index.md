@@ -540,6 +540,31 @@ modnes.
   seks kunnskapsgap.
 - **Sist oppdatert**: 2026-08-03
 
+### [Kunnskapsinnhenting: Innbyggerrettet innhold Helsedirektoratet har ansvar for](kunnskapsinnhenting-innbyggerinnhold-hdir.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Kartlegging (2026-09-29) av innbyggerrettet
+  innhold Hdir har ansvar for, som underlag til oppdraget om
+  nasjonalt ansvar for kunnskaps- og informasjonsforvaltning.
+  Fire parallelle søk (helsedirektoratet.no, helsenorge.no/Helfo,
+  kampanjer/apper/hjelpetelefoner, lokale dokumenter) og maskinell
+  gjennomgang av alle 2 707 sider i helsenorge.no-sitemapen.
+  Hovedfunn: Hdir er største innholdsleverandør på Helsenorge
+  (973 sider, 43 % av merkede sider; Helfo i tillegg 230) og står
+  for om lag 90 % av innholdet på innvandrerspråk; seks ulike
+  ansvarstyper (utgiver, produsent, dataansvarlig, etatsstyrer,
+  medeier, finansierer); innholds-API-et har ikke målgruppe som
+  metadata; utgiveransvaret mangler oppdatert styringsgrunnlag
+  (redaksjonell modell 2022 nevner Direktoratet for e-helse som
+  utgiver og ansvarlig redaktør; hovedinstruksen 2026 nevner ikke
+  Helsenorge); tildelingsbrevet 2026 gir minst seks nye oppdrag om
+  innbyggerinformasjon; 23 % av Hdirs daterte Helsenorge-sider er
+  over tre år gamle. Ni kunnskapshull med forslag til neste steg.
+  Vedlegg:
+  [innbyggerinnhold-hdir-helsenorge.csv](innbyggerinnhold-hdir-helsenorge.csv)
+  (1 179 sider med leverandør, tema, språk og dato).
+- **Sist oppdatert**: 2026-09-29
+
 ### [Metadatastrukturer i evidenskjeden](metadatastrukturer-evidenskjeden.md)
 
 - **Status**: Utforskende
