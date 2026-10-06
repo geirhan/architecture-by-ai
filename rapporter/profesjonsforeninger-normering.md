@@ -764,8 +764,32 @@ eller delvis lukket, er markert.
    eksplisitt, prinsipiell statlig vurdering av forholdet mellom statlig
    og foreningsdrevet normering. Sveipet bekreftet at Hdirs egen
    selvbeskrivelse av det normerende systemet ikke nevner foreningene
-   (punkt 2). NOU 2023:4 ble ikke gjennomgått i fulltekst — dette bør
-   gjøres før konklusjonen legges endelig til grunn.
+   (punkt 2). **NOU 2023:4 gjennomgått i fulltekst 2026-08-28 — gapet
+   ansees lukket for denne kilden.** Fulltekstsøk (pdftotext, hele
+   NOU-en) fant ingen prinsipiell vurdering av forholdet mellom statlig
+   og foreningsdrevet normering: «normerende» forekommer kun to ganger,
+   begge i anbefalingen om å gjennomgå «forordninger, normerende
+   produkter og brukerrettigheter» for å se hvordan de påvirker
+   tjenestetilbud og *personellbehov* (kap. 11.8.3 og 14) — et
+   personellperspektiv, ikke et styringsperspektiv [DOK].
+   Profesjonsforeningene omtales bare i avgrensede roller:
+   (a) foreningsadministrert spesialistgodkjenning for psykologer,
+   fysioterapeuter og bioingeniører samt NSF/Fagforbundets
+   godkjenningsordninger (kap. 10.12); (b) Legeforeningens
+   spesialitetskomiteer som innspillsgivere til læringsmål som
+   Helsedirektoratet fastsetter; (c) «Kloke valg» omtalt som «et
+   hederlig unntak» innen helseopplysning, med Legeforeningen som
+   initiativtaker (kap. 11); (d) Barnehelseatlaset utarbeidet «på
+   initiativ og i samarbeid med Norsk barnelegeforening» (kap. 11);
+   (e) tariffpart (Spekter/KS-avtaler); (f) innspill gjengitt i
+   vedlegg (foreningenes egne stemmer, ikke kommisjonens vurdering).
+   Foreningenes kliniske veiledere/retningslinjearbeid er ikke nevnt;
+   «retningslinjer»-treffene gjelder RETHOS-utdanningsretningslinjer,
+   WHO-koden for internasjonal rekruttering og prioritering. NOU-en
+   bekrefter derimot implementeringsgapet: faglige retningslinjer
+   «følges ofte ikke av legene» (kap. 11, med henvisning til Fønhus
+   mfl. 2018 og Jamtvedt mfl. 2006) [DOK]. Funnet om fravær av
+   prinsipiell statlig vurdering står dermed styrket [ANT].
 4. **2015-rapportens endelige status i Legeforeningen ikke bekreftet:**
    Dokumentet er datert «høringsutkast 9.4.2015»; referat fra
    sentralstyremøtet 11.11.2015 er identifisert, men ikke lest.
@@ -952,6 +976,13 @@ eller delvis lukket, er markert.
 37. Forskrift om nasjonalt vaksinasjonsprogram (FOR-2009-10-02-1229),
     særlig § 3 tredje ledd.
     https://lovdata.no/dokument/SF/forskrift/2009-10-02-1229
+
+### Kilde tilført 2026-08-28 (lukking av gap 3, NOU 2023:4)
+
+38. NOU 2023:4 *Tid for handling. Personellet i en bærekraftig helse-
+    og omsorgstjeneste* (Helsepersonellkommisjonen), lest i fulltekst
+    (pdftotext), særlig kap. 10.12, 11 og 11.8.3/14.
+    https://www.regjeringen.no/contentassets/337fef958f2148bebd326f0749a1213d/no/pdfs/nou202320230004000dddpdfs.pdf
 
 ---
 

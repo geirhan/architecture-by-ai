@@ -540,6 +540,28 @@ modnes.
   seks kunnskapsgap.
 - **Sist oppdatert**: 2026-08-03
 
+### [Kunnskapsinnhenting: Dokumenterte effekter av kunnskapskjeden](kunnskapsinnhenting-effekter-kunnskapskjeden.md)
+
+- **Status**: Utforskende
+- **Beskrivelse**: Kunnskapsinnhentingsnotat fra tre parallelle
+  dypsøk (2026-09-01) etter dokumentasjon og forskning på
+  samfunnseffektene av kunnskapskjeden — kjedens samlede verdi og
+  effekter av enkeltendringer. Formål: tette premisshullene fra
+  forutsetningsanalysen (P2 «raskere = bedre», P3 60-30-10, P4 det
+  epistemiske premisset) og nyttesiden i delrapport 4/7. Hovedfunn:
+  premisset om kjedens samfunnsverdi kan belegges med en gradert
+  evidenstrapp (Ford/IMPACT-attribusjon, UK-avkastningsstudier
+  7–10 % IRR, McGlynn, NORDCAN), men norsk empiri mangler og
+  HelseOmsorg21-monitor erkjenner hullet selv; tempopremisset er
+  bare indirekte dokumentert (Antman, RECOVERY) og har dokumentert
+  motvekt (medical reversals, hydroksyklorokin, rapid review-avvik
+  8–27 %, norsk pakkeforløpskritikk). Foreslår differensiert
+  premissformulering («raskere flyt av moden kunnskap»), realistisk
+  gevinstkalibrering fra implementeringslitteraturen (typisk 2–11
+  prosentpoeng) og peker på manglende avlæringsmekanisme. Åtte
+  kunnskapsgap. Alle utsagn merket [DOK]/[ANT] med kildelenker.
+- **Sist oppdatert**: 2026-09-01
+
 ### [Kunnskapsinnhenting: Innbyggerrettet innhold Helsedirektoratet har ansvar for](kunnskapsinnhenting-innbyggerinnhold-hdir.md)
 
 - **Status**: Utforskende
@@ -736,8 +758,14 @@ modnes.
   (tuberkulosekontrollforskriften § 3-3 og vaksinasjonsprogram-
   forskriften § 3 gir FHIs faglige anbefalinger bindende virkning ved
   forskriftshenvisning). Nytt kunnskapsgap 10 om gjenstående
-  Lovdata-søk. Kilder 31–37 tilført.
-- **Sist oppdatert**: 2026-08-14
+  Lovdata-søk. Kilder 31–37 tilført. 2026-08-28: kunnskapsgap 3 lukket
+  for NOU 2023:4 — fulltekstgjennomgang (pdftotext) bekrefter at heller
+  ikke Helsepersonellkommisjonen inneholder en prinsipiell vurdering av
+  forholdet mellom statlig og foreningsdrevet normering; foreningene
+  omtales kun i avgrensede roller (spesialistgodkjenning kap. 10.12,
+  innspill til læringsmål, «Kloke valg» som «hederlig unntak»,
+  Barnehelseatlaset, tariffpart, vedleggsinnspill). Kilde 38 tilført.
+- **Sist oppdatert**: 2026-08-28
 
 ### [Antakelsesregister for utredningen](antakelsesregister.md)
 
@@ -819,6 +847,39 @@ modnes.
   parallelle kartlegginger på tvers av alle rapporter.
   Inngår ikke i HTML-versjonen.
 - **Sist oppdatert**: 2026-08-14
+
+### [Stikkord og startsetninger til leveransedokumentet](stikkord-leveransedokument.md)
+
+- **Status**: Under arbeid — internt arbeidsdokument
+- **Beskrivelse**: Råstoff til den offisielle leveransen
+  «Utredning – Ansvar for og organisering av nasjonal
+  kunnskapsforvaltning» (skrives av brukeren i Word etter
+  Hdir-malen basert på DFØ-strukturen). Én seksjon per
+  delkapittel i malen (Forord, utredningsnivå, kap. 1–8)
+  med stikkord, kildeanvisning og forslag til
+  startsetninger. Hull der underlaget ikke gir svar er
+  markert [HULL] (KI-egnethet av kildene,
+  ansvarsveivalget, rammer for KI-klare data, indikatorer)
+  basert på `samsvar-oppdragstekst.md`. Konseptene i
+  kap. 5 følger arbeidshypotesen om delrapport 4s fire
+  alternativer. Inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-08-19
+
+### [Endringsforslag til leveransedokumentet](endringsforslag-leveransedokument.md)
+
+- **Status**: Under arbeid — internt arbeidsdokument
+- **Beskrivelse**: Vurdering av mottatte kommentarer på
+  Word-dokumentet «Utredning – Ansvar for og organisering
+  av nasjonal kunnskapsforvaltning» (versjon per
+  2026-09-15), kommentar for kommentar, med konkrete
+  forslag i form av stikkord og startsetninger. Foreslår
+  ny disposisjon for kap. 3–5 med ordbudsjett og vedlegg,
+  ny aksetabell med konsept×akse-matrise, omskrevet
+  nullalternativ uten Helsenorge-fokus, og begrunnelse for
+  å beholde det disruptive konseptet. Avslutter med funn
+  utover kommentarene og punkter brukeren må avgjøre.
+  Inngår ikke i HTML-versjonen.
+- **Sist oppdatert**: 2026-09-15
 
 ### [HTML-versjon](html/index.html)
 
