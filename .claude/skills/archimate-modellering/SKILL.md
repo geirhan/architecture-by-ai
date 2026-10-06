@@ -35,32 +35,30 @@ description: Use when creating architecture diagrams or visual models. Maps Arch
 title Eksempel: Lagdelt arkitektur
 
 ' === Forretningslag ===
-Business_Actor(pasient, "Pasient")
-Business_Actor(behandler, "Behandler")
-Business_Process(konsultasjon, "Konsultasjon")
-Business_Service(helsetjeneste, "Helsetjeneste")
+Business_Actor(redaksjon, "Retningslinjeredaksjon")
+Business_Actor(innbygger, "Innbygger")
+Business_Process(utvikling, "Retningslinjeutvikling")
+Business_Service(helseraad, "Målrettede helseråd")
 
 ' === Applikasjonslag ===
-Application_Component(epj, "EPJ-system")
-Application_Component(ehds_gw, "EHDS-gateway")
-Application_Interface(fhir_api, "FHIR API")
-Application_DataObject(pasientdata, "Pasientdata")
+Application_Component(publisering, "Publiseringsløsning")
+Application_Component(ki_tjeneste, "KI-tjeneste")
+Application_Interface(innholds_api, "Innholds-API")
+Application_DataObject(anbefaling, "Strukturert anbefaling")
 
 ' === Teknologilag ===
 Technology_Node(helsenett, "Norsk helsenett")
-Technology_Node(myhealth, "MyHealth@EU")
 Technology_Service(infrastruktur, "Infrastrukturtjeneste")
 
 ' === Relasjoner ===
-pasient --> konsultasjon : deltar
-behandler --> konsultasjon : utfører
-konsultasjon --> helsetjeneste : realiserer
-helsetjeneste --> epj : betjenes av
-epj --> fhir_api : eksponerer
-fhir_api --> ehds_gw : bruker
-epj --> pasientdata : aksesserer
-ehds_gw --> helsenett : deployet på
-helsenett --> myhealth : kobles til
+redaksjon --> utvikling : utfører
+utvikling --> anbefaling : produserer
+publisering --> anbefaling : aksesserer
+publisering --> innholds_api : eksponerer
+ki_tjeneste --> innholds_api : bruker
+ki_tjeneste --> helseraad : realiserer
+innbygger --> helseraad : bruker
+ki_tjeneste --> helsenett : deployet på
 
 @enduml
 ```
@@ -71,36 +69,34 @@ helsenett --> myhealth : kobles til
 @startuml
 !include <archimate/Archimate>
 
-title Norsk e-helse – Lagdelt arkitektur
+title Kunnskapsforvaltning – Lagdelt arkitektur
 
 skinparam backgroundColor white
 skinparam defaultFontColor #333333
 
 rectangle "Forretningslag" <<$archimate/business>> #FFFFB5 {
-    Business_Actor(pasient, "Pasient")
-    Business_Actor(helsepersonell, "Helsepersonell")
-    Business_Process(behandling, "Behandling")
+    Business_Actor(fhi, "FHI")
+    Business_Actor(hdir, "Helsedirektoratet")
+    Business_Process(oppsummering, "Kunnskapsoppsummering")
+    Business_Process(normering, "Normering")
 }
 
 rectangle "Applikasjonslag" <<$archimate/application>> #B5D8FF {
-    Application_Component(kjernejournal, "Kjernejournal")
-    Application_Component(resept, "Reseptformidleren")
+    Application_Component(retningslinjer, "Retningslinjeløsning")
     Application_Component(helsenorge, "Helsenorge.no")
-    Application_Component(epj, "EPJ-system")
+    Application_Component(helsebiblioteket, "Helsebiblioteket")
 }
 
 rectangle "Teknologilag" <<$archimate/technology>> #C0E6C0 {
     Technology_Node(nhn, "Norsk helsenett")
-    Technology_Node(helseid, "HelseID")
-    Technology_Node(myhealth, "MyHealth@EU NCP")
 }
 
 ' Relasjoner mellom lag
-behandling --> kjernejournal
-behandling --> resept
-kjernejournal --> nhn
-resept --> nhn
-epj --> myhealth
+oppsummering --> normering
+normering --> retningslinjer
+retningslinjer --> helsenorge
+retningslinjer --> helsebiblioteket
+helsenorge --> nhn
 
 @enduml
 ```
@@ -111,24 +107,24 @@ epj --> myhealth
 @startuml
 !include <C4/C4_Context>
 
-title Systemkontekstdiagram – EHDS i Norge
+title Systemkontekstdiagram – KI-tjeneste for helseråd
 
-Person(pasient, "Pasient", "Innbygger med helseopplysninger")
+Person(innbygger, "Innbygger", "Søker helseinformasjon")
 Person(helsepersonell, "Helsepersonell", "Lege, sykepleier, farmasøyt")
 
-System(ehds_nasjonalt, "Nasjonalt EHDS-kontaktpunkt", "Gateway mellom norske systemer og MyHealth@EU")
-System(epj, "EPJ-systemer", "DIPS, Epic, CGM, Visma, Infodoc")
-System(kjernejournal, "Kjernejournal", "Nasjonal oppsummering av helseopplysninger")
+System(ki_tjeneste, "KI-tjeneste for helseråd", "Gir målrettede helseråd basert på kvalitetssikrede kilder")
+System(retningslinjer, "Retningslinjeløsning", "Nasjonale faglige retningslinjer og veiledere")
+System(helsenorge, "Helsenorge.no", "Innbyggerrettet helseinformasjon")
 
-System_Ext(myhealth, "MyHealth@EU", "Europeisk infrastruktur for grensekryssende helsedatadeling")
-System_Ext(healthdata, "HealthData@EU", "Europeisk infrastruktur for sekundærbruk")
+System_Ext(fhi, "FHI-publikasjoner", "Kunnskapsoppsummeringer og systematiske oversikter")
+System_Ext(oppslagsverk, "Kliniske oppslagsverk", "Lisensierte kunnskapsressurser")
 
-Rel(pasient, ehds_nasjonalt, "Tilgang til egne data")
-Rel(helsepersonell, epj, "Dokumenterer og leser")
-Rel(epj, kjernejournal, "Deler data")
-Rel(kjernejournal, ehds_nasjonalt, "Leverer pasientoppsummering")
-Rel(ehds_nasjonalt, myhealth, "Grensekryssende deling")
-Rel(ehds_nasjonalt, healthdata, "Sekundærbruk")
+Rel(innbygger, ki_tjeneste, "Stiller spørsmål")
+Rel(helsepersonell, retningslinjer, "Leser anbefalinger")
+Rel(ki_tjeneste, retningslinjer, "Henter strukturert innhold")
+Rel(ki_tjeneste, helsenorge, "Henter innbyggerrettet innhold")
+Rel(retningslinjer, fhi, "Bygger på")
+Rel(helsepersonell, oppslagsverk, "Slår opp")
 
 @enduml
 ```

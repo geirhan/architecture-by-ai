@@ -137,7 +137,7 @@ og konsistens.
 De tre lagene utfyller hverandre:
 
 - **CLAUDE.md** styrer *hva* som skal gjøres i
-  EHDS-prosjektet (mål, roller, rapportstruktur)
+  prosjektet (mål, roller, rapportstruktur)
 - **Skills** gir *metoder*
   (utredning, klarspråk, modellering)
 - **Agenter** fyller *roller* som vurderer fra ulike

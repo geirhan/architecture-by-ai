@@ -1,39 +1,45 @@
 {
+    "prosjektet": {
+        "Oppdragstekst (uformell gjengivelse)": "kilder/oppdragstekst.md",
+        "Sluttrapport: Organisering av sentral helseforvaltning (2023)": "kilder/Endelig-rapport_organisering-sentral-helseforvaltning.pdf"
+    },
     "helsedirektoratet": {
-        "EHDS konsekvensvurdering": "https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025",
+        "Offentlig KI-tjeneste for helserelaterte spørsmål": "https://www.helsedirektoratet.no/digitalisering-og-e-helse/kunstig-intelligens/offentlig-ki-tjeneste-for-helserelaterte-sporsmal",
         "Nasjonale faglige retningslinjer": "https://www.helsedirektoratet.no/retningslinjer",
-        "E-helsestandarder": "https://www.ehelse.no/standardisering"
+        "Om Helsedirektoratets normerende produkter": "https://www.helsedirektoratet.no/om-oss/om-helsedirektoratets-normerende-produkter",
+        "Veileder for utvikling av kunnskapsbaserte retningslinjer": "https://www.helsedirektoratet.no/veiledere/utvikling-av-kunnskapsbaserte-retningslinjer",
+        "Åpne data og API": "https://www.helsedirektoratet.no/om-oss/apne-data-api/om-api-tjenesten",
+        "Digitalisering og e-helse (tidligere ehelse.no)": "https://www.helsedirektoratet.no/digitalisering-og-e-helse"
     },
     "fhi": {
         "Kunnskapsoppsummeringer og systematiske oversikter": "https://www.fhi.no/publ/",
-        "Folkehelseinstituttets metode": "https://www.fhi.no/systematiske-oversikter/metode/"
+        "Kunnskapsstøtte": "https://www.fhi.no/ku/"
     },
     "helsebiblioteket": {
-        "Helsebiblioteket – kunnskapsbasert praksis": "https://www.helsebiblioteket.no/"
+        "Helsebiblioteket": "https://www.helsebiblioteket.no/",
+        "Kunnskapsbasert praksis": "https://www.helsebiblioteket.no/innhold/artikler/kunnskapsbasert-praksis/kunnskapsbasertpraksis.no"
     },
     "helsenorge": {
-        "Helsenorge – helseinformasjon til innbyggere": "https://www.helsenorge.no/"
-    },
-    "norsk-helsenett": {
-        "NHN om EHDS": "https://www.nhn.no/ehds"
-    },
-    "who": {
-        "WHO SMART Guidelines": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines"
-    },
-    "nice": {
-        "NICE Evidence Standards Framework": "https://www.nice.org.uk/about/what-we-do/our-programmes/evidence-standards-framework-for-digital-health-technologies"
-    },
-    "cochrane": {
-        "Cochrane – KI og systematiske oversikter": "https://www.cochrane.org/news/artificial-intelligence-and-evidence-synthesis"
-    },
-    "eu": {
-        "EU AI Act": "https://artificialintelligenceact.eu/",
-        "EU AI Act full tekst": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689"
+        "Helsenorge – helseinformasjon til innbyggere": "https://www.helsenorge.no/",
+        "Innholdsstrategi for helsenorge.no": "https://www.helsenorge.no/49efff/globalassets/redaksjonelt/innholdsstrategi-helsenorge.pdf"
     },
     "regjeringen": {
-        "Nasjonal helse- og samhandlingsplan Meld. St. 9 (2023-2024)": "https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3018394/"
+        "Nasjonal helse- og samhandlingsplan, Meld. St. 9 (2023–2024)": "https://www.regjeringen.no/no/dokumenter/meld.-st.-9-20232024/id3027594/",
+        "Helsepersonellplan 2040, Meld. St. 11 (2025–2026)": "https://www.regjeringen.no/contentassets/6d2ec1946c744942a24cb528ca666ae0/no/pdfs/stm202520260011000dddpdfs.pdf",
+        "Utredningsinstruksen (Lovdata)": "https://lovdata.no/dokument/INS/forskrift/2016-02-19-184"
     },
-    "andre": {
-        "Utredningsinstruksen": "https://www.regjeringen.no/no/dokumenter/instruks-om-utredning-av-statlige-tiltak-utredningsinstruksen/id2476518/"
+    "riksrevisjonen": {
+        "Undersøkelse av årsaker til variasjon i forbruk av helsetjenester": "https://www.riksrevisjonen.no/rapporter-mappe/no-2019-2020/undersokelse-av-arsaker-til-variasjon-i-forbruk-av-helsetjenester/"
+    },
+    "internasjonalt": {
+        "WHO SMART Guidelines": "https://www.who.int/teams/digital-health-and-innovation/smart-guidelines",
+        "NICE Evidence Standards Framework": "https://www.nice.org.uk/what-nice-does/digital-health/evidence-standards-framework-esf-for-digital-health-technologies",
+        "Cochrane – KI og evidenssyntese": "https://www.cochrane.org/about-us/news/artificial-intelligence-and-evidence-synthesis"
+    },
+    "regelverk": {
+        "EU AI Act": "https://artificialintelligenceact.eu/",
+        "EU AI Act, forordning (EU) 2024/1689": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+        "EHDS, forordning (EU) 2025/327": "https://eur-lex.europa.eu/eli/reg/2025/327/oj",
+        "EHDS konsekvensvurdering og gapanalyse (Helsedirektoratet)": "https://www.helsedirektoratet.no/rapporter/ehds-konsekvensvurdering--gapanalyse-pr.11.april-2025"
     }
 }
